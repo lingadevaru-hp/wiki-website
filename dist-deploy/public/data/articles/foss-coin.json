@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "id": "foss-coin",
+    "title": "FOSS Coin ($FOSS)",
+    "slug": "foss-coin",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 38,
+    "views": 6200
+  },
+  "infobox": {
+    "title": "FOSS Coin ($FOSS)",
+    "image": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+    "imageCaption": "FOSS Coin official logo",
+    "fields": [
+      { "label": "Full name", "value": "Free Open Source Soft" },
+      { "label": "Symbol", "value": "$FOSS" },
+      { "label": "Network", "value": "Solana Mainnet" },
+      { "label": "Standard", "value": "SPL Token (Legacy Token Program)" },
+      { "label": "Total supply", "value": "1,000,000,000 (fixed)" },
+      { "label": "Mint authority", "value": "null — revoked permanently" },
+      { "label": "DEX", "value": "Orca Whirlpool (FOSS/SOL)" },
+      { "label": "Status", "value": "Live" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/Foss-Token" },
+      { "label": "GitHub stars", "value": "7 ⭐  4 🔱" }
+    ]
+  },
+  "lead": "**FOSS Coin ($FOSS)** is a Solana SPL token I built to symbolise support for the Free and Open Source Software movement. I deployed it on Solana Mainnet in July 2025 and listed it on the Orca Whirlpool decentralised exchange in October 2025. It carries a fixed supply of one billion tokens — and I permanently revoked the mint authority at the moment of creation, meaning the supply can never be inflated by anyone, including me.\n\nI built this as a hands-on exercise to understand Solana at the instruction level — covering SPL token mechanics, Metaplex metadata, IPFS pinning, concentrated liquidity AMMs, and atomic multi-instruction transactions. The full source is on [GitHub (7 stars, 4 forks)](https://github.com/lingadevaru-hp/Foss-Token). It is not affiliated with the FSF, GNU, or Linux.org.",
+  "githubButton": {
+    "text": "📁 View GitHub Repository",
+    "url": "https://github.com/lingadevaru-hp/Foss-Token",
+    "title": "FOSS Token GitHub Repository"
+  },
+  "subArticles": [
+    {
+      "slug": "foss-coin-how-it-was-built",
+      "title": "How It Was Built",
+      "excerpt": "Step-by-step technical breakdown of the FOSS Coin creation process"
+    },
+    {
+      "slug": "foss-coin-on-chain-verification",
+      "title": "On-Chain Verification",
+      "excerpt": "Complete verification guide with RPC calls and cross-checks"
+    },
+    {
+      "slug": "foss-coin-programs",
+      "title": "Programs",
+      "excerpt": "All Solana programs used in the FOSS Coin project"
+    },
+    {
+      "slug": "foss-coin-transactions",
+      "title": "Transactions",
+      "excerpt": "Full chronological transaction record with all signatures"
+    },
+    {
+      "slug": "foss-coin-evidence",
+      "title": "Evidence & Verification Links",
+      "excerpt": "Comprehensive evidence collection with verification instructions"
+    },
+    {
+      "slug": "foss-coin-all-urls",
+      "title": "All URLs",
+      "excerpt": "Complete list of all project URLs and evidence links"
+    },
+    {
+      "slug": "foss-coin-master",
+      "title": "Master Documentation",
+      "excerpt": "Complete technical documentation and specifications"
+    },
+    {
+      "slug": "foss-coin-resources",
+      "title": "Resources",
+      "excerpt": "Public project resources organized by category"
+    }
+  ],
+  "sections": [
+    {
+      "id": "gif-preview",
+      "title": "Live Trading Preview",
+      "level": 2,
+      "content": [
+        {
+          "type": "banner",
+          "src": "/assets/foss-Thumbnail.gif",
+          "alt": "FOSS Coin ($FOSS) live trading session on the Orca Whirlpool DEX",
+          "caption": "FOSS Coin ($FOSS) live on the Orca Whirlpool DEX — FOSS/SOL trading pair"
+        }
+      ]
+    },
+    {
+      "id": "philosophy",
+      "title": "Why I Built This",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The FOSS movement holds that software should be free: free to run, study, modify, and share. Blockchain shares the same core values — open, permissionless, and transparent. I wanted to route symbolic value to that intersection in a concrete, on-chain way.\n\nMy own [[privacy-stack|privacy and security stack]] is built entirely on free and open source software — Arch Linux, LibreWolf, uBlock Origin, Pi-hole, Vaultwarden, SearXNG — so the philosophical alignment is genuinely personal, not just marketing. When I look at the tools I use every day, they were all built by people who contributed without being paid by a centralised company. FOSS Coin is a small acknowledgement of that."
+        },
+        {
+          "type": "quote",
+          "content": "FOSS Coin is a community-created token built to support and promote Free and Open Source Software. It can be used to donate to FOSS projects, reward developers and contributors, and raise awareness about digital privacy, Linux, and open technologies.",
+          "author": "Project description — github.com/lingadevaru-hp/Foss-Token"
+        }
+      ]
+    },
+    {
+      "id": "how-i-built-it",
+      "title": "How I Built It — One Atomic Transaction",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The entire token was launched in **one atomic transaction containing 7 instructions**. If any single instruction had failed, the entire transaction would have rolled back with no partial on-chain state — either everything succeeded together or nothing changed at all. This is one of the things that makes Solana architecturally elegant."
+        },
+        {
+          "type": "table",
+          "columns": ["Step", "Instruction", "What I was doing"],
+          "rows": [
+            { "Step": "1", "Instruction": "Allocate mint account", "What I was doing": "Reserve the on-chain account that will represent the token" },
+            { "Step": "2", "Instruction": "InitializeMint2", "What I was doing": "Set 6 decimal places for the token" },
+            { "Step": "3", "Instruction": "Metaplex metadata v3", "What I was doing": "Register name 'Free Open Source Soft', symbol '$FOSS', and IPFS URI on-chain" },
+            { "Step": "4", "Instruction": "Create ATA", "What I was doing": "Create my Associated Token Account to hold the supply" },
+            { "Step": "5", "Instruction": "MintTo", "What I was doing": "Mint the full 1,000,000,000 FOSS to my ATA" },
+            { "Step": "6", "Instruction": "SetAuthority → null", "What I was doing": "Permanently revoke mint authority — no more tokens can ever be created" },
+            { "Step": "7", "Instruction": "Launchpad Buy", "What I was doing": "Buy 35,765 FOSS through the launchpad to seed initial activity" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creation-timeline",
+      "title": "Deployment Timeline",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Phase 1 — Token Deployed (July 23, 2025)",
+          "content": "Slot 355,223,383 · 07:43:36 UTC. I minted the full 1B supply and revoked mint authority in a single atomic transaction. From that moment, the supply was permanently fixed."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Phase 2 — Orca Whirlpool Listing (October 21, 2025)",
+          "content": "Slot 374,850,194. I created a concentrated liquidity AMM pool for the FOSS/SOL pair on Orca. I added the first liquidity 19 seconds after pool creation: 2.9 FOSS + 0.0004 SOL. The position NFT was minted under the Token-2022 standard."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Phase 3 — Community Airdrops (January 18, 2026)",
+          "content": "I used TransferChecked instructions for precision transfers and distributed $FOSS to external wallets — the first community distribution of the token."
+        }
+      ]
+    },
+    {
+      "id": "specifications",
+      "title": "Token Specifications",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Property", "Value"],
+          "rows": [
+            { "Property": "Full Name", "Value": "Free Open Source Soft" },
+            { "Property": "Symbol", "Value": "$FOSS" },
+            { "Property": "Network", "Value": "Solana Mainnet" },
+            { "Property": "Token Standard", "Value": "SPL Token (Legacy Token Program)" },
+            { "Property": "Decimals", "Value": "6" },
+            { "Property": "Total Supply", "Value": "1,000,000,000 (1B — fixed, immutable)" },
+            { "Property": "Mint Authority", "Value": "null — revoked permanently at creation" },
+            { "Property": "Freeze Authority", "Value": "null — revoked" },
+            { "Property": "Metadata Standard", "Value": "Metaplex Token Metadata v3 → IPFS JSON" },
+            { "Property": "DEX", "Value": "Orca Whirlpool (FOSS/SOL pair)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what-was-learned",
+      "title": "What I Learned",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Building FOSS Coin required working through the full Solana instruction set rather than using high-level abstractions. Here's what I actually learned doing this:\n\n**SPL Token instruction set** — I had to understand allocate, InitializeMint2, MintTo, and SetAuthority at the byte level. No SDK wrapper hides how each instruction modifies on-chain state.\n\n**Metaplex Token Metadata v3** — I learned that name/symbol/URI metadata attaches to the mint account on-chain, not stored in the token account itself. This is a common point of confusion.\n\n**IPFS + metadata** — I pinned the off-chain token image and JSON to IPFS manually and learned that metadata persistence depends on IPFS pin health — if pins die, metadata can disappear.\n\n**Atomic transactions on Solana** — Bundling 7 instructions into one all-or-nothing transaction. I now understand deeply why Solana transactions are structured this way.\n\n**Orca Whirlpool mechanics** — Concentrated liquidity, tick arrays, price ranges, and position NFTs. CLMMs are fundamentally different from traditional AMMs like Uniswap v2 — capital efficiency comes at the cost of active management.\n\n**Token-2022 vs Legacy** — Different program addresses, different available extensions. My token uses the Legacy program; the position NFT used Token-2022."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "known-limitations",
+      "title": "Honest Limitations",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "What this project is not",
+          "content": "Extremely low liquidity (only ~0.0004 SOL in the pool at launch). Not listed on Jupiter aggregator. No on-chain utility — no staking, governance, or DApp integration. IPFS dependency for metadata. I hold the sole Whirlpool position NFT. The token was created via a launchpad (no-code deployment), though I've documented every instruction in detail. This is a learning project that happens to be live, not a DeFi product."
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — Foss-Token (7 stars, 4 forks)", "url": "https://github.com/lingadevaru-hp/Foss-Token" },
+    { "id": 2, "title": "Live Trading — go.lingadevaru.in/foss-trading", "url": "https://go.lingadevaru.in/foss-trading" },
+    { "id": 3, "title": "Orca Whirlpool DEX", "url": "https://www.orca.so" }
+  ],
+  "relatedArticles": ["insurance-dapp", "about", "privacy-stack"],
+  "categories": ["Blockchain", "Solana", "Web3", "DeFi"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Logo in infobox, GIF banner in body, wiki links fixed", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "Added atomic transaction table and phase callouts", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "Initial page created", "changeType": "new" }
+  ]
+}

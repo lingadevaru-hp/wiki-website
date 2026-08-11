@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "id": "thoshan-flash",
+    "title": "Thoshan Flash",
+    "slug": "thoshan-flash",
+    "category": "AI / ML",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 24,
+    "views": 4500
+  },
+  "infobox": {
+    "title": "Thoshan Flash",
+    "image": "https://picsum.photos/seed/flash-infobox/280/200",
+    "imageCaption": "Fine-tuning pipeline overview",
+    "fields": [
+      { "label": "Base model", "value": "Gemma-2-9B (Google)" },
+      { "label": "Method", "value": "QLoRA — Quantized Low-Rank Adaptation" },
+      { "label": "Framework", "value": "PEFT + Unsloth + PyTorch" },
+      { "label": "Quantization", "value": "4-bit (VRAM: ~36 GB → ~12 GB)" },
+      { "label": "Downloads", "value": "26+ (first month)" },
+      { "label": "Platform", "value": "Hugging Face Hub" },
+      { "label": "HF model", "value": "lingadevaruhp/thoshan_Flash" },
+      { "label": "Interface", "value": "Gradio (live inference)" },
+      { "label": "Status", "value": "Completed, public" }
+    ]
+  },
+  "lead": "**Thoshan Flash** is a fine-tuned version of Google's **Gemma-2-9B** base model that I published on [Hugging Face](https://huggingface.co/lingadevaruhp/thoshan_Flash) with a live Gradio inference interface. I want to be upfront: this is **not** a model I built from scratch — it is a parameter-efficient fine-tune of an existing pre-trained model using QLoRA (Quantized Low-Rank Adaptation), which lets me train on a fraction of the usual GPU memory.\n\nThe project got 26+ downloads in its first month on the Hugging Face Hub, meaning people beyond me were actually pulling and using it. The fine-tuning techniques I used here — attention mechanisms, transformer internals, PEFT methodology — also formed part of my Phase 2 research study at CHIAC ASI internship.",
+  "sections": [
+    {
+      "id": "what-qlora-does",
+      "title": "What QLoRA Does — and Why I Used It",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Full fine-tuning of a 9B-parameter model requires approximately 36 GB of GPU memory — I don't have that. QLoRA solves this with a three-part approach that I found genuinely elegant:\n\n**Step 1:** Load the base model in 4-bit quantized form, which dramatically reduces memory footprint while preserving most of the model's learned representations.\n\n**Step 2:** Inject small trainable **LoRA adapter layers** at key weight matrices within the transformer. These adapters are the only parts that get updated during training — I'm not touching the 9B base parameters at all.\n\n**Step 3:** At export, merge the trained adapter weights back into the base model, producing a single fine-tuned model file ready for inference."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Why this matters for resource-constrained training",
+          "content": "LoRA adapters typically represent only 1–3% of the total model parameters. Training 1% of a 9B-parameter model is vastly more resource-efficient than training all 9B parameters — I could run this on hardware that would otherwise be completely inadequate for a model this size."
+        },
+        {
+          "type": "table",
+          "columns": ["Component", "What I used"],
+          "rows": [
+            { "Component": "Base Model", "What I used": "Gemma-2-9B (Google) — pre-trained on large text corpus" },
+            { "Component": "Fine-tuning Method", "What I used": "QLoRA — Quantized Low-Rank Adaptation" },
+            { "Component": "PEFT Framework", "What I used": "PEFT (Parameter-Efficient Fine-Tuning) by Hugging Face" },
+            { "Component": "Quantization", "What I used": "4-bit → reduced VRAM from ~36 GB to ~12 GB" },
+            { "Component": "Training Library", "What I used": "Unsloth — optimised QLoRA training" },
+            { "Component": "Deep Learning", "What I used": "PyTorch" },
+            { "Component": "Ecosystem", "What I used": "Hugging Face Transformers" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results-deployment",
+      "title": "Results and Deployment",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "After training, I uploaded the model to the Hugging Face Hub at [huggingface.co/lingadevaruhp/thoshan_Flash](https://huggingface.co/lingadevaruhp/thoshan_Flash) and deployed a Gradio inference interface alongside it, so anyone can run inference without local setup.\n\nWithin the first month of publication, I saw **26+ downloads** — people were actually pulling and using the model, not just browsing the model card. I wrote a proper Hugging Face model card documenting the fine-tuning setup, hyperparameters, and intended use case."
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Try it live",
+          "content": "A Gradio interface is deployed at go.lingadevaru.in/LLM and on the Hugging Face model page at huggingface.co/lingadevaruhp/thoshan_Flash. No local installation required."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "Honest Framing",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I deliberately frame Thoshan Flash with accuracy everywhere I present it: this is a fine-tune of an existing model, not something I designed from scratch. I find this distinction important — there's a lot of resume inflation in the AI/ML space where people imply they 'built an LLM' when they really ran a training script on someone else's architecture.\n\nThe fine-tuning work connects to my [[about|skill profile]] in AI/ML: parameter-efficient fine-tuning, the Hugging Face ecosystem, and deploying ML models to public inference endpoints. It does not make me a model architect or ML researcher.\n\nFor my other ML work using a completely different stack, see [[fraud-detection|Fraud Detection System]] — a traditional ML ensemble I built from scratch in C# for banking fraud classification."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "Thoshan Flash on Hugging Face", "url": "https://huggingface.co/lingadevaruhp/thoshan_Flash" },
+    { "id": 2, "title": "Live Gradio Inference — go.lingadevaru.in/LLM", "url": "https://go.lingadevaru.in/LLM" }
+  ],
+  "relatedArticles": ["about", "fraud-detection", "foss-coin"],
+  "categories": ["AI / ML", "LLM", "Hugging Face", "Fine-tuning"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person, added direct HF link", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "Full rewrite: QLoRA explanation, honest framing, deployment details", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "Initial page created", "changeType": "new" }
+  ]
+}

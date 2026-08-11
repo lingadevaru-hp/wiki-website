@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "id": "foss-coin-programs",
+    "title": "FOSS Coin — Programs",
+    "slug": "foss-coin-programs",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "All Solana programs used in the FOSS Coin project with their purposes.",
+  "sections": [
+    {
+      "id": "programs-table",
+      "title": "Programs",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Program name", "Program ID", "Purpose in this project"],
+          "rows": [
+            {
+              "Program name": "SPL Token Program",
+              "Program ID": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "Purpose in this project": "Core token operations including mint creation, token minting, transfers, and authority management"
+            },
+            {
+              "Program name": "SPL Token-2022",
+              "Program ID": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "Purpose in this project": "Used for the Orca position NFT and token extension support"
+            },
+            {
+              "Program name": "Associated Token Account",
+              "Program ID": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "Purpose in this project": "Creates associated token accounts for wallet holders"
+            },
+            {
+              "Program name": "Metaplex Token Metadata",
+              "Program ID": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "Purpose in this project": "Stores the token metadata reference for name, symbol, URI, and image"
+            },
+            {
+              "Program name": "Orca Whirlpool",
+              "Program ID": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "Purpose in this project": "Powers the concentrated liquidity pool used for the FOSS / SOL market"
+            },
+            {
+              "Program name": "System Program",
+              "Program ID": "11111111111111111111111111111111",
+              "Purpose in this project": "Allocates accounts and handles base Solana account creation"
+            },
+            {
+              "Program name": "Compute Budget",
+              "Program ID": "ComputeBudget111111111111111111111111111111",
+              "Purpose in this project": "Sets compute unit parameters in transactions"
+            },
+            {
+              "Program name": "Launchpad (custom)",
+              "Program ID": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "Purpose in this project": "The custom no-code launchpad program used to create the token and run the atomic launch flow"
+            },
+            {
+              "Program name": "Transfer Service",
+              "Program ID": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "Purpose in this project": "Referenced in the recorded small transfer / airdrop activity"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSS Coin Main Article", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHub Repository", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Technical"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "Initial sub-article created from GitHub MD", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

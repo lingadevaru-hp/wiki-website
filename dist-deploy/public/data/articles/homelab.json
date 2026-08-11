@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "id": "homelab",
+    "title": "Libre Cloud — Homelab",
+    "slug": "homelab",
+    "category": "Infrastructure",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 26,
+    "views": 3100
+  },
+  "infobox": {
+    "title": "Libre Cloud — Homelab",
+    "image": "https://picsum.photos/seed/homelab-infobox/280/200",
+    "imageCaption": "Zero-trust architecture diagram",
+    "fields": [
+      { "label": "Platform", "value": "Oracle Cloud Always Free" },
+      { "label": "VM shape", "value": "VM.Standard.E2.1.Micro (1 OCPU, 1 GB RAM)" },
+      { "label": "DNS / CDN", "value": "Cloudflare" },
+      { "label": "Reverse proxy", "value": "Caddy / nginx" },
+      { "label": "Domain", "value": "lingadevaru.in" },
+      { "label": "Status", "value": "Partially running (ARM blocked)" },
+      { "label": "Target services", "value": "14 (3 public, 6 WireGuard-private, 5 ARM-only)" }
+    ]
+  },
+  "lead": "**Libre Cloud** is my zero-trust self-hosted infrastructure project running on Oracle Cloud's Always Free tier. The design routes all external traffic through Cloudflare for DDoS protection and IP masking, then into an Oracle Cloud VM running a Caddy reverse proxy that serves both public and WireGuard-private services.\n\nI named it 'Libre Cloud' deliberately: everything in the stack is free and open source, the platform is free-tier cloud, and the domain carries the FOSS identity. It connects directly to my [[privacy-stack|Privacy Stack]] — services like Vaultwarden (passwords), Joplin Server (notes), and SearXNG (private search) are all designed to run here.",
+  "sections": [
+    {
+      "id": "current-reality",
+      "title": "Current Reality — What I Actually Have",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Status: Blocked / Severely Constrained",
+          "content": "My target VM was VM.Standard.A1.Flex — Oracle's 4 OCPU, 24 GB RAM ARM Ampere instance, free forever. I hit persistent 'out of capacity' errors in the Hyderabad region after repeated attempts over months. The ARM plan is abandoned for now. What I actually have: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM."
+        },
+        {
+          "type": "table",
+          "columns": ["Service", "RAM usage", "Feasibility on my 1 GB VM"],
+          "rows": [
+            { "Service": "WireGuard", "RAM usage": "~5 MB", "Feasibility on my 1 GB VM": "✅ Easy" },
+            { "Service": "Pi-hole", "RAM usage": "~50–100 MB", "Feasibility on my 1 GB VM": "✅ Easy" },
+            { "Service": "Vaultwarden", "RAM usage": "~50 MB", "Feasibility on my 1 GB VM": "✅ Easy" },
+            { "Service": "Caddy / nginx", "RAM usage": "~30 MB", "Feasibility on my 1 GB VM": "✅ Easy" },
+            { "Service": "Portfolio (static files)", "RAM usage": "Minimal", "Feasibility on my 1 GB VM": "✅ Easy" },
+            { "Service": "SearXNG", "RAM usage": "~200–400 MB", "Feasibility on my 1 GB VM": "⚠️ Tight" },
+            { "Service": "Coolify (Docker PaaS)", "RAM usage": "~500 MB–1 GB", "Feasibility on my 1 GB VM": "❌ Too heavy" },
+            { "Service": "Immich / Jellyfin / Ollama", "RAM usage": "2–24 GB", "Feasibility on my 1 GB VM": "❌ Impossible" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture — How I Designed It",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I designed the architecture so nothing is directly exposed to the internet without passing through Cloudflare and the reverse proxy layer. Services are split into three visibility tiers: public (accessible to anyone via Cloudflare), private (accessible only through a WireGuard VPN tunnel), and ARM-only (requiring the unprovisioned A1.Flex VM)."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "My architecture flow",
+          "content": "Internet → Cloudflare (DNS + DDoS + IP masking) → Oracle Cloud VM (1 GB Micro) → Reverse proxy (Caddy/nginx) → [Public: Portfolio, Pi-hole DoH] / [Private (WireGuard-gated): Vaultwarden, Joplin Server, Gitea]"
+        },
+        {
+          "type": "table",
+          "columns": ["Tier", "Service", "Purpose"],
+          "rows": [
+            { "Tier": "Public", "Service": "Portfolio", "Purpose": "lingadevaru.in personal site" },
+            { "Tier": "Public", "Service": "SearXNG", "Purpose": "Privacy meta-search" },
+            { "Tier": "Public", "Service": "GoatCounter", "Purpose": "Cookie-free analytics" },
+            { "Tier": "WireGuard-private", "Service": "Vaultwarden", "Purpose": "Self-hosted password manager" },
+            { "Tier": "WireGuard-private", "Service": "Pi-hole", "Purpose": "DNS ad blocker" },
+            { "Tier": "WireGuard-private", "Service": "Uptime Kuma", "Purpose": "Uptime monitoring" },
+            { "Tier": "WireGuard-private", "Service": "FreshRSS", "Purpose": "RSS reader" },
+            { "Tier": "WireGuard-private", "Service": "Joplin Server", "Purpose": "Self-hosted notes" },
+            { "Tier": "WireGuard-private", "Service": "Gitea", "Purpose": "Self-hosted Git" },
+            { "Tier": "ARM-only (blocked)", "Service": "Immich, Mailcow, Jellyfin, Ollama", "Purpose": "Requires 24 GB RAM — indefinitely on hold" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-oracle",
+      "title": "Why I Chose Oracle Cloud",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Oracle Cloud's Always Free tier is uniquely generous compared to AWS, GCP, and Azure free tiers. The headline offering is the **ARM Ampere A1.Flex** instance: 4 OCPU and 24 GB RAM — free forever. For comparison, AWS Free Tier gives a t2.micro (1 vCPU, 1 GB) for only 12 months. Oracle's AMD Micro is comparable but always-free in perpetuity, and the ARM Ampere would be dramatically more capable.\n\nThe catch is capacity availability: the Hyderabad region ARM Ampere has been perennially 'out of capacity'. This is a widely-reported issue in the Oracle Cloud community — not unique to me. Other regions would require a separate account setup. I've been stuck on this constraint for months."
+        },
+        {
+          "type": "quote",
+          "content": "The plan is sound. The hardware just never materialised.",
+          "author": "Project notes, April 2026"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "Oracle Cloud Always Free Tier documentation", "url": "https://www.oracle.com/cloud/free/" },
+    { "id": 2, "title": "Cloudflare DNS and Zero Trust documentation", "url": "https://developers.cloudflare.com" }
+  ],
+  "relatedArticles": ["privacy-stack", "linux-setup", "about"],
+  "categories": ["Infrastructure", "Self-Hosting", "Cloud", "Networking"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "Added ARM capacity issue detail, updated service table", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "Initial page", "changeType": "new" }
+  ]
+}

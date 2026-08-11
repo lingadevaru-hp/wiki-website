@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "fraud-detection",
+    "title": "Fraud Detection System",
+    "slug": "fraud-detection",
+    "category": "AI / ML",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 16,
+    "views": 3000
+  },
+  "infobox": {
+    "title": "Fraud Detection System",
+    "image": "https://picsum.photos/seed/fraud-infobox/280/200",
+    "imageCaption": "Admin dashboard showing ML prediction analytics",
+    "fields": [
+      { "label": "Type", "value": "MCA Final Year Project" },
+      { "label": "Semester", "value": "3rd Semester (Final Year Academic)" },
+      { "label": "Language", "value": "C#" },
+      { "label": "Framework", "value": "ASP.NET Web Forms 4.7.2" },
+      { "label": "ML algorithms", "value": "LR + KNN + SVM + CNN (ensemble)" },
+      { "label": "Database", "value": "SQL Server LocalDB" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/online-fraud-detection-system" },
+      { "label": "GitHub stars", "value": "1 ⭐" },
+      { "label": "Status", "value": "Completed, public on GitHub" }
+    ]
+  },
+  "lead": "The **Online Transaction Fraud Detection System** is my MCA Final Year Academic Project (3rd Semester) — a full-stack banking fraud detection platform I built using **ASP.NET Web Forms** and a **4-algorithm ML ensemble**. Every transaction is classified by Logistic Regression, KNN, SVM, and a Convolutional Neural Network — if 3 or more algorithms vote fraudulent, the transaction is automatically blocked.\n\nThe system includes real-time fraud detection, an intrusion detection module that tracks failed logins by IP and geolocation, SMTP email alerts, and a full admin panel with Google Charts analytics. The code is publicly on [GitHub](https://github.com/lingadevaru-hp/online-fraud-detection-system).",
+  "sections": [
+    {
+      "id": "ml-ensemble",
+      "title": "The ML Ensemble I Built",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I implemented all four ML algorithms directly in C# rather than using a Python ML library. This was a deliberate constraint I set for myself: the entire stack had to be a single ASP.NET application, not a Python microservice. It forced me to understand the mathematics of each algorithm rather than just calling sklearn.\n\nMy **ensemble decision rule** is simple and interpretable: majority voting. If 3 or more of the 4 algorithms independently classify a transaction as fraudulent, the transaction is blocked. This reduces false positives compared to single-algorithm approaches while maintaining sensitivity."
+        },
+        {
+          "type": "table",
+          "columns": ["Algorithm", "Type", "How I used it"],
+          "rows": [
+            { "Algorithm": "Logistic Regression", "Type": "Linear classifier", "How I used it": "Binary fraud/no-fraud classification on 4 normalised features" },
+            { "Algorithm": "KNN", "Type": "Instance-based", "How I used it": "K=3 nearest neighbours in feature space" },
+            { "Algorithm": "SVM", "Type": "Kernel-based", "How I used it": "Support Vector Machine — finds maximum-margin decision boundary" },
+            { "Algorithm": "CNN", "Type": "Neural network", "How I used it": "Convolutional Neural Network — the only deep learning model in the ensemble" }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Ensemble decision rule",
+          "content": "3 or more out of 4 algorithms vote fraud → transaction blocked. This majority-voting approach is more robust than any single algorithm and reduces both false positives and false negatives compared to relying on the CNN alone."
+        }
+      ]
+    },
+    {
+      "id": "input-features",
+      "title": "Input Features",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Feature", "Detail", "Normalisation"],
+          "rows": [
+            { "Feature": "Transaction amount", "Detail": "Value of the transaction in rupees", "Normalisation": "Divided by ₹2,000" },
+            { "Feature": "Transaction count", "Detail": "Frequency of recent transactions from the account", "Normalisation": "Raw count" },
+            { "Feature": "Location risk", "Detail": "0 = known safe location, 1 = flagged risky location", "Normalisation": "Binary" },
+            { "Feature": "Time risk", "Detail": "0 = business hours, 1 = odd hours (late night / early morning)", "Normalisation": "Binary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system-features",
+      "title": "What the System Does",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Fraud Detection:** Real-time ensemble ML voting on every transaction. Transaction blocked immediately when 3+ algorithms vote fraud — no human review queue.\n\n**Intrusion Detection:** I track failed logins with IP address, GPS geolocation, and timestamp. Auto account blocking triggers when 5+ failed transactions occur within 1 hour. SMTP email alerts are sent on suspicious activity.\n\n**Admin Panel:** Full user management, bank CRUD operations, intrusion log viewer, transaction analytics with Google Charts, and an ML prediction dashboard showing per-algorithm vote counts.\n\n**User Side:** Supports creating bank accounts (SBI, HDFC, Karnataka Bank), adding wallet funds, transferring money with live fraud detection, viewing account statements, and a per-account security key required for all transactions."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Security measures I implemented",
+          "content": "Parameterized SQL queries throughout (SQL injection prevention). Session management with proper logout. Security key per bank account required for all transaction operations."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "Why I Chose C# Over Python",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "My 3rd semester final year academic submission for the MCA at SIT Tumakuru. The 4th (final) semester is reserved for industry internship — this project was the 3rd semester deliverable.\n\nI deliberately chose C# and ASP.NET rather than Python and Flask. C# and .NET represent a professional enterprise stack, and implementing ML algorithms from scratch in a statically-typed language forced me to understand the underlying mathematics rather than just calling a Python library. It's a harder route that taught me more.\n\nFor contrast with my CHIAC ASI internship ML work (Python, QLoRA, transformer models), see [[thoshan-flash|Thoshan Flash]]."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — online-fraud-detection-system", "url": "https://github.com/lingadevaru-hp/online-fraud-detection-system" }
+  ],
+  "relatedArticles": ["thoshan-flash", "local-pulse", "about"],
+  "categories": ["AI / ML", "Security", "ASP.NET", "MCA Project"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "Added academic context section", "changeType": "minor" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "Initial page", "changeType": "new" }
+  ]
+}

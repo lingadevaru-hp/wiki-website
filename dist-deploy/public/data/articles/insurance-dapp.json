@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "insurance-dapp",
+    "title": "Insurance DApp",
+    "slug": "insurance-dapp",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 18,
+    "views": 3350
+  },
+  "infobox": {
+    "title": "Insurance DApp",
+    "image": "https://picsum.photos/seed/dapp-infobox/280/200",
+    "imageCaption": "Ethereum smart contract interaction via MetaMask",
+    "fields": [
+      { "label": "Blockchain", "value": "Ethereum" },
+      { "label": "Smart contract", "value": "Solidity" },
+      { "label": "Dev framework", "value": "Truffle" },
+      { "label": "Web3 integration", "value": "Web3.js + MetaMask" },
+      { "label": "Frontend", "value": "HTML5, CSS3, Bootstrap" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/insurance-dapp" },
+      { "label": "GitHub stars", "value": "1 ⭐" },
+      { "label": "Status", "value": "Live demo + GitHub" }
+    ]
+  },
+  "lead": "The **Insurance DApp** is a decentralised insurance application I built on the **Ethereum blockchain**, using Solidity smart contracts to replace the traditional insurance company as the intermediary. Policies, premiums, claims, and payouts are all handled by on-chain logic — no human in the loop, no company deciding your claim.\n\nI built this to explore the gap between centralised insurance (where a company decides your outcome) and decentralised insurance (where a smart contract executes pre-agreed rules automatically and transparently). It sits alongside [[foss-coin|FOSS Coin]] in my blockchain portfolio — together they cover two completely different ecosystems: Ethereum (EVM, Solidity) and Solana (SPL, Rust runtime).",
+  "sections": [
+    {
+      "id": "why-decentralised",
+      "title": "Why Decentralised Insurance Made Sense to Build",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "In traditional insurance, the insurer holds all the power: they collect premiums, evaluate claims, and decide payouts. As a claimant, you have no way to independently verify that the rules are being applied fairly — you just have to trust the company.\n\nA smart contract flips this: the rules are written in Solidity, deployed on-chain, and execute automatically when conditions are met. Anyone can read the contract code before purchasing a policy. Payouts happen without a human decision-maker.\n\nThe trade-off I had to accept: smart contracts can't access real-world data without an oracle — and my implementation doesn't include one. I'm demonstrating the core mechanic of trustless policy execution, not shipping a production insurance product."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "What this project is and isn't",
+          "content": "This is a technical learning exercise demonstrating Solidity contract design, Truffle deployment workflow, and Web3.js/MetaMask browser integration. It is not a live insurance product and does not implement real-world oracle connections."
+        }
+      ]
+    },
+    {
+      "id": "tech-stack",
+      "title": "Tech Stack",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Layer", "Technology", "What I used it for"],
+          "rows": [
+            { "Layer": "Smart contract", "Technology": "Solidity", "What I used it for": "Policy logic, claim rules, payout execution on Ethereum" },
+            { "Layer": "Dev framework", "Technology": "Truffle", "What I used it for": "Contract compilation, migration, testing" },
+            { "Layer": "Web3 integration", "Technology": "Web3.js", "What I used it for": "Browser-to-blockchain interaction layer" },
+            { "Layer": "Wallet", "Technology": "MetaMask", "What I used it for": "Transaction signing and account management" },
+            { "Layer": "Frontend", "Technology": "HTML5, CSS3, Bootstrap", "What I used it for": "UI for policy purchase, claim submission, payout" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "How It Works",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The DApp follows a standard insurance lifecycle — but every step is enforced by my smart contract rather than a company employee:\n\n1. **Policy purchase** — a user pays ETH to the contract, specifying coverage terms. The contract records the policy on-chain.\n2. **Premium lock** — the ETH is held in the contract's balance, not transferred to an insurer.\n3. **Claim submission** — the user submits a claim via the web interface. The contract evaluates whether it meets the pre-coded conditions.\n4. **Payout** — if conditions are satisfied, the contract automatically transfers the payout from its balance to the claimant's wallet.\n5. **Rejection** — if conditions aren't met, the claim is rejected on-chain. No manual override is possible — not even by me.\n\nAll state transitions are recorded as on-chain events and verifiable by any block explorer."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "src": "https://picsum.photos/seed/dapp-gal1/800/500", "alt": "Policy purchase flow", "caption": "Policy purchase interface — MetaMask payment flow" },
+            { "src": "https://picsum.photos/seed/dapp-gal2/800/500", "alt": "Claim submission", "caption": "Claim submission and smart contract evaluation" },
+            { "src": "https://picsum.photos/seed/dapp-gal3/800/500", "alt": "Payout event", "caption": "Automatic payout transaction on the Ethereum network" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-to-other-work",
+      "title": "How This Connects to My Other Work",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "This DApp and [[foss-coin|FOSS Coin]] represent the two main blockchain ecosystems I've worked with: Ethereum (EVM-based, Solidity smart contracts) and Solana (Rust-based runtime, SPL token program). Together they demonstrate breadth across different consensus mechanisms, programming models, and toolchains.\n\nBoth are listed in the [[about|GitHub repository table]] and form the blockchain/Web3 component of my technical skills. The GitHub repo is at [github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — insurance-dapp", "url": "https://github.com/lingadevaru-hp/insurance-dapp" }
+  ],
+  "relatedArticles": ["foss-coin", "about", "fraud-detection"],
+  "categories": ["Blockchain", "Ethereum", "Web3", "Smart Contracts"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "Full rewrite: added how-it-works, context section", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "Initial page", "changeType": "new" }
+  ]
+}
