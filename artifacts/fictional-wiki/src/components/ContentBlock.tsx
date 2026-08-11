@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { X } from 'lucide-react';
+import { Play } from 'lucide-react';
 import type { ContentBlock as ContentBlockType } from '../types/article';
+import MediaViewer, { type MediaViewerItem } from './MediaViewer';
 
 function parseWikiLink(inner: string): { slug: string; text: string } {
   const parts = inner.split('|');
@@ -79,36 +80,8 @@ function renderMarkdown(content: string): React.ReactNode {
   return <>{result}</>;
 }
 
-interface LightboxProps {
-  src: string;
-  alt: string;
-  caption?: string;
-  onClose: () => void;
-}
-
-function Lightbox({ src, alt, caption, onClose }: LightboxProps) {
-  return (
-    <div
-      className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div className="relative max-w-4xl max-h-full" onClick={(e) => e.stopPropagation()}>
-        <button
-          className="absolute -top-8 right-0 text-white"
-          onClick={onClose}
-          data-testid="button-lightbox-close"
-        >
-          <X size={24} />
-        </button>
-        <img src={src} alt={alt} className="max-w-full max-h-[80vh] object-contain" />
-        {caption && <p className="text-white/80 text-sm mt-2 text-center">{caption}</p>}
-      </div>
-    </div>
-  );
-}
-
 export default function ContentBlock({ block }: { block: ContentBlockType }) {
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string; caption?: string } | null>(null);
+  const [viewerItem, setViewerItem] = useState<MediaViewerItem | null>(null);
 
   switch (block.type) {
     case 'text':
@@ -117,18 +90,28 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
     case 'banner':
       return (
         <div className="mb-5 border border-border overflow-hidden" data-testid="banner-block">
-          <img
-            src={block.src}
-            alt={block.alt || ''}
-            className="w-full object-cover"
-            loading="eager"
-            style={{ maxHeight: '340px' }}
-          />
+          <button
+            type="button"
+            className="block w-full cursor-zoom-in"
+            onClick={() =>
+              setViewerItem({ src: block.src!, alt: block.alt || '', caption: block.caption, type: 'image' })
+            }
+            aria-label="Open image full screen"
+          >
+            <img
+              src={block.src}
+              alt={block.alt || ''}
+              className="w-full object-cover"
+              loading="eager"
+              style={{ maxHeight: '340px' }}
+            />
+          </button>
           {block.caption && (
             <p className="text-xs text-muted-foreground p-2 italic text-center bg-card/50 border-t border-border">
               {block.caption}
             </p>
           )}
+          {viewerItem && <MediaViewer item={viewerItem} onClose={() => setViewerItem(null)} />}
         </div>
       );
 
@@ -140,13 +123,15 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
             alt={block.alt || ''}
             className="w-full cursor-zoom-in"
             loading="lazy"
-            onClick={() => setLightbox({ src: block.src!, alt: block.alt || '', caption: block.caption })}
+            onClick={() =>
+              setViewerItem({ src: block.src!, alt: block.alt || '', caption: block.caption, type: 'image' })
+            }
             data-testid={`image-block-${block.src?.split('/').pop()}`}
           />
           {block.caption && (
             <p className="text-xs text-muted-foreground p-1 italic">{block.caption}</p>
           )}
-          {lightbox && <Lightbox {...lightbox} onClose={() => setLightbox(null)} />}
+          {viewerItem && <MediaViewer item={viewerItem} onClose={() => setViewerItem(null)} />}
         </div>
       );
 
@@ -191,10 +176,29 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
               allowFullScreen
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             />
+            <button
+              type="button"
+              className="absolute inset-0 flex cursor-zoom-in items-center justify-center bg-black/0 transition-colors hover:bg-black/20"
+              onClick={() =>
+                setViewerItem({
+                  src: block.src!,
+                  alt: block.alt || block.caption || 'Video',
+                  caption: block.caption,
+                  type: 'video',
+                })
+              }
+              aria-label="Open video full screen"
+              data-testid="button-video-fullscreen"
+            >
+              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-black/55 text-white shadow">
+                <Play size={24} fill="currentColor" />
+              </span>
+            </button>
           </div>
           {block.caption && (
             <p className="text-xs text-muted-foreground mt-1 italic">{block.caption}</p>
           )}
+          {viewerItem && <MediaViewer item={viewerItem} onClose={() => setViewerItem(null)} />}
         </div>
       );
 
@@ -203,7 +207,11 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
         <div className="mb-4" data-testid="gallery-block">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {block.items?.map((item, i) => (
-              <div key={i} className="border border-border bg-card cursor-zoom-in" onClick={() => setLightbox(item)}>
+              <div
+                key={i}
+                className="border border-border bg-card cursor-zoom-in"
+                onClick={() => setViewerItem({ ...item, type: 'image' })}
+              >
                 <img
                   src={item.src}
                   alt={item.alt}
@@ -217,8 +225,8 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
               </div>
             ))}
           </div>
-          {lightbox && (
-            <Lightbox {...lightbox} onClose={() => setLightbox(null)} />
+          {viewerItem && (
+            <MediaViewer item={viewerItem} onClose={() => setViewerItem(null)} />
           )}
         </div>
       );

@@ -26,20 +26,25 @@ export default function SearchResults({ results, query }: SearchResultsProps) {
       ) : (
         <ul className="space-y-4">
           {results.map((article) => (
-            <li key={article.id} className="border-b border-border pb-4" data-testid={`search-result-${article.id}`}>
-              <Link href={`/wiki/${article.slug}`} className="text-accent hover:underline text-lg font-serif">
-                {article.title}
+            <li key={article.id} className="border-b border-border" data-testid={`search-result-${article.id}`}>
+              <Link
+                href={`/wiki/${article.slug}`}
+                className="block pb-4 hover:bg-card/60 transition-colors"
+              >
+                <span className="text-accent text-lg font-serif">
+                  {article.title}
+                </span>
+                {article.thumbnail && (
+                  <img
+                    src={article.thumbnail}
+                    alt={article.title}
+                    className="float-right ml-3 mb-1 w-20 h-14 object-cover border border-border"
+                  />
+                )}
+                <p className="text-xs text-muted-foreground mt-0.5 mb-1">{article.category}</p>
+                <p className="text-sm text-foreground">{article.excerpt}</p>
+                <div className="clear-both" />
               </Link>
-              {article.thumbnail && (
-                <img
-                  src={article.thumbnail}
-                  alt={article.title}
-                  className="float-right ml-3 mb-1 w-20 h-14 object-cover border border-border"
-                />
-              )}
-              <p className="text-xs text-muted-foreground mt-0.5 mb-1">{article.category}</p>
-              <p className="text-sm">{article.excerpt}</p>
-              <div className="clear-both" />
             </li>
           ))}
         </ul>

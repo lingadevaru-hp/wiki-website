@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import { Search, Github, ExternalLink, BookOpen } from 'lucide-react';
 import { loadArticlesIndex } from '../lib/articleLoader';
 import type { ArticleIndexEntry } from '../types/article';
+import { useSearch } from '../contexts/SearchContext';
 
 const categoryColors: Record<string, string> = {
   'Profile':        '#3366CC',
@@ -15,20 +16,21 @@ const categoryColors: Record<string, string> = {
   'Learning':       '#F39C12',
 };
 
-const GIF_URL = 'https://media.giphy.com/media/bQL3YuiKKAXBwewvZ1/giphy.gif';
+const GIF_URL = '/assets/foss-Thumbnail.gif';
 const LOGO_URL = 'https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png';
 
 const highlights = [
   { label: '10 public repos', icon: '📁' },
   { label: 'Solana SPL token live on Orca DEX', icon: '🪙' },
   { label: 'Gemma-2-9B fine-tune · 26+ HF downloads', icon: '🤖' },
-  { label: 'MCA · SIT Tumakuru · 2026', icon: '🎓' },
+  { label: 'Builder of deployed projects', icon: '🚀' },
 ];
 
 export default function LandingPage() {
   const [query, setQuery] = useState('');
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [, setLocation] = useLocation();
+  const { openSearch } = useSearch();
   const belowFoldRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -79,8 +81,8 @@ export default function LandingPage() {
         </h1>
         <p className="text-sm text-[#7A8494] tracking-wide mb-10">A personal knowledge base</p>
 
-        {/* Search */}
-        <form onSubmit={handleSearch} className="flex w-full max-w-md mb-4 gap-1">
+        {/* Search — clicking opens the global search modal */}
+        <form onSubmit={handleSearch} className="flex w-full max-w-md mb-3 gap-1">
           <div className="relative flex-1">
             <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#505868]" />
             <input
@@ -88,28 +90,42 @@ export default function LandingPage() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search articles..."
-              className="w-full pl-8 pr-3 py-2 text-sm border border-[#2A3040] bg-[#161C24] text-[#E8E8E8] focus:outline-none focus:border-[#3366CC] placeholder:text-[#505868]"
+              onFocus={openSearch}
+              placeholder="Search articles…"
+              className="w-full pl-8 pr-3 py-2 text-sm border border-[#2A3040] bg-[#161C24] text-[#E8E8E8] focus:outline-none focus:border-[#3366CC] placeholder:text-[#505868] cursor-pointer"
+              readOnly
             />
           </div>
           <button
             data-testid="button-landing-search"
-            type="submit"
-            className="px-4 py-2 bg-[#3366CC] text-white text-sm hover:bg-[#2255bb] flex items-center gap-1.5"
+            type="button"
+            onClick={openSearch}
+            className="px-4 py-2 bg-[#3366CC] text-white text-sm hover:bg-[#2255bb] flex items-center gap-1.5 transition-colors"
           >
             <Search size={13} />
             Search
           </button>
+          <button
+            data-testid="button-browse-all-landing"
+            type="button"
+            onClick={() => setLocation('/wiki/main-page')}
+            className="px-4 py-2 bg-[#2A3040] text-[#E8E8E8] text-sm hover:bg-[#3366CC] transition-colors"
+          >
+            Browse all
+          </button>
         </form>
 
-        <button
-          onClick={() => setLocation('/wiki/main-page')}
-          className="text-[#3366CC] text-sm hover:underline flex items-center gap-1"
-          data-testid="button-read-wikipedia"
-        >
-          <BookOpen size={13} />
-          Browse all articles
-        </button>
+        {/* Shortcut hint */}
+        <div className="flex items-center gap-2 mb-8 text-[11px] text-[#505868]">
+          <kbd style={{ fontFamily: 'monospace', background: '#1E2530', border: '1px solid #2A3040', borderRadius: '4px', padding: '1px 6px', color: '#8090A8' }}>Win</kbd>
+          <span>+</span>
+          <kbd style={{ fontFamily: 'monospace', background: '#1E2530', border: '1px solid #2A3040', borderRadius: '4px', padding: '1px 6px', color: '#8090A8' }}>K</kbd>
+          <span>or</span>
+          <kbd style={{ fontFamily: 'monospace', background: '#1E2530', border: '1px solid #2A3040', borderRadius: '4px', padding: '1px 6px', color: '#8090A8' }}>Ctrl</kbd>
+          <span>+</span>
+          <kbd style={{ fontFamily: 'monospace', background: '#1E2530', border: '1px solid #2A3040', borderRadius: '4px', padding: '1px 6px', color: '#8090A8' }}>K</kbd>
+          <span>to open full search</span>
+        </div>
 
         {/* ── Scroll prompt — visible on both mobile & desktop ── */}
         <button
@@ -147,9 +163,8 @@ export default function LandingPage() {
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#3366CC] mb-1">About the author</p>
                 <h2 className="text-xl font-serif font-bold text-[#E8E8E8] mb-2">Lingadevaru H P</h2>
                 <p className="text-sm text-[#A0AABC] leading-relaxed mb-4">
-                  MCA student at SIT Tumakuru (2024–2026), building deployed projects across blockchain,
-                  AI/ML, and cloud infrastructure. Career focus: computer networking, cloud computing,
-                  and cybersecurity — operational roles, not software development.
+                  Builder of deployed projects across blockchain, AI/ML, and cloud infrastructure.
+                  Career focus: computer networking, cloud computing, and cybersecurity — operational roles.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
                   {highlights.map((h) => (

@@ -79,6 +79,94 @@
       "category": "Learning",
       "excerpt": "Planned certifications in networking, cloud, and cybersecurity (CCNA, Security+). Tools being learned: Vim/Neovim, Obsidian. CS50 Cybersecurity in progress.",
       "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS Coin — How It Was Built",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "Step-by-step technical breakdown of the FOSS Coin creation process",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS Coin — On-Chain Verification",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "Complete verification guide with RPC calls and cross-checks",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS Coin — Programs",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "All Solana programs used in the FOSS Coin project",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS Coin — Transactions",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "Full chronological transaction record with all signatures",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS Coin — Evidence & Verification Links",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "Comprehensive evidence collection with verification instructions",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS Coin — All URLs",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "Complete list of all project URLs and evidence links",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS Coin — Master Documentation",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "Complete technical documentation and specifications",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS Coin — Resources",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "Public project resources organized by category",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
     }
   ]
 }

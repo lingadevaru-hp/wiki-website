@@ -56,12 +56,16 @@ function extractArticleText(article: Article): string {
 
 export async function searchArticles(query: string): Promise<ArticleIndexEntry[]> {
   const index = await loadArticlesIndex();
-  if (!query.trim()) return index.articles;
+  
+  // Filter out hidden sub-articles from search results
+  const searchableArticles = index.articles.filter(article => !article.hiddenFromSearch);
+  
+  if (!query.trim()) return searchableArticles;
 
   const q = query.toLowerCase().trim();
 
   const scored = await Promise.all(
-    index.articles.map(async (entry) => {
+    searchableArticles.map(async (entry) => {
       let score = 0;
 
       // High-weight: title match

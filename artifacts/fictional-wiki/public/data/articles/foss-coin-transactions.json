@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "id": "foss-coin-transactions",
+    "title": "FOSS Coin — Transactions",
+    "slug": "foss-coin-transactions",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "This is the full chronological transaction record for the project, based on the project documentation and the collected source files.",
+  "sections": [
+    {
+      "id": "transactions-table",
+      "title": "Transactions",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["#", "Date and time (UTC)", "Full signature", "Slot number", "Fee payer", "Fee (lamports)", "Description", "Solana Explorer link"],
+          "rows": [
+            {
+              "#": "1",
+              "Date and time (UTC)": "2025-07-23 07:43:36 UTC",
+              "Full signature": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "Slot number": "355223383",
+              "Fee payer": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "Fee (lamports)": "90000",
+              "Description": "I created the mint account, initialized the token with 6 decimals, created the Metaplex metadata, created the creator ATA, minted 1 billion tokens, revoked mint authority, and executed the initial launchpad buy in one atomic transaction.",
+              "Solana Explorer link": "[View Transaction](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "Date and time (UTC)": "2025-08-17 07:32:10 UTC",
+              "Full signature": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "Slot number": "360612760",
+              "Fee payer": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "Fee (lamports)": "80000",
+              "Description": "I sent a small transfer of 2 FOSS tokens to an external wallet through the transfer service program referenced in the evidence set.",
+              "Solana Explorer link": "[View Transaction](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "Date and time (UTC)": "2025-10-21 14:13:04 UTC",
+              "Full signature": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "Slot number": "374850194",
+              "Fee payer": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "Fee (lamports)": "16803",
+              "Description": "I created the Orca Whirlpool pool for the FOSS / Wrapped SOL pair, initialized the pool with adaptive fees, and created the required tick array state.",
+              "Solana Explorer link": "[View Transaction](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "Date and time (UTC)": "2025-10-21 14:13:23 UTC",
+              "Full signature": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "Slot number": "374850239",
+              "Fee payer": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "Fee (lamports)": "19345",
+              "Description": "I minted the Orca position NFT, used IncreaseLiquidityV2, added 2.900653 FOSS plus 0.0004 SOL to the Whirlpool, and completed the initial pool funding flow.",
+              "Solana Explorer link": "[View Transaction](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "Date and time (UTC)": "2026-01-18 12:59:51 UTC",
+              "Full signature": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "Slot number": "394322578",
+              "Fee payer": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "Fee (lamports)": "5000",
+              "Description": "I recorded a later 1 FOSS airdrop transaction to a new wallet as part of the project's small follow-up transfers.",
+              "Solana Explorer link": "[View Transaction](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "Date and time (UTC)": "2026-01-18 13:19:03 UTC",
+              "Full signature": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "Slot number": "394325494",
+              "Fee payer": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "Fee (lamports)": "5000",
+              "Description": "I recorded another 1 FOSS airdrop transaction to a different wallet, which is also part of the final on-chain activity visible in the project history.",
+              "Solana Explorer link": "[View Transaction](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSS Coin Main Article", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHub Repository", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Transactions"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "Initial sub-article created from GitHub MD", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

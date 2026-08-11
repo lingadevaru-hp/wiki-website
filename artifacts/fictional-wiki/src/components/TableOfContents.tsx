@@ -27,7 +27,7 @@ export default function TableOfContents({ sections, activeId }: TableOfContentsP
   return (
     <div
       data-testid="table-of-contents"
-      className="border border-border bg-card text-sm mb-5 w-full md:w-auto md:min-w-[320px] md:max-w-[520px] clear-both"
+      className="border border-border bg-card text-sm mb-5 overflow-hidden"
     >
       <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-card/80">
         <span className="font-bold text-foreground text-sm">Contents</span>

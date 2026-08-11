@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import type { Infobox as InfoboxType } from '../types/article';
+import MediaViewer, { type MediaViewerItem } from './MediaViewer';
 
 interface InfolboxProps {
   data: InfoboxType;
 }
 
 export default function Infobox({ data }: InfolboxProps) {
+  const [viewerItem, setViewerItem] = useState<MediaViewerItem | null>(null);
+
   return (
     <table
       data-testid="infobox"
@@ -30,11 +34,21 @@ export default function Infobox({ data }: InfolboxProps) {
               <img
                 src={data.image}
                 alt={data.imageCaption || data.title}
-                className="w-full max-h-48 object-cover"
+                className="w-full max-h-48 cursor-zoom-in object-cover"
+                onClick={() =>
+                  setViewerItem({
+                    src: data.image!,
+                    alt: data.imageCaption || data.title,
+                    caption: data.imageCaption,
+                    type: 'image',
+                  })
+                }
+                data-testid="infobox-image"
               />
               {data.imageCaption && (
                 <p className="text-xs text-muted-foreground mt-1 italic text-center">{data.imageCaption}</p>
               )}
+              {viewerItem && <MediaViewer item={viewerItem} onClose={() => setViewerItem(null)} />}
             </td>
           </tr>
         )}

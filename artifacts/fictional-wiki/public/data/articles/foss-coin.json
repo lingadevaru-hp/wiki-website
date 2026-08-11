@@ -26,6 +26,53 @@
     ]
   },
   "lead": "**FOSS Coin ($FOSS)** is a Solana SPL token I built to symbolise support for the Free and Open Source Software movement. I deployed it on Solana Mainnet in July 2025 and listed it on the Orca Whirlpool decentralised exchange in October 2025. It carries a fixed supply of one billion tokens — and I permanently revoked the mint authority at the moment of creation, meaning the supply can never be inflated by anyone, including me.\n\nI built this as a hands-on exercise to understand Solana at the instruction level — covering SPL token mechanics, Metaplex metadata, IPFS pinning, concentrated liquidity AMMs, and atomic multi-instruction transactions. The full source is on [GitHub (7 stars, 4 forks)](https://github.com/lingadevaru-hp/Foss-Token). It is not affiliated with the FSF, GNU, or Linux.org.",
+  "githubButton": {
+    "text": "📁 View GitHub Repository",
+    "url": "https://github.com/lingadevaru-hp/Foss-Token",
+    "title": "FOSS Token GitHub Repository"
+  },
+  "subArticles": [
+    {
+      "slug": "foss-coin-how-it-was-built",
+      "title": "How It Was Built",
+      "excerpt": "Step-by-step technical breakdown of the FOSS Coin creation process"
+    },
+    {
+      "slug": "foss-coin-on-chain-verification",
+      "title": "On-Chain Verification",
+      "excerpt": "Complete verification guide with RPC calls and cross-checks"
+    },
+    {
+      "slug": "foss-coin-programs",
+      "title": "Programs",
+      "excerpt": "All Solana programs used in the FOSS Coin project"
+    },
+    {
+      "slug": "foss-coin-transactions",
+      "title": "Transactions",
+      "excerpt": "Full chronological transaction record with all signatures"
+    },
+    {
+      "slug": "foss-coin-evidence",
+      "title": "Evidence & Verification Links",
+      "excerpt": "Comprehensive evidence collection with verification instructions"
+    },
+    {
+      "slug": "foss-coin-all-urls",
+      "title": "All URLs",
+      "excerpt": "Complete list of all project URLs and evidence links"
+    },
+    {
+      "slug": "foss-coin-master",
+      "title": "Master Documentation",
+      "excerpt": "Complete technical documentation and specifications"
+    },
+    {
+      "slug": "foss-coin-resources",
+      "title": "Resources",
+      "excerpt": "Public project resources organized by category"
+    }
+  ],
   "sections": [
     {
       "id": "gif-preview",
@@ -34,7 +81,7 @@
       "content": [
         {
           "type": "banner",
-          "src": "https://media.giphy.com/media/bQL3YuiKKAXBwewvZ1/giphy.gif",
+          "src": "/assets/foss-Thumbnail.gif",
           "alt": "FOSS Coin ($FOSS) live trading session on the Orca Whirlpool DEX",
           "caption": "FOSS Coin ($FOSS) live on the Orca Whirlpool DEX — FOSS/SOL trading pair"
         }

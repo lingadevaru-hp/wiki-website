@@ -9,9 +9,7 @@ import type { ArticleIndexEntry } from '../types/article';
 
 export default function SearchPage() {
   const [location] = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth >= 768
-  );
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [results, setResults] = useState<ArticleIndexEntry[]>([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);

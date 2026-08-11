@@ -18,9 +18,7 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function MainPage() {
-  const [sidebarOpen, setSidebarOpen] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth >= 768
-  );
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
 
   useEffect(() => {
@@ -54,9 +52,9 @@ export default function MainPage() {
                 <div>
                   <p className="text-sm">
                     <Link href="/wiki/about" className="font-bold text-accent hover:underline">Lingadevaru H P</Link>{' '}
-                    (also known as <em>Thoshan</em>) is an MCA student at SIT Tumakuru, graduating 2026.
-                    Builder of deployed blockchain, AI, and web projects — with a career focus on networking,
-                    cloud, and cybersecurity. All skills are demonstrated through real deployed work: a{' '}
+                    (also known as <em>Thoshan</em>) is a builder of deployed blockchain, AI, and web projects — 
+                    with a career focus on networking, cloud, and cybersecurity. All skills are demonstrated 
+                    through real deployed work: a{' '}
                     <Link href="/wiki/foss-coin" className="text-accent hover:underline">Solana SPL token</Link>,
                     a <Link href="/wiki/thoshan-flash" className="text-accent hover:underline">fine-tuned LLM</Link>,
                     and a <Link href="/wiki/homelab" className="text-accent hover:underline">self-hosted cloud homelab</Link>.
@@ -116,8 +114,13 @@ export default function MainPage() {
           <div className="border border-border border-t-0 p-3 mb-4">
             <h2 className="font-bold border-b border-border pb-1 mb-3 text-sm">All articles</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {articles.map((article) => (
-                <div key={article.id} className="flex gap-2 border border-border p-2 hover:bg-card" data-testid={`article-card-${article.id}`}>
+              {articles.filter(article => !article.hiddenFromSearch).map((article) => (
+                <Link
+                  key={article.id}
+                  href={`/wiki/${article.slug}`}
+                  className="flex gap-2 border border-border p-2 hover:bg-card transition-colors"
+                  data-testid={`article-card-${article.id}`}
+                >
                   {article.thumbnail && (
                     <img
                       src={article.thumbnail}
@@ -126,15 +129,15 @@ export default function MainPage() {
                     />
                   )}
                   <div className="min-w-0">
-                    <Link href={`/wiki/${article.slug}`} className="text-accent hover:underline text-sm font-medium block truncate">
+                    <span className="text-accent text-sm font-medium block truncate">
                       {article.title}
-                    </Link>
+                    </span>
                     <span className="text-[10px] font-semibold" style={{ color: categoryColors[article.category] || '#A8A8A8' }}>
                       {article.category}
                     </span>
                     <p className="text-xs text-muted-foreground truncate">{article.excerpt}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

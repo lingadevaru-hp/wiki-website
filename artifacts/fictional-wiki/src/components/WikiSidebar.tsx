@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
-import { X } from 'lucide-react';
+import { X, Bookmark, Trash2 } from 'lucide-react';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 interface WikiSidebarProps {
   open: boolean;
@@ -26,19 +27,21 @@ const articleLinks = [
 ];
 
 const categoryColors: Record<string, string> = {
-  'Profile':        '#3366CC',
-  'Blockchain':     '#E67E22',
-  'AI / ML':        '#8E44AD',
-  'Infrastructure': '#27AE60',
-  'Security':       '#C0392B',
-  'Systems':        '#2980B9',
-  'Web':            '#16A085',
-  'Learning':       '#F39C12',
+  Profile: '#3366CC',
+  Blockchain: '#E67E22',
+  'AI / ML': '#8E44AD',
+  Infrastructure: '#27AE60',
+  Security: '#C0392B',
+  Systems: '#2980B9',
+  Web: '#16A085',
+  Learning: '#F39C12',
 };
 
 function NavContent({ onClose }: { onClose: () => void }) {
+  const { bookmarks, removeBookmark } = useBookmarks();
+
   return (
-    <nav className="p-3 text-sm">
+    <nav className="p-3 text-sm space-y-4">
       <ul className="space-y-0.5">
         {navLinks.map((l) => (
           <li key={l.label}>
@@ -54,7 +57,43 @@ function NavContent({ onClose }: { onClose: () => void }) {
         ))}
       </ul>
 
-      <div className="mt-4 pt-3 border-t border-border">
+      {/* Bookmarks Section */}
+      {bookmarks.length > 0 && (
+        <div className="pt-2 border-t border-border" data-testid="sidebar-bookmarks">
+          <div className="flex items-center justify-between px-2 py-1">
+            <span className="text-xs font-bold uppercase text-muted-foreground tracking-wider flex items-center gap-1">
+              <Bookmark size={12} className="text-accent" /> Saved ({bookmarks.length})
+            </span>
+          </div>
+          <ul className="space-y-1 mt-1">
+            {bookmarks.map((b) => (
+              <li key={b.slug} className="group flex items-center justify-between gap-1">
+                <Link
+                  href={`/wiki/${b.slug}`}
+                  onClick={onClose}
+                  className="block flex-1 min-w-0 px-2 py-1 hover:bg-background hover:text-accent text-foreground rounded-sm transition-colors"
+                >
+                  <span className="block text-xs font-medium truncate">{b.title}</span>
+                  <span className="text-[10px]" style={{ color: categoryColors[b.category] ?? '#A8A8A8' }}>
+                    {b.category}
+                  </span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => removeBookmark(b.slug)}
+                  title="Remove bookmark"
+                  className="opacity-0 group-hover:opacity-100 p-1 text-muted-foreground hover:text-destructive transition-opacity"
+                >
+                  <Trash2 size={12} />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Articles Section */}
+      <div className="pt-2 border-t border-border">
         <p className="px-2 py-1 text-xs font-bold uppercase text-muted-foreground tracking-wider">Articles</p>
         <ul className="space-y-0.5 mt-1">
           {articleLinks.map((l) => (
@@ -89,7 +128,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
         onClick={onClose}
       />
 
-      {/* Mobile sidebar — fixed overlay with slide animation */}
+      {/* Mobile sidebar */}
       <aside
         className={`
           fixed top-0 left-0 h-full z-50 w-64 bg-card border-r border-border
@@ -100,7 +139,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
       >
         <div className="flex items-center justify-between p-3 border-b border-border">
           <span className="font-serif font-bold">Navigation</span>
-          <button onClick={onClose} className="p-1" data-testid="button-close-sidebar">
+          <button onClick={onClose} className="p-1 text-foreground" data-testid="button-close-sidebar">
             <X size={18} />
           </button>
         </div>
@@ -109,7 +148,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
         </div>
       </aside>
 
-      {/* Desktop sidebar — inline, width-transition animation */}
+      {/* Desktop sidebar */}
       <div
         className={`
           hidden md:block shrink-0 overflow-hidden
