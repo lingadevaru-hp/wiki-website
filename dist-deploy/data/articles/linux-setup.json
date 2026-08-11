@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "id": "linux-setup",
+    "title": "Linux Setup — Omarchy",
+    "slug": "linux-setup",
+    "category": "Systems",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 21,
+    "views": 2700
+  },
+  "infobox": {
+    "title": "Linux Setup — Omarchy",
+    "image": "https://picsum.photos/seed/linux-infobox/280/200",
+    "imageCaption": "Hyprland Wayland tiling WM with Alacritty terminal",
+    "fields": [
+      { "label": "Distribution", "value": "Arch Linux (via Omarchy)" },
+      { "label": "Desktop", "value": "Hyprland (Wayland tiling WM)" },
+      { "label": "Username", "value": "libre" },
+      { "label": "Terminal", "value": "Alacritty / Ghostty" },
+      { "label": "Multiplexer", "value": "Tmux" },
+      { "label": "Editor", "value": "Neovim (LazyVim config)" },
+      { "label": "Omarchy stars", "value": "~22,000 ⭐" },
+      { "label": "Omarchy author", "value": "DHH (David Heinemeier Hansson)" }
+    ]
+  },
+  "lead": "I run **Arch Linux via Omarchy** — an opinionated 'omakase' developer distribution created by DHH (David Heinemeier Hansson, creator of Ruby on Rails). Omarchy ships with Hyprland Wayland tiling WM, Neovim, Alacritty, Ghostty, and Tmux — a curated, pre-configured developer environment that skips weeks of manual configuration.\n\nI set my username to `libre` — consistent with the FOSS-first philosophy that runs through my [[privacy-stack|Privacy Stack]] and [[foss-coin|FOSS Coin]] project. I've forked Omarchy to a personal GitHub repository so I can selectively apply upstream updates rather than taking everything DHH ships.",
+  "sections": [
+    {
+      "id": "what-is-omarchy",
+      "title": "What Omarchy Is",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Omarchy** is described by DHH as 'omakase Arch Linux' — *omakase* being the Japanese restaurant concept where the chef selects the best dishes on your behalf. DHH applied this to Arch Linux: instead of spending weeks configuring a desktop from scratch, Omarchy gives you a complete, opinionated setup in 15–30 minutes.\n\nThe repository has ~22,000 GitHub stars (as of April 2026). It installs from an ISO, wipes the dedicated drive, and applies full-disk encryption by default. The Super key is the command centre for all shortcuts."
+        },
+        {
+          "type": "table",
+          "columns": ["Component", "Default", "What I did"],
+          "rows": [
+            { "Component": "Window manager", "Default": "Hyprland (Wayland tiling)", "What I did": "Kept — config files in ~/.config/hypr" },
+            { "Component": "Terminal", "Default": "Alacritty + Ghostty", "What I did": "Both kept" },
+            { "Component": "Multiplexer", "Default": "Tmux (t alias)", "What I did": "Used extensively" },
+            { "Component": "Editor", "Default": "Neovim (LazyVim)", "What I did": "Kept — learning Lua for config" },
+            { "Component": "Browser", "Default": "Chromium", "What I did": "Replaced with LibreWolf (no telemetry)" },
+            { "Component": "Music", "Default": "Spotify", "What I did": "Removed (tracking)" },
+            { "Component": "Fallback DE", "Default": "None", "What I did": "Added KDE Plasma alongside Hyprland" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal-workflow",
+      "title": "My Terminal Workflow",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "My daily workflow is keyboard-driven and terminal-centric. Almost no GUI applications are used for development work — everything goes through the terminal."
+        },
+        {
+          "type": "table",
+          "columns": ["Tool", "Command / Alias", "What I use it for"],
+          "rows": [
+            { "Tool": "Tmux", "Command / Alias": "t", "What I use it for": "Session and window management — persistent sessions that survive terminal restarts" },
+            { "Tool": "Neovim (LazyVim)", "Command / Alias": "nvim", "What I use it for": "Primary editor — still learning Lua for config customisation" },
+            { "Tool": "Fuzzy finder", "Command / Alias": "eff", "What I use it for": "Fuzzy file find → open in editor" },
+            { "Tool": "Claude Code", "Command / Alias": "cx", "What I use it for": "AI agent in accept-all mode — terminal-native pair programmer I call 'P.I.'" },
+            { "Tool": "Docker", "Command / Alias": "docker", "What I use it for": "On-demand socket activation — reduces idle RAM on my constrained [[homelab|homelab]] VM" }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Omarchy v3.4+ changes",
+          "content": "Version 3.4 added Tmux by default (t alias), Claude Code as the default AI agent (cx alias, accept-all mode), hibernation enabled by default, and AI agent Tmux layouts: tdl, tdlm, tsl."
+        }
+      ]
+    },
+    {
+      "id": "ai-agent-integration",
+      "title": "AI Agent Integration",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I've integrated **Claude Code** — I call it 'P.I.' (Personal Intelligence) in my setup — as a terminal-native AI agent. I have a custom `CLAUDE.md` at `/home/libre/CLAUDE.md` that describes my personal workflow context.\n\nI run Claude Code in accept-all mode (`cx` alias) — it reads files, writes code, and executes shell commands without asking for confirmation at each step. The Omarchy skill file (`github.com/robzolkos/omarchy-skill`) extends this with Omarchy-specific context.\n\nThis has genuinely changed how I work: rather than memorising command syntax, I query in natural language and the agent executes the appropriate commands."
+        }
+      ]
+    },
+    {
+      "id": "media-production",
+      "title": "Media Production Setup",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I use OBS Studio for screen recording and video production, with a specific audio configuration I tuned carefully:\n- **Noise Gate:** Close threshold −32 dB / Open threshold −26 dB — eliminates background hiss between speech\n- **RNNoise suppression:** AI-based noise cancellation plugin\n- **Mic:** CMF Buds 2 Pro via PulseAudio\n\nI use **Shotcut** as my video editor. The entire production pipeline is Linux-native and free software — no Adobe products anywhere."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "recovery-note",
+      "title": "Recovery Notes",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Accidental terminal removal — what I learned",
+          "content": "I once accidentally removed all terminal emulators while cleaning packages. Recovery: Ctrl+Alt+F2 to drop to TTY2, log in, reinstall Alacritty or Ghostty via pacman from the framebuffer terminal. The TTY is always available even when the graphical session has no terminals — I know this the hard way now."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "Omarchy GitHub Repository", "url": "https://github.com/basecamp/omarchy" },
+    { "id": 2, "title": "Hyprland Wayland Compositor", "url": "https://hyprland.org" },
+    { "id": 3, "title": "LazyVim Neovim Configuration", "url": "https://lazyvim.org" }
+  ],
+  "relatedArticles": ["privacy-stack", "homelab", "about"],
+  "categories": ["Systems", "Linux", "Arch Linux", "Terminal"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "Full write: terminal workflow, AI integration, media setup", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "Initial page", "changeType": "new" }
+  ]
+}

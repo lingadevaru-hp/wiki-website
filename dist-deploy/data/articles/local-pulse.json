@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "local-pulse",
+    "title": "LocalPulse",
+    "slug": "local-pulse",
+    "category": "Web",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 14,
+    "views": 2400
+  },
+  "infobox": {
+    "title": "LocalPulse",
+    "image": "https://picsum.photos/seed/pulse-infobox/280/200",
+    "imageCaption": "LocalPulse event discovery home screen",
+    "fields": [
+      { "label": "Framework", "value": "Next.js 15 (App Router)" },
+      { "label": "Language", "value": "TypeScript" },
+      { "label": "Auth", "value": "Clerk" },
+      { "label": "Backend", "value": "Firebase + local storage" },
+      { "label": "PWA", "value": "Yes — offline support" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/LocalPulse" },
+      { "label": "GitHub stars", "value": "1 ⭐" },
+      { "label": "Deploy target", "value": "Vercel / Netlify" },
+      { "label": "Status", "value": "Active" }
+    ]
+  },
+  "lead": "**LocalPulse** is a local-first event discovery and organiser platform I built with **Next.js 15 App Router**, React 18, TypeScript, Tailwind CSS, and shadcn/ui. I built it in March 2026 — it's the most recent web project in my portfolio. It uses local browser storage as a zero-cost database backend alongside Firebase, and is built as a **Progressive Web App** with offline support and an install prompt.\n\nLocalPulse demonstrates a full-stack TypeScript application with authentication (Clerk), file-based routing, PDF ticket generation, calendar export (.ics), and an admin panel — all in a modern serverless-ready architecture. Code is on [GitHub](https://github.com/lingadevaru-hp/LocalPulse).",
+  "sections": [
+    {
+      "id": "tech-stack",
+      "title": "Tech Stack",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Layer", "Technology", "What I used it for"],
+          "rows": [
+            { "Layer": "Framework", "Technology": "Next.js 15 (App Router)", "What I used it for": "File-based routing, server and client components, layouts" },
+            { "Layer": "UI", "Technology": "React 18, Tailwind CSS, shadcn/ui", "What I used it for": "Component library built on Radix UI primitives" },
+            { "Layer": "Language", "Technology": "TypeScript", "What I used it for": "End-to-end type safety — typed API routes, typed React components, typed Firebase calls" },
+            { "Layer": "Auth", "Technology": "Clerk (@clerk/nextjs)", "What I used it for": "Sign in, sign up, profile, password reset — managed auth so I don't roll my own" },
+            { "Layer": "Backend / DB", "Technology": "Firebase + local browser storage", "What I used it for": "Zero-cost database — no backend server required" },
+            { "Layer": "PWA", "Technology": "Service worker, offline support", "What I used it for": "Install prompt, mobile icons, offline-capable pages" },
+            { "Layer": "Deploy", "Technology": "Vercel or Netlify", "What I used it for": "Serverless edge deployment" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "What LocalPulse Does",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Event Discovery:** I built search and filter by city, category, and date. Featured events section. Smart recommendations using category + city + rating affinity scoring. Access-controlled event visibility: local, college, department.\n\n**Organiser Workflow:** Organiser verification via document upload (Aadhaar, PAN, GST, business docs). Status states: pending / approved / rejected. Admin review panel.\n\n**Ticketing:** Downloadable PDF tickets named by event. Ticket history per user. Reminder toggles. Add-to-calendar export (.ics — Google Calendar, Outlook, Apple Calendar).\n\n**Local Data Hub (/database):** Inspect all locally stored data, export backup JSON, import data on another device, clear all data. All of this runs without a server — the user's browser is the database."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Why zero-cost architecture matters to me",
+          "content": "Using local browser storage as the primary database means no database hosting costs. Firebase supplements this for features requiring server-side persistence. The entire platform runs at near-zero cost — important when I'm shipping personal projects without a budget."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "Application Routes",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Route", "Purpose"],
+          "rows": [
+            { "Route": "/", "Purpose": "Home / event discovery with recommendations" },
+            { "Route": "/events/[id]", "Purpose": "Individual event detail page" },
+            { "Route": "/events/create", "Purpose": "Create new event (organisers only)" },
+            { "Route": "/my-tickets", "Purpose": "User ticket history and PDF download" },
+            { "Route": "/profile", "Purpose": "User profile management (Clerk)" },
+            { "Route": "/organiser", "Purpose": "Organiser dashboard" },
+            { "Route": "/organiser/apply", "Purpose": "Organiser verification application" },
+            { "Route": "/admin", "Purpose": "Admin control panel — organiser approval, analytics" },
+            { "Route": "/database", "Purpose": "Local Data Hub — inspect, export, import, clear" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "How This Fits Into My Work",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "LocalPulse contrasts sharply with my [[fraud-detection|Fraud Detection System]] in approach: where fraud detection used a traditional server-side stack (ASP.NET, SQL Server), LocalPulse embraces the modern serverless React ecosystem (Next.js App Router, Clerk managed auth, Firebase, edge deployment).\n\nThe project demonstrates TypeScript across a full-stack application — type-safe API routes, typed React components, typed Firebase calls — rather than the JavaScript-without-types approach common in quick prototypes. It's the closest thing I have to a 'standard' full-stack web project, compared to my blockchain and infrastructure work."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — LocalPulse", "url": "https://github.com/lingadevaru-hp/LocalPulse" },
+    { "id": 2, "title": "Next.js App Router documentation", "url": "https://nextjs.org/docs/app" },
+    { "id": 3, "title": "Clerk authentication", "url": "https://clerk.com" }
+  ],
+  "relatedArticles": ["fraud-detection", "about", "homelab"],
+  "categories": ["Web", "TypeScript", "Next.js", "PWA"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "Full write with routes table and feature breakdown", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "Initial page", "changeType": "new" }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "About — Lingadevaru H P",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "MCA student at SIT Tumakuru graduating 2026. Builder of deployed blockchain, AI, and web projects. Career focus: networking, cloud, and cybersecurity.",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSS Coin ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "An SPL token on Solana Mainnet built to symbolise support for Free and Open Source Software. Live on Orca Whirlpool DEX with a fixed 1B supply.",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "Thoshan Flash",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "A QLoRA fine-tune of Google's Gemma-2-9B large language model (LLM), published on Hugging Face with 26+ downloads and a live Gradio inference interface.",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "Insurance DApp",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "Decentralised insurance application on the Ethereum blockchain using Solidity smart contracts, Truffle, Web3.js, and MetaMask integration.",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "Libre Cloud — Homelab",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "Zero-trust self-hosted infrastructure on Oracle Cloud Always Free tier. Cloudflare-fronted reverse proxy with a planned 14-service architecture.",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "Privacy Stack",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "Layered personal privacy setup: OS hardening with Omarchy/Arch, LibreWolf browser, hardware DNS filtering, WireGuard VPN, and self-hosted password management.",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "Linux Setup — Omarchy",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Arch Linux via Omarchy — DHH's opinionated 'omakase' dev distro with Hyprland tiling WM, Neovim, and a full terminal developer workflow.",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "Fraud Detection System",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA Final Year Project: online banking fraud detection using ASP.NET and a 4-algorithm ML ensemble (Logistic Regression, KNN, SVM, CNN) with auto-blocking.",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "LocalPulse",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Local-first event discovery platform built with Next.js 15, TypeScript, Clerk auth, and Firebase. PWA with offline support and PDF ticketing.",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "Learning Roadmap",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "Planned certifications in networking, cloud, and cybersecurity (CCNA, Security+). Tools being learned: Vim/Neovim, Obsidian. CS50 Cybersecurity in progress.",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS Coin — How It Was Built",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "Step-by-step technical breakdown of the FOSS Coin creation process",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS Coin — On-Chain Verification",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "Complete verification guide with RPC calls and cross-checks",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS Coin — Programs",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "All Solana programs used in the FOSS Coin project",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS Coin — Transactions",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "Full chronological transaction record with all signatures",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS Coin — Evidence & Verification Links",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "Comprehensive evidence collection with verification instructions",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS Coin — All URLs",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "Complete list of all project URLs and evidence links",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS Coin — Master Documentation",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "Complete technical documentation and specifications",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS Coin — Resources",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "Public project resources organized by category",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

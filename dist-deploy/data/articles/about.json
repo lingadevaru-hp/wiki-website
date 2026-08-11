@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "id": "about",
+    "title": "About — Lingadevaru H P",
+    "slug": "about",
+    "category": "Profile",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 30,
+    "views": 8600
+  },
+  "infobox": {
+    "title": "Lingadevaru H P",
+    "image": "https://picsum.photos/seed/about-profile/280/200",
+    "imageCaption": "Personal workspace setup, April 2026",
+    "fields": [
+      { "label": "Also known as", "value": "Thoshan" },
+      { "label": "Age", "value": "22" },
+      { "label": "Location", "value": "Tumakuru, Karnataka, India" },
+      { "label": "Degree", "value": "MCA — Siddaganga Institute of Technology" },
+      { "label": "Graduating", "value": "2026" },
+      { "label": "Career focus", "value": "Networking, Cloud, Cybersecurity" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp" },
+      { "label": "HuggingFace", "value": "huggingface.co/lingadevaruhp" },
+      { "label": "LinkedIn", "value": "linkedin.com/in/lingadevaruhp" }
+    ]
+  },
+  "lead": "I'm **Lingadevaru H P**, also known as **Thoshan** — a 22-year-old MCA student at Siddaganga Institute of Technology, Tumakuru, graduating in 2026. I build deployed projects across blockchain, AI/ML, web development, and self-hosted infrastructure, with a career focus on computer networking, cloud computing, and cybersecurity.\n\nI'm deliberately *not* positioning myself as a software developer — my proven strengths are operational: running, deploying, and managing systems. I demonstrate this through live public projects rather than buzzwords: a [[foss-coin|Solana SPL token]] on Orca DEX, a [[thoshan-flash|fine-tuned LLM]] on Hugging Face, an [[insurance-dapp|Ethereum DApp]], and a self-hosted [[homelab|cloud homelab]] architecture.",
+  "sections": [
+    {
+      "id": "education",
+      "title": "Education",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Degree", "Institution", "Years", "Result"],
+          "rows": [
+            { "Degree": "MCA", "Institution": "Siddaganga Institute of Technology, Tumakuru", "Years": "2024 – 2026", "Result": "Final semester — graduating 2026" },
+            { "Degree": "BCA", "Institution": "Seshadripuram Degree College", "Years": "2021 – 2024", "Result": "CGPA 8.2/10" }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "My MCA at SIT is structured across four semesters. I spent the **3rd semester** on the [[fraud-detection|Final Year Academic Project]] — an online fraud detection system I built and publicly released on GitHub. The **4th (final) semester** was an internship at CHIAC ASI (Panchasutra Ltd, UK), where I served as Team 8 Lead in Research & Publication and completed all three assigned projects."
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "Skills",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Honest Skills Framework",
+          "content": "Every skill listed here is demonstrated through real deployed work — not just classroom exposure or tutorials. If I haven't shipped something with it, I don't list it."
+        },
+        {
+          "type": "text",
+          "content": "**Linux & Systems:** I run Arch Linux as a daily driver via [[linux-setup|Omarchy]], DHH's opinionated distro with Hyprland Wayland tiling WM. I'm comfortable with Bash, Git, GitHub, GitLab, Docker, and Kubernetes (exploring).\n\n**Self-Hosting & Deployment:** I deploy and manage containerised services using Docker and Coolify. Services I run include Vaultwarden, SearXNG, Immich, and Pi-hole (see [[homelab|Homelab]]).\n\n**Networking & Security:** I manage Cloudflare DNS, configure WireGuard VPN, run Pi-hole, set up AdGuard Home on my GL.iNet router, configure SPF/DKIM/DMARC email records, and use UFW firewall. All documented in the [[privacy-stack|Privacy Stack]].\n\n**Blockchain / Web3:** I deployed a live Solana SPL token end-to-end ([[foss-coin|FOSS Coin]], live on Orca DEX) and built a fully functional Ethereum smart contract DApp ([[insurance-dapp|Insurance DApp]]).\n\n**AI / ML:** I fine-tuned Google's Gemma-2-9B using QLoRA/PEFT ([[thoshan-flash|Thoshan Flash]], 26+ HF downloads). I also built a custom perceptron-style ML regressor for metro arrival time prediction.\n\n**Media Production:** I use OBS Studio for screen recording (noise gate + RNNoise audio filters) and Shotcut for video editing."
+        }
+      ]
+    },
+    {
+      "id": "achievements",
+      "title": "Achievements & Leadership",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Honour", "Year", "Detail"],
+          "rows": [
+            { "Honour": "Yoga Ratna Award", "Year": "2018", "Detail": "National-level recognition by the Central Government of India" },
+            { "Honour": "Event Lead, Zerone 2.0", "Year": "2025", "Detail": "Elected lead; managed an 80-member team for SIT's flagship technical event" },
+            { "Honour": "Founder, Debate Society", "Year": "2021–24", "Detail": "Established and led a 60–80 member community at Seshadripuram College" }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "I've participated in three hackathons: an **AI Systems Hackathon** (2025, multi-agent autonomous systems), a **24-Hour Rapid Build Challenge** (2025, privacy-focused e-commerce prototype on Tor), and the **NMIT Web3 Hackathon** (2024, decentralised web application prototype)."
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "title": "Public Repositories",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["Repository", "Language", "Stars", "Description"],
+          "rows": [
+            { "Repository": "Foss-Token", "Language": "HTML", "Stars": "7 ⭐  4 🔱", "Description": "$FOSS Solana SPL token — live on Orca DEX" },
+            { "Repository": "LocalPulse", "Language": "TypeScript", "Stars": "1 ⭐", "Description": "Local event discovery platform" },
+            { "Repository": "insurance-dapp", "Language": "JavaScript", "Stars": "1 ⭐", "Description": "Ethereum insurance DApp" },
+            { "Repository": "online-fraud-detection-system", "Language": "HTML/C#", "Stars": "1 ⭐", "Description": "Fraud detection ML system" },
+            { "Repository": "smart-expense-analyzer", "Language": "HTML", "Stars": "1 ⭐", "Description": "Agentic AI expense analyzer" },
+            { "Repository": "metro-arrival-time-prediction", "Language": "Python", "Stars": "1 ⭐", "Description": "ML metro arrival predictor" },
+            { "Repository": "search-engine", "Language": "HTML", "Stars": "1 ⭐", "Description": "SearchXEng — custom SearXNG templates" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "career",
+      "title": "Career Direction",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "My primary career target is **Computer Networking, Cloud Computing, and Cybersecurity** — specifically operational and deployment roles rather than software development. This distinction is deliberate: Python makes me uncomfortable; Java was a struggle. My strengths are in running, deploying, and managing systems — not writing application code from scratch.\n\nEvidence-based positioning is a core principle for me: every claim on my portfolio links to a live project, an on-chain transaction, or a GitHub repository — not just a buzzword on a resume.\n\nFor the certifications I'm working toward and tools I'm learning, see [[learning-roadmap|Learning Roadmap]]."
+        },
+        {
+          "type": "quote",
+          "content": "Skills are proven through live projects, not just theory.",
+          "author": "Personal positioning principle"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub Profile — lingadevaru-hp", "url": "https://github.com/lingadevaru-hp" },
+    { "id": 2, "title": "HuggingFace — lingadevaruhp", "url": "https://huggingface.co/lingadevaruhp" },
+    { "id": 3, "title": "LinkedIn — lingadevaruhp", "url": "https://linkedin.com/in/lingadevaruhp" }
+  ],
+  "relatedArticles": ["foss-coin", "thoshan-flash", "homelab", "privacy-stack", "learning-roadmap"],
+  "categories": ["Profile", "MCA", "Blockchain", "AI / ML", "Infrastructure"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person throughout", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "Added GitHub repository table and career direction section", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "Initial article creation", "changeType": "new" }
+  ]
+}
