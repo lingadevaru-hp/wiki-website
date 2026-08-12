@@ -7,6 +7,6 @@
     "not_found_handling": "single-page-application"
   },
   "vars": {
-    "TURNSTILE_SITEKEY": "PASTE_YOUR_SITEKEY_HERE"
+    "TURNSTILE_SITEKEY": "YOUR_ACTUAL_SITEKEY_HERE"
   }
 }
