@@ -1,8 +1,12 @@
 {
   "name": "wiki-website",
   "compatibility_date": "2025-03-01",
+  "main": "src/worker.ts",
   "assets": {
     "directory": "./artifacts/fictional-wiki/dist",
     "not_found_handling": "single-page-application"
+  },
+  "vars": {
+    "TURNSTILE_SITEKEY": "PASTE_YOUR_SITEKEY_HERE"
   }
 }
