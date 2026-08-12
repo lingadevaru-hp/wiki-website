@@ -1,0 +1,7 @@
+{
+  "name": "wiki-website",
+  "compatibility_date": "2025-03-01",
+  "assets": {
+    "directory": "./artifacts/fictional-wiki/dist"
+  }
+}
