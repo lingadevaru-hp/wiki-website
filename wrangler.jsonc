@@ -12,7 +12,7 @@
     "TURNSTILE_SITEKEY": "0x4AAAAAAENqS_v4DQqG_Ycd"
   },
   "observability": {
-    "enabled": false,
+    "enabled": true,
     "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
@@ -21,7 +21,7 @@
       "invocation_logs": true
     },
     "traces": {
-      "enabled": false,
+      "enabled": true,
       "persist": true,
       "head_sampling_rate": 1
     }
