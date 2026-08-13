@@ -94,7 +94,7 @@ export default {
           headers: {
             Location: returnTo,
             "Set-Cookie":
-              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400",
+              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=60",
             "Cache-Control": "no-store",
           },
         });
