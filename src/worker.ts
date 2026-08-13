@@ -3,32 +3,37 @@ const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>lingadevaru.in — Verifying</title>
+  <title>Security Verification</title>
   <link rel="preconnect" href="https://challenges.cloudflare.com" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif; background: #0a0f1e; color: #e2e8f0; }
-    .gate { text-align: center; max-width: 400px; padding: 2.5rem 2rem; border: 1px solid #1e293b; border-radius: 12px; background: #0f172a; }
-    .domain { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #475569; margin-bottom: 1.5rem; }
-    h1 { font-size: 1.25rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.4rem; }
-    .sub { font-size: 0.8rem; color: #64748b; margin-bottom: 1.75rem; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif; background: #0a0f1e; color: #e2e8f0; padding: 1.5rem; }
+    .gate { text-align: center; max-width: 440px; width: 100%; }
+    .gifs-top { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 1.75rem; }
+    .gifs-top img { width: calc(50% - 0.375rem); max-width: 200px; height: 150px; object-fit: cover; border-radius: 10px; }
+    .tagline { font-size: 0.95rem; color: #94a3b8; margin-bottom: 1.5rem; }
     .cf-turnstile { display: flex; justify-content: center; margin: 0 auto; min-height: 65px; }
-    .footer { font-size: 0.72rem; color: #334155; margin-top: 1.5rem; }
-    #err { color: #f87171; font-size: 0.8rem; margin-top: 0.75rem; display: none; }
+    #err { color: #f87171; font-size: 0.8rem; margin-top: 0.5rem; display: none; }
+    .gif-bottom { display: flex; justify-content: center; margin-top: 1.75rem; }
+    .gif-bottom img { width: 100%; max-width: 300px; border-radius: 10px; }
   </style>
 </head>
 <body>
   <div class="gate">
-    <p class="domain">lingadevaru.in</p>
-    <h1>🔐 Verifying your access</h1>
-    <p class="sub">Running a quick security check before you proceed.</p>
+    <div class="gifs-top">
+      <img src="https://media.tenor.com/1vepGBkOYsYAAAAM/alaynagifs.gif" alt="" loading="eager" />
+      <img src="https://i.pinimg.com/originals/0b/aa/bd/0baabd60a870970ff7cdda4d489075a1.gif" alt="" loading="eager" />
+    </div>
+    <p class="tagline">Verifying your connection. Please wait...</p>
     <form id="verify-form" method="POST" action="/__turnstile_verify">
       <div class="cf-turnstile" data-sitekey="${sitekey}" data-theme="dark" data-callback="onVerify" data-error-callback="onError" data-appearance="always"></div>
       <input type="hidden" name="return_to" value="${returnTo}">
     </form>
     <p id="err"></p>
-    <p class="footer">Protected by Cloudflare Turnstile</p>
+    <div class="gif-bottom">
+      <img src="https://media0.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif" alt="" loading="eager" />
+    </div>
   </div>
   <script>
     function onVerify(token) {
