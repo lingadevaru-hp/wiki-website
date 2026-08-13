@@ -4,11 +4,10 @@ export interface Env {
   ASSETS: Fetcher;
 }
 
-// Explicit rendering: api.js calls window.onloadTurnstileCallback once it is
-// ready, and we render the widget into #turnstile. This is more reliable than
-// implicit rendering (class="cf-turnstile"), which fails to re-render when the
-// gate is served a second time (e.g. after a failed verification) because the
-// browser dedupes the already-loaded api.js and never re-scans the DOM.
+// Explicit rendering with full error surfacing. The previous version silently
+// showed a blank gate when Turnstile failed to render (e.g. sitekey not
+// authorized for the hostname, or api.js blocked). This version surfaces the
+// exact Turnstile error code so the root cause is visible on the page.
 const GATE_HTML = (sitekey: string) => `<!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +17,15 @@ const GATE_HTML = (sitekey: string) => `<!DOCTYPE html>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
   <style>
     body { display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
-    .gate { text-align: center; max-width: 360px; padding: 1.5rem; }
+    .gate { text-align: center; max-width: 420px; padding: 1.5rem; }
     .gate h1 { font-size: 1.5rem; margin-bottom: 1rem; }
     #turnstile { display: flex; justify-content: center; margin: 1rem auto; min-height: 65px; }
     .retry { margin-top: 1rem; }
     .retry button { padding: 0.5rem 1rem; background: #1e293b; color: #e2e8f0; border: 1px solid #334155; border-radius: 4px; cursor: pointer; }
     .retry button:hover { background: #334155; }
+    .diag { margin-top: 1.5rem; font-size: 0.75rem; color: #94a3b8; text-align: left; background: #1e293b; border: 1px solid #334155; border-radius: 4px; padding: 0.75rem; white-space: pre-wrap; word-break: break-all; }
+    .diag code { color: #fbbf24; }
+    .status { font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem; }
   </style>
 </head>
 <body>
@@ -38,30 +40,78 @@ const GATE_HTML = (sitekey: string) => `<!DOCTYPE html>
     <div class="retry" id="retry" hidden>
       <button type="button" onclick="location.reload()">Retry verification</button>
     </div>
+    <div class="status" id="status">Loading verification widget…</div>
+    <div class="diag" id="diag" hidden></div>
   </div>
   <script>
     var widgetId = null;
+    var statusEl = document.getElementById('status');
+    var diagEl = document.getElementById('diag');
+    var retryEl = document.getElementById('retry');
+
+    function showDiag(msg) {
+      diagEl.hidden = false;
+      diagEl.textContent = msg;
+      statusEl.textContent = 'Verification widget could not load.';
+      retryEl.hidden = false;
+    }
+
     window.onloadTurnstileCallback = function () {
-      widgetId = turnstile.render('#turnstile', {
-        sitekey: "${sitekey}",
-        callback: function () {
-          document.getElementById('verify-form').submit();
-        },
-        'error-callback': function () {
-          document.getElementById('retry').hidden = false;
-          return true;
-        },
-        'timeout-callback': function () {
-          document.getElementById('retry').hidden = false;
+      statusEl.textContent = 'Rendering widget…';
+      try {
+        widgetId = turnstile.render('#turnstile', {
+          sitekey: "${sitekey}",
+          callback: function () {
+            statusEl.textContent = 'Verified! Loading…';
+            document.getElementById('verify-form').submit();
+          },
+          'error-callback': function (code) {
+            showDiag(
+              'Turnstile failed to render.\\n\\n' +
+              'Error code: ' + code + '\\n\\n' +
+              'Sitekey: ${sitekey}\\n' +
+              'Hostname: ' + location.hostname + '\\n\\n' +
+              'Most common cause: the sitekey above is not authorized for ' +
+              'this hostname in your Cloudflare Turnstile widget settings.\\n' +
+              'Fix: Cloudflare dashboard → Turnstile → your widget → ' +
+              'Settings → Hostname Management → add: ' + location.hostname
+            );
+            return true;
+          },
+          'timeout-callback': function () {
+            showDiag('Turnstile challenge timed out. Retry.');
+          }
+        });
+        if (widgetId === null || widgetId === undefined) {
+          showDiag('turnstile.render() returned no widget id (sitekey ' +
+            'rejected). Check that the sitekey is valid and authorized.');
         }
-      });
-    };
-    // If api.js fails to load at all, show retry after a delay.
-    setTimeout(function () {
-      if (widgetId === null && typeof turnstile === 'undefined') {
-        document.getElementById('retry').hidden = false;
+      } catch (e) {
+        showDiag('Turnstile render threw: ' + (e && e.message ? e.message : e));
       }
-    }, 5000);
+    };
+
+    // If api.js fails to load at all (blocked, network error, etc.), surface it.
+    setTimeout(function () {
+      if (widgetId === null) {
+        if (typeof turnstile === 'undefined') {
+          showDiag(
+            'Turnstile script (api.js) failed to load from ' +
+            'challenges.cloudflare.com.\\n\\n' +
+            'Possible causes:\\n' +
+            '- A browser extension (ad/tracker blocker) is blocking it\\n' +
+            '- Your network or region is blocking Cloudflare\\n' +
+            '- The script tag was removed by a CSP rule\\n\\n' +
+            'If this happens for ALL visitors, the cause is server-side: ' +
+            'check the Turnstile widget hostname settings in the ' +
+            'Cloudflare dashboard.'
+          );
+        } else {
+          showDiag('Turnstile script loaded but no widget rendered. ' +
+            'Sitekey may be rejected for this hostname.');
+        }
+      }
+    }, 6000);
   </script>
 </body>
 </html>`;
