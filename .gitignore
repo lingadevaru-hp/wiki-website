@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Cloudflare / Wrangler
+.dev.vars
+.wrangler/
