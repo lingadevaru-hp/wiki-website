@@ -3,27 +3,32 @@ const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Verification Required</title>
+  <title>lingadevaru.in — Verifying</title>
   <link rel="preconnect" href="https://challenges.cloudflare.com" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
-    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
-    .gate { text-align: center; max-width: 420px; padding: 1.5rem; }
-    .gate h1 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-    .cf-turnstile { display: flex; justify-content: center; margin: 1rem auto; min-height: 65px; }
-    .hint { font-size: 0.8rem; color: #94a3b8; margin-top: 1rem; }
-    #err { color: #f87171; font-size: 0.85rem; margin-top: 0.5rem; display: none; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif; background: #0a0f1e; color: #e2e8f0; }
+    .gate { text-align: center; max-width: 400px; padding: 2.5rem 2rem; border: 1px solid #1e293b; border-radius: 12px; background: #0f172a; }
+    .domain { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #475569; margin-bottom: 1.5rem; }
+    h1 { font-size: 1.25rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.4rem; }
+    .sub { font-size: 0.8rem; color: #64748b; margin-bottom: 1.75rem; }
+    .cf-turnstile { display: flex; justify-content: center; margin: 0 auto; min-height: 65px; }
+    .footer { font-size: 0.72rem; color: #334155; margin-top: 1.5rem; }
+    #err { color: #f87171; font-size: 0.8rem; margin-top: 0.75rem; display: none; }
   </style>
 </head>
 <body>
   <div class="gate">
-    <h1>🔒 Please verify to continue</h1>
+    <p class="domain">lingadevaru.in</p>
+    <h1>🔐 Verifying your access</h1>
+    <p class="sub">Running a quick security check before you proceed.</p>
     <form id="verify-form" method="POST" action="/__turnstile_verify">
       <div class="cf-turnstile" data-sitekey="${sitekey}" data-theme="dark" data-callback="onVerify" data-error-callback="onError" data-appearance="always"></div>
       <input type="hidden" name="return_to" value="${returnTo}">
     </form>
     <p id="err"></p>
-    <p class="hint">If the widget doesn't appear, disable ad blockers for this site.</p>
+    <p class="footer">Protected by Cloudflare Turnstile</p>
   </div>
   <script>
     function onVerify(token) {
@@ -38,7 +43,7 @@ const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
     function onError(code) {
       var err = document.getElementById("err");
       err.style.display = "block";
-      err.textContent = "Verification error (" + code + "). Refresh the page to try again.";
+      err.textContent = "Verification error (" + code + "). Refresh to try again.";
     }
   </script>
 </body>
@@ -64,7 +69,6 @@ export default {
       return env.ASSETS.fetch(request);
     }
 
-    // Let static assets through without the gate (favicon, images, css, js)
     const accept = request.headers.get("Accept") || "";
     if (!accept.includes("text/html")) {
       return env.ASSETS.fetch(request);
@@ -93,19 +97,14 @@ export default {
           status: 302,
           headers: {
             Location: returnTo,
-            "Set-Cookie":
-              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=30",
+            "Set-Cookie": "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=30",
             "Cache-Control": "no-store",
           },
         });
       }
-      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo), {
-        headers: HTML_HEADERS,
-      });
+      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo), { headers: HTML_HEADERS });
     }
 
-    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname), {
-      headers: HTML_HEADERS,
-    });
+    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname), { headers: HTML_HEADERS });
   },
 };
