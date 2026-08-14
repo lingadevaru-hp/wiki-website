@@ -3,7 +3,7 @@
   "compatibility_date": "2025-03-01",
   "main": "src/worker.ts",
   "assets": {
-    "directory": "./artifacts/fictional-wiki/dist",
+    "directory": "./artifacts/thoshan-wiki/dist",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
     "run_worker_first": true

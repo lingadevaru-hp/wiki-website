@@ -9,7 +9,7 @@ interface WikiSidebarProps {
 
 const navLinks = [
   { label: '⌂ Home', href: '/' },
-  { label: 'Main Page', href: '/wiki/main-page' },
+  { label: 'Home', href: '/wiki/home' },
   { label: 'About Thoshan', href: '/wiki/about' },
 ];
 
@@ -49,7 +49,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
               href={l.href}
               onClick={onClose}
               data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, '-')}`}
-              className="block px-2 py-1 hover:bg-background hover:text-accent text-foreground rounded-sm transition-colors"
+              className="block px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
             >
               {l.label}
             </Link>
@@ -60,7 +60,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
       {/* Bookmarks Section */}
       {bookmarks.length > 0 && (
         <div className="pt-2 border-t border-border" data-testid="sidebar-bookmarks">
-          <div className="flex items-center justify-between px-2 py-1">
+          <div className="flex items-center justify-between px-3 py-1">
             <span className="text-xs font-bold uppercase text-muted-foreground tracking-wider flex items-center gap-1">
               <Bookmark size={12} className="text-accent" /> Saved ({bookmarks.length})
             </span>
@@ -71,7 +71,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
                 <Link
                   href={`/wiki/${b.slug}`}
                   onClick={onClose}
-                  className="block flex-1 min-w-0 px-2 py-1 hover:bg-background hover:text-accent text-foreground rounded-sm transition-colors"
+                  className="block flex-1 min-w-0 px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
                 >
                   <span className="block text-xs font-medium truncate">{b.title}</span>
                   <span className="text-[10px]" style={{ color: categoryColors[b.category] ?? '#A8A8A8' }}>
@@ -82,7 +82,8 @@ function NavContent({ onClose }: { onClose: () => void }) {
                   type="button"
                   onClick={() => removeBookmark(b.slug)}
                   title="Remove bookmark"
-                  className="opacity-0 group-hover:opacity-100 p-1 text-muted-foreground hover:text-destructive transition-opacity"
+                  aria-label={`Remove ${b.title} bookmark`}
+                  className="opacity-0 group-hover:opacity-100 p-1.5 text-muted-foreground hover:text-destructive transition-opacity"
                 >
                   <Trash2 size={12} />
                 </button>
@@ -94,7 +95,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
 
       {/* Articles Section */}
       <div className="pt-2 border-t border-border">
-        <p className="px-2 py-1 text-xs font-bold uppercase text-muted-foreground tracking-wider">Articles</p>
+        <p className="px-3 py-1 text-xs font-bold uppercase text-muted-foreground tracking-wider">Articles</p>
         <ul className="space-y-0.5 mt-1">
           {articleLinks.map((l) => (
             <li key={l.label}>
@@ -102,7 +103,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
                 href={l.href}
                 onClick={onClose}
                 data-testid={`article-link-${l.href.split('/').pop()}`}
-                className="block px-2 py-1 hover:bg-background hover:text-accent text-foreground rounded-sm transition-colors"
+                className="block px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
               >
                 <span className="block text-xs leading-tight">{l.label}</span>
                 <span className="text-[10px]" style={{ color: categoryColors[l.category] ?? '#A8A8A8' }}>
@@ -131,7 +132,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
       {/* Mobile sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 h-full z-50 w-64 bg-card border-r border-border
+          fixed top-0 left-0 h-full z-50 w-72 bg-card border-r border-border
           transform transition-transform duration-200 ease-in-out
           md:hidden
           ${open ? 'translate-x-0' : '-translate-x-full'}
@@ -139,7 +140,12 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
       >
         <div className="flex items-center justify-between p-3 border-b border-border">
           <span className="font-serif font-bold">Navigation</span>
-          <button onClick={onClose} className="p-1 text-foreground" data-testid="button-close-sidebar">
+          <button 
+            onClick={onClose} 
+            className="p-1.5 text-foreground hover:bg-background rounded transition-colors"
+            data-testid="button-close-sidebar"
+            aria-label="Close menu"
+          >
             <X size={18} />
           </button>
         </div>

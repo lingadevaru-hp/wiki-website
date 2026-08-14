@@ -9,7 +9,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import GlobalSearch from './components/GlobalSearch';
 import ShortcutsModal from './components/ShortcutsModal';
 import LandingPage from './pages/LandingPage';
-import MainPage from './pages/MainPage';
+import HomePage from './pages/HomePage';
 import ArticlePage from './pages/ArticlePage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -27,7 +27,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={LandingPage} />
-      <Route path="/wiki/main-page" component={MainPage} />
+      <Route path="/wiki/home" component={HomePage} />
       <Route path="/wiki/search" component={SearchPage} />
       <Route path="/wiki/:slug" component={ArticlePage} />
       <Route component={NotFoundPage} />
