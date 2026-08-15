@@ -41,13 +41,19 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [voiceName, setVoiceName] = useState('');
   const [sleepTimer, setSleepTimer] = useState(0);
+  const [status, setStatus] = useState('');
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const intervalRef = useRef<number | null>(null);
+  const readingRef = useRef(false);
 
   const estimatedDuration = useMemo(() => Math.max(30, Math.ceil(text.trim().split(/\s+/).length / 2.25)), [text]);
   const currentTime = estimatedDuration * progress;
 
   useEffect(() => {
+    if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+      setStatus('Voice reading is unavailable in this browser');
+      return;
+    }
     const storedRate = Number(localStorage.getItem('wiki-reader-rate') || 1);
     const storedVoice = localStorage.getItem('wiki-reader-voice') || '';
     if ([0.85, 1, 1.25, 1.5].includes(storedRate)) setRate(storedRate);
@@ -61,6 +67,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   useEffect(() => {
     if (!sleepTimer || !playing) return;
     const timer = window.setTimeout(() => {
+      readingRef.current = false;
       window.speechSynthesis?.cancel();
       stopProgressTimer();
       setPlaying(false);
@@ -82,33 +89,43 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   };
 
   const speakChunk = (index: number) => {
-    if (!('speechSynthesis' in window) || !chunks[index]) return;
+    if (!('speechSynthesis' in window) || !chunks[index] || !readingRef.current) return;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(chunks[index]);
     utterance.rate = rate;
     utterance.pitch = 1;
     utterance.voice = voices.find((voice) => voice.name === voiceName) || null;
     utterance.onend = () => {
-      if (index < chunks.length - 1) {
+      if (readingRef.current && index < chunks.length - 1) {
         setChunkIndex(index + 1);
         speakChunk(index + 1);
       } else {
+        readingRef.current = false;
         setPlaying(false);
         setProgress(1);
         stopProgressTimer();
       }
     };
     utterance.onerror = () => {
+      readingRef.current = false;
       setPlaying(false);
       stopProgressTimer();
+      setStatus('Voice reading stopped. Try Listen again.');
     };
     utteranceRef.current = utterance;
+    utterance.onstart = () => { setStatus(''); setPlaying(true); };
+    window.speechSynthesis.resume();
     window.speechSynthesis.speak(utterance);
   };
 
   const play = () => {
-    if (!('speechSynthesis' in window)) return;
+    if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+      setOpen(true);
+      setStatus('Voice reading is unavailable in this browser');
+      return;
+    }
     setOpen(true);
+    readingRef.current = true;
     setPlaying(true);
     speakChunk(chunkIndex);
     stopProgressTimer();
@@ -122,6 +139,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
 
   const pause = () => {
     window.speechSynthesis?.pause();
+    readingRef.current = false;
     setPlaying(false);
     stopProgressTimer();
   };
@@ -138,6 +156,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
 
   const close = () => {
     window.speechSynthesis?.cancel();
+    readingRef.current = false;
     stopProgressTimer();
     setPlaying(false);
     setOpen(false);
@@ -180,6 +199,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
         data-testid="button-listen-article"
       >
         {playing ? <Pause size={16} fill="currentColor" /> : <Mic size={16} />}
+        {playing && <span className="reader-trigger-signal" aria-hidden="true"><i /><i /><i /></span>}
         <span>{playing ? 'Pause' : 'Listen'}</span>
       </button>
 
@@ -191,7 +211,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
               <div className="min-w-0">
                 <p className="audio-reader-kicker">Article reader</p>
                 <p className="audio-reader-title">{title}</p>
-                <p className="audio-reader-now"><i /><span>{playing ? chunks[chunkIndex] : 'Ready to continue reading'}</span></p>
+                <p className="audio-reader-now"><i /><span>{status || (playing ? chunks[chunkIndex] : 'Ready to continue reading')}</span></p>
               </div>
               <button type="button" className="icon-button ml-auto" onClick={close} aria-label="Close audio reader">
                 <X size={17} />

@@ -10,6 +10,8 @@ const badgeColors: Record<string, string> = {
   new: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
 };
 
+const formatDate = (value: string) => new Date(value).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+
 export default function RevisionHistory({ history }: RevisionHistoryProps) {
   if (!history.length) return null;
 
@@ -21,7 +23,7 @@ export default function RevisionHistory({ history }: RevisionHistoryProps) {
           <li key={i} className="flex flex-col gap-0.5" data-testid={`revision-entry-${i}`}>
             <div className="flex items-center gap-2">
               <span className="text-muted-foreground text-xs font-mono">
-                {new Date(entry.date).toLocaleDateString()}
+                {formatDate(entry.date)}
               </span>
               <span
                 className={`text-xs px-1.5 py-0.5 rounded ${badgeColors[entry.changeType] || badgeColors.minor}`}
