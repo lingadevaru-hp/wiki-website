@@ -2,7 +2,6 @@ import type { Article, ArticleIndex, ArticleIndexEntry } from '../types/article'
 
 const articleCache = new Map<string, Article>();
 let indexCache: ArticleIndex | null = null;
-let preloadStarted = false;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -22,16 +21,6 @@ export async function loadArticlesIndex(): Promise<ArticleIndex> {
   const res = await fetch(`${base}/data/articles-index.json`);
   if (!res.ok) throw new Error('Failed to load articles index');
   indexCache = await res.json();
-
-  // Eagerly preload all articles in the background so search is instant
-  if (!preloadStarted) {
-    preloadStarted = true;
-    setTimeout(() => {
-      indexCache!.articles.forEach((a) => {
-        loadArticle(a.slug).catch(() => null);
-      });
-    }, 200);
-  }
 
   return indexCache!;
 }
@@ -74,12 +63,9 @@ export async function searchArticles(query: string): Promise<ArticleIndexEntry[]
       if (entry.category.toLowerCase().includes(q)) score += 40;
       if (entry.excerpt.toLowerCase().includes(q)) score += 20;
 
-      // Full content search if article is already cached
-      const cached = articleCache.get(entry.slug);
-      if (cached) {
-        const text = extractArticleText(cached);
-        if (text.includes(q)) score += 10;
-      }
+      // Search the article body deterministically instead of depending on a background preload.
+      const fullArticle = articleCache.get(entry.slug) || await loadArticle(entry.slug).catch(() => null);
+      if (fullArticle && extractArticleText(fullArticle).includes(q)) score += 10;
 
       return { entry, score };
     })

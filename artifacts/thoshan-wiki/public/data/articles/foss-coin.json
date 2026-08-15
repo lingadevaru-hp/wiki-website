@@ -75,19 +75,6 @@
   ],
   "sections": [
     {
-      "id": "gif-preview",
-      "title": "Live Trading Preview",
-      "level": 2,
-      "content": [
-        {
-          "type": "banner",
-          "src": "/assets/foss-Thumbnail.gif",
-          "alt": "FOSS Coin ($FOSS) live trading session on the Orca Whirlpool DEX",
-          "caption": "FOSS Coin ($FOSS) live on the Orca Whirlpool DEX — FOSS/SOL trading pair"
-        }
-      ]
-    },
-    {
       "id": "philosophy",
       "title": "Why I Built This",
       "level": 2,

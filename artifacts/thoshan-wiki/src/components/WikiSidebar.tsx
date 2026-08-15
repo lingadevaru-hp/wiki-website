@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { X, Bookmark, Trash2 } from 'lucide-react';
 import { useBookmarks } from '../hooks/useBookmarks';
@@ -8,8 +9,9 @@ interface WikiSidebarProps {
 }
 
 const navLinks = [
-  { label: '⌂ Home', href: '/' },
-  { label: 'Home', href: '/wiki/home' },
+  { label: 'Wiki Home', href: '/wiki/home' },
+  { label: 'Landing', href: '/' },
+  { label: 'Search articles', href: '/wiki/search' },
   { label: 'About Thoshan', href: '/wiki/about' },
 ];
 
@@ -119,6 +121,15 @@ function NavContent({ onClose }: { onClose: () => void }) {
 }
 
 export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open, onClose]);
+
   return (
     <>
       {/* Mobile backdrop */}
