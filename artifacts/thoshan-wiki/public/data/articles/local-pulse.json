@@ -20,7 +20,7 @@
       { "label": "PWA", "value": "Yes — offline support" },
       { "label": "GitHub", "value": "github.com/lingadevaru-hp/LocalPulse" },
       { "label": "GitHub stars", "value": "1 ⭐" },
-      { "label": "Deploy target", "value": "Vercel / Netlify" },
+      { "label": "Deploy target", "value": "Cloudflare Pages" },
       { "label": "Status", "value": "Active" }
     ]
   },
@@ -41,7 +41,7 @@
             { "Layer": "Auth", "Technology": "Clerk (@clerk/nextjs)", "What I used it for": "Sign in, sign up, profile, password reset — managed auth so I don't roll my own" },
             { "Layer": "Backend / DB", "Technology": "Firebase + local browser storage", "What I used it for": "Zero-cost database — no backend server required" },
             { "Layer": "PWA", "Technology": "Service worker, offline support", "What I used it for": "Install prompt, mobile icons, offline-capable pages" },
-            { "Layer": "Deploy", "Technology": "Vercel or Netlify", "What I used it for": "Serverless edge deployment" }
+            { "Layer": "Deploy", "Technology": "Cloudflare Pages", "What I used it for": "Serverless edge deployment" }
           ]
         }
       ]
