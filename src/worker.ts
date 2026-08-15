@@ -10,30 +10,21 @@ const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif; background: #0a0f1e; color: #e2e8f0; padding: 1.5rem; }
     .gate { text-align: center; max-width: 440px; width: 100%; }
-    .gifs-top { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 1.75rem; }
-    .gifs-top img { width: calc(50% - 0.375rem); max-width: 200px; height: 150px; object-fit: cover; border-radius: 10px; }
+    .gate-mark { width: 46px; height: 46px; margin: 0 auto 1.5rem; display: grid; place-items: center; border: 1px solid #475569; border-radius: 50%; color: #dbeafe; font-size: 1.1rem; }
     .tagline { font-size: 0.95rem; color: #94a3b8; margin-bottom: 1.5rem; }
     .cf-turnstile { display: flex; justify-content: center; margin: 0 auto; min-height: 65px; }
     #err { color: #f87171; font-size: 0.8rem; margin-top: 0.5rem; display: none; }
-    .gif-bottom { display: flex; justify-content: center; margin-top: 1.75rem; }
-    .gif-bottom img { width: 100%; max-width: 300px; border-radius: 10px; }
   </style>
 </head>
 <body>
   <div class="gate">
-    <div class="gifs-top">
-      <img src="https://media.tenor.com/1vepGBkOYsYAAAAM/alaynagifs.gif" alt="" loading="eager" />
-      <img src="https://i.pinimg.com/originals/0b/aa/bd/0baabd60a870970ff7cdda4d489075a1.gif" alt="" loading="eager" />
-    </div>
-    <p class="tagline">Verifying your connection. Please wait...</p>
+    <div class="gate-mark" aria-hidden="true">✓</div>
+    <p class="tagline">Cloudflare Turnstile is checking this connection. This lightweight check helps protect the site and expires after 30 seconds.</p>
     <form id="verify-form" method="POST" action="/__turnstile_verify">
       <div class="cf-turnstile" data-sitekey="${sitekey}" data-theme="dark" data-callback="onVerify" data-error-callback="onError" data-appearance="always"></div>
       <input type="hidden" name="return_to" value="${returnTo}">
     </form>
     <p id="err"></p>
-    <div class="gif-bottom">
-      <img src="https://media0.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif" alt="" loading="eager" />
-    </div>
   </div>
   <script>
     function onVerify(token) {

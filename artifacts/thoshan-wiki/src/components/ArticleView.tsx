@@ -5,6 +5,7 @@ import {
   BookmarkCheck,
   Check,
   Copy,
+  ExternalLink,
   Github,
   Printer,
   Quote,
@@ -145,6 +146,17 @@ export default function ArticleView({ article }: { article: Article }) {
       .sort((a, b) => b.slug.length - a.slug.length)[0];
   }, [allArticles, article.metadata.slug, article.parentArticle]);
 
+  const projectPages = useMemo(() => {
+    const pageSlugs = article.subArticles?.map((item) => item.slug) || allArticles
+      .filter((entry) => entry.parentArticle === (article.parentArticle || parentArticle?.slug) && entry.slug !== article.metadata.slug)
+      .map((entry) => entry.slug);
+    return pageSlugs.map((slug) => {
+      const entry = allArticles.find((item) => item.slug === slug);
+      const fallback = article.subArticles?.find((item) => item.slug === slug);
+      return { slug, title: entry?.title || fallback?.title || slug.replace(/-/g, ' '), excerpt: entry?.excerpt || fallback?.excerpt, category: entry?.category || article.metadata.category };
+    });
+  }, [allArticles, article.metadata.category, article.metadata.slug, article.parentArticle, article.subArticles, parentArticle?.slug]);
+
   const articleNeighbors = useMemo(() => {
     const readable = allArticles.filter((entry) => !entry.hiddenFromSearch && !entry.isSubArticle);
     const index = readable.findIndex((entry) => entry.slug === article.metadata.slug);
@@ -195,6 +207,8 @@ export default function ArticleView({ article }: { article: Article }) {
           <p className="article-dek">A focused guide to the ideas, systems, and work behind this page.</p>
           <div className="article-actions print:hidden">
             <ArticleAudioReader title={article.metadata.title} text={getArticleText(article)} />
+            {article.githubButton && <a href={article.githubButton.url} target="_blank" rel="noopener noreferrer" className="action-button article-top-link print:hidden" aria-label="Open GitHub repository"><Github size={16} /><span className="hidden sm:inline">GitHub</span></a>}
+            {article.deployedUrl && <a href={article.deployedUrl} target="_blank" rel="noopener noreferrer" className="action-button article-top-link print:hidden" aria-label="Visit deployed project"><ExternalLink size={16} /><span className="hidden sm:inline">Visit project</span></a>}
             <button type="button" className={`action-button ${bookmarked ? 'is-active' : ''}`} onClick={() => { toggleBookmark({ slug: article.metadata.slug, title: article.metadata.title, category: article.metadata.category }); showFeedback(bookmarked ? 'Removed from saved' : 'Saved for later'); }} aria-label={bookmarked ? 'Remove bookmark' : 'Save article'} data-testid="button-bookmark">
               {bookmarked ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}<span className="hidden sm:inline">{bookmarked ? 'Saved' : 'Save'}</span>
             </button>
@@ -213,16 +227,10 @@ export default function ArticleView({ article }: { article: Article }) {
         {captureOpen && <MediaViewer item={{ src: '/assets/foss-Thumbnail.gif', alt: 'FOSS Coin project capture showing the token trading workflow', caption: 'FOSS Coin trading workflow', type: 'image' }} onClose={() => setCaptureOpen(false)} />}
 
         {article.infobox && <Infobox data={article.infobox} />}
-        {article.githubButton && <a href={article.githubButton.url} target="_blank" rel="noopener noreferrer" className="article-external-link print:hidden"><Github size={16} />{article.githubButton.text}</a>}
 
         <div className="article-lead">{parseLeadText(article.lead)}</div>
 
-        {article.subArticles && article.subArticles.length > 0 && (
-          <section className="sub-articles" data-testid="sub-articles-section">
-            <div><p className="section-eyebrow">Continue within this project</p><h2>Related pages</h2></div>
-            <div className="sub-article-list">{article.subArticles.map((sub) => <Link key={sub.slug} href={`/wiki/${sub.slug}`} className="sub-article-link" data-testid={`sub-article-${sub.slug}`}><span><strong>{sub.title}</strong><small>{sub.excerpt}</small></span><span aria-hidden="true">↗</span></Link>)}</div>
-          </section>
-        )}
+        {projectPages.length > 0 && <details className="project-pages-mobile sub-articles print:hidden" data-testid="sub-articles-section"><summary><span><p className="section-eyebrow">Continue within this project</p><h2>Related pages</h2></span><span className="read-next-summary-icon" aria-hidden="true">＋</span></summary><div className="sub-article-list">{projectPages.map((sub) => <Link key={sub.slug} href={`/wiki/${sub.slug}`} className="sub-article-link" data-testid={`sub-article-${sub.slug}`}><span><strong>{sub.title}</strong><small>{sub.excerpt}</small></span><span aria-hidden="true">↗</span></Link>)}</div></details>}
 
         <TableOfContents sections={article.sections} activeId={activeSection} />
         <div className="article-sections">{article.sections.map((section) => <Section key={section.id} section={section} />)}</div>
@@ -233,10 +241,10 @@ export default function ArticleView({ article }: { article: Article }) {
 
         {(articleNeighbors.previous || articleNeighbors.next) && <nav className="article-neighbors print:hidden" aria-label="Article navigation"><div>{articleNeighbors.previous && <Link href={`/wiki/${articleNeighbors.previous.slug}`}><span>Previous article</span><strong>← {articleNeighbors.previous.title}</strong></Link>}</div><div>{articleNeighbors.next && <Link href={`/wiki/${articleNeighbors.next.slug}`}><span>Next article</span><strong>{articleNeighbors.next.title} →</strong></Link>}</div></nav>}
 
-        {related.length > 0 && <details className="read-next read-next-mobile print:hidden"><summary><span><span className="section-eyebrow">Keep reading</span><strong>Related articles</strong></span><span className="read-next-summary-icon" aria-hidden="true">＋</span></summary><div className="read-next-grid">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="read-next-card"><span className="text-xs uppercase tracking-wider text-muted-foreground">{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></details>}
+        {related.length > 0 && <section className="read-next print:hidden"><div className="section-eyebrow">Keep reading</div><h2>Recommended articles</h2><div className="read-next-grid">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="read-next-card"><span className="text-xs uppercase tracking-wider text-muted-foreground">{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></section>}
       </article>
 
-      {related.length > 0 && <aside className="related-rail print:hidden" aria-label="Related articles"><div className="section-eyebrow">Keep reading</div><h2>Related articles</h2><div className="related-rail-list">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="related-rail-card"><span>{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></aside>}
+      {projectPages.length > 0 && <aside className="related-rail print:hidden" aria-label="Related pages"><div className="section-eyebrow">Continue within this project</div><h2>Related pages</h2><div className="related-rail-list">{projectPages.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="related-rail-card"><span>{item.category}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></aside>}
 
       <aside className="article-settings print:hidden">
         <div className="settings-panel"><p className="section-eyebrow">Reading settings</p><div className="settings-group"><span>Text size</span><div className="settings-options">{(['small', 'standard', 'large'] as const).map((size) => <button key={size} onClick={() => setFontSize(size)} className={fontSize === size ? 'selected' : ''}>{size === 'small' ? 'S' : size === 'standard' ? 'M' : 'L'}</button>)}</div></div><div className="settings-group"><span>Width</span><div className="settings-options">{(['standard', 'wide'] as const).map((width) => <button key={width} onClick={() => setContentWidth(width)} className={contentWidth === width ? 'selected' : ''}>{width === 'standard' ? 'Reading' : 'Wide'}</button>)}</div></div><div className="settings-group"><span>Theme</span><div className="settings-options"><button onClick={() => setTheme('light')} className={theme === 'light' ? 'selected' : ''}>Light</button><button onClick={() => setTheme('dark')} className={theme === 'dark' ? 'selected' : ''}>Dark</button></div></div></div>

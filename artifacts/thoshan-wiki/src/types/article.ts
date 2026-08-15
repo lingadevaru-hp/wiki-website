@@ -102,6 +102,7 @@ export interface Article {
   perspectives?: { title: string; content: string }[];
   suggestedImprovements?: string[];
   githubButton?: GitHubButton;
+  deployedUrl?: string;
   resources?: Resources;
   subArticles?: SubArticle[];
   parentArticle?: string;

@@ -91,6 +91,7 @@
     { "id": 2, "title": "Live Gradio Inference — go.lingadevaru.in/LLM", "url": "https://go.lingadevaru.in/LLM" }
   ],
   "relatedArticles": ["about", "fraud-detection", "foss-coin"],
+  "deployedUrl": "https://go.lingadevaru.in/LLM",
   "categories": ["AI / ML", "LLM", "Hugging Face", "Fine-tuning"],
   "editHistory": [
     { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "Rewritten in first person, added direct HF link", "changeType": "major" },
