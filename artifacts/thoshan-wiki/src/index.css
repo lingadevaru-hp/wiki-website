@@ -669,6 +669,7 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 .rail-toggle strong { font: 400 21px/1.1 Georgia, serif; }
 .rail-toggle:hover { background: hsl(var(--foreground) / .04); }
 .rail-panel .related-rail-list { max-height: calc(100vh - 250px); }
+.article-layout-foss .rail-panel:first-child .related-rail-list { max-height: 310px; }
 .related-rail-card { display: grid; gap: 6px; padding: 12px; border: 1px solid hsl(var(--border)); border-radius: 12px; background: hsl(var(--card) / .34); transition: transform .22s ease, border-color .22s ease, background .22s ease; }
 .related-rail-card:hover { transform: translateX(3px); border-color: hsl(var(--accent) / .65); background: hsl(var(--card) / .65); }
 .related-rail-card span { color: hsl(var(--muted-foreground)); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
@@ -712,6 +713,8 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 /* Centered desktop dynamic-island reader. The position is stable and the drop includes its x-axis anchor. */
 @media (min-width: 901px) {
   .audio-reader { left: 50%; right: auto; top: 70px; width: min(520px, calc(100vw - 40px)); transform: translateX(-50%); border-radius: 28px; animation: audio-island-drop-centered .42s cubic-bezier(.2,.9,.2,1) both; }
+  .reader-trigger { min-width: 82px; padding-inline: 12px; }
+  .reader-trigger > svg:first-child { width: 18px; height: 18px; flex: 0 0 auto; }
   .audio-reader-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; }
   .audio-reader-heading, .audio-reader-seek { grid-column: 1 / -1; }
   .audio-reader-controls { grid-column: 1 / -1; }

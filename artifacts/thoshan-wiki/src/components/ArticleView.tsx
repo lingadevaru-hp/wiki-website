@@ -161,7 +161,7 @@ export default function ArticleView({ article }: { article: Article }) {
     });
   }, [allArticles, article.metadata.category, article.metadata.slug, article.parentArticle, article.subArticles, parentArticle?.slug]);
   const [openRail, setOpenRail] = useState<'pages' | 'suggested' | null>(null);
-  useEffect(() => { setOpenRail(projectPages.length > 0 ? 'pages' : 'suggested'); }, [article.metadata.slug, projectPages.length]);
+  useEffect(() => { setOpenRail(article.metadata.slug === 'foss-coin' && projectPages.length > 0 ? 'pages' : 'suggested'); }, [article.metadata.slug, projectPages.length]);
 
   const articleNeighbors = useMemo(() => {
     const readable = allArticles.filter((entry) => !entry.hiddenFromSearch && !entry.isSubArticle);
@@ -203,7 +203,7 @@ export default function ArticleView({ article }: { article: Article }) {
   const widthClass = contentWidth === 'wide' ? 'article-content-wide' : 'article-content-standard';
 
   return (
-    <div className="article-layout">
+    <div className={`article-layout ${article.metadata.slug === 'foss-coin' ? 'article-layout-foss' : ''}`}>
       <div className="reading-progress" aria-label={`Article reading progress: ${Math.round(scrollProgress)} percent`} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(scrollProgress)}><span style={{ width: `${scrollProgress}%` }} /><b className={scrollProgress > 4 ? 'is-visible' : ''}>{Math.round(scrollProgress)}%</b></div>
       <article ref={articleRef} className={`article-reader-content ${fontClass} ${widthClass}`}>
         <nav className="article-context-nav" aria-label="Article location"><Link href={parentArticle ? `/wiki/${parentArticle.slug}` : '/wiki/home'}>← {parentArticle ? `Back to ${parentArticle.title}` : 'Back to Wiki Home'}</Link><Link href="/wiki/search">Browse articles →</Link></nav>
