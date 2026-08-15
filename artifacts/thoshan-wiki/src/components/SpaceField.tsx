@@ -19,6 +19,7 @@ export default function SpaceField({ variant = 'home' }: { variant?: 'home' | 'l
     {variant === 'landing' && <>
       <span className="space-satellite-float space-satellite-one"><b /></span>
       <span className="space-satellite-float space-satellite-two"><b /></span>
+      <span className="space-moon" />
       {fallingStars.map((star) => <span key={star.id} className="space-falling-star" style={{ left: star.left, animationDelay: star.delay, animationDuration: star.duration }} />)}
     </>}
   </div>;
