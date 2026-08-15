@@ -662,6 +662,13 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 .related-rail[open] summary .read-next-summary-icon { transform: rotate(0); }
 .related-rail:not([open]) summary .read-next-summary-icon { transform: rotate(90deg); }
 .related-rail-list { display: grid; gap: 8px; max-height: calc(100vh - 205px); overflow-y: auto; overscroll-behavior: contain; padding: 0 10px 12px; scrollbar-width: thin; }
+.rail-panel + .rail-panel { border-top: 1px solid hsl(var(--border)); }
+.rail-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 0; padding: 14px; color: hsl(var(--foreground)); text-align: left; background: transparent; border: 0; cursor: pointer; }
+.rail-toggle > span:first-child { display: grid; gap: 5px; }
+.rail-toggle .section-eyebrow { margin: 0; }
+.rail-toggle strong { font: 400 21px/1.1 Georgia, serif; }
+.rail-toggle:hover { background: hsl(var(--foreground) / .04); }
+.rail-panel .related-rail-list { max-height: calc(100vh - 250px); }
 .related-rail-card { display: grid; gap: 6px; padding: 12px; border: 1px solid hsl(var(--border)); border-radius: 12px; background: hsl(var(--card) / .34); transition: transform .22s ease, border-color .22s ease, background .22s ease; }
 .related-rail-card:hover { transform: translateX(3px); border-color: hsl(var(--accent) / .65); background: hsl(var(--card) / .65); }
 .related-rail-card span { color: hsl(var(--muted-foreground)); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
