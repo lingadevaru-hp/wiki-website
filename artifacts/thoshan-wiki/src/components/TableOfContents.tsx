@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import type { Section } from '../types/article';
 
 interface TableOfContentsProps {
@@ -19,7 +20,7 @@ function flattenSections(sections: Section[], prefix = ''): { id: string; title:
 }
 
 export default function TableOfContents({ sections, activeId }: TableOfContentsProps) {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches);
   const flat = flattenSections(sections);
 
   if (flat.length < 3) return null;
@@ -34,9 +35,11 @@ export default function TableOfContents({ sections, activeId }: TableOfContentsP
         <button
           data-testid="button-toc-toggle"
           onClick={() => setCollapsed((c) => !c)}
-          className="text-accent text-xs hover:underline ml-auto"
+          className="toc-toggle text-accent text-xs hover:underline ml-auto"
+          aria-expanded={!collapsed}
+          aria-label={collapsed ? 'Expand contents' : 'Collapse contents'}
         >
-          [{collapsed ? 'show' : 'hide'}]
+          {collapsed ? <ChevronDown size={15} /> : <ChevronUp size={15} />}
         </button>
       </div>
       {!collapsed && (

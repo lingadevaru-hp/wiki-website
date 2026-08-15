@@ -368,4 +368,12 @@ This is the expanded product surface to build incrementally without turning the 
 - [x] Added an animated reader equalizer and warm non-blue audio accent.
 - [x] Reduced the reader surface width and moved it to the desktop edge to protect reading space.
 - [x] Added a subtle animated night-sky field to the Landing view.
+- [x] Moved parent and sub-article pages into a desktop Related pages rail.
+- [x] Kept recommended articles as a separate lower reading section.
+- [x] Added collapsible mobile project-page navigation.
+- [x] Promoted GitHub and deployed-project actions into the article toolbar.
+- [x] Made the reading-width control expand the actual desktop article column.
+- [x] Added dark print/PDF styling for article output.
+- [x] Removed unrelated GIFs from the Cloudflare Turnstile gate.
+- [x] Documented the FOSS Coin asset and Cloudflare verification boundary in README.
 - [ ] Add a deployment base URL to sitemap generation before public launch.

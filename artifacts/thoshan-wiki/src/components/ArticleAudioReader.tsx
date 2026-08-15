@@ -6,8 +6,6 @@ import {
   Play,
   RotateCcw,
   RotateCw,
-  Timer,
-  Volume2,
   X,
 } from 'lucide-react';
 
@@ -37,10 +35,6 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   const [playing, setPlaying] = useState(false);
   const [chunkIndex, setChunkIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [rate, setRate] = useState(1);
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
-  const [voiceName, setVoiceName] = useState('');
-  const [sleepTimer, setSleepTimer] = useState(0);
   const [status, setStatus] = useState('');
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const intervalRef = useRef<number | null>(null);
@@ -54,27 +48,8 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
       setStatus('Voice reading is unavailable in this browser');
       return;
     }
-    const storedRate = Number(localStorage.getItem('wiki-reader-rate') || 1);
-    const storedVoice = localStorage.getItem('wiki-reader-voice') || '';
-    if ([0.85, 1, 1.25, 1.5].includes(storedRate)) setRate(storedRate);
-    setVoiceName(storedVoice);
-    const updateVoices = () => setVoices(window.speechSynthesis?.getVoices() || []);
-    updateVoices();
-    window.speechSynthesis?.addEventListener('voiceschanged', updateVoices);
-    return () => window.speechSynthesis?.removeEventListener('voiceschanged', updateVoices);
+    return undefined;
   }, []);
-
-  useEffect(() => {
-    if (!sleepTimer || !playing) return;
-    const timer = window.setTimeout(() => {
-      readingRef.current = false;
-      window.speechSynthesis?.cancel();
-      stopProgressTimer();
-      setPlaying(false);
-      setSleepTimer(0);
-    }, sleepTimer * 1000);
-    return () => window.clearTimeout(timer);
-  }, [sleepTimer, playing]);
 
   useEffect(() => {
     return () => {
@@ -92,9 +67,8 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     if (!('speechSynthesis' in window) || !chunks[index] || !readingRef.current) return;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(chunks[index]);
-    utterance.rate = rate;
+    utterance.rate = 1;
     utterance.pitch = 1;
-    utterance.voice = voices.find((voice) => voice.name === voiceName) || null;
     utterance.onend = () => {
       if (readingRef.current && index < chunks.length - 1) {
         setChunkIndex(index + 1);
@@ -162,23 +136,6 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     setOpen(false);
   };
 
-  const changeRate = () => {
-    const next = rate === 1 ? 1.25 : rate === 1.25 ? 1.5 : rate === 1.5 ? 0.85 : 1;
-    setRate(next);
-    localStorage.setItem('wiki-reader-rate', String(next));
-    if (playing) speakChunk(chunkIndex);
-  };
-
-  const changeSleepTimer = () => {
-    setSleepTimer((value) => value === 0 ? 300 : value === 300 ? 900 : 0);
-  };
-
-  const selectVoice = (nextVoice: string) => {
-    setVoiceName(nextVoice);
-    localStorage.setItem('wiki-reader-voice', nextVoice);
-    if (playing) speakChunk(chunkIndex);
-  };
-
   const togglePanel = () => {
     if (playing && !open) {
       setOpen(true);
@@ -230,17 +187,12 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
               />
               <div className="audio-reader-time"><span>{formatTime(currentTime)}</span><span>{formatTime(estimatedDuration)}</span></div>
             </div>
-            <div className="audio-reader-options">
-              <label><Volume2 size={13} /><span className="sr-only">Voice</span><select value={voiceName} onChange={(event) => selectVoice(event.target.value)} aria-label="Narration voice"><option value="">System voice</option>{voices.map((voice) => <option key={`${voice.name}-${voice.lang}`} value={voice.name}>{voice.name} · {voice.lang}</option>)}</select></label>
-              <button type="button" className={sleepTimer ? 'audio-option-active' : ''} onClick={changeSleepTimer} aria-label="Set sleep timer"><Timer size={13} />{sleepTimer ? `${Math.round(sleepTimer / 60)} min` : 'Sleep'}</button>
-            </div>
             <div className="audio-reader-controls">
               <button type="button" className="audio-skip" onClick={() => skip(-10)} aria-label="Skip back 10 seconds"><RotateCcw size={18} /><span>10</span></button>
               <button type="button" className="audio-play" onClick={playing ? pause : play} aria-label={playing ? 'Pause' : 'Play'}>
                 {playing ? <Pause size={20} fill="currentColor" /> : <Play size={20} fill="currentColor" />}
               </button>
               <button type="button" className="audio-skip" onClick={() => skip(10)} aria-label="Skip forward 10 seconds"><RotateCw size={18} /><span>10</span></button>
-              <button type="button" className="audio-rate" onClick={changeRate} aria-label="Change playback speed">{rate}x</button>
               <button type="button" className="audio-collapse" onClick={() => setOpen(false)} aria-label="Minimize audio reader"><ChevronDown size={18} /></button>
             </div>
           </div>
