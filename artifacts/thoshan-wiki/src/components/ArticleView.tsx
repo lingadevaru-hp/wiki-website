@@ -62,7 +62,7 @@ function getArticleText(article: Article) {
 }
 
 function getArticleDek(article: Article) {
-  if (article.metadata.slug === 'foss-coin') return 'A transparent guide to a self-created crypto project, its systems, and the work behind it.';
+  if (article.metadata.slug === 'foss-coin') return 'A transparent guide to the crypto project I created, its systems, and the work behind it.';
   return 'A focused guide to the ideas, systems, and work behind this page.';
 }
 

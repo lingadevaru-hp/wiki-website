@@ -4,7 +4,7 @@ Personal editorial knowledge base for projects, systems, and technical notes.
 
 ## Featured project: FOSS Coin
 
-The FOSS Coin article documents a self-created Solana SPL token, its fixed supply, authority revocation, Orca Whirlpool listing, public transactions, and independent verification links. The article keeps the original project capture GIF as a lazy-loaded, fullscreen-openable media asset.
+The FOSS Coin article documents the Solana SPL token I created, its fixed supply, authority revocation, Orca Whirlpool listing, public transactions, and independent verification links. The article keeps the original project capture GIF as a lazy-loaded, fullscreen-openable media asset.
 
 ![FOSS Coin project capture](artifacts/thoshan-wiki/public/assets/foss-Thumbnail.gif)
 
