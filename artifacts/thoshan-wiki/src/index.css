@@ -644,6 +644,50 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 @media (max-width: 640px) { .audio-reader { left: 50%; right: auto; transform: translateX(-50%); width: calc(100vw - 18px); }.audio-reader-inner { padding: 9px 10px 10px; }.audio-reader-now { max-width: calc(100vw - 140px); }.audio-reader-controls { gap: 8px; }.landing-project-capture { grid-template-columns: 1fr; gap: 26px; padding: 0 18px 88px; }.landing-project-capture h2 { font-size: 2rem; } }
 @media (prefers-reduced-motion: reduce) { .audio-equalizer i, .reader-trigger-signal i, .landing-main > .space-field::after, .space-field--landing .space-satellite-float, .space-falling-star { animation: none; }.foss-project-capture img, .landing-capture-button img { transition: none; } }
 
+/* Desktop reading canvas: give long-form content room and keep related reading in its own rail. */
+.article-layout { grid-template-columns: minmax(0, 820px) 245px 185px; gap: 42px; max-width: 1360px; padding-inline: 28px; }
+.wiki-shell { max-width: 1600px; }
+.article-context-nav { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 12px; color: hsl(var(--muted-foreground)); font-size: 11px; }
+.article-context-nav a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.article-context-nav a:hover { color: hsl(var(--accent)); }
+.article-content-standard { max-width: 820px; }
+.article-content-wide { max-width: 900px; }
+.related-rail { min-width: 0; position: sticky; top: 88px; align-self: start; padding: 14px 0; }
+.related-rail h2 { margin: 7px 0 16px; font: 400 22px/1.1 Georgia, serif; }
+.related-rail-list { display: grid; gap: 8px; }
+.related-rail-card { display: grid; gap: 6px; padding: 12px; border: 1px solid hsl(var(--border)); border-radius: 12px; background: hsl(var(--card) / .34); transition: transform .22s ease, border-color .22s ease, background .22s ease; }
+.related-rail-card:hover { transform: translateX(3px); border-color: hsl(var(--accent) / .65); background: hsl(var(--card) / .65); }
+.related-rail-card span { color: hsl(var(--muted-foreground)); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.related-rail-card strong { font: 700 15px/1.18 Georgia, serif; }
+.related-rail-card small { color: hsl(var(--muted-foreground)); font-size: 11px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.read-next-mobile { display: none; }
+.toc-toggle { display: grid; place-items: center; min-width: 30px; min-height: 30px; border-radius: 999px; }
+.toc-toggle:hover { background: hsl(var(--accent) / .1); }
+.audio-reader { z-index: 120; animation: audio-island-drop .42s cubic-bezier(.2,.9,.2,1); }
+@keyframes audio-island-drop { from { opacity: 0; transform: translateY(-22px) scale(.92); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 1399px) and (min-width: 901px) {
+  .article-layout { grid-template-columns: minmax(0, 1fr) 230px; max-width: 1180px; gap: 38px; }
+  .article-settings { grid-column: 2; grid-row: 2; }
+  .related-rail { grid-column: 2; grid-row: 1; }
+}
+@media (max-width: 900px) {
+  .article-layout { padding-inline: 18px; }
+  .related-rail { display: none; }
+  .read-next-mobile { display: block; }
+  .read-next-mobile summary { display: flex; align-items: center; justify-content: space-between; list-style: none; cursor: pointer; }
+  .read-next-mobile summary::-webkit-details-marker { display: none; }
+  .read-next-mobile summary > span:first-child { display: grid; gap: 5px; }
+  .read-next-mobile summary strong { font: 400 22px/1.1 Georgia, serif; }
+  .read-next-summary-icon { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid hsl(var(--border)); border-radius: 50%; font-size: 18px; transition: transform .2s ease; }
+  .read-next-mobile[open] .read-next-summary-icon { transform: rotate(45deg); }
+}
+@media (max-width: 640px) {
+  .article-layout { padding-inline: 10px; }
+  .audio-reader { animation-name: audio-island-rise; }
+  @keyframes audio-island-rise { from { opacity: 0; transform: translate(-50%, 18px) scale(.94); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+}
+
 @media print {
   header,
   aside,

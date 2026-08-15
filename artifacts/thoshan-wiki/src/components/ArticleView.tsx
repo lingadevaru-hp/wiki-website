@@ -137,6 +137,14 @@ export default function ArticleView({ article }: { article: Article }) {
     return { slug, title: entry?.title || slug.replace(/-/g, ' '), excerpt: entry?.excerpt, category: entry?.category };
   }), [article.relatedArticles, allArticles]);
 
+  const parentArticle = useMemo(() => {
+    const explicit = article.parentArticle && allArticles.find((entry) => entry.slug === article.parentArticle);
+    if (explicit) return explicit;
+    return allArticles
+      .filter((entry) => entry.slug !== article.metadata.slug && article.metadata.slug.startsWith(`${entry.slug}-`))
+      .sort((a, b) => b.slug.length - a.slug.length)[0];
+  }, [allArticles, article.metadata.slug, article.parentArticle]);
+
   const articleNeighbors = useMemo(() => {
     const readable = allArticles.filter((entry) => !entry.hiddenFromSearch && !entry.isSubArticle);
     const index = readable.findIndex((entry) => entry.slug === article.metadata.slug);
@@ -180,6 +188,7 @@ export default function ArticleView({ article }: { article: Article }) {
     <div className="article-layout">
       <div className="reading-progress" aria-label={`Article reading progress: ${Math.round(scrollProgress)} percent`} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(scrollProgress)}><span style={{ width: `${scrollProgress}%` }} /><b className={scrollProgress > 4 ? 'is-visible' : ''}>{Math.round(scrollProgress)}%</b></div>
       <article ref={articleRef} className={`article-reader-content ${fontClass} ${widthClass}`}>
+        <nav className="article-context-nav" aria-label="Article location"><Link href={parentArticle ? `/wiki/${parentArticle.slug}` : '/wiki/home'}>← {parentArticle ? `Back to ${parentArticle.title}` : 'Back to Wiki Home'}</Link><Link href="/wiki/search">Browse articles →</Link></nav>
         <div className="article-kicker"><span style={{ color: categoryColors[article.metadata.category] || '#3366CC' }}>{article.metadata.category}</span><span>{readingTime} min read</span><span>Updated {formatDate(article.metadata.lastEdited)}</span></div>
         <header className="article-heading">
           <h1 data-testid="article-title">{article.metadata.title}</h1>
@@ -224,8 +233,10 @@ export default function ArticleView({ article }: { article: Article }) {
 
         {(articleNeighbors.previous || articleNeighbors.next) && <nav className="article-neighbors print:hidden" aria-label="Article navigation"><div>{articleNeighbors.previous && <Link href={`/wiki/${articleNeighbors.previous.slug}`}><span>Previous article</span><strong>← {articleNeighbors.previous.title}</strong></Link>}</div><div>{articleNeighbors.next && <Link href={`/wiki/${articleNeighbors.next.slug}`}><span>Next article</span><strong>{articleNeighbors.next.title} →</strong></Link>}</div></nav>}
 
-        {related.length > 0 && <section className="read-next print:hidden"><div className="section-eyebrow">Keep reading</div><h2>Read next</h2><div className="read-next-grid">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="read-next-card"><span className="text-xs uppercase tracking-wider text-muted-foreground">{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></section>}
+        {related.length > 0 && <details className="read-next read-next-mobile print:hidden"><summary><span><span className="section-eyebrow">Keep reading</span><strong>Related articles</strong></span><span className="read-next-summary-icon" aria-hidden="true">＋</span></summary><div className="read-next-grid">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="read-next-card"><span className="text-xs uppercase tracking-wider text-muted-foreground">{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></details>}
       </article>
+
+      {related.length > 0 && <aside className="related-rail print:hidden" aria-label="Related articles"><div className="section-eyebrow">Keep reading</div><h2>Related articles</h2><div className="related-rail-list">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="related-rail-card"><span>{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></aside>}
 
       <aside className="article-settings print:hidden">
         <div className="settings-panel"><p className="section-eyebrow">Reading settings</p><div className="settings-group"><span>Text size</span><div className="settings-options">{(['small', 'standard', 'large'] as const).map((size) => <button key={size} onClick={() => setFontSize(size)} className={fontSize === size ? 'selected' : ''}>{size === 'small' ? 'S' : size === 'standard' ? 'M' : 'L'}</button>)}</div></div><div className="settings-group"><span>Width</span><div className="settings-options">{(['standard', 'wide'] as const).map((width) => <button key={width} onClick={() => setContentWidth(width)} className={contentWidth === width ? 'selected' : ''}>{width === 'standard' ? 'Reading' : 'Wide'}</button>)}</div></div><div className="settings-group"><span>Theme</span><div className="settings-options"><button onClick={() => setTheme('light')} className={theme === 'light' ? 'selected' : ''}>Light</button><button onClick={() => setTheme('dark')} className={theme === 'dark' ? 'selected' : ''}>Dark</button></div></div></div>
