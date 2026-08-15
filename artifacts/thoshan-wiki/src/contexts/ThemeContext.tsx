@@ -18,11 +18,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     const stored = localStorage.getItem('wiki-theme');
     if (stored === 'dark' || stored === 'light') return stored;
-    // Check system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
+    // Dark is the intentional product default; users can opt into light mode.
+    return 'dark';
   });
 
   useEffect(() => {

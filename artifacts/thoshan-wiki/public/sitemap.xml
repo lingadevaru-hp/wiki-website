@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/wiki/home</loc></url>
+  <url><loc>/wiki/about</loc></url>
+  <url><loc>/wiki/foss-coin</loc></url>
+  <url><loc>/wiki/foss-coin-on-chain-verification</loc></url>
+  <url><loc>/wiki/foss-coin-how-it-was-built</loc></url>
+  <url><loc>/wiki/thoshan-flash</loc></url>
+  <url><loc>/wiki/homelab</loc></url>
+  <url><loc>/wiki/privacy-stack</loc></url>
+  <url><loc>/wiki/insurance-dapp</loc></url>
+  <url><loc>/wiki/local-pulse</loc></url>
+  <url><loc>/wiki/linux-setup</loc></url>
+  <url><loc>/wiki/fraud-detection</loc></url>
+  <url><loc>/wiki/learning-roadmap</loc></url>
+</urlset>

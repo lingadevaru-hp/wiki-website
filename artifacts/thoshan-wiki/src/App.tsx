@@ -57,6 +57,13 @@ function GlobalKeyboardHandler() {
         return;
       }
 
+      // Slash opens search when the user is not already typing.
+      if (e.key === '/' && !inInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        e.preventDefault();
+        openSearch();
+        return;
+      }
+
       // Ctrl+/ → toggle keyboard shortcuts cheatsheet
       if (e.key === '/' && (e.ctrlKey || e.metaKey) && !inInput) {
         e.preventDefault();
