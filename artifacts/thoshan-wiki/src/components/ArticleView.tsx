@@ -61,6 +61,8 @@ function getArticleText(article: Article) {
   return [article.metadata.title, article.lead, ...article.sections.flatMap((section) => [section.title, ...section.content.map((block) => block.content || '')])].join(' ');
 }
 
+const formatDate = (value: string) => new Date(value).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+
 export default function ArticleView({ article }: { article: Article }) {
   const { theme, setTheme } = useTheme();
   const { isBookmarked, toggleBookmark } = useBookmarks();
@@ -178,7 +180,7 @@ export default function ArticleView({ article }: { article: Article }) {
     <div className="article-layout">
       <div className="reading-progress" aria-label={`Article reading progress: ${Math.round(scrollProgress)} percent`} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(scrollProgress)}><span style={{ width: `${scrollProgress}%` }} /><b className={scrollProgress > 4 ? 'is-visible' : ''}>{Math.round(scrollProgress)}%</b></div>
       <article ref={articleRef} className={`article-reader-content ${fontClass} ${widthClass}`}>
-        <div className="article-kicker"><span style={{ color: categoryColors[article.metadata.category] || '#3366CC' }}>{article.metadata.category}</span><span>{readingTime} min read</span><span>Updated {new Date(article.metadata.lastEdited).toLocaleDateString()}</span></div>
+        <div className="article-kicker"><span style={{ color: categoryColors[article.metadata.category] || '#3366CC' }}>{article.metadata.category}</span><span>{readingTime} min read</span><span>Updated {formatDate(article.metadata.lastEdited)}</span></div>
         <header className="article-heading">
           <h1 data-testid="article-title">{article.metadata.title}</h1>
           <p className="article-dek">A focused guide to the ideas, systems, and work behind this page.</p>
