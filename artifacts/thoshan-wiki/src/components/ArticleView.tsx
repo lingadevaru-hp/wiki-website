@@ -8,7 +8,6 @@ import {
   ExternalLink,
   Github,
   Printer,
-  Quote,
   Share2,
   Tag,
 } from 'lucide-react';
@@ -60,6 +59,11 @@ function calculateReadingTime(article: Article) {
 
 function getArticleText(article: Article) {
   return [article.metadata.title, article.lead, ...article.sections.flatMap((section) => [section.title, ...section.content.map((block) => block.content || '')])].join(' ');
+}
+
+function getArticleDek(article: Article) {
+  if (article.metadata.slug === 'foss-coin') return 'A transparent guide to the crypto project I created, its systems, and the work behind it.';
+  return 'A focused guide to the ideas, systems, and work behind this page.';
 }
 
 const formatDate = (value: string) => new Date(value).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
@@ -156,6 +160,8 @@ export default function ArticleView({ article }: { article: Article }) {
       return { slug, title: entry?.title || fallback?.title || slug.replace(/-/g, ' '), excerpt: entry?.excerpt || fallback?.excerpt, category: entry?.category || article.metadata.category };
     });
   }, [allArticles, article.metadata.category, article.metadata.slug, article.parentArticle, article.subArticles, parentArticle?.slug]);
+  const [openRail, setOpenRail] = useState<'pages' | 'suggested' | null>(null);
+  useEffect(() => { setOpenRail(projectPages.length > 0 ? 'pages' : 'suggested'); }, [article.metadata.slug, projectPages.length]);
 
   const articleNeighbors = useMemo(() => {
     const readable = allArticles.filter((entry) => !entry.hiddenFromSearch && !entry.isSubArticle);
@@ -204,7 +210,7 @@ export default function ArticleView({ article }: { article: Article }) {
         <div className="article-kicker"><span style={{ color: categoryColors[article.metadata.category] || '#3366CC' }}>{article.metadata.category}</span><span>{readingTime} min read</span><span>Updated {formatDate(article.metadata.lastEdited)}</span></div>
         <header className="article-heading">
           <h1 data-testid="article-title">{article.metadata.title}</h1>
-          <p className="article-dek">A focused guide to the ideas, systems, and work behind this page.</p>
+          <p className="article-dek">{getArticleDek(article)}</p>
           <div className="article-actions print:hidden">
             <ArticleAudioReader title={article.metadata.title} text={getArticleText(article)} />
             {article.githubButton && <a href={article.githubButton.url} target="_blank" rel="noopener noreferrer" className="action-button article-top-link print:hidden" aria-label="Open GitHub repository"><Github size={16} /><span className="hidden sm:inline">GitHub</span></a>}
@@ -213,7 +219,6 @@ export default function ArticleView({ article }: { article: Article }) {
               {bookmarked ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}<span className="hidden sm:inline">{bookmarked ? 'Saved' : 'Save'}</span>
             </button>
             <button type="button" className="action-button" onClick={() => copy(window.location.href, 'Link copied')} aria-label="Copy article link" data-testid="button-copy-link"><Copy size={16} /><span className="hidden sm:inline">Copy link</span></button>
-            <button type="button" className="action-button" onClick={() => copy(`Thoshan's Wiki — ${article.metadata.title} — ${window.location.href}`, 'Citation copied')} aria-label="Copy citation" data-testid="button-cite"><Quote size={16} /><span className="hidden sm:inline">Cite</span></button>
             <button type="button" className="action-button" onClick={shareArticle} aria-label="Share article" data-testid="button-share"><Share2 size={16} /><span className="hidden sm:inline">Share</span></button>
             <button type="button" className="action-button ml-auto" onClick={() => window.print()} aria-label="Print article" data-testid="button-print"><Printer size={16} /><span className="hidden sm:inline">Print</span></button>
           </div>
@@ -244,7 +249,10 @@ export default function ArticleView({ article }: { article: Article }) {
         {related.length > 0 && <section className="read-next print:hidden"><div className="section-eyebrow">Keep reading</div><h2>Recommended articles</h2><div className="read-next-grid">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="read-next-card"><span className="text-xs uppercase tracking-wider text-muted-foreground">{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></section>}
       </article>
 
-      {projectPages.length > 0 && <aside className="related-rail print:hidden" aria-label="Related pages"><div className="section-eyebrow">Continue within this project</div><h2>Related pages</h2><div className="related-rail-list">{projectPages.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="related-rail-card"><span>{item.category}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div></aside>}
+      <aside className="related-rail print:hidden" aria-label="Article navigation">
+        {projectPages.length > 0 && <section className="rail-panel"><button type="button" className="rail-toggle" aria-expanded={openRail === 'pages'} onClick={() => setOpenRail(openRail === 'pages' ? null : 'pages')}><span><span className="section-eyebrow">Continue within this project</span><strong>Related pages</strong></span><span className="read-next-summary-icon" aria-hidden="true">{openRail === 'pages' ? '−' : '+'}</span></button>{openRail === 'pages' && <div className="related-rail-list">{projectPages.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="related-rail-card"><span>{item.category}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div>}</section>}
+        {related.length > 0 && <section className="rail-panel"><button type="button" className="rail-toggle" aria-expanded={openRail === 'suggested'} onClick={() => setOpenRail(openRail === 'suggested' ? null : 'suggested')}><span><span className="section-eyebrow">Keep reading</span><strong>Suggested articles</strong></span><span className="read-next-summary-icon" aria-hidden="true">{openRail === 'suggested' ? '−' : '+'}</span></button>{openRail === 'suggested' && <div className="related-rail-list">{related.map((item) => <Link key={item.slug} href={`/wiki/${item.slug}`} className="related-rail-card"><span>{item.category || 'Article'}</span><strong>{item.title}</strong>{item.excerpt && <small>{item.excerpt}</small>}</Link>)}</div>}</section>}
+      </aside>
 
       <aside className="article-settings print:hidden">
         <div className="settings-panel"><p className="section-eyebrow">Reading settings</p><div className="settings-group"><span>Text size</span><div className="settings-options">{(['small', 'standard', 'large'] as const).map((size) => <button key={size} onClick={() => setFontSize(size)} className={fontSize === size ? 'selected' : ''}>{size === 'small' ? 'S' : size === 'standard' ? 'M' : 'L'}</button>)}</div></div><div className="settings-group"><span>Width</span><div className="settings-options">{(['standard', 'wide'] as const).map((width) => <button key={width} onClick={() => setContentWidth(width)} className={contentWidth === width ? 'selected' : ''}>{width === 'standard' ? 'Reading' : 'Wide'}</button>)}</div></div><div className="settings-group"><span>Theme</span><div className="settings-options"><button onClick={() => setTheme('light')} className={theme === 'light' ? 'selected' : ''}>Light</button><button onClick={() => setTheme('dark')} className={theme === 'dark' ? 'selected' : ''}>Dark</button></div></div></div>
