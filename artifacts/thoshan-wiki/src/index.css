@@ -604,6 +604,10 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 .audio-skip, .audio-rate, .audio-collapse { min-height: 30px; min-width: 30px; }
 .audio-rate:hover, .audio-collapse:hover, .audio-reader-options button:hover, .audio-reader-options button.audio-option-active { color: var(--audio-accent); border-color: hsl(38 72% 60% / .55); }
 .reader-trigger.is-playing { color: var(--audio-accent); border-color: hsl(38 72% 60% / .45); background: hsl(38 72% 60% / .12); box-shadow: 0 0 0 3px hsl(38 72% 60% / .08); }
+.reader-trigger-signal { display: inline-flex; align-items: end; gap: 1px; width: 7px; height: 10px; }
+.reader-trigger-signal i { display: block; width: 1px; height: 3px; border-radius: 2px; background: currentColor; animation: audio-bar .55s ease-in-out infinite alternate; }
+.reader-trigger-signal i:nth-child(2) { height: 7px; animation-delay: .12s; }
+.reader-trigger-signal i:nth-child(3) { height: 5px; animation-delay: .22s; }
 .audio-equalizer { position: absolute; right: -2px; bottom: -2px; display: flex; align-items: end; gap: 1px; width: 8px; height: 8px; padding: 2px; border-radius: 4px; background: hsl(var(--card)); }
 .audio-equalizer i { display: block; width: 1px; height: 2px; border-radius: 2px; background: var(--audio-accent); }
 .audio-equalizer.is-active i:nth-child(1) { animation: audio-bar .65s ease-in-out infinite alternate; }
@@ -612,12 +616,21 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 @keyframes audio-bar { to { height: 8px; opacity: .55; } }
 .audio-reader-mini { border-color: hsl(38 72% 60% / .45); }
 .landing-main { position: relative; isolation: isolate; }
-.landing-main > .space-field { position: absolute; inset: 0; z-index: 0; height: 100%; opacity: .68; mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 98%); }
+.landing-main > .space-field { position: fixed; inset: 0; z-index: 0; height: 100vh; opacity: .68; mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 98%); }
 .landing-main > .landing-hero, .landing-main > .landing-explore, .landing-main > .landing-project-capture { position: relative; z-index: 1; }
 .landing-main > .space-field i { background: hsl(var(--foreground) / .82); }
 .landing-main > .space-field i:nth-child(3n) { background: hsl(38 72% 70% / .9); box-shadow: 0 0 6px hsl(38 72% 60% / .34); }
 .landing-main > .space-field i:nth-child(4n) { width: 2px !important; height: 2px !important; box-shadow: 0 0 8px hsl(var(--foreground) / .55); }
 .landing-main > .space-field i:nth-child(7n) { width: 3px !important; height: 3px !important; box-shadow: 0 0 12px hsl(38 72% 60% / .66); }
+.space-field--landing .space-orbit { position: absolute; left: 50%; top: 43%; width: min(76vw, 760px); aspect-ratio: 1.75; border: 1px solid hsl(var(--foreground) / .14); border-radius: 50%; transform: translate(-50%, -50%) rotate(-14deg); }
+.space-field--landing .space-orbit-one { animation: orbit-breathe 8s ease-in-out infinite; }
+.space-field--landing .space-orbit-two { width: min(58vw, 570px); transform: translate(-50%, -50%) rotate(34deg); border-color: hsl(38 72% 60% / .16); animation: orbit-breathe 10s 1s ease-in-out infinite reverse; }
+.space-field--landing .space-satellite { position: absolute; left: 50%; top: -4px; display: block; width: 9px; height: 9px; border: 1px solid hsl(38 82% 72% / .95); border-radius: 50%; background: hsl(38 82% 72% / .8); box-shadow: 0 0 16px hsl(38 72% 60% / .8); transform: translateX(-50%); animation: satellite-glint 2.8s ease-in-out infinite; }
+.space-field--landing .space-orbit-two .space-satellite { width: 6px; height: 6px; top: auto; bottom: -3px; background: hsl(var(--foreground) / .8); border-color: hsl(var(--foreground) / .8); animation-delay: 1s; }
+.space-falling-star { position: absolute; left: 18%; top: 12%; width: 150px; height: 2px; border-radius: 999px; background: linear-gradient(90deg, transparent, hsl(38 82% 72% / .95), transparent); box-shadow: 0 0 16px hsl(38 72% 60% / .75); opacity: 0; transform: rotate(34deg); animation: landing-falling-star 12s 2s ease-in-out infinite; }
+@keyframes orbit-breathe { 0%, 100% { opacity: .5; transform: translate(-50%, -50%) rotate(-14deg) scale(.98); } 50% { opacity: .9; transform: translate(-50%, -50%) rotate(-10deg) scale(1.02); } }
+@keyframes satellite-glint { 0%, 100% { opacity: .55; transform: translateX(-50%) scale(.8); } 50% { opacity: 1; transform: translateX(-50%) scale(1.25); } }
+@keyframes landing-falling-star { 0%, 54% { opacity: 0; transform: translate3d(-80px, -50px, 0) rotate(34deg); } 60% { opacity: 1; } 72% { opacity: .9; } 83%, 100% { opacity: 0; transform: translate3d(520px, 350px, 0) rotate(34deg); } }
 .landing-main > .space-field::before { width: 2px; height: 2px; top: 12%; right: 18%; background: hsl(38 85% 76%); border-radius: 50%; box-shadow: -240px 210px 0 hsl(var(--foreground) / .7), -540px 390px 0 hsl(38 72% 70% / .72), -90px 570px 0 hsl(var(--foreground) / .62), -780px 120px 0 hsl(var(--foreground) / .55); transform: none; animation: landing-star-drift 11s linear infinite; }
 .landing-main > .space-field::after { content: ''; position: absolute; width: 210px; height: 2px; top: 19%; left: 9%; border-radius: 999px; background: linear-gradient(90deg, transparent, hsl(38 82% 72% / .9), transparent); box-shadow: 0 0 14px hsl(38 72% 60% / .7); transform: rotate(24deg); animation: landing-comet 13s ease-in-out infinite; }
 @keyframes landing-star-drift { 0% { opacity: .25; transform: translate3d(30px, -30px, 0); } 18% { opacity: 1; } 72% { opacity: .72; } 100% { opacity: .2; transform: translate3d(-170px, 430px, 0); } }
@@ -627,7 +640,7 @@ img, iframe, table, pre { max-width: 100%; }.wiki-text, .article-lead, .article-
 .landing-project-capture p:not(.section-eyebrow) { max-width: 340px; color: #94a3b5; line-height: 1.6; font-size: 14px; }
 .landing-capture-button { border: 1px solid #303b4b; border-radius: 18px; box-shadow: 0 16px 48px #0005; }
 @media (max-width: 640px) { .audio-reader { left: 50%; right: auto; transform: translateX(-50%); width: calc(100vw - 18px); }.audio-reader-inner { padding: 9px 10px 10px; }.audio-reader-now { max-width: calc(100vw - 140px); }.audio-reader-controls { gap: 8px; }.landing-project-capture { grid-template-columns: 1fr; gap: 26px; padding: 0 18px 88px; }.landing-project-capture h2 { font-size: 2rem; } }
-@media (prefers-reduced-motion: reduce) { .audio-equalizer i, .landing-main > .space-field::after { animation: none; }.foss-project-capture img, .landing-capture-button img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .audio-equalizer i, .reader-trigger-signal i, .landing-main > .space-field::after, .space-field--landing .space-orbit, .space-field--landing .space-satellite, .space-falling-star { animation: none; }.foss-project-capture img, .landing-capture-button img { transition: none; } }
 
 @media print {
   header,
