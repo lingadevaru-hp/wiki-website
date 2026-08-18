@@ -50,9 +50,10 @@ const HTML_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate"
 };
 
-const TTS_MODEL = "@cf/myshell-ai/melotts";
+const TTS_MODEL = "xai/grok-tts";
 const TTS_LANG = "en";
 const MAX_TTS_CHARS = 2400;
+const TTS_VOICE = "rex";
 
 function getCookie(cookies: string, name: string): string | null {
   const match = cookies.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
@@ -123,21 +124,58 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
   const cached = await cache.match(cacheRequest);
   if (cached) return cached;
 
-  const result = await env.AI.run(TTS_MODEL, {
-    prompt: text,
-    lang: TTS_LANG,
-  });
+  try {
+    const result = await env.AI.run(TTS_MODEL, {
+      text,
+      language: TTS_LANG,
+      voice_id: TTS_VOICE,
+      output_format: {
+        codec: "mp3",
+        sample_rate: 44100,
+        bit_rate: 192000,
+      },
+    });
 
-  const headers = {
-    "Content-Type": "audio/mpeg",
-    "Cache-Control": "public, max-age=604800",
-    "X-TTS-Model": TTS_MODEL,
-  };
-  const response = audioResponseFromResult(result, headers);
-  if (response.ok && response.body) {
-    await cache.put(cacheRequest, response.clone());
+    let response: Response;
+    if (result && typeof result === "object" && "audio" in result && typeof (result as { audio?: unknown }).audio === "string") {
+      const audioUrl = (result as { audio: string }).audio;
+      const audioResponse = await fetch(audioUrl);
+      if (!audioResponse.ok) {
+        throw new Error(`Failed to fetch TTS audio: ${audioResponse.status}`);
+      }
+      response = new Response(audioResponse.body, {
+        status: audioResponse.status,
+        headers: audioResponse.headers,
+      });
+    } else {
+      const headers = {
+        "Content-Type": "audio/mpeg",
+        "Cache-Control": "public, max-age=604800",
+        "X-TTS-Model": TTS_MODEL,
+      };
+      response = audioResponseFromResult(result, headers);
+    }
+
+    const headers = {
+      "Content-Type": "audio/mpeg",
+      "Cache-Control": "public, max-age=604800",
+      "X-TTS-Model": TTS_MODEL,
+    };
+    response = audioResponseFromResult(response, headers);
+    if (response.ok && response.body) {
+      await cache.put(cacheRequest, response.clone());
+    }
+    return response;
+  } catch (error) {
+    return new Response(JSON.stringify({
+      error: "Text-to-speech generation failed",
+      detail: error instanceof Error ? error.message : String(error),
+      model: TTS_MODEL,
+    }), {
+      status: 502,
+      headers: { "Content-Type": "application/json" },
+    });
   }
-  return response;
 }
 
 export default {
