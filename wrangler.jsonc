@@ -8,6 +8,9 @@
     "not_found_handling": "single-page-application",
     "run_worker_first": true
   },
+  "ai": {
+    "binding": "AI"
+  },
   "vars": {
     "TURNSTILE_SITEKEY": "0x4AAAAAAENqS_v4DQqG_Ycd"
   },

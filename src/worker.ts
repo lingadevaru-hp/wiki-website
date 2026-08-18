@@ -50,14 +50,104 @@ const HTML_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate"
 };
 
+const TTS_MODEL = "@cf/myshell-ai/melotts";
+const TTS_LANG = "en";
+const MAX_TTS_CHARS = 2400;
+
 function getCookie(cookies: string, name: string): string | null {
   const match = cookies.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
   return match ? match[1] : null;
 }
 
+async function sha256(value: string): Promise<string> {
+  const data = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function audioResponseFromResult(result: unknown, headers: HeadersInit): Response {
+  if (result instanceof Response) {
+    const responseHeaders = new Headers(result.headers);
+    Object.entries(headers).forEach(([key, value]) => responseHeaders.set(key, value));
+    return new Response(result.body, { status: result.status, headers: responseHeaders });
+  }
+
+  if (result instanceof ReadableStream || result instanceof ArrayBuffer || result instanceof Blob) {
+    return new Response(result, { headers });
+  }
+
+  return new Response(JSON.stringify({ error: "Unexpected text-to-speech response" }), {
+    status: 502,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
+async function handleTextToSpeech(request: Request, env: any): Promise<Response> {
+  if (!env.AI) {
+    return new Response(JSON.stringify({ error: "Workers AI binding is not configured" }), {
+      status: 503,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  let payload: { text?: unknown };
+  try {
+    payload = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ error: "Expected JSON body" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const text = typeof payload.text === "string" ? payload.text.replace(/\s+/g, " ").trim() : "";
+  if (!text) {
+    return new Response(JSON.stringify({ error: "Text is required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+  if (text.length > MAX_TTS_CHARS) {
+    return new Response(JSON.stringify({ error: `Text segment is too long. Limit: ${MAX_TTS_CHARS} characters.` }), {
+      status: 413,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const cache = caches.default;
+  const key = await sha256(`${TTS_MODEL}:${TTS_LANG}:${text}`);
+  const cacheUrl = new URL(request.url);
+  cacheUrl.pathname = `/__tts_cache/${key}.mp3`;
+  cacheUrl.search = "";
+  const cacheRequest = new Request(cacheUrl.toString(), { method: "GET" });
+  const cached = await cache.match(cacheRequest);
+  if (cached) return cached;
+
+  const result = await env.AI.run(TTS_MODEL, {
+    prompt: text,
+    lang: TTS_LANG,
+  });
+
+  const headers = {
+    "Content-Type": "audio/mpeg",
+    "Cache-Control": "public, max-age=604800",
+    "X-TTS-Model": TTS_MODEL,
+  };
+  const response = audioResponseFromResult(result, headers);
+  if (response.ok && response.body) {
+    await cache.put(cacheRequest, response.clone());
+  }
+  return response;
+}
+
 export default {
   async fetch(request: Request, env: any): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/tts" && request.method === "POST") {
+      return handleTextToSpeech(request, env);
+    }
+
     const cookies = request.headers.get("Cookie") || "";
     const verified = getCookie(cookies, "turnstile-verified") === "true";
 
