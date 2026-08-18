@@ -20,33 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Preload FOSS Coin logo -->
     <link rel="preload" as="image" href="https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png" />
-    <script type="module" crossorigin src="/assets/index-DtrYn3he.js"></script>
+    <script type="module" crossorigin src="/assets/index-FWlYESHo.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Cx0laq8M.css">
   </head>
   <body>
     <div id="root"></div>
-<div id="tts-player" style="margin: 1rem 0;"><button id="tts-btn">🔊 Listen to this article</button><audio id="tts-audio" controls style="display:none; width:100%; margin-top:0.5rem;"></audio></div>
-<script>
-  const TTS_WORKER_URL = "https://article-tts.lingadevaru203.workers.dev";
-  const btn = document.getElementById("tts-btn");
-  const audio = document.getElementById("tts-audio");
-
-  btn.addEventListener("click", async () => {
-    const articleEl = document.querySelector("article") || document.body;
-    const text = articleEl.innerText.trim();
-    if (!text) return;
-
-    btn.disabled = true;
-    btn.textContent = "⏳ Generating audio…";
-
-    const url = TTS_WORKER_URL + "?text=" + encodeURIComponent(text) + "&lang=en";
-    audio.src = url;
-    audio.style.display = "block";
-    audio.play().catch(() => {});
-
-    btn.textContent = "🔊 Listen to this article";
-    btn.disabled = false;
-  });
-</script>
   </body>
 </html>

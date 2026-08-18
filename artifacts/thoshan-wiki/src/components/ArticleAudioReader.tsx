@@ -51,29 +51,6 @@ function splitIntoSegments(text: string) {
   return segments.length ? segments : [text.trim()];
 }
 
-function browserSpeechAvailable() {
-  return typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
-}
-
-function pickBrowserVoice() {
-  if (!browserSpeechAvailable()) return null;
-  const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) return null;
-
-  const score = (voice: SpeechSynthesisVoice) => {
-    const name = voice.name.toLowerCase();
-    const lang = voice.lang.toLowerCase();
-    if (lang.includes('en-in') || name.includes('india')) return 100;
-    if (lang.includes('hi-in')) return 95;
-    if (lang.includes('en-gb')) return 80;
-    if (lang.startsWith('en') && (name.includes('male') || name.includes('man'))) return 70;
-    if (lang.startsWith('en')) return 50;
-    return 0;
-  };
-
-  return voices.slice().sort((left, right) => score(right) - score(left))[0] ?? null;
-}
-
 export default function ArticleAudioReader({ title, text }: ArticleAudioReaderProps) {
   const segments = useMemo(() => splitIntoSegments(text), [text]);
   const wordCount = useMemo(() => text.trim().split(/\s+/).filter(Boolean).length, [text]);
@@ -89,8 +66,6 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   const segmentOffsetRef = useRef(0);
   const activeSegmentRef = useRef(0);
   const playTokenRef = useRef(0);
-  const browserVoiceRef = useRef<SpeechSynthesisUtterance | null>(null);
-  const browserFallbackRef = useRef(false);
 
   const playing = mode === 'playing' || mode === 'loading';
   const segmentShare = segments.length ? segmentIndex / segments.length : 0;
@@ -121,16 +96,9 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     revokeAudioUrl();
   };
 
-  const stopBrowserVoice = () => {
-    browserFallbackRef.current = false;
-    browserVoiceRef.current = null;
-    window.speechSynthesis?.cancel();
-  };
-
   const resetPlayback = () => {
     playTokenRef.current += 1;
     stopAudio();
-    stopBrowserVoice();
   };
 
   const clearReader = () => {
@@ -146,45 +114,6 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   useEffect(() => () => {
     resetPlayback();
   }, []);
-
-  const playBrowserVoice = (index: number) => {
-    if (!browserSpeechAvailable() || !segments[index]) {
-      setMode('error');
-      setStatus('Voice reading is unavailable in this browser');
-      return;
-    }
-
-    resetPlayback();
-    browserFallbackRef.current = true;
-    setOpen(true);
-    setMode('playing');
-    setSegmentIndex(index);
-    setStatus('Cloudflare voice unavailable. Reading with browser voice.');
-
-    const utterance = new SpeechSynthesisUtterance(segments[index]);
-    utterance.rate = 0.96;
-    utterance.pitch = 0.95;
-    const browserVoice = pickBrowserVoice();
-    if (browserVoice) utterance.voice = browserVoice;
-    utterance.onend = () => {
-      if (!browserFallbackRef.current) return;
-      if (index < segments.length - 1) {
-        playBrowserVoice(index + 1);
-      } else {
-        browserFallbackRef.current = false;
-        setMode('idle');
-        setSegmentTime(0);
-        setStatus('Finished reading');
-      }
-    };
-    utterance.onerror = () => {
-      browserFallbackRef.current = false;
-      setMode('error');
-      setStatus('Voice reading stopped. Try Listen again.');
-    };
-    browserVoiceRef.current = utterance;
-    window.speechSynthesis.speak(utterance);
-  };
 
   const finishCloudflarePlayback = (token: number) => {
     if (token !== playTokenRef.current) return;
@@ -260,8 +189,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
         if (token !== playTokenRef.current) return;
         stopAudio();
         setMode('error');
-        setStatus('Cloudflare voice unavailable. Switching to browser voice.');
-        playBrowserVoice(index);
+        setStatus('Cloudflare voice could not be played. Try Listen again.');
       };
       audio.onended = () => {
         if (token !== playTokenRef.current) return;
@@ -281,8 +209,8 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     } catch (error) {
       if (token !== playTokenRef.current) return;
       stopAudio();
-      setStatus('Cloudflare voice unavailable. Switching to browser voice.');
-      playBrowserVoice(index);
+      setMode('error');
+      setStatus('Cloudflare voice could not be rendered. Try Listen again.');
     }
   };
 
@@ -296,14 +224,12 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
         }
       }).catch(() => {
         setMode('error');
-        setStatus('Cloudflare voice unavailable. Switching to browser voice.');
-        playBrowserVoice(activeSegmentRef.current);
+        setStatus('Cloudflare voice could not be played. Try Listen again.');
       });
       return;
     }
     const token = ++playTokenRef.current;
     stopAudio();
-    stopBrowserVoice();
     setOpen(true);
     void playCloudflareVoice(segmentIndex, token, 0);
   };
@@ -322,12 +248,6 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   };
 
   const skip = (seconds: number) => {
-    if (browserFallbackRef.current) {
-      const nextIndex = Math.min(segments.length - 1, Math.max(0, activeSegmentRef.current + (seconds > 0 ? 1 : -1)));
-      playBrowserVoice(nextIndex);
-      return;
-    }
-
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -351,7 +271,6 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     if (targetIndex !== activeSegmentRef.current) {
       const token = ++playTokenRef.current;
       stopAudio();
-      stopBrowserVoice();
       void playCloudflareVoice(targetIndex, token, 0);
       return;
     }
@@ -398,7 +317,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
             <div className="audio-reader-heading">
               <div className="audio-reader-icon"><Mic size={16} /><span className={`audio-equalizer ${playing ? 'is-active' : ''}`} aria-hidden="true"><i /><i /><i /></span></div>
               <div className="min-w-0">
-                <p className="audio-reader-kicker">Cloudflare TTS · Grok TTS</p>
+                <p className="audio-reader-kicker">Cloudflare TTS · MeloTTS</p>
                 <p className="audio-reader-title">{title}</p>
                 <p className="audio-reader-now"><i /><span>{status} · Section {segmentIndex + 1} of {segments.length}</span></p>
               </div>

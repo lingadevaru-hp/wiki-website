@@ -50,20 +50,14 @@ const HTML_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate"
 };
 
-const TTS_MODEL = "xai/grok-tts";
+// Cloudflare-hosted Workers AI model. It is eligible for the daily free allocation.
+const TTS_MODEL = "@cf/deepgram/aura-1";
 const TTS_LANG = "en";
 const MAX_TTS_CHARS = 2400;
-const TTS_VOICE = "rex";
 
 function getCookie(cookies: string, name: string): string | null {
   const match = cookies.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
   return match ? match[1] : null;
-}
-
-async function sha256(value: string): Promise<string> {
-  const data = new TextEncoder().encode(value);
-  const digest = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 function audioResponseFromResult(result: unknown, headers: HeadersInit): Response {
@@ -115,57 +109,15 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
     });
   }
 
-  const cache = caches.default;
-  const key = await sha256(`${TTS_MODEL}:${TTS_LANG}:${text}`);
-  const cacheUrl = new URL(request.url);
-  cacheUrl.pathname = `/__tts_cache/${key}.mp3`;
-  cacheUrl.search = "";
-  const cacheRequest = new Request(cacheUrl.toString(), { method: "GET" });
-  const cached = await cache.match(cacheRequest);
-  if (cached) return cached;
-
   try {
-    const result = await env.AI.run(TTS_MODEL, {
-      text,
-      language: TTS_LANG,
-      voice_id: TTS_VOICE,
-      output_format: {
-        codec: "mp3",
-        sample_rate: 44100,
-        bit_rate: 192000,
-      },
-    });
-
-    let response: Response;
-    if (result && typeof result === "object" && "audio" in result && typeof (result as { audio?: unknown }).audio === "string") {
-      const audioUrl = (result as { audio: string }).audio;
-      const audioResponse = await fetch(audioUrl);
-      if (!audioResponse.ok) {
-        throw new Error(`Failed to fetch TTS audio: ${audioResponse.status}`);
-      }
-      response = new Response(audioResponse.body, {
-        status: audioResponse.status,
-        headers: audioResponse.headers,
-      });
-    } else {
-      const headers = {
-        "Content-Type": "audio/mpeg",
-        "Cache-Control": "public, max-age=604800",
-        "X-TTS-Model": TTS_MODEL,
-      };
-      response = audioResponseFromResult(result, headers);
-    }
+    const result = await env.AI.run(TTS_MODEL, { text: text, speaker: "luna" }, { returnRawResponse: true });
 
     const headers = {
       "Content-Type": "audio/mpeg",
-      "Cache-Control": "public, max-age=604800",
+      "Cache-Control": "no-store",
       "X-TTS-Model": TTS_MODEL,
     };
-    response = audioResponseFromResult(response, headers);
-    if (response.ok && response.body) {
-      await cache.put(cacheRequest, response.clone());
-    }
-    return response;
+    return audioResponseFromResult(result, headers);
   } catch (error) {
     return new Response(JSON.stringify({
       error: "Text-to-speech generation failed",
@@ -188,8 +140,10 @@ export default {
 
     const cookies = request.headers.get("Cookie") || "";
     const verified = getCookie(cookies, "turnstile-verified") === "true";
+    const debugVerified = verified ? "true" : "false";
 
     if (verified) {
+      return new Response(await env.ASSETS.fetch(request), { headers: { "X-Debug-Verified": debugVerified } });
       return env.ASSETS.fetch(request);
     }
 
