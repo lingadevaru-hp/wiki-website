@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import {
   ChevronDown,
   Loader2,
@@ -71,9 +71,7 @@ function pickBrowserVoice() {
     return 0;
   };
 
-  return voices
-    .slice()
-    .sort((left, right) => score(right) - score(left))[0] ?? null;
+  return voices.slice().sort((left, right) => score(right) - score(left))[0] ?? null;
 }
 
 export default function ArticleAudioReader({ title, text }: ArticleAudioReaderProps) {
@@ -87,10 +85,12 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   const [segmentTime, setSegmentTime] = useState(0);
   const [status, setStatus] = useState('Ready to render article voice');
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const objectUrlRef = useRef<string | null>(null);
-  const abortRef = useRef<AbortController | null>(null);
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
-  const fallbackActiveRef = useRef(false);
+  const audioUrlRef = useRef<string | null>(null);
+  const segmentOffsetRef = useRef(0);
+  const activeSegmentRef = useRef(0);
+  const playTokenRef = useRef(0);
+  const browserVoiceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const browserFallbackRef = useRef(false);
 
   const playing = mode === 'playing' || mode === 'loading';
   const segmentShare = segments.length ? segmentIndex / segments.length : 0;
@@ -98,43 +98,64 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
   const progress = Math.min(1, Math.max(0, segmentShare + currentSegmentProgress / Math.max(1, segments.length)));
   const currentTime = estimatedDuration * progress;
 
-  const clearObjectUrl = () => {
-    if (objectUrlRef.current) {
-      URL.revokeObjectURL(objectUrlRef.current);
-      objectUrlRef.current = null;
+  const revokeAudioUrl = () => {
+    if (audioUrlRef.current) {
+      URL.revokeObjectURL(audioUrlRef.current);
+      audioUrlRef.current = null;
     }
-  };
-
-  const stopBrowserSpeech = () => {
-    fallbackActiveRef.current = false;
-    window.speechSynthesis?.cancel();
-    utteranceRef.current = null;
   };
 
   const stopAudio = () => {
-    abortRef.current?.abort();
-    abortRef.current = null;
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.removeAttribute('src');
-      audioRef.current.load();
+    const audio = audioRef.current;
+    if (audio) {
+      audio.onended = null;
+      audio.onloadedmetadata = null;
+      audio.ontimeupdate = null;
+      audio.onerror = null;
+      audio.onpause = null;
+      audio.onplaying = null;
+      audio.pause();
+      audio.src = '';
       audioRef.current = null;
     }
-    clearObjectUrl();
-    stopBrowserSpeech();
+    revokeAudioUrl();
   };
 
-  useEffect(() => () => stopAudio(), []);
+  const stopBrowserVoice = () => {
+    browserFallbackRef.current = false;
+    browserVoiceRef.current = null;
+    window.speechSynthesis?.cancel();
+  };
 
-  const playWithBrowserVoice = (index: number) => {
+  const resetPlayback = () => {
+    playTokenRef.current += 1;
+    stopAudio();
+    stopBrowserVoice();
+  };
+
+  const clearReader = () => {
+    resetPlayback();
+    segmentOffsetRef.current = 0;
+    setMode('idle');
+    setSegmentIndex(0);
+    setSegmentTime(0);
+    setSegmentDuration(0);
+    setStatus('Ready to render article voice');
+  };
+
+  useEffect(() => () => {
+    resetPlayback();
+  }, []);
+
+  const playBrowserVoice = (index: number) => {
     if (!browserSpeechAvailable() || !segments[index]) {
       setMode('error');
       setStatus('Voice reading is unavailable in this browser');
       return;
     }
 
-    stopAudio();
-    fallbackActiveRef.current = true;
+    resetPlayback();
+    browserFallbackRef.current = true;
     setOpen(true);
     setMode('playing');
     setSegmentIndex(index);
@@ -146,30 +167,39 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     const browserVoice = pickBrowserVoice();
     if (browserVoice) utterance.voice = browserVoice;
     utterance.onend = () => {
-      if (!fallbackActiveRef.current) return;
+      if (!browserFallbackRef.current) return;
       if (index < segments.length - 1) {
-        playWithBrowserVoice(index + 1);
+        playBrowserVoice(index + 1);
       } else {
-        fallbackActiveRef.current = false;
+        browserFallbackRef.current = false;
         setMode('idle');
         setSegmentTime(0);
         setStatus('Finished reading');
       }
     };
     utterance.onerror = () => {
-      fallbackActiveRef.current = false;
+      browserFallbackRef.current = false;
       setMode('error');
       setStatus('Voice reading stopped. Try Listen again.');
     };
-    utteranceRef.current = utterance;
+    browserVoiceRef.current = utterance;
     window.speechSynthesis.speak(utterance);
   };
 
-  const loadAndPlaySegment = async (index: number, startAt = 0) => {
+  const finishCloudflarePlayback = (token: number) => {
+    if (token !== playTokenRef.current) return;
+    stopAudio();
+    setMode('idle');
+    setSegmentTime(0);
+    setSegmentDuration(0);
+    setStatus('Finished reading');
+  };
+
+  const playCloudflareVoice = async (index: number, token = playTokenRef.current, startAt = 0) => {
     const segment = segments[index];
     if (!segment) return;
 
-    stopAudio();
+    if (token !== playTokenRef.current) return;
     setOpen(true);
     setMode('loading');
     setSegmentIndex(index);
@@ -177,131 +207,162 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
     setSegmentDuration(0);
     setStatus(index === 0 ? 'Sending article text to Cloudflare' : 'Sending next section to Cloudflare');
 
-    const controller = new AbortController();
-    abortRef.current = controller;
-
     try {
       const response = await fetch('/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: segment }),
-        signal: controller.signal,
       });
 
-      if (!response.ok) throw new Error(`TTS request failed: ${response.status}`);
+      if (!response.ok) {
+        throw new Error(`TTS request failed: ${response.status}`);
+      }
 
       setStatus('Rendering voice audio with Workers AI');
       const blob = await response.blob();
       setStatus('Receiving MP3 audio from Cloudflare');
+
+      if (token !== playTokenRef.current) return;
+      stopAudio();
       const url = URL.createObjectURL(blob);
-      objectUrlRef.current = url;
-
+      audioUrlRef.current = url;
       const audio = new Audio(url);
-      audioRef.current = audio;
       audio.preload = 'auto';
-
-      audio.onloadedmetadata = () => {
-        setSegmentDuration(Number.isFinite(audio.duration) ? audio.duration : 0);
-        if (startAt > 0 && Number.isFinite(audio.duration)) {
-          audio.currentTime = Math.min(audio.duration - 0.25, startAt);
+      audioRef.current = audio;
+      activeSegmentRef.current = index;
+      segmentOffsetRef.current = Math.max(0, startAt);
+      const applyProgress = () => {
+        if (token !== playTokenRef.current) return;
+        setSegmentTime(Math.min(audio.currentTime, Number.isFinite(audio.duration) ? audio.duration : audio.currentTime));
+        if (Number.isFinite(audio.duration) && audio.duration > 0) {
+          setSegmentDuration(audio.duration);
         }
       };
-      audio.ontimeupdate = () => {
-        setSegmentTime(audio.currentTime || 0);
+
+      audio.onloadedmetadata = () => {
+        if (token !== playTokenRef.current) return;
         setSegmentDuration(Number.isFinite(audio.duration) ? audio.duration : 0);
+        if (startAt > 0 && Number.isFinite(audio.duration)) {
+          audio.currentTime = Math.min(startAt, Math.max(0, audio.duration - 0.05));
+        }
       };
-      audio.onplay = () => {
+      audio.ontimeupdate = applyProgress;
+      audio.onplaying = () => {
+        if (token !== playTokenRef.current) return;
         setMode('playing');
         setStatus('Reading with Cloudflare voice');
       };
       audio.onpause = () => {
-        if (audio.ended) return;
-        setMode((current) => (current === 'playing' ? 'paused' : current));
-      };
-      audio.onended = () => {
-        clearObjectUrl();
-        if (index < segments.length - 1) {
-          void loadAndPlaySegment(index + 1);
-        } else {
-          setMode('idle');
-          setSegmentTime(0);
-          setStatus('Finished reading');
-        }
+        if (token !== playTokenRef.current) return;
+        setSegmentTime(audio.currentTime);
       };
       audio.onerror = () => {
+        if (token !== playTokenRef.current) return;
+        stopAudio();
         setMode('error');
-        setStatus('Audio playback failed. Switching to browser voice.');
-        playWithBrowserVoice(index);
+        setStatus('Cloudflare voice unavailable. Switching to browser voice.');
+        playBrowserVoice(index);
+      };
+      audio.onended = () => {
+        if (token !== playTokenRef.current) return;
+        stopAudio();
+        setSegmentTime(Number.isFinite(audio.duration) ? audio.duration : 0);
+        if (index < segments.length - 1) {
+          void playCloudflareVoice(index + 1, token, 0);
+        } else {
+          finishCloudflarePlayback(token);
+        }
       };
 
       await audio.play();
+      if (token !== playTokenRef.current) return;
+      setMode('playing');
+      setStatus('Reading with Cloudflare voice');
     } catch (error) {
-      if (controller.signal.aborted) return;
-      setMode('error');
+      if (token !== playTokenRef.current) return;
+      stopAudio();
       setStatus('Cloudflare voice unavailable. Switching to browser voice.');
-      playWithBrowserVoice(index);
+      playBrowserVoice(index);
     }
   };
 
   const play = () => {
-    if (audioRef.current && mode === 'paused') {
-      void audioRef.current.play();
+    if (mode === 'paused' && audioRef.current) {
+      const token = playTokenRef.current;
+      void audioRef.current.play().then(() => {
+        if (token === playTokenRef.current) {
+          setMode('playing');
+          setStatus('Reading with Cloudflare voice');
+        }
+      }).catch(() => {
+        setMode('error');
+        setStatus('Cloudflare voice unavailable. Switching to browser voice.');
+        playBrowserVoice(activeSegmentRef.current);
+      });
       return;
     }
-    if (fallbackActiveRef.current && mode === 'paused') {
-      window.speechSynthesis?.resume();
-      setMode('playing');
-      return;
-    }
-    void loadAndPlaySegment(segmentIndex);
+    const token = ++playTokenRef.current;
+    stopAudio();
+    stopBrowserVoice();
+    setOpen(true);
+    void playCloudflareVoice(segmentIndex, token, 0);
   };
 
   const pause = () => {
-    if (audioRef.current) audioRef.current.pause();
-    if (fallbackActiveRef.current) window.speechSynthesis?.pause();
+    const audio = audioRef.current;
+    if (!audio) return;
+    segmentOffsetRef.current = Math.max(0, audio.currentTime);
+    audio.pause();
     setMode('paused');
     setStatus('Paused');
   };
 
   const stop = () => {
-    stopAudio();
-    setMode('idle');
-    setSegmentIndex(0);
-    setSegmentTime(0);
-    setSegmentDuration(0);
-    setStatus('Ready to render article voice');
+    clearReader();
   };
 
   const skip = (seconds: number) => {
-    if (fallbackActiveRef.current) {
-      const nextIndex = Math.min(segments.length - 1, Math.max(0, segmentIndex + (seconds > 0 ? 1 : -1)));
-      playWithBrowserVoice(nextIndex);
+    if (browserFallbackRef.current) {
+      const nextIndex = Math.min(segments.length - 1, Math.max(0, activeSegmentRef.current + (seconds > 0 ? 1 : -1)));
+      playBrowserVoice(nextIndex);
       return;
     }
 
     const audio = audioRef.current;
-    if (!audio || !Number.isFinite(audio.duration)) return;
-    const nextTime = audio.currentTime + seconds;
-    if (nextTime < 0 && segmentIndex > 0) {
-      void loadAndPlaySegment(segmentIndex - 1);
-    } else if (nextTime >= audio.duration && segmentIndex < segments.length - 1) {
-      void loadAndPlaySegment(segmentIndex + 1);
-    } else {
-      audio.currentTime = Math.min(Math.max(0, nextTime), Math.max(0, audio.duration - 0.1));
+    if (!audio) return;
+
+    const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+    const nextOffset = Math.max(0, Math.min(duration || Number.MAX_SAFE_INTEGER, audio.currentTime + seconds));
+    if (duration && nextOffset >= duration - 0.05) {
+      if (activeSegmentRef.current < segments.length - 1) {
+        const token = playTokenRef.current;
+        void playCloudflareVoice(activeSegmentRef.current + 1, token, 0);
+      }
+      return;
     }
+    audio.currentTime = nextOffset;
+    segmentOffsetRef.current = nextOffset;
+    setSegmentTime(nextOffset);
   };
 
   const seek = (nextProgress: number) => {
     const clamped = Math.min(1, Math.max(0, nextProgress));
     const targetIndex = Math.min(segments.length - 1, Math.floor(clamped * segments.length));
-    if (targetIndex !== segmentIndex || !audioRef.current) {
-      void loadAndPlaySegment(targetIndex);
+    if (targetIndex !== activeSegmentRef.current) {
+      const token = ++playTokenRef.current;
+      stopAudio();
+      stopBrowserVoice();
+      void playCloudflareVoice(targetIndex, token, 0);
       return;
     }
-    if (audioRef.current && Number.isFinite(audioRef.current.duration)) {
-      const segmentProgress = (clamped * segments.length) % 1;
-      audioRef.current.currentTime = segmentProgress * audioRef.current.duration;
-    }
+
+    const audio = audioRef.current;
+    if (!audio) return;
+    const segmentProgress = (clamped * segments.length) % 1;
+    const nextOffset = Number.isFinite(audio.duration) ? segmentProgress * audio.duration : segmentProgress * segmentTime;
+    audio.currentTime = nextOffset;
+    segmentOffsetRef.current = nextOffset;
+    setSegmentTime(nextOffset);
   };
 
   const close = () => {
