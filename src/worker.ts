@@ -50,31 +50,12 @@ const HTML_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate"
 };
 
-// Cloudflare-hosted Workers AI model. It is eligible for the daily free allocation.
 const TTS_MODEL = "@cf/deepgram/aura-1";
-const TTS_LANG = "en";
-const MAX_TTS_CHARS = 2400;
+const MAX_TTS_CHARS = 2000;
 
 function getCookie(cookies: string, name: string): string | null {
   const match = cookies.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
   return match ? match[1] : null;
-}
-
-function audioResponseFromResult(result: unknown, headers: HeadersInit): Response {
-  if (result instanceof Response) {
-    const responseHeaders = new Headers(result.headers);
-    Object.entries(headers).forEach(([key, value]) => responseHeaders.set(key, value));
-    return new Response(result.body, { status: result.status, headers: responseHeaders });
-  }
-
-  if (result instanceof ReadableStream || result instanceof ArrayBuffer || result instanceof Blob) {
-    return new Response(result, { headers });
-  }
-
-  return new Response(JSON.stringify({ error: "Unexpected text-to-speech response" }), {
-    status: 502,
-    headers: { "Content-Type": "application/json" },
-  });
 }
 
 async function handleTextToSpeech(request: Request, env: any): Promise<Response> {
@@ -102,22 +83,39 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
       headers: { "Content-Type": "application/json" },
     });
   }
-  if (text.length > MAX_TTS_CHARS) {
-    return new Response(JSON.stringify({ error: `Text segment is too long. Limit: ${MAX_TTS_CHARS} characters.` }), {
-      status: 413,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+  const truncated = text.slice(0, MAX_TTS_CHARS);
 
   try {
-    const result = await env.AI.run(TTS_MODEL, { text: text, speaker: "luna" }, { returnRawResponse: true });
+    const result: any = await env.AI.run(
+      TTS_MODEL,
+      { text: truncated, speaker: "luna" },
+      { returnRawResponse: true }
+    );
 
     const headers = {
       "Content-Type": "audio/mpeg",
       "Cache-Control": "no-store",
-      "X-TTS-Model": TTS_MODEL,
     };
-    return audioResponseFromResult(result, headers);
+
+    if (result instanceof Response) {
+      const responseHeaders = new Headers(result.headers);
+      Object.entries(headers).forEach(([key, value]) => responseHeaders.set(key, value));
+      return new Response(result.body, { status: result.status, headers: responseHeaders });
+    }
+
+    if (result instanceof ReadableStream || result instanceof ArrayBuffer || result instanceof Blob) {
+      return new Response(result, { headers });
+    }
+
+    // If it's a ReadableStream from returnRawResponse
+    if (result.body) {
+      return new Response(result.body, { headers });
+    }
+
+    return new Response(JSON.stringify({ error: "Unexpected TTS response" }), {
+      status: 502,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     return new Response(JSON.stringify({
       error: "Text-to-speech generation failed",
@@ -140,10 +138,8 @@ export default {
 
     const cookies = request.headers.get("Cookie") || "";
     const verified = getCookie(cookies, "turnstile-verified") === "true";
-    const debugVerified = verified ? "true" : "false";
 
     if (verified) {
-      return new Response(await env.ASSETS.fetch(request), { headers: { "X-Debug-Verified": debugVerified } });
       return env.ASSETS.fetch(request);
     }
 
