@@ -398,7 +398,7 @@ export default function ArticleAudioReader({ title, text }: ArticleAudioReaderPr
             <div className="audio-reader-heading">
               <div className="audio-reader-icon"><Mic size={16} /><span className={`audio-equalizer ${playing ? 'is-active' : ''}`} aria-hidden="true"><i /><i /><i /></span></div>
               <div className="min-w-0">
-                <p className="audio-reader-kicker">Cloudflare TTS · MeloTTS</p>
+                <p className="audio-reader-kicker">Cloudflare TTS · Grok TTS</p>
                 <p className="audio-reader-title">{title}</p>
                 <p className="audio-reader-now"><i /><span>{status} · Section {segmentIndex + 1} of {segments.length}</span></p>
               </div>
