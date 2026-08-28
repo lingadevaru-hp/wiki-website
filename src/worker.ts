@@ -50,37 +50,12 @@ const HTML_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate"
 };
 
-const TTS_MODEL = "xai/grok-tts";
-const TTS_LANG = "en";
-const MAX_TTS_CHARS = 2400;
-const TTS_VOICE = "rex";
+const TTS_MODEL = "@cf/deepgram/aura-1";
+const MAX_TTS_CHARS = 2000;
 
 function getCookie(cookies: string, name: string): string | null {
   const match = cookies.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
   return match ? match[1] : null;
-}
-
-async function sha256(value: string): Promise<string> {
-  const data = new TextEncoder().encode(value);
-  const digest = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
-}
-
-function audioResponseFromResult(result: unknown, headers: HeadersInit): Response {
-  if (result instanceof Response) {
-    const responseHeaders = new Headers(result.headers);
-    Object.entries(headers).forEach(([key, value]) => responseHeaders.set(key, value));
-    return new Response(result.body, { status: result.status, headers: responseHeaders });
-  }
-
-  if (result instanceof ReadableStream || result instanceof ArrayBuffer || result instanceof Blob) {
-    return new Response(result, { headers });
-  }
-
-  return new Response(JSON.stringify({ error: "Unexpected text-to-speech response" }), {
-    status: 502,
-    headers: { "Content-Type": "application/json" },
-  });
 }
 
 async function handleTextToSpeech(request: Request, env: any): Promise<Response> {
@@ -108,64 +83,39 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
       headers: { "Content-Type": "application/json" },
     });
   }
-  if (text.length > MAX_TTS_CHARS) {
-    return new Response(JSON.stringify({ error: `Text segment is too long. Limit: ${MAX_TTS_CHARS} characters.` }), {
-      status: 413,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  const cache = caches.default;
-  const key = await sha256(`${TTS_MODEL}:${TTS_LANG}:${text}`);
-  const cacheUrl = new URL(request.url);
-  cacheUrl.pathname = `/__tts_cache/${key}.mp3`;
-  cacheUrl.search = "";
-  const cacheRequest = new Request(cacheUrl.toString(), { method: "GET" });
-  const cached = await cache.match(cacheRequest);
-  if (cached) return cached;
+  const truncated = text.slice(0, MAX_TTS_CHARS);
 
   try {
-    const result = await env.AI.run(TTS_MODEL, {
-      text,
-      language: TTS_LANG,
-      voice_id: TTS_VOICE,
-      output_format: {
-        codec: "mp3",
-        sample_rate: 44100,
-        bit_rate: 192000,
-      },
-    });
-
-    let response: Response;
-    if (result && typeof result === "object" && "audio" in result && typeof (result as { audio?: unknown }).audio === "string") {
-      const audioUrl = (result as { audio: string }).audio;
-      const audioResponse = await fetch(audioUrl);
-      if (!audioResponse.ok) {
-        throw new Error(`Failed to fetch TTS audio: ${audioResponse.status}`);
-      }
-      response = new Response(audioResponse.body, {
-        status: audioResponse.status,
-        headers: audioResponse.headers,
-      });
-    } else {
-      const headers = {
-        "Content-Type": "audio/mpeg",
-        "Cache-Control": "public, max-age=604800",
-        "X-TTS-Model": TTS_MODEL,
-      };
-      response = audioResponseFromResult(result, headers);
-    }
+    const result: any = await env.AI.run(
+      TTS_MODEL,
+      { text: truncated, speaker: "luna" },
+      { returnRawResponse: true }
+    );
 
     const headers = {
       "Content-Type": "audio/mpeg",
-      "Cache-Control": "public, max-age=604800",
-      "X-TTS-Model": TTS_MODEL,
+      "Cache-Control": "no-store",
     };
-    response = audioResponseFromResult(response, headers);
-    if (response.ok && response.body) {
-      await cache.put(cacheRequest, response.clone());
+
+    if (result instanceof Response) {
+      const responseHeaders = new Headers(result.headers);
+      Object.entries(headers).forEach(([key, value]) => responseHeaders.set(key, value));
+      return new Response(result.body, { status: result.status, headers: responseHeaders });
     }
-    return response;
+
+    if (result instanceof ReadableStream || result instanceof ArrayBuffer || result instanceof Blob) {
+      return new Response(result, { headers });
+    }
+
+    // If it's a ReadableStream from returnRawResponse
+    if (result.body) {
+      return new Response(result.body, { headers });
+    }
+
+    return new Response(JSON.stringify({ error: "Unexpected TTS response" }), {
+      status: 502,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     return new Response(JSON.stringify({
       error: "Text-to-speech generation failed",
