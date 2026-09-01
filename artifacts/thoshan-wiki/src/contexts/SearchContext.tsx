@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  type ReactNode,
+} from "react";
 
 interface SearchContextValue {
   isOpen: boolean;
@@ -22,7 +28,9 @@ export function SearchProvider({ children }: { children: ReactNode }) {
   const toggleSearch = useCallback(() => setIsOpen((v) => !v), []);
 
   return (
-    <SearchContext.Provider value={{ isOpen, openSearch, closeSearch, toggleSearch }}>
+    <SearchContext.Provider
+      value={{ isOpen, openSearch, closeSearch, toggleSearch }}
+    >
       {children}
     </SearchContext.Provider>
   );

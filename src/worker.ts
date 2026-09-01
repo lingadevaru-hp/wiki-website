@@ -47,8 +47,22 @@ const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
 
 const HTML_HEADERS = {
   "Content-Type": "text/html; charset=utf-8",
-  "Cache-Control": "no-store, no-cache, must-revalidate"
+  "Cache-Control": "no-store, no-cache, must-revalidate",
 };
+
+interface Env {
+  AI: Ai;
+  ASSETS: { fetch(request: Request): Promise<Response> };
+  TURNSTILE_SITEKEY: string;
+  TURNSTILE_SECRET: string;
+}
+
+interface TurnstileVerifyResponse {
+  success: boolean;
+  "error-codes"?: string[];
+  challenge_ts?: string;
+  hostname?: string;
+}
 
 const TTS_MODEL = "@cf/deepgram/aura-1";
 const MAX_TTS_CHARS = 2000;
@@ -58,12 +72,18 @@ function getCookie(cookies: string, name: string): string | null {
   return match ? match[1] : null;
 }
 
-async function handleTextToSpeech(request: Request, env: any): Promise<Response> {
+async function handleTextToSpeech(
+  request: Request,
+  env: Env,
+): Promise<Response> {
   if (!env.AI) {
-    return new Response(JSON.stringify({ error: "Workers AI binding is not configured" }), {
-      status: 503,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Workers AI binding is not configured" }),
+      {
+        status: 503,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 
   let payload: { text?: unknown };
@@ -76,7 +96,10 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
     });
   }
 
-  const text = typeof payload.text === "string" ? payload.text.replace(/\s+/g, " ").trim() : "";
+  const text =
+    typeof payload.text === "string"
+      ? payload.text.replace(/\s+/g, " ").trim()
+      : "";
   if (!text) {
     return new Response(JSON.stringify({ error: "Text is required" }), {
       status: 400,
@@ -86,11 +109,7 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
   const truncated = text.slice(0, MAX_TTS_CHARS);
 
   try {
-    const result: any = await env.AI.run(
-      TTS_MODEL,
-      { text: truncated, speaker: "luna" },
-      { returnRawResponse: true }
-    );
+    const result = await env.AI.run(TTS_MODEL, { text: truncated, speaker: "luna" }, { returnRawResponse: true });
 
     const headers = {
       "Content-Type": "audio/mpeg",
@@ -99,11 +118,20 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
 
     if (result instanceof Response) {
       const responseHeaders = new Headers(result.headers);
-      Object.entries(headers).forEach(([key, value]) => responseHeaders.set(key, value));
-      return new Response(result.body, { status: result.status, headers: responseHeaders });
+      Object.entries(headers).forEach(([key, value]) =>
+        responseHeaders.set(key, value),
+      );
+      return new Response(result.body, {
+        status: result.status,
+        headers: responseHeaders,
+      });
     }
 
-    if (result instanceof ReadableStream || result instanceof ArrayBuffer || result instanceof Blob) {
+    if (
+      result instanceof ReadableStream ||
+      result instanceof ArrayBuffer ||
+      result instanceof Blob
+    ) {
       return new Response(result, { headers });
     }
 
@@ -117,19 +145,22 @@ async function handleTextToSpeech(request: Request, env: any): Promise<Response>
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    return new Response(JSON.stringify({
-      error: "Text-to-speech generation failed",
-      detail: error instanceof Error ? error.message : String(error),
-      model: TTS_MODEL,
-    }), {
-      status: 502,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        error: "Text-to-speech generation failed",
+        detail: error instanceof Error ? error.message : String(error),
+        model: TTS_MODEL,
+      }),
+      {
+        status: 502,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 }
 
 export default {
-  async fetch(request: Request, env: any): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/tts" && request.method === "POST") {
@@ -162,23 +193,28 @@ export default {
             secret: env.TURNSTILE_SECRET,
             response: token || "",
           }),
-        }
+        },
       );
-      const result: any = await verifyResponse.json();
+      const result: TurnstileVerifyResponse = await verifyResponse.json();
 
       if (result.success) {
         return new Response(null, {
           status: 302,
           headers: {
             Location: returnTo,
-            "Set-Cookie": "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=30",
+            "Set-Cookie":
+              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=30",
             "Cache-Control": "no-store",
           },
         });
       }
-      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo), { headers: HTML_HEADERS });
+      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo), {
+        headers: HTML_HEADERS,
+      });
     }
 
-    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname), { headers: HTML_HEADERS });
+    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname), {
+      headers: HTML_HEADERS,
+    });
   },
 };

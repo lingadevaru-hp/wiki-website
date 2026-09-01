@@ -1,14 +1,18 @@
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import type { Section } from '../types/article';
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import type { Section } from "../types/article";
 
 interface TableOfContentsProps {
   sections: Section[];
   activeId?: string;
 }
 
-function flattenSections(sections: Section[], prefix = ''): { id: string; title: string; level: number; num: string }[] {
-  const result: { id: string; title: string; level: number; num: string }[] = [];
+function flattenSections(
+  sections: Section[],
+  prefix = "",
+): { id: string; title: string; level: number; num: string }[] {
+  const result: { id: string; title: string; level: number; num: string }[] =
+    [];
   sections.forEach((s, i) => {
     const num = prefix ? `${prefix}.${i + 1}` : `${i + 1}`;
     result.push({ id: s.id, title: s.title, level: s.level, num });
@@ -19,8 +23,15 @@ function flattenSections(sections: Section[], prefix = ''): { id: string; title:
   return result;
 }
 
-export default function TableOfContents({ sections, activeId }: TableOfContentsProps) {
-  const [collapsed, setCollapsed] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches);
+export default function TableOfContents({
+  sections,
+  activeId,
+}: TableOfContentsProps) {
+  const [collapsed, setCollapsed] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 640px)").matches,
+  );
   const flat = flattenSections(sections);
 
   if (flat.length < 3) return null;
@@ -37,7 +48,7 @@ export default function TableOfContents({ sections, activeId }: TableOfContentsP
           onClick={() => setCollapsed((c) => !c)}
           className="toc-toggle text-accent text-xs hover:underline ml-auto"
           aria-expanded={!collapsed}
-          aria-label={collapsed ? 'Expand contents' : 'Collapse contents'}
+          aria-label={collapsed ? "Expand contents" : "Collapse contents"}
         >
           {collapsed ? <ChevronDown size={15} /> : <ChevronUp size={15} />}
         </button>
@@ -50,14 +61,16 @@ export default function TableOfContents({ sections, activeId }: TableOfContentsP
               style={{ paddingLeft: `${(item.level - 2) * 20}px` }}
               className="flex items-start gap-1.5"
             >
-              <span className="text-muted-foreground text-xs mt-0.5 shrink-0 w-5 text-right">{item.num}</span>
+              <span className="text-muted-foreground text-xs mt-0.5 shrink-0 w-5 text-right">
+                {item.num}
+              </span>
               <a
                 href={`#${item.id}`}
                 data-testid={`toc-link-${item.id}`}
                 className={`hover:underline leading-snug ${
                   activeId === item.id
-                    ? 'font-semibold text-foreground'
-                    : 'text-accent'
+                    ? "font-semibold text-foreground"
+                    : "text-accent"
                 }`}
               >
                 {item.title}

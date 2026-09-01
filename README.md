@@ -14,17 +14,50 @@ Repository: [Foss-Token](https://github.com/lingadevaru-hp/Foss-Token)
 
 ## Technology
 
-- React, TypeScript, Vite, and Wouter for the wiki interface
-- JSON article data with generated search and article navigation
-- CSS responsive layouts, dark-first theme, accessible controls, and reduced-motion support
+- **React 19** + **TypeScript** + **Vite 7** for the SPA
+- **Wouter** for lightweight routing
+- **Tanstack Query** for data fetching
+- **TailwindCSS v4** with CSS custom property design tokens
+- **shadcn/ui** component primitives (Radix UI)
+- **Cloudflare Workers** for edge functions (Turnstile verification, TTS endpoint)
+- **pnpm 10** workspace monorepo
+- Dark-first theme, accessible controls, reduced-motion support
 - Browser Web Speech API for optional article reading
-- Cloudflare Turnstile at the edge for a short-lived connection check; it is not an article-content feature and live verification happens in the Worker
 
 ## Local development
 
 ```bash
+# Install dependencies
 pnpm install
+
+# Start wiki dev server
 pnpm --filter @workspace/thoshan-wiki dev
+
+# Typecheck all packages
+pnpm typecheck
+
+# Build all packages
+pnpm build
 ```
 
-The front-end is intentionally separate from backend verification and future Cloudflare-backed services.
+## Project structure
+
+```
+wiki-website/
+├── artifacts/
+│   └── thoshan-wiki/       # Main wiki SPA
+│       ├── src/
+│       │   ├── components/  # UI components
+│       │   ├── pages/       # Route pages
+│       │   ├── data/        # JSON article data
+│       │   └── index.css    # Design tokens + styles
+│       └── public/          # Static assets
+├── src/
+│   └── worker.ts            # Cloudflare Worker (Turnstile, TTS)
+├── lib/                     # Shared workspace packages
+└── DESIGN_SYSTEM.md         # Design token documentation
+```
+
+## License
+
+MIT

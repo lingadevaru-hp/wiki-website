@@ -21,7 +21,15 @@ export interface Infobox {
 }
 
 export interface ContentBlock {
-  type: 'text' | 'image' | 'table' | 'video' | 'gallery' | 'callout' | 'quote' | 'banner';
+  type:
+    | "text"
+    | "image"
+    | "table"
+    | "video"
+    | "gallery"
+    | "callout"
+    | "quote"
+    | "banner";
   content?: string;
   src?: string;
   alt?: string;
@@ -30,7 +38,7 @@ export interface ContentBlock {
   height?: string;
   columns?: string[];
   rows?: Record<string, string>[];
-  variant?: 'info' | 'warning' | 'success' | 'error';
+  variant?: "info" | "warning" | "success" | "error";
   title?: string;
   author?: string;
   items?: { src: string; alt: string; caption?: string }[];
@@ -58,7 +66,7 @@ export interface EditHistory {
   date: string;
   editor: string;
   summary: string;
-  changeType: 'major' | 'minor' | 'new';
+  changeType: "major" | "minor" | "new";
 }
 
 export interface ResourceItem {

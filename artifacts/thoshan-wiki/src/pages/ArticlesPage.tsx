@@ -1,33 +1,33 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'wouter';
-import { ArrowRight, BookOpen, Clock } from 'lucide-react';
-import WikiHeader from '../components/WikiHeader';
-import WikiSidebar from '../components/WikiSidebar';
-import WikiFooter from '../components/WikiFooter';
-import SEO from '../components/SEO';
-import { loadArticlesIndex } from '../lib/articleLoader';
-import type { ArticleIndexEntry } from '../types/article';
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "wouter";
+import { ArrowRight, BookOpen, Clock } from "lucide-react";
+import WikiHeader from "../components/WikiHeader";
+import WikiSidebar from "../components/WikiSidebar";
+import WikiFooter from "../components/WikiFooter";
+import SEO from "../components/SEO";
+import { loadArticlesIndex } from "../lib/articleLoader";
+import type { ArticleIndexEntry } from "../types/article";
 
 const categoryColors: Record<string, string> = {
-  Profile:        '#3366CC',
-  Blockchain:     '#E67E22',
-  'AI / ML':      '#8E44AD',
-  Infrastructure: '#27AE60',
-  Security:       '#C0392B',
-  Systems:        '#2980B9',
-  Web:            '#16A085',
-  Learning:       '#F39C12',
+  Profile: "#3366CC",
+  Blockchain: "#E67E22",
+  "AI / ML": "#8E44AD",
+  Infrastructure: "#27AE60",
+  Security: "#C0392B",
+  Systems: "#2980B9",
+  Web: "#16A085",
+  Learning: "#F39C12",
 };
 
 const categoryGlyph: Record<string, string> = {
-  Profile:        '👤',
-  Blockchain:     '⛓️',
-  'AI / ML':      '🤖',
-  Infrastructure: '🏗️',
-  Security:       '🔒',
-  Systems:        '🖥️',
-  Web:            '🌐',
-  Learning:       '📚',
+  Profile: "👤",
+  Blockchain: "⛓️",
+  "AI / ML": "🤖",
+  Infrastructure: "🏗️",
+  Security: "🔒",
+  Systems: "🖥️",
+  Web: "🌐",
+  Learning: "📚",
 };
 
 function estimateReadTime(excerpt: string): string {
@@ -37,10 +37,10 @@ function estimateReadTime(excerpt: string): string {
 }
 
 export default function ArticlesPage() {
-  const [sidebarOpen, setSidebarOpen]       = useState(false);
-  const [articles, setArticles]             = useState<ArticleIndexEntry[]>([]);
-  const [loading, setLoading]               = useState(true);
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     loadArticlesIndex()
@@ -51,15 +51,21 @@ export default function ArticlesPage() {
   const visible = useMemo(() => {
     return articles.filter((a) => {
       if (a.hiddenFromSearch) return false;
-      if (activeCategory !== 'All' && a.category !== activeCategory) return false;
+      if (activeCategory !== "All" && a.category !== activeCategory)
+        return false;
       return true;
     });
   }, [articles, activeCategory]);
 
   const categories = useMemo(
-    () => ['All', ...Array.from(new Set(
-      articles.filter((a) => !a.hiddenFromSearch).map((a) => a.category)
-    ))],
+    () => [
+      "All",
+      ...Array.from(
+        new Set(
+          articles.filter((a) => !a.hiddenFromSearch).map((a) => a.category),
+        ),
+      ),
+    ],
     [articles],
   );
 
@@ -75,12 +81,21 @@ export default function ArticlesPage() {
             title="All Articles — Thoshan's Wiki"
             description="Browse every article in Thoshan's Wiki: blockchain, AI, infrastructure, security, web development, and more."
             path="/wiki/articles"
-            keywords={['articles', 'Thoshan', 'wiki', 'blockchain', 'AI', 'infrastructure']}
+            keywords={[
+              "articles",
+              "Thoshan",
+              "wiki",
+              "blockchain",
+              "AI",
+              "infrastructure",
+            ]}
           />
 
           <div className="articles-page-header">
             <div className="articles-page-title">
-              <p className="section-eyebrow"><BookOpen size={13} /> All articles</p>
+              <p className="section-eyebrow">
+                <BookOpen size={13} /> All articles
+              </p>
               <h1>
                 Everything written
                 {!loading && (
@@ -90,26 +105,36 @@ export default function ArticlesPage() {
                 )}
               </h1>
               <p className="articles-subtitle">
-                Projects, systems, experiments, and lessons — documented in one quiet place.
+                Projects, systems, experiments, and lessons — documented in one
+                quiet place.
               </p>
             </div>
           </div>
 
-          <div className="category-row" role="tablist" aria-label="Filter by category">
+          <div
+            className="category-row"
+            role="tablist"
+            aria-label="Filter by category"
+          >
             {categories.map((cat) => (
               <button
                 key={cat}
                 role="tab"
                 aria-selected={activeCategory === cat}
                 onClick={() => setActiveCategory(cat)}
-                className={activeCategory === cat ? 'selected' : ''}
+                className={activeCategory === cat ? "selected" : ""}
                 style={
-                  activeCategory === cat && cat !== 'All'
-                    ? { background: categoryColors[cat], borderColor: categoryColors[cat] }
+                  activeCategory === cat && cat !== "All"
+                    ? {
+                        background: categoryColors[cat],
+                        borderColor: categoryColors[cat],
+                      }
                     : undefined
                 }
               >
-                {cat !== 'All' && categoryGlyph[cat] ? `${categoryGlyph[cat]} ` : ''}
+                {cat !== "All" && categoryGlyph[cat]
+                  ? `${categoryGlyph[cat]} `
+                  : ""}
                 {cat}
               </button>
             ))}
@@ -126,11 +151,16 @@ export default function ArticlesPage() {
               <p className="section-eyebrow">No results</p>
               <h1>Nothing found</h1>
               <p>
-                Try a different category or{' '}
+                Try a different category or{" "}
                 <button
                   className="text-link"
-                  style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-                  onClick={() => setActiveCategory('All')}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setActiveCategory("All")}
                 >
                   show all
                 </button>
@@ -153,11 +183,16 @@ export default function ArticlesPage() {
                   <div className="article-card-body">
                     <span
                       className="article-card-category"
-                      style={{ color: categoryColors[article.category] ?? '#3366CC' }}
+                      style={{
+                        color: categoryColors[article.category] ?? "#3366CC",
+                      }}
                     >
-                      {categoryGlyph[article.category] ?? '📄'}&nbsp;{article.category}
+                      {categoryGlyph[article.category] ?? "📄"}&nbsp;
+                      {article.category}
                     </span>
-                    <strong className="article-card-title">{article.title}</strong>
+                    <strong className="article-card-title">
+                      {article.title}
+                    </strong>
                     <p className="article-card-excerpt">{article.excerpt}</p>
                     <div className="article-card-meta">
                       <span className="article-card-readtime">

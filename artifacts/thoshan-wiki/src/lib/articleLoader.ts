@@ -1,9 +1,27 @@
-import type { Article, ArticleIndex, ArticleIndexEntry } from '../types/article';
+import type {
+  Article,
+  ArticleIndex,
+  ArticleIndexEntry,
+} from "../types/article";
+import { findParentArticle } from "./articleRelations";
+import { articleIndexSchema, articleSchema } from "./articleSchema";
+import { extractSearchHaystack, scoreSearchMatch } from "./articleText";
+import { titleToSlug } from "./wikiMarkup";
 
 const articleCache = new Map<string, Article>();
 let indexCache: ArticleIndex | null = null;
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+function parseOrThrow<T>(
+  label: string,
+  result: { success: boolean; data?: T; error?: { message: string } },
+): T {
+  if (!result.success || result.data === undefined) {
+    throw new Error(`${label}: ${result.error?.message ?? "invalid JSON"}`);
+  }
+  return result.data;
+}
 
 export async function loadArticle(slug: string): Promise<Article> {
   if (articleCache.has(slug)) {
@@ -11,7 +29,11 @@ export async function loadArticle(slug: string): Promise<Article> {
   }
   const res = await fetch(`${base}/data/articles/${slug}.json`);
   if (!res.ok) throw new Error(`Article not found: ${slug}`);
-  const data: Article = await res.json();
+  const raw: unknown = await res.json();
+  const data = parseOrThrow(
+    `Article "${slug}"`,
+    articleSchema.safeParse(raw),
+  ) as Article;
   articleCache.set(slug, data);
   return data;
 }
@@ -19,56 +41,35 @@ export async function loadArticle(slug: string): Promise<Article> {
 export async function loadArticlesIndex(): Promise<ArticleIndex> {
   if (indexCache) return indexCache;
   const res = await fetch(`${base}/data/articles-index.json`);
-  if (!res.ok) throw new Error('Failed to load articles index');
-  indexCache = await res.json();
-
-  return indexCache!;
+  if (!res.ok) throw new Error("Failed to load articles index");
+  const raw: unknown = await res.json();
+  indexCache = parseOrThrow(
+    "Articles index",
+    articleIndexSchema.safeParse(raw),
+  );
+  return indexCache;
 }
 
-function extractArticleText(article: Article): string {
-  const parts: string[] = [article.metadata.title, article.lead];
-  for (const section of article.sections) {
-    parts.push(section.title);
-    for (const block of section.content) {
-      if (block.type === 'text' && block.content) parts.push(block.content);
-      if (block.type === 'callout' && block.content) parts.push(`${block.title || ''} ${block.content}`);
-      if (block.type === 'quote' && block.content) parts.push(block.content);
-      if (block.type === 'table' && block.rows) {
-        for (const row of block.rows) {
-          parts.push(Object.values(row).join(' '));
-        }
-      }
-    }
-  }
-  return parts.join(' ').toLowerCase();
-}
-
-export async function searchArticles(query: string): Promise<ArticleIndexEntry[]> {
+export async function searchArticles(
+  query: string,
+): Promise<ArticleIndexEntry[]> {
   const index = await loadArticlesIndex();
-  
-  // Filter out hidden sub-articles from search results
-  const searchableArticles = index.articles.filter(article => !article.hiddenFromSearch);
-  
-  if (!query.trim()) return searchableArticles;
+  const searchableArticles = index.articles.filter(
+    (article) => !article.hiddenFromSearch,
+  );
 
-  const q = query.toLowerCase().trim();
+  if (!query.trim()) return searchableArticles;
 
   const scored = await Promise.all(
     searchableArticles.map(async (entry) => {
-      let score = 0;
-
-      // High-weight: title match
-      if (entry.title.toLowerCase().includes(q)) score += 100;
-      // Medium-weight: category, excerpt
-      if (entry.category.toLowerCase().includes(q)) score += 40;
-      if (entry.excerpt.toLowerCase().includes(q)) score += 20;
-
-      // Search the article body deterministically instead of depending on a background preload.
-      const fullArticle = articleCache.get(entry.slug) || await loadArticle(entry.slug).catch(() => null);
-      if (fullArticle && extractArticleText(fullArticle).includes(q)) score += 10;
-
-      return { entry, score };
-    })
+      const fullArticle =
+        articleCache.get(entry.slug) ||
+        (await loadArticle(entry.slug).catch(() => null));
+      const bodyHaystack = fullArticle
+        ? extractSearchHaystack(fullArticle)
+        : undefined;
+      return { entry, score: scoreSearchMatch(entry, query, bodyHaystack) };
+    }),
   );
 
   return scored
@@ -77,6 +78,4 @@ export async function searchArticles(query: string): Promise<ArticleIndexEntry[]
     .map((s) => s.entry);
 }
 
-export function titleToSlug(title: string): string {
-  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-}
+export { findParentArticle, titleToSlug };
