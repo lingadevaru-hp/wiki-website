@@ -51,3 +51,6 @@ Thumbs.db
 # Cloudflare / Wrangler
 .dev.vars
 .wrangler/
+
+# HonKit book output
+docs/_book/
