@@ -1,18 +1,71 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowRight, Search } from "lucide-react";
 import { useLocation } from "wouter";
 import { useSearch } from "../contexts/SearchContext";
 import MediaViewer from "../components/MediaViewer";
 import SpaceField from "../components/SpaceField";
 
+function useScrollReveal(threshold = 0.15) {
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("in-view");
+          observer.unobserve(el);
+        }
+      },
+      { threshold, rootMargin: "0px 0px -60px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return ref;
+}
+
 export default function LandingPage() {
   const [, setLocation] = useLocation();
   const { openSearch } = useSearch();
   const exploreRef = useRef<HTMLElement>(null);
+  const scrollRevealExplore = useScrollReveal(0.12);
+  const scrollRevealCapture = useScrollReveal(0.12);
   const [captureOpen, setCaptureOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Track page load for entrance animations
+  useEffect(() => {
+    // Small delay so background establishes first
+    const t = setTimeout(() => setIsLoaded(true), 60);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Scroll-based atmosphere: add classes as user scrolls
+  useEffect(() => {
+    const page = document.querySelector(".landing-page");
+    if (!page) return;
+
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const scrollY = window.scrollY;
+        const vh = window.innerHeight;
+        page.classList.toggle("scrolled", scrollY > vh * 0.3);
+        page.classList.toggle("scrolled-deep", scrollY > vh * 0.8);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   return (
-    <div className="landing-page">
+    <div className={`landing-page${isLoaded ? " loaded" : ""}`}>
       <header className="landing-header">
         <span className="landing-mark">T</span>
         <span>Thoshan&apos;s Wiki</span>
@@ -57,7 +110,15 @@ export default function LandingPage() {
             <ArrowDown size={16} />
           </button>
         </section>
-        <section className="landing-project-capture">
+        <section
+          ref={(el) => {
+            scrollRevealCapture.current = el;
+            (
+              scrollRevealCapture as React.MutableRefObject<HTMLElement | null>
+            ).current = el;
+          }}
+          className="landing-project-capture"
+        >
           <div>
             <p className="section-eyebrow">A project in motion</p>
             <h2>FOSS Coin, captured in the wild.</h2>
@@ -82,7 +143,16 @@ export default function LandingPage() {
             <span className="foss-capture-overlay">Open full screen</span>
           </button>
         </section>
-        <section ref={exploreRef} className="landing-explore">
+        <section
+          ref={(el) => {
+            scrollRevealExplore.current = el;
+            exploreRef.current = el;
+            (
+              scrollRevealExplore as React.MutableRefObject<HTMLElement | null>
+            ).current = el;
+          }}
+          className="landing-explore"
+        >
           <div>
             <p className="section-eyebrow">Inside the archive</p>
             <h2>
