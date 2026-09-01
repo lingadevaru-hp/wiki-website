@@ -1,0 +1,10 @@
+{
+  "title": "Thoshan's Wiki — Developer Guide",
+  "description": "Developer documentation for Thoshan's Wiki",
+  "root": "./",
+  "structure": {
+    "summary": "SUMMARY.md",
+    "readme": "README.md"
+  },
+  "plugins": ["-search", "-lunr"]
+}

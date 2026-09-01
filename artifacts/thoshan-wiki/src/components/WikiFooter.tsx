@@ -1,22 +1,17 @@
 export default function WikiFooter() {
   return (
-    <footer className="border-t border-border mt-8 py-4 px-4 text-xs text-muted-foreground">
+    <footer className="border-t border-border mt-8 py-6 px-4 text-xs text-muted-foreground">
       <div className="max-w-[1400px] mx-auto">
-        <p className="mb-2">
+        <p className="mb-3 leading-relaxed">
           Thoshan&apos;s Wiki is a personal editorial knowledge base. Content is
           documented for learning and reference, not as financial, legal, or
           security advice.
         </p>
-        <div className="flex flex-wrap gap-3">
-          <a href="/wiki/about" className="hover:underline">
-            About
-          </a>
-          <a href="/wiki/home" className="hover:underline">
-            Wiki Home
-          </a>
+        <div className="flex flex-wrap gap-4">
+          <a href="/wiki/about">About</a>
+          <a href="/wiki/home">Wiki Home</a>
           <a
             href="https://github.com/lingadevaru-hp"
-            className="hover:underline"
             target="_blank"
             rel="noreferrer"
           >

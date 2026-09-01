@@ -154,8 +154,10 @@ export default function SpaceField({
   useEffect(() => {
     if (isTouch || variant !== "landing") return;
     let raf = 0;
+    let scrollTimeout = 0;
+    let isScrolling = false;
     const onMove = (e: MouseEvent) => {
-      if (raf) return;
+      if (isScrolling || raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0;
         const c = containerRef.current;
@@ -167,10 +169,20 @@ export default function SpaceField({
         });
       });
     };
+    const onScroll = () => {
+      isScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        isScrolling = false;
+      }, 150);
+    };
     window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", onScroll);
       if (raf) cancelAnimationFrame(raf);
+      clearTimeout(scrollTimeout);
     };
   }, [isTouch, variant]);
 

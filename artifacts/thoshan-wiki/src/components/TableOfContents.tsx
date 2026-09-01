@@ -39,9 +39,9 @@ export default function TableOfContents({
   return (
     <div
       data-testid="table-of-contents"
-      className="border border-border bg-card text-sm mb-5 overflow-hidden"
+      className="border border-border bg-card text-sm mb-5 overflow-hidden rounded-xl"
     >
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-card/80">
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-card/80">
         <span className="font-bold text-foreground text-sm">Contents</span>
         <button
           data-testid="button-toc-toggle"
@@ -67,10 +67,10 @@ export default function TableOfContents({
               <a
                 href={`#${item.id}`}
                 data-testid={`toc-link-${item.id}`}
-                className={`hover:underline leading-snug ${
+                className={`leading-snug rounded px-1 py-0.5 -mx-1 transition-colors duration-150 ${
                   activeId === item.id
-                    ? "font-semibold text-foreground"
-                    : "text-accent"
+                    ? "font-semibold text-foreground bg-accent/10"
+                    : "text-accent hover:text-foreground hover:bg-foreground/5"
                 }`}
               >
                 {item.title}

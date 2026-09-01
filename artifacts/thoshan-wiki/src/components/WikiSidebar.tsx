@@ -137,10 +137,10 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/40 z-40 md:hidden transition-opacity duration-200 ${
+        className={`fixed inset-0 bg-black/40 z-40 md:hidden transition-all duration-300 ${
           open
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            ? "opacity-100 pointer-events-auto backdrop-blur-sm"
+            : "opacity-0 pointer-events-none backdrop-blur-0"
         }`}
         onClick={onClose}
       />
@@ -148,7 +148,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
       <aside
         className={`
           fixed top-0 left-0 h-full z-50 w-72 bg-card border-r border-border
-          transform transition-transform duration-200 ease-[var(--ease-in-out)]
+          transform transition-transform duration-300 ease-[var(--ease-spring)]
           md:hidden
           ${open ? "translate-x-0" : "-translate-x-full"}
         `}
