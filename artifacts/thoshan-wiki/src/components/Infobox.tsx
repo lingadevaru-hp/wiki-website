@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import type { Infobox as InfoboxType } from '../types/article';
-import MediaViewer, { type MediaViewerItem } from './MediaViewer';
+import { useState } from "react";
+import type { Infobox as InfoboxType } from "../types/article";
+import MediaViewer, { type MediaViewerItem } from "./MediaViewer";
 
 interface InfolboxProps {
   data: InfoboxType;
@@ -17,7 +17,7 @@ export default function Infobox({ data }: InfolboxProps) {
         md:float-right md:clear-right md:ml-4 md:mb-4 md:w-auto md:max-w-[280px]
         block md:table
       "
-      style={{ clear: 'right' }}
+      style={{ clear: "right" }}
     >
       <tbody>
         <tr>
@@ -40,15 +40,22 @@ export default function Infobox({ data }: InfolboxProps) {
                     src: data.image!,
                     alt: data.imageCaption || data.title,
                     caption: data.imageCaption,
-                    type: 'image',
+                    type: "image",
                   })
                 }
                 data-testid="infobox-image"
               />
               {data.imageCaption && (
-                <p className="text-xs text-muted-foreground mt-1 italic text-center">{data.imageCaption}</p>
+                <p className="text-xs text-muted-foreground mt-1 italic text-center">
+                  {data.imageCaption}
+                </p>
               )}
-              {viewerItem && <MediaViewer item={viewerItem} onClose={() => setViewerItem(null)} />}
+              {viewerItem && (
+                <MediaViewer
+                  item={viewerItem}
+                  onClose={() => setViewerItem(null)}
+                />
+              )}
             </td>
           </tr>
         )}

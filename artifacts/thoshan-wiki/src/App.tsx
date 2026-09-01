@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
-import { Switch, Route, Router as WouterRouter } from 'wouter';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from '@/components/ui/toaster';
-import { TooltipProvider } from '@/components/ui/tooltip';
-import { ThemeProvider } from './contexts/ThemeContext';
-import { SearchProvider, useSearch } from './contexts/SearchContext';
-import ErrorBoundary from './components/ErrorBoundary';
-import GlobalSearch from './components/GlobalSearch';
-import ShortcutsModal from './components/ShortcutsModal';
-import LandingPage from './pages/LandingPage';
-import HomePage from './pages/HomePage';
-import ArticlePage from './pages/ArticlePage';
-import SearchPage from './pages/SearchPage';
-import ArticlesPage from './pages/ArticlesPage';
-import NotFoundPage from './pages/NotFoundPage';
+import { useState, useEffect } from "react";
+import { Switch, Route, Router as WouterRouter } from "wouter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { SearchProvider, useSearch } from "./contexts/SearchContext";
+import ErrorBoundary from "./components/ErrorBoundary";
+import GlobalSearch from "./components/GlobalSearch";
+import ShortcutsModal from "./components/ShortcutsModal";
+import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
+import ArticlePage from "./pages/ArticlePage";
+import SearchPage from "./pages/SearchPage";
+import ArticlesPage from "./pages/ArticlesPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,12 +45,12 @@ function GlobalKeyboardHandler() {
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       const tag = (document.activeElement as HTMLElement)?.tagName;
-      const inInput = tag === 'INPUT' || tag === 'TEXTAREA';
+      const inInput = tag === "INPUT" || tag === "TEXTAREA";
 
       // Win+K / Ctrl+K / Cmd+K → open global search modal
       if (
-        e.key === 'k' &&
-        (e.ctrlKey || e.metaKey || e.getModifierState?.('OS')) &&
+        e.key === "k" &&
+        (e.ctrlKey || e.metaKey || e.getModifierState?.("OS")) &&
         !e.shiftKey &&
         !e.altKey
       ) {
@@ -60,21 +60,21 @@ function GlobalKeyboardHandler() {
       }
 
       // Slash opens search when the user is not already typing.
-      if (e.key === '/' && !inInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      if (e.key === "/" && !inInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
         e.preventDefault();
         openSearch();
         return;
       }
 
       // Ctrl+/ → toggle keyboard shortcuts cheatsheet
-      if (e.key === '/' && (e.ctrlKey || e.metaKey) && !inInput) {
+      if (e.key === "/" && (e.ctrlKey || e.metaKey) && !inInput) {
         e.preventDefault();
         setShortcutsOpen((v) => !v);
       }
     }
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [openSearch]);
 
   return (
@@ -95,7 +95,7 @@ function App() {
         <TooltipProvider>
           <ThemeProvider>
             <SearchProvider>
-              <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+              <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
                 <Router />
               </WouterRouter>
               <GlobalKeyboardHandler />

@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { ExternalLink, X } from 'lucide-react';
+import { useEffect } from "react";
+import { ExternalLink, X } from "lucide-react";
 
 export type MediaViewerItem = {
   src: string;
   alt?: string;
   caption?: string;
-  type?: 'image' | 'video';
+  type?: "image" | "video";
 };
 
 interface MediaViewerProps {
@@ -14,19 +14,19 @@ interface MediaViewerProps {
 }
 
 export default function MediaViewer({ item, onClose }: MediaViewerProps) {
-  const isVideo = item.type === 'video';
+  const isVideo = item.type === "video";
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
+      if (event.key === "Escape") onClose();
     };
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [onClose]);
 
@@ -35,14 +35,19 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
       className="fixed inset-0 z-[100] flex flex-col bg-black/95 p-4 md:p-6"
       role="dialog"
       aria-modal="true"
-      aria-label={isVideo ? 'Full screen video preview' : 'Full screen image preview'}
+      aria-label={
+        isVideo ? "Full screen video preview" : "Full screen image preview"
+      }
       onClick={onClose}
     >
-      <div className="flex min-h-0 flex-1 items-center justify-center" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="flex min-h-0 flex-1 items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
         {isVideo ? (
           <iframe
             src={item.src}
-            title={item.caption || item.alt || 'Video'}
+            title={item.caption || item.alt || "Video"}
             className="h-full max-h-[82vh] w-full max-w-7xl border border-white/20 bg-black"
             allowFullScreen
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -51,7 +56,7 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
         ) : (
           <img
             src={item.src}
-            alt={item.alt || ''}
+            alt={item.alt || ""}
             className="max-h-[82vh] max-w-full object-contain"
             data-testid="media-viewer-image"
           />
@@ -59,10 +64,15 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
       </div>
 
       {item.caption && (
-        <p className="mx-auto mt-3 max-w-4xl text-center text-sm text-white/75">{item.caption}</p>
+        <p className="mx-auto mt-3 max-w-4xl text-center text-sm text-white/75">
+          {item.caption}
+        </p>
       )}
 
-      <div className="mt-4 flex items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="mt-4 flex items-center justify-center gap-2"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           type="button"
           onClick={onClose}

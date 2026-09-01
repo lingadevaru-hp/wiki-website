@@ -1,5 +1,5 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
+import React, { Component, ErrorInfo, ReactNode } from "react";
+import { AlertTriangle, RefreshCw } from "lucide-react";
 
 interface Props {
   children: ReactNode;
@@ -21,12 +21,12 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Unhandled Wiki Error:', error, errorInfo);
+    console.error("Unhandled Wiki Error:", error, errorInfo);
   }
 
   private handleReset = () => {
     this.setState({ hasError: false, error: null });
-    window.location.href = '/wiki/main-page';
+    window.location.href = "/wiki/main-page";
   };
 
   public render() {
@@ -37,9 +37,12 @@ export default class ErrorBoundary extends Component<Props, State> {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-destructive/15 text-destructive mb-4">
               <AlertTriangle size={24} />
             </div>
-            <h2 className="text-xl font-serif font-bold mb-2">Something went wrong</h2>
+            <h2 className="text-xl font-serif font-bold mb-2">
+              Something went wrong
+            </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              An unexpected error occurred while rendering this page in Thoshan&apos;s Wiki.
+              An unexpected error occurred while rendering this page in
+              Thoshan&apos;s Wiki.
             </p>
             {this.state.error && (
               <div className="p-3 bg-muted/40 border border-border text-xs text-left font-mono mb-5 overflow-auto max-h-32 text-foreground/80">

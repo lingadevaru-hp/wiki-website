@@ -1,28 +1,28 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { useLocation } from 'wouter';
-import { Search, X, ArrowRight, Clock, Sparkles, Hash } from 'lucide-react';
-import { searchArticles, loadArticlesIndex } from '../lib/articleLoader';
-import type { ArticleIndexEntry } from '../types/article';
-import { useSearch } from '../contexts/SearchContext';
-import { useDebounce } from '../hooks/useDebounce';
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useLocation } from "wouter";
+import { Search, X, ArrowRight, Clock, Sparkles, Hash } from "lucide-react";
+import { searchArticles, loadArticlesIndex } from "../lib/articleLoader";
+import type { ArticleIndexEntry } from "../types/article";
+import { useSearch } from "../contexts/SearchContext";
+import { useDebounce } from "../hooks/useDebounce";
 
 const categoryColors: Record<string, string> = {
-  Profile: '#3366CC',
-  Blockchain: '#E67E22',
-  'AI / ML': '#8E44AD',
-  Infrastructure: '#27AE60',
-  Security: '#C0392B',
-  Systems: '#2980B9',
-  Web: '#16A085',
-  Learning: '#F39C12',
+  Profile: "#3366CC",
+  Blockchain: "#E67E22",
+  "AI / ML": "#8E44AD",
+  Infrastructure: "#27AE60",
+  Security: "#C0392B",
+  Systems: "#2980B9",
+  Web: "#16A085",
+  Learning: "#F39C12",
 };
 
-const RECENT_KEY = 'wiki_recent_searches';
+const RECENT_KEY = "wiki_recent_searches";
 const MAX_RECENT = 5;
 
 function getRecent(): string[] {
   try {
-    return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]');
+    return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
   } catch {
     return [];
   }
@@ -41,7 +41,7 @@ function removeRecent(q: string) {
 
 export default function GlobalSearch() {
   const { isOpen, closeSearch } = useSearch();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 120);
   const [results, setResults] = useState<ArticleIndexEntry[]>([]);
   const [featured, setFeatured] = useState<ArticleIndexEntry[]>([]);
@@ -63,7 +63,7 @@ export default function GlobalSearch() {
   // Focus input when opening
   useEffect(() => {
     if (isOpen) {
-      setQuery('');
+      setQuery("");
       setResults([]);
       setActiveIdx(-1);
       setRecent(getRecent());
@@ -87,33 +87,57 @@ export default function GlobalSearch() {
         setIsSearching(false);
       }
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [debouncedQuery]);
 
   // Close on backdrop click
-  const handleBackdropClick = useCallback((e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) closeSearch();
-  }, [closeSearch]);
+  const handleBackdropClick = useCallback(
+    (e: React.MouseEvent) => {
+      if (e.target === e.currentTarget) closeSearch();
+    },
+    [closeSearch],
+  );
 
-  // Keyboard navigation
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    const items = query.trim().length >= 2 ? results : featured;
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      setActiveIdx((i) => Math.min(i + 1, items.length - 1));
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      setActiveIdx((i) => Math.max(i - 1, -1));
-    } else if (e.key === 'Enter') {
-      if (activeIdx >= 0 && items[activeIdx]) {
-        navigate(items[activeIdx].slug, items[activeIdx].title);
-      } else if (query.trim()) {
-        navigateSearch(query);
+  // Focus trap and keyboard navigation
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      const items = query.trim().length >= 2 ? results : featured;
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setActiveIdx((i) => Math.min(i + 1, items.length - 1));
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setActiveIdx((i) => Math.max(i - 1, -1));
+      } else if (e.key === "Enter") {
+        if (activeIdx >= 0 && items[activeIdx]) {
+          navigate(items[activeIdx].slug, items[activeIdx].title);
+        } else if (query.trim()) {
+          navigateSearch(query);
+        }
+      } else if (e.key === "Escape") {
+        closeSearch();
+      } else if (e.key === "Tab") {
+        // Trap focus within modal
+        const modal = modalRef.current;
+        if (!modal) return;
+        const focusable = modal.querySelectorAll<HTMLElement>(
+          'input, button, [tabindex]:not([tabindex="-1"])',
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
-    } else if (e.key === 'Escape') {
-      closeSearch();
-    }
-  }, [query, results, featured, activeIdx, closeSearch]);
+    },
+    [query, results, featured, activeIdx, closeSearch],
+  );
 
   function navigate(slug: string, title: string) {
     saveRecent(title);
@@ -131,7 +155,7 @@ export default function GlobalSearch() {
   useEffect(() => {
     if (activeIdx < 0 || !listRef.current) return;
     const el = listRef.current.querySelector(`[data-idx="${activeIdx}"]`);
-    el?.scrollIntoView({ block: 'nearest' });
+    el?.scrollIntoView({ block: "nearest" });
   }, [activeIdx]);
 
   const showResults = query.trim().length >= 2;
@@ -155,7 +179,11 @@ export default function GlobalSearch() {
           {isSearching ? (
             <div className="global-search-spinner" aria-hidden="true" />
           ) : (
-            <Search size={18} className="global-search-icon" aria-hidden="true" />
+            <Search
+              size={18}
+              className="global-search-icon"
+              aria-hidden="true"
+            />
           )}
           <input
             ref={inputRef}
@@ -173,14 +201,19 @@ export default function GlobalSearch() {
           />
           {query && (
             <button
-              onClick={() => { setQuery(''); inputRef.current?.focus(); }}
+              onClick={() => {
+                setQuery("");
+                inputRef.current?.focus();
+              }}
               className="global-search-clear"
               aria-label="Clear search"
             >
               <X size={14} />
             </button>
           )}
-          <kbd className="global-search-esc" onClick={closeSearch}>ESC</kbd>
+          <kbd className="global-search-esc" onClick={closeSearch}>
+            ESC
+          </kbd>
         </div>
 
         {/* Divider */}
@@ -188,13 +221,19 @@ export default function GlobalSearch() {
 
         {/* Results / Featured / Empty */}
         <div className="global-search-body" ref={listRef}>
-
           {/* Section label */}
           {!isEmpty && (
             <div className="global-search-section-label">
-              {showResults
-                ? <><Hash size={11} /> {results.length} result{results.length !== 1 ? 's' : ''}</>
-                : <><Sparkles size={11} /> Featured articles</>}
+              {showResults ? (
+                <>
+                  <Hash size={11} /> {results.length} result
+                  {results.length !== 1 ? "s" : ""}
+                </>
+              ) : (
+                <>
+                  <Sparkles size={11} /> Featured articles
+                </>
+              )}
             </div>
           )}
 
@@ -204,7 +243,7 @@ export default function GlobalSearch() {
               key={item.id}
               data-idx={i}
               onClick={() => navigate(item.slug, item.title)}
-              className={`global-search-result${activeIdx === i ? ' active' : ''}`}
+              className={`global-search-result${activeIdx === i ? " active" : ""}`}
               role="option"
               aria-selected={activeIdx === i}
             >
@@ -223,12 +262,14 @@ export default function GlobalSearch() {
               <div className="global-search-result-body">
                 <span className="global-search-result-title">{item.title}</span>
                 {item.excerpt && (
-                  <span className="global-search-result-excerpt">{item.excerpt}</span>
+                  <span className="global-search-result-excerpt">
+                    {item.excerpt}
+                  </span>
                 )}
               </div>
               <span
                 className="global-search-cat"
-                style={{ color: categoryColors[item.category] || '#7A8494' }}
+                style={{ color: categoryColors[item.category] || "#7A8494" }}
               >
                 {item.category}
               </span>
@@ -240,7 +281,9 @@ export default function GlobalSearch() {
           {isEmpty && (
             <div className="global-search-empty">
               <Search size={32} className="global-search-empty-icon" />
-              <p>No articles found for <strong>"{query}"</strong></p>
+              <p>
+                No articles found for <strong>"{query}"</strong>
+              </p>
               <button
                 className="global-search-full-search"
                 onClick={() => navigateSearch(query)}
@@ -260,13 +303,19 @@ export default function GlobalSearch() {
                 <div key={r} className="global-search-recent-item">
                   <button
                     className="global-search-recent-label"
-                    onClick={() => { setQuery(r); inputRef.current?.focus(); }}
+                    onClick={() => {
+                      setQuery(r);
+                      inputRef.current?.focus();
+                    }}
                   >
                     <Clock size={12} /> {r}
                   </button>
                   <button
                     className="global-search-recent-remove"
-                    onClick={() => { removeRecent(r); setRecent(getRecent()); }}
+                    onClick={() => {
+                      removeRecent(r);
+                      setRecent(getRecent());
+                    }}
                     aria-label={`Remove "${r}" from recent`}
                   >
                     <X size={11} />
@@ -279,10 +328,19 @@ export default function GlobalSearch() {
 
         {/* Footer hints */}
         <div className="global-search-footer">
-          <span><kbd>↑↓</kbd> Navigate</span>
-          <span><kbd>↵</kbd> Open</span>
-          <span><kbd>Esc</kbd> Close</span>
-          <span className="ml-auto"><kbd>Win</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to open anytime</span>
+          <span>
+            <kbd>↑↓</kbd> Navigate
+          </span>
+          <span>
+            <kbd>↵</kbd> Open
+          </span>
+          <span>
+            <kbd>Esc</kbd> Close
+          </span>
+          <span className="ml-auto">
+            <kbd>Win</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to open
+            anytime
+          </span>
         </div>
       </div>
     </div>

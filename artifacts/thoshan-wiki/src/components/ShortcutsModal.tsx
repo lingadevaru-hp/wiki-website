@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { X, Keyboard } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import { X, Keyboard } from "lucide-react";
 
 interface ShortcutsModalProps {
   isOpen: boolean;
@@ -7,25 +7,28 @@ interface ShortcutsModalProps {
 }
 
 const shortcuts = [
-  { keys: ['Win', 'K'], label: 'Open search' },
-  { keys: ['Ctrl', 'K'], label: 'Open search' },
-  { keys: ['/'], label: 'Focus header search' },
-  { keys: ['Ctrl', '/'], label: 'Open keyboard shortcuts' },
-  { keys: ['↑', '↓'], label: 'Navigate search results' },
-  { keys: ['↵'], label: 'Open selected result' },
-  { keys: ['Esc'], label: 'Close modal / blur input' },
+  { keys: ["Win", "K"], label: "Open search" },
+  { keys: ["Ctrl", "K"], label: "Open search" },
+  { keys: ["/"], label: "Focus header search" },
+  { keys: ["Ctrl", "/"], label: "Open keyboard shortcuts" },
+  { keys: ["↑", "↓"], label: "Navigate search results" },
+  { keys: ["↵"], label: "Open selected result" },
+  { keys: ["Esc"], label: "Close modal / blur input" },
 ];
 
-export default function ShortcutsModal({ isOpen, onClose }: ShortcutsModalProps) {
+export default function ShortcutsModal({
+  isOpen,
+  onClose,
+}: ShortcutsModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     }
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -33,7 +36,9 @@ export default function ShortcutsModal({ isOpen, onClose }: ShortcutsModalProps)
   return (
     <div
       className="global-search-backdrop"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       role="dialog"
       aria-modal="true"
       aria-label="Keyboard shortcuts"
@@ -54,13 +59,15 @@ export default function ShortcutsModal({ isOpen, onClose }: ShortcutsModalProps)
 
         <div className="shortcuts-list">
           {shortcuts.map(({ keys, label }) => (
-            <div key={label + keys.join('')} className="shortcut-row">
+            <div key={label + keys.join("")} className="shortcut-row">
               <span className="shortcut-label">{label}</span>
               <div className="shortcut-keys">
                 {keys.map((k, i) => (
                   <span key={i}>
                     <kbd className="shortcut-kbd">{k}</kbd>
-                    {i < keys.length - 1 && <span className="shortcut-plus">+</span>}
+                    {i < keys.length - 1 && (
+                      <span className="shortcut-plus">+</span>
+                    )}
                   </span>
                 ))}
               </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 export interface BookmarkItem {
   slug: string;
@@ -7,11 +7,11 @@ export interface BookmarkItem {
   savedAt: number;
 }
 
-const BOOKMARKS_KEY = 'thoshan_wiki_bookmarks_v1';
+const BOOKMARKS_KEY = "thoshan_wiki_bookmarks_v1";
 
 export function useBookmarks() {
   const [bookmarks, setBookmarks] = useState<BookmarkItem[]>(() => {
-    if (typeof window === 'undefined') return [];
+    if (typeof window === "undefined") return [];
     try {
       const stored = localStorage.getItem(BOOKMARKS_KEY);
       return stored ? JSON.parse(stored) : [];
@@ -24,11 +24,11 @@ export function useBookmarks() {
     try {
       localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
     } catch (e) {
-      console.error('Failed to save bookmarks to localStorage', e);
+      console.error("Failed to save bookmarks to localStorage", e);
     }
   }, [bookmarks]);
 
-  const addBookmark = useCallback((item: Omit<BookmarkItem, 'savedAt'>) => {
+  const addBookmark = useCallback((item: Omit<BookmarkItem, "savedAt">) => {
     setBookmarks((prev) => {
       if (prev.some((b) => b.slug === item.slug)) return prev;
       return [{ ...item, savedAt: Date.now() }, ...prev];
@@ -41,18 +41,18 @@ export function useBookmarks() {
 
   const isBookmarked = useCallback(
     (slug: string) => bookmarks.some((b) => b.slug === slug),
-    [bookmarks]
+    [bookmarks],
   );
 
   const toggleBookmark = useCallback(
-    (item: Omit<BookmarkItem, 'savedAt'>) => {
+    (item: Omit<BookmarkItem, "savedAt">) => {
       if (isBookmarked(item.slug)) {
         removeBookmark(item.slug);
       } else {
         addBookmark(item);
       }
     },
-    [isBookmarked, addBookmark, removeBookmark]
+    [isBookmarked, addBookmark, removeBookmark],
   );
 
   return {
