@@ -46,11 +46,11 @@ export default function LandingPage() {
     const page = document.querySelector(".landing-page");
     if (!page) return;
 
-    let raf = 0;
+    let ticking: number | false = false;
     const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
+      if (ticking) return;
+      ticking = requestAnimationFrame(() => {
+        ticking = false;
         const scrollY = window.scrollY;
         const vh = window.innerHeight;
         page.classList.toggle("scrolled", scrollY > vh * 0.3);
@@ -60,7 +60,7 @@ export default function LandingPage() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (raf) cancelAnimationFrame(raf);
+      if (ticking) cancelAnimationFrame(ticking);
     };
   }, []);
 

@@ -32,26 +32,32 @@ export default function Section({ section, depth = 0 }: SectionProps) {
           <button
             data-testid={`button-collapse-${section.id}`}
             onClick={() => setCollapsed((c) => !c)}
-            className="text-accent text-xs font-normal hover:underline ml-2"
+            className="text-accent text-xs font-normal hover:underline ml-2 transition-colors"
           >
             [{collapsed ? "show" : "hide"}]
           </button>
         )}
       </HeadingTag>
 
-      {!collapsed && (
-        <>
-          <div className="clearfix">
-            {section.content.map((block, i) => (
-              <ContentBlock key={i} block={block} />
-            ))}
-          </div>
-
-          {section.subsections?.map((sub) => (
-            <Section key={sub.id} section={sub} depth={depth + 1} />
+      <div
+        className="wiki-section-content"
+        style={{
+          overflow: "hidden",
+          maxHeight: collapsed ? 0 : "5000px",
+          opacity: collapsed ? 0 : 1,
+          transition: "max-height 300ms var(--ease-out), opacity 200ms var(--ease-out)",
+        }}
+      >
+        <div className="clearfix">
+          {section.content.map((block, i) => (
+            <ContentBlock key={i} block={block} />
           ))}
-        </>
-      )}
+        </div>
+
+        {section.subsections?.map((sub) => (
+          <Section key={sub.id} section={sub} depth={depth + 1} />
+        ))}
+      </div>
     </section>
   );
 }

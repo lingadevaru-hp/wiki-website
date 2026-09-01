@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Search, Sparkles } from "lucide-react";
 import WikiLayout from "../components/WikiLayout";
@@ -10,10 +10,32 @@ import { useSearch } from "../contexts/SearchContext";
 import SpaceField from "../components/SpaceField";
 import SEO from "../components/SEO";
 
+function useScrollReveal(threshold = 0.15) {
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("in-view");
+          observer.unobserve(el);
+        }
+      },
+      { threshold, rootMargin: "0px 0px -60px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return ref;
+}
+
 export default function HomePage() {
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [category, setCategory] = useState("All");
   const { openSearch } = useSearch();
+  const recentSectionRef = useScrollReveal(0.12);
+  const allArticlesRef = useScrollReveal(0.12);
 
   useEffect(() => {
     loadArticlesIndex().then((index) => setArticles(index.articles));
@@ -86,7 +108,7 @@ export default function HomePage() {
         </section>
       )}
 
-      <section className="home-section">
+      <section ref={recentSectionRef} className="home-section reveal-on-scroll">
         <div className="section-heading">
           <div>
             <p className="section-eyebrow">Start anywhere</p>
@@ -113,7 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section">
+      <section ref={allArticlesRef} className="home-section reveal-on-scroll">
         <div className="section-heading">
           <div>
             <p className="section-eyebrow">Browse the index</p>

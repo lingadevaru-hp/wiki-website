@@ -70,11 +70,11 @@ export default function WikiHeader({
             target="_blank"
             rel="noreferrer"
           >
-            🎙️ Chat with me
+            Chat with me
           </a>
         </nav>
         <button
-          className="header-icon-button"
+          className="header-icon-button theme-toggle"
           onClick={toggleTheme}
           aria-label={
             theme === "dark" ? "Switch to light mode" : "Switch to dark mode"

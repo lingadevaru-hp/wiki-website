@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
@@ -169,11 +169,12 @@ export default function ArticlesPage() {
             </div>
           ) : (
             <div className="articles-grid">
-              {visible.map((article) => (
+              {visible.map((article, index) => (
                 <Link
                   key={article.id}
                   href={`/wiki/${article.slug}`}
                   className="article-card"
+                  style={{ animationDelay: `${index * 60}ms` }}
                 >
                   {article.thumbnail && (
                     <div className="article-card-thumb">

@@ -2574,14 +2574,6 @@ pre {
   position: relative;
   isolation: isolate;
 }
-.landing-main > .space-field {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  height: 100vh;
-  opacity: 0.68;
-  mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 98%);
-}
 .landing-main > .landing-hero,
 .landing-main > .landing-explore,
 .landing-main > .landing-project-capture {
@@ -2799,8 +2791,6 @@ pre {
   opacity: 0.68;
   mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 98%);
   overflow: hidden;
-  /* Subtle scroll-based parallax */
-  will-change: transform;
 }
 
 /* Layer 1: Distant Stars - varied colors and twinkling */
@@ -3728,7 +3718,1258 @@ pre {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GLOBAL SEARCH MODAL
+   ROUTE TRANSITION CROSSFADE
+   ═══════════════════════════════════════════════════════════════ */
+
+.route-transition {
+  transition: opacity 150ms var(--ease-out), transform 150ms var(--ease-out);
+}
+.route-transition--exit {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.route-transition--enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   15 ANIMATIONS + 18 FEATURES + 19 UI/UX IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Article card stagger entrance (scroll-triggered) ── */
+.article-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardStaggerIn 450ms var(--ease-out) forwards;
+}
+.article-card:nth-child(1) { animation-delay: 0ms; }
+.article-card:nth-child(2) { animation-delay: 60ms; }
+.article-card:nth-child(3) { animation-delay: 120ms; }
+.article-card:nth-child(4) { animation-delay: 180ms; }
+.article-card:nth-child(5) { animation-delay: 240ms; }
+.article-card:nth-child(6) { animation-delay: 300ms; }
+.article-card:nth-child(7) { animation-delay: 360ms; }
+.article-card:nth-child(8) { animation-delay: 420ms; }
+.article-card:nth-child(9) { animation-delay: 480ms; }
+
+@keyframes cardStaggerIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 2. Featured article slide-in ── */
+.featured-article {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: featuredSlideIn 600ms var(--ease-out) 100ms forwards;
+}
+@keyframes featuredSlideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ── 3. Category tab indicator morph ── */
+.category-row {
+  position: relative;
+}
+.category-row::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: hsl(var(--accent));
+  border-radius: 1px;
+  transition: left 300ms var(--ease-spring), width 300ms var(--ease-spring);
+  pointer-events: none;
+}
+
+/* ── 4. TOC active highlight pulse ── */
+[data-testid="table-of-contents"] a {
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+}
+[data-testid="table-of-contents"] a:has(~ .toc-active-pulse) {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+.toc-active-pulse {
+  animation: tocPulse 800ms var(--ease-out);
+}
+@keyframes tocPulse {
+  0% { background: hsl(var(--accent) / 0.15); }
+  100% { background: transparent; }
+}
+
+/* ── 5. Bookmark heart pulse ── */
+@keyframes bookmarkPulse {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.25); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.action-button.is-active svg {
+  animation: bookmarkPulse 400ms var(--ease-spring);
+  color: hsl(38 72% 60%);
+}
+
+/* ── 6. Reading progress edge glow ── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  background: hsl(var(--border) / 0.3);
+  overflow: visible;
+}
+.reading-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--accent)), hsl(219 79% 60%));
+  border-radius: 0 2px 2px 0;
+  transition: width 100ms linear;
+  position: relative;
+}
+.reading-progress span::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 10px;
+  height: 9px;
+  border-radius: 50%;
+  background: hsl(219 79% 47% / 0.4);
+  filter: blur(4px);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out);
+}
+.reading-progress span[style*="width"]:not([style*="width: 0"])::after {
+  opacity: 1;
+}
+.reading-progress b {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  opacity: 0;
+  transition: opacity 200ms var(--ease-out);
+  pointer-events: none;
+}
+.reading-progress b.is-visible {
+  opacity: 1;
+}
+
+/* ── 7. Back-to-top slide + fade ── */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card) / 0.9);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: hsl(var(--foreground));
+  animation: backToTopIn 300ms var(--ease-spring) forwards;
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px hsl(var(--background) / 0.3);
+}
+@keyframes backToTopIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── 8. Section collapse/expand ── */
+.wiki-section .clearfix {
+  overflow: hidden;
+  animation: sectionExpand 300ms var(--ease-out) forwards;
+}
+@keyframes sectionExpand {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 5000px; }
+}
+
+/* ── 9. Image hover zoom ── */
+.wiki-content img,
+.article-lead img {
+  transition: transform var(--duration-slow) var(--ease-out),
+              box-shadow var(--duration-slow) var(--ease-out);
+  border-radius: 8px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .wiki-content img:hover,
+  .article-lead img:hover {
+    transform: scale(1.015);
+    box-shadow: 0 8px 24px hsl(var(--background) / 0.2);
+  }
+}
+
+/* ── 10. Callout box slide-in ── */
+.article-extra-section,
+.resume-reading {
+  animation: calloutSlideIn 400ms var(--ease-out) forwards;
+}
+@keyframes calloutSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ── 11. Footer link underline slide ── */
+footer a {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(hsl(var(--muted-foreground)), hsl(var(--muted-foreground)));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--duration-normal) var(--ease-out),
+              color var(--duration-normal) var(--ease-out);
+}
+footer a:hover {
+  background-size: 100% 1px;
+  color: hsl(var(--foreground));
+}
+
+/* ── 12. 404 page floating elements ── */
+.empty-page {
+  animation: floatIn 600ms var(--ease-out) forwards;
+}
+.empty-page h1 {
+  animation: floatTitle 3s var(--ease-in-out) infinite;
+}
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ── 13. Search result stagger (already exists, enhance) ── */
+.search-results-list > * {
+  opacity: 0;
+  animation: resultSlideIn 250ms var(--ease-out) both;
+}
+.search-results-list > *:nth-child(1) { animation-delay: 0ms; }
+.search-results-list > *:nth-child(2) { animation-delay: 30ms; }
+.search-results-list > *:nth-child(3) { animation-delay: 60ms; }
+.search-results-list > *:nth-child(4) { animation-delay: 90ms; }
+.search-results-list > *:nth-child(5) { animation-delay: 120ms; }
+
+/* ── 14. Sidebar backdrop blur entrance ── */
+.fixed.inset-0.bg-black\/40 {
+  backdrop-filter: blur(0px);
+  transition: backdrop-filter 300ms var(--ease-out);
+}
+.fixed.inset-0.bg-black\/40.opacity-100 {
+  backdrop-filter: blur(4px);
+}
+
+/* ── 15. Article header entrance ── */
+.article-heading {
+  animation: articleHeaderIn 500ms var(--ease-out) forwards;
+}
+@keyframes articleHeaderIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   18 FEATURES - ENHANCED EXISTING
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Reading progress percentage indicator ── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  background: hsl(var(--border) / 0.3);
+}
+
+/* ── Back-to-top button (already exists, enhance) ── */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+}
+
+/* ── Bookmark toggle animation (already exists, enhance) ── */
+.action-button.is-active {
+  color: hsl(38 72% 60%);
+}
+
+/* ── Theme toggle morph (already exists, enhance) ── */
+.header-icon-button svg {
+  transition: transform 300ms var(--ease-spring);
+}
+
+/* ── Mobile sidebar backdrop blur ── */
+aside.fixed {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   19 UI/UX IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Consistent border-radius ── */
+.wiki-header,
+.wiki-sidebar,
+.related-rail,
+.article-settings,
+.global-search-modal,
+.shortcuts-modal {
+  border-radius: var(--radius-lg, 12px);
+}
+
+/* ── 2. Optical alignment for buttons with icons ── */
+button svg,
+a svg {
+  vertical-align: -2px;
+}
+
+/* ── 3. Hover state consistency ── */
+.action-button,
+.header-icon-button,
+.header-search-button {
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .action-button:hover {
+    background: hsl(var(--foreground) / 0.06);
+    transform: translateY(-1px);
+  }
+  .header-icon-button:hover {
+    background: hsl(var(--foreground) / 0.06);
+  }
+}
+
+/* ── 4. Focus-visible rings (already exists, enhance) ── */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px hsl(var(--ring) / 0.15);
+}
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ── 5. Touch target sizes (already exists, enhance) ── */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  a,
+  [role="tab"] {
+    min-height: 44px;
+  }
+}
+
+/* ── 6. Visual hierarchy improvements ── */
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+h1 {
+  font: 400 clamp(1.8rem, 4vw, 2.8rem)/1.1 Georgia, serif;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font: 400 clamp(1.3rem, 2.5vw, 1.8rem)/1.15 Georgia, serif;
+}
+
+/* ── 7. Color contrast verification ── */
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+.section-eyebrow {
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── 8. Spacing consistency ── */
+.wiki-main {
+  padding: 0 24px;
+}
+@media (max-width: 640px) {
+  .wiki-main {
+    padding: 0 12px;
+  }
+}
+
+/* ── 9. Typography scale consistency ── */
+.article-card-title {
+  font: 700 17px/1.2 Georgia, serif;
+}
+.article-card-excerpt {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* ── 10. Loading states ── */
+.article-skeleton,
+.articles-skeleton,
+.article-card-skeleton {
+  animation: pulse 1.5s var(--ease-in-out) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── 11. Empty states ── */
+.empty-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ── 12. Error states ── */
+.empty-page p {
+  color: hsl(var(--muted-foreground));
+  max-width: 400px;
+}
+
+/* ── 13. Mobile responsiveness ── */
+@media (max-width: 640px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    padding-inline: 12px;
+  }
+  .article-settings {
+    display: none;
+  }
+  .article-actions {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+/* ── 14. Reduced motion (already comprehensive, add new animations) ── */
+@media (prefers-reduced-motion: reduce) {
+  .route-transition {
+    transition: none !important;
+  }
+  .route-transition--exit {
+    opacity: 1;
+    transform: none;
+  }
+  .article-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .featured-article {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .article-heading {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .empty-page {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .empty-page h1 {
+    animation: none !important;
+  }
+  .back-to-top {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .article-extra-section,
+  .resume-reading {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .wiki-content img,
+  .article-lead img {
+    transition: none !important;
+  }
+  .action-button.is-active svg {
+    animation: none !important;
+  }
+}
+
+/* ── 15. Print styles (already exists, enhance) ── */
+@media print {
+  .route-transition {
+    transition: none !important;
+  }
+  .article-card {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .reading-progress,
+  .back-to-top,
+  .article-actions,
+  .article-settings {
+    display: none !important;
+  }
+}
+
+/* ── 16. Dark mode consistency ── */
+.dark {
+  --background: 222 47% 6%;
+  --foreground: 210 40% 96%;
+  --card: 222 47% 9%;
+  --border: 217 33% 17%;
+  --accent: 219 79% 47%;
+  --muted-foreground: 215 20% 55%;
+}
+
+/* ── 17. Border consistency ── */
+.wiki-header {
+  border-bottom: 1px solid hsl(var(--border));
+}
+.wiki-shell {
+  border-top: 1px solid hsl(var(--border));
+}
+
+/* ── 18. Shadow consistency ── */
+.related-rail {
+  box-shadow: 0 2px 8px hsl(var(--background) / 0.1);
+}
+.global-search-modal {
+  box-shadow:
+    0 0 0 1px hsl(var(--accent) / 0.12),
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ── 19. Micro-interaction polish ── */
+.text-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: hsl(var(--accent));
+  font-weight: 500;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.text-link:hover {
+  color: hsl(219 79% 55%);
+}
+.text-link svg {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.text-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── Additional UI polish: article context nav ── */
+.article-context-nav a {
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+/* ── Additional UI polish: article kicker ── */
+.article-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── Additional UI polish: article dek ── */
+.article-dek {
+  font-size: 15px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* ── Additional UI polish: article lead ── */
+.article-lead {
+  margin-bottom: 24px;
+}
+
+/* ── Additional UI polish: article sections ── */
+.article-sections {
+  margin-bottom: 32px;
+}
+
+/* ── Additional UI polish: article categories ── */
+.article-categories {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+  border-top: 1px solid hsl(var(--border));
+  margin-top: 24px;
+}
+.article-categories a {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  font-size: 11px;
+  color: hsl(var(--muted-foreground));
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+.article-categories a:hover {
+  background: hsl(var(--accent) / 0.1);
+  color: hsl(var(--accent));
+}
+
+/* ── Additional UI polish: article neighbors ── */
+.article-neighbors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid hsl(var(--border));
+}
+.article-neighbors a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+.article-neighbors a:hover {
+  background: hsl(var(--card) / 0.5);
+  border-color: hsl(var(--accent) / 0.4);
+}
+.article-neighbors span {
+  font-size: 11px;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.article-neighbors strong {
+  font: 600 14px/1.3 Georgia, serif;
+}
+
+/* ── Additional UI polish: read-next ── */
+.read-next {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid hsl(var(--border));
+}
+.read-next h2 {
+  margin: 0 0 16px;
+}
+.read-next-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.read-next-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card) / 0.3);
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .read-next-card:hover {
+    background: hsl(var(--card) / 0.6);
+    border-color: hsl(var(--accent) / 0.4);
+    transform: translateY(-2px);
+  }
+}
+.read-next-card strong {
+  font: 600 14px/1.3 Georgia, serif;
+}
+.read-next-card small {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+/* ── Additional UI polish: reader toast ── */
+.reader-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  font-size: 13px;
+  box-shadow: 0 4px 12px hsl(var(--background) / 0.3);
+  animation: toastSlideIn 350ms var(--ease-spring) both;
+}
+
+/* ── Additional UI polish: resume reading ── */
+.resume-reading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card) / 0.5);
+  margin-bottom: 24px;
+}
+.resume-reading strong {
+  display: block;
+  font-weight: 600;
+}
+.resume-reading span {
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+}
+.resume-reading button {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.resume-reading button:hover {
+  background: hsl(var(--foreground) / 0.06);
+}
+.resume-reading button:first-of-type {
+  background: hsl(var(--accent));
+  color: white;
+  border-color: hsl(var(--accent));
+}
+.resume-reading button:first-of-type:hover {
+  background: hsl(219 79% 55%);
+}
+
+/* ── Additional UI polish: foss project capture ── */
+.foss-project-capture {
+  margin: 24px 0;
+}
+.foss-project-capture-button {
+  position: relative;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  width: 100%;
+}
+.foss-project-capture-button img {
+  width: 100%;
+  display: block;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .foss-project-capture-button:hover img {
+    transform: scale(1.02);
+  }
+}
+.foss-capture-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--background) / 0.6);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+  font-size: 13px;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+@media (hover: hover) and (pointer: fine) {
+  .foss-project-capture-button:hover .foss-capture-overlay {
+    opacity: 1;
+  }
+}
+.foss-project-capture figcaption {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ── Additional UI polish: sub articles ── */
+.sub-article-list {
+  display: grid;
+  gap: 8px;
+}
+.sub-article-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+.sub-article-link:hover {
+  background: hsl(var(--card) / 0.5);
+  border-color: hsl(var(--accent) / 0.4);
+}
+.sub-article-link strong {
+  font: 600 14px/1.3 Georgia, serif;
+}
+.sub-article-link small {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  display: block;
+  margin-top: 2px;
+}
+
+/* ── Additional UI polish: perspective cards ── */
+.article-extra-section .border {
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.article-extra-section .border:hover {
+  background: hsl(var(--card) / 0.5);
+}
+
+/* ── Additional UI polish: wiki content typography ── */
+.wiki-content h2 {
+  margin: 24px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.wiki-content h3 {
+  margin: 20px 0 8px;
+}
+.wiki-content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.wiki-content ul,
+.wiki-content ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.wiki-content li {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.wiki-content blockquote {
+  border-left: 3px solid hsl(var(--accent));
+  padding-left: 16px;
+  margin: 16px 0;
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+}
+.wiki-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 2px 6px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 4px;
+  background: hsl(var(--card));
+}
+.wiki-content pre {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  background: hsl(var(--card));
+  overflow-x: auto;
+}
+.wiki-content pre code {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.wiki-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+.wiki-content th,
+.wiki-content td {
+  padding: 8px 12px;
+  border: 1px solid hsl(var(--border));
+  text-align: left;
+}
+.wiki-content th {
+  background: hsl(var(--card));
+  font-weight: 600;
+}
+.wiki-content hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 24px 0;
+}
+
+/* ── Additional UI polish: home page sections ── */
+.home-section {
+  margin-bottom: 40px;
+}
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.section-heading h2 {
+  margin: 0;
+}
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.recent-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card) / 0.3);
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+  text-decoration: none !important;
+  color: hsl(var(--foreground));
+}
+@media (hover: hover) and (pointer: fine) {
+  .recent-card:hover {
+    background: hsl(var(--card) / 0.6);
+    border-color: hsl(var(--accent) / 0.4);
+  }
+}
+.recent-card span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.recent-card strong {
+  font: 600 15px/1.3 Georgia, serif;
+}
+.recent-card small {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Additional UI polish: article index rows ── */
+.article-index {
+  display: grid;
+  gap: 2px;
+}
+.index-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  color: hsl(var(--foreground));
+  transition: background var(--duration-fast) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .index-row:hover {
+    background: hsl(var(--foreground) / 0.04);
+  }
+}
+.index-category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.index-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.index-copy strong {
+  font: 600 14px/1.3 Georgia, serif;
+}
+.index-copy small {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.index-arrow {
+  color: hsl(var(--muted-foreground));
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .index-row:hover .index-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+}
+
+/* ── Additional UI polish: count badge ── */
+.count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: hsl(var(--foreground) / 0.08);
+  font-size: 11px;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  vertical-align: middle;
+}
+
+/* ── Additional UI polish: home search button ── */
+.home-search-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card) / 0.5);
+  color: hsl(var(--muted-foreground));
+  font-size: 14px;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+  width: 100%;
+  max-width: 400px;
+}
+.home-search-button:hover {
+  background: hsl(var(--card));
+  border-color: hsl(var(--accent) / 0.4);
+  color: hsl(var(--foreground));
+}
+.home-search-button kbd {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 4px;
+  background: hsl(var(--background));
+}
+
+/* ── Additional UI polish: home intro ── */
+.home-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid hsl(var(--border));
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.home-intro h1 {
+  margin: 0;
+}
+.home-intro p {
+  color: hsl(var(--muted-foreground));
+  max-width: 480px;
+}
+
+/* ── Additional UI polish: featured article ── */
+.featured-article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 16px;
+  background: hsl(var(--card) / 0.3);
+  margin-bottom: 32px;
+}
+.featured-article img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+}
+.featured-article h2 {
+  margin: 4px 0 8px;
+}
+.featured-article h2 a {
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+.featured-article h2 a:hover {
+  color: hsl(var(--accent));
+}
+
+/* ── Additional UI polish: category row ── */
+.category-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.category-row button {
+  padding: 6px 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+.category-row button:hover {
+  background: hsl(var(--foreground) / 0.06);
+  color: hsl(var(--foreground));
+}
+.category-row button.selected {
+  background: hsl(var(--accent));
+  color: white;
+  border-color: hsl(var(--accent));
+}
+
+/* ── Additional UI polish: articles page ── */
+.articles-page-header {
+  padding: 24px 0;
+  border-bottom: 1px solid hsl(var(--border));
+  margin-bottom: 20px;
+}
+
+/* ── Additional UI polish: search page ── */
+.search-results-list {
+  display: grid;
+  gap: 8px;
+}
+
+/* ── Additional UI polish: wiki layout ── */
+.wiki-shell {
+  display: flex;
+  flex: 1;
+}
+
+/* ── Additional UI polish: article settings panel ── */
+.article-settings {
+  position: sticky;
+  top: 88px;
+  align-self: start;
+}
+.settings-panel {
+  padding: 14px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 18px;
+  background: hsl(var(--card) / 0.3);
+}
+.settings-group {
+  margin-bottom: 12px;
+}
+.settings-group:last-child {
+  margin-bottom: 0;
+}
+.settings-group > span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.settings-options {
+  display: flex;
+  gap: 4px;
+}
+.settings-options button {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 6px;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+.settings-options button:hover {
+  background: hsl(var(--foreground) / 0.06);
+}
+.settings-options button.selected {
+  background: hsl(var(--accent));
+  color: white;
+  border-color: hsl(var(--accent));
+}
 ═══════════════════════════════════════════════════════════════ */
 
 @keyframes backdropIn {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,17 +24,44 @@ const queryClient = new QueryClient({
   },
 });
 
-function Router() {
+function RouteTransition() {
+  const [location] = useLocation();
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionStage, setTransitionStage] = useState<"enter" | "exit">("enter");
+
+  useEffect(() => {
+    if (location !== displayLocation) {
+      setTransitionStage("exit");
+    }
+  }, [location, displayLocation]);
+
+  useEffect(() => {
+    if (transitionStage === "exit") {
+      const timer = setTimeout(() => {
+        setDisplayLocation(location);
+        setTransitionStage("enter");
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+    return undefined;
+  }, [transitionStage, location]);
+
   return (
-    <Switch>
-      <Route path="/" component={LandingPage} />
-      <Route path="/wiki/home" component={HomePage} />
-      <Route path="/wiki/search" component={SearchPage} />
-      <Route path="/wiki/articles" component={ArticlesPage} />
-      <Route path="/wiki/:slug" component={ArticlePage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <div className={`route-transition route-transition--${transitionStage}`}>
+      <Switch>
+        <Route path="/" component={LandingPage} />
+        <Route path="/wiki/home" component={HomePage} />
+        <Route path="/wiki/search" component={SearchPage} />
+        <Route path="/wiki/articles" component={ArticlesPage} />
+        <Route path="/wiki/:slug" component={ArticlePage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
   );
+}
+
+function Router() {
+  return <RouteTransition />;
 }
 
 /** Handles global keyboard shortcuts — must live inside SearchProvider */
