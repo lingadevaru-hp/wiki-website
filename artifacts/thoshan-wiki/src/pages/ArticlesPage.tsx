@@ -9,7 +9,7 @@ import { loadArticlesIndex } from "../lib/articleLoader";
 import type { ArticleIndexEntry } from "../types/article";
 
 const categoryColors: Record<string, string> = {
-  Profile: "#3366CC",
+  Profile: "#58a6ff",
   Blockchain: "#E67E22",
   "AI / ML": "#8E44AD",
   Infrastructure: "#27AE60",
@@ -187,7 +187,7 @@ export default function ArticlesPage() {
                     <span
                       className="article-card-category"
                       style={{
-                        color: categoryColors[article.category] ?? "#3366CC",
+                        color: categoryColors[article.category] ?? "#58a6ff",
                       }}
                     >
                       {categoryGlyph[article.category] ?? "📄"}&nbsp;
