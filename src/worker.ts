@@ -159,6 +159,18 @@ async function handleTextToSpeech(
   }
 }
 
+function addSecurityHeaders(response: Response): Response {
+  const headers = new Response(response).headers;
+  headers.set("X-Robots-Tag", "noarchive, nosnippet, noimageindex, noai");
+  headers.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
+  headers.set("Pragma", "no-cache");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -176,13 +188,27 @@ export default {
     const verified = getCookie(cookies, "turnstile-verified") === "true";
 
     if (verified) {
-      return env.ASSETS.fetch(request);
+      const response = await env.ASSETS.fetch(request);
+      return addSecurityHeaders(response);
     }
 
     const ua = request.headers.get("User-Agent") || "";
-    const BOT_PATTERN = /googlebot|bingbot|yandex|baidu|duckduckbot|slurp|facebookexternalhit|twitterbot|linkedinbot|applebot|semrushbot|ahrefsbot|dotbot|gptbot|claudebot|perplexitybot|bytespider|ccbot|applebot-extended|meta-externalagent/i;
-    if (BOT_PATTERN.test(ua)) {
-      return env.ASSETS.fetch(request);
+
+    const AI_BOT_PATTERN = /gptbot|chatgpt-user|claudebot|claude-ai|anthropic|perplexitybot|bytespider|ccbot|applebot-extended|meta-externalagent|facebookbot|omgili|semrushbot|ahrefsbot|dotbot|yandexbot|dataforseo|petalbot|seekportbot|zoominfobot|bytedance/i;
+    if (AI_BOT_PATTERN.test(ua)) {
+      return new Response(null, { status: 403, statusText: "Forbidden" });
+    }
+
+    const SEARCH_BOT_PATTERN = /googlebot|bingbot|duckduckbot|slurp|applebot/i;
+    if (SEARCH_BOT_PATTERN.test(ua)) {
+      const response = await env.ASSETS.fetch(request);
+      return addSecurityHeaders(response);
+    }
+
+    const SOCIAL_BOT_PATTERN = /facebookexternalhit|twitterbot|linkedinbot|discordbot|telegrambot|whatsapp|slackbot/i;
+    if (SOCIAL_BOT_PATTERN.test(ua)) {
+      const response = await env.ASSETS.fetch(request);
+      return addSecurityHeaders(response);
     }
 
     const accept = request.headers.get("Accept") || "";
