@@ -78,16 +78,18 @@ export default function ArticlesPage() {
 
         <main className="wiki-main articles-main">
           <SEO
-            title="All Articles — Thoshan's Wiki"
-            description="Browse every article in Thoshan's Wiki: blockchain, AI, infrastructure, security, web development, and more."
+            title="All Articles — Lingadevaru HP's Wiki"
+            description="Browse every article in Lingadevaru HP's Wiki: blockchain, AI, infrastructure, security, web development, and more."
             path="/wiki/articles"
             keywords={[
               "articles",
+              "Lingadevaru HP",
               "Thoshan",
               "wiki",
               "blockchain",
               "AI",
               "infrastructure",
+              "open source",
             ]}
           />
 

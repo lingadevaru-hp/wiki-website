@@ -4,6 +4,7 @@ import WikiLayout from "../components/WikiLayout";
 import SearchResults from "../components/SearchResults";
 import { searchArticles } from "../lib/articleLoader";
 import type { ArticleIndexEntry } from "../types/article";
+import SEO from "../components/SEO";
 
 export default function SearchPage() {
   const [location] = useLocation();
@@ -26,6 +27,19 @@ export default function SearchPage() {
 
   return (
     <WikiLayout footer>
+      <SEO
+        title={
+          query
+            ? `Search: ${query} — Lingadevaru HP's Wiki`
+            : "Search — Lingadevaru HP's Wiki"
+        }
+        description={
+          query
+            ? `Search results for "${query}" in Lingadevaru HP's Wiki.`
+            : "Search articles in Lingadevaru HP's Wiki across blockchain, AI, infrastructure, and more."
+        }
+        path="/wiki/search"
+      />
       {loading ? (
         <div className="text-sm text-muted-foreground">Searching...</div>
       ) : (

@@ -11,6 +11,75 @@ import {
 import type { Article, ArticleIndexEntry } from "../types/article";
 import SEO from "../components/SEO";
 
+function buildArticleSchema(article: Article) {
+  const baseUrl = "https://lingadevaru.in";
+  const articleUrl = `${baseUrl}/wiki/${article.metadata.slug}`;
+
+  const baseSchema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.metadata.title,
+    description: article.lead
+      .replace(/\[\[.*?\|(.*?)\]\]|\*\*|\*/g, "$1")
+      .slice(0, 300),
+    url: articleUrl,
+    author: {
+      "@type": "Person",
+      "@id": `${baseUrl}/#person`,
+      name: "Lingadevaru H P",
+      alternateName: ["Thoshan", "Thoshan HP"],
+      url: baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Lingadevaru HP",
+      url: baseUrl,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    inLanguage: "en-US",
+  };
+
+  if (article.metadata.lastEdited) {
+    baseSchema.dateModified = new Date(
+      article.metadata.lastEdited,
+    ).toISOString();
+  }
+
+  // FOSS Coin specific: SoftwareSourceCode schema
+  if (article.metadata.slug === "foss-coin") {
+    return [
+      baseSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "@id": `${baseUrl}/wiki/foss-coin#software`,
+        name: "FOSS Coin",
+        alternateName: ["FOSS Token", "foss-token", "$FOSS"],
+        description:
+          "FOSS Coin is an open-source privacy-first SPL token on Solana blockchain created by Lingadevaru HP (Thoshan). A fixed supply of 1 billion tokens symbolising support for Free and Open Source Software.",
+        codeRepository: "https://github.com/lingadevaru-hp/Foss-Token",
+        programmingLanguage: "Rust",
+        runtimePlatform: "Solana",
+        license: "https://opensource.org/licenses/MIT",
+        author: {
+          "@type": "Person",
+          "@id": `${baseUrl}/#person`,
+          name: "Lingadevaru H P",
+          alternateName: "Thoshan",
+        },
+        url: articleUrl,
+        version: "1.0",
+        applicationCategory: "BlockchainApplication",
+      },
+    ];
+  }
+
+  return baseSchema;
+}
+
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
   const [, setLocation] = useLocation();
@@ -28,7 +97,7 @@ export default function ArticlePage() {
         setArticle(loadedArticle);
         setAllArticles(index.articles);
         setStatus("ready");
-        document.title = `${loadedArticle.metadata.title} — Thoshan's Wiki`;
+        document.title = `${loadedArticle.metadata.title} — Lingadevaru HP (Thoshan)`;
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
       })
       .catch(() => setStatus("error"));
@@ -51,7 +120,7 @@ export default function ArticlePage() {
         <div className="empty-page">
           <p className="section-eyebrow">Nothing here</p>
           <h1>Article not found</h1>
-          <p>There is no article titled “{slug}” in this wiki.</p>
+          <p>There is no article titled "{slug}" in this wiki.</p>
           <button
             className="primary-button"
             onClick={() => setLocation("/wiki/home")}
@@ -63,7 +132,7 @@ export default function ArticlePage() {
       {status === "ready" && article && (
         <>
           <SEO
-            title={`${article.metadata.title} — Thoshan's Wiki`}
+            title={`${article.metadata.title} — Lingadevaru HP (Thoshan)`}
             description={article.lead
               .replace(/\[\[.*?\|(.*?)\]\]|\*\*|\*/g, "$1")
               .slice(0, 160)}
@@ -74,8 +143,13 @@ export default function ArticlePage() {
               article.metadata.category,
               ...(article.categories || []),
               "Thoshan",
+              "Lingadevaru HP",
               "Lingadevaru H P",
             ]}
+            article={{
+              dateModified: article.metadata.lastEdited,
+            }}
+            schema={buildArticleSchema(article)}
           />
           <Breadcrumbs
             items={[

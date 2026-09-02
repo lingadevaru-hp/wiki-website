@@ -61,14 +61,21 @@ export default function WikiHeader({
           <a
             href="https://github.com/lingadevaru-hp"
             target="_blank"
-            rel="noreferrer"
+            rel="me noopener noreferrer"
           >
             GitHub
           </a>
           <a
+            href="https://linkedin.com/in/lingadevaruhp"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
             href="https://chat.lingadevaru.in"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Chat with me
           </a>
