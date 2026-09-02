@@ -1197,6 +1197,7 @@ a:active {
   gap: 46px;
   max-width: 1080px;
   margin: 0 auto;
+  padding-top: 8px;
 }
 .article-reader-content {
   min-width: 0;
@@ -1211,7 +1212,7 @@ a:active {
   position: fixed;
   left: 0;
   right: 0;
-  top: 57px;
+  top: 58px;
   z-index: 60;
   height: 4px;
   background: hsl(var(--accent) / 0.16);
@@ -3362,7 +3363,8 @@ pre {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  padding: 10px 0;
   color: hsl(var(--muted-foreground));
   font-size: 11px;
 }
@@ -3819,55 +3821,7 @@ pre {
   color: hsl(38 72% 60%);
 }
 
-/* ── 6. Reading progress edge glow ── */
-.reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  z-index: 100;
-  background: hsl(var(--border) / 0.3);
-  overflow: visible;
-}
-.reading-progress span {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, hsl(var(--accent)), hsl(219 79% 60%));
-  border-radius: 0 2px 2px 0;
-  transition: width 100ms linear;
-  position: relative;
-}
-.reading-progress span::after {
-  content: "";
-  position: absolute;
-  right: -4px;
-  top: -3px;
-  width: 10px;
-  height: 9px;
-  border-radius: 50%;
-  background: hsl(219 79% 47% / 0.4);
-  filter: blur(4px);
-  opacity: 0;
-  transition: opacity 300ms var(--ease-out);
-}
-.reading-progress span[style*="width"]:not([style*="width: 0"])::after {
-  opacity: 1;
-}
-.reading-progress b {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  font-size: 10px;
-  font-weight: 600;
-  color: hsl(var(--muted-foreground));
-  opacity: 0;
-  transition: opacity 200ms var(--ease-out);
-  pointer-events: none;
-}
-.reading-progress b.is-visible {
-  opacity: 1;
-}
+/* ── 6. Reading progress — removed duplicate, kept original at line 1210 ── */
 
 /* ── 7. Back-to-top slide + fade ── */
 .back-to-top {
