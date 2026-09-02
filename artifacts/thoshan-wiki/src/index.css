@@ -4253,14 +4253,7 @@ h2 {
 }
 
 /* ── 16. Dark mode consistency ── */
-.dark {
-  --background: 222 47% 6%;
-  --foreground: 210 40% 96%;
-  --card: 222 47% 9%;
-  --border: 217 33% 17%;
-  --accent: 219 79% 47%;
-  --muted-foreground: 215 20% 55%;
-}
+/* Removed: was overriding .dark with bluer colors. Main .dark block at line 230 is the single source of truth. */
 
 /* ── 17. Border consistency ── */
 .wiki-header {
