@@ -167,10 +167,21 @@ export default {
       return handleTextToSpeech(request, env);
     }
 
+    const SEO_BYPASS_PATHS = ["/robots.txt", "/sitemap.xml", "/favicon.ico", "/opengraph.jpg"];
+    if (SEO_BYPASS_PATHS.includes(url.pathname)) {
+      return env.ASSETS.fetch(request);
+    }
+
     const cookies = request.headers.get("Cookie") || "";
     const verified = getCookie(cookies, "turnstile-verified") === "true";
 
     if (verified) {
+      return env.ASSETS.fetch(request);
+    }
+
+    const ua = request.headers.get("User-Agent") || "";
+    const BOT_PATTERN = /googlebot|bingbot|yandex|baidu|duckduckbot|slurp|facebookexternalhit|twitterbot|linkedinbot|applebot|semrushbot|ahrefsbot|dotbot|gptbot|claudebot|perplexitybot|bytespider|ccbot|applebot-extended|meta-externalagent/i;
+    if (BOT_PATTERN.test(ua)) {
       return env.ASSETS.fetch(request);
     }
 
