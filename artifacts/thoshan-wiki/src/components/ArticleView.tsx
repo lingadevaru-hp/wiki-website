@@ -18,7 +18,7 @@ import Section from "./Section";
 import References from "./References";
 import ArticleAudioReader from "./ArticleAudioReader";
 import VerificationMap from "./VerificationMap";
-import MediaViewer from "./MediaViewer";
+
 import { findParentArticle, loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColor } from "../lib/categories";
 import { estimateReadingMinutes, extractArticleText } from "../lib/articleText";
@@ -68,7 +68,7 @@ export default function ArticleView({ article }: { article: Article }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [resumeProgress, setResumeProgress] = useState(0);
-  const [captureOpen, setCaptureOpen] = useState(false);
+
   const articleRef = useRef<HTMLDivElement>(null);
   const bookmarked = isBookmarked(article.metadata.slug);
   const readingTime = estimateReadingMinutes(article);
@@ -440,11 +440,12 @@ export default function ArticleView({ article }: { article: Article }) {
 
         {article.metadata.slug === "foss-coin" && (
           <figure className="foss-project-capture">
-            <button
-              type="button"
+            <a
+              href="/assets/foss-Thumbnail.gif"
+              target="_blank"
+              rel="noopener noreferrer"
               className="foss-project-capture-button"
-              onClick={() => setCaptureOpen(true)}
-              aria-label="Open FOSS Coin project capture fullscreen"
+              aria-label="Open FOSS Coin project capture in new tab"
             >
               <img
                 src="/assets/foss-Thumbnail.gif"
@@ -453,22 +454,11 @@ export default function ArticleView({ article }: { article: Article }) {
                 decoding="async"
               />
               <span className="foss-capture-overlay">Open full screen</span>
-            </button>
+            </a>
             <figcaption>
               Project capture · FOSS Coin trading workflow
             </figcaption>
           </figure>
-        )}
-        {captureOpen && (
-          <MediaViewer
-            item={{
-              src: "/assets/foss-Thumbnail.gif",
-              alt: "FOSS Coin project capture showing the token trading workflow",
-              caption: "FOSS Coin trading workflow",
-              type: "image",
-            }}
-            onClose={() => setCaptureOpen(false)}
-          />
         )}
 
         {article.infobox && <Infobox data={article.infobox} />}

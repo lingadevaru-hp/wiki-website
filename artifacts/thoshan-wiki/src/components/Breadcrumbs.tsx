@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Home } from "lucide-react";
+import { useEffect } from "react";
 
 interface BreadcrumbItem {
   label: string;
@@ -11,6 +12,41 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+  // BreadcrumbList JSON-LD schema
+  useEffect(() => {
+    const baseUrl = "https://lingadevaru.in";
+    const allItems = [
+      { name: "Home", item: baseUrl + "/" },
+      ...items.map((item) => ({
+        name: item.label,
+        item: item.href ? baseUrl + item.href : undefined,
+      })),
+    ];
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: allItems.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        ...(item.item ? { item: item.item } : {}),
+      })),
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-breadcrumb-schema", "true");
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head
+        .querySelectorAll('script[data-breadcrumb-schema]')
+        .forEach((el) => el.remove());
+    };
+  }, [items]);
+
   return (
     <nav
       aria-label="Breadcrumb"

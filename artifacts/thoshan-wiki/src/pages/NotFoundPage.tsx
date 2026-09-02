@@ -1,9 +1,15 @@
 import WikiLayout from "../components/WikiLayout";
 import { Link } from "wouter";
+import SEO from "../components/SEO";
 
 export default function NotFoundPage() {
   return (
     <WikiLayout footer>
+      <SEO
+        title="Page Not Found — Lingadevaru HP's Wiki"
+        description="The page you requested does not exist in Lingadevaru HP's Wiki."
+        path="/404"
+      />
       <div className="empty-page">
         <p className="section-eyebrow">404</p>
         <h1 className="text-[1.95em] font-serif font-normal mb-4">
@@ -11,7 +17,7 @@ export default function NotFoundPage() {
         </h1>
         <hr className="border-border mb-4 w-full max-w-[300px]" />
         <p className="text-sm mb-3 text-muted-foreground">
-          The page you requested does not exist in Thoshan&apos;s Wiki.
+          The page you requested does not exist in Lingadevaru HP&apos;s Wiki.
         </p>
         <p className="text-sm mb-4 text-muted-foreground">You may want to:</p>
         <ul className="list-disc list-inside text-sm space-y-2 mb-4">
@@ -22,7 +28,7 @@ export default function NotFoundPage() {
           </li>
           <li>
             <Link href="/wiki/about" className="text-accent hover:underline">
-              Read about Thoshan
+              Read about Lingadevaru HP
             </Link>
           </li>
           <li>

@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import { useSearch } from "../contexts/SearchContext";
 import MediaViewer from "../components/MediaViewer";
 import SpaceField from "../components/SpaceField";
+import SEO from "../components/SEO";
 
 function useScrollReveal(threshold = 0.15) {
   const ref = useRef<HTMLElement>(null);
@@ -66,6 +67,23 @@ export default function LandingPage() {
 
   return (
     <div className={`landing-page${isLoaded ? " loaded" : ""}`}>
+      <SEO
+        title="Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer"
+        description="Portfolio and wiki of Lingadevaru HP, also known as Thoshan. Blockchain developer, FOSS advocate, creator of FOSS Coin on Solana. Explore projects and articles."
+        path="/"
+        keywords={[
+          "lingadevaru",
+          "thoshan",
+          "lingadevaru hp",
+          "thoshan hp",
+          "lingadevaruhp",
+          "blockchain developer",
+          "FOSS Coin",
+          "solana",
+          "open source",
+          "portfolio",
+        ]}
+      />
       <header className="landing-header">
         <span className="landing-mark">T</span>
         <span>Thoshan&apos;s Wiki</span>

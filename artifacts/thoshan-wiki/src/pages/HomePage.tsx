@@ -59,16 +59,20 @@ export default function HomePage() {
   return (
     <WikiLayout mainClassName="wiki-main wiki-home-main">
       <SEO
-        title="Wiki Home — Thoshan's Wiki"
-        description="Explore Thoshan's projects, systems, experiments, and technical articles across blockchain, AI, infrastructure, privacy, and web development."
+        title="Wiki Home — Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer"
+        description="Explore Lingadevaru HP's projects, systems, experiments, and technical articles across blockchain, AI, infrastructure, privacy, and web development."
         path="/wiki/home"
         keywords={[
+          "Lingadevaru HP",
           "Thoshan",
-          "Lingadevaru H P",
           "FOSS Coin",
           "Thoshan Flash",
+          "blockchain",
           "projects",
           "technical portfolio",
+          "open source",
+          "Solana",
+          "AI/ML",
         ]}
       />
       <SpaceField />
