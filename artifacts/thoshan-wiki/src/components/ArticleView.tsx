@@ -288,9 +288,7 @@ export default function ArticleView({ article }: { article: Article }) {
       : "article-content-standard";
 
   return (
-    <div
-      className={`article-layout ${article.metadata.slug === "foss-coin" ? "article-layout-foss" : ""}`}
-    >
+    <>
       <div
         className="reading-progress"
         aria-label={`Article reading progress: ${Math.round(scrollProgress)} percent`}
@@ -304,6 +302,10 @@ export default function ArticleView({ article }: { article: Article }) {
           {Math.round(scrollProgress)}%
         </b>
       </div>
+
+      <div
+        className={`article-layout ${article.metadata.slug === "foss-coin" ? "article-layout-foss" : ""}`}
+      >
       <article
         ref={articleRef}
         className={`article-reader-content ${fontClass} ${widthClass}`}
@@ -719,6 +721,7 @@ export default function ArticleView({ article }: { article: Article }) {
           </div>
         </div>
       </aside>
+      </div>
 
       {showScrollTop && (
         <button
@@ -736,6 +739,6 @@ export default function ArticleView({ article }: { article: Article }) {
           <Check size={15} /> {feedback}
         </div>
       )}
-    </div>
+    </>
   );
 }
