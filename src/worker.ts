@@ -194,7 +194,7 @@ export default {
 
     const ua = request.headers.get("User-Agent") || "";
 
-    const AI_BOT_PATTERN = /gptbot|chatgpt-user|claudebot|claude-ai|anthropic|perplexitybot|bytespider|ccbot|applebot-extended|meta-externalagent|facebookbot|omgili|semrushbot|ahrefsbot|dotbot|yandexbot|dataforseo|petalbot|seekportbot|zoominfobot|bytedance/i;
+    const AI_BOT_PATTERN = /gptbot|chatgpt-user|claudebot|claude-ai|anthropic|perplexitybot|bytespider|ccbot|applebot-extended|meta-externalagent|facebookbot|omgili|semrushbot|ahrefsbot|dotbot|yandexbot|dataforseo|petalbot|seekportbot|zoominfobot|bytedance|googleother|youbot|diffbot|cohere-ai|ai2bot|pangubot|perplexity-user|imagesiftbot|archive\.org_bot|ia_archiver|wayback/i;
     if (AI_BOT_PATTERN.test(ua)) {
       return new Response(null, { status: 403, statusText: "Forbidden" });
     }
