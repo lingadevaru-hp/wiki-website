@@ -160,14 +160,14 @@ async function handleTextToSpeech(
 }
 
 function addSecurityHeaders(response: Response): Response {
-  const headers = new Response(response).headers;
-  headers.set("X-Robots-Tag", "noarchive, nosnippet, noimageindex, noai");
-  headers.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
-  headers.set("Pragma", "no-cache");
+  const newHeaders = new Headers(response.headers);
+  newHeaders.set("X-Robots-Tag", "noarchive, nosnippet, noimageindex, noai");
+  newHeaders.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
+  newHeaders.set("Pragma", "no-cache");
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
-    headers,
+    headers: newHeaders,
   });
 }
 
@@ -179,8 +179,8 @@ export default {
       return handleTextToSpeech(request, env);
     }
 
-    const SEO_BYPASS_PATHS = ["/robots.txt", "/sitemap.xml", "/favicon.ico", "/opengraph.jpg"];
-    if (SEO_BYPASS_PATHS.includes(url.pathname)) {
+    const STATIC_BYPASS_PATHS = ["/robots.txt", "/sitemap.xml", "/favicon.ico", "/opengraph.jpg", "/favicon.svg"];
+    if (url.pathname.startsWith("/assets/") || STATIC_BYPASS_PATHS.includes(url.pathname)) {
       return env.ASSETS.fetch(request);
     }
 
@@ -240,7 +240,7 @@ export default {
           headers: {
             Location: returnTo,
             "Set-Cookie":
-              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=30",
+              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400",
             "Cache-Control": "no-store",
           },
         });
