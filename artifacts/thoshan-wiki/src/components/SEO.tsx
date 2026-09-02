@@ -60,7 +60,9 @@ export default function SEO({
     // Core meta
     upsertMeta("description", description);
     upsertMeta("author", "Lingadevaru H P");
-    upsertMeta("robots", "index, follow, max-snippet:-1, max-image-preview:large");
+    upsertMeta("robots", "index, follow, noarchive, nosnippet, noimageindex");
+    upsertMeta("googlebot", "index, follow, noarchive, nosnippet");
+    upsertMeta("bingbot", "index, follow, noarchive, nosnippet");
     if (keywords.length) upsertMeta("keywords", keywords.join(", "));
 
     // Open Graph
