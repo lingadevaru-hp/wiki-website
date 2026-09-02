@@ -7,7 +7,7 @@ import { useSearch } from "../contexts/SearchContext";
 import { useDebounce } from "../hooks/useDebounce";
 
 const categoryColors: Record<string, string> = {
-  Profile: "#3366CC",
+  Profile: "#58a6ff",
   Blockchain: "#E67E22",
   "AI / ML": "#8E44AD",
   Infrastructure: "#27AE60",

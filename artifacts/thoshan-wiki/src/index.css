@@ -231,65 +231,65 @@
   --button-outline: rgba(255, 255, 255, 0.1);
   --badge-outline: rgba(255, 255, 255, 0.05);
 
-  --opaque-button-border-intensity: 9; /* In terms of percentages */
+  --opaque-button-border-intensity: 9;
 
-  /* Backgrounds applied on top of other backgrounds when hovered/active */
   --elevate-1: rgba(255, 255, 255, 0.04);
   --elevate-2: rgba(255, 255, 255, 0.09);
 
-  --background: 221 16% 8%; /* #101418 */
-  --foreground: 240 9% 91%; /* #E8E8E8 */
-  --card: 0 0% 11%; /* #1A1A1A */
-  --card-foreground: 240 9% 91%;
-  --card-border: 220 4% 25%; /* #404040 */
-  --border: 220 4% 25%; /* #404040 */
-  --muted: 0 0% 11%;
-  --muted-foreground: 0 0% 47%;
-  --accent: 219 67% 60%; /* #3366CC links */
+  /* GitHub Dark theme colors */
+  --background: 212 23% 7%; /* #0d1117 */
+  --foreground: 212 24% 90%; /* #e6edf3 */
+  --card: 212 23% 11%; /* #161b22 */
+  --card-foreground: 212 24% 90%;
+  --card-border: 212 15% 21%; /* #30363d */
+  --border: 212 15% 21%; /* #30363d */
+  --muted: 212 23% 11%;
+  --muted-foreground: 212 9% 55%; /* #8b949e */
+  --accent: 212 100% 67%; /* #58a6ff */
   --accent-foreground: 0 0% 100%;
-  --primary: 219 67% 60%;
+  --primary: 212 100% 67%; /* #58a6ff */
   --primary-foreground: 0 0% 100%;
-  --secondary: 0 0% 11%;
-  --secondary-foreground: 240 9% 91%;
-  --input: 220 4% 25%;
-  --ring: 219 67% 60%;
-  --sidebar: 0 0% 11%;
-  --sidebar-foreground: 240 9% 91%;
-  --sidebar-border: 220 4% 25%;
-  --sidebar-primary: 219 67% 60%;
+  --secondary: 212 23% 11%;
+  --secondary-foreground: 212 24% 90%;
+  --input: 212 15% 21%;
+  --ring: 212 100% 67%;
+  --sidebar: 212 23% 9%; /* #111820 */
+  --sidebar-foreground: 212 24% 90%;
+  --sidebar-border: 212 15% 18%;
+  --sidebar-primary: 212 100% 67%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 221 16% 12%;
-  --sidebar-accent-foreground: 240 9% 91%;
-  --sidebar-ring: 219 67% 60%;
-  --popover: 0 0% 11%;
-  --popover-foreground: 240 9% 91%;
-  --popover-border: 220 4% 25%;
-  --destructive: 0 59% 60%;
+  --sidebar-accent: 212 23% 14%;
+  --sidebar-accent-foreground: 212 24% 90%;
+  --sidebar-ring: 212 100% 67%;
+  --popover: 212 23% 11%;
+  --popover-foreground: 212 24% 90%;
+  --popover-border: 212 15% 21%;
+  --destructive: 4 90% 65%; /* #f85149 */
   --destructive-foreground: 0 0% 100%;
-  --chart-1: 219 67% 60%;
-  --chart-2: 220 4% 25%;
-  --chart-3: 147 38% 52%;
-  --chart-4: 43 74% 59%;
-  --chart-5: 0 59% 62%;
+  --chart-1: 212 100% 67%;
+  --chart-2: 212 15% 25%;
+  --chart-3: 130 56% 33%; /* #238636 */
+  --chart-4: 38 90% 50%;
+  --chart-5: 4 90% 65%;
 
-  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
-  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-2xs: 0px 2px 0px 0px hsl(212 23% 7% / 0);
+  --shadow-xs: 0px 2px 0px 0px hsl(212 23% 7% / 0);
   --shadow-sm:
-    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
-    0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+    0px 2px 0px 0px hsl(212 23% 7% / 0),
+    0px 1px 2px -1px hsl(212 23% 7% / 0);
   --shadow:
-    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
-    0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+    0px 2px 0px 0px hsl(212 23% 7% / 0),
+    0px 1px 2px -1px hsl(212 23% 7% / 0);
   --shadow-md:
-    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
-    0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+    0px 2px 0px 0px hsl(212 23% 7% / 0),
+    0px 2px 4px -1px hsl(212 23% 7% / 0);
   --shadow-lg:
-    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
-    0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+    0px 2px 0px 0px hsl(212 23% 7% / 0),
+    0px 4px 6px -1px hsl(212 23% 7% / 0);
   --shadow-xl:
-    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
-    0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0);
-  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+    0px 2px 0px 0px hsl(212 23% 7% / 0),
+    0px 8px 10px -1px hsl(212 23% 7% / 0);
+  --shadow-2xl: 0px 2px 0px 0px hsl(212 23% 7% / 0);
 }
 
 @layer base {
@@ -532,7 +532,7 @@ a:active {
 /* Editorial redesign */
 .landing-page {
   min-height: 100vh;
-  background: #101418;
+  background: #0d1117;
   color: #e8e8e8;
   overflow-x: hidden;
 }
@@ -827,7 +827,7 @@ a:active {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, hsl(var(--background)) 92%, transparent);
+  background: color-mix(in srgb, hsl(var(--background)) 94%, transparent);
   border-bottom: 1px solid hsl(var(--border));
   backdrop-filter: blur(16px);
 }
@@ -1529,9 +1529,10 @@ a:active {
   min-height: 0;
   padding: 0;
   overflow: hidden;
-  cursor: zoom-in;
+  cursor: pointer;
   background: transparent;
   border: 0;
+  text-decoration: none;
 }
 .foss-project-capture img,
 .landing-capture-button img {
@@ -1545,8 +1546,7 @@ a:active {
 }
 .foss-project-capture-button:hover img,
 .landing-capture-button:hover img {
-  transform: scale(1.025);
-  filter: brightness(1.08);
+  filter: brightness(1.05);
 }
 .foss-capture-overlay {
   position: absolute;
