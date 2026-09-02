@@ -5,11 +5,13 @@ import {
   BookmarkCheck,
   Check,
   Copy,
+  Download,
   ExternalLink,
   Github,
   Printer,
   Share2,
   Tag,
+  X,
 } from "lucide-react";
 import type { Article, ArticleIndexEntry } from "../types/article";
 import Infobox from "./Infobox";
@@ -68,6 +70,7 @@ export default function ArticleView({ article }: { article: Article }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [resumeProgress, setResumeProgress] = useState(0);
+  const [fossGifOpen, setFossGifOpen] = useState(false);
 
   const articleRef = useRef<HTMLDivElement>(null);
   const bookmarked = isBookmarked(article.metadata.slug);
@@ -439,26 +442,70 @@ export default function ArticleView({ article }: { article: Article }) {
         )}
 
         {article.metadata.slug === "foss-coin" && (
-          <figure className="foss-project-capture">
-            <a
-              href="/assets/foss-Thumbnail.gif"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="foss-project-capture-button"
-              aria-label="Open FOSS Coin project capture in new tab"
-            >
-              <img
-                src="/assets/foss-Thumbnail.gif"
-                alt="FOSS Coin project capture showing the token trading workflow"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="foss-capture-overlay">Open full screen</span>
-            </a>
-            <figcaption>
-              Project capture · FOSS Coin trading workflow
-            </figcaption>
-          </figure>
+          <>
+            <figure className="foss-project-capture">
+              <button
+                type="button"
+                className="foss-project-capture-button"
+                aria-label="Open FOSS Coin project capture in full screen"
+                onClick={() => setFossGifOpen(true)}
+              >
+                <img
+                  src="/assets/foss-Thumbnail.gif"
+                  alt="FOSS Coin project capture showing the token trading workflow"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="foss-capture-overlay">Open full screen</span>
+              </button>
+              <figcaption>
+                Project capture · FOSS Coin trading workflow
+              </figcaption>
+            </figure>
+
+            {fossGifOpen && (
+              <div
+                className="fixed inset-0 z-[100] flex flex-col bg-black/95 p-4 md:p-6"
+                role="dialog"
+                aria-modal="true"
+                aria-label="FOSS Coin project capture full screen"
+                onClick={() => setFossGifOpen(false)}
+              >
+                <div
+                  className="flex min-h-0 flex-1 items-center justify-center"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img
+                    src="/assets/foss-Thumbnail.gif"
+                    alt="FOSS Coin project capture"
+                    className="max-h-[85vh] max-w-full object-contain"
+                  />
+                </div>
+
+                <div
+                  className="mt-4 flex items-center justify-center gap-3"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <a
+                    href="/assets/foss-Thumbnail.gif"
+                    download="foss-coin-capture.gif"
+                    className="inline-flex h-10 items-center gap-2 border border-white/25 bg-white/10 px-4 text-sm font-medium text-white hover:bg-white/20"
+                  >
+                    <Download size={16} />
+                    Download GIF
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setFossGifOpen(false)}
+                    className="inline-flex h-10 items-center gap-2 border border-white/25 bg-white/10 px-4 text-sm font-medium text-white hover:bg-white/20"
+                  >
+                    <X size={16} />
+                    Dismiss
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         {article.infobox && <Infobox data={article.infobox} />}
