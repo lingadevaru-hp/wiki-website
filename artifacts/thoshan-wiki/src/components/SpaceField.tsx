@@ -20,120 +20,6 @@ const distantStars = Array.from({ length: 80 }, (_, i) => {
   };
 });
 
-/* ── Layer 2: Celestial Particles ── */
-const particles = Array.from({ length: 14 }, (_, i) => {
-  const angle = (i * 83.205) % 360;
-  const distance = 42 + (i % 13) * 8;
-  const x = 50 + distance * Math.cos((angle * Math.PI) / 180);
-  const y = 50 + distance * Math.sin((angle * Math.PI) / 180);
-  const shape = i % 5 === 0 ? "line" : i % 3 === 0 ? "oval" : "circle";
-  const w = shape === "line" ? 1.5 : shape === "oval" ? 1.2 : 1;
-  const h = shape === "line" ? 3.5 : shape === "oval" ? 2 : 1.5;
-  return {
-    id: `p${i}`,
-    left: `${x}%`,
-    top: `${y}%`,
-    w,
-    h,
-    shape,
-    rotation: shape === "line" ? (i * 47) % 360 : 0,
-    delay: `${(i % 11) * -1.2}s`,
-    duration: `${30 + (i % 7) * 3}s`,
-  };
-});
-
-/* ── Layer 3: Satellites ── */
-const satellites = [
-  {
-    id: "sat-1",
-    left: "16%",
-    top: "24%",
-    w: 30,
-    h: 9,
-    orbitR: 130,
-    orbitDur: "24s",
-    rotDur: "20s",
-    delay: "0s",
-    scale: 1,
-    opacity: 0.9,
-    blinkDur: "3.2s",
-    blinkDelay: "0s",
-    signalDur: "2.4s",
-    signalDelay: "0.3s",
-  },
-  {
-    id: "sat-2",
-    left: "80%",
-    top: "66%",
-    w: 22,
-    h: 7,
-    orbitR: 90,
-    orbitDur: "30s",
-    rotDur: "26s",
-    delay: "-9s",
-    scale: 0.72,
-    opacity: 0.65,
-    blinkDur: "4s",
-    blinkDelay: "-1.5s",
-    signalDur: "2.8s",
-    signalDelay: "0.8s",
-  },
-  {
-    id: "sat-3",
-    left: "62%",
-    top: "14%",
-    w: 17,
-    h: 5.5,
-    orbitR: 65,
-    orbitDur: "36s",
-    rotDur: "32s",
-    delay: "-16s",
-    scale: 0.55,
-    opacity: 0.45,
-    blinkDur: "3.6s",
-    blinkDelay: "-2.2s",
-    signalDur: "3s",
-    signalDelay: "1.1s",
-  },
-];
-
-/* ── Layer 4: Moon ── */
-const moon = {
-  left: "78%",
-  top: "18%",
-  size: 34,
-};
-
-/* ── Layer 5: Shooting Stars ── */
-const shootingStars = Array.from({ length: 5 }, (_, i) => {
-  const fromLeft = i % 2 === 0;
-  const sx = fromLeft ? -8 : 108;
-  const ex = fromLeft ? 108 : -8;
-  const sy = 6 + (i % 4) * 14;
-  const ey = sy + (i % 3 === 0 ? 28 : i % 3 === 1 ? 18 : 12);
-  const color =
-    i % 5 === 0 ? "amber" : i % 3 === 0 ? "pale-blue" : i % 2 === 0 ? "orange" : "white";
-  return {
-    id: `ss${i}`,
-    sx: `${sx}%`,
-    sy: `${sy}%`,
-    ex: `${ex}%`,
-    ey: `${ey}%`,
-    dur: `${9 + (i % 3)}s`,
-    delay: `${i * 4.2 - 10}s`,
-    color,
-  };
-});
-
-/* ── Spacecraft ── */
-const spacecraft = {
-  left: "22%",
-  top: "74%",
-  size: 20,
-  pathDur: "48s",
-  delay: "-6s",
-};
-
 export default function SpaceField({
   variant = "home",
 }: {
@@ -212,11 +98,11 @@ export default function SpaceField({
     delay: `${(i % 7) * -0.7}s`,
     size: i % 5 === 0 ? 2 : 1,
   }));
-  const homeFalling = Array.from({ length: 8 }, (_, i) => ({
+  const homeFalling = Array.from({ length: 12 }, (_, i) => ({
     id: `hf${i}`,
-    left: `${8 + ((i * 29) % 84)}%`,
-    delay: `${i * 1.7 - 7}s`,
-    dur: `${7 + (i % 4)}s`,
+    left: `${5 + ((i * 23) % 90)}%`,
+    delay: `${i * 1.35 - 10}s`,
+    dur: `${6.5 + (i % 4) * 0.8}s`,
   }));
 
   return (
@@ -285,112 +171,39 @@ export default function SpaceField({
             />
           ))}
 
-          {/* Layer 2: Celestial Particles */}
-          {particles.map((p) => (
-            <span
-              key={p.id}
-              className={`space-particle space-particle--${p.shape}`}
-              data-layer={2}
-              style={{
-                left: p.left,
-                top: p.top,
-                width: p.w,
-                height: p.h,
-                animationDelay: p.delay,
-                animationDuration: p.duration,
-                transform: `translate(${px(2).toFixed(2)}%, ${py(2).toFixed(2)}%) rotate(${p.rotation}deg)`,
-              }}
-            />
-          ))}
-
-          {/* Layer 3: Satellites */}
-          {satellites.map((s) => (
-            <span
-              key={s.id}
-              className="space-satellite space-satellite--enhanced"
-              data-layer={3}
-              style={{
-                left: s.left,
-                top: s.top,
-                width: s.w,
-                height: s.h,
-                animationDelay: s.delay,
-                transform: `translate(${px(3).toFixed(2)}%, ${py(3).toFixed(2)}%) scale(${s.scale})`,
-                opacity: s.opacity,
-                "--orbit-radius": `${s.orbitR}px`,
-                "--orbit-duration": s.orbitDur,
-                "--rotation-duration": s.rotDur,
-              } as React.CSSProperties}
+          {/* One satellite and one comet keep the scene cinematic without clutter. */}
+          <span className="space-hero-satellite">
+            <svg
+              className="space-satellite-art"
+              viewBox="0 0 180 72"
+              role="img"
+              aria-label="Satellite drifting through space"
             >
-              <b
-                className="satellite-light"
-                style={{
-                  animationDuration: s.blinkDur,
-                  animationDelay: s.blinkDelay,
-                }}
-              />
-              <i
-                className="satellite-signal"
-                style={{
-                  animationDuration: s.signalDur,
-                  animationDelay: s.signalDelay,
-                }}
-              />
-            </span>
-          ))}
-
-          {/* Layer 3.5: Spacecraft */}
-          <span
-            className="space-spacecraft"
-            data-layer={3.5}
-            style={{
-              left: spacecraft.left,
-              top: spacecraft.top,
-              width: spacecraft.size,
-              height: spacecraft.size,
-              animationDelay: spacecraft.delay,
-              transform: `translate(${px(3.5).toFixed(2)}%, ${py(3.5).toFixed(2)}%)`,
-            }}
-          >
-            <i className="spacecraft-body" />
-            <i className="spacecraft-trail" />
+              <defs>
+                <linearGradient id="satellite-body" x1="0" x2="1">
+                  <stop offset="0" stopColor="#26384d" />
+                  <stop offset="1" stopColor="#101923" />
+                </linearGradient>
+                <linearGradient id="satellite-panel" x1="0" x2="1">
+                  <stop offset="0" stopColor="#6f9fb8" stopOpacity="0.32" />
+                  <stop offset="1" stopColor="#d5f0f6" stopOpacity="0.72" />
+                </linearGradient>
+              </defs>
+              <path d="M10 24H55L63 48H10Z" fill="url(#satellite-panel)" stroke="#aacbd7" strokeOpacity="0.7" />
+              <path d="M125 24H170V48H117Z" fill="url(#satellite-panel)" stroke="#aacbd7" strokeOpacity="0.7" />
+              <path d="M61 20H119L128 52H52Z" fill="url(#satellite-body)" stroke="#d8edf2" strokeOpacity="0.8" />
+              <path d="M84 20V52M99 20V52" stroke="#8fb5c4" strokeOpacity="0.45" />
+              <path d="M90 20V7" stroke="#d8edf2" strokeOpacity="0.8" />
+              <circle cx="90" cy="6" r="4" fill="#d8edf2" fillOpacity="0.8" />
+              <path d="M128 36H157" stroke="#d8edf2" strokeOpacity="0.45" />
+              <path d="M52 36H34" stroke="#d8edf2" strokeOpacity="0.45" />
+              <path d="M126 32L145 36L126 40Z" fill="#f5c46b" fillOpacity="0.85" />
+            </svg>
           </span>
-
-          {/* Layer 4: Moon */}
-          <span
-            className="space-moon space-moon--enhanced"
-            data-layer={4}
-            style={{
-              left: moon.left,
-              top: moon.top,
-              width: moon.size,
-              height: moon.size,
-              transform: `translate(${px(4).toFixed(2)}%, ${py(4).toFixed(2)}%)`,
-            }}
-          >
-            <i className="moon-surface" />
-            <i className="moon-glow" />
+          <span className="space-comet">
+            <i className="space-comet-head" />
+            <i className="space-comet-tail" />
           </span>
-
-          {/* Layer 5: Shooting Stars */}
-          {shootingStars.map((s) => (
-            <span
-              key={s.id}
-              className={`space-shooting-star space-shooting-star--${s.color}`}
-              data-layer={5}
-              style={{
-                animationDelay: s.delay,
-                animationDuration: s.dur,
-                "--start-x": s.sx,
-                "--start-y": s.sy,
-                "--end-x": s.ex,
-                "--end-y": s.ey,
-              } as React.CSSProperties}
-            >
-              <i className="shooting-star-head" />
-              <i className="shooting-star-trail" />
-            </span>
-          ))}
 
           {/* Cursor glow */}
           <span

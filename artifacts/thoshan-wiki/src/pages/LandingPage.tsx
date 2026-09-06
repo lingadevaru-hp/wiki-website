@@ -94,9 +94,6 @@ export default function LandingPage() {
       <main className="landing-main">
         <SpaceField variant="landing" />
         <section className="landing-hero">
-          <div className="landing-orbit" aria-hidden="true">
-            <span>T</span>
-          </div>
           <p className="section-eyebrow">A personal knowledge base</p>
           <h1>
             Thoshan&apos;s

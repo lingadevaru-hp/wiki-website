@@ -1213,9 +1213,10 @@ a:active {
   left: 0;
   right: 0;
   top: 58px;
-  z-index: 60;
+  z-index: 70;
   height: 4px;
-  background: hsl(var(--accent) / 0.16);
+  background: hsl(var(--background) / 0.92);
+  border-bottom: 1px solid hsl(var(--accent) / 0.28);
   pointer-events: none;
 }
 .reading-progress span {
@@ -2288,6 +2289,19 @@ pre {
     padding-inline: 10px;
     gap: 5px;
   }
+  .reading-progress {
+    top: 54px;
+    height: 3px;
+  }
+  .reading-progress b {
+    top: 7px;
+    right: 8px;
+  }
+  .article-context-nav {
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-block: 10px 12px;
+  }
   .wiki-wordmark {
     font-size: 14px;
     gap: 6px;
@@ -2668,6 +2682,22 @@ pre {
   height: 18px;
   background: linear-gradient(180deg, transparent, hsl(205 70% 88% / 0.5));
 }
+
+.space-field--home .space-falling-star {
+  z-index: 1;
+  width: 4px;
+  height: 4px;
+  background: hsl(205 90% 94% / 0.92);
+  box-shadow:
+    0 0 8px hsl(205 90% 92% / 0.9),
+    0 0 18px hsl(205 80% 78% / 0.5);
+}
+
+.space-field--home .space-falling-star::after {
+  height: 28px;
+  top: -26px;
+  background: linear-gradient(180deg, transparent, hsl(205 90% 94% / 0.72));
+}
 .space-moon {
   position: absolute;
   right: 23%;
@@ -2799,29 +2829,30 @@ pre {
   position: absolute;
   display: block;
   border-radius: 50%;
-  background: hsl(var(--foreground) / 0.7);
-  animation: star-twinkle-enhanced 4s var(--ease-in-out) infinite;
+  background: hsl(205 80% 92% / 0.78);
+  box-shadow: 0 0 4px hsl(205 80% 92% / 0.3);
+  animation: star-twinkle-enhanced 5s var(--ease-in-out) infinite;
   animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
 }
 
 .space-star--distant[data-color="warm"] {
-  background: hsl(38 72% 70% / 0.85);
-  box-shadow: 0 0 4px hsl(38 72% 60% / 0.4);
+  background: hsl(38 84% 78% / 0.92);
+  box-shadow: 0 0 5px hsl(38 72% 70% / 0.45);
 }
 
 .space-star--distant[data-color="cool-blue"] {
-  background: hsl(205 70% 85% / 0.8);
-  box-shadow: 0 0 3px hsl(205 70% 70% / 0.3);
+  background: hsl(198 88% 88% / 0.9);
+  box-shadow: 0 0 5px hsl(198 80% 80% / 0.38);
 }
 
 @keyframes star-twinkle-enhanced {
   0%,
   100% {
-    opacity: 0.25;
+    opacity: 0.42;
     transform: scale(0.85);
   }
   25% {
-    opacity: 0.75;
+    opacity: 0.95;
     transform: scale(1.1);
   }
   50% {
@@ -2829,7 +2860,7 @@ pre {
     transform: scale(0.95);
   }
   75% {
-    opacity: 0.85;
+    opacity: 1;
     transform: scale(1.15);
   }
 }
@@ -3204,6 +3235,159 @@ pre {
   animation: landing-star-drift 11s linear infinite;
 }
 
+/* Keep the cosmic scene atmospheric so it supports, rather than competes with,
+   the landing content above it. */
+.landing-main > .space-field {
+  opacity: 0.58;
+  background:
+    radial-gradient(circle at 50% 42%, hsl(215 70% 22% / 0.16), transparent 34%),
+    radial-gradient(circle at 78% 20%, hsl(38 85% 62% / 0.07), transparent 22%),
+    linear-gradient(180deg, hsl(222 38% 5% / 0.08), hsl(222 38% 5% / 0.62));
+}
+
+.landing-main > .landing-hero,
+.landing-main > .landing-project-capture,
+.landing-main > .landing-explore {
+  isolation: isolate;
+}
+
+.landing-main > .landing-hero::before,
+.landing-main > .landing-project-capture::before,
+.landing-main > .landing-explore::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 32px;
+  background: radial-gradient(
+    ellipse at center,
+    hsl(222 38% 5% / 0.66) 0%,
+    hsl(222 38% 5% / 0.34) 52%,
+    transparent 78%
+  );
+  filter: blur(10px);
+}
+
+.landing-main > .landing-hero::before {
+  inset: 8% 16%;
+}
+
+.landing-main > .landing-project-capture::before,
+.landing-main > .landing-explore::before {
+  inset: 10% -4%;
+  background: linear-gradient(
+    180deg,
+    hsl(222 38% 5% / 0.84),
+    hsl(222 38% 5% / 0.56) 70%,
+    transparent
+  );
+}
+
+.space-hero-satellite {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: 168px;
+  height: 67px;
+  margin-left: 210px;
+  opacity: 0.88;
+  animation: hero-satellite-local 18s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px hsl(205 80% 72% / 0.34));
+  z-index: 1;
+}
+
+.space-satellite-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes orbit-system-drift {
+  to {
+    transform: rotate(342deg);
+  }
+}
+
+@keyframes energy-stream-flow {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: translate3d(-2%, 8px, 0) rotate(-16deg) scaleX(0.92);
+  }
+  50% {
+    opacity: 0.28;
+    transform: translate3d(5%, -6px, 0) rotate(-13deg) scaleX(1.04);
+  }
+}
+
+@keyframes hero-satellite-local {
+  0% {
+    opacity: 0.42;
+    transform: translate3d(-18px, 12px, 0) rotate(-7deg);
+  }
+  50% {
+    opacity: 0.72;
+    transform: translate3d(22px, -14px, 0) rotate(5deg);
+  }
+  100% {
+    opacity: 0.42;
+    transform: translate3d(-18px, 12px, 0) rotate(-7deg);
+  }
+}
+
+.space-comet {
+  position: absolute;
+  top: 12%;
+  left: -18%;
+  width: 320px;
+  height: 3px;
+  opacity: 0;
+  transform: rotate(28deg);
+  animation: comet-crossing 11s ease-in infinite;
+}
+
+.space-comet-head {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f5fbff;
+  box-shadow:
+    0 0 8px hsl(205 90% 90% / 0.9),
+    0 0 24px hsl(205 90% 78% / 0.65);
+}
+
+.space-comet-tail {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, hsl(205 90% 92% / 0.72));
+  box-shadow: 0 0 8px hsl(205 90% 88% / 0.42);
+}
+
+@keyframes comet-crossing {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translate3d(-12vw, -8vh, 0) rotate(22deg);
+  }
+  23% {
+    opacity: 0.9;
+  }
+  37% {
+    opacity: 0.72;
+  }
+  50%,
+  100% {
+    opacity: 0;
+    transform: translate3d(128vw, 72vh, 0) rotate(28deg);
+  }
+}
+
 .landing-project-capture {
   max-width: 1000px;
   margin: 0 auto;
@@ -3256,7 +3440,10 @@ pre {
 @media (max-width: 640px) {
   /* Reduce cosmic background complexity on mobile */
   .landing-main > .space-field {
-    opacity: 0.55;
+    opacity: 0.44;
+    background:
+      radial-gradient(circle at 50% 38%, hsl(215 70% 22% / 0.13), transparent 42%),
+      linear-gradient(180deg, hsl(222 38% 5% / 0.08), hsl(222 38% 5% / 0.7));
   }
   
   /* Hide some layers on mobile for performance */
@@ -3270,6 +3457,21 @@ pre {
   /* Simplify star field on mobile */
   .space-star--distant:nth-child(n+40) {
     display: none;
+  }
+
+  .space-hero-satellite {
+    left: 50%;
+    top: 31%;
+    width: 96px;
+    height: 38px;
+    margin-left: 102px;
+    opacity: 0.78;
+  }
+
+  .space-comet {
+    top: 14%;
+    width: 190px;
+    animation-duration: 14s;
   }
   
   /* Disable cursor effects on mobile */
@@ -3364,8 +3566,9 @@ pre {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 16px;
-  padding: 10px 0;
+  margin-bottom: 22px;
+  padding: 12px 0 14px;
+  border-bottom: 1px solid hsl(var(--border) / 0.7);
   color: hsl(var(--muted-foreground));
   font-size: 11px;
 }
@@ -4272,6 +4475,63 @@ h2 {
 /* ── Additional UI polish: article sections ── */
 .article-sections {
   margin-bottom: 32px;
+}
+
+.wiki-section {
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.wiki-section-content {
+  line-height: 1.78;
+}
+
+.wiki-section-content > * + * {
+  margin-top: 1rem;
+}
+
+.article-reader-content {
+  padding-bottom: clamp(40px, 6vw, 88px);
+}
+
+@media (min-width: 901px) {
+  .article-reader-content {
+    padding-right: clamp(12px, 2vw, 32px);
+  }
+}
+
+@media (max-width: 900px) {
+  .article-layout {
+    padding-inline: clamp(16px, 4vw, 28px);
+  }
+
+  .article-reader-content {
+    padding-bottom: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wiki-header-inner {
+    gap: 7px;
+  }
+
+  .wiki-wordmark {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .article-reader-content {
+    padding-bottom: 44px;
+  }
+
+  .wiki-section {
+    margin-top: 32px;
+  }
+
+  .wiki-section-content {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
 }
 
 /* ── Additional UI polish: article categories ── */
@@ -6233,6 +6493,10 @@ a:hover {
   .space-shooting-star *,
   .space-cursor-glow,
   .space-star-field,
+  .space-hero-satellite,
+  .space-hero-satellite *,
+  .space-comet,
+  .space-comet *,
   .landing-mark {
     animation: none !important;
   }
@@ -6247,6 +6511,10 @@ a:hover {
   .space-moon--enhanced,
   .space-shooting-star {
     opacity: 0.35;
+  }
+
+  .space-hero-satellite {
+    opacity: 0.72;
   }
 
   /* Hide cursor glow in reduced motion */
