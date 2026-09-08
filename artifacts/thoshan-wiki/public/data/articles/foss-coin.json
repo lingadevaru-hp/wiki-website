@@ -10,7 +10,7 @@
   },
   "infobox": {
     "title": "FOSS Coin ($FOSS)",
-    "image": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+    "image": "/assets/foss-logo.png",
     "imageCaption": "FOSS Coin official logo",
     "fields": [
       { "label": "Full name", "value": "Free Open Source Soft" },

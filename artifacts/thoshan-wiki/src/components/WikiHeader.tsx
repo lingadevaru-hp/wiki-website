@@ -1,7 +1,8 @@
 import { Link, useLocation } from "wouter";
-import { ArrowLeft, Menu, Moon, Search, Sun } from "lucide-react";
-import { useTheme } from "../contexts/ThemeContext";
+import { ArrowLeft, Linkedin, Menu, Search } from "lucide-react";
 import { useSearch } from "../contexts/SearchContext";
+import { GithubIcon, PaletteIcon } from "./icons";
+import { OPEN_PICKER_EVENT } from "../lib/theme";
 
 interface WikiHeaderProps {
   onMenuClick: () => void;
@@ -12,9 +13,10 @@ export default function WikiHeader({
   onMenuClick,
   showBackButton = false,
 }: WikiHeaderProps) {
-  const { theme, toggleTheme } = useTheme();
   const { openSearch } = useSearch();
   const [location, setLocation] = useLocation();
+  const openPicker = () =>
+    window.dispatchEvent(new CustomEvent(OPEN_PICKER_EVENT));
   const isArticle =
     location.startsWith("/wiki/") &&
     location !== "/wiki/home" &&
@@ -62,15 +64,19 @@ export default function WikiHeader({
             href="https://github.com/lingadevaru-hp"
             target="_blank"
             rel="me noopener noreferrer"
+            aria-label="GitHub"
+            className="header-icon-link"
           >
-            GitHub
+            <GithubIcon className="size-[17px]" />
           </a>
           <a
             href="https://linkedin.com/in/lingadevaruhp"
             target="_blank"
             rel="me noopener noreferrer"
+            aria-label="LinkedIn"
+            className="header-icon-link"
           >
-            LinkedIn
+            <Linkedin size={17} />
           </a>
           <a
             href="https://chat.lingadevaru.in"
@@ -82,14 +88,12 @@ export default function WikiHeader({
         </nav>
         <button
           className="header-icon-button theme-toggle"
-          onClick={toggleTheme}
-          aria-label={
-            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-          }
-          aria-pressed={theme === "dark"}
+          onClick={openPicker}
+          aria-label="Change theme (T)"
+          title="Change theme (T)"
           data-testid="button-theme-toggle"
         >
-          {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+          <PaletteIcon className="size-[17px]" />
         </button>
       </div>
     </header>

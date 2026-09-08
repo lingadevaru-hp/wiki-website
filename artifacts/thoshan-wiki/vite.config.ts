@@ -32,6 +32,14 @@ export default defineConfig({
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
       "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
+      "@tanstack/react-router": path.resolve(
+        import.meta.dirname,
+        "src/astro/router-shim.tsx",
+      ),
+      "astro:transitions/client": path.resolve(
+        import.meta.dirname,
+        "src/astro/transitions-client.ts",
+      ),
     },
     dedupe: ["react", "react-dom"],
   },

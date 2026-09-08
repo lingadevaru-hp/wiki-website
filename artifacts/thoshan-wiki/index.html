@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="tokyo-night">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
@@ -40,13 +40,18 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Theme: stamp before first paint (same logic as src/lib/theme.ts) -->
+    <script>
+    (function(){try{var t=localStorage.getItem("thoshan-site-theme");var ok=["catppuccin", "catppuccin-latte", "ethereal", "everforest", "flexoki-light", "gruvbox", "hackerman", "kanagawa", "last-horizon", "lumon", "lupine", "matte-black", "miasma", "nord", "osaka-jade", "retro-82", "ristretto", "rose-pine", "solitude", "tokyo-night", "vantablack", "white"];var light=["catppuccin-latte", "flexoki-light", "lupine", "rose-pine", "white"];var dark=["catppuccin", "ethereal", "everforest", "gruvbox", "hackerman", "kanagawa", "last-horizon", "lumon", "matte-black", "miasma", "nord", "osaka-jade", "retro-82", "ristretto", "solitude", "tokyo-night", "vantablack"];if(ok.indexOf(t)<0){t="tokyo-night";localStorage.setItem("thoshan-site-theme",t)}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="tokyo-night"}if(!document.querySelector("link[rel=\"icon\"][data-theme-icon]")){var l=document.createElement("link");l.rel="icon";l.type="image/svg+xml";l.href="/favicon.svg";l.setAttribute("data-theme-icon","");document.head.appendChild(l)}})()
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Preload FOSS Coin logo -->
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png" />
+    <link rel="preload" as="image" href="/assets/foss-logo.png" />
 
     <!-- Person Schema (Entity Disambiguation) -->
     <script type="application/ld+json">

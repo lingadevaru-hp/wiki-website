@@ -707,13 +707,13 @@ export default function ArticleView({ article }: { article: Article }) {
             <div className="settings-options">
               <button
                 onClick={() => setTheme("light")}
-                className={theme === "light" ? "selected" : ""}
+                className={theme === "white" ? "selected" : ""}
               >
                 Light
               </button>
               <button
                 onClick={() => setTheme("dark")}
-                className={theme === "dark" ? "selected" : ""}
+                className={theme === "tokyo-night" ? "selected" : ""}
               >
                 Dark
               </button>
