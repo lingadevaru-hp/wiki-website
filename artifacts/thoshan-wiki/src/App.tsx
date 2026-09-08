@@ -8,6 +8,7 @@ import { SearchProvider, useSearch } from "./contexts/SearchContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalSearch from "./components/GlobalSearch";
 import ShortcutsModal from "./components/ShortcutsModal";
+import ThemePicker from "./components/ThemePicker";
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
 import ArticlePage from "./pages/ArticlePage";
@@ -111,6 +112,7 @@ function GlobalKeyboardHandler() {
         isOpen={shortcutsOpen}
         onClose={() => setShortcutsOpen(false)}
       />
+      <ThemePicker />
     </>
   );
 }

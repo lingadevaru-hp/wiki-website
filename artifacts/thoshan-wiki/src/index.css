@@ -487,6 +487,42 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Omarchy-inspired named palettes, kept as data attributes so the existing
+   wiki components inherit the same theme without being rewritten. */
+:root[data-theme="tokyo-night"] { --background: 220 25% 8%; --foreground: 220 30% 92%; --card: 220 24% 12%; --border: 220 18% 25%; --muted: 220 18% 16%; --muted-foreground: 220 14% 64%; --accent: 212 100% 67%; --primary: 212 100% 67%; }
+:root[data-theme="catppuccin"] { --background: 240 21% 15%; --foreground: 226 64% 88%; --card: 240 21% 19%; --border: 240 13% 30%; --muted: 240 13% 22%; --muted-foreground: 227 20% 68%; --accent: 267 84% 81%; --primary: 267 84% 81%; }
+:root[data-theme="gruvbox"] { --background: 24 20% 12%; --foreground: 43 59% 81%; --card: 24 16% 17%; --border: 27 15% 30%; --muted: 25 14% 21%; --muted-foreground: 39 25% 61%; --accent: 27 96% 61%; --primary: 27 96% 61%; }
+:root[data-theme="everforest"] { --background: 150 15% 12%; --foreground: 46 46% 83%; --card: 150 13% 17%; --border: 145 12% 28%; --muted: 145 12% 21%; --muted-foreground: 80 18% 63%; --accent: 137 45% 63%; --primary: 137 45% 63%; }
+:root[data-theme="nord"] { --background: 220 16% 16%; --foreground: 218 27% 88%; --card: 220 16% 22%; --border: 219 16% 32%; --muted: 220 16% 25%; --muted-foreground: 219 20% 65%; --accent: 193 43% 67%; --primary: 193 43% 67%; }
+:root[data-theme="rose-pine"] { --background: 249 22% 12%; --foreground: 245 50% 91%; --card: 247 23% 16%; --border: 245 18% 29%; --muted: 248 20% 21%; --muted-foreground: 245 16% 67%; --accent: 343 76% 68%; --primary: 343 76% 68%; }
+:root[data-theme="matte-black"] { --background: 0 0% 4%; --foreground: 0 0% 92%; --card: 0 0% 9%; --border: 0 0% 23%; --muted: 0 0% 14%; --muted-foreground: 0 0% 63%; --accent: 79 70% 55%; --primary: 79 70% 55%; }
+:root[data-theme="flexoki-light"] { --background: 48 33% 97%; --foreground: 35 20% 15%; --card: 48 20% 92%; --border: 40 10% 72%; --muted: 48 20% 93%; --muted-foreground: 35 10% 42%; --accent: 25 75% 42%; --primary: 25 75% 42%; }
+:root[data-theme="catppuccin-latte"] { --background: 220 23% 95%; --foreground: 234 16% 25%; --card: 220 23% 91%; --border: 220 13% 78%; --muted: 220 23% 92%; --muted-foreground: 233 13% 45%; --accent: 266 85% 58%; --primary: 266 85% 58%; }
+:root[data-theme="white"] { --background: 0 0% 100%; --foreground: 210 4% 20%; --card: 210 17% 98%; --border: 210 14% 66%; --muted: 210 17% 98%; --muted-foreground: 207 7% 46%; --accent: 219 79% 47%; --primary: 219 79% 47%; }
+
+.theme-picker-backdrop {
+  position: fixed; inset: 0; z-index: 100; display: flex; align-items: center;
+  justify-content: center; background: rgb(0 0 0 / 0.68); backdrop-filter: blur(8px);
+  animation: theme-picker-in 180ms ease-out both;
+}
+.theme-picker-card { width: min(86vw, 640px); text-align: center; }
+.theme-picker-preview {
+  aspect-ratio: 16 / 9; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 10px; color: hsl(var(--foreground)); border: 2px solid hsl(var(--accent));
+  background: hsl(var(--background)); box-shadow: 0 20px 80px rgb(0 0 0 / .45);
+}
+.theme-picker-preview strong { font: 700 clamp(1.3rem, 4vw, 2.4rem) Georgia, serif; }
+.theme-picker-preview span { color: hsl(var(--muted-foreground)); font-size: .85rem; }
+.theme-picker-name { display: inline-flex; gap: 8px; align-items: center; margin-top: 14px; padding: 10px 14px; color: hsl(var(--foreground)); background: transparent; font-size: 1.1rem; }
+.theme-picker-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; max-width: 540px; margin: 14px auto 0; }
+.theme-picker-dots button { width: 13px; height: 13px; border: 1px solid hsl(var(--foreground) / .5); border-radius: 50%; background: hsl(var(--accent)); }
+.theme-picker-dots button:nth-child(2n) { background: #f5c2e7; }.theme-picker-dots button:nth-child(3n) { background: #d79921; }.theme-picker-dots button:nth-child(4n) { background: #a7c080; }.theme-picker-dots button:nth-child(5n) { background: #88c0d0; }.theme-picker-dots button.selected { outline: 2px solid hsl(var(--foreground)); outline-offset: 3px; }
+.theme-picker-close, .theme-picker-arrow { position: absolute; display: grid; place-items: center; color: hsl(var(--foreground)); background: hsl(var(--card)); border: 1px solid hsl(var(--border)); }
+.theme-picker-close { top: 22px; right: 22px; width: 40px; height: 40px; }.theme-picker-arrow { top: 50%; width: 44px; height: 44px; transform: translateY(-50%); }.theme-picker-arrow-left { left: 22px; }.theme-picker-arrow-right { right: 22px; }
+.theme-picker-close:hover, .theme-picker-arrow:hover, .theme-picker-name:hover { color: hsl(var(--accent)); }
+@keyframes theme-picker-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 600px) { .theme-picker-arrow { top: auto; bottom: 30px; transform: none; }.theme-picker-arrow-left { left: 24%; }.theme-picker-arrow-right { right: 24%; } }
+
 /* Theme switch: suppress transitions to prevent smear */
 .theme-transitioning,
 .theme-transitioning *,
@@ -532,8 +568,8 @@ a:active {
 /* Editorial redesign */
 .landing-page {
   min-height: 100vh;
-  background: #0d1117;
-  color: #e8e8e8;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   overflow-x: hidden;
 }
 .landing-header {
@@ -545,7 +581,14 @@ a:active {
   padding: 22px 24px;
   font-size: 13px;
   letter-spacing: 0.02em;
-  color: #aab3c2;
+  color: hsl(var(--muted-foreground));
+}
+.landing-logo {
+  width: 144px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 12px hsl(var(--accent) / .2));
 }
 .landing-header button {
   margin-left: auto;
@@ -553,8 +596,8 @@ a:active {
   align-items: center;
   gap: 6px;
   background: transparent;
-  color: #e8e8e8;
-  border: 1px solid #303b4b;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
   padding: 9px 12px;
   font-size: 12px;
   transition:
@@ -562,8 +605,8 @@ a:active {
     background 0.2s;
 }
 .landing-header button:hover {
-  border-color: #5590e8;
-  background: #182230;
+  border-color: hsl(var(--accent));
+  background: hsl(var(--card));
   transform: translateY(-1px);
 }
 
@@ -611,7 +654,7 @@ a:active {
 .landing-orbit {
   width: 78px;
   height: 78px;
-  border: 1px solid hsl(215 20% 50% / 0.6);
+  border: 1px solid hsl(var(--foreground) / 0.35);
   border-radius: 50%;
   display: grid;
   place-items: center;

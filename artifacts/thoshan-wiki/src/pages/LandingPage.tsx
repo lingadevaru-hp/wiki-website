@@ -85,7 +85,7 @@ export default function LandingPage() {
         ]}
       />
       <header className="landing-header">
-        <span className="landing-mark">T</span>
+        <img className="landing-logo" src="/assets/thoshan-logo.png" alt="Thoshan" />
         <span>Thoshan&apos;s Wiki</span>
         <button type="button" onClick={() => setLocation("/wiki/home")}>
           Wiki Home <ArrowRight size={14} />

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { ArrowLeft, Menu, Moon, Search, Sun } from "lucide-react";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme, SITE_THEMES } from "../contexts/ThemeContext";
+import { requestThemePicker } from "./ThemePicker";
 import { useSearch } from "../contexts/SearchContext";
 
 interface WikiHeaderProps {
@@ -12,7 +13,7 @@ export default function WikiHeader({
   onMenuClick,
   showBackButton = false,
 }: WikiHeaderProps) {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const { openSearch } = useSearch();
   const [location, setLocation] = useLocation();
   const isArticle =
@@ -82,14 +83,12 @@ export default function WikiHeader({
         </nav>
         <button
           className="header-icon-button theme-toggle"
-          onClick={toggleTheme}
-          aria-label={
-            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-          }
-          aria-pressed={theme === "dark"}
+          onClick={requestThemePicker}
+          aria-label="Change theme"
+          aria-pressed="false"
           data-testid="button-theme-toggle"
         >
-          {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+          {SITE_THEMES.find((item) => item.id === theme)?.light ? <Moon size={17} /> : <Sun size={17} />}
         </button>
       </div>
     </header>

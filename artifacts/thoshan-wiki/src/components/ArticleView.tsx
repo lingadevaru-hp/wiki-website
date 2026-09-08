@@ -25,6 +25,7 @@ import { estimateReadingMinutes, extractArticleText } from "../lib/articleText";
 import { useTheme } from "../contexts/ThemeContext";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { renderWikiInline } from "./WikiText";
+import { requestThemePicker } from "./ThemePicker";
 
 function parseLeadText(text: string) {
   return text.split(/\n\n+/).map((paragraph, index) => (
@@ -705,18 +706,7 @@ export default function ArticleView({ article }: { article: Article }) {
           <div className="settings-group">
             <span>Theme</span>
             <div className="settings-options">
-              <button
-                onClick={() => setTheme("light")}
-                className={theme === "light" ? "selected" : ""}
-              >
-                Light
-              </button>
-              <button
-                onClick={() => setTheme("dark")}
-                className={theme === "dark" ? "selected" : ""}
-              >
-                Dark
-              </button>
+              <button onClick={requestThemePicker}>Choose theme</button>
             </div>
           </div>
         </div>
