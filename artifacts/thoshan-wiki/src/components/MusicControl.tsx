@@ -200,7 +200,7 @@ export function MusicControl({ path = '/' }: { path?: string }) {
     <div
       data-hero-quiet
       data-no-stamp
-      className="group/card pointer-events-auto fixed bottom-5 left-5 z-(--z-dropdown) hidden h-[46px] items-stretch border border-border-subtle bg-bg/85 supports-backdrop-filter:backdrop-blur-sm sm:flex"
+      className="group/card pointer-events-auto fixed bottom-5 left-5 z-(--z-dropdown) flex h-[46px] items-stretch border border-border-subtle bg-bg/85 supports-backdrop-filter:backdrop-blur-sm"
     >
       <button
         type="button"
