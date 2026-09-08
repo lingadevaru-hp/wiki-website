@@ -102,12 +102,10 @@
 .omarchy-home { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; color:var(--t-brand); }
 .omarchy-header nav, .omarchy-header > div { display:flex; gap:20px; align-items:center; font-size:12px; color:hsl(var(--muted-foreground)); }
 .omarchy-header nav button:hover { color:hsl(var(--primary)); }.omarchy-icons { display:flex; gap:4px; align-items:center; }.omarchy-icon-button { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; color:hsl(var(--muted-foreground)); border-radius:6px; transition:color .15s ease, background .15s ease; }.omarchy-icon-button:hover { color:hsl(var(--primary)); background:hsl(var(--muted) / .5); }.omarchy-theme-button { border:1px solid hsl(var(--border)) !important; padding:8px 11px; }.omarchy-theme-button kbd { margin-left:8px; opacity:.6; }.omarchy-install { background:var(--t-brand) !important; color:var(--t-brand-ink) !important; padding:9px 13px; font-weight:600; }
-.omarchy-hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; isolation:isolate; }.omarchy-hero-top { flex:1 0 auto; width:100%; min-height:72px; }.omarchy-hero-bottom { display:none; }
+.omarchy-hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; isolation:isolate; }.omarchy-hero-top { flex:1 0 auto; width:100%; min-height:72px; }.omarchy-hero-bottom { display:block; flex:1 0 auto; width:100%; min-height:16px; }
 @media (max-width:720px) {
-  /* Short content would otherwise sink to the bottom: balance the
-     spacers on small screens so the wordmark stays centered. */
+  /* Shorter top clearance on small screens; spacers stay balanced. */
   .omarchy-hero-top { min-height:24px; }
-  .omarchy-hero-bottom { display:block; flex:1 0 auto; width:100%; min-height:16px; }
   /* The first-visit theme hint would cover the hero pill on narrow
      screens; the palette icon in the header is always visible instead. */
   .notice-in { display:none; }
