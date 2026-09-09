@@ -3,7 +3,8 @@ import { Link } from "wouter";
 import { ArrowRight, Search, Sparkles } from "lucide-react";
 import WikiLayout from "../components/WikiLayout";
 import { loadArticlesIndex } from "../lib/articleLoader";
-import { categoryColor, categoryGlyph } from "../lib/categories";
+import { categoryColor } from "../lib/categories";
+import CategoryPills from "../components/CategoryPills";
 import { visibleIndexArticles } from "../lib/articleRelations";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
@@ -149,26 +150,12 @@ export default function HomePage() {
             </h2>
           </div>
         </div>
-        <div
-          className="category-row"
-          role="tablist"
-          aria-label="Filter articles by category"
-        >
-          {categories.map((item) => (
-            <button
-              key={item}
-              role="tab"
-              aria-selected={category === item}
-              onClick={() => setCategory(item)}
-              className={category === item ? "selected" : ""}
-            >
-              {item !== "All" && categoryGlyph[item]
-                ? `${categoryGlyph[item]} `
-                : ""}
-              {item}
-            </button>
-          ))}
-        </div>
+        <CategoryPills
+          categories={categories}
+          active={category}
+          onChange={setCategory}
+          ariaLabel="Filter articles by category"
+        />
         <div className="article-index">
           {visibleArticles.map((article) => (
             <Link
