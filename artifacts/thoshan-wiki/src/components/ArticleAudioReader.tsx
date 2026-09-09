@@ -20,6 +20,7 @@ import {
 interface ArticleAudioReaderProps {
   title: string;
   text: string;
+  onPlayerOpenChange?: (open: boolean) => void;
 }
 
 type ReaderMode = "idle" | "loading" | "playing" | "paused" | "error";
@@ -60,6 +61,7 @@ function splitIntoSegments(text: string) {
 export default function ArticleAudioReader({
   title,
   text,
+  onPlayerOpenChange,
 }: ArticleAudioReaderProps) {
   const segments = useMemo(() => splitIntoSegments(text), [text]);
   const wordCount = useMemo(
@@ -81,6 +83,10 @@ export default function ArticleAudioReader({
   const segmentOffsetRef = useRef(0);
   const activeSegmentRef = useRef(0);
   const playTokenRef = useRef(0);
+
+  useEffect(() => {
+    onPlayerOpenChange?.(open);
+  }, [open, onPlayerOpenChange]);
 
   const playing = mode === "playing" || mode === "loading";
   const segmentShare = segments.length ? segmentIndex / segments.length : 0;

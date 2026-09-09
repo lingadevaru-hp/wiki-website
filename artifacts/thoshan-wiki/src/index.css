@@ -1587,7 +1587,6 @@ a:active {
   border-radius: 999px;
   color: hsl(var(--foreground));
   background: hsl(var(--background) / 0.68);
-  backdrop-filter: blur(12px);
   font-size: 10px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1763,10 +1762,13 @@ a:active {
 .audio-reader {
   position: fixed;
   left: 50%;
-  top: 72px;
+  top: auto;
+  bottom: calc(20px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   width: min(610px, calc(100vw - 28px));
-  z-index: 90;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  z-index: 95;
   border: 1px solid hsl(var(--border));
   background: color-mix(in srgb, hsl(var(--card)) 94%, transparent);
   box-shadow: 0 18px 60px #0004;
@@ -1966,7 +1968,7 @@ a:active {
 .audio-reader-mini {
   position: fixed;
   left: 50%;
-  bottom: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   z-index: 90;
   display: flex;
@@ -2374,25 +2376,32 @@ pre {
   .section-heading h2 {
     font-size: 22px;
   }
+  /* Unified article audio player: fixed bottom-center on every
+     viewport, so it never pushes article content around and never
+     blocks reading. Same placement in every article. */
   .audio-reader {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    width: calc(100vw - 20px) !important;
-    margin: 12px auto 0 !important;
+    position: fixed;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(560px, calc(100vw - 24px));
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
   }
   .audio-reader-mini {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    width: calc(100vw - 20px) !important;
+    position: fixed;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: auto;
+    max-width: calc(100vw - 24px);
     justify-content: center;
-    margin: 12px auto 0 !important;
+    margin: 0;
   }
   .audio-reader-controls {
     gap: 15px;
@@ -2427,13 +2436,10 @@ pre {
   }
 }
 
-/* Compact, warm reader material: visible without covering the article. */
+/* Compact, warm reader material. Position comes from the single
+   canonical bottom-dock rules — this block only themes. */
 .audio-reader {
   --audio-accent: #e2ab52;
-  left: auto;
-  right: 18px;
-  transform: none;
-  width: min(382px, calc(100vw - 24px));
   border-color: hsl(38 72% 60% / 0.28);
   border-radius: 24px;
   background: hsl(var(--card) / 0.88);
@@ -3389,45 +3395,6 @@ pre {
 .wiki-shell {
   max-width: 1600px;
 }
-.article-context-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-  min-width: 0;
-  max-width: 100%;
-  margin-bottom: 16px;
-  padding: 10px 0;
-  color: hsl(var(--muted-foreground));
-  font-size: 12px;
-  line-height: 1.5;
-}
-.article-context-nav a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-  max-width: 100%;
-  min-height: 0;
-  padding: 2px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border-radius: 6px;
-}
-.article-context-nav-back {
-  flex: 1 1 auto;
-  justify-content: flex-start;
-  text-align: left;
-}
-.article-context-nav-browse {
-  flex: 0 0 auto;
-  justify-content: flex-end;
-  text-align: right;
-}
-.article-context-nav a:hover {
-  color: hsl(var(--accent));
-}
 .article-content-standard {
   max-width: 820px;
 }
@@ -3581,16 +3548,16 @@ pre {
 }
 .audio-reader {
   z-index: 120;
-  animation: audio-island-drop var(--duration-slow) var(--ease-spring);
+  animation: audio-island-rise-global var(--duration-slow) var(--ease-spring);
 }
-@keyframes audio-island-drop {
+@keyframes audio-island-rise-global {
   from {
     opacity: 0;
-    transform: translateY(-22px) scale(0.92);
+    transform: translate(-50%, 22px) scale(0.94);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate(-50%, 0) scale(1);
   }
 }
 
@@ -3694,16 +3661,18 @@ pre {
   }
 }
 
-/* Centered desktop dynamic-island reader. The position is stable and the drop includes its x-axis anchor. */
+/* Centered desktop dynamic-island reader, bottom-docked like mobile:
+   one unified placement on every viewport. */
 @media (min-width: 901px) {
   .audio-reader {
     left: 50%;
     right: auto;
-    top: 70px;
+    top: auto;
+    bottom: calc(24px + env(safe-area-inset-bottom));
     width: min(520px, calc(100vw - 40px));
     transform: translateX(-50%);
     border-radius: 28px;
-    animation: audio-island-drop-centered var(--duration-slow) var(--ease-spring)
+    animation: audio-island-rise-centered var(--duration-slow) var(--ease-spring)
       both;
   }
   .reader-trigger {
@@ -3727,10 +3696,10 @@ pre {
   .audio-reader-controls {
     grid-column: 1 / -1;
   }
-  @keyframes audio-island-drop-centered {
+  @keyframes audio-island-rise-centered {
     from {
       opacity: 0;
-      transform: translate(-50%, -18px) scale(0.9);
+      transform: translate(-50%, 18px) scale(0.9);
     }
     to {
       opacity: 1;
@@ -4293,11 +4262,6 @@ h2 {
   transform: translateX(3px);
 }
 
-/* ── Additional UI polish: article context nav ── */
-.article-context-nav a {
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
 /* ── Additional UI polish: article kicker ── */
 .article-kicker {
   display: flex;
@@ -4490,47 +4454,55 @@ h2 {
   background: hsl(219 79% 55%);
 }
 
-/* ── Additional UI polish: foss project capture ── */
+/* ── FOSS project capture: image stays exactly as-is on hover (no dim,
+   no blur, no zoom). Only the border highlights and a small solid badge
+   appears. Click opens the fullscreen viewer. ── */
 .foss-project-capture {
   margin: 24px 0;
 }
 .foss-project-capture-button {
   position: relative;
+  display: block;
   border: 1px solid hsl(var(--border));
   border-radius: 12px;
   overflow: hidden;
-  cursor: pointer;
+  cursor: zoom-in;
   background: none;
   padding: 0;
   width: 100%;
+  transition: border-color var(--duration-normal) var(--ease-out);
+}
+.foss-project-capture-button:hover,
+.foss-project-capture-button:focus-visible {
+  border-color: hsl(var(--accent) / 0.6);
 }
 .foss-project-capture-button img {
   width: 100%;
   display: block;
-  transition: transform var(--duration-slow) var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .foss-project-capture-button:hover img {
-    transform: none;
-  }
 }
 .foss-capture-overlay {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: hsl(var(--background) / 0.6);
-  opacity: 0;
-  transition: opacity var(--duration-normal) var(--ease-out);
-  font-size: 13px;
-  font-weight: 500;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 10px;
+  border: 1px solid hsl(var(--foreground) / 0.22);
+  border-radius: 999px;
   color: hsl(var(--foreground));
+  background: hsl(var(--background) / 0.85);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+  pointer-events: none;
 }
-@media (hover: hover) and (pointer: fine) {
-  .foss-project-capture-button:hover .foss-capture-overlay {
-    opacity: 1;
-  }
+.foss-project-capture-button:hover .foss-capture-overlay,
+.foss-project-capture-button:focus-visible .foss-capture-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 .foss-project-capture figcaption {
   font-size: 12px;
@@ -7309,66 +7281,22 @@ a:hover {
   white-space: nowrap;
 }
 
-/* Context nav: keep both links on one aligned row on desktop,
-   truncate the long side gracefully instead of clipping. */
-.article-context-nav {
-  align-items: center;
-}
-.article-context-nav a {
-  min-height: 28px;
-}
-
 /* The coarse-pointer global rule forces every link to 44px tall,
-   which breaks these small inline navs — opt them back out and
-   use comfortable padding instead. */
+   which breaks small inline navs — opt them back out.
+   Real touch targets stay 44px inside the action bar. */
 @media (pointer: coarse) {
-  .wiki-breadcrumbs a,
-  .article-context-nav a {
+  .wiki-breadcrumbs a {
     min-height: 0;
   }
-  .article-context-nav a {
-    padding: 6px 2px;
-  }
-  /* Keep real touch targets at 44px only inside the action bar. */
   .article-actions .action-button,
   .article-actions .reader-trigger {
     min-height: 44px;
   }
 }
 
-/* Desktop: Browse link never gets squeezed off-screen. */
-@media (min-width: 641px) {
-  .article-context-nav-back {
-    max-width: calc(100% - 170px);
-  }
-  .article-context-nav-browse {
-    max-width: 160px;
-  }
-}
-
-/* Mobile: stack the two context links so neither truncates badly,
-   give each a full-width touch row with clear alignment. */
+/* Mobile action bar: even grid so Print can never escape the box.
+   4 columns → Listen + icon buttons wrap with uniform spacing. */
 @media (max-width: 640px) {
-  .article-context-nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 2px;
-    margin-bottom: 12px;
-    padding: 4px 0 8px;
-    font-size: 13px;
-  }
-  .article-context-nav-back,
-  .article-context-nav-browse {
-    max-width: 100%;
-  }
-  .article-context-nav-browse {
-    justify-content: flex-end;
-    color: hsl(var(--accent));
-  }
-
-  /* Action bar: even grid so Print can never escape the box.
-     4 columns → Listen + 6 icon buttons wrap as 4 + 3 with
-     uniform spacing and padding. */
   .article-actions {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
