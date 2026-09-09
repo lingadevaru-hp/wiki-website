@@ -4,7 +4,7 @@ import SEO from "../components/SEO";
 
 export default function NotFoundPage() {
   return (
-    <WikiLayout footer>
+    <WikiLayout footer showBackTop>
       <SEO
         title="Page Not Found — Lingadevaru HP's Wiki"
         description="The page you requested does not exist in Lingadevaru HP's Wiki."

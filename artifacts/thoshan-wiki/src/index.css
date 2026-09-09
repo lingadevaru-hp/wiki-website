@@ -1098,9 +1098,14 @@ a:active {
 .section-heading {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 16px;
   margin-bottom: 16px;
+}
+.section-heading .text-link {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding-bottom: 3px;
 }
 .section-heading h2,
 .read-next h2,
@@ -1111,17 +1116,24 @@ a:active {
     serif;
 }
 .count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
   font: 700 11px/1 sans-serif;
+  font-variant-numeric: tabular-nums;
   color: hsl(var(--muted-foreground));
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
-  padding: 4px 6px;
+  border-radius: 999px;
+  padding: 5px 8px;
   vertical-align: middle;
 }
 .recent-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+  align-items: stretch;
 }
 .recent-card,
 .index-row {
@@ -1136,6 +1148,8 @@ a:active {
   display: grid;
   gap: 8px;
   padding: 16px;
+  border-radius: 12px;
+  height: 100%;
 }
 .recent-card:hover,
 .index-row:hover {
@@ -1173,17 +1187,24 @@ a:active {
   margin-bottom: 14px;
 }
 .category-row button {
+  min-height: 36px;
   padding: 7px 10px;
   background: transparent;
   color: hsl(var(--muted-foreground));
   border: 1px solid hsl(var(--border));
   font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
 }
-.category-row button:hover,
+.category-row button:hover {
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--accent) / 0.6);
+  background: hsl(var(--accent) / 0.08);
+}
 .category-row button.selected {
-  background: hsl(var(--accent));
-  color: white;
-  border-color: hsl(var(--accent));
+  background: hsl(var(--accent) / 0.14);
+  color: hsl(var(--accent));
+  border-color: hsl(var(--accent) / 0.55);
 }
 .article-index {
   border-top: 1px solid hsl(var(--border));
@@ -1195,6 +1216,13 @@ a:active {
   gap: 18px;
   padding: 16px 10px;
   border-width: 0 0 1px;
+}
+.index-row > span:first-child,
+.index-category {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .index-copy {
   display: grid;
@@ -7333,5 +7361,118 @@ a:hover {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
     padding: 6px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROUND 3 — listings sweep: articles index, home index, footer,
+   search modal, render performance
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Articles header: badge optically centered with the serif title. */
+.articles-page-title h1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+/* Articles toolbar: live search + sort sit on one wrapping row. */
+.articles-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 4px;
+}
+.articles-tools .articles-search-wrap {
+  flex: 1 1 220px;
+}
+.articles-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+}
+.articles-sort select {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card) / 0.48);
+  color: hsl(var(--foreground));
+  font-size: 12px;
+  cursor: pointer;
+}
+.articles-count {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Hover-only affordances become visible on touch devices. */
+@media (hover: none) {
+  .article-card-cta,
+  .index-arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+.article-card:focus-visible .article-card-cta,
+.index-row:focus-visible .index-arrow {
+  opacity: 1;
+  transform: none;
+}
+
+/* Skip offscreen list rendering work until rows near the viewport. */
+.article-index .index-row,
+.articles-grid .article-card,
+.recent-grid .recent-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 120px;
+}
+
+/* Footer links: comfortable tap rows on touch, inline on desktop. */
+.wiki-footer-links a {
+  border-radius: 6px;
+}
+@media (pointer: coarse) {
+  .wiki-footer a {
+    min-height: 0;
+  }
+  .wiki-footer-links a {
+    padding: 10px 6px;
+  }
+}
+
+/* Search modal respects phone safe areas. */
+.global-search-backdrop {
+  padding-inline: 16px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Index rows collapse gracefully on narrow phones. */
+@media (max-width: 560px) {
+  .index-row {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px 4px;
+  }
+  .index-arrow {
+    display: none;
+  }
+  .recent-grid {
+    grid-template-columns: 1fr;
+  }
+  .articles-tools {
+    margin-top: 12px;
+  }
+  .articles-sort {
+    width: 100%;
+  }
+  .articles-sort select {
+    flex: 1;
   }
 }
