@@ -18,6 +18,7 @@ import Section from "./Section";
 import References from "./References";
 import ArticleAudioReader from "./ArticleAudioReader";
 import VerificationMap from "./VerificationMap";
+import MediaViewer from "./MediaViewer";
 
 import { findParentArticle, loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColor } from "../lib/categories";
@@ -68,6 +69,8 @@ export default function ArticleView({ article }: { article: Article }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [resumeProgress, setResumeProgress] = useState(0);
+  const [gifViewerOpen, setGifViewerOpen] = useState(false);
+  const [audioPlayerOpen, setAudioPlayerOpen] = useState(false);
 
   const articleRef = useRef<HTMLDivElement>(null);
   const bookmarked = isBookmarked(article.metadata.slug);
@@ -310,30 +313,6 @@ export default function ArticleView({ article }: { article: Article }) {
         ref={articleRef}
         className={`article-reader-content ${fontClass} ${widthClass}`}
       >
-        <nav className="article-context-nav" aria-label="Article location">
-          <Link
-            href={parentArticle ? `/wiki/${parentArticle.slug}` : "/wiki/home"}
-            className="article-context-nav-back"
-          >
-            <span aria-hidden="true" className="shrink-0">
-              ←
-            </span>
-            <span className="min-w-0 truncate">
-              {parentArticle
-                ? `Back to ${parentArticle.title}`
-                : "Back to Wiki Home"}
-            </span>
-          </Link>
-          <Link
-            href="/wiki/search"
-            className="article-context-nav-browse"
-          >
-            <span className="min-w-0 truncate">Browse articles</span>
-            <span aria-hidden="true" className="shrink-0">
-              →
-            </span>
-          </Link>
-        </nav>
         <div className="article-kicker">
           <span style={{ color: categoryColor(article.metadata.category) }}>
             {article.metadata.category}
@@ -348,6 +327,7 @@ export default function ArticleView({ article }: { article: Article }) {
             <ArticleAudioReader
               title={article.metadata.title}
               text={extractArticleText(article)}
+              onPlayerOpenChange={setAudioPlayerOpen}
             />
             {article.githubButton && (
               <a
@@ -466,12 +446,12 @@ export default function ArticleView({ article }: { article: Article }) {
 
         {article.metadata.slug === "foss-coin" && (
           <figure className="foss-project-capture">
-            <a
-              href="/assets/foss-Thumbnail.gif"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               className="foss-project-capture-button"
-              aria-label="Open FOSS Coin project capture in new tab"
+              aria-label="Open FOSS Coin project capture full screen"
+              aria-haspopup="dialog"
+              onClick={() => setGifViewerOpen(true)}
             >
               <img
                 src="/assets/foss-Thumbnail.gif"
@@ -479,11 +459,24 @@ export default function ArticleView({ article }: { article: Article }) {
                 loading="lazy"
                 decoding="async"
               />
-              <span className="foss-capture-overlay">Open full screen</span>
-            </a>
+              <span className="foss-capture-overlay" aria-hidden="true">
+                Open full screen
+              </span>
+            </button>
             <figcaption>
               Project capture · FOSS Coin trading workflow
             </figcaption>
+            {gifViewerOpen && (
+              <MediaViewer
+                item={{
+                  src: "/assets/foss-Thumbnail.gif",
+                  alt: "FOSS Coin project capture showing the token trading workflow",
+                  caption: "FOSS Coin trading workflow",
+                  type: "image",
+                }}
+                onClose={() => setGifViewerOpen(false)}
+              />
+            )}
           </figure>
         )}
 
@@ -736,7 +729,7 @@ export default function ArticleView({ article }: { article: Article }) {
       </aside>
       </div>
 
-      {showScrollTop && (
+      {showScrollTop && !audioPlayerOpen && (
         <button
           type="button"
           className="back-to-top print:hidden"
