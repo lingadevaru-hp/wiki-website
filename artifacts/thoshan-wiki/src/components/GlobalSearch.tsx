@@ -2,20 +2,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "wouter";
 import { Search, X, ArrowRight, Clock, Sparkles, Hash } from "lucide-react";
 import { searchArticles, loadArticlesIndex } from "../lib/articleLoader";
+import { categoryColors } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
 import { useDebounce } from "../hooks/useDebounce";
-
-const categoryColors: Record<string, string> = {
-  Profile: "#58a6ff",
-  Blockchain: "#E67E22",
-  "AI / ML": "#8E44AD",
-  Infrastructure: "#27AE60",
-  Security: "#C0392B",
-  Systems: "#2980B9",
-  Web: "#16A085",
-  Learning: "#F39C12",
-};
 
 const RECENT_KEY = "wiki_recent_searches";
 const MAX_RECENT = 5;

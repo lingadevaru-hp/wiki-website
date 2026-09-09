@@ -8,6 +8,7 @@ interface SearchResultsProps {
 
 export default function SearchResults({ results, query }: SearchResultsProps) {
   if (!query) return null;
+  const capped = results.slice(0, 50);
 
   return (
     <div data-testid="search-results">
@@ -15,21 +16,24 @@ export default function SearchResults({ results, query }: SearchResultsProps) {
       <p className="text-sm text-muted-foreground mb-4">
         {results.length} result{results.length !== 1 ? "s" : ""} for &ldquo;
         {query}&rdquo;
+        {results.length > capped.length
+          ? ` — showing first ${capped.length}`
+          : ""}
       </p>
       {results.length === 0 ? (
-        <div className="border border-border p-4 bg-card text-sm">
+        <div className="border border-border rounded-xl p-4 bg-card text-sm">
           <p className="font-bold mb-1">No results found</p>
           <p className="text-muted-foreground">
-            There is no article with that name. You can{" "}
-            <a href="#" className="text-accent hover:underline">
-              create this article
-            </a>
+            Nothing matches that name.{" "}
+            <Link href="/wiki/articles" className="text-accent hover:underline">
+              Browse all articles
+            </Link>
             .
           </p>
         </div>
       ) : (
         <ul className="space-y-4">
-          {results.map((article) => (
+          {capped.map((article) => (
             <li
               key={article.id}
               className="border-b border-border"
@@ -45,8 +49,10 @@ export default function SearchResults({ results, query }: SearchResultsProps) {
                 {article.thumbnail && (
                   <img
                     src={article.thumbnail}
-                    alt={article.title}
-                    className="float-right ml-3 mb-1 w-20 h-14 object-cover border border-border"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="float-right ml-3 mb-1 w-20 h-14 object-cover border border-border rounded-md"
                   />
                 )}
                 <p className="text-xs text-muted-foreground mt-0.5 mb-1">

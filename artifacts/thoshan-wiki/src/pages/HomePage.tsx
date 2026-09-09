@@ -57,7 +57,7 @@ export default function HomePage() {
   const recent = searchable.slice(0, 3);
 
   return (
-    <WikiLayout mainClassName="wiki-main wiki-home-main">
+    <WikiLayout mainClassName="wiki-main wiki-home-main" showBackTop>
       <SEO
         title="Wiki Home — Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer"
         description="Explore Lingadevaru HP's projects, systems, experiments, and technical articles across blockchain, AI, infrastructure, privacy, and web development."

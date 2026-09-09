@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { X, Bookmark, Trash2 } from "lucide-react";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { loadArticlesIndex } from "../lib/articleLoader";
@@ -22,6 +22,7 @@ const navLinks = [
 function NavContent({ onClose }: { onClose: () => void }) {
   const { bookmarks, removeBookmark } = useBookmarks();
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
+  const [location] = useLocation();
 
   useEffect(() => {
     loadArticlesIndex().then((index) => {
@@ -37,6 +38,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
             <Link
               href={l.href}
               onClick={onClose}
+              aria-current={location === l.href ? "page" : undefined}
               data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
               className="block px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
             >
@@ -66,13 +68,13 @@ function NavContent({ onClose }: { onClose: () => void }) {
                 <Link
                   href={`/wiki/${b.slug}`}
                   onClick={onClose}
-                  className="block flex-1 min-w-0 px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
+                  className="block flex-1 min-w-0 space-y-0.5 px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
                 >
                   <span className="block text-xs font-medium truncate">
                     {b.title}
                   </span>
                   <span
-                    className="text-[10px]"
+                    className="block text-[10px] leading-tight"
                     style={{ color: categoryColor(b.category) }}
                   >
                     {b.category}
@@ -83,7 +85,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
                   onClick={() => removeBookmark(b.slug)}
                   title="Remove bookmark"
                   aria-label={`Remove ${b.title} bookmark`}
-                  className="opacity-0 group-hover:opacity-100 p-1.5 text-muted-foreground hover:text-destructive transition-opacity"
+                  className="p-1.5 text-muted-foreground hover:text-destructive transition-opacity opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100 focus-visible:opacity-100"
                 >
                   <Trash2 size={12} />
                 </button>
@@ -103,14 +105,17 @@ function NavContent({ onClose }: { onClose: () => void }) {
               <Link
                 href={`/wiki/${article.slug}`}
                 onClick={onClose}
+                aria-current={
+                  location === `/wiki/${article.slug}` ? "page" : undefined
+                }
                 data-testid={`article-link-${article.slug}`}
-                className="block px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
+                className="block space-y-0.5 px-3 py-2 hover:bg-background hover:text-accent text-foreground rounded-lg transition-colors"
               >
                 <span className="block text-xs leading-tight">
                   {article.title}
                 </span>
                 <span
-                  className="text-[10px]"
+                  className="block text-[10px] leading-tight"
                   style={{ color: categoryColor(article.category) }}
                 >
                   {article.category}
@@ -147,7 +152,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
 
       <aside
         className={`
-          fixed top-0 left-0 h-full z-50 w-72 bg-card border-r border-border
+          fixed top-0 left-0 h-dvh z-50 w-72 bg-card border-r border-border
           transform transition-transform duration-300 ease-[var(--ease-spring)]
           md:hidden
           ${open ? "translate-x-0" : "-translate-x-full"}
@@ -164,7 +169,7 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
             <X size={18} />
           </button>
         </div>
-        <div className="overflow-y-auto h-[calc(100%-56px)]">
+        <div className="overflow-y-auto h-[calc(100%-56px)] pb-[env(safe-area-inset-bottom)]">
           <NavContent onClose={onClose} />
         </div>
       </aside>

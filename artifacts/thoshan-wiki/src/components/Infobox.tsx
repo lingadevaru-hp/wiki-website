@@ -35,6 +35,8 @@ export default function Infobox({ data }: InfolboxProps) {
                 src={data.image}
                 alt={data.imageCaption || data.title}
                 className="w-full max-h-48 cursor-zoom-in object-cover"
+                loading="lazy"
+                decoding="async"
                 onClick={() =>
                   setViewerItem({
                     src: data.image!,

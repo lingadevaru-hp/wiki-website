@@ -1,34 +1,30 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, BookOpen, Clock } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, Search, X } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
 import WikiSidebar from "../components/WikiSidebar";
 import WikiFooter from "../components/WikiFooter";
 import SEO from "../components/SEO";
 import { loadArticlesIndex } from "../lib/articleLoader";
+import { categoryColors, categoryGlyph } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
 
-const categoryColors: Record<string, string> = {
-  Profile: "#58a6ff",
-  Blockchain: "#E67E22",
-  "AI / ML": "#8E44AD",
-  Infrastructure: "#27AE60",
-  Security: "#C0392B",
-  Systems: "#2980B9",
-  Web: "#16A085",
-  Learning: "#F39C12",
+type SortKey = "featured" | "az" | "za" | "category";
+
+const SORT_LABELS: Record<SortKey, string> = {
+  featured: "Featured order",
+  az: "Title A–Z",
+  za: "Title Z–A",
+  category: "Category",
 };
 
-const categoryGlyph: Record<string, string> = {
-  Profile: "👤",
-  Blockchain: "⛓️",
-  "AI / ML": "🤖",
-  Infrastructure: "🏗️",
-  Security: "🔒",
-  Systems: "🖥️",
-  Web: "🌐",
-  Learning: "📚",
-};
+function readStored(key: string, fallback: string): string {
+  try {
+    return localStorage.getItem(key) || fallback;
+  } catch {
+    return fallback;
+  }
+}
 
 function estimateReadTime(excerpt: string): string {
   const words = excerpt.trim().split(/\s+/).length;
@@ -40,7 +36,18 @@ export default function ArticlesPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState(() =>
+    readStored("wiki-articles-category", "All"),
+  );
+  const [sort, setSort] = useState<SortKey>(() => {
+    const stored = readStored("wiki-articles-sort", "featured");
+    return (["featured", "az", "za", "category"] as SortKey[]).includes(
+      stored as SortKey,
+    )
+      ? (stored as SortKey)
+      : "featured";
+  });
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     loadArticlesIndex()
@@ -48,14 +55,53 @@ export default function ArticlesPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem("wiki-articles-category", activeCategory);
+    } catch {
+      /* private mode */
+    }
+  }, [activeCategory]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("wiki-articles-sort", sort);
+    } catch {
+      /* private mode */
+    }
+  }, [sort]);
+
+  const total = useMemo(
+    () => articles.filter((a) => !a.hiddenFromSearch).length,
+    [articles],
+  );
+
   const visible = useMemo(() => {
-    return articles.filter((a) => {
+    const q = query.trim().toLowerCase();
+    const filtered = articles.filter((a) => {
       if (a.hiddenFromSearch) return false;
       if (activeCategory !== "All" && a.category !== activeCategory)
         return false;
+      if (
+        q &&
+        !`${a.title} ${a.excerpt}`.toLowerCase().includes(q)
+      )
+        return false;
       return true;
     });
-  }, [articles, activeCategory]);
+    const sorted = [...filtered];
+    if (sort === "az")
+      sorted.sort((a, b) => a.title.localeCompare(b.title));
+    else if (sort === "za")
+      sorted.sort((a, b) => b.title.localeCompare(a.title));
+    else if (sort === "category")
+      sorted.sort(
+        (a, b) =>
+          a.category.localeCompare(b.category) ||
+          a.title.localeCompare(b.title),
+      );
+    return sorted;
+  }, [articles, activeCategory, query, sort]);
 
   const categories = useMemo(
     () => [
@@ -91,6 +137,19 @@ export default function ArticlesPage() {
               "infrastructure",
               "open source",
             ]}
+            schema={{
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              name: "All articles — Thoshan's Wiki",
+              itemListElement: articles
+                .filter((a) => !a.hiddenFromSearch)
+                .map((a, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  url: `https://lingadevaru.in/wiki/${a.slug}`,
+                  name: a.title,
+                })),
+            }}
           />
 
           <div className="articles-page-header">
@@ -101,9 +160,7 @@ export default function ArticlesPage() {
               <h1>
                 Everything written
                 {!loading && (
-                  <span className="count-badge" style={{ marginLeft: 10 }}>
-                    {visible.length}
-                  </span>
+                  <span className="count-badge">{visible.length}</span>
                 )}
               </h1>
               <p className="articles-subtitle">
@@ -128,8 +185,9 @@ export default function ArticlesPage() {
                 style={
                   activeCategory === cat && cat !== "All"
                     ? {
-                        background: categoryColors[cat],
+                        background: `${categoryColors[cat]}22`,
                         borderColor: categoryColors[cat],
+                        color: categoryColors[cat],
                       }
                     : undefined
                 }
@@ -142,6 +200,57 @@ export default function ArticlesPage() {
             ))}
           </div>
 
+          <div className="articles-tools">
+            <div className="articles-search-wrap">
+              <Search
+                size={15}
+                className="articles-search-icon"
+                aria-hidden="true"
+              />
+              <input
+                type="search"
+                className="articles-search-input"
+                placeholder="Search articles…"
+                aria-label="Search articles by title or excerpt"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              {query && (
+                <button
+                  type="button"
+                  className="articles-search-clear"
+                  aria-label="Clear search"
+                  onClick={() => setQuery("")}
+                >
+                  <X size={12} />
+                </button>
+              )}
+            </div>
+            <label className="articles-sort">
+              <span>Sort</span>
+              <select
+                aria-label="Sort articles"
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortKey)}
+              >
+                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
+                  <option key={key} value={key}>
+                    {SORT_LABELS[key]}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          {!loading && (
+            <p className="articles-count" role="status">
+              Showing {visible.length} of {total} article
+              {total !== 1 ? "s" : ""}
+              {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
+              {query.trim() ? ` matching “${query.trim()}”` : ""}
+            </p>
+          )}
+
           {loading ? (
             <div className="articles-skeleton">
               {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -153,7 +262,7 @@ export default function ArticlesPage() {
               <p className="section-eyebrow">No results</p>
               <h1>Nothing found</h1>
               <p>
-                Try a different category or{" "}
+                Try a different search or category, or{" "}
                 <button
                   className="text-link"
                   style={{
@@ -162,7 +271,10 @@ export default function ArticlesPage() {
                     padding: 0,
                     cursor: "pointer",
                   }}
-                  onClick={() => setActiveCategory("All")}
+                  onClick={() => {
+                    setActiveCategory("All");
+                    setQuery("");
+                  }}
                 >
                   show all
                 </button>
