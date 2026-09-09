@@ -5,6 +5,7 @@ import WikiHeader from "../components/WikiHeader";
 import WikiSidebar from "../components/WikiSidebar";
 import WikiFooter from "../components/WikiFooter";
 import SEO from "../components/SEO";
+import CategoryPills from "../components/CategoryPills";
 import { loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColors, categoryGlyph } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
@@ -163,35 +164,12 @@ export default function ArticlesPage() {
             </div>
           </div>
 
-          <div
-            className="category-row"
-            role="tablist"
-            aria-label="Filter by category"
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                onClick={() => setActiveCategory(cat)}
-                className={activeCategory === cat ? "selected" : ""}
-                style={
-                  activeCategory === cat && cat !== "All"
-                    ? {
-                        background: `${categoryColors[cat]}22`,
-                        borderColor: categoryColors[cat],
-                        color: categoryColors[cat],
-                      }
-                    : undefined
-                }
-              >
-                {cat !== "All" && categoryGlyph[cat]
-                  ? `${categoryGlyph[cat]} `
-                  : ""}
-                {cat}
-              </button>
-            ))}
-          </div>
+          <CategoryPills
+            categories={categories}
+            active={activeCategory}
+            onChange={setActiveCategory}
+            ariaLabel="Filter by category"
+          />
 
           <div className="articles-tools">
             <label className="articles-sort">
