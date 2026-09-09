@@ -66,12 +66,6 @@ export default function SearchPage() {
                   className="index-row"
                   style={{ borderWidth: 1 }}
                 >
-                  <span
-                    className="index-category"
-                    style={{ color: "hsl(var(--muted-foreground))" }}
-                  >
-                    {article.category}
-                  </span>
                   <span className="index-copy">
                     <strong>{article.title}</strong>
                   </span>
