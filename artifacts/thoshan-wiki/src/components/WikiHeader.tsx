@@ -1,5 +1,13 @@
 import { Link, useLocation } from "wouter";
-import { ArrowLeft, Linkedin, Menu, Search } from "lucide-react";
+import {
+  ArrowLeft,
+  House,
+  Linkedin,
+  Menu,
+  MessageCircle,
+  Search,
+  UserRound,
+} from "lucide-react";
 import { useSearch } from "../contexts/SearchContext";
 import { GithubIcon, PaletteIcon } from "./icons";
 import { OPEN_PICKER_EVENT } from "../lib/theme";
@@ -58,32 +66,51 @@ export default function WikiHeader({
           <kbd>⌘ K</kbd>
         </button>
         <nav className="header-nav" aria-label="Primary navigation">
-          <Link href="/wiki/home">Wiki Home</Link>
-          <Link href="/wiki/about">About</Link>
+          <Link
+            href="/wiki/home"
+            aria-label="Wiki Home"
+            title="Wiki Home"
+            className="header-icon-link"
+          >
+            <House size={18} />
+          </Link>
+          <Link
+            href="/wiki/about"
+            aria-label="About Thoshan"
+            title="About Thoshan"
+            className="header-icon-link"
+          >
+            <UserRound size={18} />
+          </Link>
           <a
             href="https://github.com/lingadevaru-hp"
             target="_blank"
             rel="me noopener noreferrer"
             aria-label="GitHub"
+            title="GitHub"
             className="header-icon-link"
           >
-            <GithubIcon className="size-[17px]" />
+            <GithubIcon className="size-[18px]" />
           </a>
           <a
             href="https://linkedin.com/in/lingadevaruhp"
             target="_blank"
             rel="me noopener noreferrer"
             aria-label="LinkedIn"
+            title="LinkedIn"
             className="header-icon-link"
           >
-            <Linkedin size={17} />
+            <Linkedin size={18} />
           </a>
           <a
             href="https://chat.lingadevaru.in"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Chat with me"
+            title="Chat with me"
+            className="header-icon-link"
           >
-            Chat with me
+            <MessageCircle size={18} />
           </a>
         </nav>
         <button
