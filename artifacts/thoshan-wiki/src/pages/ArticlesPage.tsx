@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, BookOpen, Clock, Search, X } from "lucide-react";
+import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
 import WikiSidebar from "../components/WikiSidebar";
 import WikiFooter from "../components/WikiFooter";
@@ -47,7 +47,6 @@ export default function ArticlesPage() {
       ? (stored as SortKey)
       : "featured";
   });
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     loadArticlesIndex()
@@ -77,15 +76,9 @@ export default function ArticlesPage() {
   );
 
   const visible = useMemo(() => {
-    const q = query.trim().toLowerCase();
     const filtered = articles.filter((a) => {
       if (a.hiddenFromSearch) return false;
       if (activeCategory !== "All" && a.category !== activeCategory)
-        return false;
-      if (
-        q &&
-        !`${a.title} ${a.excerpt}`.toLowerCase().includes(q)
-      )
         return false;
       return true;
     });
@@ -101,7 +94,7 @@ export default function ArticlesPage() {
           a.title.localeCompare(b.title),
       );
     return sorted;
-  }, [articles, activeCategory, query, sort]);
+  }, [articles, activeCategory, sort]);
 
   const categories = useMemo(
     () => [
@@ -201,31 +194,6 @@ export default function ArticlesPage() {
           </div>
 
           <div className="articles-tools">
-            <div className="articles-search-wrap">
-              <Search
-                size={15}
-                className="articles-search-icon"
-                aria-hidden="true"
-              />
-              <input
-                type="search"
-                className="articles-search-input"
-                placeholder="Search articles…"
-                aria-label="Search articles by title or excerpt"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-              {query && (
-                <button
-                  type="button"
-                  className="articles-search-clear"
-                  aria-label="Clear search"
-                  onClick={() => setQuery("")}
-                >
-                  <X size={12} />
-                </button>
-              )}
-            </div>
             <label className="articles-sort">
               <span>Sort</span>
               <select
@@ -247,7 +215,6 @@ export default function ArticlesPage() {
               Showing {visible.length} of {total} article
               {total !== 1 ? "s" : ""}
               {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
-              {query.trim() ? ` matching “${query.trim()}”` : ""}
             </p>
           )}
 
@@ -262,7 +229,7 @@ export default function ArticlesPage() {
               <p className="section-eyebrow">No results</p>
               <h1>Nothing found</h1>
               <p>
-                Try a different search or category, or{" "}
+                Try a different category, or{" "}
                 <button
                   className="text-link"
                   style={{
@@ -273,7 +240,6 @@ export default function ArticlesPage() {
                   }}
                   onClick={() => {
                     setActiveCategory("All");
-                    setQuery("");
                   }}
                 >
                   show all
