@@ -163,14 +163,12 @@ export default function HomePage() {
               href={`/wiki/${article.slug}`}
               className="index-row"
             >
-              <span
-                className="index-category"
-                style={{ color: categoryColor(article.category) }}
-              >
-                {article.category}
-              </span>
               <span className="index-copy">
-                <strong>{article.title}</strong>
+                <strong
+                  style={{ color: categoryColor(article.category) }}
+                >
+                  {article.title}
+                </strong>
                 <small>{article.excerpt}</small>
               </span>
               <ArrowRight size={16} className="index-arrow" />

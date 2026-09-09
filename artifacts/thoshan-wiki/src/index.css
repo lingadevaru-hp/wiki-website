@@ -1231,8 +1231,8 @@ a:active {
 }
 .index-row {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr) 18px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 18px;
+  align-items: center;
   gap: 18px;
   padding: 16px 10px;
   border-width: 0 0 1px;
@@ -7392,7 +7392,7 @@ a:hover {
 /* Index rows collapse gracefully on narrow phones. */
 @media (max-width: 560px) {
   .index-row {
-    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
     padding: 14px 4px;
   }
