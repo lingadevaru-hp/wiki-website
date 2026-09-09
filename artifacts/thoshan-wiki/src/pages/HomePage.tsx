@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { ArrowRight, Search, Sparkles } from "lucide-react";
 import WikiLayout from "../components/WikiLayout";
 import { loadArticlesIndex } from "../lib/articleLoader";
-import { categoryColor } from "../lib/categories";
+import { categoryColor, categoryGlyph } from "../lib/categories";
 import { visibleIndexArticles } from "../lib/articleRelations";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
@@ -162,6 +162,9 @@ export default function HomePage() {
               onClick={() => setCategory(item)}
               className={category === item ? "selected" : ""}
             >
+              {item !== "All" && categoryGlyph[item]
+                ? `${categoryGlyph[item]} `
+                : ""}
               {item}
             </button>
           ))}
