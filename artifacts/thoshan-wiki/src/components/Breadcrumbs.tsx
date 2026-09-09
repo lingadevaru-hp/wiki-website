@@ -50,32 +50,37 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex items-center gap-1 text-sm text-muted-foreground mb-4"
+      className="wiki-breadcrumbs flex min-w-0 max-w-full flex-wrap items-center gap-x-1 gap-y-1.5 text-sm text-muted-foreground mb-4"
     >
       <Link
         href="/"
-        className="text-foreground hover:text-accent transition-colors"
+        className="shrink-0 rounded-md p-1 -m-1 text-foreground hover:text-accent transition-colors"
         aria-label="Home"
       >
         <Home size={14} className="shrink-0" />
       </Link>
 
       {items.map((item, index) => (
-        <div key={index} className="flex items-center gap-1">
-          <span className="text-muted-foreground">/</span>
+        <span key={index} className="flex min-w-0 items-center gap-1">
+          <span aria-hidden="true" className="shrink-0 text-muted-foreground">
+            /
+          </span>
           {item.href ? (
             <Link
               href={item.href}
-              className="text-foreground hover:text-accent transition-colors truncate max-w-[120px] sm:max-w-[200px]"
+              className="min-w-0 truncate text-foreground hover:text-accent transition-colors max-w-[38vw] min-[420px]:max-w-[150px] sm:max-w-[200px]"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-muted-foreground truncate max-w-[120px] sm:max-w-[200px]">
+            <span
+              aria-current={index === items.length - 1 ? "page" : undefined}
+              className="min-w-0 truncate text-muted-foreground max-w-[38vw] min-[420px]:max-w-[150px] sm:max-w-[220px]"
+            >
               {item.label}
             </span>
           )}
-        </div>
+        </span>
       ))}
     </nav>
   );

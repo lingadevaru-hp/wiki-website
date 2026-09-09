@@ -313,13 +313,26 @@ export default function ArticleView({ article }: { article: Article }) {
         <nav className="article-context-nav" aria-label="Article location">
           <Link
             href={parentArticle ? `/wiki/${parentArticle.slug}` : "/wiki/home"}
+            className="article-context-nav-back"
           >
-            ←{" "}
-            {parentArticle
-              ? `Back to ${parentArticle.title}`
-              : "Back to Wiki Home"}
+            <span aria-hidden="true" className="shrink-0">
+              ←
+            </span>
+            <span className="min-w-0 truncate">
+              {parentArticle
+                ? `Back to ${parentArticle.title}`
+                : "Back to Wiki Home"}
+            </span>
           </Link>
-          <Link href="/wiki/search">Browse articles →</Link>
+          <Link
+            href="/wiki/search"
+            className="article-context-nav-browse"
+          >
+            <span className="min-w-0 truncate">Browse articles</span>
+            <span aria-hidden="true" className="shrink-0">
+              →
+            </span>
+          </Link>
         </nav>
         <div className="article-kicker">
           <span style={{ color: categoryColor(article.metadata.category) }}>
@@ -407,7 +420,7 @@ export default function ArticleView({ article }: { article: Article }) {
             </button>
             <button
               type="button"
-              className="action-button ml-auto"
+              className="action-button article-print-button sm:ml-auto"
               onClick={() => window.print()}
               aria-label="Print article"
               data-testid="button-print"
