@@ -932,15 +932,15 @@ a:active {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   margin-left: auto;
   font-size: 12px;
 }
-.header-nav a {
-  color: hsl(var(--muted-foreground));
-  padding: 7px 8px;
+.header-nav .header-icon-link {
+  color: hsl(var(--foreground));
+  padding: 0;
 }
-.header-nav a:hover {
+.header-nav .header-icon-link:hover {
   color: hsl(var(--accent));
 }
 .wiki-shell {
