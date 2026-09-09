@@ -381,7 +381,7 @@ export default function ArticleAudioReader({
             <i />
           </span>
         )}
-        <span>
+        <span className="reader-label hidden min-[420px]:inline">
           {mode === "loading" ? "Loading" : playing ? "Pause" : "Listen"}
         </span>
       </button>
