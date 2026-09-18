@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ArrowDown, ArrowRight, Linkedin, Search } from "lucide-react";
+import { ArrowDown, ArrowRight, Linkedin, Menu, Search } from "lucide-react";
 import { useLocation } from "wouter";
 import { useSearch } from "../contexts/SearchContext";
 import SEO from "../components/SEO";
@@ -8,7 +8,9 @@ import { ThoshanMark, ThoshanWordmark, WORDMARK_BANDS } from "../components/Bran
 import { MusicControl } from "../components/MusicControl";
 import { EtchPicker } from "../components/EtchPicker";
 import { GithubIcon, PaletteIcon, SearchIcon } from "../components/icons";
+import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { OPEN_PICKER_EVENT } from "../lib/theme";
+import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 
 export default function LandingPage() {
   const [, setLocation] = useLocation(); const { openSearch } = useSearch(); const archive = useRef<HTMLElement>(null);
@@ -17,7 +19,7 @@ export default function LandingPage() {
   const openPicker = () => window.dispatchEvent(new CustomEvent(OPEN_PICKER_EVENT));
   return <div className="omarchy-landing">
     <SEO title="THOSHAN — systems, projects, and things worth keeping" description="The personal portfolio and knowledge base of Thoshan." path="/" keywords={["Thoshan", "portfolio", "FOSS Coin", "blockchain developer"]} />
-    <header className="omarchy-header"><button className="omarchy-home" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" title="Back to top"><ThoshanMark className="size-[22px] text-brand" /></button><nav><button onClick={() => setLocation("/wiki/home")}>Wiki</button><button onClick={() => setLocation("/wiki/articles")}>Projects</button></nav><div className="omarchy-icons"><button className="omarchy-icon-button" onClick={openSearch} aria-label="Search" title="Search"><SearchIcon className="size-5" /></button><button className="omarchy-icon-button" onClick={openPicker} aria-label="Change theme" title="Change theme (T)"><PaletteIcon className="size-5" /></button><a className="omarchy-icon-button" href="https://github.com/lingadevaru-hp" target="_blank" rel="me noopener noreferrer" aria-label="GitHub" title="GitHub"><GithubIcon className="size-5" /></a><a className="omarchy-icon-button" href="https://linkedin.com/in/lingadevaruhp" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={19} /></a></div><div><button onClick={() => setLocation("/wiki/home")} className="omarchy-install">Enter archive</button></div></header>
+    <header className="omarchy-header"><button className="omarchy-home" onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; e.preventDefault(); window.dispatchEvent(new CustomEvent(OPEN_PALETTE_EVENT)); }} aria-label="Site menu" title="Site menu"><ThoshanMark className="size-[22px] text-brand" /></button><nav><button onClick={() => setLocation("/wiki/home")}>Wiki</button><button onClick={() => setLocation("/wiki/articles")}>Projects</button></nav><div className="omarchy-icons"><button className="omarchy-icon-button omarchy-menu-button" onClick={() => window.dispatchEvent(new CustomEvent(OPEN_PALETTE_EVENT))} aria-label="Open menu" title="Menu"><Menu size={19} /></button><button className="omarchy-icon-button" onClick={openSearch} aria-label="Search" title="Search"><SearchIcon className="size-5" /></button><button className="omarchy-icon-button" onClick={openPicker} aria-label="Change theme" title="Change theme (T)"><PaletteIcon className="size-5" /></button><LanguageSwitcher triggerClassName="omarchy-icon-button" /><a className="omarchy-icon-button" href="https://github.com/lingadevaru-hp" target="_blank" rel="me noopener noreferrer" aria-label="GitHub" title="GitHub"><GithubIcon className="size-5" /></a><a className="omarchy-icon-button" href="https://linkedin.com/in/lingadevaruhp" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={19} /></a></div><div><button onClick={() => setLocation("/wiki/home")} className="omarchy-install">Enter archive</button></div></header>
     <main>
       <section className="omarchy-hero">
         <HeroShader onPainted={() => setPainted(true)} />

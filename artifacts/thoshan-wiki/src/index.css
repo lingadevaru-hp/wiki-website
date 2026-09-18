@@ -102,6 +102,9 @@
 .omarchy-home { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; color:var(--t-brand); }
 .omarchy-header nav, .omarchy-header > div { display:flex; gap:20px; align-items:center; font-size:12px; color:hsl(var(--muted-foreground)); }
 .omarchy-header nav button:hover { color:hsl(var(--primary)); }.omarchy-icons { display:flex; gap:4px; align-items:center; }.omarchy-icon-button { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; color:hsl(var(--muted-foreground)); border-radius:6px; transition:color .15s ease, background .15s ease; }.omarchy-icon-button:hover { color:hsl(var(--primary)); background:hsl(var(--muted) / .5); }.omarchy-theme-button { border:1px solid hsl(var(--border)) !important; padding:8px 11px; }.omarchy-theme-button kbd { margin-left:8px; opacity:.6; }.omarchy-install { background:var(--t-brand) !important; color:var(--t-brand-ink) !important; padding:9px 13px; font-weight:600; }
+/* Mobile hamburger for the landing header: the inline nav hides ≤720px,
+   so this button (opening the command menu) is the mobile menu. */
+.omarchy-menu-button { display:none; }
 .omarchy-hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; isolation:isolate; }.omarchy-hero-top { flex:1 0 auto; width:100%; min-height:72px; }.omarchy-hero-bottom { display:block; flex:1 0 auto; width:100%; min-height:16px; }
 @media (max-width:720px) {
   /* Shorter top clearance on small screens; spacers stay balanced. */
@@ -113,7 +116,7 @@
 .omarchy-hero-copy { text-align:center; margin-top:clamp(20px,4vh,44px); }.omarchy-status { display:inline-block; margin:0 0 27px; border:1px solid hsl(var(--primary) / .55); color:hsl(var(--primary)); padding:7px 12px; font-size:11px; }.omarchy-status--top { margin:0 0 clamp(20px,4vh,44px); }.omarchy-tagline { margin: 26px 0 10px; font-size:clamp(19px,2.35vw,32px); line-height:1.2; letter-spacing:-.05em; }.omarchy-description { margin:0; color:hsl(var(--muted-foreground)); font-size:13px; }.omarchy-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:29px; }.omarchy-actions button { display:inline-flex; align-items:center; gap:8px; padding:12px 15px; font:inherit; font-size:12px; cursor:pointer; transition: transform .18s ease, filter .18s ease; }.omarchy-actions button:hover { transform:translateY(-3px); filter:brightness(1.15); }.omarchy-primary { border:1px solid hsl(var(--primary)); background:hsl(var(--primary)); color:hsl(var(--background)); }.omarchy-secondary { border:1px solid hsl(var(--border)); background:hsl(var(--background) / .72); color:hsl(var(--foreground)); }.omarchy-scroll { display:grid; gap:7px; place-items:center; margin-top:30px; margin-bottom:30px; border:0; background:none; color:hsl(var(--muted-foreground)); cursor:pointer; font:11px "JetBrains Mono Variable","Courier New",monospace; }.omarchy-scroll svg { animation: thoshan-bob 1.8s ease-in-out infinite; }
 .omarchy-archive { position:relative; padding:64px 7vw 120px; border-top:1px solid hsl(var(--border)); background:hsl(var(--card)); }.omarchy-archive > p { color:hsl(var(--primary)); font-size:11px; letter-spacing:.15em; }.omarchy-archive h2 { margin:16px 0 48px; font-size:clamp(30px,5vw,64px); line-height:.95; letter-spacing:-.07em; }.omarchy-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }.omarchy-cards button { min-height:175px; text-align:left; padding:22px; border:1px solid hsl(var(--border)); background:hsl(var(--background)); color:hsl(var(--foreground)); font:inherit; cursor:pointer; transition:.2s ease; }.omarchy-cards button:hover { transform:translateY(-5px); border-color:hsl(var(--primary)); }.omarchy-cards span,.omarchy-cards em { display:block; color:hsl(var(--muted-foreground)); font-size:11px; font-style:normal; }.omarchy-cards strong { display:block; margin:45px 0 8px; font-size:22px; color:hsl(var(--primary)); }
 @keyframes thoshan-bob { 50% { transform:translateY(5px); } }
-@media (max-width:720px) { .omarchy-header { padding:0 15px; }.omarchy-header nav { display:none; }.omarchy-theme-button { font-size:0; }.omarchy-theme-button kbd { font-size:11px; margin:0; }.omarchy-install { display:none; }.omarchy-cards { grid-template-columns:1fr; }.omarchy-hero-copy { padding-inline:16px; } }
+@media (max-width:720px) { .omarchy-header { padding:0 15px; }.omarchy-header nav { display:none; }.omarchy-menu-button { display:inline-flex; }.omarchy-theme-button { font-size:0; }.omarchy-theme-button kbd { font-size:11px; margin:0; }.omarchy-install { display:none; }.omarchy-cards { grid-template-columns:1fr; }.omarchy-hero-copy { padding-inline:16px; } }
 @media (prefers-reduced-motion:reduce) { .omarchy-scroll svg { animation:none; }.omarchy-actions button:hover,.omarchy-cards button:hover { transform:none; } }
 
 /* LIGHT MODE */
@@ -854,7 +857,8 @@ a:active {
 .wiki-header-inner {
   display: flex;
   align-items: center;
-  gap: 9px;
+  justify-content: space-between;
+  gap: 8px;
   max-width: 1320px;
   margin: 0 auto;
   min-height: 58px;
@@ -906,9 +910,10 @@ a:active {
 .header-search-button {
   flex: 1;
   max-width: 440px;
-  margin-left: 12px;
+  margin-inline: auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: hsl(var(--muted-foreground));
   background: hsl(var(--card) / 0.6);
@@ -932,6 +937,7 @@ a:active {
 .header-nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 4px;
   margin-left: auto;
   font-size: 12px;
@@ -942,6 +948,124 @@ a:active {
 }
 .header-nav .header-icon-link:hover {
   color: hsl(var(--accent));
+}
+/* Command palette, copied from the omarchy-site SearchPalette pattern:
+   narrow card, mono rows, prompt line instead of a field. */
+.command-palette {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 16px;
+}
+.command-backdrop {
+  position: absolute;
+  inset: 0;
+  background: hsl(var(--background) / 0.72);
+}
+.command-backdrop:where(:hover, :focus-visible) {
+  background: hsl(var(--background) / 0.72);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .command-backdrop {
+    backdrop-filter: blur(2px);
+  }
+}
+.command-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 340px;
+  max-height: 70vh;
+  border: 2px solid hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow:
+    0 24px 70px hsl(var(--background) / 0.55),
+    0 4px 18px hsl(var(--background) / 0.4);
+  padding: 18px;
+}
+.command-prompt {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  flex: 0 0 auto;
+}
+.command-input {
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  background: transparent;
+  border: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 34px;
+  color: hsl(var(--foreground));
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.command-input::placeholder {
+  color: hsl(var(--foreground));
+  opacity: 0.6;
+}
+.command-input::-webkit-search-cancel-button {
+  display: none;
+}
+.command-list-scroll {
+  margin-inline: -4px;
+  margin-top: 6px;
+  padding-inline: 4px;
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+.command-empty {
+  padding: 24px 8px;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+}
+.command-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.command-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 40px;
+  padding-inline: 12px;
+  text-align: left;
+  color: hsl(var(--foreground));
+}
+.command-row-active {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  color: hsl(var(--primary));
+}
+.command-glyph {
+  width: 16px;
+  flex: 0 0 auto;
+  text-align: center;
+  line-height: 1;
+}
+.command-label {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+}
+.command-chevron {
+  flex: 0 0 auto;
+  opacity: 0.5;
 }
 .wiki-shell {
   display: flex;
@@ -4213,6 +4337,16 @@ a svg {
   box-shadow: 0 0 0 4px hsl(var(--ring) / 0.15);
 }
 :focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Palette + theme-picker search fields draw no focus ring (omarchy pattern):
+   they are already focused and filtering live; the ring reads as an error. */
+.command-input:focus,
+.command-input:focus-visible,
+.theme-search-input:focus,
+.theme-search-input:focus-visible {
   outline: none;
   box-shadow: none;
 }

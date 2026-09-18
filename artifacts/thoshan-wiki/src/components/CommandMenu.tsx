@@ -1,0 +1,255 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useLocation } from 'wouter'
+import { Linkedin, MessageCircle, UserRound } from 'lucide-react'
+import { useSearch } from '@/contexts/SearchContext'
+import {
+  GithubIcon,
+  PageIcon,
+  PaletteIcon,
+  SearchIcon,
+} from '@/components/icons'
+import { GlobeIcon } from '@/components/icons/GlobeIcon'
+import { ThoshanMark } from '@/components/Brand'
+import { OPEN_PICKER_EVENT } from '@/lib/theme'
+import type { CommandIcon, CommandItem } from '@/lib/command-menu'
+import {
+  LOCALE_EVENT,
+  OPEN_PALETTE_EVENT,
+  childrenOf,
+  commandItem,
+  everyRow,
+  filterRows,
+  menuTitle,
+  opensMenu,
+} from '@/lib/command-menu'
+
+/**
+ * Site-wide command menu, copied from the omarchy-site SearchPalette pattern:
+ * a narrow card, mono rows, prompt line instead of a field, destinations on
+ * screen before anything is typed. Typing filters; submenus (Language) walk
+ * with arrows/Enter/Backspace/Escape like the desktop menu.
+ */
+
+const ICONS: Record<CommandIcon, typeof PageIcon> = {
+  home: ThoshanMark as unknown as typeof PageIcon,
+  wiki: PageIcon,
+  articles: PageIcon,
+  search: SearchIcon,
+  themes: PaletteIcon,
+  language: GlobeIcon,
+  github: GithubIcon,
+  linkedin: Linkedin as unknown as typeof PageIcon,
+  chat: MessageCircle as unknown as typeof PageIcon,
+  about: UserRound as unknown as typeof PageIcon,
+}
+
+export function CommandMenu() {
+  const [, setLocation] = useLocation()
+  const { openSearch, closeSearch } = useSearch()
+  const input = useRef<HTMLInputElement>(null)
+  const list = useRef<HTMLUListElement>(null)
+  const pointer = useRef({ x: -1, y: -1 })
+  const scroller = useRef<HTMLDivElement>(null)
+  const restore = useRef<HTMLElement | null>(null)
+
+  const [open, setOpen] = useState(false)
+  const [query, setQuery] = useState('')
+  const [menu, setMenu] = useState('root')
+  const [active, setActive] = useState(0)
+
+  const show = useCallback(() => {
+    // Only one overlay at a time: never stack on the search modal.
+    closeSearch()
+    restore.current = document.activeElement as HTMLElement | null
+    setOpen(true)
+    setQuery('')
+    setMenu('root')
+    setActive(0)
+  }, [closeSearch])
+
+  const close = useCallback(() => {
+    setOpen(false)
+    restore.current?.focus({ focusVisible: false })
+  }, [])
+
+  const searching = menu === 'root' && query.trim().length > 0
+  const rows = useMemo<CommandItem[]>(() => {
+    const own = searching ? everyRow() : childrenOf(menu)
+    return filterRows(own, query)
+  }, [searching, menu, query])
+
+  useEffect(() => setActive(0), [menu, query])
+
+  useEffect(() => {
+    const onRequest = () => show()
+    window.addEventListener(OPEN_PALETTE_EVENT, onRequest)
+    return () => window.removeEventListener(OPEN_PALETTE_EVENT, onRequest)
+  }, [show])
+
+  useEffect(() => {
+    if (open) input.current?.focus()
+  }, [open ])
+
+  useEffect(() => {
+    const box = scroller.current
+    const row = list.current?.children[active] as HTMLElement | undefined
+    if (!box || !row) return
+    const view = box.getBoundingClientRect()
+    const rect = row.getBoundingClientRect()
+    if (rect.top < view.top) box.scrollTop -= view.top - rect.top
+    else if (rect.bottom > view.bottom) box.scrollTop += rect.bottom - view.bottom
+  }, [active, rows])
+
+  if (!open) return null
+
+  const goItem = (item: CommandItem) => {
+    if (opensMenu(item)) {
+      setMenu(item.id)
+      setQuery('')
+      return
+    }
+    if (item.action === 'search') {
+      close()
+      openSearch()
+      return
+    }
+    if (item.action === 'themes') {
+      close()
+      window.dispatchEvent(new CustomEvent(OPEN_PICKER_EVENT))
+      return
+    }
+    if (item.locale) {
+      window.dispatchEvent(
+        new CustomEvent(LOCALE_EVENT, { detail: { locale: item.locale } }),
+      )
+      close()
+      return
+    }
+    close()
+    if (item.href) {
+      window.location.href = item.href
+      return
+    }
+    if (item.to) setLocation(item.to)
+  }
+
+  const back = () => {
+    setQuery('')
+    setMenu((at) =>
+      at.includes('.') ? at.slice(0, at.lastIndexOf('.')) : 'root',
+    )
+  }
+
+  const onKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      event.preventDefault()
+      if (query) setQuery('')
+      else if (menu !== 'root') back()
+      else close()
+      return
+    }
+    if (
+      (event.key === 'Backspace' || event.key === 'ArrowLeft') &&
+      !query &&
+      menu !== 'root'
+    ) {
+      event.preventDefault()
+      back()
+      return
+    }
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      if (rows.length === 0) return
+      event.preventDefault()
+      const step = event.key === 'ArrowDown' ? 1 : -1
+      setActive((at) => Math.min(rows.length - 1, Math.max(0, at + step)))
+    } else if (event.key === 'Enter' || event.key === 'ArrowRight') {
+      const row = rows[active]
+      if (!row) return
+      if (event.key === 'ArrowRight' && !opensMenu(row)) return
+      event.preventDefault()
+      goItem(row)
+    }
+  }
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+      onKeyDown={onKeyDown}
+      className="command-palette"
+    >
+      <div aria-hidden="true" onClick={close} className="command-backdrop" />
+      <div className="command-card">
+        <div className="command-prompt">
+          <input
+            ref={input}
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={`${menuTitle(menu)}…`}
+            aria-label="Site menu"
+            autoComplete="off"
+            spellCheck={false}
+            enterKeyHint="go"
+            className="command-input"
+          />
+        </div>
+        <div
+          ref={scroller}
+          className="command-list-scroll"
+        >
+          {rows.length === 0 ? (
+            <p className="command-empty">Nothing matches {query.trim()}.</p>
+          ) : (
+            <ul ref={list} role="listbox" aria-label="Menu" className="command-list">
+              {rows.map((row, at) => {
+                const Icon = ICONS[row.icon]
+                return (
+                  <li key={row.id}>
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={at === active}
+                      tabIndex={-1}
+                      onPointerDown={(event) => event.preventDefault()}
+                      onClick={() => goItem(row)}
+                      onPointerMove={(event) => {
+                        if (
+                          event.clientX === pointer.current.x &&
+                          event.clientY === pointer.current.y
+                        )
+                          return
+                        pointer.current = { x: event.clientX, y: event.clientY }
+                        setActive(at)
+                      }}
+                      className={
+                        'command-row' + (at === active ? ' command-row-active' : '')
+                      }
+                    >
+                      {row.glyph ? (
+                        <span aria-hidden="true" className="command-glyph">
+                          {row.glyph}
+                        </span>
+                      ) : (
+                        <Icon className="size-4 shrink-0 opacity-80" />
+                      )}
+                      <span dir="auto" className="command-label">
+                        {row.label}
+                      </span>
+                      {opensMenu(row) ? (
+                        <span aria-hidden="true" className="command-chevron">
+                          ›
+                        </span>
+                      ) : null}
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import {
   ArrowLeft,
+  Ellipsis,
   House,
   Linkedin,
   Menu,
@@ -10,7 +11,15 @@ import {
 } from "lucide-react";
 import { useSearch } from "../contexts/SearchContext";
 import { GithubIcon, PaletteIcon } from "./icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { OPEN_PICKER_EVENT } from "../lib/theme";
+import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 
 interface WikiHeaderProps {
   onMenuClick: () => void;
@@ -51,7 +60,27 @@ export default function WikiHeader({
             <ArrowLeft size={18} />
           </button>
         )}
-        <Link href="/" className="wiki-wordmark" data-testid="link-wordmark">
+        <Link
+          href="/"
+          className="wiki-wordmark"
+          data-testid="link-wordmark"
+          aria-label="Site menu"
+          onClick={(event) => {
+            // Plain click opens the command menu (omarchy-site glyph pattern);
+            // modified clicks still navigate home.
+            if (
+              event.defaultPrevented ||
+              event.button !== 0 ||
+              event.metaKey ||
+              event.ctrlKey ||
+              event.shiftKey ||
+              event.altKey
+            )
+              return;
+            event.preventDefault();
+            window.dispatchEvent(new CustomEvent(OPEN_PALETTE_EVENT));
+          }}
+        >
           <span className="wordmark-mark">T</span>
           <span>Thoshan&apos;s Wiki</span>
         </Link>
@@ -92,27 +121,43 @@ export default function WikiHeader({
           >
             <GithubIcon className="size-[18px]" />
           </a>
-          <a
-            href="https://linkedin.com/in/lingadevaruhp"
-            target="_blank"
-            rel="me noopener noreferrer"
-            aria-label="LinkedIn"
-            title="LinkedIn"
-            className="header-icon-link"
-          >
-            <Linkedin size={18} />
-          </a>
-          <a
-            href="https://chat.lingadevaru.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat with me"
-            title="Chat with me"
-            className="header-icon-link"
-          >
-            <MessageCircle size={18} />
-          </a>
+          {/* Overflow popup menu, copied from the omarchy-site mobile sheet
+              pattern (icon + label rows for the secondary links). */}
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              className="header-icon-button"
+              aria-label="More links"
+              data-testid="button-more-links"
+            >
+              <Ellipsis size={18} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" sideOffset={10} className="w-56">
+              <DropdownMenuItem asChild>
+                <a
+                  href="https://linkedin.com/in/lingadevaruhp"
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <Linkedin size={16} aria-hidden="true" />
+                  <span>LinkedIn</span>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a
+                  href="https://chat.lingadevaru.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <MessageCircle size={16} aria-hidden="true" />
+                  <span>Chat with me</span>
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
+        <LanguageSwitcher />
         <button
           className="header-icon-button theme-toggle"
           onClick={openPicker}
