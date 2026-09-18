@@ -1659,6 +1659,37 @@ a:active {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.foss-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 12px 12px;
+  padding: 8px 14px;
+  border: 1px solid hsl(var(--foreground) / 0.22);
+  border-radius: 999px;
+  background: hsl(var(--background) / 0.68);
+  color: hsl(var(--foreground));
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+.foss-sound-toggle:hover {
+  border-color: hsl(var(--primary) / 0.6);
+  transform: translateY(-1px);
+}
+.foss-sound-toggle:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+.foss-sound-toggle svg {
+  flex-shrink: 0;
+}
 .read-next-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

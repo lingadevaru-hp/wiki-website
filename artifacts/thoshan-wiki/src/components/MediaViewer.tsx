@@ -45,14 +45,28 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {isVideo ? (
-          <iframe
-            src={item.src}
-            title={item.caption || item.alt || "Video"}
-            className="h-full max-h-[82vh] w-full max-w-7xl border border-white/20 bg-black"
-            allowFullScreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            data-testid="media-viewer-video"
-          />
+          item.src.endsWith(".mp4") ? (
+            <video
+              src={item.src}
+              title={item.caption || item.alt || "Video"}
+              className="max-h-[82vh] w-full max-w-7xl border border-white/20 bg-black"
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+              data-testid="media-viewer-video"
+            />
+          ) : (
+            <iframe
+              src={item.src}
+              title={item.caption || item.alt || "Video"}
+              className="h-full max-h-[82vh] w-full max-w-7xl border border-white/20 bg-black"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              data-testid="media-viewer-video"
+            />
+          )
         ) : (
           <img
             src={item.src}
