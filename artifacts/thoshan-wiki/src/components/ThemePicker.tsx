@@ -49,20 +49,26 @@ export function ThemePicker() {
   const [hint, setHint] = useState(false)
   const [query, setQuery] = useState('')
   const dialogRef = useRef<HTMLDivElement>(null)
+  const searchRef = useRef<HTMLInputElement>(null)
   const restoreFocus = useRef<HTMLElement | null>(null)
   /** Whether the trigger was wearing a focus ring when it opened the picker. */
   const restoreRing = useRef(false)
   const indexRef = useRef(0)
 
-  /** Live-filtered deck: type to narrow the 22 themes instead of stepping. */
+  /** Live-filtered deck: type to narrow the 22 themes instead of stepping.
+      Prefix matches sort first so typing a theme's start lands on it. */
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase()
     if (!q) return SITE_THEMES
-    return SITE_THEMES.filter(
-      (theme) =>
-        theme.name.toLowerCase().includes(q) ||
-        theme.id.toLowerCase().includes(q),
-    )
+    const starts: typeof SITE_THEMES = []
+    const contains: typeof SITE_THEMES = []
+    for (const theme of SITE_THEMES) {
+      const name = theme.name.toLowerCase()
+      const id = theme.id.toLowerCase()
+      if (name.startsWith(q) || id.startsWith(q)) starts.push(theme)
+      else if (name.includes(q) || id.includes(q)) contains.push(theme)
+    }
+    return [...starts, ...contains]
   }, [query])
 
   // A new query restarts the deck at its first match.
@@ -238,6 +244,9 @@ export function ThemePicker() {
   useEffect(() => {
     if (!open) return
     dialogRef.current?.focus()
+    // Focus the search field on open so typing filters instantly —
+    // no click into the box needed.
+    searchRef.current?.focus({ preventScroll: true })
     const onKeyDown = (event: KeyboardEvent) => {
       // While searching, arrows belong to the field: Enter takes the
       // front match, Escape closes, nothing steps the deck by accident.
@@ -361,11 +370,12 @@ export function ThemePicker() {
         <div className="pointer-events-auto relative z-10 mb-4 flex w-72 max-w-[80vw] items-center gap-2 border border-border-subtle bg-bg px-3 py-2">
           <SearchIcon className="size-4 shrink-0 text-text-muted" />
           <input
+            ref={searchRef}
             value={query}
             onChange={(event) => setQuery(event.currentTarget.value)}
             placeholder={t(`Search ${SITE_THEMES.length} themes…`)}
             aria-label={t('Search themes')}
-            className="w-full bg-transparent font-mono text-sm text-text outline-none placeholder:text-text-muted"
+            className="theme-search-input w-full bg-transparent font-mono text-sm text-text outline-none placeholder:text-text-muted"
           />
           {query ? (
             <button

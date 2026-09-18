@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { SearchProvider, useSearch } from "./contexts/SearchContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalSearch from "./components/GlobalSearch";
+import { CommandMenu } from "./components/CommandMenu";
 import ShortcutsModal from "./components/ShortcutsModal";
 import { ThemePicker } from "./components/ThemePicker";
 import LandingPage from "./pages/LandingPage";
@@ -127,6 +128,7 @@ function App() {
                 <Router />
               </WouterRouter>
               <GlobalKeyboardHandler />
+              <CommandMenu />
               <ThemePicker />
               <Toaster />
             </SearchProvider>

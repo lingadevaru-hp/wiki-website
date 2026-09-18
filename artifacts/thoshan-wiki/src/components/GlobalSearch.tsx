@@ -6,6 +6,7 @@ import { categoryColors } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
 import { useDebounce } from "../hooks/useDebounce";
+import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 
 const RECENT_KEY = "wiki_recent_searches";
 const MAX_RECENT = 5;
@@ -60,6 +61,13 @@ export default function GlobalSearch() {
       setTimeout(() => inputRef.current?.focus(), 60);
     }
   }, [isOpen]);
+
+  // Only one overlay at a time: the command palette replaces this modal.
+  useEffect(() => {
+    const onPalette = () => closeSearch();
+    window.addEventListener(OPEN_PALETTE_EVENT, onPalette);
+    return () => window.removeEventListener(OPEN_PALETTE_EVENT, onPalette);
+  }, [closeSearch]);
 
   // Search
   useEffect(() => {
