@@ -6,6 +6,7 @@ export type MediaViewerItem = {
   alt?: string;
   caption?: string;
   type?: "image" | "video";
+  muted?: boolean;
 };
 
 interface MediaViewerProps {
@@ -53,7 +54,7 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
               controls
               autoPlay
               loop
-              muted
+              muted={item.muted ?? true}
               playsInline
               data-testid="media-viewer-video"
             />

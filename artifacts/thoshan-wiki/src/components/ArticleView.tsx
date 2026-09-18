@@ -459,12 +459,15 @@ export default function ArticleView({ article }: { article: Article }) {
               className="foss-project-capture-button"
               aria-label="Open FOSS Coin project capture full screen"
               aria-haspopup="dialog"
-              onClick={() => setGifViewerOpen(true)}
+              onClick={() => {
+                fossVideoRef.current?.pause();
+                setGifViewerOpen(true);
+              }}
             >
               <video
                 ref={fossVideoRef}
                 src={FOSS_COIN_VIDEO_SRC}
-                poster="/assets/foss-logo.png"
+                poster="/assets/foss-coin-poster.jpg"
                 autoPlay
                 loop
                 muted={fossMuted}
@@ -502,8 +505,13 @@ export default function ArticleView({ article }: { article: Article }) {
                   alt: "FOSS Coin project capture showing the token trading workflow",
                   caption: "FOSS Coin trading workflow",
                   type: "video",
+                  muted: fossMuted,
                 }}
-                onClose={() => setGifViewerOpen(false)}
+                onClose={() => {
+                  setGifViewerOpen(false);
+                  const v = fossVideoRef.current;
+                  if (v) void v.play().catch(() => {});
+                }}
               />
             )}
           </figure>

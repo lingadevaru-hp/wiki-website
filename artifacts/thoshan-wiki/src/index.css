@@ -3315,19 +3315,55 @@ pre {
   animation: landing-star-drift 11s linear infinite;
 }
 
+/* ══ LOCKED 2026-09-18: featured-video size approved by owner — DO NOT resize without asking ══ */
 .landing-project-capture {
-  max-width: 1000px;
+  max-width: 1280px; /* LOCKED: approved width */
   margin: 0 auto;
-  padding: 0 24px 120px;
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 52px;
-  align-items: center;
+  padding: 0 32px 120px;
+  display: block;
+  position: relative;
   opacity: 0;
   transform: translateY(24px);
   transition:
     opacity 600ms var(--ease-out),
     transform 600ms var(--ease-out);
+}
+.landing-project-capture figcaption {
+  position: absolute;
+  left: clamp(20px, 5vw, 72px);
+  bottom: clamp(140px, 22%, 200px);
+  z-index: 2;
+  max-width: 380px;
+  padding: 20px 22px;
+  border: 1px solid hsl(var(--foreground) / 0.16);
+  border-radius: 16px;
+  background: linear-gradient(135deg, hsl(var(--background) / 0.82), hsl(var(--background) / 0.55));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 16px 48px hsl(0 0% 0% / 0.35);
+}
+.landing-project-capture figcaption .section-eyebrow {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+}
+.landing-project-capture figcaption p:not(.section-eyebrow) {
+  margin: 0;
+  max-width: 320px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.landing-project-capture figcaption strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: hsl(var(--foreground));
 }
 .landing-project-capture.in-view {
   opacity: 1;
@@ -3357,6 +3393,28 @@ pre {
     transform var(--duration-fast) var(--ease-out);
 }
 
+.landing-capture-button {
+  border: 1px solid #303b4b;
+  border-radius: 18px;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .landing-project-capture figcaption {
+    position: static;
+    margin: 12px 16px 0;
+    max-width: none;
+  }
+}
+.landing-capture-button video {
+  display: block;
+  width: 100%; /* LOCKED */
+  max-width: 100%; /* LOCKED */
+  height: auto; /* LOCKED: natural height, no crop */
+  aspect-ratio: 16 / 9; /* LOCKED: native video ratio */
+  object-fit: contain; /* LOCKED: never cover/crop */
+  border-radius: 18px;
+  background: #000;
+}
 .landing-capture-button:hover {
   border-color: hsl(219 79% 47% / 0.6);
   box-shadow: 

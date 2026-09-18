@@ -55,7 +55,10 @@
     <link rel="dns-prefetch" href="https://picsum.photos" />
 
     <!-- Preload FOSS Coin logo -->
-    <link rel="preload" as="image" href="/assets/foss-logo.png" />
+    <link rel="preload" as="image" href="/assets/foss-coin-poster.jpg" fetchpriority="high" />
+
+    <!-- Preload FOSS Coin loop video so it plays on first paint, not after the JS bundle -->
+    <link rel="preload" as="video" type="video/mp4" href="/assets/foss-coin-loop.mp4" />
 
     <!-- Person Schema (Entity Disambiguation) -->
     <script type="application/ld+json">
