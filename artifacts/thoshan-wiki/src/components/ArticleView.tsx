@@ -9,6 +9,8 @@ import {
   Github,
   Printer,
   Share2,
+  Volume2,
+  VolumeX,
   Tag,
 } from "lucide-react";
 import type { Article, ArticleIndexEntry } from "../types/article";
@@ -19,6 +21,10 @@ import References from "./References";
 import ArticleAudioReader from "./ArticleAudioReader";
 import VerificationMap from "./VerificationMap";
 import MediaViewer from "./MediaViewer";
+
+// Cloudflare Stream embed URL goes here once uploaded.
+const FOSS_COIN_STREAM_URL = "";
+const FOSS_COIN_VIDEO_SRC = FOSS_COIN_STREAM_URL || "/assets/foss-coin-loop.mp4";
 
 import { findParentArticle, loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColor } from "../lib/categories";
@@ -70,6 +76,8 @@ export default function ArticleView({ article }: { article: Article }) {
   const [feedback, setFeedback] = useState("");
   const [resumeProgress, setResumeProgress] = useState(0);
   const [gifViewerOpen, setGifViewerOpen] = useState(false);
+  const [fossMuted, setFossMuted] = useState(true);
+  const fossVideoRef = useRef<HTMLVideoElement | null>(null);
   const [audioPlayerOpen, setAudioPlayerOpen] = useState(false);
 
   const articleRef = useRef<HTMLDivElement>(null);
@@ -453,15 +461,36 @@ export default function ArticleView({ article }: { article: Article }) {
               aria-haspopup="dialog"
               onClick={() => setGifViewerOpen(true)}
             >
-              <img
-                src="/assets/foss-Thumbnail.gif"
-                alt="FOSS Coin project capture showing the token trading workflow"
-                loading="lazy"
-                decoding="async"
+              <video
+                ref={fossVideoRef}
+                src={FOSS_COIN_VIDEO_SRC}
+                poster="/assets/foss-logo.png"
+                autoPlay
+                loop
+                muted={fossMuted}
+                playsInline
+                preload="auto"
+                aria-label="FOSS Coin project capture showing the token trading workflow"
+                className="h-auto w-full"
               />
               <span className="foss-capture-overlay" aria-hidden="true">
                 Open full screen
               </span>
+            </button>
+            <button
+              type="button"
+              className="foss-sound-toggle"
+              aria-label={fossMuted ? 'Unmute FOSS Coin video sound' : 'Mute FOSS Coin video sound'}
+              aria-pressed={!fossMuted}
+              onClick={(e) => {
+                e.stopPropagation();
+                const v = fossVideoRef.current;
+                if (v) { v.muted = !fossMuted; void v.play().catch(() => {}); }
+                setFossMuted(!fossMuted);
+              }}
+            >
+              {fossMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+              <span>{fossMuted ? 'Tap for sound' : 'Mute'}</span>
             </button>
             <figcaption>
               Project capture · FOSS Coin trading workflow
@@ -469,10 +498,10 @@ export default function ArticleView({ article }: { article: Article }) {
             {gifViewerOpen && (
               <MediaViewer
                 item={{
-                  src: "/assets/foss-Thumbnail.gif",
+                  src: FOSS_COIN_VIDEO_SRC,
                   alt: "FOSS Coin project capture showing the token trading workflow",
                   caption: "FOSS Coin trading workflow",
-                  type: "image",
+                  type: "video",
                 }}
                 onClose={() => setGifViewerOpen(false)}
               />
