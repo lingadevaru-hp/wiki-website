@@ -10,6 +10,7 @@ import {
 } from "../lib/articleLoader";
 import type { Article, ArticleIndexEntry } from "../types/article";
 import SEO from "../components/SEO";
+import { useLocale } from "../contexts/LocaleContext";
 
 function buildArticleSchema(article: Article) {
   const baseUrl = "https://lingadevaru.in";
@@ -83,6 +84,7 @@ function buildArticleSchema(article: Article) {
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
   const [, setLocation] = useLocation();
+  const { t } = useLocale();
   const [article, setArticle] = useState<Article | null>(null);
   const [allArticles, setAllArticles] = useState<ArticleIndexEntry[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
@@ -118,8 +120,8 @@ export default function ArticlePage() {
       )}
       {status === "error" && (
         <div className="empty-page">
-          <p className="section-eyebrow">Nothing here</p>
-          <h1>Article not found</h1>
+          <p className="section-eyebrow">{t('article.nothingHere')}</p>
+          <h1>{t('article.notFound')}</h1>
           <p>There is no article titled "{slug}" in this wiki.</p>
           <button
             className="primary-button"

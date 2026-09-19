@@ -32,6 +32,7 @@ import { estimateReadingMinutes, extractArticleText } from "../lib/articleText";
 import { useTheme } from "../contexts/ThemeContext";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { renderWikiInline } from "./WikiText";
+import { useLocale } from "../contexts/LocaleContext";
 
 function parseLeadText(text: string) {
   return text.split(/\n\n+/).map((paragraph, index) => (
@@ -55,6 +56,7 @@ const formatDate = (value: string) =>
   });
 
 export default function ArticleView({ article }: { article: Article }) {
+  const { t } = useLocale();
   const { theme, setTheme } = useTheme();
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">(
@@ -278,7 +280,7 @@ export default function ArticleView({ article }: { article: Article }) {
         return;
       }
     }
-    copy(window.location.href, "Link copied");
+    copy(window.location.href, t('article.linkCopied'));
   };
 
   const resumeReading = () => {
@@ -325,8 +327,8 @@ export default function ArticleView({ article }: { article: Article }) {
           <span style={{ color: categoryColor(article.metadata.category) }}>
             {article.metadata.category}
           </span>
-          <span>{readingTime} min read</span>
-          <span>Updated {formatDate(article.metadata.lastEdited)}</span>
+          <span>{readingTime} {t('article.minRead')}</span>
+          <span>{t('article.updated')} {formatDate(article.metadata.lastEdited)}</span>
         </div>
         <header className="article-heading">
           <h1 data-testid="article-title">{article.metadata.title}</h1>
@@ -343,10 +345,10 @@ export default function ArticleView({ article }: { article: Article }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-button article-top-link print:hidden"
-                aria-label="Open GitHub repository"
+                aria-label={t('article.openRepo')}
               >
                 <Github size={16} />
-                <span className="hidden sm:inline">GitHub</span>
+                <span className="hidden sm:inline">{t('article.github')}</span>
               </a>
             )}
             {article.deployedUrl && (
@@ -355,10 +357,10 @@ export default function ArticleView({ article }: { article: Article }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-button article-top-link print:hidden"
-                aria-label="Visit deployed project"
+                aria-label={t('article.visitDeployed')}
               >
                 <ExternalLink size={16} />
-                <span className="hidden sm:inline">Visit project</span>
+                <span className="hidden sm:inline">{t('article.visitProject')}</span>
               </a>
             )}
             <button
@@ -371,7 +373,7 @@ export default function ArticleView({ article }: { article: Article }) {
                   category: article.metadata.category,
                 });
                 showFeedback(
-                  bookmarked ? "Removed from saved" : "Saved for later",
+                  bookmarked ? t('article.removedSaved') : t('article.savedLater'),
                 );
               }}
               aria-label={bookmarked ? "Remove bookmark" : "Save article"}
@@ -383,38 +385,38 @@ export default function ArticleView({ article }: { article: Article }) {
                 <Bookmark size={16} />
               )}
               <span className="hidden sm:inline">
-                {bookmarked ? "Saved" : "Save"}
+                {bookmarked ? t('article.saved') : t('article.save')}
               </span>
             </button>
             <button
               type="button"
               className="action-button"
-              onClick={() => copy(window.location.href, "Link copied")}
-              aria-label="Copy article link"
+              onClick={() => copy(window.location.href, t('article.linkCopied'))}
+              aria-label={t('article.copyArticleLink')}
               data-testid="button-copy-link"
             >
               <Copy size={16} />
-              <span className="hidden sm:inline">Copy link</span>
+              <span className="hidden sm:inline">{t('article.copyLink')}</span>
             </button>
             <button
               type="button"
               className="action-button"
               onClick={shareArticle}
-              aria-label="Share article"
+              aria-label={t('article.shareArticle')}
               data-testid="button-share"
             >
               <Share2 size={16} />
-              <span className="hidden sm:inline">Share</span>
+              <span className="hidden sm:inline">{t('article.share')}</span>
             </button>
             <button
               type="button"
               className="action-button article-print-button sm:ml-auto"
               onClick={() => window.print()}
-              aria-label="Print article"
+              aria-label={t('article.printArticle')}
               data-testid="button-print"
             >
               <Printer size={16} />
-              <span className="hidden sm:inline">Print</span>
+              <span className="hidden sm:inline">{t('article.print')}</span>
             </button>
           </div>
         </header>
@@ -422,7 +424,7 @@ export default function ArticleView({ article }: { article: Article }) {
         {resumeProgress > 0 && (
           <div className="resume-reading" role="status">
             <div>
-              <strong>Continue reading?</strong>
+              <strong>{t('article.continueReading')}</strong>
               <span>
                 You were about {Math.round(resumeProgress * 100)}% through this
                 article.
@@ -457,7 +459,7 @@ export default function ArticleView({ article }: { article: Article }) {
             <button
               type="button"
               className="foss-project-capture-button"
-              aria-label="Open FOSS Coin project capture full screen"
+              aria-label={t('article.openCapture')}
               aria-haspopup="dialog"
               onClick={() => {
                 fossVideoRef.current?.pause();
@@ -528,8 +530,8 @@ export default function ArticleView({ article }: { article: Article }) {
           >
             <summary>
               <span>
-                <p className="section-eyebrow">Continue within this project</p>
-                <h2>Related pages</h2>
+                <p className="section-eyebrow">{t('article.continueProject')}</p>
+                <h2>{t('article.related')}</h2>
               </span>
               <span className="read-next-summary-icon" aria-hidden="true">
                 ＋
@@ -563,7 +565,7 @@ export default function ArticleView({ article }: { article: Article }) {
 
         {article.perspectives && article.perspectives.length > 0 && (
           <section className="article-extra-section">
-            <h2>Different perspectives</h2>
+            <h2>{t('article.perspectives')}</h2>
             <div className="space-y-3">
               {article.perspectives.map((perspective) => (
                 <div
@@ -580,7 +582,7 @@ export default function ArticleView({ article }: { article: Article }) {
         <References references={article.references} />
         <div className="article-categories">
           <Tag size={15} />
-          <strong>Topics</strong>
+          <strong>{t('article.topics')}</strong>
           {article.categories.map((category) => (
             <Link
               key={category}
@@ -599,7 +601,7 @@ export default function ArticleView({ article }: { article: Article }) {
             <div>
               {articleNeighbors.previous && (
                 <Link href={`/wiki/${articleNeighbors.previous.slug}`}>
-                  <span>Previous article</span>
+                  <span>{t('article.prev')}</span>
                   <strong>← {articleNeighbors.previous.title}</strong>
                 </Link>
               )}
@@ -607,7 +609,7 @@ export default function ArticleView({ article }: { article: Article }) {
             <div>
               {articleNeighbors.next && (
                 <Link href={`/wiki/${articleNeighbors.next.slug}`}>
-                  <span>Next article</span>
+                  <span>{t('article.next')}</span>
                   <strong>{articleNeighbors.next.title} →</strong>
                 </Link>
               )}
@@ -617,8 +619,8 @@ export default function ArticleView({ article }: { article: Article }) {
 
         {related.length > 0 && (
           <section className="read-next print:hidden">
-            <div className="section-eyebrow">Keep reading</div>
-            <h2>Recommended articles</h2>
+            <div className="section-eyebrow">{t('article.keepReading')}</div>
+            <h2>{t('article.recommended')}</h2>
             <div className="read-next-grid">
               {related.map((item) => (
                 <Link
@@ -651,10 +653,8 @@ export default function ArticleView({ article }: { article: Article }) {
               onClick={() => setOpenRail(openRail === "pages" ? null : "pages")}
             >
               <span>
-                <span className="section-eyebrow">
-                  Continue within this project
-                </span>
-                <strong>Related pages</strong>
+                <span className="section-eyebrow">{t('article.continueProject')}</span>
+                <strong>{t('article.related')}</strong>
               </span>
               <span className="read-next-summary-icon" aria-hidden="true">
                 {openRail === "pages" ? "−" : "+"}
@@ -688,8 +688,8 @@ export default function ArticleView({ article }: { article: Article }) {
               }
             >
               <span>
-                <span className="section-eyebrow">Keep reading</span>
-                <strong>Suggested articles</strong>
+                <span className="section-eyebrow">{t('article.keepReading')}</span>
+                <strong>{t('article.suggested')}</strong>
               </span>
               <span className="read-next-summary-icon" aria-hidden="true">
                 {openRail === "suggested" ? "−" : "+"}
@@ -716,9 +716,9 @@ export default function ArticleView({ article }: { article: Article }) {
 
       <aside className="article-settings print:hidden">
         <div className="settings-panel">
-          <p className="section-eyebrow">Reading settings</p>
+          <p className="section-eyebrow">{t('article.settings')}</p>
           <div className="settings-group">
-            <span>Text size</span>
+            <span>{t('article.textSize')}</span>
             <div className="settings-options">
               {(["small", "standard", "large"] as const).map((size) => (
                 <button
@@ -732,7 +732,7 @@ export default function ArticleView({ article }: { article: Article }) {
             </div>
           </div>
           <div className="settings-group">
-            <span>Width</span>
+            <span>{t('article.width')}</span>
             <div className="settings-options">
               {(["standard", "wide"] as const).map((width) => (
                 <button
@@ -746,7 +746,7 @@ export default function ArticleView({ article }: { article: Article }) {
             </div>
           </div>
           <div className="settings-group">
-            <span>Theme</span>
+            <span>{t('article.theme')}</span>
             <div className="settings-options">
               <button
                 onClick={() => setTheme("light")}
@@ -771,7 +771,7 @@ export default function ArticleView({ article }: { article: Article }) {
           type="button"
           className="back-to-top print:hidden"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          aria-label="Back to top"
+          aria-label={t('article.backToTop')}
         >
           ↑
         </button>

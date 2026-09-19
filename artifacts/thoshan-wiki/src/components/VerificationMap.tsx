@@ -1,3 +1,4 @@
+import { useLocale } from "../contexts/LocaleContext";
 import { Check, ExternalLink, ShieldCheck } from "lucide-react";
 
 interface VerificationMapProps {
@@ -6,6 +7,7 @@ interface VerificationMapProps {
 
 /** A truthful front-end map for verification work; live checks belong to a future backend. */
 export default function VerificationMap({ title }: VerificationMapProps) {
+  const { t } = useLocale();
   return (
     <section
       className="verification-map"
@@ -16,7 +18,7 @@ export default function VerificationMap({ title }: VerificationMapProps) {
           <ShieldCheck size={18} />
         </div>
         <div>
-          <p className="section-eyebrow">Evidence map</p>
+          <p className="section-eyebrow">{t('verify.evidence')}</p>
           <h2 id="verification-map-title">
             Verify {title.replace(" — ", " ")}
           </h2>
@@ -32,18 +34,18 @@ export default function VerificationMap({ title }: VerificationMapProps) {
       <div className="verification-steps">
         <div>
           <span>01</span>
-          <strong>Explorer</strong>
-          <small>Inspect the public transaction and token records.</small>
+          <strong>{t('verify.explorer')}</strong>
+          <small>{t('verify.inspect')}</small>
         </div>
         <div>
           <span>02</span>
-          <strong>RPC</strong>
-          <small>Compare account state with the documented claims.</small>
+          <strong>{t('verify.rpc')}</strong>
+          <small>{t('verify.compare')}</small>
         </div>
         <div>
           <span>03</span>
-          <strong>Cross-check</strong>
-          <small>Confirm the same facts across more than one source.</small>
+          <strong>{t('verify.crossCheck')}</strong>
+          <small>{t('verify.confirm')}</small>
         </div>
       </div>
       <a

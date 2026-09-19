@@ -5,6 +5,7 @@ import { searchArticles, loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColors } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
+import { useLocale } from "../contexts/LocaleContext";
 import { useDebounce } from "../hooks/useDebounce";
 import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 
@@ -32,6 +33,7 @@ function removeRecent(q: string) {
 
 export default function GlobalSearch() {
   const { isOpen, closeSearch } = useSearch();
+  const { t } = useLocale();
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 120);
   const [results, setResults] = useState<ArticleIndexEntry[]>([]);
@@ -168,7 +170,7 @@ export default function GlobalSearch() {
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
-      aria-label="Search"
+      aria-label={t("menu.search")}
       data-testid="global-search-modal"
     >
       <div className="global-search-modal" ref={modalRef}>
@@ -189,7 +191,7 @@ export default function GlobalSearch() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search articles, topics, projects…"
+            placeholder={t("search.placeholder")}
             className="global-search-input"
             autoComplete="off"
             spellCheck={false}
@@ -204,7 +206,7 @@ export default function GlobalSearch() {
                 inputRef.current?.focus();
               }}
               className="global-search-clear"
-              aria-label="Clear search"
+              aria-label={t("search.clear")}
             >
               <X size={14} />
             </button>
@@ -224,12 +226,14 @@ export default function GlobalSearch() {
             <div className="global-search-section-label">
               {showResults ? (
                 <>
-                  <Hash size={11} /> {results.length} result
-                  {results.length !== 1 ? "s" : ""}
+                  <Hash size={11} />{" "}
+                  {results.length === 1
+                    ? t("search.result1")
+                    : `${results.length} ${t("search.resultsN")}`}
                 </>
               ) : (
                 <>
-                  <Sparkles size={11} /> Featured articles
+                  <Sparkles size={11} /> {t("search.featured")}
                 </>
               )}
             </div>
@@ -280,13 +284,13 @@ export default function GlobalSearch() {
             <div className="global-search-empty">
               <Search size={32} className="global-search-empty-icon" />
               <p>
-                No articles found for <strong>"{query}"</strong>
+                {t("search.noFoundFor")} <strong>"{query}"</strong>
               </p>
               <button
                 className="global-search-full-search"
                 onClick={() => navigateSearch(query)}
               >
-                Search all pages for "{query}"
+                {t("search.searching")} "{query}"
               </button>
             </div>
           )}
@@ -327,17 +331,16 @@ export default function GlobalSearch() {
         {/* Footer hints */}
         <div className="global-search-footer">
           <span>
-            <kbd>↑↓</kbd> Navigate
+            <kbd>↑↓</kbd> {t("search.navigate")}
           </span>
           <span>
-            <kbd>↵</kbd> Open
+            <kbd>↵</kbd> {t("search.open")}
           </span>
           <span>
-            <kbd>Esc</kbd> Close
+            <kbd>Esc</kbd> {t("search.close")}
           </span>
           <span className="ml-auto">
-            <kbd>Win</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to open
-            anytime
+            <kbd>Win</kbd>+<kbd>K</kbd> {t("search.or")} <kbd>Ctrl</kbd>+<kbd>K</kbd>
           </span>
         </div>
       </div>

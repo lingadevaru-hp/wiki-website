@@ -1,17 +1,19 @@
 import { Link } from "wouter";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function WikiFooter() {
+  const { t } = useLocale();
   return (
     <footer className="wiki-footer border-t border-border mt-8 py-6 px-4 text-xs text-muted-foreground">
       <div className="max-w-[1400px] mx-auto">
         <p className="mb-3 leading-relaxed">
           Thoshan&apos;s Wiki is a personal editorial knowledge base by{" "}
-          <strong>Lingadevaru H P</strong>. Content is documented for learning
+          <strong>{t('footer.brand')}</strong>. Content is documented for learning
           and reference, not as financial, legal, or security advice.
         </p>
         <div className="wiki-footer-links flex flex-wrap gap-x-4 gap-y-2">
-          <Link href="/wiki/about">About</Link>
-          <Link href="/wiki/home">Wiki Home</Link>
+          <Link href="/wiki/about">{t('footer.about')}</Link>
+          <Link href="/wiki/home">{t('footer.wikiHome')}</Link>
           <Link href="/wiki/foss-coin">FOSS Coin</Link>
           <a
             href="https://github.com/lingadevaru-hp"
@@ -48,7 +50,7 @@ export default function WikiFooter() {
           >
             Twitter/X
           </a>
-          <a href="mailto:contact@lingadevaru.in">Contact</a>
+          <a href="mailto:contact@lingadevaru.in">{t('footer.contact')}</a>
         </div>
       </div>
     </footer>

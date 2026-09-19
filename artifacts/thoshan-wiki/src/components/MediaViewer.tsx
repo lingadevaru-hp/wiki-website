@@ -1,3 +1,4 @@
+import { useLocale } from "../contexts/LocaleContext";
 import { useEffect } from "react";
 import { ExternalLink, X } from "lucide-react";
 
@@ -15,6 +16,7 @@ interface MediaViewerProps {
 }
 
 export default function MediaViewer({ item, onClose }: MediaViewerProps) {
+  const { t } = useLocale();
   const isVideo = item.type === "video";
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
       role="dialog"
       aria-modal="true"
       aria-label={
-        isVideo ? "Full screen video preview" : "Full screen image preview"
+        isVideo ? t("media.openVideo") : t("media.openImage")
       }
       onClick={onClose}
     >
@@ -91,11 +93,12 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
         <button
           type="button"
           onClick={onClose}
+          aria-label={t("media.closeViewer")}
           className="inline-flex h-10 items-center gap-2 border border-white/25 bg-white/10 px-4 text-sm font-medium text-white hover:bg-white/20"
           data-testid="button-media-viewer-close"
         >
           <X size={16} />
-          Close
+          {t("media.closeViewer")}
         </button>
         <a
           href={item.src}

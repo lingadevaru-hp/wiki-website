@@ -16,12 +16,25 @@ import {
   LOCALE_EVENT,
   OPEN_PALETTE_EVENT,
   childrenOf,
-  commandItem,
   everyRow,
   filterRows,
-  menuTitle,
   opensMenu,
 } from '@/lib/command-menu'
+import { useLocale } from '@/contexts/LocaleContext'
+import { SUPPORTED_LOCALES, localeHost, localeUrl } from '@/i18n/supportedLocales'
+
+const LABEL_KEY: Record<string, string> = {
+  home: 'menu.home',
+  wiki: 'menu.wikiHome',
+  articles: 'menu.articles',
+  search: 'menu.search',
+  themes: 'menu.themes',
+  language: 'menu.language',
+  github: 'menu.github',
+  linkedin: 'menu.linkedin',
+  chat: 'menu.chat',
+  about: 'menu.about',
+}
 
 /**
  * Site-wide command menu, copied from the omarchy-site SearchPalette pattern:
@@ -46,6 +59,18 @@ const ICONS: Record<CommandIcon, typeof PageIcon> = {
 export function CommandMenu() {
   const [, setLocation] = useLocation()
   const { openSearch, closeSearch } = useSearch()
+  const { t } = useLocale()
+
+  const labelFor = (item: CommandItem): string => {
+    if (item.id.startsWith('language.')) {
+      const code = item.id.slice('language.'.length)
+      return SUPPORTED_LOCALES.find((l) => l.code === code)?.native ?? item.label
+    }
+    const key = LABEL_KEY[item.id]
+    return key ? t(key) : item.label
+  }
+  const titleFor = (menuId: string): string =>
+    menuId === 'root' ? t('menu.go') : labelFor({ id: menuId } as CommandItem)
   const input = useRef<HTMLInputElement>(null)
   const list = useRef<HTMLUListElement>(null)
   const pointer = useRef({ x: -1, y: -1 })
@@ -75,8 +100,21 @@ export function CommandMenu() {
   const searching = menu === 'root' && query.trim().length > 0
   const rows = useMemo<CommandItem[]>(() => {
     const own = searching ? everyRow() : childrenOf(menu)
-    return filterRows(own, query)
-  }, [searching, menu, query])
+    const labeled = own.map((item) => {
+      if (item.id.startsWith('language.')) {
+        const code = item.id.slice('language.'.length)
+        return {
+          ...item,
+          label:
+            SUPPORTED_LOCALES.find((l) => l.code === code)?.native ?? item.label,
+        }
+      }
+      const key = LABEL_KEY[item.id]
+      return key ? { ...item, label: t(key) } : item
+    })
+    return filterRows(labeled, query)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searching, menu, query, t])
 
   useEffect(() => setActive(0), [menu, query])
 
@@ -119,10 +157,20 @@ export function CommandMenu() {
       return
     }
     if (item.locale) {
-      window.dispatchEvent(
-        new CustomEvent(LOCALE_EVENT, { detail: { locale: item.locale } }),
-      )
+      const host = window.location.hostname
+      const targetHost = localeHost(item.locale)
       close()
+      if (host === 'localhost' || host === '127.0.0.1' || targetHost === host) {
+        window.dispatchEvent(
+          new CustomEvent(LOCALE_EVENT, { detail: { locale: item.locale } }),
+        )
+        return
+      }
+      window.location.href = localeUrl(
+        item.locale,
+        window.location.pathname,
+        window.location.search,
+      )
       return
     }
     close()
@@ -187,7 +235,7 @@ export function CommandMenu() {
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder={`${menuTitle(menu)}…`}
+            placeholder={`${titleFor(menu)}…`}
             aria-label="Site menu"
             autoComplete="off"
             spellCheck={false}

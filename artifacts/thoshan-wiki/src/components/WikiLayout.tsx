@@ -1,3 +1,4 @@
+import { useLocale } from "../contexts/LocaleContext";
 import { useEffect, useState, type ReactNode } from "react";
 import WikiHeader from "./WikiHeader";
 import WikiSidebar from "./WikiSidebar";
@@ -12,6 +13,7 @@ interface WikiLayoutProps {
 }
 
 function LayoutBackToTop() {
+  const { t } = useLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function LayoutBackToTop() {
       type="button"
       className="back-to-top print:hidden"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      aria-label="Back to top"
+      aria-label={t('nav.backToTop')}
     >
       ↑
     </button>

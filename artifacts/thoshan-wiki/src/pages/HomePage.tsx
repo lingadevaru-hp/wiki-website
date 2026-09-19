@@ -8,6 +8,7 @@ import CategoryPills from "../components/CategoryPills";
 import { visibleIndexArticles } from "../lib/articleRelations";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
+import { useLocale } from "../contexts/LocaleContext";
 import SpaceField from "../components/SpaceField";
 import SEO from "../components/SEO";
 
@@ -35,6 +36,7 @@ export default function HomePage() {
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [category, setCategory] = useState("All");
   const { openSearch } = useSearch();
+  const { t } = useLocale();
   const recentSectionRef = useScrollReveal(0.12);
   const allArticlesRef = useScrollReveal(0.12);
 
@@ -82,15 +84,14 @@ export default function HomePage() {
           <p className="section-eyebrow">
             <Sparkles size={13} /> Thoshan&apos;s Wiki
           </p>
-          <h1>Read the work behind the work.</h1>
+          <h1>{t('home.intro')}</h1>
           <p>
-            Projects, systems, experiments, and lessons documented in one quiet
-            place.
+            {t('home.sub')}
           </p>
         </div>
         <button className="home-search-button" onClick={openSearch}>
           <Search size={17} />
-          <span>Search all articles</span>
+          <span>{t('home.searchAll')}</span>
           <kbd>⌘ K</kbd>
         </button>
       </section>
@@ -98,7 +99,7 @@ export default function HomePage() {
       {featured && (
         <section className="featured-article">
           <div>
-            <p className="section-eyebrow">Featured reading</p>
+            <p className="section-eyebrow">{t('home.featured')}</p>
             <h2>
               <Link href={`/wiki/${featured.slug}`}>{featured.title}</Link>
             </h2>
@@ -116,8 +117,8 @@ export default function HomePage() {
       <section ref={recentSectionRef} className="home-section reveal-on-scroll">
         <div className="section-heading">
           <div>
-            <p className="section-eyebrow">Start anywhere</p>
-            <h2>Recent articles</h2>
+            <p className="section-eyebrow">{t('home.start')}</p>
+            <h2>{t('home.recent')}</h2>
           </div>
           <Link href="/wiki/articles" className="text-link">
             View all <ArrowRight size={15} />
@@ -143,9 +144,9 @@ export default function HomePage() {
       <section ref={allArticlesRef} className="home-section reveal-on-scroll">
         <div className="section-heading">
           <div>
-            <p className="section-eyebrow">Browse the index</p>
+            <p className="section-eyebrow">{t('home.browse')}</p>
             <h2>
-              All articles{" "}
+              {t('home.all')}{" "}
               <span className="count-badge">{visibleArticles.length}</span>
             </h2>
           </div>

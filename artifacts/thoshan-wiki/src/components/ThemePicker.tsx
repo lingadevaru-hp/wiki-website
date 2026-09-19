@@ -1,4 +1,4 @@
-import { t } from '@/i18n/site'
+import { useLocale } from '@/contexts/LocaleContext'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import {
@@ -43,6 +43,7 @@ const isTyping = (target: EventTarget | null) => {
 }
 
 export function ThemePicker() {
+  const { t } = useLocale();
   const portrait = useIsNarrow()
   const [open, setOpen] = useState(false)
   const [index, setIndex] = useState(0)
@@ -295,7 +296,7 @@ export function ThemePicker() {
             <BrushIcon className="mt-0.5 size-5 shrink-0 text-brand" />
             <span>
               <span className="block font-sans text-sm font-medium text-text">
-                {t('Change the theme')}
+                {t('theme.change')}
               </span>
               <span className="mt-1 block text-[13px] leading-relaxed text-text-secondary">
                 {t(
@@ -306,7 +307,7 @@ export function ThemePicker() {
           </button>
           <button
             type="button"
-            aria-label={t('Dismiss')}
+            aria-label={t('theme.dismiss')}
             onClick={markHintSeen}
             className="absolute top-2 right-2 flex size-8 items-center justify-center text-text-muted transition-colors duration-150 ease-out hover:text-text"
           >
@@ -327,7 +328,7 @@ export function ThemePicker() {
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-label={t('Theme picker')}
+        aria-label={t('theme.picker')}
         tabIndex={-1}
         // Swipe walks the deck. Touch only: a mouse drag across the dimmer is
         // how someone closes this, and stepping the cards instead would be a
@@ -374,14 +375,14 @@ export function ThemePicker() {
             value={query}
             onChange={(event) => setQuery(event.currentTarget.value)}
             placeholder={t(`Search ${SITE_THEMES.length} themes…`)}
-            aria-label={t('Search themes')}
+            aria-label={t('theme.search')}
             className="theme-search-input w-full bg-transparent font-mono text-sm text-text outline-none placeholder:text-text-muted"
           />
           {query ? (
             <button
               type="button"
               onClick={() => setQuery('')}
-              aria-label={t('Clear search')}
+              aria-label={t('theme.clearSearch')}
               className="flex shrink-0 cursor-pointer items-center justify-center text-text-muted transition-colors duration-150 ease-out hover:text-text"
             >
               <CrossIcon className="size-3.5" />
@@ -401,10 +402,10 @@ export function ThemePicker() {
           {matches.length === 0 ? (
             <div className="flex flex-col items-center gap-2 py-10 text-center">
               <span className="font-sans text-lg font-medium text-text">
-                {t('No themes match')}
+                {t('theme.noMatch')}
               </span>
               <span className="font-mono text-xs text-text-muted">
-                {t('Clear the search to see all themes')}
+                {t('theme.clearToSee')}
               </span>
             </div>
           ) : (
@@ -530,7 +531,7 @@ export function ThemePicker() {
 
         <button
           type="button"
-          aria-label={t('Previous theme')}
+          aria-label={t('theme.prev')}
           onClick={(e) => {
             e.stopPropagation()
             step(-1)
@@ -543,7 +544,7 @@ export function ThemePicker() {
         </button>
         <button
           type="button"
-          aria-label={t('Next theme')}
+          aria-label={t('theme.next')}
           onClick={(e) => {
             e.stopPropagation()
             step(1)

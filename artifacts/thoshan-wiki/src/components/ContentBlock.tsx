@@ -1,3 +1,4 @@
+import { useLocale } from "../contexts/LocaleContext";
 import { useState } from "react";
 import { Play } from "lucide-react";
 import type { ContentBlock as ContentBlockType } from "../types/article";
@@ -5,6 +6,7 @@ import MediaViewer, { type MediaViewerItem } from "./MediaViewer";
 import { renderWikiMarkdown } from "./WikiText";
 
 export default function ContentBlock({ block }: { block: ContentBlockType }) {
+  const { t } = useLocale();
   const [viewerItem, setViewerItem] = useState<MediaViewerItem | null>(null);
 
   switch (block.type) {
@@ -32,7 +34,7 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
                 type: "image",
               })
             }
-            aria-label="Open image full screen"
+            aria-label={t('media.openImage')}
           >
             <img
               src={block.src}
@@ -131,7 +133,7 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
           <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
             <iframe
               src={block.src}
-              title={block.caption || "Video"}
+              title={block.caption || t('media.video')}
               className="absolute inset-0 w-full h-full border border-border"
               allowFullScreen
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -147,7 +149,7 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
                   type: "video",
                 })
               }
-              aria-label="Open video full screen"
+              aria-label={t('media.openVideo')}
               data-testid="button-video-fullscreen"
             >
               <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-black/55 text-white shadow">

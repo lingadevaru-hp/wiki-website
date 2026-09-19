@@ -1,27 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="tokyo-night">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Thoshan's Wiki</title>
-    <meta name="description" content="Thoshan's personal Wikipedia-style knowledge base — blockchain, AI/ML, infrastructure, privacy, and more." />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Lingadevaru H P (lingadevaruhp)" />
-    <meta name="theme-color" content="#101418" />
-    <meta property="og:title" content="Thoshan's Wiki" />
-    <meta property="og:description" content="Thoshan's personal Wikipedia-style knowledge base — blockchain, AI/ML, infrastructure, privacy, and more." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <title>Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer</title>
+    <meta name="description" content="Portfolio and wiki of Lingadevaru HP, also known as Thoshan. Blockchain developer, FOSS advocate, creator of FOSS Coin on Solana. Explore projects and articles." />
+    <meta name="robots" content="index, follow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none" />
+    <meta name="googlebot" content="index, follow, noarchive, nosnippet" />
+    <meta name="bingbot" content="index, follow, noarchive, nosnippet" />
+    <meta name="author" content="Lingadevaru H P" />
+    <meta name="keywords" content="lingadevaru, thoshan, lingadevaru hp, thoshan hp, lingadevaruhp, blockchain developer, FOSS Coin, solana, open source, AI/ML, cybersecurity, portfolio" />
+    <meta name="theme-color" content="#0d1117" />
+    <meta name="google-site-verification" content="" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer" />
+    <meta property="og:description" content="Portfolio and wiki of Lingadevaru HP, also known as Thoshan. Blockchain developer, FOSS advocate, creator of FOSS Coin on Solana." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lingadevaru.in/" />
+    <meta property="og:site_name" content="Lingadevaru HP | Thoshan's Wiki" />
+    <meta property="og:image" content="https://lingadevaru.in/opengraph.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Lingadevaru HP — Blockchain developer and FOSS advocate" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Thoshan's Wiki" />
-    <meta name="twitter:description" content="Thoshan's personal Wikipedia-style knowledge base." />
+    <meta name="twitter:title" content="Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer" />
+    <meta name="twitter:description" content="Portfolio and wiki of Lingadevaru HP. Blockchain developer, FOSS advocate, creator of FOSS Coin on Solana." />
+    <meta name="twitter:image" content="https://lingadevaru.in/opengraph.jpg" />
+    <meta name="twitter:image:alt" content="Lingadevaru HP — Blockchain developer and FOSS advocate" />
+    <meta name="twitter:site" content="@lingadevaruhp" />
+    <meta name="twitter:creator" content="@lingadevaruhp" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://lingadevaru.in/" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Theme: stamp before first paint (same logic as src/lib/theme.ts) -->
+    <script>
+    (function(){try{var t=localStorage.getItem("thoshan-site-theme");var ok=["catppuccin", "catppuccin-latte", "ethereal", "everforest", "flexoki-light", "gruvbox", "hackerman", "kanagawa", "last-horizon", "lumon", "lupine", "matte-black", "miasma", "nord", "osaka-jade", "retro-82", "ristretto", "rose-pine", "solitude", "tokyo-night", "vantablack", "white"];var light=["catppuccin-latte", "flexoki-light", "lupine", "rose-pine", "white"];var dark=["catppuccin", "ethereal", "everforest", "gruvbox", "hackerman", "kanagawa", "last-horizon", "lumon", "matte-black", "miasma", "nord", "osaka-jade", "retro-82", "ristretto", "solitude", "tokyo-night", "vantablack"];if(ok.indexOf(t)<0){t="tokyo-night";localStorage.setItem("thoshan-site-theme",t)}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="tokyo-night"}if(!document.querySelector("link[rel=\"icon\"][data-theme-icon]")){var l=document.createElement("link");l.rel="icon";l.type="image/svg+xml";l.href="/favicon.svg";l.setAttribute("data-theme-icon","");document.head.appendChild(l)}})()
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Handwritten accent for featured-project tagline -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+
+    <!-- Article thumbnails -->
+    <link rel="preconnect" href="https://picsum.photos" />
+    <link rel="dns-prefetch" href="https://picsum.photos" />
+
     <!-- Preload FOSS Coin logo -->
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png" />
-    <script type="module" crossorigin src="/assets/index-DWSYHpv5.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BCkWDEep.css">
+    <link rel="preload" as="image" href="/assets/foss-coin-poster.jpg" fetchpriority="high" />
+
+    <!-- Preload FOSS Coin loop video so it plays on first paint, not after the JS bundle -->
+    <link rel="preload" as="video" type="video/mp4" href="/assets/foss-coin-loop.mp4" />
+
+    <!-- Person Schema (Entity Disambiguation) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://lingadevaru.in/#person",
+      "name": "Lingadevaru H P",
+      "alternateName": ["Thoshan", "Thoshan HP", "lingadevaruhp"],
+      "description": "Blockchain developer, open-source contributor, AI/ML engineer, and creator of FOSS Coin on Solana.",
+      "url": "https://lingadevaru.in",
+      "image": "https://lingadevaru.in/opengraph.jpg",
+      "email": "contact@lingadevaru.in",
+      "jobTitle": "Blockchain Developer & Open Source Advocate",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siddaganga Institute of Technology"
+      },
+      "knowsAbout": [
+        "Blockchain",
+        "Solana",
+        "Cryptocurrency",
+        "Open Source",
+        "Free and Open Source Software",
+        "AI/ML",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Cybersecurity",
+        "Cloud Computing",
+        "Linux",
+        "FOSS",
+        "SPL Token",
+        "Smart Contracts"
+      ],
+      "sameAs": [
+        "https://github.com/lingadevaru-hp",
+        "https://linkedin.com/in/lingadevaruhp",
+        "https://huggingface.co/lingadevaruhp",
+        "https://kaggle.com/lingadevaruhp",
+        "https://twitter.com/lingadevaruhp"
+      ]
+    }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://lingadevaru.in/#website",
+      "name": "Thoshan's Wiki",
+      "alternateName": "Lingadevaru HP Portfolio",
+      "url": "https://lingadevaru.in",
+      "author": {
+        "@type": "Person",
+        "@id": "https://lingadevaru.in/#person",
+        "name": "Lingadevaru H P"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lingadevaru.in/wiki/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema (site-wide default) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lingadevaru.in/"
+        }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-CVRbpmiv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-rSAJnUOx.css">
   </head>
   <body>
     <div id="root"></div>

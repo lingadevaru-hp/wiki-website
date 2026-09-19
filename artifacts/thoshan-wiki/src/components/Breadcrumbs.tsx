@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useLocale } from "../contexts/LocaleContext";
 import { Home } from "lucide-react";
 import { useEffect } from "react";
 
@@ -12,6 +13,7 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+  const { t } = useLocale();
   // BreadcrumbList JSON-LD schema
   useEffect(() => {
     const baseUrl = "https://lingadevaru.in";
@@ -49,13 +51,13 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
 
   return (
     <nav
-      aria-label="Breadcrumb"
+      aria-label={t('article.breadcrumb')}
       className="wiki-breadcrumbs flex min-w-0 max-w-full flex-wrap items-center gap-x-1 gap-y-1.5 text-sm text-muted-foreground mb-4"
     >
       <Link
         href="/"
         className="shrink-0 rounded-md p-1 -m-1 text-foreground hover:text-accent transition-colors"
-        aria-label="Home"
+        aria-label={t('menu.home')}
       >
         <Home size={14} className="shrink-0" />
       </Link>

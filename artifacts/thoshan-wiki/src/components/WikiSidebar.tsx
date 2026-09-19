@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { X, Bookmark, Trash2 } from "lucide-react";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useLocale } from "../contexts/LocaleContext";
 import { loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColor } from "../lib/categories";
 import { visibleIndexArticles } from "../lib/articleRelations";
@@ -12,15 +13,15 @@ interface WikiSidebarProps {
   onClose: () => void;
 }
 
-const navLinks = [
-  { label: "Wiki Home", href: "/wiki/home" },
-  { label: "Landing", href: "/" },
-  { label: "Search articles", href: "/wiki/search" },
-  { label: "About Thoshan", href: "/wiki/about" },
-];
-
 function NavContent({ onClose }: { onClose: () => void }) {
   const { bookmarks, removeBookmark } = useBookmarks();
+  const { t } = useLocale();
+  const navLinks = [
+    { label: t("menu.wikiHome"), href: "/wiki/home" },
+    { label: t("sidebar.landing"), href: "/" },
+    { label: t("menu.search"), href: "/wiki/search" },
+    { label: t("menu.about"), href: "/wiki/about" },
+  ];
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [location] = useLocation();
 
@@ -55,7 +56,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
         >
           <div className="flex items-center justify-between px-3 py-1">
             <span className="text-xs font-bold uppercase text-muted-foreground tracking-wider flex items-center gap-1">
-              <Bookmark size={12} className="text-accent" /> Saved (
+              <Bookmark size={12} className="text-accent" /> {t("sidebar.saved")} (
               {bookmarks.length})
             </span>
           </div>
@@ -83,8 +84,8 @@ function NavContent({ onClose }: { onClose: () => void }) {
                 <button
                   type="button"
                   onClick={() => removeBookmark(b.slug)}
-                  title="Remove bookmark"
-                  aria-label={`Remove ${b.title} bookmark`}
+                  title={t("sidebar.removeBookmark")}
+                  aria-label={`${t("sidebar.removeBookmark")}: ${b.title}`}
                   className="p-1.5 text-muted-foreground hover:text-destructive transition-opacity opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100 focus-visible:opacity-100"
                 >
                   <Trash2 size={12} />
@@ -96,9 +97,9 @@ function NavContent({ onClose }: { onClose: () => void }) {
       )}
 
       <div className="pt-2 border-t border-border">
-        <p className="px-3 py-1 text-xs font-bold uppercase text-muted-foreground tracking-wider">
-          Articles
-        </p>
+          <p className="px-3 py-1 text-xs font-bold uppercase text-muted-foreground tracking-wider">
+            {t("sidebar.articles")}
+          </p>
         <ul className="space-y-0.5 mt-1">
           {articles.map((article) => (
             <li key={article.slug}>
@@ -130,6 +131,7 @@ function NavContent({ onClose }: { onClose: () => void }) {
 }
 
 export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
+  const { t } = useLocale();
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -142,11 +144,10 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/40 z-40 md:hidden transition-all duration-300 ${
-          open
+        className={`fixed inset-0 bg-black/40 z-40 md:hidden transition-all duration-300 ${open
             ? "opacity-100 pointer-events-auto backdrop-blur-sm"
             : "opacity-0 pointer-events-none backdrop-blur-0"
-        }`}
+          }`}
         onClick={onClose}
       />
 
@@ -159,12 +160,12 @@ export default function WikiSidebar({ open, onClose }: WikiSidebarProps) {
         `}
       >
         <div className="flex items-center justify-between p-3 border-b border-border">
-          <span className="font-serif font-bold">Navigation</span>
+          <span className="font-serif font-bold">{t("nav.navigation")}</span>
           <button
             onClick={onClose}
             className="p-1.5 text-foreground hover:bg-background rounded transition-colors"
             data-testid="button-close-sidebar"
-            aria-label="Close menu"
+            aria-label={t("nav.closeMenu")}
           >
             <X size={18} />
           </button>

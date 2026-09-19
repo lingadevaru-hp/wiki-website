@@ -1,3 +1,4 @@
+import { useLocale } from "../contexts/LocaleContext";
 import type { Reference } from "../types/article";
 
 interface ReferencesProps {
@@ -5,6 +6,7 @@ interface ReferencesProps {
 }
 
 export default function References({ references }: ReferencesProps) {
+  const { t } = useLocale();
   if (!references.length) return null;
 
   return (
@@ -14,7 +16,7 @@ export default function References({ references }: ReferencesProps) {
       data-testid="references-section"
     >
       <h2 className="text-[1.4em] font-bold border-b border-border pb-1 mb-3 font-serif">
-        References
+        {t('ref.references')}
       </h2>
       <ol className="list-decimal list-inside space-y-1 text-sm">
         {references.map((ref) => (

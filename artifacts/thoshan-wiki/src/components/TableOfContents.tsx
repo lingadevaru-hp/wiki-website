@@ -1,3 +1,4 @@
+import { useLocale } from "../contexts/LocaleContext";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { Section } from "../types/article";
@@ -27,6 +28,7 @@ export default function TableOfContents({
   sections,
   activeId,
 }: TableOfContentsProps) {
+  const { t } = useLocale();
   const [collapsed, setCollapsed] = useState(
     () =>
       typeof window !== "undefined" &&
@@ -42,7 +44,7 @@ export default function TableOfContents({
       className="border border-border bg-card text-sm mb-5 overflow-hidden rounded-xl"
     >
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-card/80">
-        <span className="font-bold text-foreground text-sm">Contents</span>
+        <span className="font-bold text-foreground text-sm">{t('toc.contents')}</span>
         <button
           data-testid="button-toc-toggle"
           onClick={() => setCollapsed((c) => !c)}

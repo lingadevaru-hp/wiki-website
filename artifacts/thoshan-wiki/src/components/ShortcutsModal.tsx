@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { X, Keyboard } from "lucide-react";
+import { useLocale } from "../contexts/LocaleContext";
 
 interface ShortcutsModalProps {
   isOpen: boolean;
@@ -20,6 +21,7 @@ export default function ShortcutsModal({
   isOpen,
   onClose,
 }: ShortcutsModalProps) {
+  const { t } = useLocale();
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,17 +43,17 @@ export default function ShortcutsModal({
       }}
       role="dialog"
       aria-modal="true"
-      aria-label="Keyboard shortcuts"
+      aria-label={t("shortcuts.title")}
       data-testid="shortcuts-modal"
     >
       <div className="shortcuts-modal">
         <div className="shortcuts-modal-header">
           <Keyboard size={16} className="text-accent" />
-          <span>Keyboard Shortcuts</span>
+          <span>{t("shortcuts.title")}</span>
           <button
             onClick={onClose}
             className="shortcuts-close"
-            aria-label="Close shortcuts"
+            aria-label={t("shortcuts.close")}
           >
             <X size={15} />
           </button>
