@@ -54,7 +54,9 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     const next = isSupportedLocale(code) ? code : DEFAULT_LOCALE;
     const entry = localeEntry(next);
     setLocaleState(next);
-    setDict(next === DEFAULT_LOCALE ? {} : await fetchDictionary(next));
+    // Always fetch the dictionary — including English — so t(key) returns
+    // real copy on every host. Empty dict would leak raw keys (nav.wordmark…).
+    setDict(await fetchDictionary(next));
     document.documentElement.lang = next;
     document.documentElement.dir = entry.dir;
     try {
@@ -81,7 +83,17 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener(LOCALE_EVENT, onLocale);
   }, [locale, applyLocale]);
 
-  const t = useCallback((key: string) => dict[key] ?? key, [dict]);
+  const t = useCallback(
+    (key: string) => {
+      const hit = dict[key];
+      if (hit !== undefined) return hit;
+      // Missing key: fall back to key itself (English source) + dev warning
+      // so untranslated strings are visible in review, never blank.
+      if (import.meta.env?.DEV) console.warn(`[locale] missing key "${key}"`);
+      return key;
+    },
+    [dict],
+  );
 
   return <LocaleContext.Provider value={{ locale, t, loadLocale: (c) => void applyLocale(c) }}>{children}</LocaleContext.Provider>;
 }
