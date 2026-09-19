@@ -37,7 +37,7 @@ jobs:
         run: |
           DATE="$(date +%F)"
           SHORT="$(echo '${{ github.sha }}' | cut -c1-7)"
-          BRANCH="release/${DATE}-${SHORT}"
+          BRANCH="release/${DATE}-${SHORT}-${{ github.run_number }}"
           cd /tmp/wiki-platform
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
