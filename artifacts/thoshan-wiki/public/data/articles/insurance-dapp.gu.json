@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "insurance-dapp",
+    "title": "Insurance DApp",
+    "slug": "insurance-dapp",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 18,
+    "views": 3350
+  },
+  "infobox": {
+    "title": "Insurance DApp",
+    "image": "https://picsum.photos/seed/dapp-infobox/280/200",
+    "imageCaption": "Ethereum smart contract interaction via MetaMask",
+    "fields": [
+      {
+        "label": "Blockchain",
+        "value": "Ethereum"
+      },
+      {
+        "label": "Smart contract",
+        "value": "Solidity"
+      },
+      {
+        "label": "Dev framework",
+        "value": "Truffle"
+      },
+      {
+        "label": "Web3 integration",
+        "value": "Web3.js + MetaMask"
+      },
+      {
+        "label": "Frontend",
+        "value": "HTML5, CSS3, Bootstrap"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/insurance-dapp"
+      },
+      {
+        "label": "GitHub stars",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "Status",
+        "value": "Live demo + GitHub"
+      }
+    ]
+  },
+  "lead": "The **Insurance DApp** is a decentralised insurance application I built on the **Ethereum blockchain**, using Solidity smart contracts to replace the traditional insurance company as the intermediary. Policies, premiums, claims, and payouts are all handled by on-chain logic — no human in the loop, no company deciding your claim. I built this to explore the gap between centralised insurance (where a company decides your outcome) and decentralised insurance (where a smart contract executes pre-agreed rules automatically and transparently). It sits alongside [[foss-coin|FOSS Coin]] in my blockchain portfolio — together they cover two completely different ecosystems: Ethereum (EVM, Solidity) and Solana (SPL, Rust runtime).",
+  "sections": [
+    {
+      "id": "why-decentralised",
+      "title": "Why Decentralised Insurance Made Sense to Build",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "In traditional insurance, the insurer holds all the power: they collect premiums, evaluate claims, and decide payouts. As a claimant, you have no way to independently verify that the rules are being applied fairly — you just have to trust the company. A smart contract flips this: the rules are written in Solidity, deployed on-chain, and execute automatically when conditions are met. Anyone can read the contract code before purchasing a policy. Payouts happen without a human decision-maker. The trade-off I had to accept: smart contracts can't access real-world data without an oracle — and my implementation doesn't include one. I'm demonstrating the core mechanic of trustless policy execution, not shipping a production insurance product."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "What this project is and isn't",
+          "content": "This is a technical learning exercise demonstrating Solidity contract design, Truffle deployment workflow, and Web3.js/MetaMask browser integration. It is not a live insurance product and does not implement real-world oracle connections."
+        }
+      ]
+    },
+    {
+      "id": "tech-stack",
+      "title": "Tech Stack",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "Layer",
+            "Technology",
+            "What I used it for"
+          ],
+          "rows": [
+            {
+              "Layer": "Smart contract",
+              "Technology": "Solidity",
+              "What I used it for": "Policy logic, claim rules, payout execution on Ethereum"
+            },
+            {
+              "Layer": "Dev framework",
+              "Technology": "ટ્રફલ",
+              "What I used it for": "અનુબંધ સંકલન, પ્રવાસન, પરીક્ષણ"
+            },
+            {
+              "Layer": "Web3 ઇંટીગ્રેશન",
+              "Technology": "Web3.js",
+              "What I used it for": "બ્રાઉજ઼ર - ટૂ - બ્લૉકચેન ઇંટરૈક્શન લેયર"
+            },
+            {
+              "Layer": "વૉલેટ",
+              "Technology": "મેટામાસ્ક",
+              "What I used it for": "લેન - દેન પર હસ્તાક્ષર ઔર અકાઉંટ મૈનેજમેંટ"
+            },
+            {
+              "Layer": "ફ્રંટએંડ",
+              "Technology": "HTML5, CSS3, Bootstrap",
+              "What I used it for": "પૉલિસી ખરીદ, ક્લેમ સબમિટ કરને, ભુગતાન કે લિએ UI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "યહ કૈસે કામ કરતા હૈ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The DApp follows a standard insurance lifecycle — but every step is enforced by my smart contract rather than a company employee:\n 1. **Policy purchase** — a user pays ETH to the contract, specifying coverage terms. The contract records the policy on-chain. 2. **Premium lock** — the ETH is held in the contract's balance, not transferred to an insurer. 3. **Claim submission** — the user submits a claim via the web interface. અનુબંધ પૂર્વ-નિર્ધારિત શર્તોં કા મૂલ્યાંકન કરતા હૈ૤ 4. **ભુગતાન** — યદિ શર્તેં પૂરી હોતી હૈં, તો અનુબંધ સ્વચાલિત રૂપ સે અપને બૈલેંસ સે દાવેદાર કે વૉલેટ મેં ભુગતાન રાશિ સ્થાનાંતરિત કર દેતા હૈ૤ 5. **અસ્વીકૃતિ** — યદિ શર્તેં પૂરી નહીં હોતી હૈં, તો દાવા ઑન-ચેન અસ્વીકાર કર દિયા જાતા હૈ૤ ઇસે મૈન્યુઅલ રૂપ સે બદલા નહીં જા સકતા — મેરે દ્વારા ભી નહીં૤ સભી સ્ટેટ ટ્રાંજ઼િશન ઑન-ચેન ઇવેંટ કે રૂપ મેં રિકૉર્ડ કિએ જાતે હૈં ઔર કિસી ભી બ્લૉક એક્સપ્લોરર દ્વારા સત્યાપિત કિએ જા સકતે હૈં૤"
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "https://picsum.photos/seed/dapp-gal1/800/500",
+              "alt": "પૉલિસી ખરીદ કા ફ઼્લો",
+              "caption": "પૉલિસી ખરીદ ઇંટરફ઼ેસ — મેટામાસ્ક ભુગતાન પ્રવાહ"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal2/800/500",
+              "alt": "ઑનલાઇન દાવા પ્રસ્તુત કરના",
+              "caption": "અનુબંધ મૂલ્યાંકન"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal3/800/500",
+              "alt": "ભુગતાન પાને કા ઇવેંટ",
+              "caption": "Ethereum નેટવર્ક પર સ્વચાલિત ભુગતાન લેનદેન"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-to-other-work",
+      "title": "યહ મેરે દૂસરે કામ સે કૈસે જુડ઼તા હૈ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "યહ ડીઐપ ઔર [[foss-coin|FOSS સિક્કા]] ઉન દો મુખ્ય બ્લૉકચેન ઇકોસિસ્ટમ કા પ્રતિનિધિત્વ કરતે હૈં જિનકે સાથ મૈંને કામ કિયા હૈ: એથેરિયમ (EVM-આધારિત, સૉલિડિટી સ્માર્ટ કૉન્ટ્રૈક્ટ્સ) ઔર સોલાના (રસ્ટ-આધારિત રનટાઇમ, SPL ટોકન પ્રોગ્રામ)૤ યે દોનોં મિલકર વિભિન્ન સહમતિ તંત્રોં, પ્રોગ્રામિંગ મૉડલોં ઔર ટૂલચેન મેં વ્યાપકતા પ્રદર્શિત કરતે હૈં૤ દોનોં કો [[about|GitHub રિપૉજિટરી ટેબલ]] મેં સૂચીબદ્ધ કિયા ગયા હૈ ઔર યે મેરે તકનીકી કૌશલ કે બ્લૉકચેન/વેબ3 ઘટક કા નિર્માણ કરતે હૈં૤ GitHub રેપો [github.com/lingadevaru-hp/insurance-dapp] પર હૈ (https://github.com/lingadevaru-hp/insurance-dapp)."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — insurance-dapp",
+      "url": "https://github.com/lingadevaru-hp/insurance-dapp"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin",
+    "about",
+    "fraud-detection"
+  ],
+  "categories": [
+    "Blockchain",
+    "Ethereum",
+    "Web3",
+    "Smart Contracts"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten in first person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Full rewrite: added how-it-works, context section",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

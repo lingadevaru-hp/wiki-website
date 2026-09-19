@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "id": "thoshan-flash",
+    "title": "തോഷൻ ഫ്ലാഷ്",
+    "slug": "thoshan-flash",
+    "category": "AI / ML",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 24,
+    "views": 4500
+  },
+  "infobox": {
+    "title": "Thoshan Flash",
+    "image": "https://picsum.photos/seed/flash-infobox/280/200",
+    "imageCaption": "Fine-tuning pipeline overview",
+    "fields": [
+      {
+        "label": "Base model",
+        "value": "Gemma-2-9B (Google)"
+      },
+      {
+        "label": "Method",
+        "value": "QLoRA — Quantized Low-Rank Adaptation"
+      },
+      {
+        "label": "ചട്ടക്കൂട്",
+        "value": "PEFT + Unsloth + PyTorch"
+      },
+      {
+        "label": "Quantization",
+        "value": "4-bit (VRAM: ~36 GB → ~12 GB)"
+      },
+      {
+        "label": "Downloads",
+        "value": "26+ (first month)"
+      },
+      {
+        "label": "പ്ലാറ്റ്ഫോം",
+        "value": "Hugging Face Hub"
+      },
+      {
+        "label": "HF model",
+        "value": "lingadevaruhp/thoshan_Flash"
+      },
+      {
+        "label": "Interface",
+        "value": "Gradio (live inference)"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "Completed, public"
+      }
+    ]
+  },
+  "lead": "**Thoshan Flash** is fine-tuned version ന്റെ Google's **Gemma-2-9B** base model അത് ഞാൻ പ്രസിദ്ധീകരിച്ച ൽ [Hugging Face](https://huggingface.co/lingadevaruhp/thoshan_Flash) ഒപ്പം തത്സമയ Gradio inference interface. ഞാൻ ആഗ്രഹിക്കുന്നു ലേക്ക് be upfront: ഇത് is **അല്ല** model ഞാൻ നിർമ്മിച്ച ആദ്യം മുതൽ — അത് is parameter-efficient fine-tune ന്റെ existing pre-trained model ഉപയോഗിച്ച് QLoRA (Quantized താഴ്ന്ന-Rank Adaptation), ഏത് lets എന്നെ train ൽ fraction ന്റെ  usual GPU memory.\n\n പദ്ധതി got 26+ downloads ൽ അതിന്റെ ആദ്യ month ൽ  Hugging Face Hub, meaning people beyond എന്നെ ആയിരുന്നു actually pulling ഉം ഉപയോഗിച്ച് അത്.  fine-tuning techniques ഞാൻ used ഇവിടെ — attention mechanisms, transformer internals, PEFT methodology — കൂടാതെ formed part ന്റെ എന്റെ Phase 2 research study ൽ CHIAC ASഞാൻ internship.",
+  "sections": [
+    {
+      "id": "what-qlora-does",
+      "title": "എന്ത് QLoRA ചെയ്യുന്നു — ഉം എന്തുകൊണ്ട് ഞാൻ Used അത്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "പൂർണ്ണ fine-tuning ന്റെ 9B-parameter model requires approximately 36 GB ന്റെ GPU memory — ഞാൻ don't ഉണ്ട് അത്. QLoRA solves ഇത് ഒപ്പം three-part approach അത് ഞാൻ found genuinely elegant:\n\n**ഘട്ടം 1:** Load  base model ൽ 4-bit quantized form, ഏത് dramatically reduces memory footprint അതേസമയം preserving ഏറ്റവും ന്റെ  model's പഠിച്ച representations.\n\n**ഘട്ടം 2:** Inject ചെറിയ trainable **LoRA adapter layers** ൽ പ്രധാന weight matrices ഉള്ളിൽ  transformer. ഇവ adapters ആണ്  മാത്രം parts അത് നേടുക പരിഷ്കരിച്ച കാലത്ത് training — I'm അല്ല touching  9B base parameters ൽ എല്ലാം.\n\n**ഘട്ടം 3:** ൽ export, merge  trained adapter weights back ലേക്ക്  base model, producing single fine-tuned model file ready വേണ്ടി inference."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "എന്തുകൊണ്ട് ഇത് matters വേണ്ടി resource-constrained training",
+          "content": "LoRA adapters typically represent മാത്രം 1–3% ന്റെ  ആകെ model parameters. Training 1% ന്റെ 9B-parameter model is vastly കൂടുതൽ resource-efficient than training എല്ലാം 9B parameters — ഞാൻ കഴിയുമായിരുന്നു run ഇത് ൽ hardware അത് ചെയ്യുമായിരുന്നു otherwise be completely inadequate വേണ്ടി model ഇത് size."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ഘടകം",
+            "എന്ത് ഞാൻ used"
+          ],
+          "rows": [
+            {
+              "ഘടകം": "Base Model",
+              "ഞാൻ ഉപയോഗിച്ചത്": "Gemma-2-9B (Google) — pre-trained ൽ വലിയ text corpus"
+            },
+            {
+              "ഘടകം": "Fine-tuning Method",
+              "ഞാൻ ഉപയോഗിച്ചത്": "QLoRA — Quantized താഴ്ന്ന-Rank Adaptation"
+            },
+            {
+              "ഘടകം": "PEFT ചട്ടക്കൂട്",
+              "ഞാൻ ഉപയോഗിച്ചത്": "PEFT (Parameter-Efficient Fine-Tuning) വഴി Hugging Face"
+            },
+            {
+              "ഘടകം": "Quantization",
+              "ഞാൻ ഉപയോഗിച്ചത്": "4-bit → reduced VRAM നിന്ന് ~36 GB ലേക്ക് ~12 GB"
+            },
+            {
+              "ഘടകം": "Training Library",
+              "ഞാൻ ഉപയോഗിച്ചത്": "Unsloth — optimised QLoRA training"
+            },
+            {
+              "ഘടകം": "Deep Learning",
+              "ഞാൻ ഉപയോഗിച്ചത്": "PyTorch"
+            },
+            {
+              "ഘടകം": "Ecosystem",
+              "ഞാൻ ഉപയോഗിച്ചത്": "Hugging Face Transformers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results-deployment",
+      "title": "Results ഉം Deployment",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ശേഷം training, ഞാൻ uploaded  model ലേക്ക്  Hugging Face Hub ൽ [huggingface.co/lingadevaruhp/thoshan_Flash](https://huggingface.co/lingadevaruhp/thoshan_Flash) ഉം പ്രസിദ്ധീകരിച്ച Gradio inference interface alongside അത്, അതിനാൽ anyone കഴിയും run inference ഇല്ലാതെ പ്രാദേശിക setup.\n\nഉള്ളിൽ  ആദ്യ month ന്റെ publication, ഞാൻ saw **26+ downloads** — people ആയിരുന്നു actually pulling ഉം ഉപയോഗിച്ച്  model, അല്ല മാത്രം browsing  model card. ഞാൻ wrote proper Hugging Face model card documenting  fine-tuning setup, hyperparameters, ഉം intended use case."
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Try അത് തത്സമയ",
+          "content": "A Gradio interface is പ്രസിദ്ധീകരിച്ച ൽ go.lingadevaru.ൽ/LLM ഉം ൽ  Hugging Face model page ൽ huggingface.co/lingadevaruhp/thoshan_Flash. ഇല്ല പ്രാദേശിക installation ആവശ്യമായ."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "Honest Framing",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഞാൻ മനഃപൂർവം frame Thoshan Flash ഒപ്പം accuracy everywhere ഞാൻ present അത്: ഇത് is fine-tune ന്റെ existing model, അല്ല something ഞാൻ രൂപകൽപ്പന ചെയ്ത ആദ്യം മുതൽ. ഞാൻ find ഇത് distinction പ്രധാനപ്പെട്ട — അവിടെ's lot ന്റെ resume inflation ൽ  AI/ML space എവിടെ people imply അവർ 'നിർമ്മിച്ച LLM' എപ്പോൾ അവർ really ran training script ൽ someone else's architecture.\n\n fine-tuning പ്രവർത്തിക്കുക connects ലേക്ക് എന്റെ [[about|skill profile]] ൽ AI/ML: parameter-efficient fine-tuning,  Hugging Face ecosystem, ഉം പ്രസിദ്ധീകരിക്കൽ ML models ലേക്ക് പൊതു inference endpoints. അത് ചെയ്യുന്നു അല്ല ഉണ്ടാക്കുക എന്നെ model architect അല്ലെങ്കിൽ ML researcher.\n\nവേണ്ടി എന്റെ മറ്റ് ML പ്രവർത്തിക്കുക ഉപയോഗിച്ച് completely വ്യത്യസ്ത stack, see [[fraud-detection|തട്ടിപ്പ് കണ്ടെത്തൽ System]] — traditional ML ensemble ഞാൻ നിർമ്മിച്ച ആദ്യം മുതൽ ൽ C# വേണ്ടി banking fraud classification."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "Thoshan Flash ൽ Hugging Face",
+      "url": "https://huggingface.co/lingadevaruhp/thoshan_Flash"
+    },
+    {
+      "id": 2,
+      "title": "തത്സമയ Gradio Inference — go.lingadevaru.ൽ/LLM",
+      "url": "https://go.lingadevaru.in/LLM"
+    }
+  ],
+  "relatedArticles": [
+    "about",
+    "fraud-detection",
+    "foss-coin"
+  ],
+  "deployedUrl": "https://go.lingadevaru.in/LLM",
+  "categories": [
+    "AI / ML",
+    "LLM",
+    "Hugging Face",
+    "Fine-tuning"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person, ചേർത്ത direct HF ലിങ്ക്",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "പൂർണ്ണ rewrite: QLoRA explanation, honest framing, deployment details",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page സൃഷ്ടിച്ച",
+      "changeType": "new"
+    }
+  ]
+}

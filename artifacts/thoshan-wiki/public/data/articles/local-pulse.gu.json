@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "id": "local-pulse",
+    "title": "લોકલપલ્સ",
+    "slug": "local-pulse",
+    "category": "Web",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 14,
+    "views": 2400
+  },
+  "infobox": {
+    "title": "લોકલપલ્સ",
+    "image": "https://picsum.photos/seed/pulse-infobox/280/200",
+    "imageCaption": "લોકલપલ્સ ઇવેંટ ખોજ હોમ સ્ક્રીન",
+    "fields": [
+      {
+        "label": "ફ્રેમવર્ક",
+        "value": "Next.js 15 (App માર્ગr)"
+      },
+      {
+        "label": "ભાષા",
+        "value": "પ્રકારScript"
+      },
+      {
+        "label": "પ્રમાણીકરણ",
+        "value": "Clerk"
+      },
+      {
+        "label": "બૈકએંડ",
+        "value": "Firebase + local storage"
+      },
+      {
+        "label": "PWA",
+        "value": "Yes — offline support"
+      },
+      {
+        "label": "ગિટહબ",
+        "value": "github.com/lingadevaru-hp/લોકલપલ્સ"
+      },
+      {
+        "label": "ગિટહબ stars",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "પરિનિયોજન લક્ષ્ય",
+        "value": "Cloudflare Pages"
+      },
+      {
+        "label": "સ્થિતિ",
+        "value": "સક્રિય"
+      }
+    ]
+  },
+  "lead": "**લોકલપલ્સ** is a local-first ઇવેંટ ખોજ ઔર organiser platform મૈંને બનાયા કે સાથ **Next.js 15 App માર્ગr**, React 18, પ્રકારScript, Tailwind CSS, ઔર shadcn/ui. મૈંને બનાયા it in March 2026 — it's the most recent web પરિયોજના in મેરે portfolio. It uses local બ્રાઉજ઼ર storage as a zero-cost database backend alongside Firebase, ઔર is built as a **Progressive Web App** કે સાથ offline support ઔર an install prompt.\n\nલોકલપલ્સ demonstrates a full-stack પ્રકારScript application કે સાથ authentication (Clerk), file-based routing, PDF ticket generation, calendar export (.ics), ઔર an admin panel — all in a modern serverless-ready architecture. Code is on [ગિટહબ](https://github.com/lingadevaru-hp/LocalPulse).",
+  "sections": [
+    {
+      "id": "tech-stack",
+      "title": "તકનીકી સ્ટૈક",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "પરત",
+            "પ્રૌદ્યોગિકી",
+            "મૈંને ઇસકા ઉપયોગ કિસ લિએ કિયા"
+          ],
+          "rows": [
+            {
+              "परत": "ફ્રેમવર્ક",
+              "प्रौद्योगिकी": "Next.js 15 (App માર્ગr)",
+              "मैंने इसका उपयोग किस लिए किया": "File-based routing, server ઔર client components, layouts"
+            },
+            {
+              "परत": "UI",
+              "प्रौद्योगिकी": "React 18, Tailwind CSS, shadcn/ui",
+              "मैंने इसका उपयोग किस लिए किया": "ઘટક library built on Radix UI primitives"
+            },
+            {
+              "परत": "ભાષા",
+              "प्रौद्योगिकी": "પ્રકારScript",
+              "मैंने इसका उपयोग किस लिए किया": "End-to-end type safety — typed API routes, typed React components, typed Firebase calls"
+            },
+            {
+              "परत": "પ્રમાણીકરણ",
+              "प्रौद्योगिकी": "Clerk (@clerk/nextjs)",
+              "मैंने इसका उपयोग किस लिए किया": "Sign in, sign up, profile, password reset — managed auth so I don't roll મેરે own"
+            },
+            {
+              "परत": "બૈકએંડ / DB",
+              "प्रौद्योगिकी": "Firebase + local બ્રાઉજ઼ર storage",
+              "मैंने इसका उपयोग किस लिए किया": "Zero-cost database — no backend server required"
+            },
+            {
+              "परत": "PWA",
+              "प्रौद्योगिकी": "સેવા worker, offline support",
+              "मैंने इसका उपयोग किस लिए किया": "Install prompt, mobile icons, offline-capable pages"
+            },
+            {
+              "परत": "Deploy",
+              "प्रौद्योगिकी": "Cloudflare Pages",
+              "मैंने इसका उपयोग किस लिए किया": "Serverless edge deployment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "What લોકલપલ્સ Does",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Event Discovery:** મૈંને બનાયા search ઔર filter by city, category, ઔર date. વિશેષતાd events section. Smart recommendations using category + city + rating affinity scoring. Access-controlled event visibility: local, college, department.\n\n**Organiser Workflow:** Organiser verification via document upload (Aadhaar, PAN, GST, business docs). સ્થિતિ states: pending / approved / rejected. Admin review panel.\n\n**Ticketing:** Downloadable PDF tickets named by event. Ticket history per user. Reminder toggles. Add-to-calendar export (.ics — Google Calendar, Outlook, Apple Calendar).\n\n**Local Data Hub (/database):** Inspect all locally stored data, export backup JSON, import data on another device, clear all data. All of this runs without a server — the user's બ્રાઉજ઼ર is the database."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "શૂન્ય-લાગત આર્કિટેક્ચર મેરે લિએ ક્યોં માયને રખતા હૈ",
+          "content": "Using local બ્રાઉજ઼ર storage as the primary database means no database hosting costs. Firebase supplements this કે લિએ features requiring server-side persistence. The entire platform runs at near-zero cost — important when I'm shipping personal પરિયોજનાs without a budget."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "એપ્લિકેશન માર્ગ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "માર્ગ",
+            "ઉદ્દેશ્ય"
+          ],
+          "rows": [
+            {
+              "मार्ग": "/",
+              "उद्देश्य": "Home / ઇવેંટ ખોજ કે સાથ recommendations"
+            },
+            {
+              "मार्ग": "/events/[id]",
+              "उद्देश्य": "Individual event detail page"
+            },
+            {
+              "मार्ग": "/events/create",
+              "उद्देश्य": "Create new event (organisers only)"
+            },
+            {
+              "मार्ग": "/my-tickets",
+              "उद्देश्य": "User ticket history ઔર PDF download"
+            },
+            {
+              "मार्ग": "/profile",
+              "उद्देश्य": "User profile management (Clerk)"
+            },
+            {
+              "मार्ग": "/organiser",
+              "उद्देश्य": "Organiser dashboard"
+            },
+            {
+              "मार्ग": "/organiser/apply",
+              "उद्देश्य": "Organiser verification application"
+            },
+            {
+              "मार्ग": "/admin",
+              "उद्देश्य": "Admin control panel — organiser approval, analytics"
+            },
+            {
+              "मार्ग": "/database",
+              "उद्देश्य": "Local Data Hub — inspect, export, import, clear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "યહ મેરે કામ મેં કૈસે ફિટ બૈઠતા હૈ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "લોકલપલ્સ contrasts sharply કે સાથ મેરે [[fraud-detection|ધોખાધડ઼ી પહચાન પ્રણાલી]] in approach: where fraud detection used a traditional server-side stack (ASP.NET, SQL Server), લોકલપલ્સ embraces the modern serverless React ecoસિસ્ટમ (Next.js App માર્ગr, Clerk managed auth, Firebase, edge deployment).\n\nThe પરિયોજના demonstrates પ્રકારScript across a full-stack application — type-safe API routes, typed React components, typed Firebase calls — rather than the JavaScript-without-types approach common in quick prototypes. It's the closest thing I have to a 'standard' full-stack web પરિયોજના, compared to મેરે blockchain ઔર infrastructure work."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "ગિટહબ — લોકલપલ્સ",
+      "url": "https://github.com/lingadevaru-hp/LocalPulse"
+    },
+    {
+      "id": 2,
+      "title": "Next.js App માર્ગr documentation",
+      "url": "https://nextjs.org/docs/app"
+    },
+    {
+      "id": 3,
+      "title": "Clerk authentication",
+      "url": "https://clerk.com"
+    }
+  ],
+  "relatedArticles": [
+    "fraud-detection",
+    "about",
+    "homelab"
+  ],
+  "categories": [
+    "Web",
+    "TypeScript",
+    "Next.js",
+    "PWA"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "પ્રથમ પુરુષ મેં પુનર્લેખન",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "પૂર્ણ લેખન કે સાથ routes table ઔર feature breakdown",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "પ્રારંભિક પૃષ્ઠ",
+      "changeType": "new"
+    }
+  ]
+}

@@ -19,6 +19,11 @@ export const SUPPORTED_LOCALES: SupportedLocale[] = [
   { code: "en", name: "English", native: "English", flag: "🇬🇧", dir: "ltr", host: "lingadevaru.in" },
   { code: "kn", name: "Kannada", native: "ಕನ್ನಡ", flag: "🇮🇳", dir: "ltr", host: "kn.lingadevaru.in" },
   { code: "hi", name: "Hindi", native: "हिन्दी", flag: "🇮🇳", dir: "ltr", host: "hi.lingadevaru.in" },
+  { code: "ja", name: "Japanese", native: "日本語", flag: "🇯🇵", dir: "ltr", host: "ja.lingadevaru.in" },
+  { code: "ml", name: "Malayalam", native: "മലയാളം", flag: "🇮🇳", dir: "ltr", host: "ml.lingadevaru.in" },
+  { code: "ta", name: "Tamil", native: "தமிழ்", flag: "🇮🇳", dir: "ltr", host: "ta.lingadevaru.in" },
+  { code: "te", name: "Telugu", native: "తెలుగు", flag: "🇮🇳", dir: "ltr", host: "te.lingadevaru.in" },
+  { code: "gu", name: "Gujarati", native: "ગુજરાતી", flag: "🇮🇳", dir: "ltr", host: "gu.lingadevaru.in" },
 ];
 
 export const isSupportedLocale = (code: string | null | undefined): code is string =>

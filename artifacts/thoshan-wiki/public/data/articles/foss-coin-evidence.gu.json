@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "id": "foss-coin-evidence",
+    "title": "FOSS કૉઇન - સાક્ષ્ય ઔર સત્યાપન લિંક",
+    "slug": "foss-coin-evidence",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "સભી લિંક સાર્વજનિક, સત્યાપન યોગ્ય ઑન-ચેન ડેટા સ્રોતોં કી ઓર ઇશારા કરતે હૈં૤ કોઈ ભી વ્યક્તિ પ્રત્યેક દાવે કો સ્વતંત્ર રૂપ સે સત્યાપિત કર સકતા હૈ૤",
+  "sections": [
+    {
+      "id": "section-1-mint",
+      "title": "1. ટોકન મિંટ ખાતા",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "સોલાના એક્સપ્લોરર (ટોકન): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nસોલસ્કૈન (ટોકન): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nસોલાના એફએમ: [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**ક્યા સત્યાપિત કરેં:** ટોકન નામ, પ્રતીક, દશમલવ (6), કુલ આપૂર્તિ (1,000,000,000,000,000 કચ્ચી), ટકસાલ પ્રાધિકરણ (શૂન્ય), ફ઼્રીજ઼ પ્રાધિકરણ (શૂન્ય), સ્વામી કાર્યક્રમ (TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA)."
+        }
+      ]
+    },
+    {
+      "id": "section-2-creation",
+      "title": "2. સૃજન લેન-દેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "હસ્તાક્ષર:VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroNસ્લૉટ: 355,223,383\nટાઇમસ્ટૈમ્પ: 23 જુલાઈ 2025, 07:43:36 યૂટીસી\n\nસોલાના એક્સપ્લોરર: [લેનદેન દેખેં](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nસોલસ્કૈન: [લેનદેન દેખેં](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+        },
+        {
+          "type": "text",
+          "content": "**ક્યા સત્યાપિત કરેં:** શુલ્ક ભુગતાનકર્તા (HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b), ઇનિશિયલાઇજ઼મિંટ2 (6 દશમલવ), મેટાપ્લેક્સ ક્રિએટ મેટાડેટા અકાઉંટ્સ v3, મિંટટૂ (1બી ટોકન), સેટઅથૉરિટી (મિંટ અથૉરિટી નિરસ્ત), લૉન્ચપૈડ ખરીદેં નિર્દેશ૤"
+        }
+      ]
+    },
+    {
+      "id": "section-3-mint-revocation",
+      "title": "3. ટકસાલ પ્રાધિકરણ નિરસન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "નિર્માણ લેનદેન મેં હી ટકસાલ પ્રાધિકરણ કો રદ્દ કર દિયા ગયા થા (ઊપર #2 કે સમાન ટીએક્સ)૤\n\nનિર્માણ TX → આંતરિક નિર્દેશ: SetAuthority: [લેનદેન દેખેં](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nલાઇવ મિંટ ખાતા (શૂન્ય કી પુષ્ટિ કરેં): [ખાતા દેખેં](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**ક્યા સત્યાપિત કરેં:** નિર્માણ લેનદેન લૉગ મેં, પ્રોગ્રામ લૉગ દેખેં: નિર્દેશ: સેટઅથૉરિટી - યહ મિંટઅથૉરિટી કો શૂન્ય પર સેટ કરતા હૈ૤ વર્તમાન મિંટ ખાતા મિંટઅથૉરિટી કી પુષ્ટિ કરતા હૈ: શૂન્ય૤"
+        }
+      ]
+    },
+    {
+      "id": "section-4-freeze-revocation",
+      "title": "4. રોક પ્રાધિકરણ નિરસન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "નિર્માણ કે દૌરાન ફ઼્રીજ઼ પ્રાધિકરણ કો ભી શૂન્ય પર સેટ કિયા ગયા થા (લાઇવ ઑન-ચેન ક્વેરી કે માધ્યમ સે પુષ્ટિ કી ગઈ - ફ઼્રીજ઼ પ્રાધિકરણ: શૂન્ય)૤\n\nલાઇવ મિંટ ખાતા: [ખાતા દેખેં](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        }
+      ]
+    },
+    {
+      "id": "section-5-orca",
+      "title": "5. ઓર્કા વ્હર્લપૂલ (DEX લિક્વિડિટી પૂલ)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "પૂલ કા પતા:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2ટ્રેડિંગ જોડ઼ી: FOSS / SOL (રૈપ્ડ SOL)\nપૂલ પ્રકાર: વ્હર્લપૂલ (કેંદ્રિત તરલતા એએમએમ)\nકાર્યક્રમ:whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCcઓર્કા: [પૂલ દેખેં](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nગેકોટર્મિનલ: [પૂલ દેખેં](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nસોલાના એક્સપ્લોરર (પૂલ): [ખાતા દેખેં](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nપૂલ નિર્માણ TX: [લેન-દેન દેખેં](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+        },
+        {
+          "type": "text",
+          "content": "**ક્યા સત્યાપિત કરેં:** પૂલ મેં FOSS + રૈપ્ડ SOL ટોકન વૉલ્ટ શામિલ હૈં, જિનકે સાથ આરંભ કિયા ગયા હૈInitializePoolWithAdaptiveFee, ગતિશીલ ટિક સરણિયાઁ બનાઈ ગઈં૤"
+        }
+      ]
+    },
+    {
+      "id": "section-6-metadata",
+      "title": "6. મેટાપ્લેક્સ મેટાડેટા",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "મેટાડેટા પ્રોગ્રામ:metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s(મેટાપ્લેક્સ ટોકન મેટાડેટા v3)\nમેટાડેટા યૂઆરઆઈ (આઈપીએફએસ): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)છવિ યૂઆરઆઈ (આઈપીએફએસ): [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+        },
+        {
+          "type": "text",
+          "content": "**મેટાડેટા JSON (સત્યાપિત):**```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS)....\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**છવિ સત્યાપન:**\n- HTTP સ્થિતિ: 200 ✅\n- સામગ્રી-પ્રકાર: છવિ/પીએનજી ✅\n- ફ઼ાઇલ કા આકાર: 2,508,148 બાઇટ્સ (~2.5 એમબી)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-creator",
+      "title": "7. નિર્માતા/શુલ્ક ભુગતાનકર્તા વૉલેટ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "બટુઆ પતા:HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2bસોલાના એક્સપ્લોરર: [વૉલેટ દેખેં](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nસોલસ્કૈન: [વૉલેટ દેખેં](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        },
+        {
+          "type": "text",
+          "content": "**ક્યા સત્યાપિત કરેં:** યહ વૉલેટ પ્રત્યેક FOSS-સંબંધિત લેનદેન પર શુલ્ક ભુગતાનકર્તા (હસ્તાક્ષરકર્તા) હૈ: નિર્માણ, પૂલ સેટઅપ, તરલતા પ્રાવધાન ઔર સભી હસ્તાંતરણ૤"
+        }
+      ]
+    },
+    {
+      "id": "section-8-launchpad",
+      "title": "8. લૉન્ચપૈડ પ્રોગ્રામ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "પ્રોગ્રામ આઈડી:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSArપ્રકાર: બીપીએફ અપગ્રેડેબલ લોડર પ્રોગ્રામ\nકાર્યક્રમ ડેટા:Fsih13MhLm6cFNYGjBY6Vu1cTuBM3STwTVonz7igrhbrસોલાના એક્સપ્લોરર: [કાર્યક્રમ દેખેં](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nસોલાના એફએમ: [કાર્યક્રમ દેખેં](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        },
+        {
+          "type": "text",
+          "content": "**ધ્યાન દેં:** યહ પંપ.ફન નહીં હૈ (પંપ.ફન પ્રોગ્રામ આઈડી:6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P). યહ એક અલગ નો-કોડ ટોકન લૉન્ચપૈડ હૈ જો એકલ પરમાણુ લેનદેન મેં ટોકન નિર્માણ, મેટાડેટા, મિંટિંગ, મિંટ નિરસ્તીકરણ ઔર પ્રારંભિક ખરીદ કો સંભાલતા હૈ૤"
+        }
+      ]
+    },
+    {
+      "id": "section-9-all-transactions",
+      "title": "9. સભી ઑન-ચેન લેનદેન (કાલાનુક્રમિક)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "દિનાંક (UTC)",
+            "હસ્તાક્ષર",
+            "વિવરણ",
+            "એક્સપ્લોરર લિંક"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "दिनांक (UTC)": "2025-07-23 07:43:36",
+              "हस्ताक्षर": "VQT5g...iGroN",
+              "विवरण": "ટોકન નિર્માણ - ટકસાલ, મેટાડેટા, ટકસાલ 1બી ટોકન, નિરસ્ત ટકસાલ પ્રાધિકરણ, પ્રારંભિક ખરીદ",
+              "एक्सप्लोरर लिंक": "[એક્સપ્લોરર](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "दिनांक (UTC)": "2025-08-17 07:32:10",
+              "हस्ताक्षर": "3BmzH...K29g",
+              "विवरण": "ટોકન સ્થાનાંતરણ - 2 FOSS કે માધ્યમ સે બાહરી વૉલેટ મેંDeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "एक्सप्लोरर लिंक": "[એક્સપ્લોરર](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "दिनांक (UTC)": "2025-10-21 14:13:04",
+              "हस्ताक्षर": "5obap...tWiB",
+              "विवरण": "ઓર્કા વ્હર્લપૂલ નિર્માણ -InitializePoolWithAdaptiveFee, ટિક સરણિયાઁ",
+              "एक्सप्लोरर लिंक": "[એક્સપ્લોરર](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "दिनांक (UTC)": "2025-10-21 14:13:23",
+              "हस्ताक्षर": "2xR9T...JEGm",
+              "विवरण": "તરલતા પ્રાવધાન - સ્થિતિ એનએફટી બનાઈ ગઈ, તરલતા પૂલ મેં જોડ઼ી ગઈ",
+              "एक्सप्लोरर लिंक": "[એક્સપ્લોરર](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "दिनांक (UTC)": "2026-01-18 12:59:51",
+              "हस्ताक्षर": "4Xu9T...pxiAP",
+              "विवरण": "ટોકન સ્થાનાંતરણ - 1 FOSS એયરડ્રૉપ",
+              "एक्सप्लोरर लिंक": "[એક્સપ્લોરર](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "दिनांक (UTC)": "2026-01-18 13:19:03",
+              "हस्ताक्षर": "4CchR...kj4T",
+              "विवरण": "ટોકન સ્થાનાંતરણ - 1 FOSS એયરડ્રૉપ",
+              "एक्सप्लोरर लिंक": "[એક્સપ્લોરર](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-10-apis",
+      "title": "10. એપીઆઈ સમાપન બિંદુ (પ્રોગ્રામેટિક સત્યાપન કે લિએ)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "એપીઆઈ",
+            "endpoint"
+          ],
+          "rows": [
+            {
+              "एपीआई": "સોલાના આરપીસી (getAccountInfo)",
+              "endpoint": "ડાકhttps://api.mainnet-beta.solana.com— ક્વેરી મિંટ અકાઉંટ"
+            },
+            {
+              "एपीआई": "સોલાના આરપીસી (getSignaturesForAddress)",
+              "endpoint": "ડાકhttps://api.mainnet-beta.solana.com- ટ્રાંજેક્શન ઇતિહાસ"
+            },
+            {
+              "एपीआई": "સોલાના આરપીસી (getTokenLargestAccounts)",
+              "endpoint": "ડાકhttps://api.mainnet-beta.solana.com- શીર્ષ ધારક"
+            },
+            {
+              "एपीआई": "ગેકોટર્મિનલ ટોકન એપીઆઈ",
+              "endpoint": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+            },
+            {
+              "एपीआई": "ગેકોટર્મિનલ પૂલ એપીઆઈ",
+              "endpoint": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)"
+            },
+            {
+              "एपीआई": "ઓર્કા વ્હર્લપૂલ ડૉક્સ",
+              "endpoint": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)"
+            },
+            {
+              "एपीआई": "આઈપીએફએસ મેટાડેટા JSON",
+              "endpoint": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+            },
+            {
+              "एपीआई": "આઈપીએફએસ ટોકન લોગો",
+              "endpoint": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-11-program-ids",
+      "title": "11. મુખ્ય પ્રોગ્રામ આઈડી સંદર્ભિત",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "કાર્યક્રમ",
+            "પ્રોગ્રામ આઈડી",
+            "ઉદ્દેશ્ય"
+          ],
+          "rows": [
+            {
+              "कार्यक्रम": "એસપીએલ ટોકન કાર્યક્રમ",
+              "प्रोग्राम आईडी": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "उद्देश्य": "કોર ટોકન સંચાલન (ટકસાલ, સ્થાનાંતરણ, પ્રાધિકરણ)"
+            },
+            {
+              "कार्यक्रम": "એસપીએલ ટોકન-2022",
+              "प्रोग्राम आईडी": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "उद्देश्य": "ટોકન એક્સટેંશન (સ્થિતિ એનએફટી કે લિએ પ્રયુક્ત)"
+            },
+            {
+              "कार्यक्रम": "સંબદ્ધ ટોકન ખાતા",
+              "प्रोग्राम आईडी": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "उद्देश्य": "વૉલેટ કે લિએ સ્વચાલિત રૂપ સે ટોકન ખાતે બનાતા હૈ"
+            },
+            {
+              "कार्यक्रम": "મેટાપ્લેક્સ ટોકન મેટાડેટા",
+              "प्रोग्राम आईडी": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "उद्देश्य": "ઑન-ચેન નામ, પ્રતીક, યૂઆરઆઈ, છવિ"
+            },
+            {
+              "कार्यक्रम": "ઓર્કા વ્હર્લપૂલ",
+              "प्रोग्राम आईडी": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "उद्देश्य": "સંકેન્દ્રિત તરલતા એએમએમ"
+            },
+            {
+              "कार्यक्रम": "સિસ્ટમ પ્રોગ્રામ",
+              "प्रोग्राम आईडी": "11111111111111111111111111111111",
+              "उद्देश्य": "ખાતા નિર્માણ, એસઓએલ સ્થાનાંતરણ"
+            },
+            {
+              "कार्यक्रम": "બજટ કી ગણના કરેં",
+              "प्रोग्राम आईडी": "ComputeBudget111111111111111111111111111111",
+              "उद्देश्य": "લેન-દેન ગણના ઇકાઈ સીમાએઁ"
+            },
+            {
+              "कार्यक्रम": "લૉન્ચપૈડ (કસ્ટમ)",
+              "प्रोग्राम आईडी": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "उद्देश्य": "નો-કોડ ટોકન નિર્માણ કાર્યક્રમ"
+            },
+            {
+              "कार्यक्रम": "સ્થાનાંતરણ સેવા",
+              "प्रोग्राम आईडी": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "उद्देश्य": "ટોકન વિતરણ/એયરડ્રૉપ સેવા"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS સિક્કા મુખ્ય લેખ",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "ગિટહબ રિપૉજિટરી",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

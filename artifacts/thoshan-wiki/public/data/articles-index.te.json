@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "గురించి — లింగదేవరు H P",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "సిట్ తుమకూరులో ఎంసిఎ విద్యార్థి 2026లో పట్టభద్రుడయ్యాడు. మోహరించిన బ్లాక్ ‌ చైన్, AI మరియు వెబ్ ప్రాజెక్టుల బిల్డర్. కెరీర్ దృష్టి: నెట్ ‌ వర్కింగ్, క్లౌడ్ మరియు సైబర్ సెక్యూరిటీ.",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSS నాణెం ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "ఉచిత మరియు ఓపెన్ సోర్స్ సాఫ్ట్ ‌ వేర్ ‌ కు మద్దతును సూచించడానికి సోలానా మెయిన్ ‌ నెట్ ‌ లో ఒక SPL టోకెన్ నిర్మించబడింది. ఫిక్స్ ‌ డ్ 1B సప్లైతో ఓర్కా వర్ల్పూల్ డెక్స్ ‌ లో లైవ్ చేయండి.",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "తోషన్ ఫ్లాష్",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "26+ డౌన్ ‌ లోడ్ ‌ లు మరియు లైవ్ గ్రాడియో అనుమితి ఇంటర్ ‌ ఫేస్ ‌ తో హగ్గింగ్ ఫేస్ ‌ లో ప్రచురించబడిన Google యొక్క జెమ్మా -2-9B పెద్ద భాషా మోడల్ (LLM) యొక్క QLoRA చక్కటి ట్యూన్.",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "బీమా DApp",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "సాలిడిటీ స్మార్ట్ కాంట్రాక్టులు, ట్రఫుల్, Web3.js మరియు మెటామాస్క్ ఇంటిగ్రేషన్ ఉపయోగించి ఎథెరియం బ్లాక్ ‌ చెయిన్ ‌ పై వికేంద్రీకృత బీమా అప్లికేషన్.",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "లిబ్రే క్లౌడ్ — హోమ్ ‌ ల్యాబ్",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "ఒరాకిల్ క్లౌడ్ ఎల్లప్పుడూ ఉచిత టైర్ ‌ లో జీరో-ట్రస్ట్ సెల్ఫ్-హోస్ట్ ఇన్ ‌ ఫ్రాస్ట్రక్చర్. ప్రణాళికాబద్ధమైన 14-సేవ నిర్మాణంతో క్లౌడ్ ‌ ఫ్లేర్-ఫ్రంటెడ్ రివర్స్ ప్రాక్సీ.",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "గోప్యతా స్టాక్",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "లేయర్డ్ వ్యక్తిగత గోప్యతా సెటప్: Omarchy/Arch, LibreWolf బ్రౌజర్, హార్డ్ ‌ వేర్ DNS ఫిల్టరింగ్, WireGuard VPN మరియు స్వీయ-హోస్ట్ పాస్ ‌ వర్డ్ నిర్వహణతో OS గట్టిపడటం.",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "Linux సెటప్ — Omarchy",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Omarchy ద్వారా ఆర్చ్ లైనక్స్ — హైపర్ ‌ ల్యాండ్ టైలింగ్ WM, నియోవిమ్ మరియు పూర్తి టెర్మినల్ డెవలపర్ వర్క్ ‌ ఫ్లోతో DHH అభిప్రాయపడిన 'ఓమకేస్' దేవ్ డిస్ట్రో.",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "మోసం గుర్తింపు వ్యవస్థ",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA ఫైనల్ ఇయర్ ప్రాజెక్ట్: ASP.NET ఉపయోగించి ఆన్ ‌ లైన్ బ్యాంకింగ్ మోసం గుర్తింపు మరియు ఆటో-బ్లాకింగ్ ‌ తో 4-అల్గోరిథం ML సమిష్టి (లాజిస్టిక్ రిగ్రెషన్, KNN, SVM, CNN).",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "స్థానిక పల్స్",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Next.js 15, టైప్ ‌ స్క్రిప్ట్, క్లర్క్ అథారిటీ మరియు ఫైర్ ‌ బేస్ ‌ తో నిర్మించిన స్థానిక-మొదటి ఈవెంట్ డిస్కవరీ ప్లాట్ ‌ ఫారమ్. ఆఫ్ ‌ లైన్ సపోర్ట్ మరియు PDF టికెటింగ్ ‌ తో PWA.",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "రోడ్ ‌ మ్యాప్ నేర్చుకోవడం",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "నెట్ ‌ వర్కింగ్, క్లౌడ్ మరియు సైబర్ సెక్యూరిటీ (CCNA, సెక్యూరిటీ+) లో ప్రణాళికాబద్ధమైన ధృవపత్రాలు. సాధనాలు నేర్చుకుంటున్నారు: విమ్/నియోవిమ్, అబ్సిడియన్. CS50 సైబర్ సెక్యూరిటీ పురోగతిలో ఉంది.",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS నాణెం — ఇది ఎలా నిర్మించబడింది",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "FOSS నాణెం సృష్టి ప్రక్రియ యొక్క దశల వారీ సాంకేతిక విభజన",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS నాణెం — ఆన్-చైన్ ధృవీకరణ",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "RPC కాల్ ‌ లు మరియు క్రాస్ చెక్ ‌ లతో ధృవీకరణ గైడ్ ‌ ను పూర్తి చేయండి",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS నాణెం — ప్రోగ్రామ్ ‌ లు",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "FOSS కాయిన్ ప్రాజెక్ట్ ‌ లో ఉపయోగించిన అన్ని సోలానా ప్రోగ్రామ్ ‌ లు",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS నాణెం — లావాదేవీలు",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "అన్ని సంతకాలతో పూర్తి కాలక్రమానుసార లావాదేవీ రికార్డు",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS నాణెం — సాక్ష్యం & ధృవీకరణ లింక్ ‌ లు",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "ధృవీకరణ సూచనలతో సమగ్ర సాక్ష్యాల సేకరణ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS నాణెం — అన్ని URLలు",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "అన్ని ప్రాజెక్ట్ URLలు మరియు సాక్ష్యం లింక్ ‌ ల పూర్తి జాబితా",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS నాణెం — మాస్టర్ డాక్యుమెంటేషన్",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "సాంకేతిక డాక్యుమెంటేషన్ మరియు స్పెసిఫికేషన్ ‌ లను పూర్తి చేయండి",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS నాణెం — వనరులు",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "కేటగిరీ ప్రకారం పబ్లిక్ ప్రాజెక్ట్ వనరులు నిర్వహించబడతాయి",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "foss-coin-resources",
+    "title": "FOSS Coin — వనరులు",
+    "slug": "foss-coin-resources",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "అసలు URL జాబితా, ఆధార రికార్డుల నుండి సేకరించిన బహిరంగ ప్రాజెక్టు వనరులు ఈ ఫైల్‌లో ఉన్నాయి — నకిళ్లు తొలగించి, వర్గం ప్రకారం ఏర్పాటు చేశాను.",
+  "sections": [
+    {
+      "id": "token-explorers",
+      "title": "టోకెన్ ఎక్స్‌ప్లోరర్లు",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolana Explorer page for the FOSS mint account. It shows decimals, total supply, mint authority, freeze authority, and the owning token program."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolscan token page for the same mint. It provides holder and transfer views in a different explorer format."
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolana FM page for the token mint."
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "title": "లావాదేవీలు",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nCreation transaction. This is the atomic token creation record that includes minting, metadata, authority revocation, and the initial buy."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nSolscan view of the same creation transaction with parsed inner instructions."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)\nTransfer transaction from August 17, 2025."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)\nOrca Whirlpool pool creation transaction."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)\nLiquidity provision transaction that created the position NFT and added the initial liquidity."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)\nAirdrop transaction from January 18, 2026."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)\nAirdrop transaction from January 18, 2026."
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "సృష్టికర్త వాలెట్",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolana Explorer view of the creator and fee payer wallet used throughout the project documentation."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan view of the same wallet with transaction history."
+        }
+      ]
+    },
+    {
+      "id": "orca-pool",
+      "title": "Orca పూల్",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nOrca Whirlpool page for the FOSS / SOL trading pair."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolana Explorer page for the pool account."
+        },
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)\nOrca developer documentation for Whirlpools."
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal",
+      "title": "GeckoTerminal",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal chart and analytics page for the FOSS / SOL pool."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nGeckoTerminal token API endpoint for FOSS."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal pool API endpoint for the Orca pool."
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "IPFS మెటాడేటా",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\nThe IPFS metadata JSON. It contains the token name, symbol, description, and image URI."
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\nThe IPFS-hosted token logo image."
+        }
+      ]
+    },
+    {
+      "id": "api-endpoints",
+      "title": "API Endpointలు",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)\nSolana public JSON-RPC endpoint used for getAccountInfo, getSignaturesForAddress, and getTokenLargestAccounts verification."
+        }
+      ]
+    },
+    {
+      "id": "program-addresses",
+      "title": "ప్రోగ్రామ్ చిరునామాలు",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nExplorer page for the custom launchpad program used in this project."
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM page for the same launchpad program."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin ప్రధాన వ్యాసం",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub రిపోజిటరీ",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Resources"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "GitHub MD నుండి సృష్టించిన ప్రారంభ ఉప-వ్యాసం",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "id": "foss-coin-all-urls",
+    "title": "FOSS Coin — എല്ലാ URL-കളും",
+    "slug": "foss-coin-all-urls",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "പൂർണ്ണ പട്ടിക ന്റെ എല്ലാം പദ്ധതി URLs ഉം തെളിവുകൾ ലിങ്കുകൾ നിന്ന്  FOSS Coin പദ്ധതി.",
+  "sections": [
+    {
+      "id": "token-mint",
+      "title": "ടോക്കൺ & Mint",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolana Explorer page വേണ്ടി  FOSS ടോക്കൺ mint account.\nShows decimals (6), വിതരണം (1B raw), mint authority (null), freeze authority (null)."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolscan ടോക്കൺ page — അതേ data ൽ വ്യത്യസ്ത explorer format.\nShows holder count, transfer history, ഉം top holders."
+        }
+      ]
+    },
+    {
+      "id": "creation-transaction",
+      "title": "Creation ഇടപാട്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\n original ടോക്കൺ creation ഇടപാട് (July 23, 2025).\nടോക്കൺ was സൃഷ്ടിച്ച, 1B minted, mint authority revoked, ഉം initial buy executed — എല്ലാം ൽ one tx."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nഅതേ creation ഇടപാട് ൽ Solscan ഒപ്പം parsed inner instructions."
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "Creator വാലറ്റ്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\n creator's വാലറ്റ് അത് paid fees വേണ്ടി എല്ലാം FOSS ഇടപാടുകൾ.\nSigned  creation tx, പൂൾ creation, ലിക്വിഡിറ്റി provision, ഉം എല്ലാം transfers."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nഅതേ creator വാലറ്റ് ൽ Solscan ഒപ്പം പൂർണ്ണ ഇടപാട് history."
+        }
+      ]
+    },
+    {
+      "id": "orca-dex-pool",
+      "title": "Orca DEX പൂൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\n Orca Whirlpool page വേണ്ടി  FOSS/SOL trading pair.\nConcentrated ലിക്വിഡിറ്റി AMM പൂൾ എവിടെ anyone കഴിയും swap FOSS ↔ SOL."
+        },
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal chart ഉം analytics വേണ്ടി  FOSS/SOL Orca പൂൾ.\nShows price history, ലിക്വിഡിറ്റി depth, ഉം volume data."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolana Explorer view ന്റെ  Orca Whirlpool പ്രോഗ്രാം account.\nShows  പൂൾ's ൽ-chain data including ടോക്കൺ vaults ഉം tick arrays."
+        }
+      ]
+    },
+    {
+      "id": "pool-creation",
+      "title": "പൂൾ Creation ഇടപാട്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)\nഇടപാട് അത് സൃഷ്ടിച്ച  Orca Whirlpool (Oct 21, 2025).\nInitialized പൂൾ ഒപ്പം adaptive fee, സൃഷ്ടിച്ച SOL + FOSS vaults, ഉം സജ്ജമാക്കുക up tick arrays."
+        }
+      ]
+    },
+    {
+      "id": "liquidity-provision",
+      "title": "ലിക്വിഡിറ്റി Provision ഇടപാട്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)\nഇടപാട് അത് ചേർത്ത initial ലിക്വിഡിറ്റി ലേക്ക്  Orca പൂൾ (19 seconds ശേഷം പൂൾ creation).\nസൃഷ്ടിച്ച സ്ഥാനം NFT ഉം deposited FOSS + SOL ലേക്ക്  Whirlpool."
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal-apis",
+      "title": "GeckoTerminal APIs",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nGeckoTerminal REST APഞാൻ എൻഡ്പോയിന്റ് വേണ്ടി FOSS ടോക്കൺ price ഉം വിപണി data.\nReturns JSON ഒപ്പം നിലവിലെ price, വിപണി cap, ഉം trading pairs."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal REST APഞാൻ എൻഡ്പോയിന്റ് വേണ്ടി  Orca പൂൾ data.\nReturns JSON ഒപ്പം reserves, volume, ഉം പൂൾ statistics."
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "Metadata (IPFS)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\n Metaplex metadata JSON file സംഭരിച്ച ൽ IPFS.\nContains ടോക്കൺ name (\"Free ഓപ്പൺ സോഴ്സ് Soft \"), symbol (FOSS), വിവരണം, ഉം image ലിങ്ക്."
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\n FOSS ടോക്കൺ logo image (PNG, ~2.5 MB) സംഭരിച്ച ൽ IPFS.\nഇത് is എന്ത് wallets ഉം explorers display ആയി  ടോക്കൺ's icon."
+        }
+      ]
+    },
+    {
+      "id": "orca-docs",
+      "title": "Orca ഡെവലപ്പർ Docs",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)\nOfficial Orca documentation വേണ്ടി developers interacting ഒപ്പം Whirlpools.\nExplains എങ്ങനെ ലേക്ക് സൃഷ്ടിക്കുക pools, ചേർക്കുക ലിക്വിഡിറ്റി, swap, ഉം manage positions programmatically."
+        }
+      ]
+    },
+    {
+      "id": "launchpad-program",
+      "title": "Launchpad പ്രോഗ്രാം",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\n ഇല്ല-code launchpad BPF പ്രോഗ്രാം അത് സൃഷ്ടിച്ച  FOSS ടോക്കൺ.\nHandles ടോക്കൺ creation, metadata, minting, authority revocation, ഉം initial buy ൽ one atomic tx."
+        }
+      ]
+    },
+    {
+      "id": "recent-transfers",
+      "title": "സമീപകാല Transfer ഇടപാടുകൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)\nടോക്കൺ transfer ൽ Aug 17, 2025 — moved 2 FOSS ലേക്ക് external വാലറ്റ്."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)\nടോക്കൺ transfer ൽ Jan 18, 2026 — airdropped 1 FOSS ലേക്ക് പുതിയ വാലറ്റ്."
+        }
+      ]
+    },
+    {
+      "id": "solana-rpc",
+      "title": "Solana RPC (വേണ്ടി programmatic verification)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)\nSolana's പൊതു JSON-RPC എൻഡ്പോയിന്റ്.\nUse getAccountInfo ഒപ്പം  mint address ലേക്ക് പരിശോധിക്കുക ടോക്കൺ specs തത്സമയ നിന്ന്  chain."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin പ്രധാന Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ശേഖരണി",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "URLs"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article സൃഷ്ടിച്ച നിന്ന് GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

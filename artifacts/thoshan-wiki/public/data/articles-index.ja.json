@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "自己紹介 — リンガデーヴァル H P",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "SITトゥマクル校のMCA学生、2026年卒業見込み。デプロイ済みのブロックチェーン・AI・Webプロジェクトの開発者。ネットワーク、クラウド、サイバーセキュリティを中心にキャリアを築く。",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSSコイン ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "フリーオープンソースソフトウェアへの支援を象徴するために作られたSolanaメインネット上のSPLトークン。Orca Whirlpool DEXで取引され、発行量は10億枚に固定。",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "トーシャン・フラッシュ",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "GoogleのGemma-2-9BをQLoRAでファインチューンした大規模言語モデル。Hugging Faceで公開し、26回以上ダウンロードされ、Gradioの推論UIも稼働中。",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "保険DApp",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "Solidityスマートコントラクト、Truffle、Web3.js、MetaMask連携を用いたEthereum上の分散型保険アプリケーション。",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "リーブル・クラウド — ホームラボ",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "Oracle CloudのAlways Free枠で構築したゼロトラストのセルフホスト基盤。Cloudflare経由のリバースプロキシと14サービス構成の計画。",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "プライバシースタック",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "多層の個人プライバシー構成:Omarchy/ArchによるOS強化、LibreWolfブラウザ、ハードウェアDNSフィルタリング、WireGuard VPN、セルフホストのパスワード管理。",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "Linux環境 — Omarchy",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Omarchy経由のArch Linux — DHHによる意見強めの開発者向けディストロ。HyprlandタイリングWM、Neovim、ターミナル中心の開発ワークフロー。",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "不正検知システム",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA最終学年プロジェクト:ASP.NETと4種MLアンサンブル(ロジスティック回帰、KNN、SVM、CNN)によるオンラインバンキング不正検知と自動ブロック。",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "LocalPulse",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Next.js 15、TypeScript、Clerk認証、Firebaseで構築したローカルファーストのイベント発見プラットフォーム。オフライン対応PWAとPDFチケット機能付き。",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "学習ロードマップ",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "ネットワーク・クラウド・サイバーセキュリティ分野の認定資格取得計画(CCNA、Security+)。学習中のツール:Vim/Neovim、Obsidian。CS50サイバーセキュリティを受講中。",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSSコイン — 構築の舞台裏",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "FOSSコイン作成プロセスのステップバイステップ技術解説",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSSコイン — オンチェーン検証",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "RPCコールとクロスチェックによる完全検証ガイド",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSSコイン — プログラム",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "FOSSコインプロジェクトで使用したすべてのSolanaプログラム",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSSコイン — トランザクション",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "全署名付きの時系列トランザクション完全記録",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSSコイン — 証拠と検証リンク",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "検証手順付きの包括的な証拠コレクション",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSSコイン — 全URL",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "プロジェクトの全URLと証拠リンクの完全リスト",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSSコイン — マスタードキュメント",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "完全な技術文書と仕様書",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSSコイン — リソース",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "カテゴリ別に整理した公開プロジェクトリソース",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

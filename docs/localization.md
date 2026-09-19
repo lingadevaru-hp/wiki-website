@@ -1,8 +1,9 @@
 # Localization (i18n) — thoshan-wiki
 
 Single codebase, single worker, single deployment. `lingadevaru.in` (en),
-`kn.lingadevaru.in` (kn), `hi.lingadevaru.in` (hi) serve the same build;
+`kn./hi./ja./ml./ta./te./gu.lingadevaru.in` serve the same build;
 only the dictionary differs. No per-language repos, workers, or configs.
+(Current: en, kn, hi, ja, ml, ta, te, gu — 8 hosts.)
 
 ## How it works
 

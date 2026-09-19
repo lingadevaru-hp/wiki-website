@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "id": "privacy-stack",
+    "title": "પ્રાઇવેસી સ્ટૈક",
+    "slug": "privacy-stack",
+    "category": "Security",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 23,
+    "views": 3900
+  },
+  "infobox": {
+    "title": "પ્રાઇવેસી સ્ટૈક",
+    "image": "https://picsum.photos/seed/privacy-infobox/280/200",
+    "imageCaption": "GL.iNet router કે સાથ AdGuard Home running નેટવર્ક-વ્યાપી DNS ફ઼િલ્ટરિંગ",
+    "fields": [
+      {
+        "label": "Completeness",
+        "value": "~85%"
+      },
+      {
+        "label": "OS",
+        "value": "Arch Linux (Omarchy)"
+      },
+      {
+        "label": "Browser",
+        "value": "LibreWolf + uBlock Origin"
+      },
+      {
+        "label": "DNS",
+        "value": "AdGuard Home + NextDNS + Mullvad"
+      },
+      {
+        "label": "VPN",
+        "value": "WireGuard (planned)"
+      },
+      {
+        "label": "પાસવર્ડ",
+        "value": "Vaultwarden (planned, homelab)"
+      },
+      {
+        "label": "ઈમેલ",
+        "value": "Gmail → Proton/Tutanota (pending)"
+      },
+      {
+        "label": "મુખ્ય અંતર",
+        "value": "ઈમેલ migration not done"
+      }
+    ]
+  },
+  "lead": "મેરે **પ્રાઇવેસી સ્ટૈક** is એક પરતદાર વ્યક્તિગત ગોપનીયતા ઔર સુરક્ષા સેટઅપ spanning OS hardening, બ્રાઉજ઼ર fingerprint resistance, hardware-level નેટવર્ક filtering, self-hosted services, ઔર planned email migration. It currently sits at approximately **85% પૂર્ણતા** — the main remaining gap is Gmail, which I haven't yet migrated to a ગોપનીયતા-respecting provider.\n\nI've built the entire stack on free ઔર open source software, which connects philosophically to [[foss-coin|FOSS Coin]] ઔર the broader FOSS-first approach documented in મેરે [[about|profile]]. Every layer is either already deployed or has a concrete plan કે લિએ deployment through મેરે [[homelab|Libre Cloud homelab]].",
+  "sections": [
+    {
+      "id": "os-layer",
+      "title": "OS ઔર ડેસ્કટૉપ પરત",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The OS layer is the foundation. Running **Arch Linux via [[linux-setup|Omarchy]]** gives me the most control over what software is installed ઔર what runs in the background. Hyprland Wayland tiling WM has minimal background services by design — compared to a typical desktop environment, the attack surface ઔર telemetry footprint are dramatically reduced.\n\nKey decisions I made at this layer:\n- **Chromium removed** (telemetry) — replaced કે સાથ LibreWolf\n- **Spotify removed** (tracking) — no replacement\n- **MAC address randomisation** enabled on all નેટવર્ક interfaces\n- **Fork control**: I maintain a personal ગિટહબ fork of Omarchy to selectively apply upstream changes on મેરે own terms"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "મેરા વિશ્વાસ મૉડલ",
+          "content": "Arch packages flow through the Arch pacman ecoસિસ્ટમ, not DHH's servers. Even using Omarchy, the underlying package signatures ઔર build infrastructure remain the Arch Linux પરિયોજના's — not a third party's."
+        }
+      ]
+    },
+    {
+      "id": "browser-layer",
+      "title": "બ્રાઉજ઼ર પરત",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "મૈં ઉપયોગ કરતા હૂઁ **LibreWolf** — a Firefox fork કે સાથ hardened anti-fingerprinting defaults applied out of the box. Key differences from stock Firefox that I care about:\n- `resistFingerprinting` enabled by default — canvas, WebGL, audio, timezone, ઔર font fingerprinting are all blocked\n- No telemetry or crash reporting sent to Mozilla\n- Stricter cookie defaults ઔર cross-site isolation\n\n**uBlock Origin** runs on top of LibreWolf in medium mode — blocking all third-party scripts ઔર frames by default, કે સાથ manual allowlist rules I've added over time કે લિએ sites that require scripts to function.\n\nI also explored Firefox Multi-Account Containers કે લિએ session isolation per site category (banking in one container, social media in another, shopping in another)."
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "જ્ઞાત વિશેષતા — ડાર્ક થીમ",
+          "content": "LibreWolf's resistFingerprinting setting can break dark mode rendering on some sites. Fix: toggle resistFingerprinting off ઔર on in about:config to restore correct theming. I've hit this a few times."
+        }
+      ]
+    },
+    {
+      "id": "dns-network-layer",
+      "title": "DNS ઔર નેટવર્ક પરત",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The DNS layer is the most technically layered part of મેરે stack — મૈં ચલાતા હૂઁ multiple filtering સિસ્ટમs at different levels:"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "પરત",
+            "ઉપકરણ",
+            "દાયરા"
+          ],
+          "rows": [
+            {
+              "परत": "Home router",
+              "उपकरण": "GL.iNet (Drop-in Gateway mode)",
+              "दायरा": "AdGuard Home on home subnet — blocks ads/malware કે લિએ all devices on મેરે home નેટવર્ક"
+            },
+            {
+              "परत": "Cloud DNS",
+              "उपकरण": "NextDNS",
+              "दायरा": "Custom profile કે સાથ telemetry blocking"
+            },
+            {
+              "परत": "Device-level",
+              "उपकरण": "Mullvad DNS",
+              "दायरा": "Ads + Trackers + Malware filtering on મેરે laptop ઔર phone"
+            },
+            {
+              "परत": "VPN",
+              "उपकरण": "WireGuard",
+              "दायरा": "યોજિત — will encrypt traffic from device to homelab exit node"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "કૉલેજ WiFi બાધા",
+          "content": "SonicWALL SSL inspection on the college WiFi blocks pacman package downloads. મેરે workaround: mobile hotspot કે લિએ સિસ્ટમ updates on campus."
+        }
+      ]
+    },
+    {
+      "id": "services-layer",
+      "title": "પાસવર્ડ, નોટ્સ ઔર ઈમેલ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "સેવા",
+            "ઉપકરણ",
+            "સ્થિતિ"
+          ],
+          "rows": [
+            {
+              "सेवा": "પાસવર્ડ પ્રબંધક",
+              "उपकरण": "Vaultwarden (self-hosted Bitwarden fork)",
+              "स्थिति": "યોજિત — homelab dependency"
+            },
+            {
+              "सेवा": "Notes",
+              "उपकरण": "Joplin Server (self-hosted, E2E encrypted)",
+              "स्थिति": "પ્રગતિ પર — homelab dependency"
+            },
+            {
+              "सेवा": "ઈમેલ",
+              "उपकरण": "Gmail → Proton Mail or Tutanota",
+              "स्थिति": "❌ લંબિત — મેરા મુખ્ય અંતર. Custom domain contact@lingadevaru.in active."
+            },
+            {
+              "सेवा": "વિશ્લેષણ (સ્વયં કી સાઇટેં)",
+              "उपकरण": "GoatCounter",
+              "स्थिति": "✅ Live — no fingerprinting, no Google Analytics on any site I own"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stack-completeness",
+      "title": "સ્ટૈક પૂર્ણતા — ઈમાનદાર સ્થિતિ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "પરત",
+            "સ્થિતિ"
+          ],
+          "rows": [
+            {
+              "परत": "OS & WM hardening",
+              "स्थिति": "✅ પૂર્ણ"
+            },
+            {
+              "परत": "Browser (LibreWolf + uBlock)",
+              "स्थिति": "✅ પૂર્ણ"
+            },
+            {
+              "परत": "DNS (AdGuard + NextDNS + Mullvad)",
+              "स्थिति": "✅ પૂર્ણ"
+            },
+            {
+              "परत": "System hardening (UFW, fail2ban, MAC randomization)",
+              "स्थिति": "✅ પૂર્ણ"
+            },
+            {
+              "परत": "VPN (WireGuard)",
+              "स्थिति": "🔄 યોજિત"
+            },
+            {
+              "परत": "પાસવર્ડ પ્રબંધક (Vaultwarden)",
+              "स्थिति": "🔄 યોજિત"
+            },
+            {
+              "परत": "Notes (Joplin Server)",
+              "स्थिति": "🔄 પ્રગતિ પર"
+            },
+            {
+              "परत": "ઈમેલ (Proton/Tutanota)",
+              "स्थिति": "❌ લંબિત — મુખ્ય અંતર"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "LibreWolf Browser",
+      "url": "https://librewolf.net"
+    },
+    {
+      "id": 2,
+      "title": "Vaultwarden self-hosted",
+      "url": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "id": 3,
+      "title": "GL.iNet router documentation",
+      "url": "https://docs.gl-inet.com"
+    }
+  ],
+  "relatedArticles": [
+    "linux-setup",
+    "homelab",
+    "about"
+  ],
+  "categories": [
+    "Security",
+    "Privacy",
+    "Networking",
+    "Linux"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "પ્રથમ પુરુષ મેં પુનર્લેખન",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "પૂર્ણ પુનર્લેખન: પરતદાર વ્યાખ્યા, પૂર્ણતા તાલિકા",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "પ્રારંભિક પૃષ્ઠ",
+      "changeType": "new"
+    }
+  ]
+}

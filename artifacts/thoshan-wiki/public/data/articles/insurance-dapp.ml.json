@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "insurance-dapp",
+    "title": "ഇൻഷുറൻസ് DApp",
+    "slug": "insurance-dapp",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 18,
+    "views": 3350
+  },
+  "infobox": {
+    "title": "Insurance DApp",
+    "image": "https://picsum.photos/seed/dapp-infobox/280/200",
+    "imageCaption": "Ethereum smart contract interaction via MetaMask",
+    "fields": [
+      {
+        "label": "ബ്ലോക്ക്ചെയിൻ",
+        "value": "Ethereum"
+      },
+      {
+        "label": "Smart contract",
+        "value": "Solidity"
+      },
+      {
+        "label": "Dev ചട്ടക്കൂട്",
+        "value": "Truffle"
+      },
+      {
+        "label": "Web3 integration",
+        "value": "Web3.js + MetaMask"
+      },
+      {
+        "label": "Frontend",
+        "value": "HTML5, CSS3, Bootstrap"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/insurance-dapp"
+      },
+      {
+        "label": "GitHub സ്റ്റാറുകൾ",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "Live demo + GitHub"
+      }
+    ]
+  },
+  "lead": " **Insurance DApp** is വികേന്ദ്രീകൃത insurance ആപ്ലിക്കേഷൻ ഞാൻ നിർമ്മിച്ച ൽ  **Ethereum ബ്ലോക്ക്ചെയിൻ**, ഉപയോഗിച്ച് Solidity സ്മാർട്ട് കോൺട്രാക്ടുകൾ ലേക്ക് replace  traditional insurance company ആയി  intermediary. Policies, premiums, claims, ഉം payouts ആണ് എല്ലാം handled വഴി ൽ-chain logic — ഇല്ല human ൽ  loop, ഇല്ല company deciding നിങ്ങളുടെ claim.\n\nഞാൻ നിർമ്മിച്ച ഇത് ലേക്ക് explore  gap ഇടയിൽ centralised insurance (എവിടെ company decides നിങ്ങളുടെ outcome) ഉം വികേന്ദ്രീകൃത insurance (എവിടെ smart contract executes pre-agreed rules automatically ഉം transparently). അത് sits alongside [[foss-coin|FOSS Coin]] ൽ എന്റെ ബ്ലോക്ക്ചെയിൻ portfolio — together അവർ ഉൾക്കൊള്ളുക two completely വ്യത്യസ്ത ecosystems: Ethereum (EVM, Solidity) ഉം Solana (SPL, Rust runtime).",
+  "sections": [
+    {
+      "id": "why-decentralised",
+      "title": "എന്തുകൊണ്ട് വികേന്ദ്രീകൃത Insurance ഉണ്ടാക്കിയ Sense ലേക്ക് നിർമ്മിക്കുക",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ൽ traditional insurance,  insurer holds എല്ലാം  power: അവർ collect premiums, evaluate claims, ഉം decide payouts. ആയി claimant, നിങ്ങൾ ഉണ്ട് ഇല്ല way ലേക്ക് independently പരിശോധിക്കുക അത്  rules ആണ് ആയിക്കൊണ്ടിരിക്കുന്നു applied fairly — നിങ്ങൾ മാത്രം ഉണ്ട് ലേക്ക് trust  company.\n\nA smart contract flips ഇത്:  rules ആണ് written ൽ Solidity, പ്രസിദ്ധീകരിച്ച ൽ-chain, ഉം execute automatically എപ്പോൾ conditions ആണ് met. Anyone കഴിയും read  contract code മുമ്പ് purchasing policy. Payouts happen ഇല്ലാതെ human decision-maker.\n\n trade-off ഞാൻ ഉണ്ടായിരുന്നു ലേക്ക് accept: സ്മാർട്ട് കോൺട്രാക്ടുകൾ കഴിയും't access യഥാർത്ഥ-world data ഇല്ലാതെ oracle — ഉം എന്റെ implementation doesn't ഉൾപ്പെടുത്തുക one. I'm demonstrating  core mechanic ന്റെ trustless policy execution, അല്ല shipping production insurance product."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "എന്ത് ഇത് പദ്ധതി is ഉം isn't",
+          "content": "ഇത് is technical learning exercise demonstrating Solidity contract രൂപകൽപ്പന ചെയ്യുക, Truffle deployment workflow, ഉം Web3.js/MetaMask browser integration. അത് is അല്ല തത്സമയ insurance product ഉം ചെയ്യുന്നു അല്ല നടപ്പാക്കുക യഥാർത്ഥ-world oracle connections."
+        }
+      ]
+    },
+    {
+      "id": "tech-stack",
+      "title": "Tech Stack",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "പാളി",
+            "സാങ്കേതികവിദ്യ",
+            "എന്ത് ഞാൻ used അത് വേണ്ടി"
+          ],
+          "rows": [
+            {
+              "പാളി": "Smart contract",
+              "സാങ്കേതികവിദ്യ": "Solidity",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Policy logic, claim rules, payout execution ൽ Ethereum"
+            },
+            {
+              "പാളി": "Dev ചട്ടക്കൂട്",
+              "സാങ്കേതികവിദ്യ": "Truffle",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Contract compilation, migration, testing"
+            },
+            {
+              "പാളി": "Web3 integration",
+              "സാങ്കേതികവിദ്യ": "Web3.js",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Browser-ലേക്ക്-ബ്ലോക്ക്ചെയിൻ interaction പാളി"
+            },
+            {
+              "പാളി": "വാലറ്റ്",
+              "സാങ്കേതികവിദ്യ": "MetaMask",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "ഇടപാട് signing ഉം account management"
+            },
+            {
+              "പാളി": "Frontend",
+              "സാങ്കേതികവിദ്യ": "HTML5, CSS3, Bootstrap",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Uഞാൻ വേണ്ടി policy purchase, claim submission, payout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "എങ്ങനെ അത് Works",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": " DApp follows standard insurance lifecycle — പക്ഷേ എല്ലാ ഘട്ടം is enforced വഴി എന്റെ smart contract എന്നതിന് പകരം company employee:\n\n1. **Policy purchase** — user pays ETH ലേക്ക്  contract, specifying coverage terms.  contract records  policy ൽ-chain.\n2. **Premium lock** —  ETH is held ൽ  contract's balance, അല്ല transferred ലേക്ക് insurer.\n3. **Claim submission** —  user submits claim via  വെബ് interface.  contract evaluates whether അത് meets  pre-coded conditions.\n4. **Payout** — എങ്കിൽ conditions ആണ് satisfied,  contract automatically transfers  payout നിന്ന് അതിന്റെ balance ലേക്ക്  claimant's വാലറ്റ്.\n5. **Rejection** — എങ്കിൽ conditions aren't met,  claim is rejected ൽ-chain. ഇല്ല കൈകൊണ്ടുള്ള override is possible — അല്ല പോലും വഴി എന്നെ.\n\nഎല്ലാം state transitions ആണ് രേഖപ്പെടുത്തിയ ആയി ൽ-chain events ഉം verifiable വഴി any block explorer."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "https://picsum.photos/seed/dapp-gal1/800/500",
+              "alt": "Policy purchase flow",
+              "caption": "Policy purchase interface — MetaMask payment flow"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal2/800/500",
+              "alt": "Claim submission",
+              "caption": "Claim submission ഉം smart contract evaluation"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal3/800/500",
+              "alt": "Payout event",
+              "caption": "യാന്ത്രിക payout ഇടപാട് ൽ  Ethereum നെറ്റ്വർക്ക്"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-to-other-work",
+      "title": "എങ്ങനെ ഇത് Connects ലേക്ക് എന്റെ മറ്റ് പ്രവർത്തിക്കുക",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഇത് DApp ഉം [[foss-coin|FOSS Coin]] represent  two പ്രധാന ബ്ലോക്ക്ചെയിൻ ecosystems I've പ്രവർത്തിച്ച ഒപ്പം: Ethereum (EVM-based, Solidity സ്മാർട്ട് കോൺട്രാക്ടുകൾ) ഉം Solana (Rust-based runtime, SPL ടോക്കൺ പ്രോഗ്രാം). Together അവർ പ്രദർശിപ്പിക്കുന്നു breadth ഉടനീളം വ്യത്യസ്ത consensus mechanisms, programming models, ഉം toolchains.\n\nരണ്ടും ആണ് listed ൽ  [[about|GitHub ശേഖരണി table]] ഉം form  ബ്ലോക്ക്ചെയിൻ/Web3 ഘടകം ന്റെ എന്റെ technical നൈപുണ്യങ്ങൾ.  GitHub repo is ൽ [github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — insurance-dapp",
+      "url": "https://github.com/lingadevaru-hp/insurance-dapp"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin",
+    "about",
+    "fraud-detection"
+  ],
+  "categories": [
+    "Blockchain",
+    "Ethereum",
+    "Web3",
+    "Smart Contracts"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "പൂർണ്ണ rewrite: ചേർത്ത എങ്ങനെ-അത്-works, context section",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

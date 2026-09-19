@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "വിവരം — ലിംഗദേവരു എച്ച് പി",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "2026-ൽ ബിരുദം നേടുന്ന SIT തുമകൂരുവിലെ MCA വിദ്യാർത്ഥി. പ്രസിദ്ധീകരിച്ച ബ്ലോക്ക്ചെയിൻ, AI, വെബ് പദ്ധതികളുടെ നിർമ്മാതാവ്. കരിയർ ശ്രദ്ധ: നെറ്റ്‌വർക്കിംഗ്, ക്ലൗഡ്, സൈബർ സുരക്ഷ.",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSS Coin ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "സ്വതന്ത്ര ഓപ്പൺ സോഴ്‌സ് സോഫ്റ്റ്‌വെയറിനുള്ള പിന്തുണയെ പ്രതീകവൽക്കരിക്കാൻ Solana Mainnet-ൽ നിർമ്മിച്ച SPL ടോക്കൺ. നിശ്ചിത 1B വിതരണവുമായി Orca Whirlpool DEX-ൽ ലൈവ്.",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "തോഷൻ ഫ്ലാഷ്",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "ഗൂഗിളിന്റെ Gemma-2-9B ഭാഷാ മോഡലിന്റെ QLoRA ഫൈൻ-ട്യൂൺ; 26+ ഡൗൺലോഡുകളോടെ Hugging Face-ൽ പ്രസിദ്ധീകരിച്ചു, തത്സമയ Gradio ഇൻഫറൻസ് ഇന്റർഫേസോടെ.",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "ഇൻഷുറൻസ് DApp",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "Solidity സ്മാർട്ട് കോൺട്രാക്ടുകൾ, Truffle, Web3.js, MetaMask സംയോജനം എന്നിവ ഉപയോഗിച്ച് Ethereum ബ്ലോക്ക്ചെയിനിലെ വികേന്ദ്രീകൃത ഇൻഷുറൻസ് ആപ്ലിക്കേഷൻ.",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "ലിബ്രെ ക്ലൗഡ് — ഹോംലാബ്",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "Oracle Cloud Always Free ടയറിലെ സീറോ-ട്രസ്റ്റ് സ്വയം-ഹോസ്റ്റഡ് അടിസ്ഥാന സൗകര്യം. ആസൂത്രിത 14-സേവന ആർക്കിടെക്ചറോടെ Cloudflare റിവേഴ്സ് പ്രോക്സി.",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "സ്വകാര്യതാ സ്റ്റാക്ക്",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "പാളികളായുള്ള വ്യക്തിഗത സ്വകാര്യതാ സജ്ജീകരണം: Omarchy/Arch OS കാഠിന്യവൽക്കരണം, LibreWolf ബ്രൗസർ, ഹാർഡ്‌വെയർ DNS ഫിൽട്ടറിംഗ്, WireGuard VPN, സ്വയം-ഹോസ്റ്റഡ് പാസ്‌വേഡ് മാനേജ്മെന്റ്.",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "ലിനക്സ് സജ്ജീകരണം — Omarchy",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Omarchy വഴി Arch Linux — Hyprland ടൈലിംഗ് WM, Neovim, പൂർണ്ണ ടെർമിനൽ ഡെവലപ്പർ വർക്ക്ഫ്ലോ എന്നിവയോടെ DHH-യുടെ അഭിപ്രായമുള്ള 'omakase' ഡെവ് ഡിസ്ട്രോ.",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "തട്ടിപ്പ് കണ്ടെത്തൽ സംവിധാനം",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA അവസാന വർഷ പദ്ധതി: ASP.NET ഉം 4-അൽഗോരിതം ML എൻസെംബിളും (ലോജിസ്റ്റിക് റിഗ്രഷൻ, KNN, SVM, CNN) ഓട്ടോ-ബ്ലോക്കിംഗോടെ ഓൺലൈൻ ബാങ്കിംഗ് തട്ടിപ്പ് കണ്ടെത്തൽ.",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "LocalPulse",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Next.js 15, TypeScript, Clerk auth, Firebase എന്നിവ ഉപയോഗിച്ച് നിർമ്മിച്ച ലോക്കൽ-ഫസ്റ്റ് ഇവന്റ് കണ്ടെത്തൽ പ്ലാറ്റ്ഫോം. ഓഫ്‌ലൈൻ പിന്തുണയോടെയുള്ള PWA, PDF ടിക്കറ്റിംഗ്.",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "പഠന റോഡ്മാപ്പ്",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "നെറ്റ്‌വർക്കിംഗ്, ക്ലൗഡ്, സൈബർ സുരക്ഷ സർട്ടിഫിക്കറ്റുകൾ (CCNA, Security+) ആസൂത്രണം ചെയ്തിരിക്കുന്നു. പഠിക്കുന്ന ഉപകരണങ്ങൾ: Vim/Neovim, Obsidian. CS50 സൈബർ സുരക്ഷ പുരോഗമിക്കുന്നു.",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS Coin — ഇത് എങ്ങനെ നിർമ്മിച്ചു",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "FOSS Coin നിർമ്മാണ പ്രക്രിയയുടെ ഘട്ടം ഘട്ടമായുള്ള സാങ്കേതിക വിശകലനം",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS Coin — ഓൺ-ചെയിൻ പരിശോധന",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "RPC കോളുകളും ക്രോസ്-ചെക്കുകളുമുള്ള പൂർണ്ണ പരിശോധനാ മാർഗ്ഗനിർദ്ദേശം",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS Coin — പ്രോഗ്രാമുകൾ",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "FOSS Coin പദ്ധതിയിൽ ഉപയോഗിച്ച എല്ലാ Solana പ്രോഗ്രാമുകളും",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS Coin — ഇടപാടുകൾ",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "എല്ലാ ഒപ്പുകളോടെയുള്ള പൂർണ്ണ കാലാനുക്രമ ഇടപാട് രേഖ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS Coin — തെളിവുകളും പരിശോധനാ ലിങ്കുകളും",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "പരിശോധനാ നിർദ്ദേശങ്ങളോടെയുള്ള സമഗ്ര തെളിവ് ശേഖരം",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS Coin — എല്ലാ URL-കളും",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "എല്ലാ പദ്ധതി URL-കളുടെയും തെളിവ് ലിങ്കുകളുടെയും പൂർണ്ണ പട്ടിക",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS Coin — മാസ്റ്റർ ഡോക്യുമെന്റേഷൻ",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "പൂർണ്ണ സാങ്കേതിക ഡോക്യുമെന്റേഷനും സവിശേഷതകളും",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS Coin — വിഭവങ്ങൾ",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "വിഭാഗമനുസരിച്ച് ക്രമീകരിച്ച പൊതു പദ്ധതി വിഭവങ്ങൾ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

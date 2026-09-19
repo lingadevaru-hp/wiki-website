@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "id": "privacy-stack",
+    "title": "സ്വകാര്യതാ സ്റ്റാക്ക്",
+    "slug": "privacy-stack",
+    "category": "Security",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 23,
+    "views": 3900
+  },
+  "infobox": {
+    "title": "സ്വകാര്യത Stack",
+    "image": "https://picsum.photos/seed/privacy-infobox/280/200",
+    "imageCaption": "GL.iNet router with AdGuard Home running network-wide DNS filtering",
+    "fields": [
+      {
+        "label": "Completeness",
+        "value": "~85%"
+      },
+      {
+        "label": "OS",
+        "value": "Arch Linux (Omarchy)"
+      },
+      {
+        "label": "Browser",
+        "value": "LibreWolf + uBlock Origin"
+      },
+      {
+        "label": "DNS",
+        "value": "AdGuard Home + NextDNS + Mullvad"
+      },
+      {
+        "label": "VPN",
+        "value": "WireGuard (planned)"
+      },
+      {
+        "label": "Passwords",
+        "value": "Vaultwarden (planned, homelab)"
+      },
+      {
+        "label": "Email",
+        "value": "Gmail → Proton/Tutanota (pending)"
+      },
+      {
+        "label": "പ്രധാന gap",
+        "value": "Email migration not done"
+      }
+    ]
+  },
+  "lead": "എന്റെ **സ്വകാര്യത Stack** is layered വ്യക്തിഗത സ്വകാര്യത ഉം സുരക്ഷ setup spanning OS hardening, browser fingerprint resistance, hardware-നില നെറ്റ്വർക്ക് filtering, സ്വയം-ഹോസ്റ്റഡ് സേവനങ്ങൾ, ഉം planned email migration. അത് currently sits ൽ approximately **85% completeness** —  പ്രധാന remaining gap is Gmail, ഏത് ഞാൻ haven't yet migrated ലേക്ക് സ്വകാര്യത-respecting provider.\n\nI've നിർമ്മിച്ച  മുഴുവൻ stack ൽ free ഉം ഓപ്പൺ സോഴ്സ് സോഫ്റ്റ്‌വെയർ, ഏത് connects philosophically ലേക്ക് [[foss-coin|FOSS Coin]] ഉം  broader FOSS-ആദ്യ approach രേഖപ്പെടുത്തിയ ൽ എന്റെ [[about|profile]]. എല്ലാ പാളി is ഒന്നുകിൽ ഇതിനകം പ്രസിദ്ധീകരിച്ച അല്ലെങ്കിൽ ഉണ്ട് concrete plan വേണ്ടി deployment വഴി എന്റെ [[homelab|Libre Cloud homelab]].",
+  "sections": [
+    {
+      "id": "os-layer",
+      "title": "OS & Desktop പാളി",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": " OS പാളി is  foundation. പ്രവർത്തിപ്പിക്കൽ **Arch Linux via [[linux-setup|Omarchy]]** gives എന്നെ  ഏറ്റവും control മുകളിൽ എന്ത് സോഫ്റ്റ്‌വെയർ is ഇൻസ്റ്റാൾ ചെയ്ത ഉം എന്ത് runs ൽ  background. Hyprland Wayland tiling WM ഉണ്ട് minimal background സേവനങ്ങൾ വഴി രൂപകൽപ്പന ചെയ്യുക — താരതമ്യം ചെയ്ത ലേക്ക് typical desktop environment,  attack surface ഉം telemetry footprint ആണ് dramatically reduced.\n\nപ്രധാന decisions ഞാൻ ഉണ്ടാക്കിയ ൽ ഇത് പാളി:\n- **Chromium നീക്കം ചെയ്ത** (telemetry) — replaced ഒപ്പം LibreWolf\n- **Spotify നീക്കം ചെയ്ത** (tracking) — ഇല്ല replacement\n- **MAC address randomisation** പ്രാപ്തമാക്കിയ ൽ എല്ലാം നെറ്റ്വർക്ക് interfaces\n- **Fork control**: ഞാൻ പരിപാലിക്കുക വ്യക്തിഗത GitHub fork ന്റെ Omarchy ലേക്ക് selectively apply upstream changes ൽ എന്റെ own terms"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "എന്റെ trust model",
+          "content": "Arch packages flow വഴി  Arch pacman ecosystem, അല്ല DHH's servers. പോലും ഉപയോഗിച്ച് Omarchy,  underlying package ഒപ്പുകൾ ഉം നിർമ്മിക്കുക infrastructure remain  Arch Linux പദ്ധതി's — അല്ല third party's."
+        }
+      ]
+    },
+    {
+      "id": "browser-layer",
+      "title": "Browser പാളി",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഞാൻ use **LibreWolf** — Firefox fork ഒപ്പം hardened anti-fingerprinting defaults applied out ന്റെ  box. പ്രധാന differences നിന്ന് stock Firefox അത് ഞാൻ care കുറിച്ച്:\n- `resistFingerprinting` പ്രാപ്തമാക്കിയ വഴി സ്ഥിരസ്ഥിതി — canvas, WebGL, audio, timezone, ഉം font fingerprinting ആണ് എല്ലാം blocked\n- ഇല്ല telemetry അല്ലെങ്കിൽ crash reporting അയച്ച ലേക്ക് Mozilla\n- Stricter cookie defaults ഉം cross-site isolation\n\n**uBlock Origin** runs ൽ top ന്റെ LibreWolf ൽ medium mode — blocking എല്ലാം third-party scripts ഉം frames വഴി സ്ഥിരസ്ഥിതി, ഒപ്പം കൈകൊണ്ടുള്ള allowlist rules I've ചേർത്ത മുകളിൽ time വേണ്ടി sites അത് ആവശ്യപ്പെടുക scripts ലേക്ക് function.\n\nഞാൻ കൂടാതെ explored Firefox Multi-Account Containers വേണ്ടി session isolation per site category (banking ൽ one container, social media ൽ another, shopping ൽ another)."
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "അറിയപ്പെടുന്ന quirk — dark theme",
+          "content": "LibreWolf's resistFingerprinting setting കഴിയും break dark mode rendering ൽ some sites. Fix: toggle resistFingerprinting off ഉം ൽ ൽ കുറിച്ച്:config ലേക്ക് restore correct theming. I've hit ഇത് few times."
+        }
+      ]
+    },
+    {
+      "id": "dns-network-layer",
+      "title": "DNS & നെറ്റ്വർക്ക് പാളി",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": " DNS പാളി is  ഏറ്റവും technically layered part ന്റെ എന്റെ stack — ഞാൻ run multiple filtering സംവിധാനങ്ങൾ ൽ വ്യത്യസ്ത levels:"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "പാളി",
+            "ഉപകരണം",
+            "പരിധി"
+          ],
+          "rows": [
+            {
+              "പാളി": "Home router",
+              "ഉപകരണം": "GL.iNet (Drop-ൽ Gateway mode)",
+              "പരിധി": "AdGuard Home ൽ home subnet — blocks ads/malware വേണ്ടി എല്ലാം devices ൽ എന്റെ home നെറ്റ്വർക്ക്"
+            },
+            {
+              "പാളി": "Cloud DNS",
+              "ഉപകരണം": "NextDNS",
+              "പരിധി": "ഇഷ്ടാനുസൃത profile ഒപ്പം telemetry blocking"
+            },
+            {
+              "പാളി": "Device-നില",
+              "ഉപകരണം": "Mullvad DNS",
+              "പരിധി": "Ads + Trackers + Malware filtering ൽ എന്റെ laptop ഉം phone"
+            },
+            {
+              "പാളി": "VPN",
+              "ഉപകരണം": "WireGuard",
+              "പരിധി": "Planned — ചെയ്യും encrypt traffic നിന്ന് device ലേക്ക് homelab exit node"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "College WiFഞാൻ constraint",
+          "content": "SonicWALL SSL inspection ൽ  college WiFഞാൻ blocks pacman package downloads. എന്റെ workaround: mobile hotspot വേണ്ടി system updates ൽ campus."
+        }
+      ]
+    },
+    {
+      "id": "services-layer",
+      "title": "Password, Notes & Email",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "സേവനം",
+            "ഉപകരണം",
+            "സ്ഥിതി"
+          ],
+          "rows": [
+            {
+              "സേവനം": "Password manager",
+              "ഉപകരണം": "Vaultwarden (സ്വയം-ഹോസ്റ്റഡ് Bitwarden fork)",
+              "സ്ഥിതി": "Planned — homelab dependency"
+            },
+            {
+              "സേവനം": "Notes",
+              "ഉപകരണം": "Joplin സെർവർ (സ്വയം-ഹോസ്റ്റഡ്, E2E എൻക്രിപ്റ്റ് ചെയ്ത)",
+              "സ്ഥിതി": "ൽ progress — homelab dependency"
+            },
+            {
+              "സേവനം": "Email",
+              "ഉപകരണം": "Gmail → Proton Mail അല്ലെങ്കിൽ Tutanota",
+              "സ്ഥിതി": "❌ Pending — എന്റെ പ്രധാന gap. ഇഷ്ടാനുസൃത domain contact@lingadevaru.ൽ active."
+            },
+            {
+              "സേവനം": "Analytics (own sites)",
+              "ഉപകരണം": "GoatCounter",
+              "സ്ഥിതി": "✅ തത്സമയ — ഇല്ല fingerprinting, ഇല്ല Google Analytics ൽ any site ഞാൻ own"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stack-completeness",
+      "title": "Stack Completeness — Honest സ്ഥിതി",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "പാളി",
+            "സ്ഥിതി"
+          ],
+          "rows": [
+            {
+              "പാളി": "OS & WM hardening",
+              "സ്ഥിതി": "✅ ചെയ്തു"
+            },
+            {
+              "പാളി": "Browser (LibreWolf + uBlock)",
+              "സ്ഥിതി": "✅ ചെയ്തു"
+            },
+            {
+              "പാളി": "DNS (AdGuard + NextDNS + Mullvad)",
+              "സ്ഥിതി": "✅ ചെയ്തു"
+            },
+            {
+              "പാളി": "System hardening (UFW, fail2ban, MAC randomization)",
+              "സ്ഥിതി": "✅ ചെയ്തു"
+            },
+            {
+              "പാളി": "VPN (WireGuard)",
+              "സ്ഥിതി": "🔄 Planned"
+            },
+            {
+              "പാളി": "Password manager (Vaultwarden)",
+              "സ്ഥിതി": "🔄 Planned"
+            },
+            {
+              "പാളി": "Notes (Joplin സെർവർ)",
+              "സ്ഥിതി": "🔄 ൽ progress"
+            },
+            {
+              "പാളി": "Email (Proton/Tutanota)",
+              "സ്ഥിതി": "❌ Pending — പ്രധാന gap"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "LibreWolf Browser",
+      "url": "https://librewolf.net"
+    },
+    {
+      "id": 2,
+      "title": "Vaultwarden സ്വയം-ഹോസ്റ്റഡ്",
+      "url": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "id": 3,
+      "title": "GL.iNet router documentation",
+      "url": "https://docs.gl-inet.com"
+    }
+  ],
+  "relatedArticles": [
+    "linux-setup",
+    "homelab",
+    "about"
+  ],
+  "categories": [
+    "Security",
+    "Privacy",
+    "Networking",
+    "Linux"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "പൂർണ്ണ rewrite: layered explanation, completeness table",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

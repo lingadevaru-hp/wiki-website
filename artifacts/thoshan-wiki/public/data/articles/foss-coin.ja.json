@@ -1,0 +1,204 @@
+{
+  "metadata": {
+    "id": "foss-coin",
+    "title": "FOSSコイン ($FOSS)",
+    "slug": "foss-coin",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 38,
+    "views": 6200
+  },
+  "infobox": {
+    "title": "FOSSコイン ($FOSS)",
+    "image": "/assets/foss-logo.png",
+    "imageCaption": "FOSSコイン公式ロゴ",
+    "fields": [
+      { "label": "正式名", "value": "Free Open Source Soft" },
+      { "label": "シンボル", "value": "$FOSS" },
+      { "label": "ネットワーク", "value": "Solanaメインネット" },
+      { "label": "規格", "value": "SPLトークン(レガシートークンプログラム)" },
+      { "label": "総供給量", "value": "1,000,000,000 (固定)" },
+      { "label": "ミント権限", "value": "null — 恒久的に破棄" },
+      { "label": "DEX", "value": "Orca Whirlpool (FOSS/SOL)" },
+      { "label": "ステータス", "value": "稼働中" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/Foss-Token" },
+      { "label": "GitHubスター", "value": "7 ⭐  4 🔱" }
+    ]
+  },
+  "lead": "**FOSSコイン($FOSS)**は、フリーオープンソースソフトウェア運動への支援を象徴するために私が構築したSolana SPLトークンです。2025年7月にSolanaメインネットにデプロイし、同年10月にOrca Whirlpool分散型取引所に上場しました。供給量は10億枚に固定 — 作成の瞬間にミント権限を恒久的に破棄したため、私を含め誰も供給量を増やすことはできません。\n\nSPLトークンの仕組み、Metaplexメタデータ、IPFSピン留め、集中流動性AMM、アトミックな複合インストラクショントランザクションなど、Solanaをインストラクションレベルで理解するための実践的な演習として構築しました。完全なソースは[GitHub (スター7、フォーク4)](https://github.com/lingadevaru-hp/Foss-Token)で公開しています。FSF、GNU、Linux.orgとは無関係です。",
+  "githubButton": {
+    "text": "📁 GitHubリポジトリを見る",
+    "url": "https://github.com/lingadevaru-hp/Foss-Token",
+    "title": "FOSSトークンGitHubリポジトリ"
+  },
+  "deployedUrl": "https://go.lingadevaru.in/foss-trading",
+  "subArticles": [
+    {
+      "slug": "foss-coin-how-it-was-built",
+      "title": "構築の舞台裏",
+      "excerpt": "FOSSコイン作成プロセスのステップバイステップ技術解説"
+    },
+    {
+      "slug": "foss-coin-on-chain-verification",
+      "title": "オンチェーン検証",
+      "excerpt": "RPCコールとクロスチェックによる完全検証ガイド"
+    },
+    {
+      "slug": "foss-coin-programs",
+      "title": "プログラム",
+      "excerpt": "FOSSコインプロジェクトで使用したすべてのSolanaプログラム"
+    },
+    {
+      "slug": "foss-coin-transactions",
+      "title": "トランザクション",
+      "excerpt": "全署名付きの時系列トランザクション完全記録"
+    },
+    {
+      "slug": "foss-coin-evidence",
+      "title": "証拠と検証リンク",
+      "excerpt": "検証手順付きの包括的な証拠コレクション"
+    },
+    {
+      "slug": "foss-coin-all-urls",
+      "title": "全URL",
+      "excerpt": "プロジェクトの全URLと証拠リンクの完全リスト"
+    },
+    {
+      "slug": "foss-coin-master",
+      "title": "マスタードキュメント",
+      "excerpt": "完全な技術文書と仕様書"
+    },
+    {
+      "slug": "foss-coin-resources",
+      "title": "リソース",
+      "excerpt": "カテゴリ別に整理した公開プロジェクトリソース"
+    }
+  ],
+  "sections": [
+    {
+      "id": "philosophy",
+      "title": "作った理由",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSS運動は、ソフトウェアは自由であるべきだと考えます:実行・研究・改変・共有の自由です。ブロックチェーンも同じコアバリューを持ちます — オープンで、許可不要で、透明です。その交差点に象徴的な価値を具体的かつオンチェーンな形で流したいと考えました。\n\n私自身の[[privacy-stack|プライバシーとセキュリティのスタック]]は完全にフリーオープンソースソフトウェアで構築されています — Arch Linux、LibreWolf、uBlock Origin、Pi-hole、Vaultwarden、SearXNG — だからこの思想的な一致はマーケティングではなく本当に個人的なものです。毎日使うツールを見渡すと、それらはすべて中央集権企業に雇われることなく貢献した人々によって作られました。FOSSコインはその小さな謝意の表明です。"
+        },
+        {
+          "type": "quote",
+          "content": "FOSSコインは、フリーオープンソースソフトウェアを支援・普及するために作られたコミュニティ発のトークンです。FOSSプロジェクトへの寄付、開発者や貢献者への報酬、デジタルプライバシー・Linux・オープン技術の認知向上に利用できます。",
+          "author": "プロジェクト説明 — github.com/lingadevaru-hp/Foss-Token"
+        }
+      ]
+    },
+    {
+      "id": "how-i-built-it",
+      "title": "構築方法 — 1つのアトミックなトランザクション",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "トークン全体は**7つのインストラクションを含む1つのアトミックなトランザクション**でローンチされました。1つでもインストラクションが失敗すれば、トランザクション全体がロールバックされ、部分的なオンチェーン状態は残りません — すべてが一緒に成功するか、何も変わらないかのどちらかです。これこそSolanaのアーキテクチャの優雅さの一つです。"
+        },
+        {
+          "type": "table",
+          "columns": ["手順", "インストラクション", "やったこと"],
+          "rows": [
+            { "Step": "1", "Instruction": "ミントアカウント確保", "What I was doing": "トークンを表すオンチェーンアカウントを確保" },
+            { "Step": "2", "Instruction": "InitializeMint2", "What I was doing": "トークンの小数点桁数を6に設定" },
+            { "Step": "3", "Instruction": "Metaplexメタデータ v3", "What I was doing": "名前「Free Open Source Soft」、シンボル「$FOSS」、IPFS URIをオンチェーンに登録" },
+            { "Step": "4", "Instruction": "ATA作成", "What I was doing": "供給量を保有するための関連トークンアカウントを作成" },
+            { "Step": "5", "Instruction": "MintTo", "What I was doing": "1,000,000,000 FOSS全量を自分のATAにミント" },
+            { "Step": "6", "Instruction": "SetAuthority → null", "What I was doing": "ミント権限を恒久的に破棄 — 新規トークンは二度と作成できない" },
+            { "Step": "7", "Instruction": "ローンチパッド購入", "What I was doing": "ローンチパッド経由で35,765 FOSSを購入し初期活動をシード" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creation-timeline",
+      "title": "デプロイのタイムライン",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "フェーズ1 — トークンデプロイ (2025年7月23日)",
+          "content": "スロット355,223,383・07:43:36 UTC。10億枚の全供給量をミントし、ミント権限を単一のアトミックなトランザクションで破棄しました。この瞬間から供給量は恒久的に固定されました。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "フェーズ2 — Orca Whirlpool上場 (2025年10月21日)",
+          "content": "スロット374,850,194。Orca上にFOSS/SOLペアの集中流動性AMMプールを作成しました。プール作成の19秒後に最初の流動性を追加:2.9 FOSS + 0.0004 SOL。ポジションNFTはToken-2022規格でミントされました。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "フェーズ3 — コミュニティエアドロップ (2026年1月18日)",
+          "content": "精密な送金のためにTransferCheckedインストラクションを使い、外部ウォレットに$FOSSを配布 — トークン初のコミュニティ配布です。"
+        }
+      ]
+    },
+    {
+      "id": "specifications",
+      "title": "トークン仕様",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["項目", "値"],
+          "rows": [
+            { "Property": "正式名", "Value": "Free Open Source Soft" },
+            { "Property": "シンボル", "Value": "$FOSS" },
+            { "Property": "ネットワーク", "Value": "Solanaメインネット" },
+            { "Property": "トークン規格", "Value": "SPLトークン(レガシートークンプログラム)" },
+            { "Property": "小数点桁数", "Value": "6" },
+            { "Property": "総供給量", "Value": "1,000,000,000 (10億 — 固定・不変)" },
+            { "Property": "ミント権限", "Value": "null — 作成時に恒久破棄" },
+            { "Property": "フリーズ権限", "Value": "null — 破棄済み" },
+            { "Property": "メタデータ規格", "Value": "Metaplex Token Metadata v3 → IPFS JSON" },
+            { "Property": "DEX", "Value": "Orca Whirlpool (FOSS/SOLペア)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what-was-learned",
+      "title": "学んだこと",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSSコインの構築では、高レベルの抽象化に頼らずSolanaインストラクション群全体と向き合う必要がありました。実際に手を動かして学んだことは次の通りです:\n\n**SPLトークンインストラクション群** — allocate、InitializeMint2、MintTo、SetAuthorityをバイトレベルで理解する必要がありました。各インストラクションがオンチェーン状態をどう変更するか、SDKラッパーは隠してくれません。\n\n**Metaplex Token Metadata v3** — 名前/シンボル/URIメタデータはトークンアカウント自体ではなく、ミントアカウントにオンチェーンで付随することを学びました。よくある混乱ポイントです。\n\n**IPFS + メタデータ** — オフチェーンのトークン画像とJSONを手動でIPFSにピン留めし、メタデータの永続性はIPFSピンの健全性に依存すること(ピンが消えればメタデータも消え得る)を学びました。\n\n**Solanaのアトミックなトランザクション** — 7つのインストラクションを1つのオール・オア・ナッシングなトランザクションに束ねました。Solanaトランザクションがなぜこの構造なのかを深く理解しました。\n\n**Orca Whirlpoolの仕組み** — 集中流動性、ティック配列、価格レンジ、ポジションNFT。CLMMはUniswap v2のような従来型AMMとは根本的に異なります — 資本効率はアクティブな管理と引き換えに得られます。\n\n**Token-2022とレガシーの違い** — プログラムアドレスが異なり、利用可能な拡張機能も異なります。私のトークンはレガシープログラムを使用し、ポジションNFTはToken-2022を使用しました。"
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "known-limitations",
+      "title": "正直な限界",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "このプロジェクトがそうでないもの",
+          "content": "流動性は極めて低い(ローンチ時のプール内SOLは約0.0004のみ)。Jupiterアグリゲーター未掲載。オンチェーンユーティリティなし — ステーキング、ガバナンス、DApp連携はなし。メタデータのIPFS依存。WhirlpoolポジションNFTの唯一の保有者は私。トークンはローンチパッド経由で作成(ノーコードデプロイ)したが、各インストラクションは詳細に記録済み。これは稼働中の学習プロジェクトであり、DeFiプロダクトではありません。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — Foss-Token (スター7、フォーク4)", "url": "https://github.com/lingadevaru-hp/Foss-Token" },
+    { "id": 2, "title": "ライブ取引 — go.lingadevaru.in/foss-trading", "url": "https://go.lingadevaru.in/foss-trading" },
+    { "id": 3, "title": "Orca Whirlpool DEX", "url": "https://www.orca.so" }
+  ],
+  "relatedArticles": ["insurance-dapp", "about", "privacy-stack"],
+  "categories": ["Blockchain", "Solana", "Web3", "DeFi"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "インフォボックスにロゴ、本文にGIFバナー、Wikiリンク修正", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "アトミックなトランザクション表とフェーズコールアウトを追加", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "初期ページ作成", "changeType": "new" }
+  ]
+}

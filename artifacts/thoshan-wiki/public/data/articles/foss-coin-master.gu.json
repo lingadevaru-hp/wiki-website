@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "id": "foss-coin-master",
+    "title": "FOSS સિક્કા - માસ્ટર દસ્તાવેજ઼ીકરણ",
+    "slug": "foss-coin-master",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "અંતિમ સત્યાપન: 14 અપ્રૈલ, 2026 - સભી દાવોં કો લાઇવ સોલાના મેનનેટ ઑન-ચેન ડેટા કે વિરુદ્ધ ક્રૉસ-ચેક કિયા ગયા૤",
+  "sections": [
+    {
+      "id": "what-is-foss",
+      "title": "1. FOSS સિક્કા ક્યા હૈ?",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSS કૉઇન ($FOSS) એક સમુદાય-નિર્મિત સોલાના SPL ટોકન હૈ જો ફ્રી ઔર ઓપન સોર્સ સૉફ઼્ટવેયર (FOSS) કો સમર્થન ઔર બઢ઼ાવા દેને કે લિએ બનાયા ગયા હૈ૤ યહ એક વિકેન્દ્રીકૃત તંત્ર કે રૂપ મેં કાર્ય કરતા હૈ:"
+        },
+        {
+          "type": "text",
+          "content": "- FOSS પરિયોજનાઓં કે લિએ દાન કરેં - ઇંટરનેટ કો શક્તિ પ્રદાન કરને વાલે અનુરક્ષકોં ઔર ઉપકરણોં કો નિધિ દેં૤\n- ડેવલપર્સ ઔર યોગદાનકર્તાઓં કો પુરસ્કૃત કરેં - ઓપન-સોર્સ કાર્ય કે લિએ ટોકન-આધારિત પ્રોત્સાહન પ્રદાન કરેં૤\n- જાગરૂકતા બઢ઼ાએં - ડિજિટલ ગોપનીયતા, લિનક્સ ઔર ખુલી પ્રૌદ્યોગિકિયોં કો બઢ઼ાવા દેં૤"
+        },
+        {
+          "type": "text",
+          "content": "**મહત્વપૂર્ણ અસ્વીકરણ:** FOSS કૉઇન જીએનયૂ, લિનક્સ ફાઉંડેશન, ફ્રી સૉફ્ટવેયર ફાઉંડેશન યા કિસી અન્ય સ્થાપિત સંગઠન દ્વારા કોઈ આધિકારિક પરિયોજના નહીં હૈ૤ યહ ઉન વ્યક્તિયોં દ્વારા બનાઈ ગઈ એક સ્વતંત્ર જમીની સ્તર કી પહલ હૈ જો બિના કિસી પ્રતિબંધ કે નિર્માણ, સાઝા કરને ઔર નવાચાર કરને કી સ્વતંત્રતા મેં વિશ્વાસ કરતે હૈં૤"
+        }
+      ]
+    },
+    {
+      "id": "token-specifications",
+      "title": "2. ટોકન વિશિષ્ટતાએઁ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "મૈદાન",
+            "કીમત",
+            "સ્રોત"
+          ],
+          "rows": [
+            {
+              "मैदान": "ટોકન નામ",
+              "कीमत": "ફ્રી ઓપન સોર્સ સૉફ્ટ",
+              "स्रोत": "ઑન-ચેન મેટાપ્લેક્સ મેટાડેટા"
+            },
+            {
+              "मैदान": "પ્રતીક",
+              "कीमत": "પરિખા",
+              "स्रोत": "ઑન-ચેન મેટાપ્લેક્સ મેટાડેટા"
+            },
+            {
+              "मैदान": "ટકસાલ પતા",
+              "कीमत": "64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "स्रोत": "સોલાના ટોકન કાર્યક્રમ"
+            },
+            {
+              "मैदान": "બ્લૉકચેન",
+              "कीमत": "સોલાના મેનનેટ",
+              "स्रोत": "—"
+            },
+            {
+              "मैदान": "ટોકન માનક",
+              "कीमत": "એસપીએલ ટોકન (ટોકન પ્રોગ્રામ v3.x)",
+              "स्रोत": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+            },
+            {
+              "मैदान": "દશમલવ",
+              "कीमत": "6",
+              "स्रोत": "ઑન-ચેન મિંટ ખાતા"
+            },
+            {
+              "मैदान": "કુલ આપૂર્તિ",
+              "कीमत": "1,000,000,000 (1 અરબ)",
+              "स्रोत": "ઑન-ચેન: કચ્ચી આપૂર્તિ = 1,000,000,000,000,000 ÷ 10^6 = 1બી"
+            },
+            {
+              "मैदान": "ટકસાલ પ્રાધિકરણ",
+              "कीमत": "નિરસ્ત (શૂન્ય)",
+              "स्रोत": "ઑન-ચેન: નિર્માણ કે સમય શૂન્ય પર સેટ કરેં"
+            },
+            {
+              "मैदान": "ફ઼્રીજ઼ પ્રાધિકરણ",
+              "कीमत": "નિરસ્ત (શૂન્ય)",
+              "स्रोत": "ઑન-ચેન: નિર્માણ કે સમય શૂન્ય પર સેટ કરેં"
+            },
+            {
+              "मैदान": "પ્રારંભ કિયા ગયા હૈ",
+              "कीमत": "સત્ય",
+              "स्रोत": "ઑન-ચેન મિંટ ખાતા"
+            },
+            {
+              "मैदान": "ડેક્સ",
+              "कीमत": "ઓર્કા (વ્હર્લપૂલ એએમએમ)",
+              "स्रोत": "પૂલ:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2"
+            },
+            {
+              "मैदान": "ટ્રેડિંગ જોડ઼ી",
+              "कीमत": "FOSS / SOL (લિપટે હુએ SOL)",
+              "स्रोत": "વ્હર્લપૂલ પૂલ વિન્યાસ"
+            },
+            {
+              "मैदान": "ટોકન કાર્યક્રમ",
+              "कीमत": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "स्रोत": "માનક એસપીએલ ટોકન કાર્યક્રમ"
+            },
+            {
+              "मैदान": "મેટાડેટા પ્રોગ્રામ",
+              "कीमत": "મેટાપ્લેક્સ ટોકન મેટાડેટા v3",
+              "स्रोत": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+            },
+            {
+              "मैदान": "સૃજન મંચ",
+              "कीमत": "નો-કોડ લૉન્ચપૈડ (કસ્ટમ સોલાના પ્રોગ્રામ)",
+              "स्रोत": "કાર્યક્રમ:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "on-chain-metadata",
+      "title": "3. ઑન-ચેન મેટાડેટા",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "મેટાપ્લેક્સ મેટાડેટા આઈપીએફએસ પર સંગ્રહીત હૈ ઔર ઑન-ચેન સંદર્ભિત હૈ:"
+        },
+        {
+          "type": "text",
+          "content": "મેટાડેટા યૂઆરઆઈ (આઈપીએફએસ): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+        },
+        {
+          "type": "text",
+          "content": "**મેટાડેટા JSON (પ્રાપ્ત ઔર સત્યાપિત):**"
+        },
+        {
+          "type": "text",
+          "content": "```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS).\\n\\nIt can be used to:\\n- Donate to FOSS projects\\n- Reward developers and contributors\\n- Raise awareness about digital privacy, Linux, and open technologies\\n\\nThis is not an official project by GNU, Linux.org, or the Free Software Foundation. $FOSS is an independent grassroots effort by passionate individuals who believe in the freedom to build, share, and innovate without restrictions.\\n\\nBy holding or using FOSS Coin, you become part of a decentralized movement to fund the tools that power the internet — freely and ethically.\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**ટોકન લોગો**\n- આઈપીએફએસ હૈશ:QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf- યૂઆરએલ: [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)- પ્રારૂપ: પીએનજી\n- આકાર: 2,508,148 બાઇટ્સ (~2.5 એમબી)\n- સ્થિતિ: ✅ સુલભ (HTTP 200 કી પુષ્ટિ)"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS સિક્કા મુખ્ય લેખ",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "ગિટહબ રિપૉજિટરી",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Documentation"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

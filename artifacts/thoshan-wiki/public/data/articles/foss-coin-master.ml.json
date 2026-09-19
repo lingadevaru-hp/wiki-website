@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "id": "foss-coin-master",
+    "title": "FOSS Coin — മാസ്റ്റർ ഡോക്യുമെന്റേഷൻ",
+    "slug": "foss-coin-master",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "അവസാന പരിശോധിച്ച: April 14, 2026 — എല്ലാം claims cross-പരിശോധിച്ച against തത്സമയ Solana mainnet ൽ-chain data.",
+  "sections": [
+    {
+      "id": "what-is-foss",
+      "title": "1. എന്ത് Is FOSS Coin?",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSS Coin ($FOSS) is community-സൃഷ്ടിച്ച Solana SPL ടോക്കൺ നിർമ്മിച്ച ലേക്ക് പിന്തുണയ്ക്കുക ഉം promote Free ഉം ഓപ്പൺ സോഴ്സ് സോഫ്റ്റ്‌വെയർ (FOSS). അത് serves ആയി വികേന്ദ്രീകൃത mechanism ലേക്ക്:"
+        },
+        {
+          "type": "text",
+          "content": "- Donate ലേക്ക് FOSS പദ്ധതികൾ — Fund  maintainers ഉം tools അത് power  internet.\n- Reward developers ഉം contributors — നൽകുക ടോക്കൺ-based incentives വേണ്ടി open-ഉറവിടം പ്രവർത്തിക്കുക.\n- Raise awareness — Promote digital സ്വകാര്യത, Linux, ഉം open technologies."
+        },
+        {
+          "type": "text",
+          "content": "**പ്രധാനപ്പെട്ട disclaimer:** FOSS Coin is അല്ല official പദ്ധതി വഴി GNU,  Linux Foundation,  Free സോഫ്റ്റ്‌വെയർ Foundation, അല്ലെങ്കിൽ any മറ്റ് established organization. അത് is independent grassroots initiative സൃഷ്ടിച്ച വഴി individuals ആര് believe ൽ  freedom ലേക്ക് നിർമ്മിക്കുക, പങ്കിടുക, ഉം innovate ഇല്ലാതെ restrictions."
+        }
+      ]
+    },
+    {
+      "id": "token-specifications",
+      "title": "2. ടോക്കൺ സവിശേഷതകൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ഫീൽഡ്",
+            "മൂല്യം",
+            "ഉറവിടം"
+          ],
+          "rows": [
+            {
+              "ഫീൽഡ്": "ടോക്കൺ Name",
+              "മൂല്യം": "Free ഓപ്പൺ സോഴ്സ് Soft",
+              "ഉറവിടം": "ൽ-chain Metaplex metadata"
+            },
+            {
+              "ഫീൽഡ്": "Symbol",
+              "മൂല്യം": "FOSS",
+              "ഉറവിടം": "ൽ-chain Metaplex metadata"
+            },
+            {
+              "ഫീൽഡ്": "Mint Address",
+              "മൂല്യം": "64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "ഉറവിടം": "Solana ടോക്കൺ പ്രോഗ്രാം"
+            },
+            {
+              "ഫീൽഡ്": "ബ്ലോക്ക്ചെയിൻ",
+              "മൂല്യം": "Solana Mainnet",
+              "ഉറവിടം": "—"
+            },
+            {
+              "ഫീൽഡ്": "ടോക്കൺ Standard",
+              "മൂല്യം": "SPL ടോക്കൺ (ടോക്കൺ പ്രോഗ്രാം v3.x)",
+              "ഉറവിടം": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+            },
+            {
+              "ഫീൽഡ്": "Decimals",
+              "മൂല്യം": "6",
+              "ഉറവിടം": "ൽ-chain mint account"
+            },
+            {
+              "ഫീൽഡ്": "ആകെ വിതരണം",
+              "മൂല്യം": "1,000,000,000 (1 billion)",
+              "ഉറവിടം": "ൽ-chain: raw വിതരണം = 1,000,000,000,000,000 ÷ 10^6 = 1B"
+            },
+            {
+              "ഫീൽഡ്": "Mint Authority",
+              "മൂല്യം": "REVOKED (null)",
+              "ഉറവിടം": "ൽ-chain: സജ്ജമാക്കുക ലേക്ക് null ൽ creation"
+            },
+            {
+              "ഫീൽഡ്": "Freeze Authority",
+              "മൂല്യം": "REVOKED (null)",
+              "ഉറവിടം": "ൽ-chain: സജ്ജമാക്കുക ലേക്ക് null ൽ creation"
+            },
+            {
+              "ഫീൽഡ്": "Is Initialized",
+              "മൂല്യം": "true",
+              "ഉറവിടം": "ൽ-chain mint account"
+            },
+            {
+              "ഫീൽഡ്": "DEX",
+              "മൂല്യം": "Orca (Whirlpool AMM)",
+              "ഉറവിടം": "പൂൾ: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2"
+            },
+            {
+              "ഫീൽഡ്": "Trading Pair",
+              "മൂല്യം": "FOSS / SOL (Wrapped SOL)",
+              "ഉറവിടം": "Whirlpool പൂൾ configuration"
+            },
+            {
+              "ഫീൽഡ്": "ടോക്കൺ പ്രോഗ്രാം",
+              "മൂല്യം": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "ഉറവിടം": "Standard SPL ടോക്കൺ പ്രോഗ്രാം"
+            },
+            {
+              "ഫീൽഡ്": "Metadata പ്രോഗ്രാം",
+              "മൂല്യം": "Metaplex ടോക്കൺ Metadata v3",
+              "ഉറവിടം": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+            },
+            {
+              "ഫീൽഡ്": "Creation പ്ലാറ്റ്ഫോം",
+              "മൂല്യം": "ഇല്ല-code launchpad (ഇഷ്ടാനുസൃത Solana പ്രോഗ്രാം)",
+              "ഉറവിടം": "പ്രോഗ്രാം: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "on-chain-metadata",
+      "title": "3. ൽ-Chain Metadata",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": " Metaplex metadata is സംഭരിച്ച ൽ IPFS ഉം referenced ൽ-chain:"
+        },
+        {
+          "type": "text",
+          "content": "Metadata URഞാൻ (IPFS): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+        },
+        {
+          "type": "text",
+          "content": "**Metadata JSON (fetched ഉം പരിശോധിച്ച):**"
+        },
+        {
+          "type": "text",
+          "content": "```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS).\\n\\nIt can be used to:\\n- Donate to FOSS projects\\n- Reward developers and contributors\\n- Raise awareness about digital privacy, Linux, and open technologies\\n\\nThis is not an official project by GNU, Linux.org, or the Free Software Foundation. $FOSS is an independent grassroots effort by passionate individuals who believe in the freedom to build, share, and innovate without restrictions.\\n\\nBy holding or using FOSS Coin, you become part of a decentralized movement to fund the tools that power the internet — freely and ethically.\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**ടോക്കൺ Logo**\n- IPFS Hash: QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\n- URL: [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\n- Format: PNG\n- Size: 2,508,148 bytes (~2.5 MB)\n- സ്ഥിതി: ✅ Accessible (HTTP 200 confirmed)"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin പ്രധാന Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ശേഖരണി",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Documentation"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article സൃഷ്ടിച്ച നിന്ന് GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

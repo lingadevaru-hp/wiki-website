@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "id": "foss-coin-master",
+    "title": "FOSSコイン — マスタードキュメント",
+    "slug": "foss-coin-master",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "最終検証:2026年4月14日 — すべての主張をSolanaメインネットのライブオンチェーンデータと突合済み。",
+  "sections": [
+    {
+      "id": "what-is-foss",
+      "title": "1. FOSSコインとは?",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSSコイン($FOSS)は、フリーオープンソースソフトウェア(FOSS)を支援・普及するために作られたコミュニティ発のSolana SPLトークンです。次のための分散型メカニズムとして機能します:"
+        },
+        {
+          "type": "text",
+          "content": "- FOSSプロジェクトへの寄付 — インターネットを支えるメンテナーとツールに資金を提供。\n- 開発者と貢献者への報酬 — オープンソース活動へのトークンベースのインセンティブを提供。\n- 認知向上 — デジタルプライバシー、Linux、オープン技術を普及。"
+        },
+        {
+          "type": "text",
+          "content": "**重要な免責事項:** FOSSコインはGNU、Linux Foundation、Free Software Foundation、その他既存団体の公式プロジェクトではありません。制限なく構築・共有・革新する自由を信じる個人による独立した草の根イニシアチブです。"
+        }
+      ]
+    },
+    {
+      "id": "token-specifications",
+      "title": "2. トークン仕様",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["項目", "値", "情報源"],
+          "rows": [
+            {"Field": "トークン名", "Value": "Free Open Source Soft", "Source": "オンチェーンのMetaplexメタデータ"},
+            {"Field": "シンボル", "Value": "FOSS", "Source": "オンチェーンのMetaplexメタデータ"},
+            {"Field": "ミントアドレス", "Value": "64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin", "Source": "Solanaトークンプログラム"},
+            {"Field": "ブロックチェーン", "Value": "Solanaメインネット", "Source": "—"},
+            {"Field": "トークン規格", "Value": "SPLトークン (Token Program v3.x)", "Source": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"},
+            {"Field": "小数点桁数", "Value": "6", "Source": "オンチェーンのミントアカウント"},
+            {"Field": "総供給量", "Value": "1,000,000,000 (10億)", "Source": "オンチェーン: raw供給量 = 1,000,000,000,000,000 ÷ 10^6 = 10億"},
+            {"Field": "ミント権限", "Value": "破棄済み (null)", "Source": "オンチェーン: 作成時にnullに設定"},
+            {"Field": "フリーズ権限", "Value": "破棄済み (null)", "Source": "オンチェーン: 作成時にnullに設定"},
+            {"Field": "初期化済み", "Value": "true", "Source": "オンチェーンのミントアカウント"},
+            {"Field": "DEX", "Value": "Orca (Whirlpool AMM)", "Source": "プール: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2"},
+            {"Field": "取引ペア", "Value": "FOSS / SOL (ラップドSOL)", "Source": "Whirlpoolプール設定"},
+            {"Field": "トークンプログラム", "Value": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "Source": "標準SPLトークンプログラム"},
+            {"Field": "メタデータプログラム", "Value": "Metaplex Token Metadata v3", "Source": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"},
+            {"Field": "作成プラットフォーム", "Value": "ノーコードのローンチパッド(カスタムSolanaプログラム)", "Source": "プログラム: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "on-chain-metadata",
+      "title": "3. オンチェーンメタデータ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "MetaplexメタデータはIPFSに保存され、オンチェーンから参照されています:"
+        },
+        {
+          "type": "text",
+          "content": "メタデータURI (IPFS): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+        },
+        {
+          "type": "text",
+          "content": "**メタデータJSON (取得・検証済み):**"
+        },
+        {
+          "type": "text",
+          "content": "```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS).\\n\\nIt can be used to:\\n- Donate to FOSS projects\\n- Reward developers and contributors\\n- Raise awareness about digital privacy, Linux, and open technologies\\n\\nThis is not an official project by GNU, Linux.org, or the Free Software Foundation. $FOSS is an independent grassroots effort by passionate individuals who believe in the freedom to build, share, and innovate without restrictions.\\n\\nBy holding or using FOSS Coin, you become part of a decentralized movement to fund the tools that power the internet — freely and ethically.\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**トークンロゴ**\n- IPFSハッシュ: QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\n- URL: [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\n- 形式: PNG\n- サイズ: 2,508,148バイト (約2.5 MB)\n- ステータス: ✅ アクセス可能 (HTTP 200確認済み)"
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSSコイン メイン記事", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHubリポジトリ", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Documentation"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "GitHub MDから初期サブ記事を作成", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

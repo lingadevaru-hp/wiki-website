@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "பற்றி - லிங்கதேவரு எச்.பி",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "SIT துமகுருவில் MCA மாணவர் 2026 இல் பட்டம் பெறுகிறார். பயன்படுத்தப்பட்ட பிளாக்செயின், AI மற்றும் வலைத் திட்டங்களை உருவாக்குபவர். தொழில் கவனம்: நெட்வொர்க்கிங், கிளவுட் மற்றும் சைபர் செக்யூரிட்டி.",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSS நாணயம் ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "Solana Mainnet இல் ஒரு SPL டோக்கன் கட்டப்பட்ட இலவச மற்றும் திறந்த மூல மென்பொருளுக்கான ஆதரவைக் குறிக்கிறது. நிலையான 1B விநியோகத்துடன் Orca Whirlpool DEX இல் நேரலை.",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "தோஷன் ஃப்ளாஷ்",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "கூகிளின் Gemma-2-9B பெரிய மொழி மாதிரியின் (LLM) QLoRA ஃபைன்-ட்யூன், ஹக்கிங் ஃபேஸில் 26+ பதிவிறக்கங்கள் மற்றும் நேரடி கிரேடியோ அனுமான இடைமுகத்துடன் வெளியிடப்பட்டது.",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "காப்பீடு டிஏப்",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "Solidity ஸ்மார்ட் ஒப்பந்தங்கள், Truffle, Web3.js மற்றும் MetaMask ஒருங்கிணைப்பைப் பயன்படுத்தி Ethereum blockchain இல் பரவலாக்கப்பட்ட காப்பீட்டு விண்ணப்பம்.",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "லிப்ரே கிளவுட் - ஹோம்லேப்",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "ஆரக்கிள் கிளவுட்டில் ஜீரோ டிரஸ்ட் சுய-ஹோஸ்ட் உள்கட்டமைப்பு எப்போதும் இலவச அடுக்கு. திட்டமிடப்பட்ட 14-சேவை கட்டமைப்புடன் கிளவுட்ஃப்ளேர்-முன்புறம் கொண்ட ரிவர்ஸ் ப்ராக்ஸி.",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "தனியுரிமை அடுக்கு",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "அடுக்கு தனிப்பட்ட தனியுரிமை அமைப்பு: Omarchy/Arch, LibreWolf உலாவி, வன்பொருள் DNS வடிகட்டுதல், WireGuard VPN மற்றும் சுய-ஹோஸ்ட் செய்யப்பட்ட கடவுச்சொல் மேலாண்மை மூலம் OS கடினப்படுத்துதல்.",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "லினக்ஸ் அமைவு - Omarchy",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Omarchy வழியாக ஆர்ச் லினக்ஸ் — Hyprland tiling WM, Neovim மற்றும் முழு டெர்மினல் டெவலப்பர் பணிப்பாய்வுகளுடன் DHH இன் கருத்துடைய 'omakase' dev distro.",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "மோசடி கண்டறிதல் அமைப்பு",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA இறுதியாண்டு திட்டம்: ASP.NET மற்றும் 4-அல்காரிதம் ML குழுமம் (லாஜிஸ்டிக் ரிக்ரஷன், KNN, SVM, CNN) ஆகியவற்றைப் பயன்படுத்தி ஆன்லைன் வங்கி மோசடியைக் கண்டறிதல்.",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "உள்ளூர் பல்ஸ்",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Next.js 15, TypeScript, Clerk auth மற்றும் Firebase ஆகியவற்றைக் கொண்டு உருவாக்கப்பட்ட உள்ளூர் முதல் நிகழ்வு கண்டுபிடிப்பு தளம். ஆஃப்லைன் ஆதரவு மற்றும் PDF டிக்கெட்டுகளுடன் PWA.",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "கற்றல் பாதை வரைபடம்",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "நெட்வொர்க்கிங், கிளவுட் மற்றும் சைபர் செக்யூரிட்டி (CCNA, Security+) ஆகியவற்றில் திட்டமிடப்பட்ட சான்றிதழ்கள். கற்றுக் கொள்ளப்படும் கருவிகள்: விம்/நியோவிம், அப்சிடியன். CS50 சைபர் பாதுகாப்பு செயல்பாட்டில் உள்ளது.",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS நாணயம் - அது எப்படி கட்டப்பட்டது",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "FOSS நாணயம் உருவாக்கும் செயல்முறையின் படிப்படியான தொழில்நுட்ப முறிவு",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS நாணயம் - ஆன்-செயின் சரிபார்ப்பு",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "RPC அழைப்புகள் மற்றும் குறுக்கு சோதனைகளுடன் முழுமையான சரிபார்ப்பு வழிகாட்டி",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS நாணயம் - திட்டங்கள்",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "FOSS Coin திட்டத்தில் பயன்படுத்தப்படும் அனைத்து Solana நிரல்களும்",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS நாணயம் - பரிவர்த்தனைகள்",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "அனைத்து கையொப்பங்களுடன் முழு காலவரிசை பரிவர்த்தனை பதிவு",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS நாணயம் - ஆதாரம் மற்றும் சரிபார்ப்பு இணைப்புகள்",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "சரிபார்ப்பு வழிமுறைகளுடன் விரிவான சான்று சேகரிப்பு",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS நாணயம் - அனைத்து URLகள்",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "அனைத்து திட்ட URLகள் மற்றும் ஆதார இணைப்புகளின் முழுமையான பட்டியல்",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS நாணயம் - முதன்மை ஆவணம்",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "முழுமையான தொழில்நுட்ப ஆவணங்கள் மற்றும் விவரக்குறிப்புகள்",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS நாணயம் - வளங்கள்",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "பொது திட்ட வளங்கள் வகை மூலம் ஒழுங்கமைக்கப்பட்டுள்ளன",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

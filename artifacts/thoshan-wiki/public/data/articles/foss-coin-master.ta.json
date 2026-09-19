@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "id": "foss-coin-master",
+    "title": "FOSS நாணயம் - முதன்மை ஆவணம்",
+    "slug": "foss-coin-master",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "கடைசியாகச் சரிபார்க்கப்பட்டது: ஏப்ரல் 14, 2026 — அனைத்து உரிமைகோரல்களும் நேரலை சோலானா மெயின்நெட் ஆன்-செயின் தரவுகளுக்கு எதிராக குறுக்கு சோதனை செய்யப்பட்டன.",
+  "sections": [
+    {
+      "id": "what-is-foss",
+      "title": "1. FOSS நாணயம் என்றால் என்ன?",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSS Coin ($FOSS) என்பது சமூகத்தால் உருவாக்கப்பட்ட Solana SPL டோக்கன் ஆகும், இது இலவச மற்றும் திறந்த மூல மென்பொருளை (FOSS) ஆதரிக்கவும் மேம்படுத்தவும் கட்டப்பட்டது. இது ஒரு பரவலாக்கப்பட்ட பொறிமுறையாக செயல்படுகிறது:"
+        },
+        {
+          "type": "text",
+          "content": "- FOSS திட்டங்களுக்கு நன்கொடை அளிப்பது - இணையத்தை இயக்கும் பராமரிப்பாளர்கள் மற்றும் கருவிகளுக்கு நிதியளிக்கவும்.\n- டெவலப்பர்கள் மற்றும் பங்களிப்பாளர்களுக்கு வெகுமதி அளிக்கவும் - திறந்த மூல வேலைகளுக்கு டோக்கன் அடிப்படையிலான ஊக்கத்தொகைகளை வழங்கவும்.\n- விழிப்புணர்வை ஏற்படுத்துங்கள் - டிஜிட்டல் தனியுரிமை, லினக்ஸ் மற்றும் திறந்த தொழில்நுட்பங்களை ஊக்குவிக்கவும்."
+        },
+        {
+          "type": "text",
+          "content": "**முக்கியமான மறுப்பு:**FOSS Coin என்பது GNU, Linux Foundation, Free Software Foundation அல்லது வேறு ஏதேனும் நிறுவப்பட்ட அமைப்புகளின் அதிகாரப்பூர்வ திட்டமல்ல. இது ஒரு சுயாதீனமான அடிமட்ட முன்முயற்சியாகும், இது கட்டுப்பாடுகள் இல்லாமல் கட்டியெழுப்பவும், பகிர்ந்து கொள்ளவும், புதுமைப்படுத்தவும் சுதந்திரத்தில் நம்பிக்கை கொண்ட நபர்களால் உருவாக்கப்பட்டதாகும்."
+        }
+      ]
+    },
+    {
+      "id": "token-specifications",
+      "title": "2. டோக்கன் விவரக்குறிப்புகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "களம்",
+            "மதிப்பு",
+            "ஆதாரம்"
+          ],
+          "rows": [
+            {
+              "களம்": "டோக்கன் பெயர்",
+              "மதிப்பு": "இலவச திறந்த மூல மென்பொருள்",
+              "ஆதாரம்": "ஆன்-செயின் Metaplex மெட்டாடேட்டா"
+            },
+            {
+              "களம்": "சின்னம்",
+              "மதிப்பு": "FOSS",
+              "ஆதாரம்": "ஆன்-செயின் Metaplex மெட்டாடேட்டா"
+            },
+            {
+              "களம்": "புதினா முகவரி",
+              "மதிப்பு": "64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "ஆதாரம்": "சோலனா டோக்கன் திட்டம்"
+            },
+            {
+              "களம்": "பிளாக்செயின்",
+              "மதிப்பு": "சோலனா மைனெட்",
+              "ஆதாரம்": "—"
+            },
+            {
+              "களம்": "டோக்கன் தரநிலை",
+              "மதிப்பு": "SPL டோக்கன் (டோக்கன் திட்டம் v3.x)",
+              "ஆதாரம்": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+            },
+            {
+              "களம்": "தசமங்கள்",
+              "மதிப்பு": "6",
+              "ஆதாரம்": "ஆன்-செயின் புதினா கணக்கு"
+            },
+            {
+              "களம்": "மொத்த வழங்கல்",
+              "மதிப்பு": "1,000,000,000 (1 பில்லியன்)",
+              "ஆதாரம்": "ஆன்-செயின்: மூல சப்ளை = 1,000,000,000,000,000 ÷ 10^6 = 1B"
+            },
+            {
+              "களம்": "புதினா ஆணையம்",
+              "மதிப்பு": "ரத்து செய்யப்பட்டது (பூஜ்யமானது)",
+              "ஆதாரம்": "ஆன்-செயின்: உருவாக்கத்தில் பூஜ்யமாக அமைக்கப்பட்டது"
+            },
+            {
+              "களம்": "முடக்கம் அதிகாரம்",
+              "மதிப்பு": "ரத்து செய்யப்பட்டது (பூஜ்யமானது)",
+              "ஆதாரம்": "ஆன்-செயின்: உருவாக்கத்தில் பூஜ்யமாக அமைக்கப்பட்டது"
+            },
+            {
+              "களம்": "துவக்கப்பட்டுள்ளது",
+              "மதிப்பு": "உண்மை",
+              "ஆதாரம்": "ஆன்-செயின் புதினா கணக்கு"
+            },
+            {
+              "களம்": "DEX",
+              "மதிப்பு": "ஓர்கா (வேர்ல்பூல் ஏஎம்எம்)",
+              "ஆதாரம்": "குளம்:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2"
+            },
+            {
+              "களம்": "வர்த்தக ஜோடி",
+              "மதிப்பு": "FOSS / SOL (சுற்றப்பட்ட SOL)",
+              "ஆதாரம்": "வேர்ல்பூல் பூல் உள்ளமைவு"
+            },
+            {
+              "களம்": "டோக்கன் திட்டம்",
+              "மதிப்பு": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "ஆதாரம்": "நிலையான SPL டோக்கன் திட்டம்"
+            },
+            {
+              "களம்": "மெட்டாடேட்டா திட்டம்",
+              "மதிப்பு": "Metaplex டோக்கன் மெட்டாடேட்டா v3",
+              "ஆதாரம்": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+            },
+            {
+              "களம்": "உருவாக்கும் தளம்",
+              "மதிப்பு": "நோ-கோட் லாஞ்ச்பேட் (தனிப்பயன் சோலனா திட்டம்)",
+              "ஆதாரம்": "திட்டம்:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "on-chain-metadata",
+      "title": "3. ஆன்-செயின் மெட்டாடேட்டா",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Metaplex மெட்டாடேட்டா IPFS இல் சேமிக்கப்பட்டு ஆன்-செயினில் குறிப்பிடப்படுகிறது:"
+        },
+        {
+          "type": "text",
+          "content": "மெட்டாடேட்டா URI (IPFS): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+        },
+        {
+          "type": "text",
+          "content": "**மெட்டாடேட்டா JSON (பெறப்பட்டது மற்றும் சரிபார்க்கப்பட்டது):**"
+        },
+        {
+          "type": "text",
+          "content": "```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS).\\n\\nIt can be used to:\\n- Donate to FOSS projects\\n- Reward developers and contributors\\n- Raise awareness about digital privacy, Linux, and open technologies\\n\\nThis is not an official project by GNU, Linux.org, or the Free Software Foundation. $FOSS is an independent grassroots effort by passionate individuals who believe in the freedom to build, share, and innovate without restrictions.\\n\\nBy holding or using FOSS Coin, you become part of a decentralized movement to fund the tools that power the internet — freely and ethically.\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**டோக்கன் லோகோ**- IPFS ஹாஷ்:QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf- URL: [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)- வடிவம்: PNG\n- அளவு: 2,508,148 பைட்டுகள் (~2.5 எம்பி)\n- நிலை: ✅ அணுகக்கூடியது (HTTP 200 உறுதிப்படுத்தப்பட்டது)"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS நாணயம் முதன்மைக் கட்டுரை",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "கிட்ஹப் களஞ்சியம்",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Documentation"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

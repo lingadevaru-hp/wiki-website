@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "id": "foss-coin-transactions",
+    "title": "FOSS Coin — ഇടപാടുകൾ",
+    "slug": "foss-coin-transactions",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "ഇത് is  പൂർണ്ണ കാലാനുക്രമ ഇടപാട് രേഖപ്പെടുത്തുക വേണ്ടി  പദ്ധതി, based ൽ  പദ്ധതി documentation ഉം  collected ഉറവിടം files.",
+  "sections": [
+    {
+      "id": "transactions-table",
+      "title": "ഇടപാടുകൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "തീയതിയും സമയവും (UTC)",
+            "പൂർണ്ണ ഒപ്പ്",
+            "സ്ലോട്ട് നമ്പർ",
+            "ഫീസ് അടയ്ക്കുന്നയാൾ",
+            "ഫീസ് (ലാമ്പോർട്ടുകൾ)",
+            "വിവരണം",
+            "Solana എക്സ്പ്ലോറർ ലിങ്ക്"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "തീയതിയും സമയവും (UTC)": "2025-07-23 07:43:36 UTC",
+              "പൂർണ്ണ ഒപ്പ്": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "സ്ലോട്ട് നമ്പർ": "355223383",
+              "ഫീസ് അടയ്ക്കുന്നയാൾ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ഫീസ് (ലാമ്പോർട്ടുകൾ)": "90000",
+              "വിവരണം": "ഞാൻ സൃഷ്ടിച്ച  mint account, initialized  ടോക്കൺ ഒപ്പം 6 decimals, സൃഷ്ടിച്ച  Metaplex metadata, സൃഷ്ടിച്ച  creator ATA, minted 1 billion ടോക്കണുകൾ, revoked mint authority, ഉം executed  initial launchpad buy ൽ one atomic ഇടപാട്.",
+              "Solana എക്സ്പ്ലോറർ ലിങ്ക്": "[View ഇടപാട്](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "തീയതിയും സമയവും (UTC)": "2025-08-17 07:32:10 UTC",
+              "പൂർണ്ണ ഒപ്പ്": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "സ്ലോട്ട് നമ്പർ": "360612760",
+              "ഫീസ് അടയ്ക്കുന്നയാൾ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ഫീസ് (ലാമ്പോർട്ടുകൾ)": "80000",
+              "വിവരണം": "ഞാൻ അയച്ച ചെറിയ transfer ന്റെ 2 FOSS ടോക്കണുകൾ ലേക്ക് external വാലറ്റ് വഴി  transfer സേവനം പ്രോഗ്രാം referenced ൽ  തെളിവുകൾ സജ്ജമാക്കുക.",
+              "Solana എക്സ്പ്ലോറർ ലിങ്ക്": "[View ഇടപാട്](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "തീയതിയും സമയവും (UTC)": "2025-10-21 14:13:04 UTC",
+              "പൂർണ്ണ ഒപ്പ്": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "സ്ലോട്ട് നമ്പർ": "374850194",
+              "ഫീസ് അടയ്ക്കുന്നയാൾ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ഫീസ് (ലാമ്പോർട്ടുകൾ)": "16803",
+              "വിവരണം": "ഞാൻ സൃഷ്ടിച്ച  Orca Whirlpool പൂൾ വേണ്ടി  FOSS / Wrapped SOL pair, initialized  പൂൾ ഒപ്പം adaptive fees, ഉം സൃഷ്ടിച്ച  ആവശ്യമായ tick array state.",
+              "Solana എക്സ്പ്ലോറർ ലിങ്ക്": "[View ഇടപാട്](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "തീയതിയും സമയവും (UTC)": "2025-10-21 14:13:23 UTC",
+              "പൂർണ്ണ ഒപ്പ്": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "സ്ലോട്ട് നമ്പർ": "374850239",
+              "ഫീസ് അടയ്ക്കുന്നയാൾ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ഫീസ് (ലാമ്പോർട്ടുകൾ)": "19345",
+              "വിവരണം": "ഞാൻ minted  Orca സ്ഥാനം NFT, used IncreaseLiquidityV2, ചേർത്ത 2.900653 FOSS plus 0.0004 SOL ലേക്ക്  Whirlpool, ഉം completed  initial പൂൾ funding flow.",
+              "Solana എക്സ്പ്ലോറർ ലിങ്ക്": "[View ഇടപാട്](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "തീയതിയും സമയവും (UTC)": "2026-01-18 12:59:51 UTC",
+              "പൂർണ്ണ ഒപ്പ്": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "സ്ലോട്ട് നമ്പർ": "394322578",
+              "ഫീസ് അടയ്ക്കുന്നയാൾ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ഫീസ് (ലാമ്പോർട്ടുകൾ)": "5000",
+              "വിവരണം": "ഞാൻ രേഖപ്പെടുത്തിയ later 1 FOSS airdrop ഇടപാട് ലേക്ക് പുതിയ വാലറ്റ് ആയി part ന്റെ  പദ്ധതി's ചെറിയ follow-up transfers.",
+              "Solana എക്സ്പ്ലോറർ ലിങ്ക്": "[View ഇടപാട്](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "തീയതിയും സമയവും (UTC)": "2026-01-18 13:19:03 UTC",
+              "പൂർണ്ണ ഒപ്പ്": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "സ്ലോട്ട് നമ്പർ": "394325494",
+              "ഫീസ് അടയ്ക്കുന്നയാൾ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ഫീസ് (ലാമ്പോർട്ടുകൾ)": "5000",
+              "വിവരണം": "ഞാൻ രേഖപ്പെടുത്തിയ another 1 FOSS airdrop ഇടപാട് ലേക്ക് വ്യത്യസ്ത വാലറ്റ്, ഏത് is കൂടാതെ part ന്റെ  അവസാന ൽ-chain activity visible ൽ  പദ്ധതി history.",
+              "Solana എക്സ്പ്ലോറർ ലിങ്ക്": "[View ഇടപാട്](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin പ്രധാന Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ശേഖരണി",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Transactions"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article സൃഷ്ടിച്ച നിന്ന് GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

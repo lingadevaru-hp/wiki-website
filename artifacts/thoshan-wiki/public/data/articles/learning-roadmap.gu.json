@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "id": "learning-roadmap",
+    "title": "શિક્ષણ રોડમૈપ",
+    "slug": "learning-roadmap",
+    "category": "Learning",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 12,
+    "views": 1960
+  },
+  "infobox": {
+    "title": "શિક્ષણ રોડમૈપ",
+    "image": "https://picsum.photos/seed/learn-infobox/280/200",
+    "imageCaption": "અધ્યયન ક્ષેત્ર ઔર ટર્મિનલ કાર્યક્ષેત્ર",
+    "fields": [
+      {
+        "label": "પ્રાથમિકતા પ્રમાણપત્ર",
+        "value": "CompTIA Network+, Security+, CCNA"
+      },
+      {
+        "label": "પ્રગતિ પર",
+        "value": "CS50 Cyberસુરક્ષા (Harvard)"
+      },
+      {
+        "label": "ઉપકરણs learning",
+        "value": "Vim/Neovim, Obsidian (advanced)"
+      },
+      {
+        "label": "પઠન",
+        "value": "I Came Upon a Lighthouse — partially read"
+      },
+      {
+        "label": "સ્થિતિ",
+        "value": "અભી તક કુછ પ્રાપ્ત નહીં — સબ યોજનાધીન"
+      }
+    ]
+  },
+  "lead": "This page documents મેરે planned learning — certifications I haven't yet obtained, tools I haven't yet mastered, ઔર courses I'm currently in progress on. **Nothing here is a current skill or finished item.** This is મેરે honest future agenda.\n\nમેરે overarching career direction is **Computer Networking, Cloud Computing, ઔર Cyberસુરક્ષા**, ઔર મેરે certification plan reflects this directly. I've sequenced it: નેટવર્કing fundamentals first (CompTIA Network+, CCNA), then સુરક્ષા (Security+, CEH), then cloud (AWS, OCI, Azure).",
+  "sections": [
+    {
+      "id": "in-progress",
+      "title": "મૈં વર્તમાન મેં કિસ પર કામ કર રહા હૂઁ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**CS50 Introduction to Cyberસુરક્ષા (Harvard)** — I started this on edX / cs50.harvard.edu. It covers cyberસુરક્ષા fundamentals: threats, vulnerabilities, defensive techniques, cryptography basics, web સુરક્ષા. સ્થિતિ: started, not yet completed. I still have remaining modules ઔર the final પરિયોજના to do.\n\n**Vim / Neovim** — Not fully started yet. Learning through vimtutor (built into Vim). Neovim કે સાથ LazyVim config is already મેરે editor in the [[linux-setup|Omarchy સેટઅપ]], but deeper proficiency at the keybinding level is still being developed."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "વર્તમાન મેં પઢ઼ રહે હૈં",
+          "content": "Partially reading 'I Came Upon a Lighthouse' by Shantanu Naidu — a personal memoir about an intergenerational friendship ઔર mentorship. Not a business book. About human connection ઔર life lessons. I need to finish the remaining chapters."
+        }
+      ]
+    },
+    {
+      "id": "certifications",
+      "title": "મેરી પ્રમાણન યોજના",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "અભી તક કોઈ ઉદ્યોગ પ્રમાણન પ્રાપ્ત નહીં",
+          "content": "As of June 2026, I have no formal industry certifications. The Linux Fundamentals course certificate is a basic course cert. CS50 Cyberસુરક્ષા is started but not completed. Everything below is planned કે સાથ no set timeline."
+        },
+        {
+          "type": "text",
+          "content": "**Networking (મેરે highest priority):**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "પ્રમાણન",
+            "સ્તર",
+            "મુઝે યહ ક્યોં ચાહિએ"
+          ],
+          "rows": [
+            {
+              "प्रमाणन": "CompTIA Network+",
+              "स्तर": "Entry — vendor-neutral",
+              "मुझे यह क्यों चाहिए": "Good foundation before Security+. Networking fundamentals."
+            },
+            {
+              "प्रमाणन": "CCNA (Cisco)",
+              "स्तर": "Associate",
+              "मुझे यह क्यों चाहिए": "Gold standard કે લિએ નેટવર્કing roles in India. High priority કે લિએ me."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**Cyberસુરક્ષા:**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "પ્રમાણન",
+            "સ્તર",
+            "મુઝે યહ ક્યોં ચાહિએ"
+          ],
+          "rows": [
+            {
+              "प्रमाणन": "CompTIA Security+",
+              "स्तर": "Entry — industry standard",
+              "मुझे यह क्यों चाहिए": "Most recognised first cert in cyberસુરક્ષા. I'll do this after Network+."
+            },
+            {
+              "प्रमाणन": "CEH (Certified Ethical Hacker)",
+              "स्तर": "Intermediate",
+              "मुझे यह क्यों चाहिए": "EC-Council — offensive સુરક્ષા focus. After Security+."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**Cloud Computing:**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "પ્રમાણન",
+            "સ્તર",
+            "મુઝે યહ ક્યોં ચાહિએ"
+          ],
+          "rows": [
+            {
+              "प्रमाणन": "AWS Cloud Practitioner",
+              "स्तर": "Foundational",
+              "मुझे यह क्यों चाहिए": "Easiest entry into cloud certs — validates cloud fundamentals."
+            },
+            {
+              "प्रमाणन": "OCI Foundations Associate",
+              "स्तर": "Foundational",
+              "मुझे यह क्यों चाहिए": "Oracle Cloud — directly relevant given મેરે existing [[homelab|OCI homelab]] સેટઅપ."
+            },
+            {
+              "प्रमाणन": "AZ-900 (Azure Fundamentals)",
+              "स्तर": "Foundational",
+              "मुझे यह क्यों चाहिए": "Microsoft Azure entry cert — rounds out multi-cloud exposure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "મૈં જો ઉપકરણ સીખ રહા હૂઁ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Obsidian (advanced features)** — I currently use Obsidian as a personal wiki host but only scratch the surface. વિશેષતાs I want to actually learn: Dataview plugin (query notes like a database), Canvas (visual mind maps), graph filters, templates, tag hierarchies, backlink navigation, ઔર core plugin configuration.\n\n**Hermes Agent (Nous Research)** — A self-improving autonomous AI agent (Feb 2026, 123,000+ ગિટહબ stars, MIT license). Runs across 15+ platforms from a single install. Natural language cron jobs, model-agnostic, closed learning loop, GEPA self-improvement. સ્થિતિ: on hold indefinitely. મેરે current [[homelab|Oracle Cloud VM]] (1 OCPU, 1 GB RAM) is too limited — Hermes needs 24 GB+ RAM. Blocked until the ARM Ampere situation resolves."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "approach",
+      "title": "મેરા સીખને કા દૃષ્ટિકોણ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I prioritise **CCNA ઔર Security+** as the two highest-value items કે લિએ મેરે target career in નેટવર્કing ઔર cloud. Both are recognised hiring signals in India — CCNA કે લિએ નેટવર્ક engineering roles ઔર Security+ કે લિએ સુરક્ષા-adjacent roles.\n\nમેરે approach throughout is to build real things alongside studying theory. Each certification target connects to something I've already built: મેરે [[privacy-stack|પ્રાઇવેસી સ્ટૈક]] demonstrates the practical નેટવર્કing knowledge that Network+ covers in theory; મેરે [[homelab|homelab architecture]] demonstrates the cloud concepts that AWS/OCI certs formalise.\n\nNo timeline is set કે લિએ any certification. The honest status is: none started, all planned."
+        },
+        {
+          "type": "quote",
+          "content": "None of these are current skills or finished. These are honest future agenda items.",
+          "author": "Learning Plans document, April 2026"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "CS50 Introduction to Cyberસુરક્ષા",
+      "url": "https://cs50.harvard.edu/cybersecurity"
+    },
+    {
+      "id": 2,
+      "title": "CompTIA પ્રમાણન Roadmap",
+      "url": "https://www.comptia.org/certifications"
+    },
+    {
+      "id": 3,
+      "title": "Hermes Agent — Nous Research",
+      "url": "https://hermes-agent.nousresearch.com"
+    }
+  ],
+  "relatedArticles": [
+    "about",
+    "privacy-stack",
+    "homelab",
+    "linux-setup"
+  ],
+  "categories": [
+    "Learning",
+    "Certifications",
+    "Networking",
+    "Cybersecurity"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "પ્રથમ પુરુષ મેં પુનર્લેખન",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "CS50 સ્થિતિ જોડ઼ી ગઈ, Hermes constraint note, પ્રમાણન ક્રમ સ્પષ્ટ કિયા ગયા",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "પ્રારંભિક પૃષ્ઠ",
+      "changeType": "new"
+    }
+  ]
+}

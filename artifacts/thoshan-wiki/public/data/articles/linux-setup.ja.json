@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "id": "linux-setup",
+    "title": "Linux環境 — Omarchy",
+    "slug": "linux-setup",
+    "category": "Systems",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 21,
+    "views": 2700
+  },
+  "infobox": {
+    "title": "Linux環境 — Omarchy",
+    "image": "https://picsum.photos/seed/linux-infobox/280/200",
+    "imageCaption": "Alacrittyターミナル付きHyprland WaylandタイリングWM",
+    "fields": [
+      { "label": "ディストリビューション", "value": "Arch Linux (Omarchy経由)" },
+      { "label": "デスクトップ", "value": "Hyprland (WaylandタイリングWM)" },
+      { "label": "ユーザー名", "value": "libre" },
+      { "label": "ターミナル", "value": "Alacritty / Ghostty" },
+      { "label": "マルチプレクサ", "value": "Tmux" },
+      { "label": "エディタ", "value": "Neovim (LazyVim設定)" },
+      { "label": "Omarchyスター", "value": "約22,000 ⭐" },
+      { "label": "Omarchy作者", "value": "DHH (David Heinemeier Hansson)" }
+    ]
+  },
+  "lead": "**Omarchy経由のArch Linux**を使用しています — DHH (David Heinemeier Hansson、Ruby on Railsの作者)が作った意見強めの「おまかせ」開発者向けディストリビューションです。OmarchyにはHyprland WaylandタイリングWM、Neovim、Alacritty、Ghostty、Tmuxが同梱 — 数週間の手動設定をスキップできる厳選済みの事前設定開発環境です。\n\nユーザー名は`libre`にしました — [[privacy-stack|プライバシースタック]]と[[foss-coin|FOSSコイン]]プロジェクトに通じるFOSSファーストの思想と一貫しています。Omarchyは個人GitHubリポジトリにフォークしており、DHHが出荷するものを全部受けるのではなく、上流の更新を選択適用しています。",
+  "sections": [
+    {
+      "id": "what-is-omarchy",
+      "title": "Omarchyとは",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Omarchy**はDHHが「おまかせArch Linux」と表現するもの — *おまかせ*とはシェフが最良の料理を選んでくれる日本のレストランの概念です。DHHはこれをArch Linuxに適用しました:ゼロからデスクトップを設定するのに数週間かける代わり、Omarchyは15〜30分で完全な意見強めのセットアップを提供します。\n\nリポジトリは約22,000のGitHubスターを獲得(2026年4月時点)。ISOからインストールし、専用ドライブを消去、デフォルトでフルディスク暗号化を適用します。Superキーが全ショートカットの司令塔です。"
+        },
+        {
+          "type": "table",
+          "columns": ["構成要素", "デフォルト", "対応"],
+          "rows": [
+            { "Component": "ウィンドウマネージャ", "Default": "Hyprland (Waylandタイリング)", "What I did": "維持 — 設定ファイルは~/.config/hypr" },
+            { "Component": "ターミナル", "Default": "Alacritty + Ghostty", "What I did": "両方維持" },
+            { "Component": "マルチプレクサ", "Default": "Tmux (tエイリアス)", "What I did": "多用" },
+            { "Component": "エディタ", "Default": "Neovim (LazyVim)", "What I did": "維持 — 設定のためLuaを学習中" },
+            { "Component": "ブラウザ", "Default": "Chromium", "What I did": "LibreWolfに置換(テレメトリなし)" },
+            { "Component": "音楽", "Default": "Spotify", "What I did": "削除(追跡)" },
+            { "Component": "フォールバックDE", "Default": "なし", "What I did": "Hyprlandと並行してKDE Plasmaを追加" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal-workflow",
+      "title": "私のターミナルワークフロー",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "日常のワークフローはキーボード駆動・ターミナル中心です。開発作業にGUIアプリはほぼ使いません — すべてターミナル経由です。"
+        },
+        {
+          "type": "table",
+          "columns": ["ツール", "コマンド / エイリアス", "用途"],
+          "rows": [
+            { "Tool": "Tmux", "Command / Alias": "t", "What I use it for": "セッション・ウィンドウ管理 — ターミナル再起動後も残る永続セッション" },
+            { "Tool": "Neovim (LazyVim)", "Command / Alias": "nvim", "What I use it for": "メインエディタ — 設定カスタマイズのためLuaを学習中" },
+            { "Tool": "ファジーファインダ", "Command / Alias": "eff", "What I use it for": "ファジーファイル検索 → エディタで開く" },
+            { "Tool": "Claude Code", "Command / Alias": "cx", "What I use it for": "全許可モードのAIエージェント — 「P.I.」と呼ぶターミナルネイティブのペアプログラマ" },
+            { "Tool": "Docker", "Command / Alias": "docker", "What I use it for": "オンデマンドのソケット有効化 — 制約のある[[homelab|ホームラボ]]VMのアイドルRAMを削減" }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Omarchy v3.4以降の変更",
+          "content": "バージョン3.4でTmuxがデフォルト追加(tエイリアス)、Claude CodeがデフォルトAIエージェントに(cxエイリアス、全許可モード)、ハイバネーションがデフォルト有効、AIエージェント用Tmuxレイアウト(tdl、tdlm、tsl)が追加されました。"
+        }
+      ]
+    },
+    {
+      "id": "ai-agent-integration",
+      "title": "AIエージェント連携",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Claude Code**をターミナルネイティブなAIエージェントとして統合しました — 私の環境では「P.I.」(Personal Intelligence)と呼んでいます。`/home/libre/CLAUDE.md`に個人ワークフローの文脈を記したカスタム`CLAUDE.md`があります。\n\nClaude Codeは全許可モード(`cx`エイリアス)で実行 — 各ステップで確認を求めることなくファイルを読み、コードを書き、シェルコマンドを実行します。Omarchyスキルファイル(`github.com/robzolkos/omarchy-skill`)がOmarchy固有の文脈でこれを拡張します。\n\nこれで働き方は本当に変わりました:コマンド構文を暗記する代わり、自然言語で問いかけ、エージェントが適切なコマンドを実行します。"
+        }
+      ]
+    },
+    {
+      "id": "media-production",
+      "title": "メディア制作環境",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "画面収録と動画制作にOBS Studioを使用し、音声設定は丁寧に調整しました:\n- **ノイズゲート:** 閉じ閾値−32dB / 開き閾値−26dB — 発話間の背景ヒスを除去\n- **RNNoise抑制:** AIベースのノイズキャンセルプラグイン\n- **マイク:** PulseAudio経由のCMF Buds 2 Pro\n\n動画編集には**Shotcut**を使用。制作パイプライン全体がLinuxネイティブのフリーソフトウェアです — Adobe製品はどこにもありません。"
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "recovery-note",
+      "title": "復旧メモ",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "ターミナル誤削除 — 学んだこと",
+          "content": "パッケージ整理中にターミナルエミュレータを全部誤削除したことがあります。復旧法:Ctrl+Alt+F2でTTY2に切り替え、ログインし、フレームバッファ端末からpacmanでAlacrittyかGhosttyを再インストール。グラフィカルセッションにターミナルがなくてもTTYは常に利用可能です — 痛い目に遭って覚えました。"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "Omarchy GitHubリポジトリ", "url": "https://github.com/basecamp/omarchy" },
+    { "id": 2, "title": "Hyprland Waylandコンポジタ", "url": "https://hyprland.org" },
+    { "id": 3, "title": "LazyVim Neovim設定", "url": "https://lazyvim.org" }
+  ],
+  "relatedArticles": ["privacy-stack", "homelab", "about"],
+  "categories": ["Systems", "Linux", "Arch Linux", "Terminal"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "全面執筆:ターミナルワークフロー、AI連携、メディア環境", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

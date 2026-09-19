@@ -1,0 +1,256 @@
+{
+  "metadata": {
+    "id": "foss-coin-on-chain-verification",
+    "title": "FOSSコイン — オンチェーン検証",
+    "slug": "foss-coin-on-chain-verification",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "オンチェーン検証",
+    "fields": [
+      { "label": "プロジェクト", "value": "FOSS Coin ($FOSS)" },
+      { "label": "検証ステータス", "value": "✅ 完全検証済み" },
+      { "label": "最終検証", "value": "2026年4月14日" },
+      { "label": "チェック総数", "value": "18の検証ポイント" }
+    ]
+  },
+  "lead": "この文書はリポジトリの検証レイヤーです。シンプルなエクスプローラーリンクから始め、RPCコール、プログラムID、クロス検証記録へと深掘りできる構成にしました。",
+  "sections": [
+    {
+      "id": "section-1-mint-account",
+      "title": "セクション1 — トークンミントアカウント",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "確認事項:"
+        },
+        {
+          "type": "text",
+          "content": "- 小数点桁数(decimals) = 6\n- 供給量(supply) = 1000000000000000 raw\n- ミント権限(mintAuthority) = null\n- フリーズ権限(freezeAuthority) = null\n- 所有者(owner) = TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ]
+    },
+    {
+      "id": "section-2-transactions",
+      "title": "セクション2 — 全6トランザクション(時系列)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["#", "日付", "署名", "説明", "リンク"],
+          "rows": [
+            {
+              "#": "1",
+              "Date": "2025-07-23 07:43:36 UTC",
+              "Signature": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "Description": "トークン作成 — ミント、メタデータ、10億供給、ミント権限破棄、初期購入",
+              "Link": "[Explorer](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "Date": "2025-08-17 07:32:10 UTC",
+              "Signature": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "Description": "送金 — 外部ウォレットへ2 FOSS",
+              "Link": "[Explorer](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "Date": "2025-10-21 14:13:04 UTC",
+              "Signature": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "Description": "Orca Whirlpoolプール作成",
+              "Link": "[Explorer](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "Date": "2025-10-21 14:13:23 UTC",
+              "Signature": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "Description": "流動性提供、ポジションNFT作成",
+              "Link": "[Explorer](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "Date": "2026-01-18 12:59:51 UTC",
+              "Signature": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "Description": "エアドロップ — 1 FOSS",
+              "Link": "[Explorer](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "Date": "2026-01-18 13:19:03 UTC",
+              "Signature": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "Description": "エアドロップ — 1 FOSS",
+              "Link": "[Explorer](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-creator-wallet",
+      "title": "セクション3 — 作成者ウォレット",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "アドレス: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\n\n収集したプロジェクト文書によれば、このウォレットは全6トランザクションの手数料支払者です。"
+        },
+        {
+          "type": "text",
+          "content": "Solanaエクスプローラー: [View Wallet](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan: [View Wallet](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        }
+      ]
+    },
+    {
+      "id": "section-4-orca-pool",
+      "title": "セクション4 — Orcaプール",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "プール: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\nOrca: [View Pool](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal: [View Pool](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolanaエクスプローラー: [View Pool](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nプール種別: Whirlpool (集中流動性)\nプログラム: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        }
+      ]
+    },
+    {
+      "id": "section-5-metadata",
+      "title": "セクション5 — メタデータ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "IPFSメタデータJSON: [View JSON](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\nロゴ: [View Image](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\nMetaplexプログラム: metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ]
+    },
+    {
+      "id": "section-6-launchpad",
+      "title": "セクション6 — ローンチパッドプログラム",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "プログラムID: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr\n\nこれはpump.funではありません。pump.funのプログラムIDは6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6Pです。ここで使ったローンチパッドは別のBPFアップグレーダブルローダープログラムで、トークン作成・メタデータ・ミント・ミント権限破棄・初期購入を単一のアトミックなトランザクションで処理しました。"
+        },
+        {
+          "type": "text",
+          "content": "Solanaエクスプローラー: [View Program](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM: [View Program](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-rpc-verification",
+      "title": "セクション7 — RPC検証コマンド",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "エンドポイント: https://api.mainnet-beta.solana.com"
+        },
+        {
+          "type": "text",
+          "content": "### getAccountInfo\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getAccountInfo\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"encoding\":\"jsonParsed\"}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getSignaturesForAddress\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getSignaturesForAddress\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"limit\":10}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getTokenLargestAccounts\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getTokenLargestAccounts\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\"]}'\n```"
+        }
+      ]
+    },
+    {
+      "id": "section-8-cross-verification",
+      "title": "セクション8 — クロス検証結果",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["#", "入力ファイルの主張", "ステータス", "修正値 / オンチェーンの実態", "情報源"],
+          "rows": [
+            {
+              "#": "1",
+              "Claim from input file": "トークン名: \"FOSS Coin\"",
+              "Status": "⚠️ PARTIAL",
+              "Corrected value / on-chain reality": "オンチェーン名はFree Open Source Soft、説明文ではFOSS Coinと表記",
+              "Source": "IPFSメタデータ"
+            },
+            {
+              "#": "2",
+              "Claim from input file": "シンボル: FOSS",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "オンチェーンのシンボルはFOSS",
+              "Source": "IPFSメタデータ"
+            },
+            {
+              "#": "3",
+              "Claim from input file": "ブロックチェーン: Solana",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "トークンはSolanaメインネット上にありSPLトークンプログラムが所有",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "4",
+              "Claim from input file": "ミントアドレス: 64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "Solana RPCのアカウント参照で確認済み",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "5",
+              "Claim from input file": "トークン規格: SPLトークン",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "Token-2022ではなくレガシーSPLトークンプログラムを使用",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "6",
+              "Claim from input file": "総供給量: 1,000,000,000 (固定)",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "raw供給量1000000000000000、小数点6桁で1,000,000,000に相当",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "7",
+              "Claim from input file": "ミント権限: 破棄済み",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "mintAuthority: null",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "8",
+              "Claim from input file": "DEX: Orca",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "Orca Whirlpoolプールが3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2に存在",
+              "Source": "Orca"
+            },
+            {
+              "#": "9",
+              "Claim from input file": "小数点桁数: 9",
+              "Status": "❌ INCORRECT",
+              "Corrected value / on-chain reality": "オンチェーンの小数点桁数は9ではなく6",
+              "Source": "Solana RPCと入力ファイルの対比"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSSコイン メイン記事", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHubリポジトリ", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Verification"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "GitHub MDから初期サブ記事を作成", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

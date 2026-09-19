@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "id": "foss-coin-how-it-was-built",
+    "title": "FOSS Coin — ઇસે કૈસે બનાયા ગયા",
+    "slug": "foss-coin-how-it-was-built",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "How It Was Built",
+    "fields": [
+      {
+        "label": "Project",
+        "value": "FOSS Coin ($FOSS)"
+      },
+      {
+        "label": "Blockchain",
+        "value": "Solana Mainnet"
+      },
+      {
+        "label": "Creation Date",
+        "value": "July 23, 2025"
+      },
+      {
+        "label": "Total Steps",
+        "value": "7 atomic instructions"
+      }
+    ]
+  },
+  "lead": "મૈંને ઇસ પરિયોજના કો નો-કોડ Solana લૉન્ચપૈડ પ્રવાહ કે માધ્યમ સે બનાયા, લેકિન મૈંને ઇસે નિર્દેશ ઔર લેનદેન સ્તર પર દસ્તાવેજ઼ કિયા તાકિ તકનીકી ચરણ અભી ભી સ્પષ્ટ રહેં૤",
+  "sections": [
+    {
+      "id": "step-1-token-creation",
+      "title": "ચરણ 1 — ટોકન નિર્માણ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "દિનાંક: July 23, 2025\nSlot: 355,223,383\nસમય: 07:43:36 UTC\n\nમૈંને એક હી પરમાણુ લેનદેન મેં ટોકન બનાયા૤ ઉસ એકલ લેનદેન કે અંદર યહ હુઆ:"
+        },
+        {
+          "type": "text",
+          "content": "1. System Program ને 82 બાઇટ્સ કે સાથ મિંટ ખાતા આવંટિત કિયા૤\n2. InitializeMint2 ને ટોકન કો 6 દશમલવ પર સેટ કિયા ઔર પ્રારંભિક મિંટ અથૉરિટી સૌંપી૤\n3. Metaplex Create Metadata Accounts v3 ને નામ, પ્રતીક ઔર IPFS મેટાડેટા URI કો ઑન-ચેન પંજીકૃત કિયા૤\n4. મેરે નિર્માતા વૉલેટ કે લિએ Associated Token Account બનાયા ગયા૤\n5. MintTo ને નિર્માતા ATA મેં 1,000,000,000 ટોકન મિંટ કિએ૤\n6. SetAuthority ને મિંટ અથૉરિટી કો null પર સેટ કિયા, જો સ્થાયી ઔર અપરિવર્તનીય હૈ૤\n7. લૉન્ચપૈડ Buy નિર્દેશ ને તુરંત 35,765.474485 FOSS ખરીદા૤"
+        },
+        {
+          "type": "text",
+          "content": "શુલ્ક ભુગતાનકર્તા: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\nશુલ્ક: 90,000 lamports\n\nયહાઁ મહત્વપૂર્ણ તકનીકી બાત યહ હૈ કિ ટોકન નિર્માણ, મેટાડેટા પંજીકરણ, મિંટિંગ, અથૉરિટી નિરસ્તીકરણ ઔર પ્રારંભિક લૉન્ચપૈડ ખરીદ સભી એક હી બ્લૉક મેં હુએ, બિના કિસી ઉજાગર મધ્યવર્તી સ્થિતિ કે૤"
+        }
+      ]
+    },
+    {
+      "id": "step-2-orca-pool",
+      "title": "ચરણ 2 — Orca Whirlpool પૂલ નિર્માણ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "દિનાંક: October 21, 2025\nSlot: 374,850,194\nસમય: 14:13:04 UTC\n\nમૈંને બાદ મેં ટોકન કે લિએ Orca Whirlpool પૂલ બનાયા૤"
+        },
+        {
+          "type": "text",
+          "content": "- InitializePoolWithAdaptiveFee\n- પૂલ: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\n- જોડ઼ી: FOSS / Wrapped SOL\n- ટિક ઐરે પ્રારંભ કિએ ગએ\n\nઇસ ચરણ ને પરિયોજના કો કેવલ ઑન-ચેન ટોકન સે Solana DEX પર વાસ્તવિક લિક્વિડિટી પૂલ વાલે ટોકન મેં બદલ દિયા૤"
+        }
+      ]
+    },
+    {
+      "id": "step-3-liquidity",
+      "title": "ચરણ 3 — લિક્વિડિટી પ્રાવધાન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "દિનાંક: October 21, 2025\nસમય: 14:13:23 UTC\nપૂલ નિર્માણ સે દેરી: 19 સેકંડ\n\nપૂલ બનને કે તુરંત બાદ મૈંને ઉસમેં લિક્વિડિટી જોડ઼ી૤"
+        },
+        {
+          "type": "text",
+          "content": "- પોજ઼િશન NFT મિંટ કિયા ગયા: 8RVfhVxFGUo5uJKcMZQUu6MD7FhLH8v8WFRaxsT3doxY, Token-2022 કા ઉપયોગ કરકે\n- IncreaseLiquidityV2: 2.900653 FOSS + 0.0004 SOL જોડ઼ે ગએ\n\nઇસને પ્રારંભિક Orca લિક્વિડિટી પોજ઼િશન બનાઈ ઔર પૂલ કો સાધારણ LP ટોકન ખાતે કે બજાય પોજ઼િશન NFT સે જોડ઼ા૤"
+        }
+      ]
+    },
+    {
+      "id": "what-i-learned",
+      "title": "મૈંને ક્યા સીખા",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ઇસ પરિયોજના ને મુઝે સિખાયા કિ Solana ટોકન બુનિયાદી ઢાંચા સતહી સ્તર સે પરે કૈસે કામ કરતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "- મૈંને SPL Token Program નિર્દેશ સેટ કો વ્યાવહારિક રૂપ સે સીખા: InitializeMint2, MintTo, SetAuthority, ઔર TransferChecked૤\n- મૈંને સીખા કિ Metaplex મેટાડેટા ઑન-ચેન ટોકન ખાતોં કો ઑફ-ચેન IPFS ડેટા સે જોડ઼તા હૈ, જિસસે એક્સપ્લોરર ઔર વૉલેટ નામ, પ્રતીક, વિવરણ ઔર છવિયાં દિખાતે હૈં૤\n- મૈંને સીખા કિ મિંટ અથૉરિટી નિરસ્તીકરણ Solana સહમતિ દ્વારા લાગૂ કિયા જાતા હૈ૤ યહ અપરિવર્તનીય હૈ ઔર નિર્માતા કા કેવલ વાદા નહીં હૈ૤\n- મૈંને સીખા કિ Orca Whirlpool સાધારણ સ્થિર-ઉત્પાદ AMM ડિજ઼ાઇન કે બજાય કેંદ્રિત લિક્વિડિટી, ટિક ઐરે ઔર પોજ઼િશન NFT કા ઉપયોગ કરતા હૈ૤\n- મૈંને સીખા કિ પરમાણુ લેનદેન ક્યોં માયને રખતે હૈં૤ સભી સાત નિર્માણ ચરણ એક હી બ્લૉક મેં હુએ, ઇસલિએ ટોકન કભી આંશિક રૂપ સે કૉન્ફ઼િગર કી ગઈ સ્થિતિ મેં નહીં રહા૤\n- મૈંને નો-કોડ લૉન્ચપૈડ કા ઉપયોગ કરને ઔર વાસ્તવ મેં યહ સમઝને કે બીચ કા અંતર સીખા કિ BPF પ્રોગ્રામ ને પર્દે કે પીછે ક્યા નિષ્પાદિત કિયા૤"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Technical"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}
