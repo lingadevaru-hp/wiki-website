@@ -53,7 +53,11 @@ export function renderWikiMarkdown(content: string): ReactNode {
 
     if (line.startsWith("### ")) {
       result.push(
-        <h3 key={i} className="text-lg font-bold mt-4 mb-2 font-serif">
+        <h3
+          key={i}
+          className="mt-4 mb-2 font-sans font-semibold tracking-tight text-foreground"
+          style={{ fontSize: "1.05rem" }}
+        >
           {line.slice(4)}
         </h3>,
       );
@@ -62,7 +66,8 @@ export function renderWikiMarkdown(content: string): ReactNode {
       result.push(
         <h2
           key={i}
-          className="text-xl font-bold mt-5 mb-2 border-b border-border pb-1 font-serif"
+          className="mt-5 mb-2 border-b border-border pb-1 font-sans font-semibold tracking-tight text-foreground"
+          style={{ fontSize: "1.25rem" }}
         >
           {line.slice(3)}
         </h2>,
@@ -70,7 +75,11 @@ export function renderWikiMarkdown(content: string): ReactNode {
       i++;
     } else if (line.startsWith("# ")) {
       result.push(
-        <h1 key={i} className="text-2xl font-bold mt-5 mb-2 font-serif">
+        <h1
+          key={i}
+          className="mt-5 mb-2 font-sans font-semibold tracking-tight text-foreground"
+          style={{ fontSize: "1.875rem" }}
+        >
           {line.slice(2)}
         </h1>,
       );
@@ -91,8 +100,8 @@ export function renderWikiMarkdown(content: string): ReactNode {
       result.push(
         <p
           key={i}
-          className="mb-4 text-sm leading-relaxed"
-          style={{ lineHeight: "1.6" }}
+          className="mb-4 text-foreground"
+          style={{ fontSize: "15px", lineHeight: "1.65" }}
         >
           {renderWikiInline(text)}
         </p>,

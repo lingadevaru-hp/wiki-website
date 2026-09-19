@@ -2298,6 +2298,28 @@ pre {
 .article-sections {
   overflow-wrap: anywhere;
 }
+/* Omarchy prose spec: 15px/1.65 bright body, 48rem measure centered */
+.wiki-text,
+.article-lead,
+.article-sections {
+  font-size: 15px;
+  line-height: 1.65;
+  color: hsl(var(--foreground));
+}
+.wiki-text > :where(p, ul, ol, h2, h3, blockquote, pre, table),
+.article-lead > :where(p, ul, ol),
+.article-sections > :where(p, ul, ol, h2, h3, blockquote, pre, table) {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.wiki-text code,
+.article-sections code {
+  font-size: 13px;
+}
+.wiki-text table,
+.article-sections table {
+  font-size: 14px;
+}
 .article-sections table {
   display: block;
   overflow-x: auto;
