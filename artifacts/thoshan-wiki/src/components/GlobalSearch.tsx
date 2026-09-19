@@ -267,7 +267,7 @@ export default function GlobalSearch() {
               </div>
               <span
                 className="global-search-cat"
-                style={{ color: categoryColors[item.category] || "#7A8494" }}
+                style={{ color: categoryColors[item.category] || "hsl(var(--accent))" }}
               >
                 {item.category}
               </span>

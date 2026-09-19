@@ -204,13 +204,10 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
 
     case "callout": {
       const variantStyles: Record<string, string> = {
-        info: "bg-blue-50 dark:bg-blue-950/30 border-blue-300 dark:border-blue-800",
-        warning:
-          "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-400 dark:border-yellow-700",
-        success:
-          "bg-green-50 dark:bg-green-950/30 border-green-400 dark:border-green-700",
-        error:
-          "bg-red-50 dark:bg-red-950/30 border-red-400 dark:border-red-700",
+        info: "bg-card border-border border-l-[hsl(var(--accent))] bg-[hsl(var(--accent)/0.07)]",
+        warning: "bg-card border-border border-l-amber-400 dark:border-amber-700",
+        success: "bg-card border-border border-l-green-400 dark:border-green-700",
+        error: "bg-card border-border border-l-red-400 dark:border-red-700",
       };
       const v = block.variant || "info";
       return (
