@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "foss-coin-programs",
+    "title": "FOSS Coin — પ્રોગ્રામ",
+    "slug": "foss-coin-programs",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "FOSS Coin પરિયોજના મેં ઉપયોગ કિએ ગએ સભી Solana પ્રોગ્રામ ઔર ઉનકે ઉદ્દેશ્ય૤",
+  "sections": [
+    {
+      "id": "programs-table",
+      "title": "પ્રોગ્રામ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "પ્રોગ્રામ કા નામ",
+            "પ્રોગ્રામ ID",
+            "ઇસ પરિયોજના મેં ઉદ્દેશ્ય"
+          ],
+          "rows": [
+            {
+              "प्रोग्राम का नाम": "SPL Token Program",
+              "प्रोग्राम ID": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "इस परियोजना में उद्देश्य": "મિંટ નિર્માણ, ટોકન મિંટિંગ, ટ્રાંસફર ઔર અથૉરિટી પ્રબંધન સહિત મુખ્ય ટોકન સંચાલન"
+            },
+            {
+              "प्रोग्राम का नाम": "SPL Token-2022",
+              "प्रोग्राम ID": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "इस परियोजना में उद्देश्य": "Orca પોજ઼િશન NFT ઔર ટોકન એક્સટેંશન સમર્થન કે લિએ ઉપયોગ કિયા ગયા"
+            },
+            {
+              "प्रोग्राम का नाम": "Associated Token Account",
+              "प्रोग्राम ID": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "इस परियोजना में उद्देश्य": "વૉલેટ ધારકોં કે લિએ સંબદ્ધ ટોકન ખાતે બનાતા હૈ"
+            },
+            {
+              "प्रोग्राम का नाम": "Metaplex Token Metadata",
+              "प्रोग्राम ID": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "इस परियोजना में उद्देश्य": "નામ, પ્રતીક, URI ઔર છવિ કે લિએ ટોકન મેટાડેટા સંદર્ભ સંગ્રહીત કરતા હૈ"
+            },
+            {
+              "प्रोग्राम का नाम": "Orca Whirlpool",
+              "प्रोग्राम ID": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "इस परियोजना में उद्देश्य": "FOSS / SOL બાજ઼ાર કે લિએ ઉપયોગ કિએ ગએ કેંદ્રિત લિક્વિડિટી પૂલ કો સંચાલિત કરતા હૈ"
+            },
+            {
+              "प्रोग्राम का नाम": "System Program",
+              "प्रोग्राम ID": "11111111111111111111111111111111",
+              "इस परियोजना में उद्देश्य": "ખાતે આવંટિત કરતા હૈ ઔર બુનિયાદી Solana ખાતા નિર્માણ સંભાલતા હૈ"
+            },
+            {
+              "प्रोग्राम का नाम": "Compute Budget",
+              "प्रोग्राम ID": "ComputeBudget111111111111111111111111111111",
+              "इस परियोजना में उद्देश्य": "લેનદેન મેં કંપ્યૂટ યૂનિટ પૈરામીટર સેટ કરતા હૈ"
+            },
+            {
+              "प्रोग्राम का नाम": "Launchpad (custom)",
+              "प्रोग्राम ID": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "इस परियोजना में उद्देश्य": "ટોકન બનાને ઔર પરમાણુ લૉન્ચ પ્રવાહ ચલાને કે લિએ ઉપયોગ કિયા ગયા કસ્ટમ નો-કોડ લૉન્ચપૈડ પ્રોગ્રામ"
+            },
+            {
+              "प्रोग्राम का नाम": "Transfer Service",
+              "प्रोग्राम ID": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "इस परियोजना में उद्देश्य": "દર્જ છોટે ટ્રાંસફર / એયરડ્રૉપ ગતિવિધિ મેં સંદર્ભિત"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Technical"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

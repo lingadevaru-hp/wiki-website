@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "બારે મેં — લિંગદેવરુ એચ પી",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "SIT તુમકુરુ મેં 2026 મેં સ્નાતક કરને વાલા MCA છાત્ર૤ તૈનાત બ્લૉકચેન, AI ઔર વેબ પરિયોજનાઓં કા નિર્માતા૤ કરિયર ફોકસ: નેટવર્કિંગ, ક્લાઉડ ઔર સાઇબર સુરક્ષા૤",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSS કૉઇન ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "ફ્રી ઔર ઓપન સોર્સ સૉફ્ટવેયર કે સમર્થન કે પ્રતીક કે રૂપ મેં Solana Mainnet પર નિર્મિત SPL ટોકન૤ નિશ્ચિત 1B આપૂર્તિ કે સાથ Orca Whirlpool DEX પર લાઇવ૤",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "થોશન ફ્લૈશ",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "Google કે Gemma-2-9B બડ઼ે ભાષા મૉડલ કા QLoRA ફાઇન-ટ્યૂન, 26+ ડાઉનલોડ ઔર લાઇવ Gradio ઇનફરેંસ ઇંટરફેસ કે સાથ Hugging Face પર પ્રકાશિત૤",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "બીમા DApp",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "Solidity સ્માર્ટ કૉન્ટ્રૈક્ટ, Truffle, Web3.js ઔર MetaMask એકીકરણ કા ઉપયોગ કરકે Ethereum બ્લૉકચેન પર વિકેંદ્રીકૃત બીમા એપ્લિકેશન૤",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "લિબ્રે ક્લાઉડ — હોમલૈબ",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "Oracle Cloud Always Free ટિયર પર જીરો-ટ્રસ્ટ સ્વ-હોસ્ટેડ બુનિયાદી ઢાંચા૤ નિયોજિત 14-સેવા આર્કિટેક્ચર કે સાથ Cloudflare-ફ્રંટેડ રિવર્સ પ્રૉક્સી૤",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "ગોપનીયતા સ્ટૈક",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "સ્તરિત વ્યક્તિગત ગોપનીયતા સેટઅપ: Omarchy/Arch કે સાથ OS હાર્ડનિંગ, LibreWolf બ્રાઉજ઼ર, હાર્ડવેયર DNS ફ઼િલ્ટરિંગ, WireGuard VPN ઔર સ્વ-હોસ્ટેડ પાસવર્ડ પ્રબંધન૤",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "લિનક્સ સેટઅપ — ઓમાર્ચી",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Omarchy કે માધ્યમ સે Arch Linux — Hyprland ટાઇલિંગ WM, Neovim ઔર પૂર્ણ ટર્મિનલ ડેવલપર વર્કફ઼્લો કે સાથ DHH કા વિચારશીલ 'omakase' ડેવ ડિસ્ટ્રો૤",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "ધોખાધડ઼ી પહચાન પ્રણાલી",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA અંતિમ વર્ષ પરિયોજના: ASP.NET ઔર 4-એલ્ગોરિદમ ML સમૂહ (Logistic Regression, KNN, SVM, CNN) કા ઉપયોગ કરકે ઑનલાઇન બૈંકિંગ ધોખાધડ઼ી પહચાન, ઑટો-બ્લૉકિંગ કે સાથ૤",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "લોકલપલ્સ",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Next.js 15, TypeScript, Clerk auth ઔર Firebase કે સાથ નિર્મિત સ્થાનીય-પ્રથમ ઇવેંટ ખોજ મંચ૤ ઑફ઼લાઇન સમર્થન ઔર PDF ટિકટિંગ વાલા PWA૤",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "શિક્ષણ રોડમૈપ",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "નેટવર્કિંગ, ક્લાઉડ ઔર સાઇબર સુરક્ષા મેં નિયોજિત પ્રમાણપત્ર (CCNA, Security+)૤ સીખે જા રહે ઉપકરણ: Vim/Neovim, Obsidian૤ CS50 સાઇબર સુરક્ષા પ્રગતિ પર૤",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS કૉઇન — કૈસે બનાયા ગયા",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "FOSS કૉઇન નિર્માણ પ્રક્રિયા કા ચરણ-દર-ચરણ તકનીકી વિવરણ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS કૉઇન — ઑન-ચેન સત્યાપન",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "RPC કૉલ ઔર ક્રૉસ-ચેક કે સાથ પૂર્ણ સત્યાપન માર્ગદર્શિકા",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS કૉઇન — પ્રોગ્રામ",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "FOSS કૉઇન પરિયોજના મેં પ્રયુક્ત સભી Solana પ્રોગ્રામ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS કૉઇન — લેનદેન",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "સભી હસ્તાક્ષરોં કે સાથ પૂર્ણ કાલાનુક્રમિક લેનદેન રિકૉર્ડ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS કૉઇન — સાક્ષ્ય ઔર સત્યાપન લિંક",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "સત્યાપન નિર્દેશોં કે સાથ વ્યાપક સાક્ષ્ય સંગ્રહ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS કૉઇન — સભી URL",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "સભી પરિયોજના URL ઔર સાક્ષ્ય લિંક કી પૂર્ણ સૂચી",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS કૉઇન — મુખ્ય દસ્તાવેજ઼",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "પૂર્ણ તકનીકી દસ્તાવેજ઼ ઔર વિનિર્દેશ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS કૉઇન — સંસાધન",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "શ્રેણી અનુસાર વ્યવસ્થિત સાર્વજનિક પરિયોજના સંસાધન",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

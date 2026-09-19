@@ -1,0 +1,249 @@
+{
+  "metadata": {
+    "id": "homelab",
+    "title": "ലിബ്രെ ക്ലൗഡ് — ഹോംലാബ്",
+    "slug": "homelab",
+    "category": "Infrastructure",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 26,
+    "views": 3100
+  },
+  "infobox": {
+    "title": "Libre Cloud — Homelab",
+    "image": "https://picsum.photos/seed/homelab-infobox/280/200",
+    "imageCaption": "Zero-trust architecture diagram",
+    "fields": [
+      {
+        "label": "പ്ലാറ്റ്ഫോം",
+        "value": "Oracle Cloud Always Free"
+      },
+      {
+        "label": "VM shape",
+        "value": "VM.Standard.E2.1.Micro (1 OCPU, 1 GB RAM)"
+      },
+      {
+        "label": "DNS / CDN",
+        "value": "Cloudflare"
+      },
+      {
+        "label": "റിവേഴ്സ് പ്രോക്സി",
+        "value": "Caddy / nginx"
+      },
+      {
+        "label": "Domain",
+        "value": "lingadevaru.in"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "Partially running (ARM blocked)"
+      },
+      {
+        "label": "Target സേവനങ്ങൾ",
+        "value": "14 (3 public, 6 WireGuard-private, 5 ARM-only)"
+      }
+    ]
+  },
+  "lead": "**Libre Cloud** is എന്റെ zero-trust സ്വയം-ഹോസ്റ്റഡ് അടിസ്ഥാന സൗകര്യം പദ്ധതി പ്രവർത്തിപ്പിക്കൽ ൽ Oracle Cloud's Always Free നിര.  രൂപകൽപ്പന ചെയ്യുക routes എല്ലാം external traffic വഴി Cloudflare വേണ്ടി DDoS protection ഉം IP masking, പിന്നെ ലേക്ക് Oracle Cloud VM പ്രവർത്തിപ്പിക്കൽ Caddy റിവേഴ്സ് പ്രോക്സി അത് serves രണ്ടും പൊതു ഉം WireGuard-സ്വകാര്യ സേവനങ്ങൾ.\n\nഞാൻ named അത് 'Libre Cloud' മനഃപൂർവം: everything ൽ  stack is free ഉം ഓപ്പൺ സോഴ്സ്,  പ്ലാറ്റ്ഫോം is free-നിര cloud, ഉം  domain carries  FOSS identity. അത് connects directly ലേക്ക് എന്റെ [[privacy-stack|സ്വകാര്യത Stack]] — സേവനങ്ങൾ like Vaultwarden (passwords), Joplin സെർവർ (notes), ഉം SearXNG (സ്വകാര്യ search) ആണ് എല്ലാം രൂപകൽപ്പന ചെയ്ത ലേക്ക് run ഇവിടെ.",
+  "sections": [
+    {
+      "id": "current-reality",
+      "title": "നിലവിലെ Reality — എന്ത് ഞാൻ Actually ഉണ്ട്",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "സ്ഥിതി: Blocked / Severely Constrained",
+          "content": "എന്റെ target VM was VM.Standard.A1.Flex — Oracle's 4 OCPU, 24 GB RAM ARM Ampere instance, free forever. ഞാൻ hit persistent 'out ന്റെ capacity' errors ൽ  Hyderabad region ശേഷം repeated attempts മുകളിൽ months.  ARM plan is abandoned വേണ്ടി ഇപ്പോൾ. എന്ത് ഞാൻ actually ഉണ്ട്: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "സേവനം",
+            "RAM ഉപയോഗം",
+            "Feasibility ൽ എന്റെ 1 GB VM"
+          ],
+          "rows": [
+            {
+              "സേവനം": "WireGuard",
+              "RAM ഉപയോഗം": "~5 MB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "✅ എളുപ്പം"
+            },
+            {
+              "സേവനം": "Pi-hole",
+              "RAM ഉപയോഗം": "~50–100 MB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "✅ എളുപ്പം"
+            },
+            {
+              "സേവനം": "Vaultwarden",
+              "RAM ഉപയോഗം": "~50 MB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "✅ എളുപ്പം"
+            },
+            {
+              "സേവനം": "Caddy / nginx",
+              "RAM ഉപയോഗം": "~30 MB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "✅ എളുപ്പം"
+            },
+            {
+              "സേവനം": "Portfolio (static files)",
+              "RAM ഉപയോഗം": "Minimal",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "✅ എളുപ്പം"
+            },
+            {
+              "സേവനം": "SearXNG",
+              "RAM ഉപയോഗം": "~200–400 MB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "⚠️ Tight"
+            },
+            {
+              "സേവനം": "Coolify (Docker PaaS)",
+              "RAM ഉപയോഗം": "~500 MB–1 GB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "❌ Too heavy"
+            },
+            {
+              "സേവനം": "Immich / Jellyfin / Ollama",
+              "RAM ഉപയോഗം": "2–24 GB",
+              "എന്റെ 1 GB VM-ലെ സാധ്യത": "❌ Impossible"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture — എങ്ങനെ ഞാൻ രൂപകൽപ്പന ചെയ്ത അത്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഞാൻ രൂപകൽപ്പന ചെയ്ത  architecture അതിനാൽ nothing is directly exposed ലേക്ക്  internet ഇല്ലാതെ passing വഴി Cloudflare ഉം  റിവേഴ്സ് പ്രോക്സി പാളി. സേവനങ്ങൾ ആണ് split ലേക്ക് three visibility tiers: പൊതു (accessible ലേക്ക് anyone via Cloudflare), സ്വകാര്യ (accessible മാത്രം വഴി WireGuard VPN tunnel), ഉം ARM-മാത്രം (requiring  unprovisioned A1.Flex VM)."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "എന്റെ architecture flow",
+          "content": "Internet → Cloudflare (DNS + DDoS + IP masking) → Oracle Cloud VM (1 GB Micro) → റിവേഴ്സ് പ്രോക്സി (Caddy/nginx) → [പൊതു: Portfolio, Pi-hole DoH] / [സ്വകാര്യ (WireGuard-gated): Vaultwarden, Joplin സെർവർ, Gitea]"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "നിര",
+            "സേവനം",
+            "ഉദ്ദേശ്യം"
+          ],
+          "rows": [
+            {
+              "നിര": "പൊതു",
+              "സേവനം": "Portfolio",
+              "ഉദ്ദേശ്യം": "lingadevaru.ൽ വ്യക്തിഗത site"
+            },
+            {
+              "നിര": "പൊതു",
+              "സേവനം": "SearXNG",
+              "ഉദ്ദേശ്യം": "സ്വകാര്യത meta-search"
+            },
+            {
+              "നിര": "പൊതു",
+              "സേവനം": "GoatCounter",
+              "ഉദ്ദേശ്യം": "Cookie-free analytics"
+            },
+            {
+              "നിര": "WireGuard-സ്വകാര്യ",
+              "സേവനം": "Vaultwarden",
+              "ഉദ്ദേശ്യം": "സ്വയം-ഹോസ്റ്റഡ് password manager"
+            },
+            {
+              "നിര": "WireGuard-സ്വകാര്യ",
+              "സേവനം": "Pi-hole",
+              "ഉദ്ദേശ്യം": "DNS ad blocker"
+            },
+            {
+              "നിര": "WireGuard-സ്വകാര്യ",
+              "സേവനം": "Uptime Kuma",
+              "ഉദ്ദേശ്യം": "Uptime monitoring"
+            },
+            {
+              "നിര": "WireGuard-സ്വകാര്യ",
+              "സേവനം": "FreshRSS",
+              "ഉദ്ദേശ്യം": "RSS reader"
+            },
+            {
+              "നിര": "WireGuard-സ്വകാര്യ",
+              "സേവനം": "Joplin സെർവർ",
+              "ഉദ്ദേശ്യം": "സ്വയം-ഹോസ്റ്റഡ് notes"
+            },
+            {
+              "നിര": "WireGuard-സ്വകാര്യ",
+              "സേവനം": "Gitea",
+              "ഉദ്ദേശ്യം": "സ്വയം-ഹോസ്റ്റഡ് Git"
+            },
+            {
+              "നിര": "ARM-മാത്രം (blocked)",
+              "സേവനം": "Immich, Mailcow, Jellyfin, Ollama",
+              "ഉദ്ദേശ്യം": "Requires 24 GB RAM — indefinitely ൽ hold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-oracle",
+      "title": "എന്തുകൊണ്ട് ഞാൻ Chose Oracle Cloud",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Oracle Cloud's Always Free നിര is uniquely generous താരതമ്യം ചെയ്ത ലേക്ക് AWS, GCP, ഉം Azure free tiers.  headline offering is  **ARM Ampere A1.Flex** instance: 4 OCPU ഉം 24 GB RAM — free forever. വേണ്ടി comparison, AWS Free നിര gives t2.micro (1 vCPU, 1 GB) വേണ്ടി മാത്രം 12 months. Oracle's AMD Micro is comparable പക്ഷേ always-free ൽ perpetuity, ഉം  ARM Ampere ചെയ്യുമായിരുന്നു be dramatically കൂടുതൽ capable.\n\n catch is capacity availability:  Hyderabad region ARM Ampere ഉണ്ട് ആയിരിക്കുന്നു perennially 'out ന്റെ capacity'. ഇത് is widely-reported issue ൽ  Oracle Cloud community — അല്ല അതുല്യ ലേക്ക് എന്നെ. മറ്റ് regions ചെയ്യുമായിരുന്നു ആവശ്യപ്പെടുക separate account setup. I've ആയിരിക്കുന്നു stuck ൽ ഇത് constraint വേണ്ടി months."
+        },
+        {
+          "type": "quote",
+          "content": " plan is sound.  hardware മാത്രം never materialised.",
+          "author": "പദ്ധതി notes, April 2026"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "Oracle Cloud Always Free നിര documentation",
+      "url": "https://www.oracle.com/cloud/free/"
+    },
+    {
+      "id": 2,
+      "title": "Cloudflare DNS ഉം Zero Trust documentation",
+      "url": "https://developers.cloudflare.com"
+    }
+  ],
+  "relatedArticles": [
+    "privacy-stack",
+    "linux-setup",
+    "about"
+  ],
+  "categories": [
+    "Infrastructure",
+    "Self-Hosting",
+    "Cloud",
+    "Networking"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ചേർത്ത ARM capacity issue വിശദാംശം, പരിഷ്കരിച്ച സേവനം table",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

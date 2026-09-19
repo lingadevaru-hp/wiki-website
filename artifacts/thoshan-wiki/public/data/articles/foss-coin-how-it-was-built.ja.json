@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "id": "foss-coin-how-it-was-built",
+    "title": "FOSSコイン — 構築の舞台裏",
+    "slug": "foss-coin-how-it-was-built",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "構築の舞台裏",
+    "fields": [
+      { "label": "プロジェクト", "value": "FOSS Coin ($FOSS)" },
+      { "label": "ブロックチェーン", "value": "Solanaメインネット" },
+      { "label": "作成日", "value": "2025年7月23日" },
+      { "label": "総ステップ数", "value": "7つのアトミックなインストラクション" }
+    ]
+  },
+  "lead": "このプロジェクトはノーコードのSolanaローンチパッド経由で構築しましたが、インストラクションとトランザクションレベルで記録したので、技術的な手順は今も明確です。",
+  "sections": [
+    {
+      "id": "step-1-token-creation",
+      "title": "ステップ1 — トークン作成",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "日付:2025年7月23日\nスロット:355,223,383\n時刻:07:43:36 UTC\n\nトークンは1つのアトミックなトランザクションで作成しました。その単一トランザクション内部で起きたことは次の通りです:"
+        },
+        {
+          "type": "text",
+          "content": "1. System Programが82バイトでミントアカウントを確保。\n2. InitializeMint2がトークンを小数点以下6桁に設定し、初期ミント権限を付与。\n3. Metaplex Create Metadata Accounts v3が名前・シンボル・IPFSメタデータURIをオンチェーンに登録。\n4. 作成者ウォレット用に関連トークンアカウントを作成。\n5. MintToで作成者ATAに1,000,000,000トークンをミント。\n6. SetAuthorityでミント権限をnullに設定(恒久的で不可逆)。\n7. ローンチパッドのBuyインストラクションが即座に35,765.474485 FOSSを購入。"
+        },
+        {
+          "type": "text",
+          "content": "手数料支払者:HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\n手数料:90,000 lamports\n\nここで重要な技術ポイントは、トークン作成・メタデータ登録・ミント・権限破棄・初期ローンチパッド購入のすべてが、中間状態を晒すことなく1ブロック内で実行されたことです。"
+        }
+      ]
+    },
+    {
+      "id": "step-2-orca-pool",
+      "title": "ステップ2 — Orca Whirlpoolプール作成",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "日付:2025年10月21日\nスロット:374,850,194\n時刻:14:13:04 UTC\n\n後にこのトークン用のOrca Whirlpoolプールを作成しました。"
+        },
+        {
+          "type": "text",
+          "content": "- InitializePoolWithAdaptiveFee\n- プール:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\n- ペア:FOSS / ラップドSOL\n- ティック配列を初期化\n\nこのステップにより、プロジェクトは単なるオンチェーンのトークンから、Solana DEX上に実際の流動性プールを持つトークンへと進化しました。"
+        }
+      ]
+    },
+    {
+      "id": "step-3-liquidity",
+      "title": "ステップ3 — 流動性提供",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "日付:2025年10月21日\n時刻:14:13:23 UTC\nプール作成からの遅延:19秒\n\nプール作成直後に流動性を追加しました。"
+        },
+        {
+          "type": "text",
+          "content": "- ポジションNFTをミント:Token-2022を使った8RVfhVxFGUo5uJKcMZQUu6MD7FhLH8v8WFRaxsT3doxY\n- IncreaseLiquidityV2:2.900653 FOSS + 0.0004 SOLを追加\n\nこれによりOrcaの初期流動性ポジションが作成され、プールは単純なLPトークン口座ではなくポジションNFTに紐づけられました。"
+        }
+      ]
+    },
+    {
+      "id": "what-i-learned",
+      "title": "学んだこと",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "このプロジェクトを通じて、表面的な理解を超えたSolanaトークン基盤の仕組みを学びました。"
+        },
+        {
+          "type": "text",
+          "content": "- SPLトークンプログラムのインストラクション群を実践的に学んだ:InitializeMint2、MintTo、SetAuthority、TransferChecked。\n- Metaplexメタデータがオンチェーンのトークン口座とオフチェーンのIPFSデータを結び付け、エクスプローラーやウォレットに名前・シンボル・説明・画像を表示させる仕組みを学んだ。\n- ミント権限の破棄はSolanaコンセンサスによって強制され、不可逆であり、作成者の単なる約束ではないことを学んだ。\n- Orca Whirlpoolが単純な固定積AMMではなく、集中流動性・ティック配列・ポジションNFTを使うことを学んだ。\n- アトミックなトランザクションが重要な理由を学んだ。作成の7ステップはすべて1ブロック内で実行されたため、トークンが部分的に設定された状態で残ることはなかった。\n- ノーコードのローンチパッドを使うことと、その裏でBPFプログラムが実際に何を実行したかを理解することの違いを学んだ。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSSコイン メイン記事", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHubリポジトリ", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Technical"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "GitHub MDから初期サブ記事を作成", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

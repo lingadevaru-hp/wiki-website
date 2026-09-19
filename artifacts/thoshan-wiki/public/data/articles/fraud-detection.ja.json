@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "fraud-detection",
+    "title": "不正検知システム",
+    "slug": "fraud-detection",
+    "category": "AI / ML",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 16,
+    "views": 3000
+  },
+  "infobox": {
+    "title": "不正検知システム",
+    "image": "https://picsum.photos/seed/fraud-infobox/280/200",
+    "imageCaption": "ML予測分析を表示する管理ダッシュボード",
+    "fields": [
+      { "label": "種別", "value": "MCA最終学年プロジェクト" },
+      { "label": "学期", "value": "3学期 (最終学年)" },
+      { "label": "言語", "value": "C#" },
+      { "label": "フレームワーク", "value": "ASP.NET Web Forms 4.7.2" },
+      { "label": "MLアルゴリズム", "value": "LR + KNN + SVM + CNN (アンサンブル)" },
+      { "label": "データベース", "value": "SQL Server LocalDB" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/online-fraud-detection-system" },
+      { "label": "GitHubスター", "value": "1 ⭐" },
+      { "label": "ステータス", "value": "完了、GitHubで公開中" }
+    ]
+  },
+  "lead": "**オンライン取引不正検知システム**は私のMCA最終学年プロジェクト(3学期) — **ASP.NET Web Forms**と**4種MLアンサンブル**で構築したフルスタック銀行不正検知プラットフォームです。全取引をロジスティック回帰、KNN、SVM、畳み込みニューラルネットワークで分類 — 4手法中3つ以上が不正と判定すれば取引は自動ブロックされます。\n\nリアルタイム不正検知、IPと位置情報でログイン失敗を追跡する侵入検知モジュール、SMTPメール通知、Google Charts分析付きの本格管理パネルを含みます。コードは[GitHub](https://github.com/lingadevaru-hp/online-fraud-detection-system)で公開中です。",
+  "sections": [
+    {
+      "id": "ml-ensemble",
+      "title": "構築したMLアンサンブル",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "4つのMLアルゴリズムはすべてPythonのMLライブラリを使わずC#で直接実装しました。これは自分に課した意図的な制約です:スタック全体を単一のASP.NETアプリケーションにすること、Pythonマイクロサービスにしないこと。sklearnを呼ぶだけでは済まず、各アルゴリズムの数学を理解せざるを得ませんでした。\n\n**アンサンブル判定ルール**はシンプルで解釈可能です:多数決。4手法中3つ以上が独立に取引を不正と分類すれば、その取引はブロックされます。単一手法と比べ誤検知を減らしながら感度を維持します。"
+        },
+        {
+          "type": "table",
+          "columns": ["アルゴリズム", "種別", "使い方"],
+          "rows": [
+            { "Algorithm": "ロジスティック回帰", "Type": "線形分類器", "How I used it": "4つの正規化特徴量による不正/正常の二値分類" },
+            { "Algorithm": "KNN", "Type": "インスタンスベース", "How I used it": "特徴空間でのK=3最近傍" },
+            { "Algorithm": "SVM", "Type": "カーネルベース", "How I used it": "サポートベクターマシン — 最大マージンの決定境界を探索" },
+            { "Algorithm": "CNN", "Type": "ニューラルネットワーク", "How I used it": "畳み込みニューラルネットワーク — アンサンブル内唯一の深層学習モデル" }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "アンサンブル判定ルール",
+          "content": "4手法中3つ以上が不正に投票 → 取引をブロック。この多数決アプローチは単一手法より堅牢で、CNN単独に頼る場合と比べ誤検知も見逃しも減らします。"
+        }
+      ]
+    },
+    {
+      "id": "input-features",
+      "title": "入力特徴量",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["特徴量", "詳細", "正規化"],
+          "rows": [
+            { "Feature": "取引金額", "Detail": "ルピー建ての取引額", "Normalisation": "₹2,000で除算" },
+            { "Feature": "取引回数", "Detail": "口座の直近取引頻度", "Normalisation": "生カウント" },
+            { "Feature": "位置リスク", "Detail": "0 = 既知の安全な場所、1 = フラグ付き危険な場所", "Normalisation": "二値" },
+            { "Feature": "時間リスク", "Detail": "0 = 営業時間、1 = 深夜/早朝などの不審な時間帯", "Normalisation": "二値" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system-features",
+      "title": "システムの機能",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**不正検知:** 全取引へのリアルタイムなアンサンブルML投票。3手法以上が不正と判定した瞬間に取引をブロック — 人間のレビューキューなし。\n\n**侵入検知:** ログイン失敗をIPアドレス、GPS位置情報、タイムスタンプ付きで追跡。1時間に5回以上の失敗取引で自動的にアカウントブロック。不審な活動にはSMTPメール通知を送信。\n\n**管理パネル:** 本格的なユーザー管理、銀行CRUD操作、侵入ログビューア、Google Chartsによる取引分析、各手法の投票数を表示するML予測ダッシュボード。\n\n**ユーザー側:** 銀行口座作成(SBI、HDFC、Karnataka Bank)に対応、ウォレット入金、ライブ不正検知付き送金、口座明細表示、全取引に必要な口座ごとのセキュリティキー。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "実装したセキュリティ対策",
+          "content": "全体にパラメータ化SQLクエリ(SQLインジェクション対策)。適切なログアウト付きセッション管理。全取引操作に必要な銀行口座ごとのセキュリティキー。"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "PythonではなくC#を選んだ理由",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "SITトゥマクル校MCAの3学期最終学年提出作品です。4学期(最終学期)は企業インターン用に確保されており、このプロジェクトは3学期の成果物でした。\n\n意図的にPython + FlaskではなくC# + ASP.NETを選びました。C#と.NETはプロフェッショナルなエンタープライズスタックの代表であり、静的型付き言語でMLアルゴリズムをゼロから実装することで、Pythonライブラリを呼ぶだけでは得られない基礎数学の理解を強いられました。険しい道ですが学びは大きかったです。\n\nCHIAC ASIインターンでのML作業(Python、QLoRA、Transformerモデル)との対比は[[thoshan-flash|トーシャン・フラッシュ]]を参照してください。"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — online-fraud-detection-system", "url": "https://github.com/lingadevaru-hp/online-fraud-detection-system" }
+  ],
+  "relatedArticles": ["thoshan-flash", "local-pulse", "about"],
+  "categories": ["AI / ML", "Security", "ASP.NET", "MCA Project"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "学術的文脈セクションを追加", "changeType": "minor" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

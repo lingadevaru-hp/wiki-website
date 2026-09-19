@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "id": "thoshan-flash",
+    "title": "トーシャン・フラッシュ",
+    "slug": "thoshan-flash",
+    "category": "AI / ML",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 24,
+    "views": 4500
+  },
+  "infobox": {
+    "title": "トーシャン・フラッシュ",
+    "image": "https://picsum.photos/seed/flash-infobox/280/200",
+    "imageCaption": "ファインチューニングパイプライン概要",
+    "fields": [
+      { "label": "ベースモデル", "value": "Gemma-2-9B (Google)" },
+      { "label": "手法", "value": "QLoRA — 量子化低ランク適応" },
+      { "label": "フレームワーク", "value": "PEFT + Unsloth + PyTorch" },
+      { "label": "量子化", "value": "4ビット (VRAM: 約36GB → 約12GB)" },
+      { "label": "ダウンロード数", "value": "26回以上 (初月)" },
+      { "label": "プラットフォーム", "value": "Hugging Face Hub" },
+      { "label": "HFモデル", "value": "lingadevaruhp/thoshan_Flash" },
+      { "label": "インターフェース", "value": "Gradio (ライブ推論)" },
+      { "label": "ステータス", "value": "完了、公開中" }
+    ]
+  },
+  "lead": "**トーシャン・フラッシュ**はGoogleの**Gemma-2-9B**ベースモデルをファインチューンしたもので、[Hugging Face](https://huggingface.co/lingadevaruhp/thoshan_Flash)で公開し、ライブのGradio推論インターフェースも付けました。最初に正直に言います:これは**ゼロから構築したモデルではありません** — QLoRA(量子化低ランク適応)による既存事前学習モデルのパラメータ効率型ファインチューンであり、通常の何分の一かのGPUメモリで学習できます。\n\n公開初月にHugging Face Hubで26回以上ダウンロードされました — 私以外の人々が実際に取得して使ってくれたということです。ここで使ったファインチューニング技術 — アテンション機構、Transformer内部構造、PEFT手法 — はCHIAC ASIインターンでのフェーズ2研究学習の一部でもありました。",
+  "sections": [
+    {
+      "id": "what-qlora-does",
+      "title": "QLoRAの仕組み — なぜ使ったか",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "90億パラメータモデルのフルファインチューニングには約36GBのGPUメモリが必要です — 私にはそんな環境がありません。QLoRAは3段階のアプローチでこれを解決しますが、これが本当にエレガントだと感じました:\n\n**ステップ1:** ベースモデルを4ビット量子化形式で読み込みます。学習済み表現の大部分を保ちながらメモリ使用量を劇的に削減します。\n\n**ステップ2:** Transformer内の主要な重み行列に小さな学習可能な**LoRAアダプタ層**を挿入します。学習中に更新されるのはこのアダプタ部分だけで — 90億のベースパラメータには一切触れません。\n\n**ステップ3:** エクスポート時に学習済みアダプタ重みをベースモデルにマージし、推論可能な単一のファインチューン済みモデルファイルを生成します。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "リソース制約下の学習になぜ重要か",
+          "content": "LoRAアダプタは通常、モデル全体のパラメータのわずか1〜3%を占めます。90億パラメータのうち1%を学習するのは、90億すべてを学習するより圧倒的にリソース効率が良く — 本来なら到底足りないハードウェアで実行できました。"
+        },
+        {
+          "type": "table",
+          "columns": ["構成要素", "使用内容"],
+          "rows": [
+            { "Component": "ベースモデル", "What I used": "Gemma-2-9B (Google) — 大規模テキストコーパスで事前学習済み" },
+            { "Component": "ファインチューニング手法", "What I used": "QLoRA — 量子化低ランク適応" },
+            { "Component": "PEFTフレームワーク", "What I used": "PEFT (パラメータ効率型ファインチューニング、Hugging Face製)" },
+            { "Component": "量子化", "What I used": "4ビット → VRAMを約36GBから約12GBに削減" },
+            { "Component": "学習ライブラリ", "What I used": "Unsloth — 高速化されたQLoRA学習" },
+            { "Component": "深層学習", "What I used": "PyTorch" },
+            { "Component": "エコシステム", "What I used": "Hugging Face Transformers" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results-deployment",
+      "title": "結果とデプロイ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "学習後、モデルをHugging Face Hub ([huggingface.co/lingadevaruhp/thoshan_Flash](https://huggingface.co/lingadevaruhp/thoshan_Flash))にアップロードし、Gradio推論インターフェースも併設したので、ローカル環境なしで誰でも推論を実行できます。\n\n公開初月に**26回以上のダウンロード**を確認 — モデルカードを眺めるだけでなく、実際に取得して使う人がいました。ファインチューニング設定、ハイパーパラメータ、想定用途を記した正式なHugging Faceモデルカードも書きました。"
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "ライブで試す",
+          "content": "Gradioインターフェースはgo.lingadevaru.in/LLMとHugging Faceモデルページ(huggingface.co/lingadevaruhp/thoshan_Flash)で稼働中です。ローカルインストール不要です。"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "正直な位置づけ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "トーシャン・フラッシュはどこで紹介する場合も正確に位置づけると決めています:これは既存モデルのファインチューンであり、ゼロから設計したものではありません。この区別は重要だと考えています — AI/ML界隈では、他人のアーキテクチャで学習スクリプトを回しただけなのに「LLMを構築した」と匂わせる履歴書インフレが横行しています。\n\nこのファインチューニング作業は[[about|スキルプロフィール]]のAI/ML部分とつながっています:パラメータ効率型ファインチューニング、Hugging Faceエコシステム、MLモデルの公開推論エンドポイントへのデプロイです。モデルアーキテクトやML研究者になったという意味ではありません。\n\nまったく異なるスタックを使ったもう一つのML作業については[[fraud-detection|不正検知システム]]を参照してください — 銀行不正分類のためにC#でゼロから構築した伝統的MLアンサンブルです。"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "Hugging Face上のトーシャン・フラッシュ", "url": "https://huggingface.co/lingadevaruhp/thoshan_Flash" },
+    { "id": 2, "title": "ライブGradio推論 — go.lingadevaru.in/LLM", "url": "https://go.lingadevaru.in/LLM" }
+  ],
+  "relatedArticles": ["about", "fraud-detection", "foss-coin"],
+  "deployedUrl": "https://go.lingadevaru.in/LLM",
+  "categories": ["AI / ML", "LLM", "Hugging Face", "Fine-tuning"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え、HFへの直接リンクを追加", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "全面改稿:QLoRA解説、正直な位置づけ、デプロイ詳細", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "初期ページ作成", "changeType": "new" }
+  ]
+}

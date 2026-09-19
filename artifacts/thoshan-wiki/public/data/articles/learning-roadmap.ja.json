@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "id": "learning-roadmap",
+    "title": "学習ロードマップ",
+    "slug": "learning-roadmap",
+    "category": "Learning",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 12,
+    "views": 1960
+  },
+  "infobox": {
+    "title": "学習ロードマップ",
+    "image": "https://picsum.photos/seed/learn-infobox/280/200",
+    "imageCaption": "学習スペースとターミナル作業環境",
+    "fields": [
+      { "label": "優先資格", "value": "CompTIA Network+、Security+、CCNA" },
+      { "label": "進行中", "value": "CS50サイバーセキュリティ (ハーバード)" },
+      { "label": "学習中のツール", "value": "Vim/Neovim、Obsidian (応用)" },
+      { "label": "読書", "value": "I Came Upon a Lighthouse — 読書中" },
+      { "label": "ステータス", "value": "未取得 — すべて計画段階" }
+    ]
+  },
+  "lead": "このページは計画中の学習の記録です — 未取得の認定資格、未習得のツール、受講中のコース。**ここにあるものは現在のスキルでも完了済み項目でもありません。** 正直な今後のアジェンダです。\n\n全体のキャリア方向は**コンピュータネットワーク、クラウドコンピューティング、サイバーセキュリティ**であり、資格計画はそれを直接反映しています。順序も決めています:まずネットワーク基礎(CompTIA Network+、CCNA)、次にセキュリティ(Security+、CEH)、そしてクラウド(AWS、OCI、Azure)です。",
+  "sections": [
+    {
+      "id": "in-progress",
+      "title": "現在取り組み中のこと",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**CS50サイバーセキュリティ入門 (ハーバード)** — edX / cs50.harvard.eduで開始しました。サイバーセキュリティ基礎:脅威、脆弱性、防御技術、暗号の基礎、Webセキュリティをカバーします。ステータス:開始済み、未完了。残りモジュールと最終プロジェクトが残っています。\n\n**Vim / Neovim** — まだ本格開始していません。Vim内蔵のvimtutorで学習します。[[linux-setup|Omarchy環境]]ではLazyVim設定のNeovimがすでにエディタですが、キーバインドレベルの深い習熟はまだ発展途上です。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "読書中",
+          "content": "Shantanu Naidu著『I Came Upon a Lighthouse』を読書中 — 世代を超えた友情と師弟関係についての個人的回想録です。ビジネス書ではありません。人とのつながりと人生の教訓について。残りの章を読み終える必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "certifications",
+      "title": "資格取得計画",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "業界資格は未取得",
+          "content": "2026年6月時点で正式な業界資格は持っていません。Linux基礎コース修了証は基礎コースのものです。CS50サイバーセキュリティは開始済みですが未完了です。以下はすべて期限未定の計画です。"
+        },
+        {
+          "type": "text",
+          "content": "**ネットワーク (最優先):**"
+        },
+        {
+          "type": "table",
+          "columns": ["資格", "レベル", "目指す理由"],
+          "rows": [
+            { "Certification": "CompTIA Network+", "Level": "入門 — ベンダー中立", "Why I want it": "Security+の前の良い基礎。ネットワークの基礎。" },
+            { "Certification": "CCNA (Cisco)", "Level": "アソシエイト", "Why I want it": "インドのネットワーク職のゴールドスタンダード。私の高優先度。" }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**サイバーセキュリティ:**"
+        },
+        {
+          "type": "table",
+          "columns": ["資格", "レベル", "目指す理由"],
+          "rows": [
+            { "Certification": "CompTIA Security+", "Level": "入門 — 業界標準", "Why I want it": "サイバーセキュリティ分野で最も認知された最初の資格。Network+の後に取得予定。" },
+            { "Certification": "CEH (認定ホワイトハッカー)", "Level": "中級", "Why I want it": "EC-Council — オフェンシブセキュリティ重視。Security+の後。" }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**クラウドコンピューティング:**"
+        },
+        {
+          "type": "table",
+          "columns": ["資格", "レベル", "目指す理由"],
+          "rows": [
+            { "Certification": "AWS Cloud Practitioner", "Level": "基礎", "Why I want it": "クラウド資格への最も易しい入口 — クラウド基礎の証明。" },
+            { "Certification": "OCI Foundations Associate", "Level": "基礎", "Why I want it": "Oracle Cloud — 既存の[[homelab|OCIホームラボ]]構成に直接関連。" },
+            { "Certification": "AZ-900 (Azure基礎)", "Level": "基礎", "Why I want it": "Microsoft Azure入門資格 — マルチクラウド経験を補完。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "学習中のツール",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Obsidian (応用機能)** — 現在Obsidianを個人Wikiホストとして使っていますが表面的です。実際に学びたい機能:Dataviewプラグイン(ノートをデータベースのようにクエリ)、Canvas(ビジュアルマインドマップ)、グラフフィルター、テンプレート、タグ階層、バックリンクナビゲーション、コアプラグイン設定。\n\n**Hermes Agent (Nous Research)** — 自己改善型の自律AIエージェント(2026年2月、GitHubスター12.3万以上、MITライセンス)。単一インストールで15以上のプラットフォーム横断で動作。自然言語cronジョブ、モデル非依存、閉ループ学習、GEPA自己改善。ステータス:無期限保留中。現在の[[homelab|Oracle Cloud VM]](1 OCPU、1GB RAM)では力不足 — Hermesは24GB以上のRAMが必要。ARM Ampere問題が解決するまでブロック中。"
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "approach",
+      "title": "学習アプローチ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ネットワークとクラウドを目標キャリアとする上で価値が最も高い2項目として**CCNAとSecurity+**を優先しています。両方ともインドで認知された採用シグナルです — ネットワークエンジニア職向けのCCNA、セキュリティ隣接職向けのSecurity+です。\n\n一貫したアプローチは、理論学習と並行して実際にものを作ることです。各資格目標は既に構築したものとつながっています:[[privacy-stack|プライバシースタック]]はNetwork+が理論で扱う実践的ネットワーク知識を実証し、[[homelab|ホームラボ構成]]はAWS/OCI資格が形式化するクラウド概念を実証しています。\n\nいずれの資格にも期限は未定です。正直なステータス:未着手、すべて計画中です。"
+        },
+        {
+          "type": "quote",
+          "content": "これらはいずれも現在のスキルでも完了済みでもありません。正直な今後のアジェンダです。",
+          "author": "学習計画ドキュメント、2026年4月"
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "CS50サイバーセキュリティ入門", "url": "https://cs50.harvard.edu/cybersecurity" },
+    { "id": 2, "title": "CompTIA資格ロードマップ", "url": "https://www.comptia.org/certifications" },
+    { "id": 3, "title": "Hermes Agent — Nous Research", "url": "https://hermes-agent.nousresearch.com" }
+  ],
+  "relatedArticles": ["about", "privacy-stack", "homelab", "linux-setup"],
+  "categories": ["Learning", "Certifications", "Networking", "Cybersecurity"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "CS50ステータス、Hermes制約メモ、資格順序を明確化", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

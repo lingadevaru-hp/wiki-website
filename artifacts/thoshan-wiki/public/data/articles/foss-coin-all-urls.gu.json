@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "id": "foss-coin-all-urls",
+    "title": "FOSS કૉઇન - સભી યૂઆરએલ ઔર સાક્ષ્ય લિંક",
+    "slug": "foss-coin-all-urls",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "FOSS કૉઇન પ્રોજેક્ટ સે સભી પ્રોજેક્ટ યૂઆરએલ ઔર સાક્ષ્ય લિંક કી પૂરી સૂચી૤",
+  "sections": [
+    {
+      "id": "token-mint",
+      "title": "ટોકન ઔર ટકસાલ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS ટોકન મિંટ ખાતે કે લિએ સોલાના એક્સપ્લોરર પેજ૤\nદશમલવ (6), આપૂર્તિ (1બી કચ્ચા), ટકસાલ પ્રાધિકરણ (શૂન્ય), ફ઼્રીજ઼ પ્રાધિકરણ (શૂન્ય) દિખાતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)સોલસ્કૈન ટોકન પેજ - એક અલગ એક્સપ્લોરર પ્રારૂપ મેં એક હી ડેટા૤\nધારકોં કી સંખ્યા, સ્થાનાંતરણ ઇતિહાસ ઔર શીર્ષ ધારકોં કો દિખાતા હૈ૤"
+        }
+      ]
+    },
+    {
+      "id": "creation-transaction",
+      "title": "નિર્માણ લેનદેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)મૂલ ટોકન નિર્માણ લેનદેન (23 જુલાઈ, 2025)૤\nટોકન બનાયા ગયા, 1બી ઢાલા ગયા, ટકસાલ પ્રાધિકરણ રદ્દ કર દિયા ગયા, ઔર પ્રારંભિક ખરીદ નિષ્પાદિત કી ગઈ - સભી એક ટીએક્સ મેં૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)પાર્સ કિએ ગએ આંતરિક નિર્દેશોં કે સાથ સોલસ્કૈન પર સમાન નિર્માણ લેનદેન૤"
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "નિર્માતા બટુઆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)નિર્માતા કા બટુઆ જિસને સભી FOSS લેનદેન કે લિએ શુલ્ક કા ભુગતાન કિયા૤\nનિર્માણ ટીએક્સ, પૂલ નિર્માણ, તરલતા પ્રાવધાન ઔર સભી હસ્તાંતરણ પર હસ્તાક્ષર કિએ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)સંપૂર્ણ લેન-દેન ઇતિહાસ કે સાથ સોલસ્કૈન પર વહી ક્રિએટર વૉલેટ૤"
+        }
+      ]
+    },
+    {
+      "id": "orca-dex-pool",
+      "title": "ઓર્કા ડેક્સ પૂલ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS/SOL ટ્રેડિંગ જોડ઼ી કે લિએ ઓર્કા વ્હર્લપૂલ પેજ૤\nસંકેંદ્રિત તરલતા એએમએમ પૂલ જહાં કોઈ ભી FOSS ↔ SOL સ્વૈપ કર સકતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS/SOL ઓર્કા પૂલ કે લિએ ગેકોટર્મિનલ ચાર્ટ ઔર વિશ્લેષણ૤\nમૂલ્ય ઇતિહાસ, તરલતા ગહરાઈ ઔર માત્રા ડેટા દિખાતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)ઓર્કા વ્હર્લપૂલ પ્રોગ્રામ ખાતે કા સોલાના એક્સપ્લોરર દૃશ્ય૤\nટોકન વૉલ્ટ ઔર ટિક એરે સહિત પૂલ કા ઑન-ચેન ડેટા દિખાતા હૈ૤"
+        }
+      ]
+    },
+    {
+      "id": "pool-creation",
+      "title": "પૂલ નિર્માણ લેનદેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)લેન-દેન જિસને ઓર્કા વ્હર્લપૂલ બનાયા (21 અક્ટૂબર, 2025)૤\nઅનુકૂલી શુલ્ક કે સાથ આરંભિક પૂલ, SOL + FOSS વૉલ્ટ બનાએ ગએ, ઔર ટિક એરેજ઼ સેટ કિએ ગએ૤"
+        }
+      ]
+    },
+    {
+      "id": "liquidity-provision",
+      "title": "તરલતા પ્રાવધાન લેનદેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)લેન-દેન જિસને ઓર્કા પૂલ મેં પ્રારંભિક તરલતા જોડ઼ી (પૂલ નિર્માણ કે 19 સેકંડ બાદ)૤\nએક સ્થિતિ એનએફટી બનાઈ ઔર વ્હર્લપૂલ મેં FOSS + SOL જમા કિયા૤"
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal-apis",
+      "title": "ગેકોટર્મિનલ એપીઆઈ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS ટોકન મૂલ્ય ઔર બાજ઼ાર ડેટા કે લિએ ગેકોટર્મિનલ REST API એંડપૉઇંટ૤\nમૌજૂદા કીમત, માર્કેટ કૈપ ઔર ટ્રેડિંગ જોડ઼ે કે સાથ JSON લૌટાતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)ઓર્કા પૂલ ડેટા કે લિએ ગેકોટર્મિનલ રેસ્ટ એપીઆઈ એંડપૉઇંટ૤\nરિજ઼ર્વ, વૉલ્યૂમ ઔર પૂલ આઁકડ઼ોં કે સાથ JSON લૌટાતા હૈ૤"
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "મેટાડેટા (આઈપીએફએસ)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)મેટાપ્લેક્સ મેટાડેટા JSON ફ઼ાઇલ IPFS પર સંગ્રહીત હૈ૤\nઇસમેં ટોકન નામ (\"ફ્રી ઓપન સોર્સ સૉફ્ટ\"), પ્રતીક (FOSS), વિવરણ ઔર છવિ લિંક શામિલ હૈં૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)FOSS ટોકન લોગો છવિ (PNG, ~2.5 MB) IPFS પર સંગ્રહીત હૈ૤\nવૉલેટ ઔર એક્સપ્લોરર ઇસે ટોકન કે આઇકન કે રૂપ મેં પ્રદર્શિત કરતે હૈં૤"
+        }
+      ]
+    },
+    {
+      "id": "orca-docs",
+      "title": "ઓર્કા ડેવલપર દસ્તાવેજ઼",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)વ્હર્લપૂલ કે સાથ બાતચીત કરને વાલે ડેવલપર્સ કે લિએ આધિકારિક ઓર્કા દસ્તાવેજ઼ીકરણ૤\nપૂલ બનાને, તરલતા જોડ઼ને, સ્વૈપ કરને ઔર પ્રોગ્રામેટિક રૂપ સે સ્થિતિ પ્રબંધિત કરને કા તરીકા બતાતા હૈ૤"
+        }
+      ]
+    },
+    {
+      "id": "launchpad-program",
+      "title": "લૉન્ચપૈડ પ્રોગ્રામ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)નો-કોડ લૉન્ચપૈડ BPF પ્રોગ્રામ જિસને FOSS ટોકન બનાયા૤\nએક પરમાણુ ટીએક્સ મેં ટોકન નિર્માણ, મેટાડેટા, મિંટિંગ, પ્રાધિકરણ નિરસ્તીકરણ ઔર પ્રારંભિક ખરીદ કો સંભાલતા હૈ૤"
+        }
+      ]
+    },
+    {
+      "id": "recent-transfers",
+      "title": "હાલિયા સ્થાનાંતરણ લેનદેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)17 અગસ્ત, 2025 કો ટોકન સ્થાનાંતરણ - 2 FOSS કો બાહરી વૉલેટ મેં સ્થાનાંતરિત કર દિયા ગયા૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)18 જનવરી, 2026 કો ટોકન ટ્રાંસફર - 1 FOSS કો એક નએ વૉલેટ મેં એયરડ્રૉપ કિયા ગયા૤"
+        }
+      ]
+    },
+    {
+      "id": "solana-rpc",
+      "title": "સોલાના આરપીસી (પ્રોગ્રામેટિક સત્યાપન કે લિએ)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)સોલાના કા સાર્વજનિક JSON-RPC સમાપન બિંદુ૤\nશ્રૃંખલા સે લાઇવ ટોકન વિનિર્દેશોં કો સત્યાપિત કરને કે લિએ ટકસાલ પતે કે સાથ getAccountInfo કા ઉપયોગ કરેં૤"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS સિક્કા મુખ્ય લેખ",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "ગિટહબ રિપૉજિટરી",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "URLs"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

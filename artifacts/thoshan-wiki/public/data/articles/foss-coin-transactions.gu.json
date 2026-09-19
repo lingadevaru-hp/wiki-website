@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "id": "foss-coin-transactions",
+    "title": "FOSS Coin — લેનદેન",
+    "slug": "foss-coin-transactions",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "યહ પરિયોજના દસ્તાવેજ઼ ઔર એકત્રિત સ્રોત ફ઼ાઇલોં કે આધાર પર પરિયોજના કા પૂર્ણ કાલાનુક્રમિક લેનદેન રિકૉર્ડ હૈ૤",
+  "sections": [
+    {
+      "id": "transactions-table",
+      "title": "લેનદેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "દિનાંક ઔર સમય (UTC)",
+            "પૂર્ણ હસ્તાક્ષર",
+            "સ્લૉટ સંખ્યા",
+            "શુલ્ક ભુગતાનકર્તા",
+            "શુલ્ક (lamports)",
+            "વિવરણ",
+            "Solana Explorer લિંક"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "दिनांक और समय (UTC)": "2025-07-23 07:43:36 UTC",
+              "पूर्ण हस्ताक्षर": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "स्लॉट संख्या": "355223383",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "90000",
+              "विवरण": "મૈંને મિંટ ખાતા બનાયા, ટોકન કો 6 દશમલવ કે સાથ પ્રારંભ કિયા, Metaplex મેટાડેટા બનાયા, નિર્માતા ATA બનાયા, 1 બિલિયન ટોકન મિંટ કિએ, મિંટ અથૉરિટી રદ્દ કી, ઔર એક હી પરમાણુ લેનદેન મેં પ્રારંભિક લૉન્ચપૈડ ખરીદ નિષ્પાદિત કી૤",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "दिनांक और समय (UTC)": "2025-08-17 07:32:10 UTC",
+              "पूर्ण हस्ताक्षर": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "स्लॉट संख्या": "360612760",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "80000",
+              "विवरण": "મૈંને સાક્ષ્ય સેટ મેં સંદર્ભિત ટ્રાંસફર સેવા પ્રોગ્રામ કે માધ્યમ સે બાહરી વૉલેટ મેં 2 FOSS ટોકન કા છોટા ટ્રાંસફર ભેજા૤",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "दिनांक और समय (UTC)": "2025-10-21 14:13:04 UTC",
+              "पूर्ण हस्ताक्षर": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "स्लॉट संख्या": "374850194",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "16803",
+              "विवरण": "મૈંને FOSS / Wrapped SOL જોડ઼ી કે લિએ Orca Whirlpool પૂલ બનાયા, પૂલ કો અનુકૂલી શુલ્ક કે સાથ પ્રારંભ કિયા, ઔર આવશ્યક ટિક ઐરે સ્થિતિ બનાઈ૤",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "दिनांक और समय (UTC)": "2025-10-21 14:13:23 UTC",
+              "पूर्ण हस्ताक्षर": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "स्लॉट संख्या": "374850239",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "19345",
+              "विवरण": "મૈંને Orca પોજ઼િશન NFT મિંટ કિયા, IncreaseLiquidityV2 કા ઉપયોગ કિયા, Whirlpool મેં 2.900653 FOSS ઔર 0.0004 SOL જોડ઼ે, ઔર પ્રારંભિક પૂલ ફંડિંગ પ્રવાહ પૂરા કિયા૤",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "दिनांक और समय (UTC)": "2026-01-18 12:59:51 UTC",
+              "पूर्ण हस्ताक्षर": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "स्लॉट संख्या": "394322578",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "5000",
+              "विवरण": "મૈંને પરિયોજના કે છોટે અનુવર્તી ટ્રાંસફરોં કે ભાગ કે રૂપ મેં નએ વૉલેટ મેં બાદ કે 1 FOSS એયરડ્રૉપ લેનદેન કો દર્જ કિયા૤",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "दिनांक और समय (UTC)": "2026-01-18 13:19:03 UTC",
+              "पूर्ण हस्ताक्षर": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "स्लॉट संख्या": "394325494",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "5000",
+              "विवरण": "મૈંને એક અલગ વૉલેટ મેં એક ઔર 1 FOSS એયરડ્રૉપ લેનદેન દર્જ કિયા, જો પરિયોજના ઇતિહાસ મેં દિખને વાલી અંતિમ ઑન-ચેન ગતિવિધિ કા હિસ્સા હૈ૤",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Transactions"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

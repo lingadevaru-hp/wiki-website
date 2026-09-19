@@ -1,0 +1,335 @@
+{
+  "metadata": {
+    "id": "foss-coin",
+    "title": "FOSS Coin ($FOSS)",
+    "slug": "foss-coin",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 38,
+    "views": 6200
+  },
+  "infobox": {
+    "title": "FOSS Coin ($FOSS)",
+    "image": "/assets/foss-logo.png",
+    "imageCaption": "FOSS Coin official logo",
+    "fields": [
+      {
+        "label": "പൂർണ്ണ name",
+        "value": "Free Open Source Soft"
+      },
+      {
+        "label": "Symbol",
+        "value": "$FOSS"
+      },
+      {
+        "label": "നെറ്റ്വർക്ക്",
+        "value": "Solana Mainnet"
+      },
+      {
+        "label": "Standard",
+        "value": "SPL Token (Legacy Token Program)"
+      },
+      {
+        "label": "ആകെ വിതരണം",
+        "value": "1,000,000,000 (fixed)"
+      },
+      {
+        "label": "Mint authority",
+        "value": "null — revoked permanently"
+      },
+      {
+        "label": "DEX",
+        "value": "Orca Whirlpool (FOSS/SOL)"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "Live"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/Foss-Token"
+      },
+      {
+        "label": "GitHub സ്റ്റാറുകൾ",
+        "value": "7 ⭐  4 🔱"
+      }
+    ]
+  },
+  "lead": "**FOSS Coin ($FOSS)** is Solana SPL ടോക്കൺ ഞാൻ നിർമ്മിച്ച ലേക്ക് symbolise പിന്തുണയ്ക്കുക വേണ്ടി  Free ഉം ഓപ്പൺ സോഴ്സ് സോഫ്റ്റ്‌വെയർ movement. ഞാൻ പ്രസിദ്ധീകരിച്ച അത് ൽ Solana Mainnet ൽ July 2025 ഉം listed അത് ൽ  Orca Whirlpool വികേന്ദ്രീകൃത exchange ൽ October 2025. അത് carries fixed വിതരണം ന്റെ one billion ടോക്കണുകൾ — ഉം ഞാൻ permanently revoked  mint authority ൽ  moment ന്റെ creation, meaning  വിതരണം കഴിയും never be inflated വഴി anyone, including എന്നെ.\n\nഞാൻ നിർമ്മിച്ച ഇത് ആയി hands-ൽ exercise ലേക്ക് understand Solana ൽ  നിർദ്ദേശം നില — covering SPL ടോക്കൺ mechanics, Metaplex metadata, IPFS pinning, concentrated ലിക്വിഡിറ്റി AMMs, ഉം atomic multi-നിർദ്ദേശം ഇടപാടുകൾ.  പൂർണ്ണ ഉറവിടം is ൽ [GitHub (7 സ്റ്റാറുകൾ, 4 forks)](https://github.com/lingadevaru-hp/Foss-Token). അത് is അല്ല affiliated ഒപ്പം  FSF, GNU, അല്ലെങ്കിൽ Linux.org.",
+  "githubButton": {
+    "text": "📁 View GitHub Repository",
+    "url": "https://github.com/lingadevaru-hp/Foss-Token",
+    "title": "FOSS ടോക്കൺ GitHub ശേഖരണി"
+  },
+  "deployedUrl": "https://go.lingadevaru.in/foss-trading",
+  "subArticles": [
+    {
+      "slug": "foss-coin-how-it-was-built",
+      "title": "എങ്ങനെ അത് Was നിർമ്മിച്ച",
+      "excerpt": "ഘട്ടം-വഴി-ഘട്ടം സാങ്കേതിക വിശകലനം ന്റെ  FOSS Coin നിർമ്മാണ പ്രക്രിയ"
+    },
+    {
+      "slug": "foss-coin-on-chain-verification",
+      "title": "ൽ-Chain Verification",
+      "excerpt": "പൂർണ്ണ verification മാർഗ്ഗനിർദ്ദേശം ഒപ്പം RPC കോളുകൾ ഉം ക്രോസ്-ചെക്കുകൾ"
+    },
+    {
+      "slug": "foss-coin-programs",
+      "title": "പ്രോഗ്രാമുകൾ",
+      "excerpt": "എല്ലാം Solana പ്രോഗ്രാമുകൾ used ൽ  FOSS Coin പദ്ധതി"
+    },
+    {
+      "slug": "foss-coin-transactions",
+      "title": "ഇടപാടുകൾ",
+      "excerpt": "പൂർണ്ണ കാലാനുക്രമ ഇടപാട് രേഖപ്പെടുത്തുക ഒപ്പം എല്ലാം ഒപ്പുകൾ"
+    },
+    {
+      "slug": "foss-coin-evidence",
+      "title": "തെളിവുകൾ & Verification ലിങ്കുകൾ",
+      "excerpt": "സമഗ്ര തെളിവുകൾ ശേഖരം ഒപ്പം പരിശോധനാ നിർദ്ദേശങ്ങൾ"
+    },
+    {
+      "slug": "foss-coin-all-urls",
+      "title": "എല്ലാം URLs",
+      "excerpt": "പൂർണ്ണ പട്ടിക ന്റെ എല്ലാം പദ്ധതി URLs ഉം തെളിവുകൾ ലിങ്കുകൾ"
+    },
+    {
+      "slug": "foss-coin-master",
+      "title": "മാസ്റ്റർ ഡോക്യുമെന്റേഷൻ",
+      "excerpt": "പൂർണ്ണ സാങ്കേതിക ഡോക്യുമെന്റേഷൻ ഉം സവിശേഷതകൾ"
+    },
+    {
+      "slug": "foss-coin-resources",
+      "title": "വിഭവങ്ങൾ",
+      "excerpt": "പൊതു പദ്ധതി വിഭവങ്ങൾ ക്രമീകരിച്ച വഴി category"
+    }
+  ],
+  "sections": [
+    {
+      "id": "philosophy",
+      "title": "എന്തുകൊണ്ട് ഞാൻ നിർമ്മിച്ച ഇത്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": " FOSS movement holds അത് സോഫ്റ്റ്‌വെയർ വേണം be free: free ലേക്ക് run, study, modify, ഉം പങ്കിടുക. ബ്ലോക്ക്ചെയിൻ shares  അതേ core values — open, permissionless, ഉം transparent. ഞാൻ ആഗ്രഹിച്ച ലേക്ക് റൂട്ട് symbolic മൂല്യം ലേക്ക് അത് intersection ൽ concrete, ൽ-chain way.\n\nഎന്റെ own [[privacy-stack|സ്വകാര്യത ഉം സുരക്ഷ stack]] is നിർമ്മിച്ച entirely ൽ free ഉം ഓപ്പൺ സോഴ്സ് സോഫ്റ്റ്‌വെയർ — Arch Linux, LibreWolf, uBlock Origin, Pi-hole, Vaultwarden, SearXNG — അതിനാൽ  philosophical alignment is genuinely വ്യക്തിഗത, അല്ല മാത്രം marketing. എപ്പോൾ ഞാൻ look ൽ  tools ഞാൻ use എല്ലാ day, അവർ ആയിരുന്നു എല്ലാം നിർമ്മിച്ച വഴി people ആര് contributed ഇല്ലാതെ ആയിക്കൊണ്ടിരിക്കുന്നു paid വഴി centralised company. FOSS Coin is ചെറിയ acknowledgement ന്റെ അത്."
+        },
+        {
+          "type": "quote",
+          "content": "FOSS Coin is community-സൃഷ്ടിച്ച ടോക്കൺ നിർമ്മിച്ച ലേക്ക് പിന്തുണയ്ക്കുക ഉം promote Free ഉം ഓപ്പൺ സോഴ്സ് സോഫ്റ്റ്‌വെയർ. അത് കഴിയും be used ലേക്ക് donate ലേക്ക് FOSS പദ്ധതികൾ, reward developers ഉം contributors, ഉം raise awareness കുറിച്ച് digital സ്വകാര്യത, Linux, ഉം open technologies.",
+          "author": "പദ്ധതി വിവരണം — github.com/lingadevaru-hp/Foss-ടോക്കൺ"
+        }
+      ]
+    },
+    {
+      "id": "how-i-built-it",
+      "title": "എങ്ങനെ ഞാൻ നിർമ്മിച്ച അത് — One Atomic ഇടപാട്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": " മുഴുവൻ ടോക്കൺ was launched ൽ **one atomic ഇടപാട് containing 7 instructions**. എങ്കിൽ any single നിർദ്ദേശം ഉണ്ടായിരുന്നു failed,  മുഴുവൻ ഇടപാട് ചെയ്യുമായിരുന്നു ഉണ്ട് rolled back ഒപ്പം ഇല്ല partial ൽ-chain state — ഒന്നുകിൽ everything succeeded together അല്ലെങ്കിൽ nothing changed ൽ എല്ലാം. ഇത് is one ന്റെ  things അത് makes Solana architecturally elegant."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ഘട്ടം",
+            "നിർദ്ദേശം",
+            "എന്ത് ഞാൻ was doing"
+          ],
+          "rows": [
+            {
+              "ഘട്ടം": "1",
+              "നിർദ്ദേശം": "Allocate mint account",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "Reserve  ൽ-chain account അത് ചെയ്യും represent  ടോക്കൺ"
+            },
+            {
+              "ഘട്ടം": "2",
+              "നിർദ്ദേശം": "InitializeMint2",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "സജ്ജമാക്കുക 6 decimal places വേണ്ടി  ടോക്കൺ"
+            },
+            {
+              "ഘട്ടം": "3",
+              "നിർദ്ദേശം": "Metaplex metadata v3",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "Register name 'Free ഓപ്പൺ സോഴ്സ് Soft', symbol '$FOSS', ഉം IPFS URഞാൻ ൽ-chain"
+            },
+            {
+              "ഘട്ടം": "4",
+              "നിർദ്ദേശം": "സൃഷ്ടിക്കുക ATA",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "സൃഷ്ടിക്കുക എന്റെ Associated ടോക്കൺ Account ലേക്ക് hold  വിതരണം"
+            },
+            {
+              "ഘട്ടം": "5",
+              "നിർദ്ദേശം": "MintTo",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "Mint  പൂർണ്ണ 1,000,000,000 FOSS ലേക്ക് എന്റെ ATA"
+            },
+            {
+              "ഘട്ടം": "6",
+              "നിർദ്ദേശം": "SetAuthority → null",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "Permanently revoke mint authority — ഇല്ല കൂടുതൽ ടോക്കണുകൾ കഴിയും ever be സൃഷ്ടിച്ച"
+            },
+            {
+              "ഘട്ടം": "7",
+              "നിർദ്ദേശം": "Launchpad Buy",
+              "ഞാൻ ചെയ്തുകൊണ്ടിരുന്നത്": "Buy 35,765 FOSS വഴി  launchpad ലേക്ക് seed initial activity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creation-timeline",
+      "title": "Deployment Timeline",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Phase 1 — ടോക്കൺ പ്രസിദ്ധീകരിച്ച (July 23, 2025)",
+          "content": "Slot 355,223,383 · 07:43:36 UTC. ഞാൻ minted  പൂർണ്ണ 1B വിതരണം ഉം revoked mint authority ൽ single atomic ഇടപാട്. നിന്ന് അത് moment,  വിതരണം was permanently fixed."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Phase 2 — Orca Whirlpool Listing (October 21, 2025)",
+          "content": "Slot 374,850,194. ഞാൻ സൃഷ്ടിച്ച concentrated ലിക്വിഡിറ്റി AMM പൂൾ വേണ്ടി  FOSS/SOL pair ൽ Orca. ഞാൻ ചേർത്ത  ആദ്യ ലിക്വിഡിറ്റി 19 seconds ശേഷം പൂൾ creation: 2.9 FOSS + 0.0004 SOL.  സ്ഥാനം NFT was minted താഴെ  ടോക്കൺ-2022 standard."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Phase 3 — Community Airdrops (January 18, 2026)",
+          "content": "ഞാൻ used TransferChecked instructions വേണ്ടി precision transfers ഉം distributed $FOSS ലേക്ക് external wallets —  ആദ്യ community distribution ന്റെ  ടോക്കൺ."
+        }
+      ]
+    },
+    {
+      "id": "specifications",
+      "title": "ടോക്കൺ സവിശേഷതകൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "സ്വത്ത്",
+            "മൂല്യം"
+          ],
+          "rows": [
+            {
+              "സ്വത്ത്": "പൂർണ്ണ Name",
+              "മൂല്യം": "Free ഓപ്പൺ സോഴ്സ് Soft"
+            },
+            {
+              "സ്വത്ത്": "Symbol",
+              "മൂല്യം": "$FOSS"
+            },
+            {
+              "സ്വത്ത്": "നെറ്റ്വർക്ക്",
+              "മൂല്യം": "Solana Mainnet"
+            },
+            {
+              "സ്വത്ത്": "ടോക്കൺ Standard",
+              "മൂല്യം": "SPL ടോക്കൺ (Legacy ടോക്കൺ പ്രോഗ്രാം)"
+            },
+            {
+              "സ്വത്ത്": "Decimals",
+              "മൂല്യം": "6"
+            },
+            {
+              "സ്വത്ത്": "ആകെ വിതരണം",
+              "മൂല്യം": "1,000,000,000 (1B — fixed, immutable)"
+            },
+            {
+              "സ്വത്ത്": "Mint Authority",
+              "മൂല്യം": "null — revoked permanently ൽ creation"
+            },
+            {
+              "സ്വത്ത്": "Freeze Authority",
+              "മൂല്യം": "null — revoked"
+            },
+            {
+              "സ്വത്ത്": "Metadata Standard",
+              "മൂല്യം": "Metaplex ടോക്കൺ Metadata v3 → IPFS JSON"
+            },
+            {
+              "സ്വത്ത്": "DEX",
+              "മൂല്യം": "Orca Whirlpool (FOSS/SOL pair)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what-was-learned",
+      "title": "എന്ത് ഞാൻ പഠിച്ച",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Building FOSS Coin ആവശ്യമായ working വഴി  പൂർണ്ണ Solana നിർദ്ദേശം സജ്ജമാക്കുക എന്നതിന് പകരം ഉപയോഗിച്ച് ഉയർന്ന-നില abstractions. ഇവിടെ's എന്ത് ഞാൻ actually പഠിച്ച doing ഇത്:\n\n**SPL ടോക്കൺ നിർദ്ദേശം സജ്ജമാക്കുക** — ഞാൻ ഉണ്ടായിരുന്നു ലേക്ക് understand allocate, InitializeMint2, MintTo, ഉം SetAuthority ൽ  byte നില. ഇല്ല SDK wrapper hides എങ്ങനെ ഓരോ നിർദ്ദേശം modifies ൽ-chain state.\n\n**Metaplex ടോക്കൺ Metadata v3** — ഞാൻ പഠിച്ച അത് name/symbol/URഞാൻ metadata attaches ലേക്ക്  mint account ൽ-chain, അല്ല സംഭരിച്ച ൽ  ടോക്കൺ account itself. ഇത് is സാധാരണ point ന്റെ confusion.\n\n**IPFS + metadata** — ഞാൻ pinned  off-chain ടോക്കൺ image ഉം JSON ലേക്ക് IPFS manually ഉം പഠിച്ച അത് metadata persistence depends ൽ IPFS pin health — എങ്കിൽ pins die, metadata കഴിയും disappear.\n\n**Atomic ഇടപാടുകൾ ൽ Solana** — Bundling 7 instructions ലേക്ക് one എല്ലാം-അല്ലെങ്കിൽ-nothing ഇടപാട്. ഞാൻ ഇപ്പോൾ understand deeply എന്തുകൊണ്ട് Solana ഇടപാടുകൾ ആണ് structured ഇത് way.\n\n**Orca Whirlpool mechanics** — Concentrated ലിക്വിഡിറ്റി, tick arrays, price ranges, ഉം സ്ഥാനം NFTs. CLMMs ആണ് fundamentally വ്യത്യസ്ത നിന്ന് traditional AMMs like Uniswap v2 — capital efficiency comes ൽ  cost ന്റെ active management.\n\n**ടോക്കൺ-2022 vs Legacy** — വ്യത്യസ്ത പ്രോഗ്രാം addresses, വ്യത്യസ്ത available extensions. എന്റെ ടോക്കൺ uses  Legacy പ്രോഗ്രാം;  സ്ഥാനം NFT used ടോക്കൺ-2022."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "known-limitations",
+      "title": "Honest Limitations",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "എന്ത് ഇത് പദ്ധതി is അല്ല",
+          "content": "Extremely താഴ്ന്ന ലിക്വിഡിറ്റി (മാത്രം ~0.0004 SOL ൽ  പൂൾ ൽ launch). അല്ല listed ൽ Jupiter aggregator. ഇല്ല ൽ-chain utility — ഇല്ല staking, governance, അല്ലെങ്കിൽ DApp integration. IPFS dependency വേണ്ടി metadata. ഞാൻ hold  sole Whirlpool സ്ഥാനം NFT.  ടോക്കൺ was സൃഷ്ടിച്ച via launchpad (ഇല്ല-code deployment), though I've രേഖപ്പെടുത്തിയ എല്ലാ നിർദ്ദേശം ൽ വിശദാംശം. ഇത് is learning പദ്ധതി അത് happens ലേക്ക് be തത്സമയ, അല്ല DeFഞാൻ product."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — Foss-ടോക്കൺ (7 സ്റ്റാറുകൾ, 4 forks)",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    },
+    {
+      "id": 2,
+      "title": "തത്സമയ Trading — go.lingadevaru.ൽ/foss-trading",
+      "url": "https://go.lingadevaru.in/foss-trading"
+    },
+    {
+      "id": 3,
+      "title": "Orca Whirlpool DEX",
+      "url": "https://www.orca.so"
+    }
+  ],
+  "relatedArticles": [
+    "insurance-dapp",
+    "about",
+    "privacy-stack"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Web3",
+    "DeFi"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Logo ൽ infobox, GIF banner ൽ body, wikഞാൻ ലിങ്കുകൾ fixed",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ചേർത്ത atomic ഇടപാട് table ഉം phase callouts",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page സൃഷ്ടിച്ച",
+      "changeType": "new"
+    }
+  ]
+}

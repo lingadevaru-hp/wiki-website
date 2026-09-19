@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "foss-coin-resources",
+    "title": "FOSS Coin — വിഭവങ്ങൾ",
+    "slug": "foss-coin-resources",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "ഇത് file contains  പൊതു പദ്ധതി വിഭവങ്ങൾ collected നിന്ന്  original URL പട്ടിക ഉം തെളിവുകൾ records, deduplicated ഉം ക്രമീകരിച്ച വഴി category.",
+  "sections": [
+    {
+      "id": "token-explorers",
+      "title": "ടോക്കൺ Explorers",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolana Explorer page വേണ്ടി  FOSS mint account. അത് shows decimals, ആകെ വിതരണം, mint authority, freeze authority, ഉം  owning ടോക്കൺ പ്രോഗ്രാം."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolscan ടോക്കൺ page വേണ്ടി  അതേ mint. അത് provides holder ഉം transfer views ൽ വ്യത്യസ്ത explorer format."
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolana FM page വേണ്ടി  ടോക്കൺ mint."
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "title": "ഇടപാടുകൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nCreation ഇടപാട്. ഇത് is  atomic ടോക്കൺ creation രേഖപ്പെടുത്തുക അത് includes minting, metadata, authority revocation, ഉം  initial buy."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nSolscan view ന്റെ  അതേ creation ഇടപാട് ഒപ്പം parsed inner instructions."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)\nTransfer ഇടപാട് നിന്ന് August 17, 2025."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)\nOrca Whirlpool പൂൾ creation ഇടപാട്."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)\nലിക്വിഡിറ്റി provision ഇടപാട് അത് സൃഷ്ടിച്ച  സ്ഥാനം NFT ഉം ചേർത്ത  initial ലിക്വിഡിറ്റി."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)\nAirdrop ഇടപാട് നിന്ന് January 18, 2026."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)\nAirdrop ഇടപാട് നിന്ന് January 18, 2026."
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "Creator വാലറ്റ്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolana Explorer view ന്റെ  creator ഉം ഫീസ് അടയ്ക്കുന്നയാൾ വാലറ്റ് used ഉടനീളം  പദ്ധതി documentation."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan view ന്റെ  അതേ വാലറ്റ് ഒപ്പം ഇടപാട് history."
+        }
+      ]
+    },
+    {
+      "id": "orca-pool",
+      "title": "Orca പൂൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nOrca Whirlpool page വേണ്ടി  FOSS / SOL trading pair."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolana Explorer page വേണ്ടി  പൂൾ account."
+        },
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)\nOrca ഡെവലപ്പർ documentation വേണ്ടി Whirlpools."
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal",
+      "title": "GeckoTerminal",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal chart ഉം analytics page വേണ്ടി  FOSS / SOL പൂൾ."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nGeckoTerminal ടോക്കൺ APഞാൻ എൻഡ്പോയിന്റ് വേണ്ടി FOSS."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal പൂൾ APഞാൻ എൻഡ്പോയിന്റ് വേണ്ടി  Orca പൂൾ."
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "IPFS Metadata",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\n IPFS metadata JSON. അത് contains  ടോക്കൺ name, symbol, വിവരണം, ഉം image URI."
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\n IPFS-hosted ടോക്കൺ logo image."
+        }
+      ]
+    },
+    {
+      "id": "api-endpoints",
+      "title": "APഞാൻ Endpoints",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)\nSolana പൊതു JSON-RPC എൻഡ്പോയിന്റ് used വേണ്ടി getAccountInfo, getSignaturesForAddress, ഉം getTokenLargestAccounts verification."
+        }
+      ]
+    },
+    {
+      "id": "program-addresses",
+      "title": "പ്രോഗ്രാം Addresses",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nExplorer page വേണ്ടി  ഇഷ്ടാനുസൃത launchpad പ്രോഗ്രാം used ൽ ഇത് പദ്ധതി."
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM page വേണ്ടി  അതേ launchpad പ്രോഗ്രാം."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin പ്രധാന Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ശേഖരണി",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Resources"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article സൃഷ്ടിച്ച നിന്ന് GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "id": "foss-coin-how-it-was-built",
+    "title": "FOSS Coin — ഇത് എങ്ങനെ നിർമ്മിച്ചു",
+    "slug": "foss-coin-how-it-was-built",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "എങ്ങനെ അത് Was നിർമ്മിച്ച",
+    "fields": [
+      {
+        "label": "പദ്ധതി",
+        "value": "FOSS Coin ($FOSS)"
+      },
+      {
+        "label": "ബ്ലോക്ക്ചെയിൻ",
+        "value": "Solana Mainnet"
+      },
+      {
+        "label": "Creation തീയതി",
+        "value": "July 23, 2025"
+      },
+      {
+        "label": "ആകെ Steps",
+        "value": "7 atomic instructions"
+      }
+    ]
+  },
+  "lead": "ഞാൻ നിർമ്മിച്ച ഇത് പദ്ധതി വഴി ഇല്ല-code Solana launchpad flow, പക്ഷേ ഞാൻ രേഖപ്പെടുത്തിയ അത് ൽ  നിർദ്ദേശം ഉം ഇടപാട് നില അതിനാൽ  technical steps ആണ് ഇപ്പോഴും clear.",
+  "sections": [
+    {
+      "id": "step-1-token-creation",
+      "title": "ഘട്ടം 1 — ടോക്കൺ creation",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "തീയതി: July 23, 2025\nSlot: 355,223,383\nTime: 07:43:36 UTC\n\nഞാൻ സൃഷ്ടിച്ച  ടോക്കൺ ൽ one atomic ഇടപാട്. ഇത് is എന്ത് happened inside അത് single ഇടപാട്:"
+        },
+        {
+          "type": "text",
+          "content": "1. System പ്രോഗ്രാം allocated  mint account ഒപ്പം 82 bytes.\n2. InitializeMint2 സജ്ജമാക്കുക  ടോക്കൺ ലേക്ക് 6 decimals ഉം assigned  initial mint authority.\n3. Metaplex സൃഷ്ടിക്കുക Metadata Accounts v3 registered  name, symbol, ഉം IPFS metadata URഞാൻ ൽ-chain.\n4. Associated ടോക്കൺ Account was സൃഷ്ടിച്ച വേണ്ടി എന്റെ creator വാലറ്റ്.\n5. MintTo minted 1,000,000,000 ടോക്കണുകൾ ലേക്ക്  creator ATA.\n6. SetAuthority സജ്ജമാക്കുക  mint authority ലേക്ക് null, ഏത് is permanent ഉം irreversible.\n7.  launchpad Buy നിർദ്ദേശം immediately purchased 35,765.474485 FOSS."
+        },
+        {
+          "type": "text",
+          "content": "ഫീസ് അടയ്ക്കുന്നയാൾ: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\nFee: 90,000 lamports\n\n പ്രധാനപ്പെട്ട technical point ഇവിടെ is അത് ടോക്കൺ creation, metadata registration, minting, authority revocation, ഉം  initial launchpad buy എല്ലാം happened ൽ one block ഒപ്പം ഇല്ല exposed intermediate state."
+        }
+      ]
+    },
+    {
+      "id": "step-2-orca-pool",
+      "title": "ഘട്ടം 2 — Orca Whirlpool പൂൾ creation",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "തീയതി: October 21, 2025\nSlot: 374,850,194\nTime: 14:13:04 UTC\n\nഞാൻ later സൃഷ്ടിച്ച Orca Whirlpool പൂൾ വേണ്ടി  ടോക്കൺ."
+        },
+        {
+          "type": "text",
+          "content": "- InitializePoolWithAdaptiveFee\n- പൂൾ: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\n- Pair: FOSS / Wrapped SOL\n- Tick arrays initialized\n\nഇത് ഘട്ടം moved  പദ്ധതി നിന്ന് മാത്രം ആയിക്കൊണ്ടിരിക്കുന്നു ടോക്കൺ ൽ-chain ലേക്ക് കൂടാതെ ആയിക്കൊണ്ടിരിക്കുന്നു ടോക്കൺ ഒപ്പം യഥാർത്ഥ ലിക്വിഡിറ്റി പൂൾ ൽ Solana DEX."
+        }
+      ]
+    },
+    {
+      "id": "step-3-liquidity",
+      "title": "ഘട്ടം 3 — ലിക്വിഡിറ്റി provision",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "തീയതി: October 21, 2025\nTime: 14:13:23 UTC\nDelay നിന്ന് പൂൾ creation: 19 seconds\n\nഞാൻ ചേർത്ത ലിക്വിഡിറ്റി ലേക്ക്  പൂൾ immediately ശേഷം അത് was സൃഷ്ടിച്ച."
+        },
+        {
+          "type": "text",
+          "content": "- സ്ഥാനം NFT minted: 8RVfhVxFGUo5uJKcMZQUu6MD7FhLH8v8WFRaxsT3doxY ഉപയോഗിച്ച് ടോക്കൺ-2022\n- IncreaseLiquidityV2: 2.900653 FOSS + 0.0004 SOL ചേർത്ത\n\nഇത് സൃഷ്ടിച്ച  initial Orca ലിക്വിഡിറ്റി സ്ഥാനം ഉം tied  പൂൾ ലേക്ക് സ്ഥാനം NFT എന്നതിന് പകരം ലളിതം LP ടോക്കൺ account."
+        }
+      ]
+    },
+    {
+      "id": "what-i-learned",
+      "title": "എന്ത് ഞാൻ പഠിച്ച",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഇത് പദ്ധതി taught എന്നെ എങ്ങനെ Solana ടോക്കൺ infrastructure works beyond  surface നില."
+        },
+        {
+          "type": "text",
+          "content": "- ഞാൻ പഠിച്ച  SPL ടോക്കൺ പ്രോഗ്രാം നിർദ്ദേശം സജ്ജമാക്കുക ൽ practical terms: InitializeMint2, MintTo, SetAuthority, ഉം TransferChecked.\n- ഞാൻ പഠിച്ച അത് Metaplex metadata connects ൽ-chain ടോക്കൺ accounts ലേക്ക് off-chain IPFS data, ഏത് is എങ്ങനെ explorers ഉം wallets കാണിക്കുക names, symbols, descriptions, ഉം images.\n- ഞാൻ പഠിച്ച അത് mint authority revocation is enforced വഴി Solana consensus. അത് is അല്ല reversible ഉം അത് is അല്ല മാത്രം promise നിന്ന്  creator.\n- ഞാൻ പഠിച്ച അത് Orca Whirlpool uses concentrated ലിക്വിഡിറ്റി, tick arrays, ഉം സ്ഥാനം NFTs instead ന്റെ ലളിതം constant-product AMM രൂപകൽപ്പന ചെയ്യുക.\n- ഞാൻ പഠിച്ച എന്തുകൊണ്ട് atomic ഇടപാടുകൾ matter. എല്ലാം seven creation steps happened ൽ one block, അതിനാൽ  ടോക്കൺ was never left ൽ partially ക്രമീകരിച്ച state.\n- ഞാൻ പഠിച്ച  difference ഇടയിൽ ഉപയോഗിച്ച് ഇല്ല-code launchpad ഉം actually understanding എന്ത്  BPF പ്രോഗ്രാം executed താഴെ  hood."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin പ്രധാന Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ശേഖരണി",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Technical"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article സൃഷ്ടിച്ച നിന്ന് GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

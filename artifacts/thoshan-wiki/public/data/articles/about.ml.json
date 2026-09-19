@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "id": "about",
+    "title": "വിവരം — ലിംഗദേവരു എച്ച് പി",
+    "slug": "about",
+    "category": "Profile",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 30,
+    "views": 8600
+  },
+  "infobox": {
+    "title": "Lingadevaru H P",
+    "image": "https://picsum.photos/seed/about-profile/280/200",
+    "imageCaption": "Personal workspace setup, April 2026",
+    "fields": [
+      {
+        "label": "കൂടാതെ അറിയപ്പെടുന്ന ആയി",
+        "value": "Thoshan"
+      },
+      {
+        "label": "Age",
+        "value": "22"
+      },
+      {
+        "label": "സ്ഥലം",
+        "value": "Tumakuru, Karnataka, India"
+      },
+      {
+        "label": "ബിരുദം",
+        "value": "MCA — Siddaganga Institute of Technology"
+      },
+      {
+        "label": "ബിരുദം",
+        "value": "2026"
+      },
+      {
+        "label": "കരിയർ ശ്രദ്ധ",
+        "value": "Networking, Cloud, Cybersecurity"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp"
+      },
+      {
+        "label": "HuggingFace",
+        "value": "huggingface.co/lingadevaruhp"
+      },
+      {
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/lingadevaruhp"
+      }
+    ]
+  },
+  "lead": "I'm **Lingadevaru H P**, കൂടാതെ അറിയപ്പെടുന്ന ആയി **Thoshan** — 22-വയസ്സുള്ള MCA വിദ്യാർത്ഥി ൽ Siddaganga Institute ന്റെ സാങ്കേതികവിദ്യ, Tumakuru, ബിരുദം ൽ 2026. ഞാൻ നിർമ്മിക്കുക പ്രസിദ്ധീകരിച്ച പദ്ധതികൾ ഉടനീളം ബ്ലോക്ക്ചെയിൻ, AI/ML, വെബ് വികസനം, ഉം സ്വയം-ഹോസ്റ്റഡ് അടിസ്ഥാന സൗകര്യം, ഒപ്പം കരിയർ ശ്രദ്ധ ൽ കമ്പ്യൂട്ടർ നെറ്റ്വർക്കിംഗ്, ക്ലൗഡ് കമ്പ്യൂട്ടിംഗ്, ഉം സൈബർ സുരക്ഷ.\n\nI'm മനഃപൂർവം *അല്ല* സ്ഥാനപ്പെടുത്തൽ എന്നെത്തന്നെ ആയി സോഫ്റ്റ്‌വെയർ ഡെവലപ്പർ — എന്റെ തെളിയിക്കപ്പെട്ട ശക്തികൾ ആണ് പ്രവർത്തനപരമായ: പ്രവർത്തിപ്പിക്കൽ, പ്രസിദ്ധീകരിക്കൽ, ഉം സംവിധാനങ്ങൾ കൈകാര്യം ചെയ്യൽ. ഞാൻ പ്രദർശിപ്പിക്കുന്നു ഇത് വഴി തത്സമയ പൊതു പദ്ധതികൾ എന്നതിന് പകരം പൊള്ളയായ വാക്കുകൾ: [[foss-coin|Solana SPL ടോക്കൺ]] ൽ Orca DEX, [[thoshan-flash|ഫൈൻ-ട്യൂൺ ചെയ്ത LLM]] ൽ Hugging Face, [[insurance-dapp|Ethereum DApp]], ഉം സ്വയം-ഹോസ്റ്റഡ് [[homelab|cloud homelab]] architecture.",
+  "sections": [
+    {
+      "id": "education",
+      "title": "വിദ്യാഭ്യാസം",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ബിരുദം",
+            "സ്ഥാപനം",
+            "വർഷങ്ങൾ",
+            "ഫലം"
+          ],
+          "rows": [
+            {
+              "ബിരുദം": "MCA",
+              "സ്ഥാപനം": "Siddaganga Institute ന്റെ സാങ്കേതികവിദ്യ, Tumakuru",
+              "വർഷങ്ങൾ": "2024 – 2026",
+              "ഫലം": "അവസാന semester — ബിരുദം 2026"
+            },
+            {
+              "ബിരുദം": "BCA",
+              "സ്ഥാപനം": "Seshadripuram ബിരുദം College",
+              "വർഷങ്ങൾ": "2021 – 2024",
+              "ഫലം": "CGPA 8.2/10"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "എന്റെ MCA ൽ SIT is structured ഉടനീളം four semesters. ഞാൻ spent  **3rd semester** ൽ  [[fraud-detection|അവസാന വർഷം Academic പദ്ധതി]] — ഓൺലൈൻ തട്ടിപ്പ് കണ്ടെത്തൽ system ഞാൻ നിർമ്മിച്ച ഉം publicly പുറത്തിറക്കിയ ൽ GitHub.  **4th (അവസാന) semester** was internship ൽ CHIAC ASഞാൻ (Panchasutra Ltd, UK), എവിടെ ഞാൻ served ആയി Team 8 Lead ൽ Research & Publication ഉം completed എല്ലാം three assigned പദ്ധതികൾ."
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "നൈപുണ്യങ്ങൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Honest നൈപുണ്യങ്ങൾ ചട്ടക്കൂട്",
+          "content": "എല്ലാ skill listed ഇവിടെ is പ്രദർശിപ്പിച്ച വഴി യഥാർത്ഥ പ്രസിദ്ധീകരിച്ച പ്രവർത്തിക്കുക — അല്ല മാത്രം classroom exposure അല്ലെങ്കിൽ tutorials. എങ്കിൽ ഞാൻ haven't shipped something ഒപ്പം അത്, ഞാൻ don't പട്ടിക അത്."
+        },
+        {
+          "type": "text",
+          "content": "**Linux & സംവിധാനങ്ങൾ:** ഞാൻ run Arch Linux ആയി daily driver via [[linux-setup|Omarchy]], DHH's opinionated distro ഒപ്പം Hyprland Wayland tiling WM. I'm comfortable ഒപ്പം Bash, Git, GitHub, GitLab, Docker, ഉം Kubernetes (exploring).\n\n**Self-Hosting & Deployment:** ഞാൻ deploy ഉം manage containerised സേവനങ്ങൾ Docker ഉപയോഗിച്ച് ഉം Coolify. സേവനങ്ങൾ ഞാൻ run ഉൾപ്പെടുത്തുക Vaultwarden, SearXNG, Immich, ഉം Pi-hole (see [[homelab|Homelab]]).\n\n**Networking & സുരക്ഷ:** ഞാൻ manage Cloudflare DNS, ക്രമീകരിക്കുക WireGuard VPN, run Pi-hole, സജ്ജമാക്കുക up AdGuard Home ൽ എന്റെ GL.iNet router, ക്രമീകരിക്കുക SPF/DKIM/DMARC email records, ഉം use UFW firewall. എല്ലാം രേഖപ്പെടുത്തിയ ൽ  [[privacy-stack|സ്വകാര്യത Stack]].\n\n**ബ്ലോക്ക്ചെയിൻ / Web3:** ഞാൻ പ്രസിദ്ധീകരിച്ച തത്സമയ Solana SPL ടോക്കൺ end-ലേക്ക്-end ([[foss-coin|FOSS Coin]], തത്സമയ ൽ Orca DEX) ഉം നിർമ്മിച്ച fully functional Ethereum smart contract DApp ([[insurance-dapp|Insurance DApp]]).\n\n**Aഞാൻ / ML:** ഞാൻ fine-tuned Google's Gemma-2-9B ഉപയോഗിച്ച് QLoRA/PEFT ([[thoshan-flash|Thoshan Flash]], 26+ HF downloads). ഞാൻ കൂടാതെ നിർമ്മിച്ച ഇഷ്ടാനുസൃത perceptron-style ML regressor വേണ്ടി metro arrival time prediction.\n\n**Media Production:** ഞാൻ use OBS Studio വേണ്ടി screen recording (noise gate + RNNoise audio filters) ഉം Shotcut വേണ്ടി video editing."
+        }
+      ]
+    },
+    {
+      "id": "achievements",
+      "title": "നേട്ടങ്ങളും നേതൃത്വവും",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ബഹുമതി",
+            "വർഷം",
+            "വിശദാംശം"
+          ],
+          "rows": [
+            {
+              "ബഹുമതി": "Yoga Ratna Award",
+              "വർഷം": "2018",
+              "വിശദാംശം": "National-നില recognition വഴി  Central Government ന്റെ India"
+            },
+            {
+              "ബഹുമതി": "Event Lead, Zerone 2.0",
+              "വർഷം": "2025",
+              "വിശദാംശം": "Elected lead; managed 80-member team വേണ്ടി SIT's flagship technical event"
+            },
+            {
+              "ബഹുമതി": "Founder, Debate Society",
+              "വർഷം": "2021–24",
+              "വിശദാംശം": "Established ഉം led 60–80 member community ൽ Seshadripuram College"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "I've participated ൽ three hackathons: **Aഞാൻ സംവിധാനങ്ങൾ Hackathon** (2025, multi-agent autonomous സംവിധാനങ്ങൾ), **24-Hour Rapid നിർമ്മിക്കുക Challenge** (2025, സ്വകാര്യത-focused e-commerce prototype ൽ Tor), ഉം  **NMIT Web3 Hackathon** (2024, വികേന്ദ്രീകൃത വെബ് ആപ്ലിക്കേഷൻ prototype)."
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "title": "പൊതു ശേഖരണികൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ശേഖരണി",
+            "ഭാഷ",
+            "സ്റ്റാറുകൾ",
+            "വിവരണം"
+          ],
+          "rows": [
+            {
+              "ശേഖരണി": "Foss-ടോക്കൺ",
+              "ഭാഷ": "HTML",
+              "സ്റ്റാറുകൾ": "7 ⭐  4 🔱",
+              "വിവരണം": "$FOSS Solana SPL ടോക്കൺ — തത്സമയ ൽ Orca DEX"
+            },
+            {
+              "ശേഖരണി": "LocalPulse",
+              "ഭാഷ": "TypeScript",
+              "സ്റ്റാറുകൾ": "1 ⭐",
+              "വിവരണം": "പ്രാദേശിക event discovery പ്ലാറ്റ്ഫോം"
+            },
+            {
+              "ശേഖരണി": "insurance-dapp",
+              "ഭാഷ": "JavaScript",
+              "സ്റ്റാറുകൾ": "1 ⭐",
+              "വിവരണം": "Ethereum insurance DApp"
+            },
+            {
+              "ശേഖരണി": "ഓൺലൈൻ-fraud-detection-system",
+              "ഭാഷ": "HTML/C#",
+              "സ്റ്റാറുകൾ": "1 ⭐",
+              "വിവരണം": "തട്ടിപ്പ് കണ്ടെത്തൽ ML system"
+            },
+            {
+              "ശേഖരണി": "smart-expense-analyzer",
+              "ഭാഷ": "HTML",
+              "സ്റ്റാറുകൾ": "1 ⭐",
+              "വിവരണം": "Agentic Aഞാൻ expense analyzer"
+            },
+            {
+              "ശേഖരണി": "metro-arrival-time-prediction",
+              "ഭാഷ": "Python",
+              "സ്റ്റാറുകൾ": "1 ⭐",
+              "വിവരണം": "ML metro arrival predictor"
+            },
+            {
+              "ശേഖരണി": "search-engine",
+              "ഭാഷ": "HTML",
+              "സ്റ്റാറുകൾ": "1 ⭐",
+              "വിവരണം": "SearchXEng — ഇഷ്ടാനുസൃത SearXNG templates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "career",
+      "title": "കരിയർ ദിശ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "എന്റെ പ്രാഥമിക career target is **കമ്പ്യൂട്ടർ നെറ്റ്വർക്കിംഗ്, ക്ലൗഡ് കമ്പ്യൂട്ടിംഗ്, ഉം സൈബർ സുരക്ഷ** — specifically പ്രവർത്തനപരമായ ഉം deployment roles എന്നതിന് പകരം സോഫ്റ്റ്‌വെയർ വികസനം. ഇത് distinction is deliberate: Python makes എന്നെ uncomfortable; Java was struggle. എന്റെ ശക്തികൾ ആണ് ൽ പ്രവർത്തിപ്പിക്കൽ, പ്രസിദ്ധീകരിക്കൽ, ഉം സംവിധാനങ്ങൾ കൈകാര്യം ചെയ്യൽ — അല്ല എഴുതൽ ആപ്ലിക്കേഷൻ code ആദ്യം മുതൽ.\n\nതെളിവുകൾ-based സ്ഥാനപ്പെടുത്തൽ is core principle വേണ്ടി എന്നെ: എല്ലാ claim ൽ എന്റെ portfolio ലിങ്കുകൾ ലേക്ക് തത്സമയ പദ്ധതി, ൽ-chain ഇടപാട്, അല്ലെങ്കിൽ GitHub ശേഖരണി — അല്ല മാത്രം buzzword ൽ resume.\n\nവേണ്ടി  certifications I'm working toward ഉം tools I'm learning, see [[learning-roadmap|പഠന റോഡ്മാപ്പ്]]."
+        },
+        {
+          "type": "quote",
+          "content": "നൈപുണ്യങ്ങൾ ആണ് തെളിയിക്കപ്പെട്ട വഴി തത്സമയ പദ്ധതികൾ, അല്ല മാത്രം theory.",
+          "author": "വ്യക്തിഗത സ്ഥാനപ്പെടുത്തൽ principle"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub Profile — lingadevaru-hp",
+      "url": "https://github.com/lingadevaru-hp"
+    },
+    {
+      "id": 2,
+      "title": "HuggingFace — lingadevaruhp",
+      "url": "https://huggingface.co/lingadevaruhp"
+    },
+    {
+      "id": 3,
+      "title": "LinkedIn — lingadevaruhp",
+      "url": "https://linkedin.com/in/lingadevaruhp"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin",
+    "thoshan-flash",
+    "homelab",
+    "privacy-stack",
+    "learning-roadmap"
+  ],
+  "categories": [
+    "Profile",
+    "MCA",
+    "Blockchain",
+    "AI / ML",
+    "Infrastructure"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person ഉടനീളം",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ചേർത്ത GitHub ശേഖരണി table ഉം കരിയർ ദിശ section",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial article creation",
+      "changeType": "new"
+    }
+  ]
+}

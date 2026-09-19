@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "id": "privacy-stack",
+    "title": "プライバシースタック",
+    "slug": "privacy-stack",
+    "category": "Security",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 23,
+    "views": 3900
+  },
+  "infobox": {
+    "title": "プライバシースタック",
+    "image": "https://picsum.photos/seed/privacy-infobox/280/200",
+    "imageCaption": "AdGuard Homeでネットワーク全体のDNSフィルタリングを実行するGL.iNetルーター",
+    "fields": [
+      { "label": "完成度", "value": "約85%" },
+      { "label": "OS", "value": "Arch Linux (Omarchy)" },
+      { "label": "ブラウザ", "value": "LibreWolf + uBlock Origin" },
+      { "label": "DNS", "value": "AdGuard Home + NextDNS + Mullvad" },
+      { "label": "VPN", "value": "WireGuard (計画中)" },
+      { "label": "パスワード", "value": "Vaultwarden (計画中、ホームラボ)" },
+      { "label": "メール", "value": "Gmail → Proton/Tutanota (未移行)" },
+      { "label": "主な欠落", "value": "メール移行が未完了" }
+    ]
+  },
+  "lead": "私の**プライバシースタック**は、OS強化、ブラウザのフィンガープリント耐性、ハードウェアレベルのネットワークフィルタリング、セルフホストサービス、計画中のメール移行にわたる多層の個人プライバシー・セキュリティ構成です。現在の完成度は約**85%** — 主な残課題はGmailで、まだプライバシー尊重型プロバイダーに移行できていません。\n\nスタック全体をフリーオープンソースソフトウェアで構築しており、[[foss-coin|FOSSコイン]]や[[about|プロフィール]]に記したFOSSファーストの方針と思想的に直結しています。各層はすでにデプロイ済みか、[[homelab|リーブル・クラウドホームラボ]]経由の具体的なデプロイ計画があります。",
+  "sections": [
+    {
+      "id": "os-layer",
+      "title": "OSとデスクトップ層",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "OS層は基盤です。**[[linux-setup|Omarchy]]経由のArch Linux**を使うことで、何をインストールし裏で何が動くかを最大限コントロールできます。Hyprland WaylandタイリングWMは設計上バックグラウンドサービスが最小限 — 一般的なデスクトップ環境と比べ、攻撃面とテレメトリの痕跡は劇的に小さくなります。\n\nこの層での主な判断:\n- **Chromiumを削除**(テレメトリ) — LibreWolfに置換\n- **Spotifyを削除**(追跡) — 代替なし\n- **MACアドレスのランダム化**を全ネットワークインターフェースで有効化\n- **フォーク管理**: Omarchyの個人GitHubフォークを維持し、上流の変更を自分の条件で選択適用"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "私の信頼モデル",
+          "content": "ArchパッケージはDHHのサーバーではなくArchのpacmanエコシステム経由で流れます。Omarchyを使っていても、基盤のパッケージ署名とビルド基盤はArch Linuxプロジェクトのもの — 第三者のものではありません。"
+        }
+      ]
+    },
+    {
+      "id": "browser-layer",
+      "title": "ブラウザ層",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**LibreWolf**を使用 — 強化されたアンチフィンガープリント設定が最初から適用されたFirefoxフォークです。素のFirefoxとの違いで私が重視する点:\n- `resistFingerprinting`がデフォルト有効 — canvas、WebGL、音声、タイムゾーン、フォントのフィンガープリントをすべてブロック\n- Mozillaへのテレメトリやクラッシュレポート送信なし\n- より厳しいCookieデフォルトとクロスサイト分離\n\nLibreWolfの上で**uBlock Origin**をミディアムモードで実行 — サードパーティのスクリプトとフレームをデフォルトですべてブロックし、スクリプトが必要なサイト用に手動ホワイトリストルールを時間をかけて追加しています。\n\nサイトカテゴリごとのセッション分離(銀行はこのコンテナ、SNSはあのコンテナ、買い物は別のコンテナ)としてFirefoxマルチアカウントコンテナも検討しました。"
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "既知の問題 — ダークテーマ",
+          "content": "LibreWolfのresistFingerprinting設定により一部サイトでダークモード描画が崩れることがあります。対処法:about:configでresistFingerprintingをオフ→オンし直すと正しいテーマに戻ります。何度か遭遇しました。"
+        }
+      ]
+    },
+    {
+      "id": "dns-network-layer",
+      "title": "DNSとネットワーク層",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "DNS層はスタック中で最も技術的に多層な部分です — 異なるレベルで複数のフィルタリングシステムを運用しています:"
+        },
+        {
+          "type": "table",
+          "columns": ["層", "ツール", "範囲"],
+          "rows": [
+            { "Layer": "自宅ルーター", "Tool": "GL.iNet (ドロップインゲートウェイモード)", "Scope": "自宅サブネット上のAdGuard Home — 自宅ネットワーク内全デバイスの広告/マルウェアをブロック" },
+            { "Layer": "クラウドDNS", "Tool": "NextDNS", "Scope": "テレメトリブロック付きカスタムプロファイル" },
+            { "Layer": "デバイスレベル", "Tool": "Mullvad DNS", "Scope": "ノートPCとスマホで広告 + トラッカー + マルウェアをフィルタリング" },
+            { "Layer": "VPN", "Tool": "WireGuard", "Scope": "計画中 — デバイスからホームラボ出口ノードまでトラフィックを暗号化予定" }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "大学WiFiの制約",
+          "content": "大学WiFiのSonicWALL SSL検査がpacmanパッケージのダウンロードをブロックします。対処法:キャンパスではシステム更新にモバイルホットスポットを使用。"
+        }
+      ]
+    },
+    {
+      "id": "services-layer",
+      "title": "パスワード・ノート・メール",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["サービス", "ツール", "ステータス"],
+          "rows": [
+            { "Service": "パスワード管理", "Tool": "Vaultwarden (セルフホストBitwardenフォーク)", "Status": "計画中 — ホームラボ依存" },
+            { "Service": "ノート", "Tool": "Joplin Server (セルフホスト、E2E暗号化)", "Status": "進行中 — ホームラボ依存" },
+            { "Service": "メール", "Tool": "Gmail → Proton MailまたはTutanota", "Status": "❌ 未着手 — 最大の欠落。カスタムドメインcontact@lingadevaru.inは稼働中。" },
+            { "Service": "分析 (自サイト)", "Tool": "GoatCounter", "Status": "✅ 稼働中 — 自分の全サイトでフィンガープリントなし、Google Analytics不使用" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stack-completeness",
+      "title": "スタック完成度 — 正直なステータス",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["層", "ステータス"],
+          "rows": [
+            { "Layer": "OSとWM強化", "Status": "✅ 完了" },
+            { "Layer": "ブラウザ (LibreWolf + uBlock)", "Status": "✅ 完了" },
+            { "Layer": "DNS (AdGuard + NextDNS + Mullvad)", "Status": "✅ 完了" },
+            { "Layer": "システム強化 (UFW、fail2ban、MACランダム化)", "Status": "✅ 完了" },
+            { "Layer": "VPN (WireGuard)", "Status": "🔄 計画中" },
+            { "Layer": "パスワード管理 (Vaultwarden)", "Status": "🔄 計画中" },
+            { "Layer": "ノート (Joplin Server)", "Status": "🔄 進行中" },
+            { "Layer": "メール (Proton/Tutanota)", "Status": "❌ 未着手 — 最大の欠落" }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "LibreWolfブラウザ", "url": "https://librewolf.net" },
+    { "id": 2, "title": "Vaultwardenセルフホスト", "url": "https://github.com/dani-garcia/vaultwarden" },
+    { "id": 3, "title": "GL.iNetルータードキュメント", "url": "https://docs.gl-inet.com" }
+  ],
+  "relatedArticles": ["linux-setup", "homelab", "about"],
+  "categories": ["Security", "Privacy", "Networking", "Linux"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "全面改稿:層別解説、完成度表", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

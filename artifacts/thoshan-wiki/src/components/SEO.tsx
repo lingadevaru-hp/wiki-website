@@ -9,6 +9,11 @@ const OG_LOCALE: Record<string, string> = {
   en: "en_US",
   kn: "kn_IN",
   hi: "hi_IN",
+  ja: "ja_JP",
+  ml: "ml_IN",
+  ta: "ta_IN",
+  te: "te_IN",
+  gu: "gu_IN",
 };
 
 function upsertHrefLang(hreflang: string, href: string) {

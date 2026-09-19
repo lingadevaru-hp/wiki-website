@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "foss-coin-resources",
+    "title": "FOSS સિક્કા - સંસાધન",
+    "slug": "foss-coin-resources",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "ઇસ ફ઼ાઇલ મેં મૂલ યૂઆરએલ સૂચી ઔર સાક્ષ્ય રિકૉર્ડ સે એકત્ર કિએ ગએ સાર્વજનિક પરિયોજના સંસાધન શામિલ હૈં, જિન્હેં શ્રેણી કે અનુસાર દોહરાયા ઔર વ્યવસ્થિત કિયા ગયા હૈ૤",
+  "sections": [
+    {
+      "id": "token-explorers",
+      "title": "ટોકન ખોજકર્તા",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS મિંટ ખાતે કે લિએ સોલાના એક્સપ્લોરર પેજ૤ યહ દશમલવ, કુલ આપૂર્તિ, ટકસાલ પ્રાધિકરણ, ફ્રીજ પ્રાધિકરણ ઔર સ્વામિત્વ ટોકન કાર્યક્રમ દિખાતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)ઉસી ટકસાલ કે લિએ સોલસ્કૈન ટોકન પૃષ્ઠ૤ યહ એક અલગ એક્સપ્લોરર પ્રારૂપ મેં ધારક ઔર સ્થાનાંતરણ દૃશ્ય પ્રદાન કરતા હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)ટોકન મિંટ કે લિએ સોલાના એફએમ પેજ૤"
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "title": "લેનદેન",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)નિર્માણ લેનદેન. યહ પરમાણુ ટોકન નિર્માણ રિકૉર્ડ હૈ જિસમેં ઢલાઈ, મેટાડેટા, પ્રાધિકરણ નિરસન ઔર પ્રારંભિક ખરીદ શામિલ હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)પાર્સ કિએ ગએ આંતરિક નિર્દેશોં કે સાથ ઉસી નિર્માણ લેનદેન કા સોલસ્કૈન દૃશ્ય૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)17 અગસ્ત, 2025 સે સ્થાનાંતરણ લેનદેન૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)ઓર્કા વ્હર્લપૂલ પૂલ નિર્માણ લેનદેન૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)તરલતા પ્રાવધાન લેનદેન જિસને એનએફટી કી સ્થિતિ બનાઈ ઔર પ્રારંભિક તરલતા જોડ઼ી૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)18 જનવરી, 2026 સે એયરડ્રૉપ લેનદેન૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)18 જનવરી, 2026 સે એયરડ્રૉપ લેનદેન૤"
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "નિર્માતા બટુઆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)પૂરે પ્રોજેક્ટ દસ્તાવેજ઼ીકરણ મેં ઉપયોગ કિએ ગએ નિર્માતા ઔર શુલ્ક ભુગતાનકર્તા વૉલેટ કા સોલાના એક્સપ્લોરર દૃશ્ય૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)લેનદેન ઇતિહાસ કે સાથ ઉસી વૉલેટ કા સોલસ્કૈન દૃશ્ય૤"
+        }
+      ]
+    },
+    {
+      "id": "orca-pool",
+      "title": "ઓર્કા પૂલ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS/SOL ટ્રેડિંગ જોડ઼ી કે લિએ ઓર્કા વ્હર્લપૂલ પેજ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)પૂલ ખાતે કે લિએ સોલાના એક્સપ્લોરર પેજ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)વ્હર્લપૂલ કે લિએ ઓર્કા ડેવલપર દસ્તાવેજ઼ીકરણ૤"
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal",
+      "title": "ગેકોટર્મિનલ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS/SOL પૂલ કે લિએ ગેકોટર્મિનલ ચાર્ટ ઔર એનાલિટિક્સ પેજ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS કે લિએ ગેકોટર્મિનલ ટોકન એપીઆઈ એંડપૉઇંટ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)ઓર્કા પૂલ કે લિએ ગેકોટર્મિનલ પૂલ એપીઆઈ એંડપૉઇંટ૤"
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "આઈપીએફએસ મેટાડેટા",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)IPFS મેટાડેટા JSON. ઇસમેં ટોકન નામ, પ્રતીક, વિવરણ ઔર છવિ યૂઆરઆઈ શામિલ હૈ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)આઈપીએફએસ-હોસ્ટેડ ટોકન લોગો છવિ૤"
+        }
+      ]
+    },
+    {
+      "id": "api-endpoints",
+      "title": "એપીઆઈ સમાપન બિંદુ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)સોલાના સાર્વજનિક JSON-RPC એંડપૉઇંટ કા ઉપયોગ getAccountInfo કે લિએ કિયા જાતા હૈ,getSignaturesForAddress, ઔરgetTokenLargestAccountsસત્યાપન."
+        }
+      ]
+    },
+    {
+      "id": "program-addresses",
+      "title": "કાર્યક્રમ કે પતે",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)ઇસ પ્રોજેક્ટ મેં પ્રયુક્ત કસ્ટમ લૉન્ચપૈડ પ્રોગ્રામ કે લિએ એક્સપ્લોરર પેજ૤"
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)ઉસી લૉન્ચપૈડ પ્રોગ્રામ કે લિએ સોલાના એફએમ પેજ૤"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS સિક્કા મુખ્ય લેખ",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "ગિટહબ રિપૉજિટરી",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Resources"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

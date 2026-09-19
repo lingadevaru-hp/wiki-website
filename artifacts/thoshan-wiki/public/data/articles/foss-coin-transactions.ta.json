@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "id": "foss-coin-transactions",
+    "title": "FOSS நாணயம் - பரிவர்த்தனைகள்",
+    "slug": "foss-coin-transactions",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "இது திட்ட ஆவணங்கள் மற்றும் சேகரிக்கப்பட்ட மூலக் கோப்புகளின் அடிப்படையில் திட்டத்திற்கான முழு காலவரிசைப் பரிவர்த்தனை பதிவாகும்.",
+  "sections": [
+    {
+      "id": "transactions-table",
+      "title": "பரிவர்த்தனைகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "தேதி மற்றும் நேரம் (UTC)",
+            "முழு கையொப்பம்",
+            "ஸ்லாட் எண்",
+            "கட்டணம் செலுத்துபவர்",
+            "கட்டணம் (விளக்குகள்)",
+            "விளக்கம்",
+            "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "தேதி மற்றும் நேரம் (UTC)": "2025-07-23 07:43:36 UTC",
+              "முழு கையொப்பம்": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "ஸ்லாட் எண்": "355223383",
+              "கட்டணம் செலுத்துபவர்": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "கட்டணம் (விளக்குகள்)": "90000",
+              "விளக்கம்": "நான் புதினா கணக்கை உருவாக்கி, டோக்கனை 6 தசமங்களுடன் துவக்கினேன், மெட்டாப்ளெக்ஸ் மெட்டாடேட்டாவை உருவாக்கினேன், உருவாக்கியவர் ATA ஐ உருவாக்கினேன், 1 பில்லியன் டோக்கன்களை உருவாக்கினேன், புதினா அதிகாரத்தை ரத்து செய்தேன், மேலும் ஒரு அணு பரிவர்த்தனையில் ஆரம்ப லாஞ்ச்பேட் வாங்குதலை செயல்படுத்தினேன்.",
+              "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு": "[பரிவர்த்தனையைக் காண்க](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "தேதி மற்றும் நேரம் (UTC)": "2025-08-17 07:32:10 UTC",
+              "முழு கையொப்பம்": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "ஸ்லாட் எண்": "360612760",
+              "கட்டணம் செலுத்துபவர்": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "கட்டணம் (விளக்குகள்)": "80000",
+              "விளக்கம்": "ஆதாரத் தொகுப்பில் குறிப்பிடப்பட்டுள்ள பரிமாற்ற சேவை திட்டத்தின் மூலம் 2 FOSS டோக்கன்களின் சிறிய பரிமாற்றத்தை வெளிப்புற வாலட்டுக்கு அனுப்பினேன்.",
+              "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு": "[பரிவர்த்தனையைக் காண்க](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "தேதி மற்றும் நேரம் (UTC)": "2025-10-21 14:13:04 UTC",
+              "முழு கையொப்பம்": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "ஸ்லாட் எண்": "374850194",
+              "கட்டணம் செலுத்துபவர்": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "கட்டணம் (விளக்குகள்)": "16803",
+              "விளக்கம்": "FOSS/Wrapped SOL ஜோடிக்காக Orca Whirlpool பூலை உருவாக்கி, அடாப்டிவ் கட்டணங்களுடன் பூலை துவக்கி, தேவையான டிக் வரிசை நிலையை உருவாக்கினேன்.",
+              "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு": "[பரிவர்த்தனையைக் காண்க](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "தேதி மற்றும் நேரம் (UTC)": "2025-10-21 14:13:23 UTC",
+              "முழு கையொப்பம்": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "ஸ்லாட் எண்": "374850239",
+              "கட்டணம் செலுத்துபவர்": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "கட்டணம் (விளக்குகள்)": "19345",
+              "விளக்கம்": "நான் Orca பொசிஷன் NFT ஐப் பயன்படுத்தினேன், IncreaseLiquidityV2 ஐப் பயன்படுத்தினேன், வேர்ல்பூலில் 2.900653 FOSS மற்றும் 0.0004 SOL ஐச் சேர்த்தேன் மற்றும் ஆரம்ப பூல் நிதி ஓட்டத்தை நிறைவு செய்தேன்.",
+              "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு": "[பரிவர்த்தனையைக் காண்க](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "தேதி மற்றும் நேரம் (UTC)": "2026-01-18 12:59:51 UTC",
+              "முழு கையொப்பம்": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "ஸ்லாட் எண்": "394322578",
+              "கட்டணம் செலுத்துபவர்": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "கட்டணம் (விளக்குகள்)": "5000",
+              "விளக்கம்": "திட்டத்தின் சிறிய ஃபாலோ-அப் இடமாற்றங்களின் ஒரு பகுதியாக புதிய வாலட்டில் 1 FOSS ஏர் டிராப் பரிவர்த்தனையை பதிவு செய்தேன்.",
+              "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு": "[பரிவர்த்தனையைக் காண்க](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "தேதி மற்றும் நேரம் (UTC)": "2026-01-18 13:19:03 UTC",
+              "முழு கையொப்பம்": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "ஸ்லாட் எண்": "394325494",
+              "கட்டணம் செலுத்துபவர்": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "கட்டணம் (விளக்குகள்)": "5000",
+              "விளக்கம்": "நான் மற்றொரு 1 FOSS ஏர் டிராப் பரிவர்த்தனையை வேறொரு வாலட்டில் பதிவு செய்துள்ளேன், இது திட்ட வரலாற்றில் காணக்கூடிய இறுதி ஆன்-செயின் செயல்பாட்டின் ஒரு பகுதியாகும்.",
+              "சோலனா எக்ஸ்ப்ளோரர் இணைப்பு": "[பரிவர்த்தனையைக் காண்க](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS நாணயம் முதன்மைக் கட்டுரை",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "கிட்ஹப் களஞ்சியம்",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Transactions"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

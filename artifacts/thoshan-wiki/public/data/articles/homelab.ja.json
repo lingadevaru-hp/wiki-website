@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "id": "homelab",
+    "title": "リーブル・クラウド — ホームラボ",
+    "slug": "homelab",
+    "category": "Infrastructure",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 26,
+    "views": 3100
+  },
+  "infobox": {
+    "title": "リーブル・クラウド — ホームラボ",
+    "image": "https://picsum.photos/seed/homelab-infobox/280/200",
+    "imageCaption": "ゼロトラスト構成図",
+    "fields": [
+      { "label": "プラットフォーム", "value": "Oracle Cloud Always Free" },
+      { "label": "VM形状", "value": "VM.Standard.E2.1.Micro (1 OCPU、1GB RAM)" },
+      { "label": "DNS / CDN", "value": "Cloudflare" },
+      { "label": "リバースプロキシ", "value": "Caddy / nginx" },
+      { "label": "ドメイン", "value": "lingadevaru.in" },
+      { "label": "ステータス", "value": "部分稼働中 (ARMは確保不可)" },
+      { "label": "目標サービス数", "value": "14 (公開3、WireGuard非公開6、ARM専用5)" }
+    ]
+  },
+  "lead": "**リーブル・クラウド**はOracle CloudのAlways Free枠で運用するゼロトラストのセルフホスト基盤プロジェクトです。設計では外部トラフィックをすべてCloudflare経由(DDoS防御とIPマスキング)で受け、Oracle Cloud VM上のCaddyリバースプロキシが公開サービスとWireGuard非公開サービスの両方を配信します。\n\n「リーブル・クラウド」という名前は意図的です:スタックはすべてフリーオープンソース、プラットフォームは無料枠クラウド、ドメインはFOSSアイデンティティを帯びています。[[privacy-stack|プライバシースタック]]と直結しています — Vaultwarden(パスワード)、Joplin Server(ノート)、SearXNG(プライベート検索)などのサービスはすべてここで動く設計です。",
+  "sections": [
+    {
+      "id": "current-reality",
+      "title": "現実 — 実際にあるもの",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "ステータス: ブロック中 / 強く制約あり",
+          "content": "目標のVMはVM.Standard.A1.Flex — Oracleの4 OCPU・24GB RAMのARM Ampereインスタンスで永久無料です。ハイデラバードリージョンで数ヶ月にわたり繰り返し「容量不足」エラーに遭遇しました。ARM計画は当面断念です。実際にあるもの:VM.Standard.E2.1.Micro ×1 — 1 OCPU、1GB RAMです。"
+        },
+        {
+          "type": "table",
+          "columns": ["サービス", "RAM使用量", "1GB VMでの実現性"],
+          "rows": [
+            { "Service": "WireGuard", "RAM usage": "約5MB", "Feasibility on my 1 GB VM": "✅ 容易" },
+            { "Service": "Pi-hole", "RAM usage": "約50〜100MB", "Feasibility on my 1 GB VM": "✅ 容易" },
+            { "Service": "Vaultwarden", "RAM usage": "約50MB", "Feasibility on my 1 GB VM": "✅ 容易" },
+            { "Service": "Caddy / nginx", "RAM usage": "約30MB", "Feasibility on my 1 GB VM": "✅ 容易" },
+            { "Service": "ポートフォリオ (静的ファイル)", "RAM usage": "最小", "Feasibility on my 1 GB VM": "✅ 容易" },
+            { "Service": "SearXNG", "RAM usage": "約200〜400MB", "Feasibility on my 1 GB VM": "⚠️ ギリギリ" },
+            { "Service": "Coolify (Docker PaaS)", "RAM usage": "約500MB〜1GB", "Feasibility on my 1 GB VM": "❌ 重すぎる" },
+            { "Service": "Immich / Jellyfin / Ollama", "RAM usage": "2〜24GB", "Feasibility on my 1 GB VM": "❌ 不可能" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "アーキテクチャ — 設計内容",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Cloudflareとリバースプロキシ層を経由せずにインターネットへ直接晒されるものがないよう設計しました。サービスは可視性3階層に分割:公開(Cloudflare経由で誰でもアクセス可)、非公開(WireGuard VPNトンネル経由のみ)、ARM専用(未確保のA1.Flex VMが必要)です。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "アーキテクチャフロー",
+          "content": "インターネット → Cloudflare (DNS + DDoS + IPマスキング) → Oracle Cloud VM (1GB Micro) → リバースプロキシ (Caddy/nginx) → [公開: ポートフォリオ、Pi-hole DoH] / [非公開 (WireGuardゲート): Vaultwarden、Joplin Server、Gitea]"
+        },
+        {
+          "type": "table",
+          "columns": ["階層", "サービス", "目的"],
+          "rows": [
+            { "Tier": "公開", "Service": "ポートフォリオ", "Purpose": "lingadevaru.in個人サイト" },
+            { "Tier": "公開", "Service": "SearXNG", "Purpose": "プライバシーメタ検索" },
+            { "Tier": "公開", "Service": "GoatCounter", "Purpose": "Cookie不要の分析" },
+            { "Tier": "WireGuard非公開", "Service": "Vaultwarden", "Purpose": "セルフホストのパスワード管理" },
+            { "Tier": "WireGuard非公開", "Service": "Pi-hole", "Purpose": "DNS広告ブロック" },
+            { "Tier": "WireGuard非公開", "Service": "Uptime Kuma", "Purpose": "稼働監視" },
+            { "Tier": "WireGuard非公開", "Service": "FreshRSS", "Purpose": "RSSリーダー" },
+            { "Tier": "WireGuard非公開", "Service": "Joplin Server", "Purpose": "セルフホストのノート" },
+            { "Tier": "WireGuard非公開", "Service": "Gitea", "Purpose": "セルフホストのGit" },
+            { "Tier": "ARM専用 (ブロック中)", "Service": "Immich、Mailcow、Jellyfin、Ollama", "Purpose": "24GB RAMが必要 — 無期限保留" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-oracle",
+      "title": "Oracle Cloudを選んだ理由",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Oracle CloudのAlways Free枠はAWS・GCP・Azureの無料枠と比べて格段に太っ腹です。目玉は**ARM Ampere A1.Flex**インスタンス:4 OCPU・24GB RAM — 永久無料です。比較するとAWS無料枠はt2.micro (1 vCPU、1GB)を12ヶ月のみ。OracleのAMD Microも同等ですが永久無料で、ARM Ampereはさらに劇的に高性能です。\n\n難点は容量の空きです:ハイデラバードリージョンのARM Ampereは慢性的に「容量不足」です。これはOracle Cloudコミュニティで広く報告されている問題で、私だけではありません。他リージョンは別アカウント設定が必要です。この制約に数ヶ月捕まっています。"
+        },
+        {
+          "type": "quote",
+          "content": "計画は健全。ハードウェアが現れなかっただけだ。",
+          "author": "プロジェクトノート、2026年4月"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "Oracle Cloud Always Free枠ドキュメント", "url": "https://www.oracle.com/cloud/free/" },
+    { "id": 2, "title": "Cloudflare DNSとZero Trustドキュメント", "url": "https://developers.cloudflare.com" }
+  ],
+  "relatedArticles": ["privacy-stack", "linux-setup", "about"],
+  "categories": ["Infrastructure", "Self-Hosting", "Cloud", "Networking"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "ARM容量問題の詳細とサービス表の更新を追加", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

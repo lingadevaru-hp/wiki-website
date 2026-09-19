@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "id": "local-pulse",
+    "title": "LocalPulse",
+    "slug": "local-pulse",
+    "category": "Web",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 14,
+    "views": 2400
+  },
+  "infobox": {
+    "title": "LocalPulse",
+    "image": "https://picsum.photos/seed/pulse-infobox/280/200",
+    "imageCaption": "LocalPulse event discovery home screen",
+    "fields": [
+      {
+        "label": "ചട്ടക്കൂട്",
+        "value": "Next.js 15 (App Router)"
+      },
+      {
+        "label": "ഭാഷ",
+        "value": "TypeScript"
+      },
+      {
+        "label": "Auth",
+        "value": "Clerk"
+      },
+      {
+        "label": "Backend",
+        "value": "Firebase + local storage"
+      },
+      {
+        "label": "PWA",
+        "value": "Yes — offline support"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/LocalPulse"
+      },
+      {
+        "label": "GitHub സ്റ്റാറുകൾ",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "Deploy target",
+        "value": "Cloudflare Pages"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "Active"
+      }
+    ]
+  },
+  "lead": "**LocalPulse** is പ്രാദേശിക-ആദ്യ event discovery ഉം organiser പ്ലാറ്റ്ഫോം ഞാൻ നിർമ്മിച്ച ഒപ്പം **അടുത്ത.js 15 App Router**, React 18, TypeScript, Tailwind CSS, ഉം shadcn/ui. ഞാൻ നിർമ്മിച്ച അത് ൽ March 2026 — അത്'s  ഏറ്റവും സമീപകാല വെബ് പദ്ധതി ൽ എന്റെ portfolio. അത് uses പ്രാദേശിക browser storage ആയി zero-cost database backend alongside Firebase, ഉം is നിർമ്മിച്ച ആയി **Progressive വെബ് App** ഒപ്പം offline പിന്തുണയ്ക്കുക ഉം ഇൻസ്റ്റാൾ ചെയ്യുക prompt.\n\nLocalPulse demonstrates പൂർണ്ണ-stack TypeScript ആപ്ലിക്കേഷൻ ഒപ്പം authentication (Clerk), file-based routing, PDF ticket generation, calendar export (.ics), ഉം admin panel — എല്ലാം ൽ ആധുനിക serverless-ready architecture. Code is ൽ [GitHub](https://github.com/lingadevaru-hp/LocalPulse).",
+  "sections": [
+    {
+      "id": "tech-stack",
+      "title": "Tech Stack",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "പാളി",
+            "സാങ്കേതികവിദ്യ",
+            "എന്ത് ഞാൻ used അത് വേണ്ടി"
+          ],
+          "rows": [
+            {
+              "പാളി": "ചട്ടക്കൂട്",
+              "സാങ്കേതികവിദ്യ": "അടുത്ത.js 15 (App Router)",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "File-based routing, സെർവർ ഉം client components, layouts"
+            },
+            {
+              "പാളി": "UI",
+              "സാങ്കേതികവിദ്യ": "React 18, Tailwind CSS, shadcn/ui",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "ഘടകം library നിർമ്മിച്ച ൽ Radix Uഞാൻ primitives"
+            },
+            {
+              "പാളി": "ഭാഷ",
+              "സാങ്കേതികവിദ്യ": "TypeScript",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "End-ലേക്ക്-end തരം safety — typed APഞാൻ routes, typed React components, typed Firebase കോളുകൾ"
+            },
+            {
+              "പാളി": "Auth",
+              "സാങ്കേതികവിദ്യ": "Clerk (@clerk/nextjs)",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Sign ൽ, sign up, profile, password reset — managed auth അതിനാൽ ഞാൻ don't roll എന്റെ own"
+            },
+            {
+              "പാളി": "Backend / DB",
+              "സാങ്കേതികവിദ്യ": "Firebase + പ്രാദേശിക browser storage",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Zero-cost database — ഇല്ല backend സെർവർ ആവശ്യമായ"
+            },
+            {
+              "പാളി": "PWA",
+              "സാങ്കേതികവിദ്യ": "സേവനം worker, offline പിന്തുണയ്ക്കുക",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "ഇൻസ്റ്റാൾ ചെയ്യുക prompt, mobile icons, offline-capable pages"
+            },
+            {
+              "പാളി": "Deploy",
+              "സാങ്കേതികവിദ്യ": "Cloudflare Pages",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിച്ചു": "Serverless edge deployment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "എന്ത് LocalPulse ചെയ്യുന്നു",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Event Discovery:** ഞാൻ നിർമ്മിച്ച search ഉം filter വഴി city, category, ഉം തീയതി. Featured events section. Smart recommendations ഉപയോഗിച്ച് category + city + rating affinity scoring. Access-controlled event visibility: പ്രാദേശിക, college, department.\n\n**Organiser Workflow:** Organiser verification via രേഖപ്പെടുത്തുക upload (Aadhaar, PAN, GST, business docs). സ്ഥിതി states: pending / approved / rejected. Admin അവലോകനം ചെയ്യുക panel.\n\n**Ticketing:** Downloadable PDF tickets named വഴി event. Ticket history per user. Reminder toggles. ചേർക്കുക-ലേക്ക്-calendar export (.ics — Google Calendar, Outlook, Apple Calendar).\n\n**പ്രാദേശിക Data Hub (/database):** Inspect എല്ലാം locally സംഭരിച്ച data, export backup JSON, import data ൽ another device, clear എല്ലാം data. എല്ലാം ന്റെ ഇത് runs ഇല്ലാതെ സെർവർ —  user's browser is  database."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "എന്തുകൊണ്ട് zero-cost architecture matters ലേക്ക് എന്നെ",
+          "content": "ഉപയോഗിച്ച് പ്രാദേശിക browser storage ആയി  പ്രാഥമിക database means ഇല്ല database hosting costs. Firebase supplements ഇത് വേണ്ടി features requiring സെർവർ-side persistence.  മുഴുവൻ പ്ലാറ്റ്ഫോം runs ൽ near-zero cost — പ്രധാനപ്പെട്ട എപ്പോൾ I'm shipping വ്യക്തിഗത പദ്ധതികൾ ഇല്ലാതെ budget."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "ആപ്ലിക്കേഷൻ Routes",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "റൂട്ട്",
+            "ഉദ്ദേശ്യം"
+          ],
+          "rows": [
+            {
+              "റൂട്ട്": "/",
+              "ഉദ്ദേശ്യം": "Home / event discovery ഒപ്പം recommendations"
+            },
+            {
+              "റൂട്ട്": "/events/[id]",
+              "ഉദ്ദേശ്യം": "Individual event വിശദാംശം page"
+            },
+            {
+              "റൂട്ട്": "/events/സൃഷ്ടിക്കുക",
+              "ഉദ്ദേശ്യം": "സൃഷ്ടിക്കുക പുതിയ event (organisers മാത്രം)"
+            },
+            {
+              "റൂട്ട്": "/എന്റെ-tickets",
+              "ഉദ്ദേശ്യം": "User ticket history ഉം PDF download"
+            },
+            {
+              "റൂട്ട്": "/profile",
+              "ഉദ്ദേശ്യം": "User profile management (Clerk)"
+            },
+            {
+              "റൂട്ട്": "/organiser",
+              "ഉദ്ദേശ്യം": "Organiser dashboard"
+            },
+            {
+              "റൂട്ട്": "/organiser/apply",
+              "ഉദ്ദേശ്യം": "Organiser verification ആപ്ലിക്കേഷൻ"
+            },
+            {
+              "റൂട്ട്": "/admin",
+              "ഉദ്ദേശ്യം": "Admin control panel — organiser approval, analytics"
+            },
+            {
+              "റൂട്ട്": "/database",
+              "ഉദ്ദേശ്യം": "പ്രാദേശിക Data Hub — inspect, export, import, clear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "എങ്ങനെ ഇത് Fits ലേക്ക് എന്റെ പ്രവർത്തിക്കുക",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "LocalPulse contrasts sharply ഒപ്പം എന്റെ [[fraud-detection|തട്ടിപ്പ് കണ്ടെത്തൽ System]] ൽ approach: എവിടെ തട്ടിപ്പ് കണ്ടെത്തൽ used traditional സെർവർ-side stack (ASP.NET, SQL സെർവർ), LocalPulse embraces  ആധുനിക serverless React ecosystem (അടുത്ത.js App Router, Clerk managed auth, Firebase, edge deployment).\n\n പദ്ധതി demonstrates TypeScript ഉടനീളം പൂർണ്ണ-stack ആപ്ലിക്കേഷൻ — തരം-safe APഞാൻ routes, typed React components, typed Firebase കോളുകൾ — എന്നതിന് പകരം  JavaScript-ഇല്ലാതെ-types approach സാധാരണ ൽ വേഗത്തിലുള്ള prototypes. അത്'s  closest thing ഞാൻ ഉണ്ട് ലേക്ക് 'standard' പൂർണ്ണ-stack വെബ് പദ്ധതി, താരതമ്യം ചെയ്ത ലേക്ക് എന്റെ ബ്ലോക്ക്ചെയിൻ ഉം infrastructure പ്രവർത്തിക്കുക."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — LocalPulse",
+      "url": "https://github.com/lingadevaru-hp/LocalPulse"
+    },
+    {
+      "id": 2,
+      "title": "അടുത്ത.js App Router documentation",
+      "url": "https://nextjs.org/docs/app"
+    },
+    {
+      "id": 3,
+      "title": "Clerk authentication",
+      "url": "https://clerk.com"
+    }
+  ],
+  "relatedArticles": [
+    "fraud-detection",
+    "about",
+    "homelab"
+  ],
+  "categories": [
+    "Web",
+    "TypeScript",
+    "Next.js",
+    "PWA"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "പൂർണ്ണ write ഒപ്പം routes table ഉം സവിശേഷത breakdown",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

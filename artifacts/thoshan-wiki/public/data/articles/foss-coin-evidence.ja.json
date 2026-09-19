@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "id": "foss-coin-evidence",
+    "title": "FOSSコイン — 証拠と検証リンク",
+    "slug": "foss-coin-evidence",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "すべてのリンクは公開された検証可能なオンチェーンデータソースを指しています。誰でもすべての主張を独自に検証できます。",
+  "sections": [
+    {
+      "id": "section-1-mint",
+      "title": "1. トークンミントアカウント",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Solanaエクスプローラー (トークン): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolscan (トークン): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nSolana FM: [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**確認事項:** トークン名、シンボル、小数点桁数(6)、総供給量(1,000,000,000,000,000 raw)、ミント権限(null)、フリーズ権限(null)、所有プログラム(TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA)。"
+        }
+      ]
+    },
+    {
+      "id": "section-2-creation",
+      "title": "2. 作成トランザクション",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "署名: VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN\nスロット: 355,223,383\nタイムスタンプ: 2025年7月23日 07:43:36 UTC\n\nSolanaエクスプローラー: [View Transaction](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nSolscan: [View Transaction](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+        },
+        {
+          "type": "text",
+          "content": "**確認事項:** 手数料支払者(HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)、InitializeMint2(6桁)、Metaplex Create Metadata Accounts v3、MintTo(10億トークン)、SetAuthority(ミント権限破棄)、ローンチパッドBuyインストラクション。"
+        }
+      ]
+    },
+    {
+      "id": "section-3-mint-revocation",
+      "title": "3. ミント権限の破棄",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ミント権限は作成トランザクション自体の中で破棄されました(上記#2と同じトランザクション)。\n\n作成トランザクション → 内部インストラクション: SetAuthority: [View Transaction](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nライブミントアカウント(nullを確認): [View Account](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**確認事項:** 作成トランザクションのログでProgram log: Instruction: SetAuthorityを探してください — これがmintAuthorityをnullに設定します。現在のミントアカウントでもmintAuthority: nullを確認できます。"
+        }
+      ]
+    },
+    {
+      "id": "section-4-freeze-revocation",
+      "title": "4. フリーズ権限の破棄",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "フリーズ権限も作成時にnullに設定されました(ライブのオンチェーンクエリで確認 — freezeAuthority: null)。\n\nライブミントアカウント: [View Account](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        }
+      ]
+    },
+    {
+      "id": "section-5-orca",
+      "title": "5. Orca Whirlpool (DEX流動性プール)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "プールアドレス: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\n取引ペア: FOSS / SOL (ラップドSOL)\nプール種別: Whirlpool (集中流動性AMM)\nプログラム: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc\n\nOrca: [View Pool](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal: [View Pool](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolanaエクスプローラー (プール): [View Account](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nプール作成トランザクション: [View Transaction](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+        },
+        {
+          "type": "text",
+          "content": "**確認事項:** プールにはFOSS + ラップドSOLのトークン金庫が含まれ、InitializePoolWithAdaptiveFeeで初期化され、動的ティック配列が作成されています。"
+        }
+      ]
+    },
+    {
+      "id": "section-6-metadata",
+      "title": "6. Metaplexメタデータ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "メタデータプログラム: metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s (Metaplex Token Metadata v3)\nメタデータURI (IPFS): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\n画像URI (IPFS): [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+        },
+        {
+          "type": "text",
+          "content": "**メタデータJSON (検証済み):**\n```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS)....\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**画像の検証:**\n- HTTPステータス: 200 ✅\n- Content-Type: image/png ✅\n- ファイルサイズ: 2,508,148バイト (約2.5 MB)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-creator",
+      "title": "7. 作成者 / 手数料支払者ウォレット",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ウォレットアドレス: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\n\nSolanaエクスプローラー: [View Wallet](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan: [View Wallet](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        },
+        {
+          "type": "text",
+          "content": "**確認事項:** このウォレットはFOSS関連の全トランザクション(作成、プール設定、流動性提供、すべての送金)の手数料支払者(署名者)です。"
+        }
+      ]
+    },
+    {
+      "id": "section-8-launchpad",
+      "title": "8. ローンチパッドプログラム",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "プログラムID: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr\n種別: BPFアップグレーダブルローダープログラム\nプログラムデータ: Fsih13MhLm6cFNYGjBY6Vu1cTuBM3STwTVonz7igrhbr\n\nSolanaエクスプローラー: [View Program](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM: [View Program](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        },
+        {
+          "type": "text",
+          "content": "**注記:** これはpump.funではありません(pump.funのプログラムID: 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P)。トークン作成・メタデータ・ミント・ミント権限破棄・初期購入を単一のアトミックなトランザクションで処理する別のノーコードトークンローンチパッドです。"
+        }
+      ]
+    },
+    {
+      "id": "section-9-all-transactions",
+      "title": "9. 全オンチェーントランザクション(時系列)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["#", "日付 (UTC)", "署名", "説明", "エクスプローラーリンク"],
+          "rows": [
+            {
+              "#": "1",
+              "Date (UTC)": "2025-07-23 07:43:36",
+              "Signature": "VQT5g...iGroN",
+              "Description": "トークン作成 — ミント、メタデータ、10億トークンのミント、ミント権限破棄、初期購入",
+              "Explorer Link": "[Explorer](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "Date (UTC)": "2025-08-17 07:32:10",
+              "Signature": "3BmzH...K29g",
+              "Description": "トークン送金 — DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ経由で外部ウォレットへ2 FOSS",
+              "Explorer Link": "[Explorer](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "Date (UTC)": "2025-10-21 14:13:04",
+              "Signature": "5obap...tWiB",
+              "Description": "Orca Whirlpool作成 — InitializePoolWithAdaptiveFee、ティック配列",
+              "Explorer Link": "[Explorer](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "Date (UTC)": "2025-10-21 14:13:23",
+              "Signature": "2xR9T...JEGm",
+              "Description": "流動性提供 — ポジションNFT作成、プールに流動性追加",
+              "Explorer Link": "[Explorer](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "Date (UTC)": "2026-01-18 12:59:51",
+              "Signature": "4Xu9T...pxiAP",
+              "Description": "トークン送金 — 1 FOSSエアドロップ",
+              "Explorer Link": "[Explorer](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "Date (UTC)": "2026-01-18 13:19:03",
+              "Signature": "4CchR...kj4T",
+              "Description": "トークン送金 — 1 FOSSエアドロップ",
+              "Explorer Link": "[Explorer](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-10-apis",
+      "title": "10. APIエンドポイント(プログラム検証用)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["API", "エンドポイント"],
+          "rows": [
+            {
+              "API": "Solana RPC (getAccountInfo)",
+              "Endpoint": "POST https://api.mainnet-beta.solana.com — ミントアカウントのクエリ"
+            },
+            {
+              "API": "Solana RPC (getSignaturesForAddress)",
+              "Endpoint": "POST https://api.mainnet-beta.solana.com — トランザクション履歴"
+            },
+            {
+              "API": "Solana RPC (getTokenLargestAccounts)",
+              "Endpoint": "POST https://api.mainnet-beta.solana.com — 上位保有者"
+            },
+            {
+              "API": "GeckoTerminalトークンAPI",
+              "Endpoint": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+            },
+            {
+              "API": "GeckoTerminalプールAPI",
+              "Endpoint": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)"
+            },
+            {
+              "API": "Orca Whirlpoolドキュメント",
+              "Endpoint": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)"
+            },
+            {
+              "API": "IPFSメタデータJSON",
+              "Endpoint": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+            },
+            {
+              "API": "IPFSトークンロゴ",
+              "Endpoint": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-11-program-ids",
+      "title": "11. 参照される主要プログラムID",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["プログラム", "プログラムID", "目的"],
+          "rows": [
+            {
+              "Program": "SPLトークンプログラム",
+              "Program ID": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "Purpose": "コアなトークン操作(ミント、送金、権限)"
+            },
+            {
+              "Program": "SPL Token-2022",
+              "Program ID": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "Purpose": "トークン拡張機能(ポジションNFTに使用)"
+            },
+            {
+              "Program": "関連トークンアカウント",
+              "Program ID": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "Purpose": "ウォレット用トークンアカウントの自動作成"
+            },
+            {
+              "Program": "Metaplexトークンメタデータ",
+              "Program ID": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "Purpose": "オンチェーンの名前・シンボル・URI・画像"
+            },
+            {
+              "Program": "Orca Whirlpool",
+              "Program ID": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "Purpose": "集中流動性AMM"
+            },
+            {
+              "Program": "システムプログラム",
+              "Program ID": "11111111111111111111111111111111",
+              "Purpose": "アカウント作成、SOL送金"
+            },
+            {
+              "Program": "コンピュートバジェット",
+              "Program ID": "ComputeBudget111111111111111111111111111111",
+              "Purpose": "トランザクションのコンピュートユニット上限"
+            },
+            {
+              "Program": "ローンチパッド (カスタム)",
+              "Program ID": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "Purpose": "ノーコードのトークン作成プログラム"
+            },
+            {
+              "Program": "送金サービス",
+              "Program ID": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "Purpose": "トークン配布/エアドロップサービス"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSSコイン メイン記事", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHubリポジトリ", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Verification"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "GitHub MDから初期サブ記事を作成", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

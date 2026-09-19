@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "id": "fraud-detection",
+    "title": "തട്ടിപ്പ് കണ്ടെത്തൽ സംവിധാനം",
+    "slug": "fraud-detection",
+    "category": "AI / ML",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 16,
+    "views": 3000
+  },
+  "infobox": {
+    "title": "തട്ടിപ്പ് കണ്ടെത്തൽ System",
+    "image": "https://picsum.photos/seed/fraud-infobox/280/200",
+    "imageCaption": "Admin dashboard showing ML prediction analytics",
+    "fields": [
+      {
+        "label": "തരം",
+        "value": "MCA Final Year Project"
+      },
+      {
+        "label": "Semester",
+        "value": "3rd Semester (Final Year Academic)"
+      },
+      {
+        "label": "ഭാഷ",
+        "value": "C#"
+      },
+      {
+        "label": "ചട്ടക്കൂട്",
+        "value": "ASP.NET Web Forms 4.7.2"
+      },
+      {
+        "label": "ML algorithms",
+        "value": "LR + KNN + SVM + CNN (ensemble)"
+      },
+      {
+        "label": "Database",
+        "value": "SQL Server LocalDB"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/online-fraud-detection-system"
+      },
+      {
+        "label": "GitHub സ്റ്റാറുകൾ",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "Completed, public on GitHub"
+      }
+    ]
+  },
+  "lead": " **ഓൺലൈൻ ഇടപാട് തട്ടിപ്പ് കണ്ടെത്തൽ System** is എന്റെ MCA അവസാന വർഷം Academic പദ്ധതി (3rd Semester) — പൂർണ്ണ-stack banking തട്ടിപ്പ് കണ്ടെത്തൽ പ്ലാറ്റ്ഫോം ഞാൻ നിർമ്മിച്ച ഉപയോഗിച്ച് **ASP.NET വെബ് Forms** ഉം **4-അൽഗോരിതം ML ensemble**. എല്ലാ ഇടപാട് is classified വഴി Logistic Regression, KNN, SVM, ഉം Convolutional Neural നെറ്റ്വർക്ക് — എങ്കിൽ 3 അല്ലെങ്കിൽ കൂടുതൽ algorithms vote fraudulent,  ഇടപാട് is automatically blocked.\n\n system includes യഥാർത്ഥ-time തട്ടിപ്പ് കണ്ടെത്തൽ, intrusion detection module അത് tracks failed logins വഴി IP ഉം geolocation, SMTP email alerts, ഉം പൂർണ്ണ admin panel ഒപ്പം Google Charts analytics.  code is publicly ൽ [GitHub](https://github.com/lingadevaru-hp/online-fraud-detection-system).",
+  "sections": [
+    {
+      "id": "ml-ensemble",
+      "title": " ML Ensemble ഞാൻ നിർമ്മിച്ച",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഞാൻ നടപ്പാക്കിയ എല്ലാം four ML algorithms directly ൽ C# എന്നതിന് പകരം ഉപയോഗിച്ച് Python ML library. ഇത് was deliberate constraint ഞാൻ സജ്ജമാക്കുക വേണ്ടി എന്നെത്തന്നെ:  മുഴുവൻ stack ഉണ്ടായിരുന്നു ലേക്ക് be single ASP.NET ആപ്ലിക്കേഷൻ, അല്ല Python microservice. അത് forced എന്നെ ലേക്ക് understand  mathematics ന്റെ ഓരോ അൽഗോരിതം എന്നതിന് പകരം മാത്രം calling sklearn.\n\nഎന്റെ **ensemble decision rule** is ലളിതം ഉം interpretable: majority voting. എങ്കിൽ 3 അല്ലെങ്കിൽ കൂടുതൽ ന്റെ  4 algorithms independently classify ഇടപാട് ആയി fraudulent,  ഇടപാട് is blocked. ഇത് reduces false positives താരതമ്യം ചെയ്ത ലേക്ക് single-അൽഗോരിതം approaches അതേസമയം maintaining sensitivity."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "അൽഗോരിതം",
+            "തരം",
+            "എങ്ങനെ ഞാൻ used അത്"
+          ],
+          "rows": [
+            {
+              "അൽഗോരിതം": "Logistic Regression",
+              "തരം": "Linear classifier",
+              "ഞാൻ ഇത് എങ്ങനെ ഉപയോഗിച്ചു": "Binary fraud/ഇല്ല-fraud classification ൽ 4 normalised features"
+            },
+            {
+              "അൽഗോരിതം": "KNN",
+              "തരം": "Instance-based",
+              "ഞാൻ ഇത് എങ്ങനെ ഉപയോഗിച്ചു": "K=3 nearest neighbours ൽ സവിശേഷത space"
+            },
+            {
+              "അൽഗോരിതം": "SVM",
+              "തരം": "Kernel-based",
+              "ഞാൻ ഇത് എങ്ങനെ ഉപയോഗിച്ചു": "പിന്തുണയ്ക്കുക Vector Machine — finds maximum-margin decision boundary"
+            },
+            {
+              "അൽഗോരിതം": "CNN",
+              "തരം": "Neural നെറ്റ്വർക്ക്",
+              "ഞാൻ ഇത് എങ്ങനെ ഉപയോഗിച്ചു": "Convolutional Neural നെറ്റ്വർക്ക് —  മാത്രം deep learning model ൽ  ensemble"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Ensemble decision rule",
+          "content": "3 അല്ലെങ്കിൽ കൂടുതൽ out ന്റെ 4 algorithms vote fraud → ഇടപാട് blocked. ഇത് majority-voting approach is കൂടുതൽ robust than any single അൽഗോരിതം ഉം reduces രണ്ടും false positives ഉം false negatives താരതമ്യം ചെയ്ത ലേക്ക് relying ൽ  CNN alone."
+        }
+      ]
+    },
+    {
+      "id": "input-features",
+      "title": "Input Features",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "സവിശേഷത",
+            "വിശദാംശം",
+            "സാധാരണീകരണം"
+          ],
+          "rows": [
+            {
+              "സവിശേഷത": "ഇടപാട് amount",
+              "വിശദാംശം": "മൂല്യം ന്റെ  ഇടപാട് ൽ rupees",
+              "സാധാരണീകരണം": "Divided വഴി ₹2,000"
+            },
+            {
+              "സവിശേഷത": "ഇടപാട് count",
+              "വിശദാംശം": "Frequency ന്റെ സമീപകാല ഇടപാടുകൾ നിന്ന്  account",
+              "സാധാരണീകരണം": "Raw count"
+            },
+            {
+              "സവിശേഷത": "സ്ഥലം risk",
+              "വിശദാംശം": "0 = അറിയപ്പെടുന്ന safe സ്ഥലം, 1 = flagged risky സ്ഥലം",
+              "സാധാരണീകരണം": "Binary"
+            },
+            {
+              "സവിശേഷത": "Time risk",
+              "വിശദാംശം": "0 = business hours, 1 = odd hours (late night / ആദ്യകാല morning)",
+              "സാധാരണീകരണം": "Binary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system-features",
+      "title": "എന്ത്  System ചെയ്യുന്നു",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**തട്ടിപ്പ് കണ്ടെത്തൽ:** യഥാർത്ഥ-time ensemble ML voting ൽ എല്ലാ ഇടപാട്. ഇടപാട് blocked immediately എപ്പോൾ 3+ algorithms vote fraud — ഇല്ല human അവലോകനം ചെയ്യുക queue.\n\n**Intrusion Detection:** ഞാൻ നിരീക്ഷിക്കുക failed logins ഒപ്പം IP address, GPS geolocation, ഉം timestamp. Auto account blocking triggers എപ്പോൾ 5+ failed ഇടപാടുകൾ occur ഉള്ളിൽ 1 hour. SMTP email alerts ആണ് അയച്ച ൽ suspicious activity.\n\n**Admin Panel:** പൂർണ്ണ user management, bank CRUD operations, intrusion log viewer, ഇടപാട് analytics ഒപ്പം Google Charts, ഉം ML prediction dashboard showing per-അൽഗോരിതം vote counts.\n\n**User Side:** Supports creating bank accounts (SBI, HDFC, Karnataka Bank), adding വാലറ്റ് funds, transferring money ഒപ്പം തത്സമയ തട്ടിപ്പ് കണ്ടെത്തൽ, viewing account statements, ഉം per-account സുരക്ഷ പ്രധാന ആവശ്യമായ വേണ്ടി എല്ലാം ഇടപാടുകൾ."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "സുരക്ഷ measures ഞാൻ നടപ്പാക്കിയ",
+          "content": "Parameterized SQL queries ഉടനീളം (SQL injection prevention). Session management ഒപ്പം proper logout. സുരക്ഷ പ്രധാന per bank account ആവശ്യമായ വേണ്ടി എല്ലാം ഇടപാട് operations."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "എന്തുകൊണ്ട് ഞാൻ Chose C# മുകളിൽ Python",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "എന്റെ 3rd semester അവസാന വർഷം academic submission വേണ്ടി  MCA ൽ SIT Tumakuru.  4th (അവസാന) semester is reserved വേണ്ടി industry internship — ഇത് പദ്ധതി was  3rd semester deliverable.\n\nഞാൻ മനഃപൂർവം chose C# ഉം ASP.NET എന്നതിന് പകരം Python ഉം Flask. C# ഉം .NET represent professional enterprise stack, ഉം implementing ML algorithms ആദ്യം മുതൽ ൽ statically-typed ഭാഷ forced എന്നെ ലേക്ക് understand  underlying mathematics എന്നതിന് പകരം മാത്രം calling Python library. അത്'s harder റൂട്ട് അത് taught എന്നെ കൂടുതൽ.\n\nവേണ്ടി contrast ഒപ്പം എന്റെ CHIAC ASഞാൻ internship ML പ്രവർത്തിക്കുക (Python, QLoRA, transformer models), see [[thoshan-flash|Thoshan Flash]]."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — ഓൺലൈൻ-fraud-detection-system",
+      "url": "https://github.com/lingadevaru-hp/online-fraud-detection-system"
+    }
+  ],
+  "relatedArticles": [
+    "thoshan-flash",
+    "local-pulse",
+    "about"
+  ],
+  "categories": [
+    "AI / ML",
+    "Security",
+    "ASP.NET",
+    "MCA Project"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ചേർത്ത academic context section",
+      "changeType": "minor"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "id": "foss-coin-programs",
+    "title": "FOSSコイン — プログラム",
+    "slug": "foss-coin-programs",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "FOSSコインプロジェクトで使用したすべてのSolanaプログラムとその目的。",
+  "sections": [
+    {
+      "id": "programs-table",
+      "title": "プログラム",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["プログラム名", "プログラムID", "本プロジェクトでの目的"],
+          "rows": [
+            {
+              "Program name": "SPLトークンプログラム",
+              "Program ID": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "Purpose in this project": "ミント作成、トークンミント、送金、権限管理を含むコアなトークン操作"
+            },
+            {
+              "Program name": "SPL Token-2022",
+              "Program ID": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "Purpose in this project": "OrcaポジションNFTとトークン拡張機能のサポートに使用"
+            },
+            {
+              "Program name": "関連トークンアカウント",
+              "Program ID": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "Purpose in this project": "ウォレット保有者向けに関連トークンアカウントを作成"
+            },
+            {
+              "Program name": "Metaplexトークンメタデータ",
+              "Program ID": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "Purpose in this project": "名前・シンボル・URI・画像のトークンメタデータ参照を保存"
+            },
+            {
+              "Program name": "Orca Whirlpool",
+              "Program ID": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "Purpose in this project": "FOSS / SOL市場の集中流動性プールを動かす"
+            },
+            {
+              "Program name": "システムプログラム",
+              "Program ID": "11111111111111111111111111111111",
+              "Purpose in this project": "アカウント確保とSolana基本アカウント作成を処理"
+            },
+            {
+              "Program name": "コンピュートバジェット",
+              "Program ID": "ComputeBudget111111111111111111111111111111",
+              "Purpose in this project": "トランザクション内のコンピュートユニットパラメータを設定"
+            },
+            {
+              "Program name": "ローンチパッド(カスタム)",
+              "Program ID": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "Purpose in this project": "トークン作成とアトミックなローンチフロー実行に使ったカスタムのノーコードローンチパッドプログラム"
+            },
+            {
+              "Program name": "送金サービス",
+              "Program ID": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "Purpose in this project": "記録された少額送金/エアドロップ活動で参照"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "FOSSコイン メイン記事", "url": "/wiki/foss-coin" },
+    { "id": 2, "title": "GitHubリポジトリ", "url": "https://github.com/lingadevaru-hp/Foss-Token" }
+  ],
+  "relatedArticles": ["foss-coin"],
+  "categories": ["Blockchain", "Solana", "Technical"],
+  "editHistory": [
+    { "date": "2026-08-11T00:00:00Z", "editor": "thoshan", "summary": "GitHub MDから初期サブ記事を作成", "changeType": "new" }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

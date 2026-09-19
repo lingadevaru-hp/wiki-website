@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "local-pulse",
+    "title": "LocalPulse",
+    "slug": "local-pulse",
+    "category": "Web",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 14,
+    "views": 2400
+  },
+  "infobox": {
+    "title": "LocalPulse",
+    "image": "https://picsum.photos/seed/pulse-infobox/280/200",
+    "imageCaption": "LocalPulseイベント発見ホーム画面",
+    "fields": [
+      { "label": "フレームワーク", "value": "Next.js 15 (App Router)" },
+      { "label": "言語", "value": "TypeScript" },
+      { "label": "認証", "value": "Clerk" },
+      { "label": "バックエンド", "value": "Firebase + ローカルストレージ" },
+      { "label": "PWA", "value": "あり — オフライン対応" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/LocalPulse" },
+      { "label": "GitHubスター", "value": "1 ⭐" },
+      { "label": "デプロイ先", "value": "Cloudflare Pages" },
+      { "label": "ステータス", "value": "稼働中" }
+    ]
+  },
+  "lead": "**LocalPulse**は**Next.js 15 App Router**、React 18、TypeScript、Tailwind CSS、shadcn/uiで構築したローカルファーストのイベント発見・主催者プラットフォームです。2026年3月に構築 — ポートフォリオ中最新的のWebプロジェクトです。Firebaseと並行してローカルブラウザストレージをゼロコストのデータベースバックエンドとして使い、オフライン対応とインストールプロンプト付きの**プログレッシブWebアプリ**として構築しました。\n\nLocalPulseは認証(Clerk)、ファイルベースルーティング、PDFチケット生成、カレンダーエクスポート(.ics)、管理パネルを備えたフルスタックTypeScriptアプリケーションの実証であり、すべてモダンなサーバーレス対応アーキテクチャです。コードは[GitHub](https://github.com/lingadevaru-hp/LocalPulse)で公開中です。",
+  "sections": [
+    {
+      "id": "tech-stack",
+      "title": "技術スタック",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["層", "技術", "用途"],
+          "rows": [
+            { "Layer": "フレームワーク", "Technology": "Next.js 15 (App Router)", "What I used it for": "ファイルベースルーティング、サーバー・クライアントコンポーネント、レイアウト" },
+            { "Layer": "UI", "Technology": "React 18、Tailwind CSS、shadcn/ui", "What I used it for": "Radix UIプリミティブ基盤のコンポーネントライブラリ" },
+            { "Layer": "言語", "Technology": "TypeScript", "What I used it for": "エンドツーエンドの型安全 — 型付きAPIルート、型付きReactコンポーネント、型付きFirebase呼び出し" },
+            { "Layer": "認証", "Technology": "Clerk (@clerk/nextjs)", "What I used it for": "サインイン、サインアップ、プロフィール、パスワードリセット — 自作せずマネージド認証を利用" },
+            { "Layer": "バックエンド / DB", "Technology": "Firebase + ローカルブラウザストレージ", "What I used it for": "ゼロコストのデータベース — バックエンドサーバー不要" },
+            { "Layer": "PWA", "Technology": "Service Worker、オフライン対応", "What I used it for": "インストールプロンプト、モバイルアイコン、オフライン対応ページ" },
+            { "Layer": "デプロイ", "Technology": "Cloudflare Pages", "What I used it for": "サーバーレスエッジデプロイ" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "LocalPulseの機能",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**イベント発見:** 都市・カテゴリ・日付での検索とフィルターを構築。注目イベントセクション。カテゴリ + 都市 + 評価のアフィニティスコアによる賢いおすすめ。アクセス制御付きイベント公開範囲:ローカル、大学、学科。\n\n**主催者ワークフロー:** 書類アップロードによる主催者認証(Aadhaar、PAN、GST、事業書類)。ステータス:保留中 / 承認 / 却下。管理者レビューパネル。\n\n**チケット:** イベント名で命名されたダウンロード可能なPDFチケット。ユーザーごとのチケット履歴。リマインダー切替。カレンダー追加エクスポート(.ics — Googleカレンダー、Outlook、Appleカレンダー対応)。\n\n**ローカルデータハブ (/database):** ローカル保存データの閲覧、バックアップJSONのエクスポート、別デバイスへのデータインポート、全データ削除。これらすべてサーバーなしで動作 — ユーザーのブラウザがデータベースです。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ゼロコスト構成が重要な理由",
+          "content": "プライマリデータベースにローカルブラウザストレージを使うことでデータベース hosting コストはゼロです。サーバー側永続化が必要な機能のみFirebaseが補完します。プラットフォーム全体がほぼゼロコストで動作 — 予算なしで個人プロジェクトを出す私には重要です。"
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "アプリケーションルート",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["ルート", "目的"],
+          "rows": [
+            { "Route": "/", "Purpose": "ホーム / おすすめ付きイベント発見" },
+            { "Route": "/events/[id]", "Purpose": "個別イベント詳細ページ" },
+            { "Route": "/events/create", "Purpose": "新規イベント作成(主催者のみ)" },
+            { "Route": "/my-tickets", "Purpose": "ユーザーのチケット履歴とPDFダウンロード" },
+            { "Route": "/profile", "Purpose": "ユーザー profile 管理(Clerk)" },
+            { "Route": "/organiser", "Purpose": "主催者ダッシュボード" },
+            { "Route": "/organiser/apply", "Purpose": "主催者認証申請" },
+            { "Route": "/admin", "Purpose": "管理コントロールパネル — 主催者承認、分析" },
+            { "Route": "/database", "Purpose": "ローカルデータハブ — 閲覧、エクスポート、インポート、削除" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "私の仕事の中での位置づけ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "LocalPulseは[[fraud-detection|不正検知システム]]とアプローチが鋭く対照的です:不正検知が伝統的なサーバーサイドスタック(ASP.NET、SQL Server)だったのに対し、LocalPulseはモダンなサーバーレスReactエコシステム(Next.js App Router、Clerkマネージド認証、Firebase、エッジデプロイ)を採用しています。\n\nこのプロジェクトはフルスタックアプリケーション全体でのTypeScriptを実証しています — 型安全なAPIルート、型付きReactコンポーネント、型付きFirebase呼び出し — プロトタイプにありがちな型なしJavaScriptアプローチではありません。ブロックチェーンやインフラの仕事と比べ、最も「標準的」なフルスタックWebプロジェクトに近いものです。"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — LocalPulse", "url": "https://github.com/lingadevaru-hp/LocalPulse" },
+    { "id": 2, "title": "Next.js App Routerドキュメント", "url": "https://nextjs.org/docs/app" },
+    { "id": 3, "title": "Clerk認証", "url": "https://clerk.com" }
+  ],
+  "relatedArticles": ["fraud-detection", "about", "homelab"],
+  "categories": ["Web", "TypeScript", "Next.js", "PWA"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-30T00:00:00Z", "editor": "thoshan", "summary": "全面執筆:ルート表と機能分解", "changeType": "major" },
+    { "date": "2026-04-29T08:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

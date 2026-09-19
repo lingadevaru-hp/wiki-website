@@ -1,0 +1,299 @@
+{
+  "metadata": {
+    "id": "foss-coin-on-chain-verification",
+    "title": "FOSS Coin — ഓൺ-ചെയിൻ പരിശോധന",
+    "slug": "foss-coin-on-chain-verification",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "ൽ-Chain Verification",
+    "fields": [
+      {
+        "label": "പദ്ധതി",
+        "value": "FOSS Coin ($FOSS)"
+      },
+      {
+        "label": "Verification സ്ഥിതി",
+        "value": "✅ Fully Verified"
+      },
+      {
+        "label": "അവസാന പരിശോധിച്ച",
+        "value": "April 14, 2026"
+      },
+      {
+        "label": "ആകെ Checks",
+        "value": "18 verification points"
+      }
+    ]
+  },
+  "lead": "ഇത് രേഖപ്പെടുത്തുക is  verification പാളി ന്റെ  ശേഖരണി. ഞാൻ ക്രമീകരിച്ച അത് അതിനാൽ അത് anyone കഴിയും start ഒപ്പം ലളിതം explorer ലിങ്കുകൾ ഉം പിന്നെ go deeper ലേക്ക് RPC കോളുകൾ, പ്രോഗ്രാം IDs, ഉം  cross-verification രേഖപ്പെടുത്തുക.",
+  "sections": [
+    {
+      "id": "section-1-mint-account",
+      "title": "Section 1 — ടോക്കൺ mint account",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "എന്ത് ലേക്ക് പരിശോധിക്കുക:"
+        },
+        {
+          "type": "text",
+          "content": "- decimals = 6\n- വിതരണം = 1000000000000000 raw\n- mintAuthority = null\n- freezeAuthority = null\n- owner = TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ]
+    },
+    {
+      "id": "section-2-transactions",
+      "title": "Section 2 — എല്ലാം 6 ഇടപാടുകൾ ൽ കാലാനുക്രമ order",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "തീയതി",
+            "ഒപ്പ്",
+            "വിവരണം",
+            "ലിങ്ക്"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "തീയതി": "2025-07-23 07:43:36 UTC",
+              "ഒപ്പ്": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "വിവരണം": "ടോക്കൺ creation — mint, metadata, 1B വിതരണം, mint authority revoked, initial buy",
+              "ലിങ്ക്": "[Explorer](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "തീയതി": "2025-08-17 07:32:10 UTC",
+              "ഒപ്പ്": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "വിവരണം": "Transfer — 2 FOSS ലേക്ക് external വാലറ്റ്",
+              "ലിങ്ക്": "[Explorer](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "തീയതി": "2025-10-21 14:13:04 UTC",
+              "ഒപ്പ്": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "വിവരണം": "Orca Whirlpool പൂൾ creation",
+              "ലിങ്ക്": "[Explorer](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "തീയതി": "2025-10-21 14:13:23 UTC",
+              "ഒപ്പ്": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "വിവരണം": "ലിക്വിഡിറ്റി provision, സ്ഥാനം NFT സൃഷ്ടിച്ച",
+              "ലിങ്ക്": "[Explorer](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "തീയതി": "2026-01-18 12:59:51 UTC",
+              "ഒപ്പ്": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "വിവരണം": "Airdrop — 1 FOSS",
+              "ലിങ്ക്": "[Explorer](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "തീയതി": "2026-01-18 13:19:03 UTC",
+              "ഒപ്പ്": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "വിവരണം": "Airdrop — 1 FOSS",
+              "ലിങ്ക്": "[Explorer](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-creator-wallet",
+      "title": "Section 3 — Creator വാലറ്റ്",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Address: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\n\nഇത് വാലറ്റ് is  ഫീസ് അടയ്ക്കുന്നയാൾ ൽ എല്ലാം 6 ഇടപാടുകൾ according ലേക്ക്  collected പദ്ധതി documentation."
+        },
+        {
+          "type": "text",
+          "content": "Solana Explorer: [View വാലറ്റ്](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan: [View വാലറ്റ്](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        }
+      ]
+    },
+    {
+      "id": "section-4-orca-pool",
+      "title": "Section 4 — Orca പൂൾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "പൂൾ: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\nOrca: [View പൂൾ](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal: [View പൂൾ](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolana Explorer: [View പൂൾ](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nപൂൾ തരം: Whirlpool (concentrated ലിക്വിഡിറ്റി)\nപ്രോഗ്രാം: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        }
+      ]
+    },
+    {
+      "id": "section-5-metadata",
+      "title": "Section 5 — Metadata",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "IPFS metadata JSON: [View JSON](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\nLogo: [View Image](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\nMetaplex പ്രോഗ്രാം: metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ]
+    },
+    {
+      "id": "section-6-launchpad",
+      "title": "Section 6 — Launchpad പ്രോഗ്രാം",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "പ്രോഗ്രാം ID: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr\n\nഇത് is അല്ല pump.fun.  pump.fun പ്രോഗ്രാം ID is 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P.  launchpad used ഇവിടെ is separate BPF upgradeable loader പ്രോഗ്രാം അത് handled ടോക്കൺ creation, metadata, minting, mint revocation, ഉം  initial buy ൽ single atomic ഇടപാട്."
+        },
+        {
+          "type": "text",
+          "content": "Solana Explorer: [View പ്രോഗ്രാം](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM: [View പ്രോഗ്രാം](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-rpc-verification",
+      "title": "Section 7 — RPC verification commands",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "എൻഡ്പോയിന്റ്: https://api.mainnet-beta.solana.com"
+        },
+        {
+          "type": "text",
+          "content": "### getAccountInfo\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getAccountInfo\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"encoding\":\"jsonParsed\"}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getSignaturesForAddress\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getSignaturesForAddress\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"limit\":10}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getTokenLargestAccounts\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getTokenLargestAccounts\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\"]}'\n```"
+        }
+      ]
+    },
+    {
+      "id": "section-8-cross-verification",
+      "title": "Section 8 — Cross-verification results",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "Claim നിന്ന് input file",
+            "സ്ഥിതി",
+            "Corrected മൂല്യം / ൽ-chain reality",
+            "ഉറവിടം"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "ടോക്കൺ Name: \"FOSS Coin\"",
+              "സ്ഥിതി": "⚠️ PARTIAL",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "ൽ-chain name is Free ഓപ്പൺ സോഴ്സ് Soft, അതേസമയം  descriptive text says FOSS Coin",
+              "ഉറവിടം": "IPFS Metadata"
+            },
+            {
+              "#": "2",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "Symbol: FOSS",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "ൽ-chain symbol is FOSS",
+              "ഉറവിടം": "IPFS Metadata"
+            },
+            {
+              "#": "3",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "ബ്ലോക്ക്ചെയിൻ: Solana",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "ടോക്കൺ is ൽ Solana mainnet ഉം owned വഴി  SPL ടോക്കൺ പ്രോഗ്രാം",
+              "ഉറവിടം": "Solana RPC"
+            },
+            {
+              "#": "4",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "Mint Address: 64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "Confirmed വഴി Solana RPC account lookups",
+              "ഉറവിടം": "Solana RPC"
+            },
+            {
+              "#": "5",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "ടോക്കൺ Standard: SPL ടോക്കൺ",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "Uses  legacy SPL ടോക്കൺ പ്രോഗ്രാം, അല്ല ടോക്കൺ-2022",
+              "ഉറവിടം": "Solana RPC"
+            },
+            {
+              "#": "6",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "ആകെ വിതരണം: 1,000,000,000 (fixed)",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "Raw വിതരണം 1000000000000000 ഒപ്പം 6 decimals equals 1,000,000,000",
+              "ഉറവിടം": "Solana RPC"
+            },
+            {
+              "#": "7",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "Mint Authority: Revoked",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "mintAuthority: null",
+              "ഉറവിടം": "Solana RPC"
+            },
+            {
+              "#": "8",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "DEX: Orca",
+              "സ്ഥിതി": "✅ പരിശോധിച്ച",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "Orca Whirlpool പൂൾ exists ൽ 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2",
+              "ഉറവിടം": "Orca"
+            },
+            {
+              "#": "9",
+              "ഇൻപുട്ട് ഫയലിലെ അവകാശവാദം": "Decimals: 9",
+              "സ്ഥിതി": "❌ INCORRECT",
+              "തിരുത്തിയ മൂല്യം / ഓൺ-ചെയിൻ യാഥാർത്ഥ്യം": "ൽ-chain decimals ആണ് 6, അല്ല 9",
+              "ഉറവിടം": "Solana RPC vs input file"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin പ്രധാന Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ശേഖരണി",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article സൃഷ്ടിച്ച നിന്ന് GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

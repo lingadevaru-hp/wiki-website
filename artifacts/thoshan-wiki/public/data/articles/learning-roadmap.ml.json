@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "id": "learning-roadmap",
+    "title": "പഠന റോഡ്മാപ്പ്",
+    "slug": "learning-roadmap",
+    "category": "Learning",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 12,
+    "views": 1960
+  },
+  "infobox": {
+    "title": "പഠന റോഡ്മാപ്പ്",
+    "image": "https://picsum.photos/seed/learn-infobox/280/200",
+    "imageCaption": "Study area and terminal workspace",
+    "fields": [
+      {
+        "label": "Priority certs",
+        "value": "CompTIA Network+, Security+, CCNA"
+      },
+      {
+        "label": "ൽ progress",
+        "value": "CS50 Cybersecurity (Harvard)"
+      },
+      {
+        "label": "Tools learning",
+        "value": "Vim/Neovim, Obsidian (advanced)"
+      },
+      {
+        "label": "Reading",
+        "value": "I Came Upon a Lighthouse — partially read"
+      },
+      {
+        "label": "സ്ഥിതി",
+        "value": "None yet obtained — all in planning"
+      }
+    ]
+  },
+  "lead": "ഇത് page documents എന്റെ planned learning — certifications ഞാൻ haven't yet obtained, tools ഞാൻ haven't yet mastered, ഉം courses I'm currently ൽ progress ൽ. **Nothing ഇവിടെ is നിലവിലെ skill അല്ലെങ്കിൽ finished item.** ഇത് is എന്റെ honest future agenda.\n\nഎന്റെ overarching കരിയർ ദിശ is **കമ്പ്യൂട്ടർ നെറ്റ്വർക്കിംഗ്, ക്ലൗഡ് കമ്പ്യൂട്ടിംഗ്, ഉം സൈബർ സുരക്ഷ**, ഉം എന്റെ സർട്ടിഫിക്കറ്റ് plan reflects ഇത് directly. I've sequenced അത്: networking fundamentals ആദ്യ (CompTIA നെറ്റ്വർക്ക്+, CCNA), പിന്നെ സുരക്ഷ (സുരക്ഷ+, CEH), പിന്നെ cloud (AWS, OCI, Azure).",
+  "sections": [
+    {
+      "id": "in-progress",
+      "title": "എന്ത് I'm Currently Working ൽ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**CS50 Introduction ലേക്ക് സൈബർ സുരക്ഷ (Harvard)** — ഞാൻ started ഇത് ൽ edX / cs50.harvard.edu. അത് covers സൈബർ സുരക്ഷ fundamentals: threats, vulnerabilities, defensive techniques, cryptography basics, വെബ് സുരക്ഷ. സ്ഥിതി: started, അല്ല yet completed. ഞാൻ ഇപ്പോഴും ഉണ്ട് remaining modules ഉം  അവസാന പദ്ധതി ലേക്ക് ചെയ്യുക.\n\n**Vim / Neovim** — അല്ല fully started yet. Learning വഴി vimtutor (നിർമ്മിച്ച ലേക്ക് Vim). Neovim ഒപ്പം LazyVim config is ഇതിനകം എന്റെ editor ൽ  [[linux-setup|Omarchy setup]], പക്ഷേ deeper proficiency ൽ  keybinding നില is ഇപ്പോഴും ആയിക്കൊണ്ടിരിക്കുന്നു വികസിപ്പിച്ച."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Currently reading",
+          "content": "Partially reading 'ഞാൻ Came Upon Lighthouse' വഴി Shantanu Naidu — വ്യക്തിഗത memoir കുറിച്ച് intergenerational friendship ഉം mentorship. അല്ല business book. കുറിച്ച് human connection ഉം life പാഠങ്ങൾ. ഞാൻ ആവശ്യമാണ് ലേക്ക് finish  remaining chapters."
+        }
+      ]
+    },
+    {
+      "id": "certifications",
+      "title": "എന്റെ സർട്ടിഫിക്കറ്റ് Plan",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "ഇല്ല industry certifications obtained yet",
+          "content": "ആയി ന്റെ June 2026, ഞാൻ ഉണ്ട് ഇല്ല formal industry certifications.  Linux Fundamentals course certificate is basic course cert. CS50 സൈബർ സുരക്ഷ is started പക്ഷേ അല്ല completed. Everything below is planned ഒപ്പം ഇല്ല സജ്ജമാക്കുക timeline."
+        },
+        {
+          "type": "text",
+          "content": "**Networking (എന്റെ highest priority):**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "സർട്ടിഫിക്കറ്റ്",
+            "നില",
+            "എന്തുകൊണ്ട് ഞാൻ ആഗ്രഹിക്കുന്നു അത്"
+          ],
+          "rows": [
+            {
+              "സർട്ടിഫിക്കറ്റ്": "CompTIA നെറ്റ്വർക്ക്+",
+              "നില": "Entry — vendor-neutral",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "Good foundation മുമ്പ് സുരക്ഷ+. Networking fundamentals."
+            },
+            {
+              "സർട്ടിഫിക്കറ്റ്": "CCNA (Cisco)",
+              "നില": "Associate",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "Gold standard വേണ്ടി networking roles ൽ India. ഉയർന്ന priority വേണ്ടി എന്നെ."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**സൈബർ സുരക്ഷ:**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "സർട്ടിഫിക്കറ്റ്",
+            "നില",
+            "എന്തുകൊണ്ട് ഞാൻ ആഗ്രഹിക്കുന്നു അത്"
+          ],
+          "rows": [
+            {
+              "സർട്ടിഫിക്കറ്റ്": "CompTIA സുരക്ഷ+",
+              "നില": "Entry — industry standard",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "ഏറ്റവും recognised ആദ്യ cert ൽ സൈബർ സുരക്ഷ. I'll ചെയ്യുക ഇത് ശേഷം നെറ്റ്വർക്ക്+."
+            },
+            {
+              "സർട്ടിഫിക്കറ്റ്": "CEH (Certified Ethical Hacker)",
+              "നില": "Intermediate",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "EC-Council — offensive സുരക്ഷ focus. ശേഷം സുരക്ഷ+."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**ക്ലൗഡ് കമ്പ്യൂട്ടിംഗ്:**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "സർട്ടിഫിക്കറ്റ്",
+            "നില",
+            "എന്തുകൊണ്ട് ഞാൻ ആഗ്രഹിക്കുന്നു അത്"
+          ],
+          "rows": [
+            {
+              "സർട്ടിഫിക്കറ്റ്": "AWS Cloud Practitioner",
+              "നില": "Foundational",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "Easiest entry ലേക്ക് cloud certs — validates cloud fundamentals."
+            },
+            {
+              "സർട്ടിഫിക്കറ്റ്": "OCഞാൻ Foundations Associate",
+              "നില": "Foundational",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "Oracle Cloud — directly relevant given എന്റെ existing [[homelab|OCഞാൻ homelab]] setup."
+            },
+            {
+              "സർട്ടിഫിക്കറ്റ്": "AZ-900 (Azure Fundamentals)",
+              "നില": "Foundational",
+              "എനിക്ക് ഇത് എന്തിന് വേണം": "Microsoft Azure entry cert — rounds out multi-cloud exposure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "Tools I'm Learning",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Obsidian (advanced features)** — ഞാൻ currently use Obsidian ആയി വ്യക്തിഗത wikഞാൻ host പക്ഷേ മാത്രം scratch  surface. Features ഞാൻ ആഗ്രഹിക്കുന്നു ലേക്ക് actually പഠിക്കുക: Dataview plugin (query notes like database), Canvas (visual mind maps), graph filters, templates, tag hierarchies, backlink navigation, ഉം core plugin configuration.\n\n**Hermes Agent (Nous Research)** — self-improving autonomous Aഞാൻ agent (Feb 2026, 123,000+ GitHub സ്റ്റാറുകൾ, MIT license). Runs ഉടനീളം 15+ platforms നിന്ന് single ഇൻസ്റ്റാൾ ചെയ്യുക. Natural ഭാഷ cron jobs, model-agnostic, closed learning loop, GEPA self-improvement. സ്ഥിതി: ൽ hold indefinitely. എന്റെ നിലവിലെ [[homelab|Oracle Cloud VM]] (1 OCPU, 1 GB RAM) is too limited — Hermes needs 24 GB+ RAM. Blocked until  ARM Ampere situation resolves."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "approach",
+      "title": "എന്റെ Learning Approach",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഞാൻ prioritise **CCNA ഉം സുരക്ഷ+** ആയി  two highest-മൂല്യം items വേണ്ടി എന്റെ target career ൽ networking ഉം cloud. രണ്ടും ആണ് recognised hiring signals ൽ India — CCNA വേണ്ടി നെറ്റ്വർക്ക് engineering roles ഉം സുരക്ഷ+ വേണ്ടി സുരക്ഷ-adjacent roles.\n\nഎന്റെ approach ഉടനീളം is ലേക്ക് നിർമ്മിക്കുക യഥാർത്ഥ things alongside studying theory. ഓരോ സർട്ടിഫിക്കറ്റ് target connects ലേക്ക് something I've ഇതിനകം നിർമ്മിച്ച: എന്റെ [[privacy-stack|സ്വകാര്യത Stack]] demonstrates  practical networking knowledge അത് നെറ്റ്വർക്ക്+ covers ൽ theory; എന്റെ [[homelab|homelab architecture]] demonstrates  cloud concepts അത് AWS/OCഞാൻ certs formalise.\n\nഇല്ല timeline is സജ്ജമാക്കുക വേണ്ടി any സർട്ടിഫിക്കറ്റ്.  honest സ്ഥിതി is: none started, എല്ലാം planned."
+        },
+        {
+          "type": "quote",
+          "content": "None ന്റെ ഇവ ആണ് നിലവിലെ നൈപുണ്യങ്ങൾ അല്ലെങ്കിൽ finished. ഇവ ആണ് honest future agenda items.",
+          "author": "Learning Plans രേഖപ്പെടുത്തുക, April 2026"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "CS50 Introduction ലേക്ക് സൈബർ സുരക്ഷ",
+      "url": "https://cs50.harvard.edu/cybersecurity"
+    },
+    {
+      "id": 2,
+      "title": "CompTIA സർട്ടിഫിക്കറ്റ് Roadmap",
+      "url": "https://www.comptia.org/certifications"
+    },
+    {
+      "id": 3,
+      "title": "Hermes Agent — Nous Research",
+      "url": "https://hermes-agent.nousresearch.com"
+    }
+  ],
+  "relatedArticles": [
+    "about",
+    "privacy-stack",
+    "homelab",
+    "linux-setup"
+  ],
+  "categories": [
+    "Learning",
+    "Certifications",
+    "Networking",
+    "Cybersecurity"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ചേർത്ത CS50 സ്ഥിതി, Hermes constraint note, cert sequence clarified",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "id": "insurance-dapp",
+    "title": "保険DApp",
+    "slug": "insurance-dapp",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 18,
+    "views": 3350
+  },
+  "infobox": {
+    "title": "保険DApp",
+    "image": "https://picsum.photos/seed/dapp-infobox/280/200",
+    "imageCaption": "MetaMask経由のEthereumスマートコントラクト操作",
+    "fields": [
+      { "label": "ブロックチェーン", "value": "Ethereum" },
+      { "label": "スマートコントラクト", "value": "Solidity" },
+      { "label": "開発フレームワーク", "value": "Truffle" },
+      { "label": "Web3連携", "value": "Web3.js + MetaMask" },
+      { "label": "フロントエンド", "value": "HTML5、CSS3、Bootstrap" },
+      { "label": "GitHub", "value": "github.com/lingadevaru-hp/insurance-dapp" },
+      { "label": "GitHubスター", "value": "1 ⭐" },
+      { "label": "ステータス", "value": "ライブデモ + GitHub" }
+    ]
+  },
+  "lead": "**保険DApp**は**Ethereumブロックチェーン**上に構築した分散型保険アプリケーションで、Solidityスマートコントラクトが従来の保険会社の仲介役を置き換えます。契約、保険料、請求、支払いのすべてがオンチェーンロジックで処理されます — 人間の介入なし、請求を決める会社もなしです。\n\n中央集権型保険(会社が結果を決める)と分散型保険(スマートコントラクトが事前に合意されたルールを自動的かつ透明に実行する)の溝を探るために構築しました。ブロックチェーンポートフォリオでは[[foss-coin|FOSSコイン]]と対をなします — Ethereum(EVM、Solidity)とSolana(SPL、Rustランタイム)というまったく異なる2つのエコシステムをカバーしています。",
+  "sections": [
+    {
+      "id": "why-decentralised",
+      "title": "分散型保険を作る意味があった理由",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "従来の保険では保険会社がすべての権力を持ちます:保険料を集め、請求を査定し、支払いを決定します。請求者側には、ルールが公平に適用されているかを独自に検証する手段がなく — 会社を信じるしかありません。\n\nスマートコントラクトはこれを反転させます:ルールはSolidityで書かれオンチェーンにデプロイされ、条件が満たされると自動実行されます。契約購入前に誰でもコントラクトコードを読めます。支払いは人間の決定者なしに行われます。\n\n受け入れたトレードオフ:スマートコントラクトはオラクルなしに現実世界のデータにアクセスできません — 私の実装にはオラクルが含まれていません。商用保険プロダクトの出荷ではなく、トラストレスな契約執行というコアメカニズムの実証です。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "このプロジェクトがそうであるもの・ないもの",
+          "content": "これはSolidityコントラクト設計、Truffleデプロイワークフロー、Web3.js/MetaMaskブラウザ連携を実証する技術学習プロジェクトです。ライブの保険プロダクトではなく、現実世界のオラクル接続も実装していません。"
+        }
+      ]
+    },
+    {
+      "id": "tech-stack",
+      "title": "技術スタック",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": ["層", "技術", "用途"],
+          "rows": [
+            { "Layer": "スマートコントラクト", "Technology": "Solidity", "What I used it for": "Ethereum上の契約ロジック、請求ルール、支払い実行" },
+            { "Layer": "開発フレームワーク", "Technology": "Truffle", "What I used it for": "コントラクトのコンパイル、マイグレーション、テスト" },
+            { "Layer": "Web3連携", "Technology": "Web3.js", "What I used it for": "ブラウザとブロックチェーンの連携層" },
+            { "Layer": "ウォレット", "Technology": "MetaMask", "What I used it for": "トランザクション署名とアカウント管理" },
+            { "Layer": "フロントエンド", "Technology": "HTML5、CSS3、Bootstrap", "What I used it for": "契約購入、請求提出、支払いのUI" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "仕組み",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "DAppは標準的な保険ライフサイクルに従います — ただし各ステップは会社の社員ではなく私のスマートコントラクトが強制します:\n\n1. **契約購入** — ユーザーが補償条件を指定してETHをコントラクトに支払います。コントラクトは契約をオンチェーンに記録します。\n2. **保険料ロック** — ETHは保険会社に送金されるのではなく、コントラクト残高に保持されます。\n3. **請求提出** — ユーザーがWebインターフェースから請求を提出します。コントラクトは事前にコード化された条件を満たすか評価します。\n4. **支払い** — 条件を満たせば、コントラクトは残高から請求者のウォレットへ自動的に支払いを送金します。\n5. **却下** — 条件を満たさなければ請求はオンチェーンで却下されます。手動オーバーライドは不可能です — 私でさえできません。\n\nすべての状態遷移はオンチェーンイベントとして記録され、どのブロックエクスプローラーからでも検証できます。"
+        },
+        {
+          "type": "gallery",
+          "items": [
+            { "src": "https://picsum.photos/seed/dapp-gal1/800/500", "alt": "契約購入フロー", "caption": "契約購入インターフェース — MetaMask支払いフロー" },
+            { "src": "https://picsum.photos/seed/dapp-gal2/800/500", "alt": "請求提出", "caption": "請求提出とスマートコントラクト評価" },
+            { "src": "https://picsum.photos/seed/dapp-gal3/800/500", "alt": "支払いイベント", "caption": "Ethereumネットワーク上の自動支払いトランザクション" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-to-other-work",
+      "title": "他の仕事とのつながり",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "このDAppと[[foss-coin|FOSSコイン]]は、私が扱った2大ブロックチェーンエコシステムを表します:Ethereum(EVMベース、Solidityスマートコントラクト)とSolana(Rustベースランタイム、SPLトークンプログラム)です。両者で異なるコンセンサスメカニズム、プログラミングモデル、ツールチェーンにわたる幅を示しています。\n\n両方とも[[about|GitHubリポジトリ表]]に掲載され、技術スキルのブロックチェーン/Web3部門を構成します。GitHubリポジトリは[github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)にあります。"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    { "id": 1, "title": "GitHub — insurance-dapp", "url": "https://github.com/lingadevaru-hp/insurance-dapp" }
+  ],
+  "relatedArticles": ["foss-coin", "about", "fraud-detection"],
+  "categories": ["Blockchain", "Ethereum", "Web3", "Smart Contracts"],
+  "editHistory": [
+    { "date": "2026-06-22T00:00:00Z", "editor": "thoshan", "summary": "一人称に書き換え", "changeType": "major" },
+    { "date": "2026-04-29T00:00:00Z", "editor": "thoshan", "summary": "全面改稿:仕組みと文脈セクションを追加", "changeType": "major" },
+    { "date": "2026-04-28T10:00:00Z", "editor": "thoshan", "summary": "初期ページ", "changeType": "new" }
+  ]
+}

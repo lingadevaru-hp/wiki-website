@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "id": "linux-setup",
+    "title": "ലിനക്സ് സജ്ജീകരണം — Omarchy",
+    "slug": "linux-setup",
+    "category": "Systems",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 21,
+    "views": 2700
+  },
+  "infobox": {
+    "title": "Linux Setup — Omarchy",
+    "image": "https://picsum.photos/seed/linux-infobox/280/200",
+    "imageCaption": "Hyprland Wayland tiling WM with Alacritty terminal",
+    "fields": [
+      {
+        "label": "Distribution",
+        "value": "Arch Linux (via Omarchy)"
+      },
+      {
+        "label": "Desktop",
+        "value": "Hyprland (Wayland tiling WM)"
+      },
+      {
+        "label": "Username",
+        "value": "libre"
+      },
+      {
+        "label": "Terminal",
+        "value": "Alacritty / Ghostty"
+      },
+      {
+        "label": "Multiplexer",
+        "value": "Tmux"
+      },
+      {
+        "label": "Editor",
+        "value": "Neovim (LazyVim config)"
+      },
+      {
+        "label": "Omarchy സ്റ്റാറുകൾ",
+        "value": "~22,000 ⭐"
+      },
+      {
+        "label": "Omarchy author",
+        "value": "DHH (David Heinemeier Hansson)"
+      }
+    ]
+  },
+  "lead": "ഞാൻ run **Arch Linux via Omarchy** — opinionated 'omakase' ഡെവലപ്പർ distribution സൃഷ്ടിച്ച വഴി DHH (David Heinemeier Hansson, creator ന്റെ Ruby ൽ Rails). Omarchy ships ഒപ്പം Hyprland Wayland tiling WM, Neovim, Alacritty, Ghostty, ഉം Tmux — curated, pre-ക്രമീകരിച്ച ഡെവലപ്പർ environment അത് skips weeks ന്റെ കൈകൊണ്ടുള്ള configuration.\n\nഞാൻ സജ്ജമാക്കുക എന്റെ username ലേക്ക് `libre` — consistent ഒപ്പം  FOSS-ആദ്യ philosophy അത് runs വഴി എന്റെ [[privacy-stack|സ്വകാര്യത Stack]] ഉം [[foss-coin|FOSS Coin]] പദ്ധതി. I've forked Omarchy ലേക്ക് വ്യക്തിഗത GitHub ശേഖരണി അതിനാൽ ഞാൻ കഴിയും selectively apply upstream updates എന്നതിന് പകരം taking everything DHH ships.",
+  "sections": [
+    {
+      "id": "what-is-omarchy",
+      "title": "എന്ത് Omarchy Is",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Omarchy** is വിവരിച്ച വഴി DHH ആയി 'omakase Arch Linux' — *omakase* ആയിക്കൊണ്ടിരിക്കുന്നു  Japanese restaurant concept എവിടെ  chef selects  best dishes ൽ നിങ്ങളുടെ behalf. DHH applied ഇത് ലേക്ക് Arch Linux: instead ന്റെ spending weeks configuring desktop ആദ്യം മുതൽ, Omarchy gives നിങ്ങൾ പൂർണ്ണ, opinionated setup ൽ 15–30 minutes.\n\n ശേഖരണി ഉണ്ട് ~22,000 GitHub സ്റ്റാറുകൾ (ആയി ന്റെ April 2026). അത് installs നിന്ന് ISO, wipes  dedicated drive, ഉം applies പൂർണ്ണ-disk encryption വഴി സ്ഥിരസ്ഥിതി.  Super പ്രധാന is  command centre വേണ്ടി എല്ലാം shortcuts."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ഘടകം",
+            "സ്ഥിരസ്ഥിതി",
+            "എന്ത് ഞാൻ ചെയ്തു"
+          ],
+          "rows": [
+            {
+              "ഘടകം": "Window manager",
+              "സ്ഥിരസ്ഥിതി": "Hyprland (Wayland tiling)",
+              "ഞാൻ ചെയ്തത്": "Kept — config files ൽ ~/.config/hypr"
+            },
+            {
+              "ഘടകം": "Terminal",
+              "സ്ഥിരസ്ഥിതി": "Alacritty + Ghostty",
+              "ഞാൻ ചെയ്തത്": "രണ്ടും kept"
+            },
+            {
+              "ഘടകം": "Multiplexer",
+              "സ്ഥിരസ്ഥിതി": "Tmux (t alias)",
+              "ഞാൻ ചെയ്തത്": "Used extensively"
+            },
+            {
+              "ഘടകം": "Editor",
+              "സ്ഥിരസ്ഥിതി": "Neovim (LazyVim)",
+              "ഞാൻ ചെയ്തത്": "Kept — learning Lua വേണ്ടി config"
+            },
+            {
+              "ഘടകം": "Browser",
+              "സ്ഥിരസ്ഥിതി": "Chromium",
+              "ഞാൻ ചെയ്തത്": "Replaced ഒപ്പം LibreWolf (ഇല്ല telemetry)"
+            },
+            {
+              "ഘടകം": "Music",
+              "സ്ഥിരസ്ഥിതി": "Spotify",
+              "ഞാൻ ചെയ്തത്": "നീക്കം ചെയ്ത (tracking)"
+            },
+            {
+              "ഘടകം": "Fallback DE",
+              "സ്ഥിരസ്ഥിതി": "None",
+              "ഞാൻ ചെയ്തത്": "ചേർത്ത KDE Plasma alongside Hyprland"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal-workflow",
+      "title": "എന്റെ Terminal Workflow",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "എന്റെ daily workflow is keyboard-driven ഉം terminal-centric. Almost ഇല്ല GUഞാൻ applications ആണ് used വേണ്ടി വികസനം പ്രവർത്തിക്കുക — everything goes വഴി  terminal."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ഉപകരണം",
+            "കമാൻഡ് / അപരനാമം",
+            "എന്ത് ഞാൻ use അത് വേണ്ടി"
+          ],
+          "rows": [
+            {
+              "ഉപകരണം": "Tmux",
+              "കമാൻഡ് / അപരനാമം": "t",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിക്കുന്നു": "Session ഉം window management — persistent sessions അത് survive terminal restarts"
+            },
+            {
+              "ഉപകരണം": "Neovim (LazyVim)",
+              "കമാൻഡ് / അപരനാമം": "nvim",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിക്കുന്നു": "പ്രാഥമിക editor — ഇപ്പോഴും learning Lua വേണ്ടി config customisation"
+            },
+            {
+              "ഉപകരണം": "Fuzzy finder",
+              "കമാൻഡ് / അപരനാമം": "eff",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിക്കുന്നു": "Fuzzy file find → open ൽ editor"
+            },
+            {
+              "ഉപകരണം": "Claude Code",
+              "കമാൻഡ് / അപരനാമം": "cx",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിക്കുന്നു": "Aഞാൻ agent ൽ accept-എല്ലാം mode — terminal-native pair programmer ഞാൻ call 'P.I.'"
+            },
+            {
+              "ഉപകരണം": "Docker",
+              "കമാൻഡ് / അപരനാമം": "docker",
+              "ഞാൻ ഇത് എന്തിന് ഉപയോഗിക്കുന്നു": "ൽ-demand socket activation — reduces idle RAM ൽ എന്റെ constrained [[homelab|homelab]] VM"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Omarchy v3.4+ changes",
+          "content": "Version 3.4 ചേർത്ത Tmux വഴി സ്ഥിരസ്ഥിതി (t alias), Claude Code ആയി  സ്ഥിരസ്ഥിതി Aഞാൻ agent (cx alias, accept-എല്ലാം mode), hibernation പ്രാപ്തമാക്കിയ വഴി സ്ഥിരസ്ഥിതി, ഉം Aഞാൻ agent Tmux layouts: tdl, tdlm, tsl."
+        }
+      ]
+    },
+    {
+      "id": "ai-agent-integration",
+      "title": "Aഞാൻ Agent Integration",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I've integrated **Claude Code** — ഞാൻ call അത് 'P.I.' (വ്യക്തിഗത Intelligence) ൽ എന്റെ setup — ആയി terminal-native Aഞാൻ agent. ഞാൻ ഉണ്ട് ഇഷ്ടാനുസൃത `CLAUDE.md` ൽ `/home/libre/CLAUDE.md` അത് describes എന്റെ വ്യക്തിഗത workflow context.\n\nഞാൻ run Claude Code ൽ accept-എല്ലാം mode (`cx` alias) — അത് reads files, writes code, ഉം executes shell commands ഇല്ലാതെ asking വേണ്ടി confirmation ൽ ഓരോ ഘട്ടം.  Omarchy skill file (`github.com/robzolkos/omarchy-skill`) extends ഇത് ഒപ്പം Omarchy-നിർദ്ദിഷ്ട context.\n\nഇത് ഉണ്ട് genuinely changed എങ്ങനെ ഞാൻ പ്രവർത്തിക്കുക: എന്നതിന് പകരം memorising command syntax, ഞാൻ query ൽ natural ഭാഷ ഉം  agent executes  appropriate commands."
+        }
+      ]
+    },
+    {
+      "id": "media-production",
+      "title": "Media Production Setup",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ഞാൻ use OBS Studio വേണ്ടി screen recording ഉം video production, ഒപ്പം നിർദ്ദിഷ്ട audio configuration ഞാൻ tuned carefully:\n- **Noise Gate:** Close threshold −32 dB / Open threshold −26 dB — eliminates background hiss ഇടയിൽ speech\n- **RNNoise suppression:** AI-based noise cancellation plugin\n- **Mic:** CMF Buds 2 Pro via PulseAudio\n\nഞാൻ use **Shotcut** ആയി എന്റെ video editor.  മുഴുവൻ production pipeline is Linux-native ഉം free സോഫ്റ്റ്‌വെയർ — ഇല്ല Adobe products anywhere."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "recovery-note",
+      "title": "Recovery Notes",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Accidental terminal removal — എന്ത് ഞാൻ പഠിച്ച",
+          "content": "ഞാൻ once accidentally നീക്കം ചെയ്ത എല്ലാം terminal emulators അതേസമയം cleaning packages. Recovery: Ctrl+Alt+F2 ലേക്ക് drop ലേക്ക് TTY2, log ൽ, reinstall Alacritty അല്ലെങ്കിൽ Ghostty via pacman നിന്ന്  framebuffer terminal.  TTY is always available പോലും എപ്പോൾ  graphical session ഉണ്ട് ഇല്ല terminals — ഞാൻ know ഇത്  hard way ഇപ്പോൾ."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "Omarchy GitHub ശേഖരണി",
+      "url": "https://github.com/basecamp/omarchy"
+    },
+    {
+      "id": 2,
+      "title": "Hyprland Wayland Compositor",
+      "url": "https://hyprland.org"
+    },
+    {
+      "id": 3,
+      "title": "LazyVim Neovim Configuration",
+      "url": "https://lazyvim.org"
+    }
+  ],
+  "relatedArticles": [
+    "privacy-stack",
+    "homelab",
+    "about"
+  ],
+  "categories": [
+    "Systems",
+    "Linux",
+    "Arch Linux",
+    "Terminal"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten ൽ ആദ്യ person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "പൂർണ്ണ write: terminal workflow, Aഞാൻ integration, media setup",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

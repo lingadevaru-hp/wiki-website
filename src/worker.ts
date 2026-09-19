@@ -165,6 +165,11 @@ async function handleTextToSpeech(
 function contentLanguageFor(hostname: string): string {
   if (hostname === "kn.lingadevaru.in" || hostname.startsWith("kn.")) return "kn";
   if (hostname === "hi.lingadevaru.in" || hostname.startsWith("hi.")) return "hi";
+  if (hostname === "ja.lingadevaru.in" || hostname.startsWith("ja.")) return "ja";
+  if (hostname === "ml.lingadevaru.in" || hostname.startsWith("ml.")) return "ml";
+  if (hostname === "ta.lingadevaru.in" || hostname.startsWith("ta.")) return "ta";
+  if (hostname === "te.lingadevaru.in" || hostname.startsWith("te.")) return "te";
+  if (hostname === "gu.lingadevaru.in" || hostname.startsWith("gu.")) return "gu";
   return "en";
 }
 

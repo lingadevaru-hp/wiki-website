@@ -1,0 +1,299 @@
+{
+  "metadata": {
+    "id": "foss-coin-on-chain-verification",
+    "title": "FOSS நாணயம் - ஆன்-செயின் சரிபார்ப்பு",
+    "slug": "foss-coin-on-chain-verification",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "ஆன்-செயின் சரிபார்ப்பு",
+    "fields": [
+      {
+        "label": "திட்டம்",
+        "value": "FOSS நாணயம் ($FOSS)"
+      },
+      {
+        "label": "சரிபார்ப்பு நிலை",
+        "value": "✅ முழுமையாக சரிபார்க்கப்பட்டது"
+      },
+      {
+        "label": "கடைசியாக சரிபார்க்கப்பட்டது",
+        "value": "ஏப்ரல் 14, 2026"
+      },
+      {
+        "label": "மொத்த காசோலைகள்",
+        "value": "18 சரிபார்ப்பு புள்ளிகள்"
+      }
+    ]
+  },
+  "lead": "இந்த ஆவணம் களஞ்சியத்தின் சரிபார்ப்பு அடுக்கு ஆகும். எவரும் எளிய எக்ஸ்ப்ளோரர் இணைப்புகளுடன் தொடங்கி, பின்னர் RPC அழைப்புகள், நிரல் ஐடிகள் மற்றும் கிராஸ்-சரிபார்ப்புப் பதிவில் ஆழமாகச் செல்லக்கூடிய வகையில் நான் அதை ஒழுங்கமைத்தேன்.",
+  "sections": [
+    {
+      "id": "section-1-mint-account",
+      "title": "பிரிவு 1 - டோக்கன் புதினா கணக்கு",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "என்ன சரிபார்க்க வேண்டும்:"
+        },
+        {
+          "type": "text",
+          "content": "- தசமங்கள் = 6\n- வழங்கல் = 100000000000000 கச்சா\n- mintAuthority = null\n- freezeAuthority = null\n- உரிமையாளர் =TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ]
+    },
+    {
+      "id": "section-2-transactions",
+      "title": "பிரிவு 2 — அனைத்து 6 பரிவர்த்தனைகளும் காலவரிசைப்படி",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "தேதி",
+            "கையெழுத்து",
+            "விளக்கம்",
+            "இணைப்பு"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "தேதி": "2025-07-23 07:43:36 UTC",
+              "கையெழுத்து": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "விளக்கம்": "டோக்கன் உருவாக்கம் - புதினா, மெட்டாடேட்டா, 1B சப்ளை, புதினா அதிகாரம் ரத்து செய்யப்பட்டது, ஆரம்ப கொள்முதல்",
+              "இணைப்பு": "[எக்ஸ்ப்ளோரர்](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "தேதி": "2025-08-17 07:32:10 UTC",
+              "கையெழுத்து": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "விளக்கம்": "பரிமாற்றம் - வெளிப்புற பணப்பைக்கு 2 FOSS",
+              "இணைப்பு": "[எக்ஸ்ப்ளோரர்](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "தேதி": "2025-10-21 14:13:04 UTC",
+              "கையெழுத்து": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "விளக்கம்": "ஓர்கா வேர்ல்பூல் குளம் உருவாக்கம்",
+              "இணைப்பு": "[எக்ஸ்ப்ளோரர்](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "தேதி": "2025-10-21 14:13:23 UTC",
+              "கையெழுத்து": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "விளக்கம்": "பணப்புழக்கம் வழங்கல், நிலை NFT உருவாக்கப்பட்டது",
+              "இணைப்பு": "[எக்ஸ்ப்ளோரர்](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "தேதி": "2026-01-18 12:59:51 UTC",
+              "கையெழுத்து": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "விளக்கம்": "ஏர் டிராப் - 1 FOSS",
+              "இணைப்பு": "[எக்ஸ்ப்ளோரர்](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "தேதி": "2026-01-18 13:19:03 UTC",
+              "கையெழுத்து": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "விளக்கம்": "ஏர் டிராப் - 1 FOSS",
+              "இணைப்பு": "[எக்ஸ்ப்ளோரர்](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-creator-wallet",
+      "title": "பிரிவு 3 - கிரியேட்டர் வாலட்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "முகவரி:HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2bசேகரிக்கப்பட்ட திட்ட ஆவணங்களின்படி அனைத்து 6 பரிவர்த்தனைகளுக்கும் இந்த வாலட் கட்டணம் செலுத்துகிறது."
+        },
+        {
+          "type": "text",
+          "content": "சோலானா எக்ஸ்ப்ளோரர்: [வாலட்டைக் காண்க](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nசோல்ஸ்கான்: [வாலட்டைப் பார்க்கவும்](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        }
+      ]
+    },
+    {
+      "id": "section-4-orca-pool",
+      "title": "பிரிவு 4 - ஓர்கா குளம்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "குளம்:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2ஓர்கா: [வியூ பூல்](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nகெக்கோ டெர்மினல்: [வியூ பூல்](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nசோலனா எக்ஸ்ப்ளோரர்: [வியூ பூல்](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nபூல் வகை: வேர்ல்பூல் (செறிவூட்டப்பட்ட பணப்புழக்கம்)\nதிட்டம்:whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        }
+      ]
+    },
+    {
+      "id": "section-5-metadata",
+      "title": "பிரிவு 5 - மெட்டாடேட்டா",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "IPFS மெட்டாடேட்டா JSON: [JSON ஐக் காண்க](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\nலோகோ: [படத்தைக் காண்க](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\nமெட்டாப்ளக்ஸ் திட்டம்:metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ]
+    },
+    {
+      "id": "section-6-launchpad",
+      "title": "பிரிவு 6 — Launchpad நிரல்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "நிரல் ஐடி:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSArஇது பம்ப் அல்ல. வேடிக்கை. pump.fun நிரல் ஐடி6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P. இங்கு பயன்படுத்தப்படும் லாஞ்ச்பேட் என்பது ஒரு தனி BPF மேம்படுத்தக்கூடிய ஏற்றி நிரலாகும், இது டோக்கன் உருவாக்கம், மெட்டாடேட்டா, புதினா, புதினா திரும்பப் பெறுதல் மற்றும் ஒரு அணு பரிவர்த்தனையில் ஆரம்ப கொள்முதல் ஆகியவற்றைக் கையாளுகிறது."
+        },
+        {
+          "type": "text",
+          "content": "சோலனா எக்ஸ்ப்ளோரர்: [திட்டத்தைக் காண்க](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nசோலனா FM: [நிகழ்ச்சியைக் காண்க](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-rpc-verification",
+      "title": "பிரிவு 7 — RPC சரிபார்ப்பு கட்டளைகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "இறுதிப்புள்ளி:https://api.mainnet-beta.solana.com"
+        },
+        {
+          "type": "text",
+          "content": "### கணக்குத் தகவல் பெறவும்```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getAccountInfo\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"encoding\":\"jsonParsed\"}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getSignaturesForAddress\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getSignaturesForAddress\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"limit\":10}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getTokenLargestAccounts\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getTokenLargestAccounts\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\"]}'\n```"
+        }
+      ]
+    },
+    {
+      "id": "section-8-cross-verification",
+      "title": "பிரிவு 8 — குறுக்கு சரிபார்ப்பு முடிவுகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்",
+            "நிலை",
+            "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி",
+            "ஆதாரம்"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "டோக்கன் பெயர்: \"FOSS நாணயம்\"",
+              "நிலை": "⚠️ பகுதி",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "ஆன்-செயின் பெயர் இலவச ஓப்பன் சோர்ஸ் சாஃப்ட் ஆகும், அதே சமயம் விளக்க உரையில் FOSS Coin என்று கூறப்பட்டுள்ளது",
+              "ஆதாரம்": "IPFS மெட்டாடேட்டா"
+            },
+            {
+              "#": "2",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "சின்னம்: FOSS",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "ஆன்-செயின் சின்னம் FOSS",
+              "ஆதாரம்": "IPFS மெட்டாடேட்டா"
+            },
+            {
+              "#": "3",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "பிளாக்செயின்: சோலானா",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "டோக்கன் சோலனா மெயின்நெட்டில் உள்ளது மற்றும் SPL டோக்கன் திட்டத்திற்கு சொந்தமானது",
+              "ஆதாரம்": "சோலானா ஆர்.பி.சி"
+            },
+            {
+              "#": "4",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "புதினா முகவரி:64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "சோலனா RPC கணக்குத் தேடல்கள் மூலம் உறுதிப்படுத்தப்பட்டது",
+              "ஆதாரம்": "சோலானா ஆர்.பி.சி"
+            },
+            {
+              "#": "5",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "டோக்கன் தரநிலை: SPL டோக்கன்",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "டோக்கன்-2022 அல்ல, பாரம்பரிய SPL டோக்கன் திட்டத்தைப் பயன்படுத்துகிறது",
+              "ஆதாரம்": "சோலானா ஆர்.பி.சி"
+            },
+            {
+              "#": "6",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "மொத்த வழங்கல்: 1,000,000,000 (நிலையானது)",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "மூல விநியோகம் 1000000000000000 6 தசமங்கள் சமம் 1,000,000,000",
+              "ஆதாரம்": "சோலானா ஆர்.பி.சி"
+            },
+            {
+              "#": "7",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "புதினா ஆணையம்: ரத்து செய்யப்பட்டது",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "mintAuthority: null",
+              "ஆதாரம்": "சோலானா ஆர்.பி.சி"
+            },
+            {
+              "#": "8",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "DEX: ஓர்கா",
+              "நிலை": "✅ சரிபார்க்கப்பட்டது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "ஓர்கா வேர்ல்பூல் குளம் உள்ளது3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2",
+              "ஆதாரம்": "ஓர்கா"
+            },
+            {
+              "#": "9",
+              "உள்ளீட்டு கோப்பிலிருந்து உரிமைகோரவும்": "தசமங்கள்: 9",
+              "நிலை": "❌ தவறானது",
+              "சரியான மதிப்பு / ஆன்-செயின் ரியாலிட்டி": "ஆன்-செயின் தசமங்கள் 6, 9 அல்ல",
+              "ஆதாரம்": "சோலனா RPC vs உள்ளீட்டு கோப்பு"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS நாணயம் முதன்மைக் கட்டுரை",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "கிட்ஹப் களஞ்சியம்",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

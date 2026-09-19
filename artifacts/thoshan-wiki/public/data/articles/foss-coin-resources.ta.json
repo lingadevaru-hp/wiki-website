@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "foss-coin-resources",
+    "title": "FOSS நாணயம் - வளங்கள்",
+    "slug": "foss-coin-resources",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "இந்தக் கோப்பில் அசல் URL பட்டியலிலிருந்து சேகரிக்கப்பட்ட பொதுத் திட்ட ஆதாரங்கள் மற்றும் சான்றுகள் பதிவுகள், பிரிக்கப்பட்டு வகையின்படி ஒழுங்கமைக்கப்பட்டுள்ளன.",
+  "sections": [
+    {
+      "id": "token-explorers",
+      "title": "டோக்கன் எக்ஸ்ப்ளோரர்கள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS புதினா கணக்கிற்கான சோலானா எக்ஸ்ப்ளோரர் பக்கம். இது தசமங்கள், மொத்த வழங்கல், புதினா அதிகாரம், முடக்கம் அதிகாரம் மற்றும் சொந்த டோக்கன் நிரல் ஆகியவற்றைக் காட்டுகிறது."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)அதே புதினத்திற்கான சோல்ஸ்கான் டோக்கன் பக்கம். இது வெவ்வேறு எக்ஸ்ப்ளோரர் வடிவத்தில் ஹோல்டர் மற்றும் பரிமாற்ற காட்சிகளை வழங்குகிறது."
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)டோக்கன் புதினத்திற்கான சோலனா FM பக்கம்."
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "title": "பரிவர்த்தனைகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)உருவாக்கம் பரிவர்த்தனை. இது அணு டோக்கன் உருவாக்கப் பதிவாகும், இதில் மின்னூட்டம், மெட்டாடேட்டா, அதிகாரத்தைத் திரும்பப் பெறுதல் மற்றும் ஆரம்ப வாங்குதல் ஆகியவை அடங்கும்."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)பாகுபடுத்தப்பட்ட உள் வழிமுறைகளுடன் அதே உருவாக்கம் பரிவர்த்தனையின் சோல்ஸ்கான் பார்வை."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)ஆகஸ்ட் 17, 2025 முதல் பணப் பரிமாற்றம்."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)ஓர்கா வேர்ல்பூல் பூல் உருவாக்கம் பரிவர்த்தனை."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)NFT நிலையை உருவாக்கி ஆரம்ப பணப்புழக்கத்தைச் சேர்த்த பணப்புழக்க வழங்கல் பரிவர்த்தனை."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)ஜனவரி 18, 2026 முதல் ஏர் டிராப் பரிவர்த்தனை."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)ஜனவரி 18, 2026 முதல் ஏர் டிராப் பரிவர்த்தனை."
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "கிரியேட்டர் வாலட்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)திட்ட ஆவணங்கள் முழுவதும் பயன்படுத்தப்படும் உருவாக்கியவர் மற்றும் கட்டணம் செலுத்துபவரின் வாலட்டின் சொலானா எக்ஸ்ப்ளோரர் பார்வை."
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)பரிவர்த்தனை வரலாற்றுடன் அதே பணப்பையின் சோல்ஸ்கான் பார்வை."
+        }
+      ]
+    },
+    {
+      "id": "orca-pool",
+      "title": "ஓர்கா குளம்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS / SOL வர்த்தக ஜோடிக்கான ஓர்கா வேர்ல்பூல் பக்கம்."
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)பூல் கணக்கிற்கான சோலானா எக்ஸ்ப்ளோரர் பக்கம்."
+        },
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)வேர்ல்பூல்களுக்கான ஓர்கா டெவலப்பர் ஆவணங்கள்."
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal",
+      "title": "கெக்கோ டெர்மினல்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS / SOL குளத்திற்கான கெக்கோ டெர்மினல் விளக்கப்படம் மற்றும் பகுப்பாய்வு பக்கம்."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSSக்கான GeckoTerminal டோக்கன் API இறுதிப்புள்ளி."
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)Orca பூலுக்கு GeckoTerminal pool API இறுதிப்புள்ளி."
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "IPFS மெட்டாடேட்டா",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)IPFS மெட்டாடேட்டா JSON. இது டோக்கன் பெயர், சின்னம், விளக்கம் மற்றும் பட URI ஆகியவற்றைக் கொண்டுள்ளது."
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)IPFS-ஹோஸ்ட் செய்யப்பட்ட டோக்கன் லோகோ படம்."
+        }
+      ]
+    },
+    {
+      "id": "api-endpoints",
+      "title": "API இறுதிப்புள்ளிகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)GetAccountInfo க்கு பயன்படுத்தப்படும் Solana பொது JSON-RPC இறுதிப்புள்ளி,getSignaturesForAddress, மற்றும்getTokenLargestAccountsசரிபார்ப்பு."
+        }
+      ]
+    },
+    {
+      "id": "program-addresses",
+      "title": "நிரல் முகவரிகள்",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)இந்த திட்டத்தில் பயன்படுத்தப்படும் தனிப்பயன் லான்ச்பேட் திட்டத்திற்கான எக்ஸ்ப்ளோரர் பக்கம்."
+        },
+        {
+          "type": "text",
+          "content": "[https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)அதே லாஞ்ச்பேட் திட்டத்திற்கான சோலனா FM பக்கம்."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS நாணயம் முதன்மைக் கட்டுரை",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "கிட்ஹப் களஞ்சியம்",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Resources"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

@@ -1,0 +1,299 @@
+{
+  "metadata": {
+    "id": "foss-coin-on-chain-verification",
+    "title": "FOSS Coin — ఆన్-చెయిన్ ధృవీకరణ",
+    "slug": "foss-coin-on-chain-verification",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "ఆన్-చెయిన్ ధృవీకరణ",
+    "fields": [
+      {
+        "label": "ప్రాజెక్టు",
+        "value": "FOSS Coin ($FOSS)"
+      },
+      {
+        "label": "ధృవీకరణ స్థితి",
+        "value": "✅ పూర్తిగా ధృవీకరించబడింది"
+      },
+      {
+        "label": "చివరిగా ధృవీకరించినది",
+        "value": "ఏప్రిల్ 14, 2026"
+      },
+      {
+        "label": "మొత్తం తనిఖీలు",
+        "value": "18 ధృవీకరణ అంశాలు"
+      }
+    ]
+  },
+  "lead": "ఈ పత్రం రిపోజిటరీ ధృవీకరణ పొర. సాధారణ ఎక్స్‌ప్లోరర్ లింకులతో ప్రారంభించి, RPC కాల్స్, ప్రోగ్రామ్ IDలు, క్రాస్-ధృవీకరణ రికార్డులోకి లోతుగా వెళ్లేలా దీన్ని ఏర్పాటు చేశాను.",
+  "sections": [
+    {
+      "id": "section-1-mint-account",
+      "title": "విభాగం 1 — టోకెన్ మింట్ ఖాతా",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ఏమి తనిఖీ చేయాలి:"
+        },
+        {
+          "type": "text",
+          "content": "- decimals = 6\n- supply = 1000000000000000 raw\n- mintAuthority = null\n- freezeAuthority = null\n- owner = TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ]
+    },
+    {
+      "id": "section-2-transactions",
+      "title": "విభాగం 2 — కాలక్రమంలో అన్ని 6 లావాదేవీలు",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "Date",
+            "Signature",
+            "Description",
+            "Link"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "Date": "2025-07-23 07:43:36 UTC",
+              "Signature": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "Description": "టోకెన్ సృష్టి — మింట్, మెటాడేటా, 1B సరఫరా, మింట్ అథారిటీ రద్దు, ప్రారంభ కొనుగోలు",
+              "Link": "[ఎక్స్‌ప్లోరర్](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "Date": "2025-08-17 07:32:10 UTC",
+              "Signature": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "Description": "బదిలీ — బాహ్య వాలెట్‌కు 2 FOSS",
+              "Link": "[ఎక్స్‌ప్లోరర్](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "Date": "2025-10-21 14:13:04 UTC",
+              "Signature": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "Description": "Orca Whirlpool పూల్ సృష్టి",
+              "Link": "[ఎక్స్‌ప్లోరర్](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "Date": "2025-10-21 14:13:23 UTC",
+              "Signature": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "Description": "లిక్విడిటీ సమకూర్పు, పొజిషన్ NFT సృష్టించబడింది",
+              "Link": "[ఎక్స్‌ప్లోరర్](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "Date": "2026-01-18 12:59:51 UTC",
+              "Signature": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "Description": "ఎయిర్‌డ్రాప్ — 1 FOSS",
+              "Link": "[ఎక్స్‌ప్లోరర్](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "Date": "2026-01-18 13:19:03 UTC",
+              "Signature": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "Description": "ఎయిర్‌డ్రాప్ — 1 FOSS",
+              "Link": "[ఎక్స్‌ప్లోరర్](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-creator-wallet",
+      "title": "విభాగం 3 — సృష్టికర్త వాలెట్",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Address: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\n\nసేకరించిన ప్రాజెక్టు డాక్యుమెంటేషన్ ప్రకారం ఈ వాలెట్ అన్ని 6 లావాదేవీల్లో ఫీజు చెల్లింపుదారు."
+        },
+        {
+          "type": "text",
+          "content": "Solana Explorer: [వాలెట్ చూడండి](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan: [వాలెట్ చూడండి](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        }
+      ]
+    },
+    {
+      "id": "section-4-orca-pool",
+      "title": "విభాగం 4 — Orca పూల్",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Pool: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\nOrca: [పూల్ చూడండి](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal: [పూల్ చూడండి](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolana Explorer: [పూల్ చూడండి](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nపూల్ రకం: Whirlpool (కేంద్రీకృత లిక్విడిటీ)\nProgram: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        }
+      ]
+    },
+    {
+      "id": "section-5-metadata",
+      "title": "విభాగం 5 — మెటాడేటా",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "IPFS మెటాడేటా JSON: [JSON చూడండి](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\nLogo: [చిత్రం చూడండి](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\nMetaplex program: metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ]
+    },
+    {
+      "id": "section-6-launchpad",
+      "title": "విభాగం 6 — లాంచ్‌ప్యాడ్ ప్రోగ్రామ్",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Program ID: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr\n\nఇది pump.fun కాదు. pump.fun ప్రోగ్రామ్ ID 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P. ఇక్కడ వాడిన లాంచ్‌ప్యాడ్ ప్రత్యేక BPF upgradeable loader ప్రోగ్రామ్ — టోకెన్ సృష్టి, మెటాడేటా, మింటింగ్, మింట్ రద్దు, ప్రారంభ కొనుగోలును ఒకే అటామిక్ లావాదేవీలో నిర్వహించింది."
+        },
+        {
+          "type": "text",
+          "content": "Solana Explorer: [ప్రోగ్రామ్ చూడండి](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM: [ప్రోగ్రామ్ చూడండి](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-rpc-verification",
+      "title": "విభాగం 7 — RPC ధృవీకరణ ఆదేశాలు",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Endpoint: https://api.mainnet-beta.solana.com"
+        },
+        {
+          "type": "text",
+          "content": "### getAccountInfo\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getAccountInfo\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"encoding\":\"jsonParsed\"}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getSignaturesForAddress\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getSignaturesForAddress\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"limit\":10}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getTokenLargestAccounts\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getTokenLargestAccounts\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\"]}'\n```"
+        }
+      ]
+    },
+    {
+      "id": "section-8-cross-verification",
+      "title": "విభాగం 8 — క్రాస్-ధృవీకరణ ఫలితాలు",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "Claim from input file",
+            "Status",
+            "Corrected value / on-chain reality",
+            "Source"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "Claim from input file": "టోకెన్ పేరు: \"FOSS Coin\"",
+              "Status": "⚠️ PARTIAL",
+              "Corrected value / on-chain reality": "ఆన్-చెయిన్ పేరు Free Open Source Soft, వివరణాత్మక పాఠ్యం FOSS Coin అని చెబుతుంది",
+              "Source": "IPFS మెటాడేటా"
+            },
+            {
+              "#": "2",
+              "Claim from input file": "సింబల్: FOSS",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "ఆన్-చెయిన్ సింబల్ FOSS",
+              "Source": "IPFS మెటాడేటా"
+            },
+            {
+              "#": "3",
+              "Claim from input file": "బ్లాక్‌చెయిన్: Solana",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "టోకెన్ Solana mainnetలో ఉంది, SPL Token Program యాజమాన్యంలో ఉంది",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "4",
+              "Claim from input file": "మింట్ Address: 64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "Solana RPC ఖాతా పరిశీలనల ద్వారా నిర్ధారించబడింది",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "5",
+              "Claim from input file": "టోకెన్ ప్రమాణం: SPL Token",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "Token-2022 కాకుండా పాత SPL Token Program వాడుతుంది",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "6",
+              "Claim from input file": "మొత్తం సరఫరా: 1,000,000,000 (స్థిరం)",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "6 దశాంశాలతో ముడి సరఫరా 1000000000000000 = 1,000,000,000",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "7",
+              "Claim from input file": "మింట్ అథారిటీ: రద్దు చేయబడింది",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "mintAuthority: null",
+              "Source": "Solana RPC"
+            },
+            {
+              "#": "8",
+              "Claim from input file": "DEX: Orca",
+              "Status": "✅ VERIFIED",
+              "Corrected value / on-chain reality": "Orca Whirlpool పూల్ 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2 వద్ద ఉంది",
+              "Source": "Orca"
+            },
+            {
+              "#": "9",
+              "Claim from input file": "దశాంశాలు: 9",
+              "Status": "❌ INCORRECT",
+              "Corrected value / on-chain reality": "ఆన్-చెయిన్ దశాంశాలు 6, 9 కాదు",
+              "Source": "Solana RPC vs ఇన్‌పుట్ ఫైల్"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin ప్రధాన వ్యాసం",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub రిపోజిటరీ",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "GitHub MD నుండి సృష్టించిన ప్రారంభ ఉప-వ్యాసం",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}
