@@ -243,7 +243,7 @@ export default function ArticlesPage() {
                     <span
                       className="article-card-category"
                       style={{
-                        color: categoryColors[article.category] ?? "#58a6ff",
+                        color: categoryColors[article.category] ?? "hsl(var(--accent))",
                       }}
                     >
                       {categoryGlyph[article.category] ?? "📄"}&nbsp;

@@ -45,17 +45,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const stored = readTheme();
     return validTheme(stored) ? stored : "tokyo-night";
   });
-  const info = useMemo(() => SITE_THEMES.find(([id]) => id === theme)!, [theme]);
   useEffect(() => {
-    // Official stamp: data-theme, persistence, favicon, chrome, event.
+    // Single source: [data-theme] CSS drives all colors. JS only stamps theme + persists.
     applyTheme(theme);
-    // Keep the wiki's own vars so existing pages look exactly as before.
     const root = document.documentElement;
-    root.classList.toggle("dark", !info[5]);
-    root.style.setProperty("--background", info[2]); root.style.setProperty("--foreground", info[3]); root.style.setProperty("--card", info[4]); root.style.setProperty("--card-foreground", info[3]);
-    root.style.setProperty("--sidebar", info[4]); root.style.setProperty("--sidebar-foreground", info[3]); root.style.setProperty("--muted", info[4]); root.style.setProperty("--accent", info[3]); root.style.setProperty("--primary", info[3]);
-    root.style.setProperty("--border", info[5] ? "220 12% 72%" : "220 12% 26%"); root.style.setProperty("--muted-foreground", info[5] ? "220 10% 42%" : "220 12% 62%");
-  }, [theme, info]);
+    root.classList.toggle("dark", !isLightTheme(theme));
+  }, [theme]);
   // Stay in sync when the official picker (or anything else) switches themes.
   useEffect(() => {
     const onTheme = (event: Event) => {
