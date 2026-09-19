@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "id": "foss-coin-master",
+    "title": "FOSS सिक्का - मास्टर दस्तावेज़ीकरण",
+    "slug": "foss-coin-master",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "अंतिम सत्यापन: 14 अप्रैल, 2026 - सभी दावों को लाइव सोलाना मेननेट ऑन-चेन डेटा के विरुद्ध क्रॉस-चेक किया गया।",
+  "sections": [
+    {
+      "id": "what-is-foss",
+      "title": "1. FOSS सिक्का क्या है?",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSS कॉइन ($FOSS) एक समुदाय-निर्मित सोलाना SPL टोकन है जो फ्री और ओपन सोर्स सॉफ़्टवेयर (FOSS) को समर्थन और बढ़ावा देने के लिए बनाया गया है। यह एक विकेन्द्रीकृत तंत्र के रूप में कार्य करता है:"
+        },
+        {
+          "type": "text",
+          "content": "- FOSS परियोजनाओं के लिए दान करें - इंटरनेट को शक्ति प्रदान करने वाले अनुरक्षकों और उपकरणों को निधि दें।\n- डेवलपर्स और योगदानकर्ताओं को पुरस्कृत करें - ओपन-सोर्स कार्य के लिए टोकन-आधारित प्रोत्साहन प्रदान करें।\n- जागरूकता बढ़ाएं - डिजिटल गोपनीयता, लिनक्स और खुली प्रौद्योगिकियों को बढ़ावा दें।"
+        },
+        {
+          "type": "text",
+          "content": "**महत्वपूर्ण अस्वीकरण:** FOSS कॉइन जीएनयू, लिनक्स फाउंडेशन, फ्री सॉफ्टवेयर फाउंडेशन या किसी अन्य स्थापित संगठन द्वारा कोई आधिकारिक परियोजना नहीं है। यह उन व्यक्तियों द्वारा बनाई गई एक स्वतंत्र जमीनी स्तर की पहल है जो बिना किसी प्रतिबंध के निर्माण, साझा करने और नवाचार करने की स्वतंत्रता में विश्वास करते हैं।"
+        }
+      ]
+    },
+    {
+      "id": "token-specifications",
+      "title": "2. टोकन विशिष्टताएँ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "मैदान",
+            "कीमत",
+            "स्रोत"
+          ],
+          "rows": [
+            {
+              "मैदान": "टोकन नाम",
+              "कीमत": "फ्री ओपन सोर्स सॉफ्ट",
+              "स्रोत": "ऑन-चेन मेटाप्लेक्स मेटाडेटा"
+            },
+            {
+              "मैदान": "प्रतीक",
+              "कीमत": "परिखा",
+              "स्रोत": "ऑन-चेन मेटाप्लेक्स मेटाडेटा"
+            },
+            {
+              "मैदान": "टकसाल पता",
+              "कीमत": "64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "स्रोत": "सोलाना टोकन कार्यक्रम"
+            },
+            {
+              "मैदान": "ब्लॉकचेन",
+              "कीमत": "सोलाना मेननेट",
+              "स्रोत": "—"
+            },
+            {
+              "मैदान": "टोकन मानक",
+              "कीमत": "एसपीएल टोकन (टोकन प्रोग्राम v3.x)",
+              "स्रोत": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+            },
+            {
+              "मैदान": "दशमलव",
+              "कीमत": "6",
+              "स्रोत": "ऑन-चेन मिंट खाता"
+            },
+            {
+              "मैदान": "कुल आपूर्ति",
+              "कीमत": "1,000,000,000 (1 अरब)",
+              "स्रोत": "ऑन-चेन: कच्ची आपूर्ति = 1,000,000,000,000,000 ÷ 10^6 = 1बी"
+            },
+            {
+              "मैदान": "टकसाल प्राधिकरण",
+              "कीमत": "निरस्त (शून्य)",
+              "स्रोत": "ऑन-चेन: निर्माण के समय शून्य पर सेट करें"
+            },
+            {
+              "मैदान": "फ़्रीज़ प्राधिकरण",
+              "कीमत": "निरस्त (शून्य)",
+              "स्रोत": "ऑन-चेन: निर्माण के समय शून्य पर सेट करें"
+            },
+            {
+              "मैदान": "प्रारंभ किया गया है",
+              "कीमत": "सत्य",
+              "स्रोत": "ऑन-चेन मिंट खाता"
+            },
+            {
+              "मैदान": "डेक्स",
+              "कीमत": "ओर्का (व्हर्लपूल एएमएम)",
+              "स्रोत": "पूल:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2"
+            },
+            {
+              "मैदान": "ट्रेडिंग जोड़ी",
+              "कीमत": "FOSS / SOL (लिपटे हुए SOL)",
+              "स्रोत": "व्हर्लपूल पूल विन्यास"
+            },
+            {
+              "मैदान": "टोकन कार्यक्रम",
+              "कीमत": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "स्रोत": "मानक एसपीएल टोकन कार्यक्रम"
+            },
+            {
+              "मैदान": "मेटाडेटा प्रोग्राम",
+              "कीमत": "मेटाप्लेक्स टोकन मेटाडेटा v3",
+              "स्रोत": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+            },
+            {
+              "मैदान": "सृजन मंच",
+              "कीमत": "नो-कोड लॉन्चपैड (कस्टम सोलाना प्रोग्राम)",
+              "स्रोत": "कार्यक्रम:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "on-chain-metadata",
+      "title": "3. ऑन-चेन मेटाडेटा",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "मेटाप्लेक्स मेटाडेटा आईपीएफएस पर संग्रहीत है और ऑन-चेन संदर्भित है:"
+        },
+        {
+          "type": "text",
+          "content": "मेटाडेटा यूआरआई (आईपीएफएस): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+        },
+        {
+          "type": "text",
+          "content": "**मेटाडेटा JSON (प्राप्त और सत्यापित):**"
+        },
+        {
+          "type": "text",
+          "content": "```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS).\\n\\nIt can be used to:\\n- Donate to FOSS projects\\n- Reward developers and contributors\\n- Raise awareness about digital privacy, Linux, and open technologies\\n\\nThis is not an official project by GNU, Linux.org, or the Free Software Foundation. $FOSS is an independent grassroots effort by passionate individuals who believe in the freedom to build, share, and innovate without restrictions.\\n\\nBy holding or using FOSS Coin, you become part of a decentralized movement to fund the tools that power the internet — freely and ethically.\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**टोकन लोगो**\n- आईपीएफएस हैश:QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf- यूआरएल: [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)- प्रारूप: पीएनजी\n- आकार: 2,508,148 बाइट्स (~2.5 एमबी)\n- स्थिति: ✅ सुलभ (HTTP 200 की पुष्टि)"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS सिक्का मुख्य लेख",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "गिटहब रिपॉजिटरी",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Documentation"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

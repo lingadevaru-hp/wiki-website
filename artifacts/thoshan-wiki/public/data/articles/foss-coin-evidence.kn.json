@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "id": "foss-coin-evidence",
+    "title": "FOSS ನಾಣ್ಯ - ಸಾಕ್ಷಿ ಮತ್ತು ಪರಿಶೀಲನೆ ಲಿಂಕ್‌ಗಳು",
+    "slug": "foss-coin-evidence",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "ಎಲ್ಲಾ ಲಿಂಕ್‌ಗಳು ಸಾರ್ವಜನಿಕ, ಪರಿಶೀಲಿಸಬಹುದಾದ ಆನ್-ಚೈನ್ ಡೇಟಾ ಮೂಲಗಳಿಗೆ ಸೂಚಿಸುತ್ತವೆ. ಪ್ರತಿ ಕ್ಲೈಮ್ ಅನ್ನು ಯಾರಾದರೂ ಸ್ವತಂತ್ರವಾಗಿ ಪರಿಶೀಲಿಸಬಹುದು.",
+  "sections": [
+    {
+      "id": "section-1-mint",
+      "title": "1. ಟೋಕನ್ ಮಿಂಟ್ ಖಾತೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಸೋಲಾನಾ ಎಕ್ಸ್‌ಪ್ಲೋರರ್ (ಟೋಕನ್): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nಸೋಲ್ಸ್ಕನ್ (ಟೋಕನ್): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nಸೋಲಾನಾ FM: [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**ಏನು ಪರಿಶೀಲಿಸಬೇಕು:** ಟೋಕನ್ ಹೆಸರು, ಚಿಹ್ನೆ, ದಶಮಾಂಶಗಳು (6), ಒಟ್ಟು ಪೂರೈಕೆ (1,000,000,000,000,000 ಕಚ್ಚಾ), ಪುದೀನ ಪ್ರಾಧಿಕಾರ (ಶೂನ್ಯ), ಫ್ರೀಜ್ ಅಧಿಕಾರ (ಶೂನ್ಯ), ಮಾಲೀಕ ಪ್ರೋಗ್ರಾಂ (TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA)."
+        }
+      ]
+    },
+    {
+      "id": "section-2-creation",
+      "title": "2. ಸೃಷ್ಟಿ ವಹಿವಾಟು",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಸಹಿ:VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroNಸ್ಲಾಟ್: 355,223,383\nಟೈಮ್‌ಸ್ಟ್ಯಾಂಪ್: ಜುಲೈ 23, 2025, 07:43:36 UTC\n\nಸೋಲಾನಾ ಎಕ್ಸ್‌ಪ್ಲೋರರ್: [ವ್ಯವಹಾರವನ್ನು ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nಸೋಲ್ಸ್‌ಕನ್: [ವ್ಯವಹಾರವನ್ನು ವೀಕ್ಷಿಸಿ](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+        },
+        {
+          "type": "text",
+          "content": "** ಏನು ಪರಿಶೀಲಿಸಬೇಕು:** ಶುಲ್ಕ ಪಾವತಿಸುವವರು (HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b), InitializeMint2 (6 ದಶಮಾಂಶಗಳು), Metaplex ರಚಿಸಿ ಮೆಟಾಡೇಟಾ ಖಾತೆಗಳು v3, MintTo (1B ಟೋಕನ್‌ಗಳು), SetAuthority (ಮಿಂಟ್ ಪ್ರಾಧಿಕಾರವನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ), ಲಾಂಚ್‌ಪ್ಯಾಡ್ ಖರೀದಿ ಸೂಚನೆ."
+        }
+      ]
+    },
+    {
+      "id": "section-3-mint-revocation",
+      "title": "3. ಮಿಂಟ್ ಅಥಾರಿಟಿ ರದ್ದತಿ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಸೃಷ್ಟಿ ವಹಿವಾಟಿನಲ್ಲಿಯೇ ಮಿಂಟ್ ಅಧಿಕಾರವನ್ನು ಹಿಂತೆಗೆದುಕೊಳ್ಳಲಾಯಿತು (ಮೇಲಿನ #2 ರಂತೆ ಅದೇ tx).\n\nರಚನೆ TX → ಒಳ ಸೂಚನೆ: ಸೆಟ್ಅಥಾರಿಟಿ: [ವ್ಯವಹಾರವನ್ನು ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nಲೈವ್ ಮಿಂಟ್ ಖಾತೆ (ಶೂನ್ಯವನ್ನು ದೃಢೀಕರಿಸಿ): [ಖಾತೆ ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "** ಏನು ಪರಿಶೀಲಿಸಬೇಕು:** ರಚನೆಯ ವಹಿವಾಟು ಲಾಗ್‌ಗಳಲ್ಲಿ, ಪ್ರೋಗ್ರಾಂ ಲಾಗ್‌ಗಾಗಿ ನೋಡಿ: ಸೂಚನೆ: SetAuthority — ಇದು mintAuthority ಅನ್ನು ಶೂನ್ಯಕ್ಕೆ ಹೊಂದಿಸುತ್ತದೆ. ಪ್ರಸ್ತುತ ಮಿಂಟ್ ಖಾತೆಯು mintAuthority ದೃಢೀಕರಿಸುತ್ತದೆ: ಶೂನ್ಯ."
+        }
+      ]
+    },
+    {
+      "id": "section-4-freeze-revocation",
+      "title": "4. ಫ್ರೀಜ್ ಅಥಾರಿಟಿ ರದ್ದತಿ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ರಚನೆಯ ಸಮಯದಲ್ಲಿ ಫ್ರೀಜ್ ಅಧಿಕಾರವನ್ನು ಶೂನ್ಯಕ್ಕೆ ಹೊಂದಿಸಲಾಗಿದೆ (ಲೈವ್ ಆನ್-ಚೈನ್ ಪ್ರಶ್ನೆಯ ಮೂಲಕ ದೃಢೀಕರಿಸಲಾಗಿದೆ - ಫ್ರೀಜ್ಅಥಾರಿಟಿ: ಶೂನ್ಯ).\n\nಲೈವ್ ಮಿಂಟ್ ಖಾತೆ: [ಖಾತೆ ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        }
+      ]
+    },
+    {
+      "id": "section-5-orca",
+      "title": "5. ಓರ್ಕಾ ವರ್ಲ್‌ಪೂಲ್ (DEX ಲಿಕ್ವಿಡಿಟಿ ಪೂಲ್)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಪೂಲ್ ವಿಳಾಸ:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2ವ್ಯಾಪಾರದ ಜೋಡಿ: FOSS / SOL (ಸುತ್ತಿದ SOL)\nಪೂಲ್ ಪ್ರಕಾರ: ವರ್ಲ್‌ಪೂಲ್ (ಕೇಂದ್ರೀಕೃತ ದ್ರವ್ಯತೆ AMM)\nಕಾರ್ಯಕ್ರಮ:whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCcಓರ್ಕಾ: [ವೀಕ್ಷಣೆ ಪೂಲ್](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nಗೆಕ್ಕೊ ಟರ್ಮಿನಲ್: [ವೀಕ್ಷಣೆ ಪೂಲ್](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nಸೋಲಾನಾ ಎಕ್ಸ್‌ಪ್ಲೋರರ್ (ಪೂಲ್): [ಖಾತೆ ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nಪೂಲ್ ರಚನೆ TX: [ವ್ಯವಹಾರವನ್ನು ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+        },
+        {
+          "type": "text",
+          "content": "**ಏನು ಪರಿಶೀಲಿಸಬೇಕು:** ಪೂಲ್ FOSS + ಸುತ್ತಿದ SOL ಟೋಕನ್ ವಾಲ್ಟ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ, ಇದರೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಲಾಗಿದೆInitializePoolWithAdaptiveFee, ಡೈನಾಮಿಕ್ ಟಿಕ್ ಅರೇಗಳನ್ನು ರಚಿಸಲಾಗಿದೆ."
+        }
+      ]
+    },
+    {
+      "id": "section-6-metadata",
+      "title": "6. ಮೆಟಾಪ್ಲೆಕ್ಸ್ ಮೆಟಾಡೇಟಾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಮೆಟಾಡೇಟಾ ಪ್ರೋಗ್ರಾಂ:metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s(ಮೆಟಾಪ್ಲೆಕ್ಸ್ ಟೋಕನ್ ಮೆಟಾಡೇಟಾ v3)\nಮೆಟಾಡೇಟಾ URI (IPFS): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)ಚಿತ್ರ URI (IPFS): [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+        },
+        {
+          "type": "text",
+          "content": "**ಮೆಟಾಡೇಟಾ JSON (ಪರಿಶೀಲಿಸಲಾಗಿದೆ):**```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS)....\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**ಚಿತ್ರ ಪರಿಶೀಲನೆ:**\n- HTTP ಸ್ಥಿತಿ: 200 ✅\n- ವಿಷಯ-ಪ್ರಕಾರ: ಚಿತ್ರ/png ✅\n- ಫೈಲ್ ಗಾತ್ರ: 2,508,148 ಬೈಟ್‌ಗಳು (~2.5 MB)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-creator",
+      "title": "7. ಸೃಷ್ಟಿಕರ್ತ / ಶುಲ್ಕ ಪಾವತಿಸುವವರ ವಾಲೆಟ್",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ವಾಲೆಟ್ ವಿಳಾಸ:HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2bಸೋಲಾನಾ ಎಕ್ಸ್‌ಪ್ಲೋರರ್: [ವ್ಯಾಲೆಟ್ ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nಸೋಲ್ಸ್‌ಕನ್: [ವ್ಯಾಲೆಟ್ ವೀಕ್ಷಿಸಿ](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        },
+        {
+          "type": "text",
+          "content": "**ಏನು ಪರಿಶೀಲಿಸಬೇಕು:** ಈ ವ್ಯಾಲೆಟ್ ಪ್ರತಿ FOSS-ಸಂಬಂಧಿತ ವಹಿವಾಟಿನ ಶುಲ್ಕ ಪಾವತಿದಾರ (ಸಹಿದಾರ) ಆಗಿದೆ: ರಚನೆ, ಪೂಲ್ ಸೆಟಪ್, ದ್ರವ್ಯತೆ ನಿಬಂಧನೆ ಮತ್ತು ಎಲ್ಲಾ ವರ್ಗಾವಣೆಗಳು."
+        }
+      ]
+    },
+    {
+      "id": "section-8-launchpad",
+      "title": "8. ಲಾಂಚ್‌ಪ್ಯಾಡ್ ಪ್ರೋಗ್ರಾಂ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಕಾರ್ಯಕ್ರಮ ಐಡಿ:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSArಪ್ರಕಾರ: BPF ನವೀಕರಿಸಬಹುದಾದ ಲೋಡರ್ ಪ್ರೋಗ್ರಾಂ\nಕಾರ್ಯಕ್ರಮದ ಡೇಟಾ:Fsih13MhLm6cFNYGjBY6Vu1cTuBM3STwTVonz7igrhbrಸೋಲಾನಾ ಎಕ್ಸ್‌ಪ್ಲೋರರ್: [ಪ್ರೋಗ್ರಾಂ ವೀಕ್ಷಿಸಿ](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nಸೋಲಾನಾ FM: [ಕಾರ್ಯಕ್ರಮವನ್ನು ವೀಕ್ಷಿಸಿ](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        },
+        {
+          "type": "text",
+          "content": "**ಗಮನಿಸಿ:** ಇದು ಪಂಪ್.ಫನ್ ಅಲ್ಲ (pump.fun ಪ್ರೋಗ್ರಾಂ ಐಡಿ:6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P) ಇದು ಪ್ರತ್ಯೇಕ ನೋ-ಕೋಡ್ ಟೋಕನ್ ಲಾಂಚ್‌ಪ್ಯಾಡ್ ಆಗಿದ್ದು, ಟೋಕನ್ ರಚನೆ, ಮೆಟಾಡೇಟಾ, ಮಿಂಟಿಂಗ್, ಮಿಂಟ್ ಹಿಂತೆಗೆದುಕೊಳ್ಳುವಿಕೆ ಮತ್ತು ಒಂದೇ ಪರಮಾಣು ವಹಿವಾಟಿನಲ್ಲಿ ಆರಂಭಿಕ ಖರೀದಿಯನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ."
+        }
+      ]
+    },
+    {
+      "id": "section-9-all-transactions",
+      "title": "9. ಎಲ್ಲಾ ಆನ್-ಚೈನ್ ವಹಿವಾಟುಗಳು (ಕಾಲಾನುಕ್ರಮ)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "ದಿನಾಂಕ (UTC)",
+            "ಸಹಿ",
+            "ವಿವರಣೆ",
+            "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "ದಿನಾಂಕ (UTC)": "2025-07-23 07:43:36",
+              "ಸಹಿ": "VQT5g...iGroN",
+              "ವಿವರಣೆ": "ಟೋಕನ್ ರಚನೆ - ಮಿಂಟ್, ಮೆಟಾಡೇಟಾ, ಮಿಂಟ್ 1B ಟೋಕನ್‌ಗಳು, ಮಿಂಟ್ ಅಧಿಕಾರವನ್ನು ಹಿಂತೆಗೆದುಕೊಳ್ಳಿ, ಆರಂಭಿಕ ಖರೀದಿ",
+              "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್": "[ಅನ್ವೇಷಕ](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "ದಿನಾಂಕ (UTC)": "2025-08-17 07:32:10",
+              "ಸಹಿ": "3BmzH...K29g",
+              "ವಿವರಣೆ": "ಟೋಕನ್ ವರ್ಗಾವಣೆ - 2 FOSS ಮೂಲಕ ಬಾಹ್ಯ ವ್ಯಾಲೆಟ್‌ಗೆDeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್": "[ಅನ್ವೇಷಕ](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "ದಿನಾಂಕ (UTC)": "2025-10-21 14:13:04",
+              "ಸಹಿ": "5obap...tWiB",
+              "ವಿವರಣೆ": "ಓರ್ಕಾ ವರ್ಲ್‌ಪೂಲ್ ರಚನೆ -InitializePoolWithAdaptiveFee, ಟಿಕ್ ಅರೇಗಳು",
+              "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್": "[ಅನ್ವೇಷಕ](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "ದಿನಾಂಕ (UTC)": "2025-10-21 14:13:23",
+              "ಸಹಿ": "2xR9T...JEGm",
+              "ವಿವರಣೆ": "ಲಿಕ್ವಿಡಿಟಿ ನಿಬಂಧನೆ - ಸ್ಥಾನ NFT ರಚಿಸಲಾಗಿದೆ, ಪೂಲ್ಗೆ ದ್ರವ್ಯತೆ ಸೇರಿಸಲಾಗಿದೆ",
+              "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್": "[ಅನ್ವೇಷಕ](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "ದಿನಾಂಕ (UTC)": "2026-01-18 12:59:51",
+              "ಸಹಿ": "4Xu9T...pxiAP",
+              "ವಿವರಣೆ": "ಟೋಕನ್ ವರ್ಗಾವಣೆ - 1 FOSS ಏರ್‌ಡ್ರಾಪ್",
+              "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್": "[ಅನ್ವೇಷಕ](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "ದಿನಾಂಕ (UTC)": "2026-01-18 13:19:03",
+              "ಸಹಿ": "4CchR...kj4T",
+              "ವಿವರಣೆ": "ಟೋಕನ್ ವರ್ಗಾವಣೆ - 1 FOSS ಏರ್‌ಡ್ರಾಪ್",
+              "ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಲಿಂಕ್": "[ಅನ್ವೇಷಕ](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-10-apis",
+      "title": "10. API ಅಂತ್ಯಬಿಂದುಗಳು (ಪ್ರೋಗ್ರಾಮ್ಯಾಟಿಕ್ ಪರಿಶೀಲನೆಗಾಗಿ)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "API",
+            "ಅಂತ್ಯಬಿಂದು"
+          ],
+          "rows": [
+            {
+              "API": "ಸೋಲಾನಾ RPC (getAccountInfo)",
+              "ಅಂತ್ಯಬಿಂದು": "ಪೋಸ್ಟ್https://api.mainnet-beta.solana.com- ಮಿಂಟ್ ಖಾತೆಯನ್ನು ಪ್ರಶ್ನಿಸಿ"
+            },
+            {
+              "API": "ಸೋಲಾನಾ RPC (getSignaturesForAddress)",
+              "ಅಂತ್ಯಬಿಂದು": "ಪೋಸ್ಟ್https://api.mainnet-beta.solana.com- ವಹಿವಾಟಿನ ಇತಿಹಾಸ"
+            },
+            {
+              "API": "ಸೋಲಾನಾ RPC (getTokenLargestAccounts)",
+              "ಅಂತ್ಯಬಿಂದು": "ಪೋಸ್ಟ್https://api.mainnet-beta.solana.com- ಉನ್ನತ ಹೊಂದಿರುವವರು"
+            },
+            {
+              "API": "ಗೆಕ್ಕೊಟರ್ಮಿನಲ್ ಟೋಕನ್ API",
+              "ಅಂತ್ಯಬಿಂದು": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+            },
+            {
+              "API": "ಗೆಕ್ಕೊಟರ್ಮಿನಲ್ ಪೂಲ್ API",
+              "ಅಂತ್ಯಬಿಂದು": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)"
+            },
+            {
+              "API": "ಓರ್ಕಾ ವರ್ಲ್‌ಪೂಲ್ ಡಾಕ್ಸ್",
+              "ಅಂತ್ಯಬಿಂದು": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)"
+            },
+            {
+              "API": "IPFS ಮೆಟಾಡೇಟಾ JSON",
+              "ಅಂತ್ಯಬಿಂದು": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+            },
+            {
+              "API": "IPFS ಟೋಕನ್ ಲೋಗೋ",
+              "ಅಂತ್ಯಬಿಂದು": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-11-program-ids",
+      "title": "11. ಪ್ರಮುಖ ಪ್ರೋಗ್ರಾಂ ಐಡಿಗಳನ್ನು ಉಲ್ಲೇಖಿಸಲಾಗಿದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ಕಾರ್ಯಕ್ರಮ",
+            "ಪ್ರೋಗ್ರಾಂ ಐಡಿ",
+            "ಉದ್ದೇಶ"
+          ],
+          "rows": [
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "SPL ಟೋಕನ್ ಪ್ರೋಗ್ರಾಂ",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "ಉದ್ದೇಶ": "ಕೋರ್ ಟೋಕನ್ ಕಾರ್ಯಾಚರಣೆಗಳು (ಮಿಂಟ್, ವರ್ಗಾವಣೆ, ಅಧಿಕಾರ)"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "SPL ಟೋಕನ್-2022",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "ಉದ್ದೇಶ": "ಟೋಕನ್ ವಿಸ್ತರಣೆಗಳು (ಸ್ಥಾನ NFT ಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ)"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ಸಂಯೋಜಿತ ಟೋಕನ್ ಖಾತೆ",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "ಉದ್ದೇಶ": "ವ್ಯಾಲೆಟ್‌ಗಳಿಗಾಗಿ ಟೋಕನ್ ಖಾತೆಗಳನ್ನು ಸ್ವಯಂ-ರಚಿಸುತ್ತದೆ"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ಮೆಟಾಪ್ಲೆಕ್ಸ್ ಟೋಕನ್ ಮೆಟಾಡೇಟಾ",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "ಉದ್ದೇಶ": "ಆನ್-ಚೈನ್ ಹೆಸರು, ಚಿಹ್ನೆ, URI, ಚಿತ್ರ"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ಓರ್ಕಾ ವರ್ಲ್ಪೂಲ್",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "ಉದ್ದೇಶ": "ಕೇಂದ್ರೀಕೃತ ದ್ರವ್ಯತೆ AMM"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ಸಿಸ್ಟಮ್ ಪ್ರೋಗ್ರಾಂ",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "11111111111111111111111111111111",
+              "ಉದ್ದೇಶ": "ಖಾತೆ ರಚನೆ, SOL ವರ್ಗಾವಣೆಗಳು"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ಬಜೆಟ್ ಲೆಕ್ಕಾಚಾರ",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "ComputeBudget111111111111111111111111111111",
+              "ಉದ್ದೇಶ": "ವಹಿವಾಟು ಕಂಪ್ಯೂಟ್ ಘಟಕದ ಮಿತಿಗಳು"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ಲಾಂಚ್‌ಪ್ಯಾಡ್ (ಕಸ್ಟಮ್)",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "ಉದ್ದೇಶ": "ನೋ-ಕೋಡ್ ಟೋಕನ್ ರಚನೆ ಕಾರ್ಯಕ್ರಮ"
+            },
+            {
+              "ಕಾರ್ಯಕ್ರಮ": "ವರ್ಗಾವಣೆ ಸೇವೆ",
+              "ಪ್ರೋಗ್ರಾಂ ಐಡಿ": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "ಉದ್ದೇಶ": "ಟೋಕನ್ ವಿತರಣೆ/ಏರ್‌ಡ್ರಾಪ್ ಸೇವೆ"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS ನಾಣ್ಯ ಮುಖ್ಯ ಲೇಖನ",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ರೆಪೊಸಿಟರಿ",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

@@ -45,10 +45,11 @@ const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
 </body>
 </html>`;
 
-const HTML_HEADERS = {
+const HTML_HEADERS = (hostname = ""): Record<string, string> => ({
   "Content-Type": "text/html; charset=utf-8",
   "Cache-Control": "no-store, no-cache, must-revalidate",
-};
+  ...(hostname ? { "Content-Language": contentLanguageFor(hostname) } : {}),
+});
 
 interface Env {
   AI: Ai;
@@ -159,11 +160,19 @@ async function handleTextToSpeech(
   }
 }
 
-function addSecurityHeaders(response: Response): Response {
+/** Content language per host: parent + locale subdomains (reusable — add host here). */
+function contentLanguageFor(hostname: string): string {
+  if (hostname === "kn.lingadevaru.in" || hostname.startsWith("kn.")) return "kn";
+  if (hostname === "hi.lingadevaru.in" || hostname.startsWith("hi.")) return "hi";
+  return "en";
+}
+
+function addSecurityHeaders(response: Response, hostname = ""): Response {
   const newHeaders = new Headers(response.headers);
   newHeaders.set("X-Robots-Tag", "noarchive, nosnippet, noimageindex, noai");
   newHeaders.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
   newHeaders.set("Pragma", "no-cache");
+  if (hostname) newHeaders.set("Content-Language", contentLanguageFor(hostname));
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -189,7 +198,7 @@ export default {
 
     if (verified) {
       const response = await env.ASSETS.fetch(request);
-      return addSecurityHeaders(response);
+      return addSecurityHeaders(response, url.hostname);
     }
 
     const ua = request.headers.get("User-Agent") || "";
@@ -202,13 +211,13 @@ export default {
     const SEARCH_BOT_PATTERN = /googlebot|bingbot|duckduckbot|slurp|applebot/i;
     if (SEARCH_BOT_PATTERN.test(ua)) {
       const response = await env.ASSETS.fetch(request);
-      return addSecurityHeaders(response);
+      return addSecurityHeaders(response, url.hostname);
     }
 
     const SOCIAL_BOT_PATTERN = /facebookexternalhit|twitterbot|linkedinbot|discordbot|telegrambot|whatsapp|slackbot/i;
     if (SOCIAL_BOT_PATTERN.test(ua)) {
       const response = await env.ASSETS.fetch(request);
-      return addSecurityHeaders(response);
+      return addSecurityHeaders(response, url.hostname);
     }
 
     const accept = request.headers.get("Accept") || "";
@@ -246,12 +255,12 @@ export default {
         });
       }
       return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo), {
-        headers: HTML_HEADERS,
+        headers: HTML_HEADERS(url.hostname),
       });
     }
 
     return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname), {
-      headers: HTML_HEADERS,
+      headers: HTML_HEADERS(url.hostname),
     });
   },
 };

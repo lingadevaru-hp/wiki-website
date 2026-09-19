@@ -47,3 +47,28 @@ export function detectLocale(hostname: string, search = ""): string {
 export function localeUrl(code: string, pathname: string, search = ""): string {
   return `https://${localeHost(code)}${pathname}${search}`;
 }
+
+/**
+ * Open another locale in a NEW tab (subdomain switches + switching back to
+ * English). Current tab stays untouched. Localhost/?lang= debug swaps in
+ * place via locale event instead.
+ */
+export function openLocaleNewTab(code: string): void {
+  const host = window.location.hostname;
+  const targetHost = localeHost(code);
+  if (
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    targetHost === host
+  ) {
+    window.dispatchEvent(
+      new CustomEvent("thoshan:locale", { detail: { locale: code } }),
+    );
+    return;
+  }
+  window.open(
+    localeUrl(code, window.location.pathname, window.location.search),
+    "_blank",
+    "noopener",
+  );
+}

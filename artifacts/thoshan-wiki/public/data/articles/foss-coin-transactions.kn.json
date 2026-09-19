@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "id": "foss-coin-transactions",
+    "title": "FOSS Coin — ವಹಿವಾಟುಗಳು",
+    "slug": "foss-coin-transactions",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "ಇದು ಯೋಜನಾ ದಾಖಲಾತಿ ಮತ್ತು ಸಂಗ್ರಹಿಸಿದ ಮೂಲ ಕಡತಗಳ ಆಧಾರದ ಮೇಲೆ ಯೋಜನೆಯ ಪೂರ್ಣ ಕಾಲಾನುಕ್ರಮಿಕ ವಹಿವಾಟು ದಾಖಲೆಯಾಗಿದೆ.",
+  "sections": [
+    {
+      "id": "transactions-table",
+      "title": "ವಹಿವಾಟುಗಳು",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)",
+            "ಪೂರ್ಣ ಸಹಿ",
+            "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ",
+            "ಶುಲ್ಕ ಪಾವತಿದಾರ",
+            "ಶುಲ್ಕ (lamports)",
+            "ವಿವರಣೆ",
+            "Solana Explorer ಲಿಂಕ್"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)": "2025-07-23 07:43:36 UTC",
+              "ಪೂರ್ಣ ಸಹಿ": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ": "355223383",
+              "ಶುಲ್ಕ ಪಾವತಿದಾರ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ಶುಲ್ಕ (lamports)": "90000",
+              "ವಿವರಣೆ": "ನಾನು ಮಿಂಟ್ ಖಾತೆಯನ್ನು ರಚಿಸಿ, ಟೋಕನ್ ಅನ್ನು 6 ದಶಮಾಂಶಗಳೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಿ, Metaplex ಮೆಟಾಡೇಟಾವನ್ನು ರಚಿಸಿ, ರಚನಕಾರ ATA ಯನ್ನು ರಚಿಸಿ, 1 ಬಿಲಿಯನ್ ಟೋಕನ್‌ಗಳನ್ನು ಮಿಂಟ್ ಮಾಡಿ, ಮಿಂಟ್ ಅಥಾರಿಟಿಯನ್ನು ರದ್ದುಗೊಳಿಸಿ ಮತ್ತು ಒಂದೇ ಪರಮಾಣು ವಹಿವಾಟಿನಲ್ಲಿ ಆರಂಭಿಕ ಲಾಂಚ್‌ಪ್ಯಾಡ್ ಖರೀದಿಯನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಿದೆ.",
+              "Solana Explorer ಲಿಂಕ್": "[View Transaction](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)": "2025-08-17 07:32:10 UTC",
+              "ಪೂರ್ಣ ಸಹಿ": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ": "360612760",
+              "ಶುಲ್ಕ ಪಾವತಿದಾರ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ಶುಲ್ಕ (lamports)": "80000",
+              "ವಿವರಣೆ": "ಸಾಕ್ಷ್ಯ ಸಂಗ್ರಹದಲ್ಲಿ ಉಲ್ಲೇಖಿಸಲಾದ ವರ್ಗಾವಣೆ ಸೇವಾ ಪ್ರೋಗ್ರಾಂ ಮೂಲಕ ನಾನು ಬಾಹ್ಯ ವಾಲೆಟ್‌ಗೆ 2 FOSS ಟೋಕನ್‌ಗಳ ಸಣ್ಣ ವರ್ಗಾವಣೆಯನ್ನು ಕಳುಹಿಸಿದೆ.",
+              "Solana Explorer ಲಿಂಕ್": "[View Transaction](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)": "2025-10-21 14:13:04 UTC",
+              "ಪೂರ್ಣ ಸಹಿ": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ": "374850194",
+              "ಶುಲ್ಕ ಪಾವತಿದಾರ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ಶುಲ್ಕ (lamports)": "16803",
+              "ವಿವರಣೆ": "ನಾನು FOSS / Wrapped SOL ಜೋಡಿಗಾಗಿ Orca Whirlpool ಪೂಲ್ ಅನ್ನು ರಚಿಸಿ, ಪೂಲ್ ಅನ್ನು ಹೊಂದಾಣಿಕೆಯ ಶುಲ್ಕಗಳೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಿ ಮತ್ತು ಅಗತ್ಯವಿರುವ ಟಿಕ್ ಅರೇ ಸ್ಥಿತಿಯನ್ನು ರಚಿಸಿದೆ.",
+              "Solana Explorer ಲಿಂಕ್": "[View Transaction](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)": "2025-10-21 14:13:23 UTC",
+              "ಪೂರ್ಣ ಸಹಿ": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ": "374850239",
+              "ಶುಲ್ಕ ಪಾವತಿದಾರ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ಶುಲ್ಕ (lamports)": "19345",
+              "ವಿವರಣೆ": "ನಾನು Orca ಪೊಸಿಷನ್ NFT ಯನ್ನು ಮಿಂಟ್ ಮಾಡಿ, IncreaseLiquidityV2 ಬಳಸಿ, Whirlpool ಗೆ 2.900653 FOSS ಜೊತೆಗೆ 0.0004 SOL ಸೇರಿಸಿ, ಆರಂಭಿಕ ಪೂಲ್ ಹಣಕಾಸು ಹರಿವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದೆ.",
+              "Solana Explorer ಲಿಂಕ್": "[View Transaction](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)": "2026-01-18 12:59:51 UTC",
+              "ಪೂರ್ಣ ಸಹಿ": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ": "394322578",
+              "ಶುಲ್ಕ ಪಾವತಿದಾರ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ಶುಲ್ಕ (lamports)": "5000",
+              "ವಿವರಣೆ": "ಯೋಜನೆಯ ಸಣ್ಣ ಅನುಸರಣಾ ವರ್ಗಾವಣೆಗಳ ಭಾಗವಾಗಿ ಹೊಸ ವಾಲೆಟ್‌ಗೆ ನಂತರದ 1 FOSS ಏರ್‌ಡ್ರಾಪ್ ವಹಿವಾಟನ್ನು ನಾನು ದಾಖಲಿಸಿದೆ.",
+              "Solana Explorer ಲಿಂಕ್": "[View Transaction](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ (UTC)": "2026-01-18 13:19:03 UTC",
+              "ಪೂರ್ಣ ಸಹಿ": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "ಸ್ಲಾಟ್ ಸಂಖ್ಯೆ": "394325494",
+              "ಶುಲ್ಕ ಪಾವತಿದಾರ": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "ಶುಲ್ಕ (lamports)": "5000",
+              "ವಿವರಣೆ": "ಬೇರೊಂದು ವಾಲೆಟ್‌ಗೆ ಮತ್ತೊಂದು 1 FOSS ಏರ್‌ಡ್ರಾಪ್ ವಹಿವಾಟನ್ನು ನಾನು ದಾಖಲಿಸಿದೆ, ಇದು ಯೋಜನೆಯ ಇತಿಹಾಸದಲ್ಲಿ ಕಾಣುವ ಅಂತಿಮ ಆನ್-ಚೈನ್ ಚಟುವಟಿಕೆಯ ಭಾಗವಾಗಿದೆ.",
+              "Solana Explorer ಲಿಂಕ್": "[View Transaction](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Transactions"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

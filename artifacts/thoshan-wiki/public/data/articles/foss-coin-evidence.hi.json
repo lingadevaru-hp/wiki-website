@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "id": "foss-coin-evidence",
+    "title": "FOSS कॉइन - साक्ष्य और सत्यापन लिंक",
+    "slug": "foss-coin-evidence",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "सभी लिंक सार्वजनिक, सत्यापन योग्य ऑन-चेन डेटा स्रोतों की ओर इशारा करते हैं। कोई भी व्यक्ति प्रत्येक दावे को स्वतंत्र रूप से सत्यापित कर सकता है।",
+  "sections": [
+    {
+      "id": "section-1-mint",
+      "title": "1. टोकन मिंट खाता",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "सोलाना एक्सप्लोरर (टोकन): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nसोलस्कैन (टोकन): [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)\nसोलाना एफएम: [64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solana.fm/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**क्या सत्यापित करें:** टोकन नाम, प्रतीक, दशमलव (6), कुल आपूर्ति (1,000,000,000,000,000 कच्ची), टकसाल प्राधिकरण (शून्य), फ़्रीज़ प्राधिकरण (शून्य), स्वामी कार्यक्रम (TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA)."
+        }
+      ]
+    },
+    {
+      "id": "section-2-creation",
+      "title": "2. सृजन लेन-देन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "हस्ताक्षर:VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroNस्लॉट: 355,223,383\nटाइमस्टैम्प: 23 जुलाई 2025, 07:43:36 यूटीसी\n\nसोलाना एक्सप्लोरर: [लेनदेन देखें](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nसोलस्कैन: [लेनदेन देखें](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+        },
+        {
+          "type": "text",
+          "content": "**क्या सत्यापित करें:** शुल्क भुगतानकर्ता (HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b), इनिशियलाइज़मिंट2 (6 दशमलव), मेटाप्लेक्स क्रिएट मेटाडेटा अकाउंट्स v3, मिंटटू (1बी टोकन), सेटअथॉरिटी (मिंट अथॉरिटी निरस्त), लॉन्चपैड खरीदें निर्देश।"
+        }
+      ]
+    },
+    {
+      "id": "section-3-mint-revocation",
+      "title": "3. टकसाल प्राधिकरण निरसन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "निर्माण लेनदेन में ही टकसाल प्राधिकरण को रद्द कर दिया गया था (ऊपर #2 के समान टीएक्स)।\n\nनिर्माण TX → आंतरिक निर्देश: SetAuthority: [लेनदेन देखें](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)\nलाइव मिंट खाता (शून्य की पुष्टि करें): [खाता देखें](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        },
+        {
+          "type": "text",
+          "content": "**क्या सत्यापित करें:** निर्माण लेनदेन लॉग में, प्रोग्राम लॉग देखें: निर्देश: सेटअथॉरिटी - यह मिंटअथॉरिटी को शून्य पर सेट करता है। वर्तमान मिंट खाता मिंटअथॉरिटी की पुष्टि करता है: शून्य।"
+        }
+      ]
+    },
+    {
+      "id": "section-4-freeze-revocation",
+      "title": "4. रोक प्राधिकरण निरसन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "निर्माण के दौरान फ़्रीज़ प्राधिकरण को भी शून्य पर सेट किया गया था (लाइव ऑन-चेन क्वेरी के माध्यम से पुष्टि की गई - फ़्रीज़ प्राधिकरण: शून्य)।\n\nलाइव मिंट खाता: [खाता देखें](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+        }
+      ]
+    },
+    {
+      "id": "section-5-orca",
+      "title": "5. ओर्का व्हर्लपूल (DEX लिक्विडिटी पूल)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "पूल का पता:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2ट्रेडिंग जोड़ी: FOSS / SOL (रैप्ड SOL)\nपूल प्रकार: व्हर्लपूल (केंद्रित तरलता एएमएम)\nकार्यक्रम:whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCcओर्का: [पूल देखें](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nगेकोटर्मिनल: [पूल देखें](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nसोलाना एक्सप्लोरर (पूल): [खाता देखें](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nपूल निर्माण TX: [लेन-देन देखें](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+        },
+        {
+          "type": "text",
+          "content": "**क्या सत्यापित करें:** पूल में FOSS + रैप्ड SOL टोकन वॉल्ट शामिल हैं, जिनके साथ आरंभ किया गया हैInitializePoolWithAdaptiveFee, गतिशील टिक सरणियाँ बनाई गईं।"
+        }
+      ]
+    },
+    {
+      "id": "section-6-metadata",
+      "title": "6. मेटाप्लेक्स मेटाडेटा",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "मेटाडेटा प्रोग्राम:metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s(मेटाप्लेक्स टोकन मेटाडेटा v3)\nमेटाडेटा यूआरआई (आईपीएफएस): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)छवि यूआरआई (आईपीएफएस): [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+        },
+        {
+          "type": "text",
+          "content": "**मेटाडेटा JSON (सत्यापित):**```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS)....\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**छवि सत्यापन:**\n- HTTP स्थिति: 200 ✅\n- सामग्री-प्रकार: छवि/पीएनजी ✅\n- फ़ाइल का आकार: 2,508,148 बाइट्स (~2.5 एमबी)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-creator",
+      "title": "7. निर्माता/शुल्क भुगतानकर्ता वॉलेट",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "बटुआ पता:HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2bसोलाना एक्सप्लोरर: [वॉलेट देखें](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nसोलस्कैन: [वॉलेट देखें](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        },
+        {
+          "type": "text",
+          "content": "**क्या सत्यापित करें:** यह वॉलेट प्रत्येक FOSS-संबंधित लेनदेन पर शुल्क भुगतानकर्ता (हस्ताक्षरकर्ता) है: निर्माण, पूल सेटअप, तरलता प्रावधान और सभी हस्तांतरण।"
+        }
+      ]
+    },
+    {
+      "id": "section-8-launchpad",
+      "title": "8. लॉन्चपैड प्रोग्राम",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "प्रोग्राम आईडी:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSArप्रकार: बीपीएफ अपग्रेडेबल लोडर प्रोग्राम\nकार्यक्रम डेटा:Fsih13MhLm6cFNYGjBY6Vu1cTuBM3STwTVonz7igrhbrसोलाना एक्सप्लोरर: [कार्यक्रम देखें](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nसोलाना एफएम: [कार्यक्रम देखें](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        },
+        {
+          "type": "text",
+          "content": "**ध्यान दें:** यह पंप.फन नहीं है (पंप.फन प्रोग्राम आईडी:6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P). यह एक अलग नो-कोड टोकन लॉन्चपैड है जो एकल परमाणु लेनदेन में टोकन निर्माण, मेटाडेटा, मिंटिंग, मिंट निरस्तीकरण और प्रारंभिक खरीद को संभालता है।"
+        }
+      ]
+    },
+    {
+      "id": "section-9-all-transactions",
+      "title": "9. सभी ऑन-चेन लेनदेन (कालानुक्रमिक)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "दिनांक (UTC)",
+            "हस्ताक्षर",
+            "विवरण",
+            "एक्सप्लोरर लिंक"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "दिनांक (UTC)": "2025-07-23 07:43:36",
+              "हस्ताक्षर": "VQT5g...iGroN",
+              "विवरण": "टोकन निर्माण - टकसाल, मेटाडेटा, टकसाल 1बी टोकन, निरस्त टकसाल प्राधिकरण, प्रारंभिक खरीद",
+              "एक्सप्लोरर लिंक": "[एक्सप्लोरर](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "दिनांक (UTC)": "2025-08-17 07:32:10",
+              "हस्ताक्षर": "3BmzH...K29g",
+              "विवरण": "टोकन स्थानांतरण - 2 FOSS के माध्यम से बाहरी वॉलेट मेंDeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "एक्सप्लोरर लिंक": "[एक्सप्लोरर](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "दिनांक (UTC)": "2025-10-21 14:13:04",
+              "हस्ताक्षर": "5obap...tWiB",
+              "विवरण": "ओर्का व्हर्लपूल निर्माण -InitializePoolWithAdaptiveFee, टिक सरणियाँ",
+              "एक्सप्लोरर लिंक": "[एक्सप्लोरर](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "दिनांक (UTC)": "2025-10-21 14:13:23",
+              "हस्ताक्षर": "2xR9T...JEGm",
+              "विवरण": "तरलता प्रावधान - स्थिति एनएफटी बनाई गई, तरलता पूल में जोड़ी गई",
+              "एक्सप्लोरर लिंक": "[एक्सप्लोरर](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "दिनांक (UTC)": "2026-01-18 12:59:51",
+              "हस्ताक्षर": "4Xu9T...pxiAP",
+              "विवरण": "टोकन स्थानांतरण - 1 FOSS एयरड्रॉप",
+              "एक्सप्लोरर लिंक": "[एक्सप्लोरर](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "दिनांक (UTC)": "2026-01-18 13:19:03",
+              "हस्ताक्षर": "4CchR...kj4T",
+              "विवरण": "टोकन स्थानांतरण - 1 FOSS एयरड्रॉप",
+              "एक्सप्लोरर लिंक": "[एक्सप्लोरर](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-10-apis",
+      "title": "10. एपीआई समापन बिंदु (प्रोग्रामेटिक सत्यापन के लिए)",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "एपीआई",
+            "endpoint"
+          ],
+          "rows": [
+            {
+              "एपीआई": "सोलाना आरपीसी (getAccountInfo)",
+              "endpoint": "डाकhttps://api.mainnet-beta.solana.com— क्वेरी मिंट अकाउंट"
+            },
+            {
+              "एपीआई": "सोलाना आरपीसी (getSignaturesForAddress)",
+              "endpoint": "डाकhttps://api.mainnet-beta.solana.com- ट्रांजेक्शन इतिहास"
+            },
+            {
+              "एपीआई": "सोलाना आरपीसी (getTokenLargestAccounts)",
+              "endpoint": "डाकhttps://api.mainnet-beta.solana.com- शीर्ष धारक"
+            },
+            {
+              "एपीआई": "गेकोटर्मिनल टोकन एपीआई",
+              "endpoint": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)"
+            },
+            {
+              "एपीआई": "गेकोटर्मिनल पूल एपीआई",
+              "endpoint": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)"
+            },
+            {
+              "एपीआई": "ओर्का व्हर्लपूल डॉक्स",
+              "endpoint": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)"
+            },
+            {
+              "एपीआई": "आईपीएफएस मेटाडेटा JSON",
+              "endpoint": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+            },
+            {
+              "एपीआई": "आईपीएफएस टोकन लोगो",
+              "endpoint": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-11-program-ids",
+      "title": "11. मुख्य प्रोग्राम आईडी संदर्भित",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "कार्यक्रम",
+            "प्रोग्राम आईडी",
+            "उद्देश्य"
+          ],
+          "rows": [
+            {
+              "कार्यक्रम": "एसपीएल टोकन कार्यक्रम",
+              "प्रोग्राम आईडी": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "उद्देश्य": "कोर टोकन संचालन (टकसाल, स्थानांतरण, प्राधिकरण)"
+            },
+            {
+              "कार्यक्रम": "एसपीएल टोकन-2022",
+              "प्रोग्राम आईडी": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "उद्देश्य": "टोकन एक्सटेंशन (स्थिति एनएफटी के लिए प्रयुक्त)"
+            },
+            {
+              "कार्यक्रम": "संबद्ध टोकन खाता",
+              "प्रोग्राम आईडी": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "उद्देश्य": "वॉलेट के लिए स्वचालित रूप से टोकन खाते बनाता है"
+            },
+            {
+              "कार्यक्रम": "मेटाप्लेक्स टोकन मेटाडेटा",
+              "प्रोग्राम आईडी": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "उद्देश्य": "ऑन-चेन नाम, प्रतीक, यूआरआई, छवि"
+            },
+            {
+              "कार्यक्रम": "ओर्का व्हर्लपूल",
+              "प्रोग्राम आईडी": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "उद्देश्य": "संकेन्द्रित तरलता एएमएम"
+            },
+            {
+              "कार्यक्रम": "सिस्टम प्रोग्राम",
+              "प्रोग्राम आईडी": "11111111111111111111111111111111",
+              "उद्देश्य": "खाता निर्माण, एसओएल स्थानांतरण"
+            },
+            {
+              "कार्यक्रम": "बजट की गणना करें",
+              "प्रोग्राम आईडी": "ComputeBudget111111111111111111111111111111",
+              "उद्देश्य": "लेन-देन गणना इकाई सीमाएँ"
+            },
+            {
+              "कार्यक्रम": "लॉन्चपैड (कस्टम)",
+              "प्रोग्राम आईडी": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "उद्देश्य": "नो-कोड टोकन निर्माण कार्यक्रम"
+            },
+            {
+              "कार्यक्रम": "स्थानांतरण सेवा",
+              "प्रोग्राम आईडी": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "उद्देश्य": "टोकन वितरण/एयरड्रॉप सेवा"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS सिक्का मुख्य लेख",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "गिटहब रिपॉजिटरी",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

@@ -7,9 +7,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { GlobeIcon } from '@/components/icons/GlobeIcon'
-import { SUPPORTED_LOCALES, localeHost, localeUrl } from '@/i18n/supportedLocales'
+import { SUPPORTED_LOCALES, openLocaleNewTab } from '@/i18n/supportedLocales'
 import { useLocale } from '@/contexts/LocaleContext'
-import { LOCALE_EVENT } from '@/lib/command-menu'
 
 /**
  * Language popup: globe icon → dropdown with English (default), Kannada, Hindi.
@@ -28,18 +27,8 @@ export function LanguageSwitcher({
 
   const go = (code: string) => {
     if (code === locale) return
-    const host = window.location.hostname
-    const targetHost = localeHost(code)
-    // Local dev / unknown host: swap in place via locale event (no redirect).
-    if (host === 'localhost' || host === '127.0.0.1' || targetHost === host) {
-      window.dispatchEvent(new CustomEvent(LOCALE_EVENT, { detail: { locale: code } }))
-      return
-    }
-    window.location.href = localeUrl(
-      code,
-      window.location.pathname,
-      window.location.search,
-    )
+    // Subdomain switches (including back to English) open in a NEW tab.
+    openLocaleNewTab(code)
   }
 
   return (

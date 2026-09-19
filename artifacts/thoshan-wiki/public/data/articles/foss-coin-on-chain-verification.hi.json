@@ -1,0 +1,299 @@
+{
+  "metadata": {
+    "id": "foss-coin-on-chain-verification",
+    "title": "FOSS Coin — ऑन-चेन सत्यापन",
+    "slug": "foss-coin-on-chain-verification",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "On-Chain Verification",
+    "fields": [
+      {
+        "label": "Project",
+        "value": "FOSS Coin ($FOSS)"
+      },
+      {
+        "label": "Verification Status",
+        "value": "✅ Fully Verified"
+      },
+      {
+        "label": "Last Verified",
+        "value": "April 14, 2026"
+      },
+      {
+        "label": "Total Checks",
+        "value": "18 verification points"
+      }
+    ]
+  },
+  "lead": "यह दस्तावेज़ रिपॉजिटरी की सत्यापन परत है। मैंने इसे इस तरह व्यवस्थित किया कि कोई भी सरल एक्सप्लोरर लिंक से शुरू करके RPC कॉल, प्रोग्राम ID और क्रॉस-सत्यापन रिकॉर्ड में गहराई तक जा सके।",
+  "sections": [
+    {
+      "id": "section-1-mint-account",
+      "title": "धारा 1 — टोकन मिंट खाता",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "क्या जांचें:"
+        },
+        {
+          "type": "text",
+          "content": "- decimals = 6\n- supply = 1000000000000000 raw\n- mintAuthority = null\n- freezeAuthority = null\n- owner = TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ]
+    },
+    {
+      "id": "section-2-transactions",
+      "title": "धारा 2 — कालानुक्रम में सभी 6 लेनदेन",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "दिनांक",
+            "हस्ताक्षर",
+            "विवरण",
+            "लिंक"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "दिनांक": "2025-07-23 07:43:36 UTC",
+              "हस्ताक्षर": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "विवरण": "टोकन निर्माण — मिंट, मेटाडेटा, 1B आपूर्ति, मिंट अथॉरिटी निरस्त, प्रारंभिक खरीद",
+              "लिंक": "[Explorer](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "दिनांक": "2025-08-17 07:32:10 UTC",
+              "हस्ताक्षर": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "विवरण": "ट्रांसफर — बाहरी वॉलेट में 2 FOSS",
+              "लिंक": "[Explorer](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "दिनांक": "2025-10-21 14:13:04 UTC",
+              "हस्ताक्षर": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "विवरण": "Orca Whirlpool पूल निर्माण",
+              "लिंक": "[Explorer](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "दिनांक": "2025-10-21 14:13:23 UTC",
+              "हस्ताक्षर": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "विवरण": "लिक्विडिटी प्रावधान, पोज़िशन NFT बनाया गया",
+              "लिंक": "[Explorer](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "दिनांक": "2026-01-18 12:59:51 UTC",
+              "हस्ताक्षर": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "विवरण": "एयरड्रॉप — 1 FOSS",
+              "लिंक": "[Explorer](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "दिनांक": "2026-01-18 13:19:03 UTC",
+              "हस्ताक्षर": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "विवरण": "एयरड्रॉप — 1 FOSS",
+              "लिंक": "[Explorer](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-creator-wallet",
+      "title": "धारा 3 — निर्माता वॉलेट",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "पता: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\n\nएकत्रित परियोजना दस्तावेज़ के अनुसार यह वॉलेट सभी 6 लेनदेन पर शुल्क भुगतानकर्ता है।"
+        },
+        {
+          "type": "text",
+          "content": "Solana Explorer: [View Wallet](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)\nSolscan: [View Wallet](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)"
+        }
+      ]
+    },
+    {
+      "id": "section-4-orca-pool",
+      "title": "धारा 4 — Orca पूल",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "पूल: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\nOrca: [View Pool](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nGeckoTerminal: [View Pool](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nSolana Explorer: [View Pool](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)\nपूल प्रकार: Whirlpool (केंद्रित लिक्विडिटी)\nप्रोग्राम: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        }
+      ]
+    },
+    {
+      "id": "section-5-metadata",
+      "title": "धारा 5 — मेटाडेटा",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "IPFS मेटाडेटा JSON: [View JSON](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)\nलोगो: [View Image](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)\nMetaplex प्रोग्राम: metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        }
+      ]
+    },
+    {
+      "id": "section-6-launchpad",
+      "title": "धारा 6 — लॉन्चपैड प्रोग्राम",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "प्रोग्राम ID: HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr\n\nयह pump.fun नहीं है। pump.fun प्रोग्राम ID 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P है। यहाँ उपयोग किया गया लॉन्चपैड एक अलग BPF अपग्रेडेबल लोडर प्रोग्राम है जिसने टोकन निर्माण, मेटाडेटा, मिंटिंग, मिंट निरस्तीकरण और प्रारंभिक खरीद को एक ही परमाणु लेनदेन में संभाला।"
+        },
+        {
+          "type": "text",
+          "content": "Solana Explorer: [View Program](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)\nSolana FM: [View Program](https://solana.fm/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)"
+        }
+      ]
+    },
+    {
+      "id": "section-7-rpc-verification",
+      "title": "धारा 7 — RPC सत्यापन कमांड",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "एंडपॉइंट: https://api.mainnet-beta.solana.com"
+        },
+        {
+          "type": "text",
+          "content": "### getAccountInfo\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getAccountInfo\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"encoding\":\"jsonParsed\"}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getSignaturesForAddress\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getSignaturesForAddress\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\",{\"limit\":10}]}'\n```"
+        },
+        {
+          "type": "text",
+          "content": "### getTokenLargestAccounts\n\n```bash\ncurl https://api.mainnet-beta.solana.com \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getTokenLargestAccounts\",\"params\":[\"64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin\"]}'\n```"
+        }
+      ]
+    },
+    {
+      "id": "section-8-cross-verification",
+      "title": "धारा 8 — क्रॉस-सत्यापन परिणाम",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "इनपुट फ़ाइल से दावा",
+            "स्थिति",
+            "सही मान / ऑन-चेन वास्तविकता",
+            "स्रोत"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "इनपुट फ़ाइल से दावा": "टोकन नाम: \"FOSS Coin\"",
+              "स्थिति": "⚠️ आंशिक",
+              "सही मान / ऑन-चेन वास्तविकता": "ऑन-चेन नाम Free Open Source Soft है, जबकि वर्णनात्मक पाठ FOSS Coin कहता है",
+              "स्रोत": "IPFS Metadata"
+            },
+            {
+              "#": "2",
+              "इनपुट फ़ाइल से दावा": "प्रतीक: FOSS",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "ऑन-चेन प्रतीक FOSS है",
+              "स्रोत": "IPFS Metadata"
+            },
+            {
+              "#": "3",
+              "इनपुट फ़ाइल से दावा": "ब्लॉकचेन: Solana",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "टोकन Solana mainnet पर है और SPL Token Program के स्वामित्व में है",
+              "स्रोत": "Solana RPC"
+            },
+            {
+              "#": "4",
+              "इनपुट फ़ाइल से दावा": "मिंट पता: 64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "Solana RPC खाता लुकअप के माध्यम से पुष्टि की गई",
+              "स्रोत": "Solana RPC"
+            },
+            {
+              "#": "5",
+              "इनपुट फ़ाइल से दावा": "टोकन मानक: SPL Token",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "लेगेसी SPL Token Program का उपयोग करता है, Token-2022 का नहीं",
+              "स्रोत": "Solana RPC"
+            },
+            {
+              "#": "6",
+              "इनपुट फ़ाइल से दावा": "कुल आपूर्ति: 1,000,000,000 (स्थिर)",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "6 दशमलव के साथ कच्ची आपूर्ति 1000000000000000 = 1,000,000,000",
+              "स्रोत": "Solana RPC"
+            },
+            {
+              "#": "7",
+              "इनपुट फ़ाइल से दावा": "मिंट अथॉरिटी: निरस्त",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "mintAuthority: null",
+              "स्रोत": "Solana RPC"
+            },
+            {
+              "#": "8",
+              "इनपुट फ़ाइल से दावा": "DEX: Orca",
+              "स्थिति": "✅ सत्यापित",
+              "सही मान / ऑन-चेन वास्तविकता": "Orca Whirlpool पूल 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2 पर मौजूद है",
+              "स्रोत": "Orca"
+            },
+            {
+              "#": "9",
+              "इनपुट फ़ाइल से दावा": "दशमलव: 9",
+              "स्थिति": "❌ गलत",
+              "सही मान / ऑन-चेन वास्तविकता": "ऑन-चेन दशमलव 9 नहीं, 6 हैं",
+              "स्रोत": "Solana RPC vs input file"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Verification"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}
