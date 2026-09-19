@@ -54,3 +54,6 @@ Thumbs.db
 
 # HonKit book output
 docs/_book/
+
+# built site output (regenerated on every deploy)
+artifacts/thoshan-wiki/dist
