@@ -63,7 +63,10 @@ export function CommandMenu() {
   const labelFor = (item: CommandItem): string => {
     if (item.id.startsWith('language.')) {
       const code = item.id.slice('language.'.length)
-      return SUPPORTED_LOCALES.find((l) => l.code === code)?.native ?? item.label
+      const entry = SUPPORTED_LOCALES.find((l) => l.code === code)
+      if (!entry) return item.label
+      // Native script + English name in brackets so every reader can identify it.
+      return entry.code === 'en' ? entry.native : `${entry.native} (${entry.name})`
     }
     const key = LABEL_KEY[item.id]
     return key ? t(key) : item.label
@@ -102,10 +105,14 @@ export function CommandMenu() {
     const labeled = own.map((item) => {
       if (item.id.startsWith('language.')) {
         const code = item.id.slice('language.'.length)
+        const entry = SUPPORTED_LOCALES.find((l) => l.code === code)
         return {
           ...item,
-          label:
-            SUPPORTED_LOCALES.find((l) => l.code === code)?.native ?? item.label,
+          label: !entry
+            ? item.label
+            : entry.code === 'en'
+              ? entry.native
+              : `${entry.native} (${entry.name})`,
         }
       }
       const key = LABEL_KEY[item.id]
