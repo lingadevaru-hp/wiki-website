@@ -92,7 +92,8 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
       return (
         <div className="overflow-x-auto mb-4">
           <table
-            className="w-full border-collapse border border-border text-sm"
+            className="w-full border-collapse border border-border text-foreground"
+            style={{ fontSize: "14px" }}
             data-testid="table-block"
           >
             {block.columns && (
@@ -212,7 +213,8 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
       const v = block.variant || "info";
       return (
         <div
-          className={`border-l-4 px-4 py-3 mb-4 text-sm ${variantStyles[v]}`}
+          className={`border-l-4 px-4 py-3 mb-4 text-foreground ${variantStyles[v]}`}
+          style={{ fontSize: "15px", lineHeight: "1.65" }}
           data-testid={`callout-${v}`}
         >
           {block.title && <p className="font-bold mb-1">{block.title}</p>}
