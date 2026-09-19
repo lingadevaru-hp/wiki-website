@@ -1,4 +1,28 @@
 import { useEffect } from "react";
+import {
+  SUPPORTED_LOCALES,
+  detectLocale,
+  localeEntry,
+} from "../i18n/supportedLocales";
+
+const OG_LOCALE: Record<string, string> = {
+  en: "en_US",
+  kn: "kn_IN",
+  hi: "hi_IN",
+};
+
+function upsertHrefLang(hreflang: string, href: string) {
+  let link = document.head.querySelector<HTMLLinkElement>(
+    `link[rel="alternate"][hreflang="${hreflang}"]`,
+  );
+  if (!link) {
+    link = document.createElement("link");
+    link.rel = "alternate";
+    link.hreflang = hreflang;
+    document.head.appendChild(link);
+  }
+  link.href = href;
+}
 
 interface SEOProps {
   title: string;
@@ -74,7 +98,25 @@ export default function SEO({
     upsertMeta("og:image", ogImage, "property");
     upsertMeta("og:image:width", "1200", "property");
     upsertMeta("og:image:height", "630", "property");
-    upsertMeta("og:locale", "en_US", "property");
+    // Locale alternates: tell search engines (Google, DuckDuckGo, Brave)
+    // this page exists in other languages on sibling subdomains.
+    const active = detectLocale(
+      window.location.hostname,
+      window.location.search,
+    );
+    upsertMeta(
+      "og:locale",
+      OG_LOCALE[active] ?? OG_LOCALE.en,
+      "property",
+    );
+    for (const entry of SUPPORTED_LOCALES) {
+      const u = new URL(path, `https://${entry.host}`).href;
+      upsertHrefLang(entry.code, u);
+    }
+    upsertHrefLang(
+      "x-default",
+      new URL(path, `https://${localeEntry("en").host}`).href,
+    );
 
     // Twitter Card
     upsertMeta("twitter:card", "summary_large_image");
