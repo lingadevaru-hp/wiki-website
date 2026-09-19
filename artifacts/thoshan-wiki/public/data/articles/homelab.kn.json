@@ -11,10 +11,10 @@
   "infobox": {
     "title": "ಲಿಬ್ರೆ ಕ್ಲೌಡ್ — ಹೋಮ್‌ಲ್ಯಾಬ್",
     "image": "https://picsum.photos/seed/homelab-infobox/280/200",
-    "imageCaption": "Zero-trust ವಾಸ್ತುಶಿಲ್ಪ ರೇಖಾಚಿತ್ರ",
+    "imageCaption": "ಝೀರೋ-ಟ್ರಸ್ಟ್ ಆರ್ಕಿಟೆಕ್ಚರ್ ರೇಖಾಚಿತ್ರ",
     "fields": [
       {
-        "label": "ವೇದಿಕೆ",
+        "label": "ಪ್ಲಾಟ್‌ಫಾರ್ಮ್",
         "value": "Oracle Cloud Always Free"
       },
       {
@@ -30,12 +30,12 @@
         "value": "Caddy / nginx"
       },
       {
-        "label": "ಡೊಮೇನ್",
+        "label": "ಡೊಮೈನ್",
         "value": "lingadevaru.in"
       },
       {
         "label": "ಸ್ಥಿತಿ",
-        "value": "Partially running (ARM blocked)"
+        "value": "ಭಾಗಶಃ ಚಾಲನೆಯಲ್ಲಿದೆ (ತೋಳನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ)"
       },
       {
         "label": "ಗುರಿ ಸೇವೆಗಳು",
@@ -43,66 +43,66 @@
       }
     ]
   },
-  "lead": "**ಲಿಬ್ರೆ ಕ್ಲೌಡ್** is my zero-trust self-hosted ಮೂಲಸೌಕರ್ಯ ಯೋಜನೆ running on Oracle Cloud's Always Free tier. The design routes all external traffic through Cloudflare for DDoS protection and IP masking, then into an Oracle Cloud VM running a Caddy reverse proxy that serves both public and WireGuard-private services.\n\nನಾನು ಇದನ್ನು 'Libre Cloud' ಎಂದು ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ ಹೆಸರಿಸಿದೆ: everything in the stack is free and open source, the platform is free-tier cloud, ಮತ್ತು the domain carries the FOSS identity. It connects directly to my [[privacy-stack|Privacy Stack]] — services like Vaultwarden (passwords), Joplin Server (notes), ಮತ್ತು SearXNG (private search) are all designed to run here.",
+  "lead": "**ಲಿಬ್ರೆ ಕ್ಲೌಡ್** ಒರಾಕಲ್ ಕ್ಲೌಡ್‌ನ ಯಾವಾಗಲೂ ಉಚಿತ ಶ್ರೇಣಿಯಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿರುವ ನನ್ನ ಶೂನ್ಯ-ವಿಶ್ವಾಸದ ಸ್ವಯಂ-ಹೋಸ್ಟ್ ಮೂಲಸೌಕರ್ಯ ಯೋಜನೆಯಾಗಿದೆ. ವಿನ್ಯಾಸವು DDoS ರಕ್ಷಣೆ ಮತ್ತು IP ಮಾಸ್ಕಿಂಗ್‌ಗಾಗಿ ಕ್ಲೌಡ್‌ಫ್ಲೇರ್ ಮೂಲಕ ಎಲ್ಲಾ ಬಾಹ್ಯ ದಟ್ಟಣೆಯನ್ನು ಮಾರ್ಗ ಮಾಡುತ್ತದೆ, ನಂತರ ಸಾರ್ವಜನಿಕ ಮತ್ತು ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ ಸೇವೆಗಳೆರಡಕ್ಕೂ ಸೇವೆ ಸಲ್ಲಿಸುವ ಕ್ಯಾಡಿ ರಿವರ್ಸ್ ಪ್ರಾಕ್ಸಿಯನ್ನು ನಡೆಸುವ ಒರಾಕಲ್ ಕ್ಲೌಡ್ VM ಗೆ ತಲುಪುತ್ತದೆ. ನಾನು ಇದನ್ನು ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ 'ಲಿಬ್ರೆ ಕ್ಲೌಡ್' ಎಂದು ಹೆಸರಿಸಿದ್ದೇನೆ: ಸ್ಟಾಕ್‌ನಲ್ಲಿರುವ ಎಲ್ಲವೂ ಉಚಿತ ಮತ್ತು ಮುಕ್ತ ಮೂಲವಾಗಿದೆ, ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಫ್ರೀ-ಟೈರ್ ಕ್ಲೌಡ್ ಆಗಿದೆ ಮತ್ತು ಡೊಮೇನ್ FOSS ಗುರುತನ್ನು ಹೊಂದಿದೆ. ಇದು ನೇರವಾಗಿ ನನ್ನ [[privacy-stack|ಗೌಪ್ಯತೆ ಸ್ಟಾಕ್]] ಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ — Vaultwarden (ಪಾಸ್‌ವರ್ಡ್‌ಗಳು), Joplin Server (ಟಿಪ್ಪಣಿಗಳು) ಮತ್ತು SearXNG (ಖಾಸಗಿ ಹುಡುಕಾಟ) ನಂತಹ ಸೇವೆಗಳು ಇಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.",
   "sections": [
     {
       "id": "current-reality",
-      "title": "ಪ್ರಸ್ತುತ ವಾಸ್ತವ — ನನ್ನ ಬಳಿ ನಿಜವಾಗಿ ಏನಿದೆ",
+      "title": "ಪ್ರಸ್ತುತ ವಾಸ್ತವತೆ — ನಾನು ನಿಜವಾಗಿ ಏನನ್ನು ಹೊಂದಿದ್ದೇನೆ",
       "level": 2,
       "content": [
         {
           "type": "callout",
           "variant": "warning",
-          "title": "ಸ್ಥಿತಿ: ನಿರ್ಬಂಧಿತ / ತೀವ್ರವಾಗಿ ಸೀಮಿತ",
-          "content": "My target VM was VM.Standard.A1.Flex — Oracle's 4 OCPU, 24 GB RAM ARM Ampere instance, free forever. I hit persistent 'out of capacity' errors in the Hyderabad region after repeated attempts over months. The ARM plan is abandoned for now. ನನ್ನ ಬಳಿ ನಿಜವಾಗಿ ಇರುವುದು: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM."
+          "title": "ಸ್ಥಿತಿ: ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ / ತೀವ್ರವಾಗಿ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ",
+          "content": "ನನ್ನ ಗುರಿ VM ಆಗಿತ್ತು VM.Standard.A1.Flex — ಒರಾಕಲ್‌ನ 4 OCPU, 24 GB RAM ARM ಆಂಪಿಯರ್ ಉದಾಹರಣೆ, ಶಾಶ್ವತವಾಗಿ ಉಚಿತ. ನಾನು ತಿಂಗಳುಗಟ್ಟಲೆ ಪುನರಾವರ್ತಿತ ಪ್ರಯತ್ನಗಳ ನಂತರ ಹೈದರಾಬಾದ್ ಪ್ರದೇಶದಲ್ಲಿ ನಿರಂತರ 'ಸಾಮರ್ಥ್ಯವಿಲ್ಲದ' ದೋಷಗಳನ್ನು ಅನುಭವಿಸಿದ್ದೇನೆ. ARM ಯೋಜನೆಯನ್ನು ಸದ್ಯಕ್ಕೆ ಕೈಬಿಡಲಾಗಿದೆ. ನನ್ನ ಬಳಿ ಇರುವುದು: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM."
         },
         {
           "type": "table",
           "columns": [
             "ಸೇವೆ",
             "RAM ಬಳಕೆ",
-            "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ"
+            "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ"
           ],
           "rows": [
             {
-              "ಸೇವೆ": "WireGuard",
-              "RAM ಬಳಕೆ": "~5 MB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+              "ಸೇವೆ": "ವೈರ್‌ಗಾರ್ಡ್",
+              "RAM ಬಳಕೆ": "~5 ಎಂಬಿ",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "ಸುಲಭ"
             },
             {
-              "ಸೇವೆ": "Pi-hole",
-              "RAM ಬಳಕೆ": "~50–100 MB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+              "ಸೇವೆ": "ಪೈ-ಹೋಲ್",
+              "RAM ಬಳಕೆ": "~50–100 ಎಂಬಿ",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "ಸುಲಭ"
             },
             {
-              "ಸೇವೆ": "Vaultwarden",
-              "RAM ಬಳಕೆ": "~50 MB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+              "ಸೇವೆ": "ವಾಲ್ಟ್‌ವರ್ಡೆನ್",
+              "RAM ಬಳಕೆ": "~50 ಎಂಬಿ",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "ಸುಲಭ"
             },
             {
-              "ಸೇವೆ": "Caddy / nginx",
-              "RAM ಬಳಕೆ": "~30 MB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+              "ಸೇವೆ": "ಕ್ಯಾಡಿ /ಎನ್‌ಜಿಎನ್‌ಎಕ್ಸ್",
+              "RAM ಬಳಕೆ": "~30 ಎಂಬಿ",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "ಸುಲಭ"
             },
             {
-              "ಸೇವೆ": "Portfolio (static files)",
-              "RAM ಬಳಕೆ": "Minimal",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+              "ಸೇವೆ": "ಪೋರ್ಟ್‌ಫೋಲಿಯೋ (ಸ್ಥಿರ ಫೈಲ್‌ಗಳು)",
+              "RAM ಬಳಕೆ": "ಕನಿಷ್ಠ",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "ಸುಲಭ"
             },
             {
               "ಸೇವೆ": "SearXNG",
-              "RAM ಬಳಕೆ": "~200–400 MB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "⚠️ Tight"
+              "RAM ಬಳಕೆ": "~200–400 ಎಂಬಿ",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "⚠️ ಬಿಗಿಯಾದ"
             },
             {
-              "ಸೇವೆ": "Coolify (Docker PaaS)",
+              "ಸೇವೆ": "ಕೂಲಿಫೈ (ಡಾಕರ್ ಪಾಸ್)",
               "RAM ಬಳಕೆ": "~500 MB–1 GB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "❌ Too heavy"
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "❌ ತುಂಬಾ ಭಾರ"
             },
             {
-              "ಸೇವೆ": "Immich / Jellyfin / Ollama",
+              "ಸೇವೆ": "ಇಮ್ಮಿಚ್ / ಜೆಲ್ಲಿಫಿನ್ / ಒಲ್ಲಾಮಾ",
               "RAM ಬಳಕೆ": "2–24 GB",
-              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "❌ Impossible"
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಕಾರ್ಯಸಾಧ್ಯತೆ": "<bx id=\"1\"/>ಅಸಾಧ್ಯ... "
             }
           ]
         }
@@ -115,13 +115,13 @@
       "content": [
         {
           "type": "text",
-          "content": "I designed the architecture so nothing is directly exposed to the internet without passing through Cloudflare and the reverse proxy layer. Services are split into three visibility tiers: public (accessible to anyone via Cloudflare), private (accessible only through a WireGuard VPN tunnel), ಮತ್ತು ARM-only (requiring the unprovisioned A1.Flex VM)."
+          "content": "ನಾನು ವಾಸ್ತುಶಿಲ್ಪವನ್ನು ವಿನ್ಯಾಸಗೊಳಿಸಿದ್ದೇನೆ, ಆದ್ದರಿಂದ ಕ್ಲೌಡ್‌ಫ್ಲೇರ್ ಮತ್ತು ರಿವರ್ಸ್ ಪ್ರಾಕ್ಸಿ ಲೇಯರ್ ಮೂಲಕ ಹಾದುಹೋಗದೆ ಏನನ್ನೂ ನೇರವಾಗಿ ಇಂಟರ್ನೆಟ್‌ಗೆ ಬಹಿರಂಗಪಡಿಸುವುದಿಲ್ಲ. ಸೇವೆಗಳನ್ನು ಮೂರು ಗೋಚರ ಶ್ರೇಣಿಗಳಾಗಿ ವಿಂಗಡಿಸಲಾಗಿದೆ: ಸಾರ್ವಜನಿಕ (ಕ್ಲೌಡ್‌ಫ್ಲೇರ್ ಮೂಲಕ ಯಾರಿಗಾದರೂ ಪ್ರವೇಶಿಸಬಹುದು), ಖಾಸಗಿ (ವೈರ್‌ಗಾರ್ಡ್ VPN ಸುರಂಗದ ಮೂಲಕ ಮಾತ್ರ ಪ್ರವೇಶಿಸಬಹುದು) ಮತ್ತು ARM-ಮಾತ್ರ (ಒದಗಿಸದ A1.Flex VM ಅಗತ್ಯವಿರುತ್ತದೆ)."
         },
         {
           "type": "callout",
           "variant": "info",
-          "title": "ನನ್ನ ವಾಸ್ತುಶಿಲ್ಪ ಹರಿವು",
-          "content": "Internet → Cloudflare (DNS + DDoS + IP masking) → Oracle Cloud VM (1 GB Micro) → Reverse proxy (Caddy/nginx) → [Public: Portfolio, Pi-hole DoH] / [Private (WireGuard-gated): Vaultwarden, Joplin Server, Gitea]"
+          "title": "ನನ್ನ ವಾಸ್ತುಶಿಲ್ಪದ ಹರಿವು",
+          "content": "ಇಂಟರ್ನೆಟ್ → ಕ್ಲೌಡ್‌ಫ್ಲೇರ್ (DNS + DDoS + IP ಮಾಸ್ಕಿಂಗ್) → ಒರಾಕಲ್ ಕ್ಲೌಡ್ VM (1 GB ಮೈಕ್ರೋ) → ರಿವರ್ಸ್ ಪ್ರಾಕ್ಸಿ (CADY/NGINX) → [ಸಾರ್ವಜನಿಕ: ಪೋರ್ಟ್‌ಫೋಲಿಯೋ, ಪೈ-ಹೋಲ್ DoH] / [ಖಾಸಗಿ (ವೈರ್‌ಗಾರ್ಡ್-ಗೇಟ್): ವಾಲ್ಟ್‌ವರ್ಡೆನ್, ಜಾಪ್ಲಿನ್ ಸರ್ವರ್, ಗಿಟಿಯಾ]"
         },
         {
           "type": "table",
@@ -132,54 +132,54 @@
           ],
           "rows": [
             {
-              "ಶ್ರೇಣಿ": "Public",
-              "ಸೇವೆ": "Portfolio",
-              "ಉದ್ದೇಶ": "lingadevaru.in personal site"
+              "ಶ್ರೇಣಿ": "ಸಾರ್ವಜನಿಕ",
+              "ಸೇವೆ": "ಪೋರ್ಟ್‌ಫೋಲಿಯೊ",
+              "ಉದ್ದೇಶ": "lingadevaru.in ವೈಯಕ್ತಿಕ ಸೈಟ್"
             },
             {
-              "ಶ್ರೇಣಿ": "Public",
+              "ಶ್ರೇಣಿ": "ಸಾರ್ವಜನಿಕ",
               "ಸೇವೆ": "SearXNG",
-              "ಉದ್ದೇಶ": "Privacy meta-search"
+              "ಉದ್ದೇಶ": "ಗೌಪ್ಯತೆ ಮೆಟಾ ಹುಡುಕಾಟ"
             },
             {
-              "ಶ್ರೇಣಿ": "Public",
-              "ಸೇವೆ": "GoatCounter",
-              "ಉದ್ದೇಶ": "Cookie-free analytics"
+              "ಶ್ರೇಣಿ": "ಸಾರ್ವಜನಿಕ",
+              "ಸೇವೆ": "ಮೇಕೆ ಕೌಂಟರ್",
+              "ಉದ್ದೇಶ": "ಕುಕೀ-ಮುಕ್ತ ವಿಶ್ಲೇಷಣೆಗಳು"
             },
             {
-              "ಶ್ರೇಣಿ": "WireGuard-private",
-              "ಸೇವೆ": "Vaultwarden",
-              "ಉದ್ದೇಶ": "Self-hosted password manager"
+              "ಶ್ರೇಣಿ": "ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ",
+              "ಸೇವೆ": "ವಾಲ್ಟ್‌ವರ್ಡೆನ್",
+              "ಉದ್ದೇಶ": "ಸ್ವಯಂ ಹೋಸ್ಟ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್ ಮ್ಯಾನೇಜರ್"
             },
             {
-              "ಶ್ರೇಣಿ": "WireGuard-private",
-              "ಸೇವೆ": "Pi-hole",
-              "ಉದ್ದೇಶ": "DNS ad blocker"
+              "ಶ್ರೇಣಿ": "ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ",
+              "ಸೇವೆ": "ಪೈ-ಹೋಲ್",
+              "ಉದ್ದೇಶ": "DNS ಜಾಹೀರಾತು ಬ್ಲಾಕರ್"
             },
             {
-              "ಶ್ರೇಣಿ": "WireGuard-private",
-              "ಸೇವೆ": "Uptime Kuma",
-              "ಉದ್ದೇಶ": "Uptime monitoring"
+              "ಶ್ರೇಣಿ": "ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ",
+              "ಸೇವೆ": "ಅಪ್ಟೈಮ್ ಕುಮಾ",
+              "ಉದ್ದೇಶ": "ಅಪ್ಟೈಮ್ ಮೇಲ್ವಿಚಾರಣೆ"
             },
             {
-              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಶ್ರೇಣಿ": "ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ",
               "ಸೇವೆ": "FreshRSS",
-              "ಉದ್ದೇಶ": "RSS reader"
+              "ಉದ್ದೇಶ": "RSS ರೀಡರ್"
             },
             {
-              "ಶ್ರೇಣಿ": "WireGuard-private",
-              "ಸೇವೆ": "Joplin Server",
-              "ಉದ್ದೇಶ": "Self-hosted notes"
+              "ಶ್ರೇಣಿ": "ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ",
+              "ಸೇವೆ": "ಜೋಪ್ಲಿನ್ ಸರ್ವರ್",
+              "ಉದ್ದೇಶ": "ಸ್ವಯಂ ಹೋಸ್ಟ್ ಮಾಡಿದ ಟಿಪ್ಪಣಿಗಳು"
             },
             {
-              "ಶ್ರೇಣಿ": "WireGuard-private",
-              "ಸೇವೆ": "Gitea",
-              "ಉದ್ದೇಶ": "Self-hosted Git"
+              "ಶ್ರೇಣಿ": "ವೈರ್‌ಗಾರ್ಡ್-ಖಾಸಗಿ",
+              "ಸೇವೆ": "ಗಿಟಿಯಾ",
+              "ಉದ್ದೇಶ": "ಸ್ವಯಂ ಹೋಸ್ಟ್ ಮಾಡಿದ ಗಿಟ್"
             },
             {
-              "ಶ್ರೇಣಿ": "ARM-only (blocked)",
-              "ಸೇವೆ": "Immich, Mailcow, Jellyfin, Ollama",
-              "ಉದ್ದೇಶ": "Requires 24 GB RAM — indefinitely on hold"
+              "ಶ್ರೇಣಿ": "ARM-ಮಾತ್ರ (ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ)",
+              "ಸೇವೆ": "ಇಮ್ಮಿಚ್, ಮೇಲ್ಕೋವ್, ಜೆಲ್ಲಿಫಿನ್, ಒಲ್ಲಾಮಾ",
+              "ಉದ್ದೇಶ": "24 GB RAM ಅಗತ್ಯವಿದೆ — ಅನಿರ್ದಿಷ್ಟವಾಗಿ ತಡೆಹಿಡಿಯಲಾಗಿದೆ"
             }
           ]
         }
@@ -187,17 +187,17 @@
     },
     {
       "id": "why-oracle",
-      "title": "ನಾನು Oracle Cloud ಅನ್ನು ಏಕೆ ಆರಿಸಿದೆ",
+      "title": "ನಾನು ಒರಾಕಲ್ ಕ್ಲೌಡ್ ಅನ್ನು ಏಕೆ ಆರಿಸಿದೆ",
       "level": 2,
       "content": [
         {
           "type": "text",
-          "content": "Oracle Cloud's Always Free tier is uniquely generous compared to AWS, GCP, ಮತ್ತು Azure free tiers. The headline offering is the **ARM Ampere A1.Flex** instance: 4 OCPU and 24 GB RAM — free forever. For comparison, AWS Free Tier gives a t2.micro (1 vCPU, 1 GB) for only 12 months. Oracle's AMD Micro is comparable but always-free in perpetuity, ಮತ್ತು the ARM Ampere would be dramatically more capable.\n\nThe catch is capacity availability: the Hyderabad region ARM Ampere has been perennially 'out of capacity'. This is a widely-reported issue in the Oracle Cloud community — not unique to me. Other regions would require a separate account setup. I've been stuck on this constraint for months."
+          "content": "AWS, GCP ಮತ್ತು Azure ಉಚಿತ ಶ್ರೇಣಿಗಳಿಗೆ ಹೋಲಿಸಿದರೆ ಒರಾಕಲ್ ಕ್ಲೌಡ್‌ನ ಯಾವಾಗಲೂ ಉಚಿತ ಶ್ರೇಣಿ ಅನನ್ಯವಾಗಿ ಉದಾರವಾಗಿದೆ. ಶಿರೋನಾಮೆ ಅರ್ಪಣೆ * * ARM ಆಂಪಿಯರ್ A1.Flex * * ನಿದರ್ಶನ: 4 OCPU ಮತ್ತು 24 GB RAM — ಶಾಶ್ವತವಾಗಿ ಉಚಿತ. ಹೋಲಿಕೆಗಾಗಿ, AWS ಫ್ರೀ ಟೈರ್ ಕೇವಲ 12 ತಿಂಗಳುಗಳವರೆಗೆ t2.micro (1 vCPU, 1 GB) ನೀಡುತ್ತದೆ. ಒರಾಕಲ್‌ನ AMD ಮೈಕ್ರೋ ಹೋಲಿಸಬಹುದಾದ ಆದರೆ ಶಾಶ್ವತವಾಗಿ ಯಾವಾಗಲೂ ಮುಕ್ತವಾಗಿರುತ್ತದೆ ಮತ್ತು ARM ಆಂಪಿಯರ್ ನಾಟಕೀಯವಾಗಿ ಹೆಚ್ಚು ಸಮರ್ಥವಾಗಿರುತ್ತದೆ. ಕ್ಯಾಚ್ ಸಾಮರ್ಥ್ಯದ ಲಭ್ಯತೆ: ಹೈದರಾಬಾದ್ ಪ್ರದೇಶದ ಆರ್ಮ್ ಆಂಪಿಯರ್ ದೀರ್ಘಕಾಲಿಕವಾಗಿ 'ಸಾಮರ್ಥ್ಯದಿಂದ ಹೊರಗಿದೆ'. ಇದು ಒರಾಕಲ್ ಕ್ಲೌಡ್ ಸಮುದಾಯದಲ್ಲಿ ವ್ಯಾಪಕವಾಗಿ ವರದಿಯಾದ ವಿಷಯವಾಗಿದೆ — ಇದು ನನಗೆ ವಿಶಿಷ್ಟವಲ್ಲ. ಇತರ ಪ್ರದೇಶಗಳಿಗೆ ಪ್ರತ್ಯೇಕ ಖಾತೆ ಸೆಟಪ್ ಅಗತ್ಯವಿರುತ್ತದೆ. ನಾನು ತಿಂಗಳುಗಳಿಂದ ಈ ನಿರ್ಬಂಧದಲ್ಲಿ ಸಿಲುಕಿಕೊಂಡಿದ್ದೇನೆ."
         },
         {
           "type": "quote",
-          "content": "ಯೋಜನೆ ಸದೃಢವಾಗಿದೆ. ಹಾರ್ಡ್‌ವೇರ್ ಮಾತ್ರ ಎಂದಿಗೂ ಸಿಗಲಿಲ್ಲ.",
-          "author": "Project notes, April 2026"
+          "content": "ಯೋಜನೆ ಉತ್ತಮವಾಗಿದೆ. ಹಾರ್ಡ್‌ವೇರ್ ಎಂದಿಗೂ ಕಾರ್ಯರೂಪಕ್ಕೆ ಬಂದಿಲ್ಲ.",
+          "author": "ಪ್ರಾಜೆಕ್ಟ್ ಟಿಪ್ಪಣಿಗಳು, ಏಪ್ರಿಲ್ 2026"
         }
       ],
       "collapsible": true

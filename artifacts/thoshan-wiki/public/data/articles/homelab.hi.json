@@ -1,7 +1,7 @@
 {
   "metadata": {
     "id": "homelab",
-    "title": "लिब्रे क्लाउड — होमलैब",
+    "title": "लिबर क्लाउड — होमलैब",
     "slug": "homelab",
     "category": "Infrastructure",
     "lastEdited": "2026-06-22T00:00:00Z",
@@ -9,9 +9,9 @@
     "views": 3100
   },
   "infobox": {
-    "title": "लिब्रे क्लाउड — होमलैब",
+    "title": "लिबर क्लाउड — होमलैब",
     "image": "https://picsum.photos/seed/homelab-infobox/280/200",
-    "imageCaption": "Zero-trust आर्किटेक्चर आरेख",
+    "imageCaption": "ज़ीरो - ट्रस्ट आर्किटेक्चर आरेख",
     "fields": [
       {
         "label": "प्लेटफॉर्म",
@@ -30,20 +30,20 @@
         "value": "Caddy / nginx"
       },
       {
-        "label": "डोमेन",
+        "label": "क्षेत्र",
         "value": "lingadevaru.in"
       },
       {
         "label": "स्थिति",
-        "value": "Partially running (ARM blocked)"
+        "value": "आंशिक रूप से चल रहा है (हाथ अवरुद्ध)"
       },
       {
-        "label": "लक्षित सेवाएं",
+        "label": "टार्गेट सेवाएँ",
         "value": "14 (3 public, 6 WireGuard-private, 5 ARM-only)"
       }
     ]
   },
-  "lead": "**लिब्रे क्लाउड** is my zero-trust self-hosted बुनियादी ढांचा परियोजना running on Oracle Cloud's Always Free tier. The design routes all external traffic through Cloudflare for DDoS protection and IP masking, then into an Oracle Cloud VM running a Caddy reverse proxy that serves both public and WireGuard-private services.\n\nमैंने इसे जानबूझकर 'Libre Cloud' नाम दिया: everything in the stack is free and open source, the platform is free-tier cloud, और the domain carries the FOSS identity. It connects directly to my [[privacy-stack|Privacy Stack]] — services like Vaultwarden (passwords), Joplin Server (notes), और SearXNG (private search) are all designed to run here.",
+  "lead": "**लिबर क्लाउड** ओरेकल क्लाउड के हमेशा मुफ़्त टियर पर चल रहा मेरा ज़ीरो - ट्रस्ट सेल्फ़ - होस्टेड इंफ़्रास्ट्रक्चर प्रोजेक्ट है। यह डिज़ाइन डीडीओएस सुरक्षा और आईपी मास्किंग के लिए क्लाउडफ्लेयर के माध्यम से सभी बाहरी ट्रैफ़िक को रूट करता है, फिर एक ओरेकल क्लाउड वीएम में एक कैडी रिवर्स प्रॉक्सी चलाता है जो सार्वजनिक और वायरगार्ड - निजी दोनों सेवाओं की सेवा करता है। मैंने इसे जानबूझकर 'लिबर क्लाउड' नाम दिया: स्टैक में सब कुछ मुफ़्त और खुला स्रोत है, प्लेटफ़ॉर्म मुफ़्त - स्तरीय क्लाउड है, और डोमेन में FOSS पहचान है। यह सीधे मेरे [[privacy-stack|निजता स्टैक]] से जुड़ता है — Vaultwarden (पासवर्ड), Joplin Server (नोट्स), और SearXNG (निजी खोज) जैसी सेवाओं को यहां चलाने के लिए डिज़ाइन किया गया है।",
   "sections": [
     {
       "id": "current-reality",
@@ -53,56 +53,56 @@
         {
           "type": "callout",
           "variant": "warning",
-          "title": "स्थिति: अवरुद्ध / गंभीर रूप से सीमित",
-          "content": "My target VM was VM.Standard.A1.Flex — Oracle's 4 OCPU, 24 GB RAM ARM Ampere instance, free forever. I hit persistent 'out of capacity' errors in the Hyderabad region after repeated attempts over months. The ARM plan is abandoned for now. मेरे पास वास्तव में क्या है: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM."
+          "title": "स्थिति: अवरुद्ध / गंभीर रूप से विवश",
+          "content": "मेरा लक्ष्य VM.Standard.A1.Flex था - Oracle का 4 OCPU, 24 GB RAM ARM एम्पीयर इंस्टैंस, हमेशा के लिए मुफ़्त। मैंने महीनों से लगातार प्रयासों के बाद हैदराबाद क्षेत्र में लगातार 'क्षमता से बाहर' त्रुटियों को मारा। ARM योजना को अभी के लिए छोड़ दिया गया है। मेरे पास वास्तव में क्या है: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM।"
         },
         {
           "type": "table",
           "columns": [
-            "सेवा",
-            "RAM उपयोग",
+            "सेवा ",
+            "रैम का इस्तेमाल",
             "मेरे 1 GB VM पर व्यवहार्यता"
           ],
           "rows": [
             {
-              "सेवा": "WireGuard",
-              "RAM उपयोग": "~5 MB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "✅ Easy"
+              "सेवा ": "वायरगार्ड",
+              "रैम का इस्तेमाल": "5 MB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "आसान"
             },
             {
-              "सेवा": "Pi-hole",
-              "RAM उपयोग": "~50–100 MB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "✅ Easy"
+              "सेवा ": "पाई - होल",
+              "रैम का इस्तेमाल": "~50 -100 MB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "आसान"
             },
             {
-              "सेवा": "Vaultwarden",
-              "RAM उपयोग": "~50 MB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "✅ Easy"
+              "सेवा ": "वॉल्टवर्डन",
+              "रैम का इस्तेमाल": "~50 MB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "आसान"
             },
             {
-              "सेवा": "Caddy / nginx",
-              "RAM उपयोग": "~30 MB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "✅ Easy"
+              "सेवा ": "Caddy / nginx",
+              "रैम का इस्तेमाल": "30 MB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "आसान"
             },
             {
-              "सेवा": "Portfolio (static files)",
-              "RAM उपयोग": "Minimal",
-              "मेरे 1 GB VM पर व्यवहार्यता": "✅ Easy"
+              "सेवा ": "पोर्टफ़ोलियो (स्थिर फ़ाइलें)",
+              "रैम का इस्तेमाल": "न्यूनतम ",
+              "मेरे 1 GB VM पर व्यवहार्यता": "आसान"
             },
             {
-              "सेवा": "SearXNG",
-              "RAM उपयोग": "~200–400 MB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "⚠️ Tight"
+              "सेवा ": "SearXNG",
+              "रैम का इस्तेमाल": "~200 -400 MB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "⚠️ तंग"
             },
             {
-              "सेवा": "Coolify (Docker PaaS)",
-              "RAM उपयोग": "~500 MB–1 GB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "❌ Too heavy"
+              "सेवा ": "Coolify (Docker PaaS)",
+              "रैम का इस्तेमाल": "~500 MB -1 GB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "❌ बहुत भारी"
             },
             {
-              "सेवा": "Immich / Jellyfin / Ollama",
-              "RAM उपयोग": "2–24 GB",
-              "मेरे 1 GB VM पर व्यवहार्यता": "❌ Impossible"
+              "सेवा ": "Immich / Jellyfin / Ollama",
+              "रैम का इस्तेमाल": "2 -24 GB",
+              "मेरे 1 GB VM पर व्यवहार्यता": "असंभव"
             }
           ]
         }
@@ -115,71 +115,71 @@
       "content": [
         {
           "type": "text",
-          "content": "I designed the architecture so nothing is directly exposed to the internet without passing through Cloudflare and the reverse proxy layer. Services are split into three visibility tiers: public (accessible to anyone via Cloudflare), private (accessible only through a WireGuard VPN tunnel), और ARM-only (requiring the unprovisioned A1.Flex VM)."
+          "content": "मैंने आर्किटेक्चर को डिज़ाइन किया है ताकि क्लाउडफ्लेयर और रिवर्स प्रॉक्सी लेयर से गुजरे बिना कुछ भी सीधे इंटरनेट के संपर्क में न आए। सेवाओं को तीन दृश्यता स्तरों में विभाजित किया गया है: सार्वजनिक (क्लाउडफ्लेयर के माध्यम से किसी के लिए भी सुलभ), निजी (केवल वायरगार्ड वीपीएन सुरंग के माध्यम से सुलभ), और एआरएम - केवल (बिना ए 1. फ्लेक्स वीएम की आवश्यकता)।"
         },
         {
           "type": "callout",
           "variant": "info",
-          "title": "मेरा आर्किटेक्चर प्रवाह",
-          "content": "Internet → Cloudflare (DNS + DDoS + IP masking) → Oracle Cloud VM (1 GB Micro) → Reverse proxy (Caddy/nginx) → [Public: Portfolio, Pi-hole DoH] / [Private (WireGuard-gated): Vaultwarden, Joplin Server, Gitea]"
+          "title": "मेरा आर्किटेक्चर फ़्लो",
+          "content": "इंटरनेट → क्लाउडफ्लेयर (DNS + DDoS + IP मास्किंग) → ओरेकल क्लाउड VM (1 GB माइक्रो) → रिवर्स प्रॉक्सी (कैडी/NGINX) → [सार्वजनिक: पोर्टफोलियो, पाई - होल DoH ]/ [निजी (वायरगार्ड - गेटेड): वॉल्टवर्डन, जोप्लिन सर्वर, गीता]"
         },
         {
           "type": "table",
           "columns": [
-            "स्तर",
-            "सेवा",
-            "उद्देश्य"
+            "श्रेणी",
+            "सेवा ",
+            "सबसे अच्छा होना अभी बाकी है"
           ],
           "rows": [
             {
-              "स्तर": "Public",
-              "सेवा": "Portfolio",
-              "उद्देश्य": "lingadevaru.in personal site"
+              "श्रेणी": "सार्वजनिक",
+              "सेवा ": "पोर्टफ़ोलियो",
+              "सबसे अच्छा होना अभी बाकी है": "lingadevaru.in व्यक्तिगत साइट"
             },
             {
-              "स्तर": "Public",
-              "सेवा": "SearXNG",
-              "उद्देश्य": "Privacy meta-search"
+              "श्रेणी": "सार्वजनिक",
+              "सेवा ": "SearXNG",
+              "सबसे अच्छा होना अभी बाकी है": "निजता मेटा - सर्च"
             },
             {
-              "स्तर": "Public",
-              "सेवा": "GoatCounter",
-              "उद्देश्य": "Cookie-free analytics"
+              "श्रेणी": "सार्वजनिक",
+              "सेवा ": "बकरी काउंटर",
+              "सबसे अच्छा होना अभी बाकी है": "कुकी - मुक्त एनालिटिक्स"
             },
             {
-              "स्तर": "WireGuard-private",
-              "सेवा": "Vaultwarden",
-              "उद्देश्य": "Self-hosted password manager"
+              "श्रेणी": "WireGuard - Private",
+              "सेवा ": "वॉल्टवर्डन",
+              "सबसे अच्छा होना अभी बाकी है": "खुद से मेज़बानी करने वाला पासवर्ड मैनेजर"
             },
             {
-              "स्तर": "WireGuard-private",
-              "सेवा": "Pi-hole",
-              "उद्देश्य": "DNS ad blocker"
+              "श्रेणी": "WireGuard - Private",
+              "सेवा ": "पाई - होल",
+              "सबसे अच्छा होना अभी बाकी है": "विज्ञापन अवरोधक"
             },
             {
-              "स्तर": "WireGuard-private",
-              "सेवा": "Uptime Kuma",
-              "उद्देश्य": "Uptime monitoring"
+              "श्रेणी": "WireGuard - Private",
+              "सेवा ": "अपटाइम कुमा",
+              "सबसे अच्छा होना अभी बाकी है": "अपटाइम मॉनिटरिंग"
             },
             {
-              "स्तर": "WireGuard-private",
-              "सेवा": "FreshRSS",
-              "उद्देश्य": "RSS reader"
+              "श्रेणी": "WireGuard - Private",
+              "सेवा ": "FreshRSS",
+              "सबसे अच्छा होना अभी बाकी है": "RSS रीडर"
             },
             {
-              "स्तर": "WireGuard-private",
-              "सेवा": "Joplin Server",
-              "उद्देश्य": "Self-hosted notes"
+              "श्रेणी": "WireGuard - Private",
+              "सेवा ": "जोप्लिन सर्वर",
+              "सबसे अच्छा होना अभी बाकी है": "खुद से मेज़बानी करने वाले नोट"
             },
             {
-              "स्तर": "WireGuard-private",
-              "सेवा": "Gitea",
-              "उद्देश्य": "Self-hosted Git"
+              "श्रेणी": "WireGuard - Private",
+              "सेवा ": "गीता",
+              "सबसे अच्छा होना अभी बाकी है": "खुद से मेज़बानी करने वाली गिट"
             },
             {
-              "स्तर": "ARM-only (blocked)",
-              "सेवा": "Immich, Mailcow, Jellyfin, Ollama",
-              "उद्देश्य": "Requires 24 GB RAM — indefinitely on hold"
+              "श्रेणी": "सिर्फ़ ARM के लिए (ब्लॉक किया गया)",
+              "सेवा ": "Immich, Mailcow, Jellyfin, Ollama",
+              "सबसे अच्छा होना अभी बाकी है": "24 जीबी रैम की आवश्यकता है — अनिश्चित काल के लिए होल्ड पर"
             }
           ]
         }
@@ -187,17 +187,17 @@
     },
     {
       "id": "why-oracle",
-      "title": "मैंने Oracle Cloud क्यों चुना",
+      "title": "मैंने ओरेकल क्लाउड क्यों चुना",
       "level": 2,
       "content": [
         {
           "type": "text",
-          "content": "Oracle Cloud's Always Free tier is uniquely generous compared to AWS, GCP, और Azure free tiers. The headline offering is the **ARM Ampere A1.Flex** instance: 4 OCPU and 24 GB RAM — free forever. For comparison, AWS Free Tier gives a t2.micro (1 vCPU, 1 GB) for only 12 months. Oracle's AMD Micro is comparable but always-free in perpetuity, और the ARM Ampere would be dramatically more capable.\n\nThe catch is capacity availability: the Hyderabad region ARM Ampere has been perennially 'out of capacity'. This is a widely-reported issue in the Oracle Cloud community — not unique to me. Other regions would require a separate account setup. I've been stuck on this constraint for months."
+          "content": "ऑरेकल क्लाउड का ऑलवेज फ्री टियर AWS, GCP और Azure फ्री टियर की तुलना में विशिष्ट रूप से उदार है। शीर्षक पेशकश ** ARM एम्पीयर A1.Flex ** उदाहरण है: 4 OCPU और 24 GB रैम — हमेशा के लिए मुफ्त। तुलना के लिए, AWS फ्री टियर केवल 12 महीनों के लिए एक t2.micro (1 vCPU, 1 GB) देता है। ओरेकल का एएमडी माइक्रो तुलनीय है लेकिन हमेशा के लिए मुक्त है, और एआरएम एम्पीयर नाटकीय रूप से अधिक सक्षम होगा। पकड़ क्षमता उपलब्धता है: हैदराबाद क्षेत्र शाखा एम्पियर बारहमासी 'क्षमता से बाहर' रही है। Oracle Cloud समुदाय में यह एक व्यापक रूप से रिपोर्ट किया गया मुद्दा है — यह मेरे लिए अनोखा नहीं है। अन्य क्षेत्रों के लिए एक अलग अकाउंट सेटअप की ज़रूरत होगी। मैं महीनों से इस बाधा पर अटका हुआ हूँ."
         },
         {
           "type": "quote",
-          "content": "योजना ठोस है. हार्डवेयर बस कभी मिला नहीं.",
-          "author": "Project notes, April 2026"
+          "content": "योजना अच्छी है। हार्डवेयर कभी भी भौतिक नहीं हुआ।",
+          "author": "प्रोजेक्ट नोट्स, अप्रैल 2026"
         }
       ],
       "collapsible": true

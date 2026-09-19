@@ -1,7 +1,7 @@
 {
   "metadata": {
     "id": "insurance-dapp",
-    "title": "ವಿಮಾ DApp",
+    "title": "ವಿಮಾ ಡಿಎಪಿಪಿ",
     "slug": "insurance-dapp",
     "category": "Blockchain",
     "lastEdited": "2026-06-22T00:00:00Z",
@@ -9,28 +9,28 @@
     "views": 3350
   },
   "infobox": {
-    "title": "ವಿಮಾ DApp",
+    "title": "Insurance DApp",
     "image": "https://picsum.photos/seed/dapp-infobox/280/200",
-    "imageCaption": "MetaMask ಮೂಲಕ Ethereum smart contract ಸಂವಹನ",
+    "imageCaption": "Ethereum smart contract interaction via MetaMask",
     "fields": [
       {
-        "label": "ಬ್ಲಾಕ್‌ಚೈನ್",
+        "label": "Blockchain",
         "value": "Ethereum"
       },
       {
-        "label": "ಸ್ಮಾರ್ಟ್ ಕಾಂಟ್ರಾಕ್ಟ್",
+        "label": "Smart contract",
         "value": "Solidity"
       },
       {
-        "label": "ಡೆವ್ ಫ್ರೇಮ್‌ವರ್ಕ್",
+        "label": "Dev framework",
         "value": "Truffle"
       },
       {
-        "label": "Web3 ಸಂಯೋಜನೆ",
+        "label": "Web3 integration",
         "value": "Web3.js + MetaMask"
       },
       {
-        "label": "ಫ್ರಂಟ್‌ಎಂಡ್",
+        "label": "Frontend",
         "value": "HTML5, CSS3, Bootstrap"
       },
       {
@@ -42,67 +42,67 @@
         "value": "1 ⭐"
       },
       {
-        "label": "ಸ್ಥಿತಿ",
+        "label": "Status",
         "value": "Live demo + GitHub"
       }
     ]
   },
-  "lead": "The **ವಿಮಾ DApp** is a decentralised ವಿಮಾ application ನಾನು ನಿರ್ಮಿಸಿದ್ದು **Ethereum blockchain** ಮೇಲೆ, using Solidity smart contracts ಸಾಂಪ್ರದಾಯಿಕ ವಿಮಾ ಕಂಪನಿಯನ್ನು ಮಧ್ಯವರ್ತಿಯಾಗಿ ಬದಲಿಸಲು. Policies, premiums, claims, ಮತ್ತು payouts ಎಲ್ಲವೂ on-chain logic ಮೂಲಕ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತವೆ — no human in the loop, ನಿಮ್ಮ claim ನಿರ್ಧರಿಸುವ ಯಾವುದೇ ಕಂಪನಿ ಇಲ್ಲ.\n\nನಾನು ಇದನ್ನು ನಿರ್ಮಿಸಿದ್ದು centralised ವಿಮೆ (where a company decides your outcome) ಮತ್ತು decentralised ವಿಮೆ (where a smart contract executes pre-agreed rules automatically and transparently) ನಡುವಿನ ಅಂತರವನ್ನು ಅನ್ವೇಷಿಸಲು. It sits alongside [[foss-coin|FOSS Coin]] ನನ್ನ blockchain portfolio ನಲ್ಲಿ — together they cover two completely different ecosystems: Ethereum (EVM, Solidity) ಮತ್ತು Solana (SPL, Rust runtime).",
+  "lead": "**ವಿಮಾ DApp ** ಎನ್ನುವುದು ಸಾಂಪ್ರದಾಯಿಕ ವಿಮಾ ಕಂಪನಿಯನ್ನು ಮಧ್ಯವರ್ತಿಯಾಗಿ ಬದಲಿಸಲು ಸಾಲಿಡಿಟಿ ಸ್ಮಾರ್ಟ್ ಒಪ್ಪಂದಗಳನ್ನು ಬಳಸಿಕೊಂಡು ನಾನು ** Ethereum blockchain * * ನಲ್ಲಿ ನಿರ್ಮಿಸಿದ ವಿಕೇಂದ್ರೀಕೃತ ವಿಮಾ ಅಪ್ಲಿಕೇಶನ್ ಆಗಿದೆ. ನೀತಿಗಳು, ಪ್ರೀಮಿಯಂಗಳು, ಕ್ಲೈಮ್‌ಗಳು ಮತ್ತು ಪಾವತಿಗಳನ್ನು ಆನ್-ಚೈನ್ ತರ್ಕದಿಂದ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ — ಲೂಪ್‌ನಲ್ಲಿ ಯಾವುದೇ ವ್ಯಕ್ತಿ ಇಲ್ಲ, ಯಾವುದೇ ಕಂಪನಿಯು ನಿಮ್ಮ ಕ್ಲೈಮ್ ಅನ್ನು ನಿರ್ಧರಿಸುವುದಿಲ್ಲ. I built this to explore the gap between centralised insurance (where a company decides your outcome) and decentralised insurance (where a smart contract executes pre-agreed rules automatically and transparently). It sits alongside [[foss-coin|FOSS ನಾಣ್ಯ]] in my blockchain portfolio — together they cover two completely different ecosystems: Ethereum (EVM, Solidity) and Solana (SPL, Rust runtime).",
   "sections": [
     {
       "id": "why-decentralised",
-      "title": "ವಿಕೇಂದ್ರೀಕೃತ ವಿಮೆ ನಿರ್ಮಿಸಲು ಏಕೆ ಅರ್ಥಪೂರ್ಣವಾಗಿತ್ತು",
+      "title": "Why Decentralised Insurance Made Sense to Build",
       "level": 2,
       "content": [
         {
           "type": "text",
-          "content": "ಸಾಂಪ್ರದಾಯಿಕ ವಿಮೆಯಲ್ಲಿ, the insurer holds all the power: they collect premiums, evaluate claims, ಮತ್ತು decide payouts. As a claimant, ನಿಯಮಗಳನ್ನು ನ್ಯಾಯಯುತವಾಗಿ ಅನ್ವಯಿಸಲಾಗುತ್ತಿದೆ ಎಂದು ಸ್ವತಂತ್ರವಾಗಿ ಪರಿಶೀಲಿಸಲು ನಿಮಗೆ ಯಾವುದೇ ಮಾರ್ಗವಿಲ್ಲ — you just have to trust the company.\n\nA smart contract ಇದನ್ನು ತಿರುಗಿಸುತ್ತದೆ: the rules are written in Solidity, deployed on-chain, ಮತ್ತು conditions ಪೂರೈಸಿದಾಗ automatically execute ಆಗುತ್ತವೆ. Anyone can read the contract code before purchasing a policy. Payouts happen without a human decision-maker.\n\nನಾನು ಒಪ್ಪಿಕೊಳ್ಳಬೇಕಾದ trade-off: smart contracts can't access real-world data without an oracle — ಮತ್ತು ನನ್ನ implementation ಒಂದನ್ನು ಒಳಗೊಂಡಿಲ್ಲ. I'm demonstrating the core mechanic of trustless policy execution, production ವಿಮಾ ಉತ್ಪನ್ನವನ್ನು shipping ಮಾಡುತ್ತಿಲ್ಲ."
+          "content": "In traditional insurance, the insurer holds all the power: they collect premiums, evaluate claims, and decide payouts. As a claimant, you have no way to independently verify that the rules are being applied fairly — you just have to trust the company. A smart contract flips this: the rules are written in Solidity, deployed on-chain, and execute automatically when conditions are met. Anyone can read the contract code before purchasing a policy. Payouts happen without a human decision-maker. The trade-off I had to accept: smart contracts can't access real-world data without an oracle — and my implementation doesn't include one. I'm demonstrating the core mechanic of trustless policy execution, not shipping a production insurance product."
         },
         {
           "type": "callout",
           "variant": "info",
-          "title": "ಈ ಯೋಜನೆ ಏನು ಮತ್ತು ಏನಲ್ಲ",
-          "content": "This is a technical learning exercise demonstrating Solidity contract design, Truffle deployment workflow, ಮತ್ತು Web3.js/MetaMask browser integration. It is not a live insurance product and does not implement real-world oracle connections."
+          "title": "What this project is and isn't",
+          "content": "This is a technical learning exercise demonstrating Solidity contract design, Truffle deployment workflow, and Web3.js/MetaMask browser integration. It is not a live insurance product and does not implement real-world oracle connections."
         }
       ]
     },
     {
       "id": "tech-stack",
-      "title": "ಟೆಕ್ ಸ್ಟ್ಯಾಕ್",
+      "title": "Tech Stack",
       "level": 2,
       "content": [
         {
           "type": "table",
           "columns": [
-            "ಪದರ",
-            "ತಂತ್ರಜ್ಞಾನ",
-            "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ"
+            "Layer",
+            "Technology",
+            "What I used it for"
           ],
           "rows": [
             {
-              "ಪದರ": "ಸ್ಮಾರ್ಟ್ ಕಾಂಟ್ರಾಕ್ಟ್",
-              "ತಂತ್ರಜ್ಞಾನ": "Solidity",
-              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Ethereum ಮೇಲೆ Policy logic, claim rules, payout execution"
+              "Layer": "Smart contract",
+              "Technology": "Solidity",
+              "What I used it for": "Policy logic, claim rules, payout execution on Ethereum"
             },
             {
-              "ಪದರ": "ಡೆವ್ ಫ್ರೇಮ್‌ವರ್ಕ್",
-              "ತಂತ್ರಜ್ಞಾನ": "Truffle",
-              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Contract compilation, migration, testing"
+              "Layer": "Dev framework",
+              "Technology": "Truffle",
+              "What I used it for": "Contract compilation, migration, testing"
             },
             {
-              "ಪದರ": "Web3 ಸಂಯೋಜನೆ",
-              "ತಂತ್ರಜ್ಞಾನ": "Web3.js",
-              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Browser-to-blockchain interaction layer"
+              "Layer": "Web3 integration",
+              "Technology": "Web3.js",
+              "What I used it for": "Browser-to-blockchain interaction layer"
             },
             {
-              "ಪದರ": "ವಾಲೆಟ್",
-              "ತಂತ್ರಜ್ಞಾನ": "MetaMask",
-              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Transaction signing and account management"
+              "Layer": "Wallet",
+              "Technology": "MetaMask",
+              "What I used it for": "Transaction signing and account management"
             },
             {
-              "ಪದರ": "ಫ್ರಂಟ್‌ಎಂಡ್",
-              "ತಂತ್ರಜ್ಞಾನ": "HTML5, CSS3, Bootstrap",
-              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Policy purchase, claim submission, payout ಗಾಗಿ UI"
+              "Layer": "Frontend",
+              "Technology": "HTML5, CSS3, Bootstrap",
+              "What I used it for": "UI for policy purchase, claim submission, payout"
             }
           ]
         }
@@ -110,30 +110,30 @@
     },
     {
       "id": "how-it-works",
-      "title": "ಇದು ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ",
+      "title": "How It Works",
       "level": 2,
       "content": [
         {
           "type": "text",
-          "content": "The DApp follows a standard ವಿಮಾ lifecycle — ಆದರೆ ಪ್ರತಿ ಹಂತವನ್ನು company employee ಬದಲಿಗೆ ನನ್ನ smart contract ಜಾರಿಗೊಳಿಸುತ್ತದೆ:\n\n1. **Policy purchase** — a user pays ETH to the contract, specifying coverage terms. The contract records the policy on-chain.\n2. **Premium lock** — the ETH is held in the contract's balance, not transferred to an insurer.\n3. **Claim submission** — the user submits a claim via the web interface. The contract evaluates whether it meets the pre-coded conditions.\n4. **Payout** — if conditions are satisfied, the contract automatically transfers the payout from its balance to the claimant's wallet.\n5. **Rejection** — if conditions aren't met, the claim is rejected on-chain. No manual override is possible — ನನ್ನಿಂದಲೂ ಸಾಧ್ಯವಿಲ್ಲ.\n\nAll state transitions are recorded as on-chain events and verifiable by any block explorer."
+          "content": "The DApp follows a standard insurance lifecycle — but every step is enforced by my smart contract rather than a company employee:\n 1. **Policy purchase** — a user pays ETH to the contract, specifying coverage terms. The contract records the policy on-chain. 2. **Premium lock** — the ETH is held in the contract's balance, not transferred to an insurer. 3. **Claim submission** — the user submits a claim via the web interface. The contract evaluates whether it meets the pre-coded conditions. 4. **Payout** — if conditions are satisfied, the contract automatically transfers the payout from its balance to the claimant's wallet. 5. **Rejection** — if conditions aren't met, the claim is rejected on-chain. No manual override is possible — not even by me. All state transitions are recorded as on-chain events and verifiable by any block explorer."
         },
         {
           "type": "gallery",
           "items": [
             {
               "src": "https://picsum.photos/seed/dapp-gal1/800/500",
-              "alt": "Policy ಖರೀದಿ ಹರಿವು",
-              "caption": "Policy ಖರೀದಿ ಇಂಟರ್‌ಫೇಸ್ — MetaMask payment flow"
+              "alt": "Policy purchase flow",
+              "caption": "Policy purchase interface — MetaMask payment flow"
             },
             {
               "src": "https://picsum.photos/seed/dapp-gal2/800/500",
-              "alt": "Claim ಸಲ್ಲಿಕೆ",
-              "caption": "Claim ಸಲ್ಲಿಕೆ ಮತ್ತು smart contract ಮೌಲ್ಯಮಾಪನ"
+              "alt": "Claim submission",
+              "caption": "Claim submission and smart contract evaluation"
             },
             {
               "src": "https://picsum.photos/seed/dapp-gal3/800/500",
-              "alt": "Payout ಈವೆಂಟ್",
-              "caption": "Ethereum network ನಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತ payout transaction"
+              "alt": "Payout event",
+              "caption": "Automatic payout transaction on the Ethereum network"
             }
           ]
         }
@@ -141,12 +141,12 @@
     },
     {
       "id": "relationship-to-other-work",
-      "title": "ಇದು ನನ್ನ ಇತರ ಕೆಲಸಕ್ಕೆ ಹೇಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ",
+      "title": "How This Connects to My Other Work",
       "level": 2,
       "content": [
         {
           "type": "text",
-          "content": "This DApp ಮತ್ತು [[foss-coin|FOSS Coin]] represent the two main blockchain ecosystems ನಾನು ಕೆಲಸ ಮಾಡಿದ್ದು: Ethereum (EVM-based, Solidity smart contracts) ಮತ್ತು Solana (Rust-based runtime, SPL token program). Together they demonstrate breadth across different consensus mechanisms, programming models, ಮತ್ತು toolchains.\n\nBoth are listed in the [[about|GitHub repository table]] ಮತ್ತು form the blockchain/Web3 component of my technical skills. The GitHub repo is at [github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)."
+          "content": "This DApp and [[foss-coin|FOSS Coin]] represent the two main blockchain ecosystems I've worked with: Ethereum (EVM-based, Solidity smart contracts) and Solana (Rust-based runtime, SPL token program). Together they demonstrate breadth across different consensus mechanisms, programming models, and toolchains. Both are listed in the [[about|GitHub repository table]] and form the blockchain/Web3 component of my technical skills. The GitHub repo is at [github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)."
         }
       ],
       "collapsible": true
