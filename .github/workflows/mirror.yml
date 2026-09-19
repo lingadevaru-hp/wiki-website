@@ -1,0 +1,54 @@
+name: mirror-to-platform
+
+# Every push to main publishes commit subjects (only) to the public
+# wiki-platform repo as a release note + changelog entry, via PR + auto-merge.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private core
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Clone public mirror
+        env:
+          MIRROR_PAT: ${{ secrets.PLATFORM_MIRROR_PAT }}
+        run: |
+          git clone "https://x-access-token:${MIRROR_PAT}@github.com/lingadevaru-hp/wiki-platform.git" /tmp/wiki-platform
+
+      - name: Generate release note + changelog
+        run: |
+          chmod +x scripts/mirror-platform.sh
+          scripts/mirror-platform.sh "${{ github.event.before }}" "${{ github.sha }}" /tmp/wiki-platform
+
+      - name: Open mirror PR and auto-merge
+        env:
+          MIRROR_PAT: ${{ secrets.PLATFORM_MIRROR_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE="$(date +%F)"
+          SHORT="$(echo '${{ github.sha }}' | cut -c1-7)"
+          BRANCH="release/${DATE}-${SHORT}"
+          cd /tmp/wiki-platform
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${BRANCH}"
+          git add releases/ CHANGELOG.md
+          git -c credential.helper='!f() { echo "username=x-access-token"; echo "password=${MIRROR_PAT}"; }; f' \
+            commit -m "release: ${DATE} shipment ${SHORT}" || exit 0
+          git -c credential.helper='!f() { echo "username=x-access-token"; echo "password=${MIRROR_PAT}"; }; f' \
+            push origin "${BRANCH}"
+          gh pr create --repo lingadevaru-hp/wiki-platform \
+            --title "Release ${DATE} shipment ${SHORT}" \
+            --body "Automated shipment notes from the private core. Subjects only — no source." \
+            --base main --head "${BRANCH}"
+          gh pr merge --repo lingadevaru-hp/wiki-platform "${BRANCH}" --squash --delete-branch
