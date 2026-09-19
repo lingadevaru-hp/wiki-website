@@ -101,6 +101,45 @@ Disallow: /
 User-agent: ImagesiftBot
 Disallow: /
 
+User-agent: QwenBot
+Disallow: /
+
+User-agent: Qwen
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: DuckAssistBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Panscient
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: PiplBot
+Disallow: /
+
+User-agent: webzio
+Disallow: /
+
+User-agent: AdsBot-Google
+Disallow: /
+
+User-agent: Mediapartners-Google
+Disallow: /
+
 # Block web archives
 User-agent: ia_archiver
 Disallow: /
@@ -120,6 +159,10 @@ Allow: /
 Crawl-delay: 2
 
 User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: BraveSearchBot
 Allow: /
 Crawl-delay: 2
 
