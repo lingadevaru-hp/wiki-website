@@ -1783,6 +1783,65 @@ a:active {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.foss-buy-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 18px 0 4px;
+  padding: 14px 16px;
+  border: 1px solid hsl(var(--primary) / 0.45);
+  border-radius: 16px;
+  background: hsl(var(--primary) / 0.1);
+}
+.foss-buy-banner strong {
+  display: block;
+  font-size: 15px;
+}
+.foss-buy-banner span {
+  display: block;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  margin-top: 2px;
+}
+.foss-buy-button {
+  flex-shrink: 0;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px hsl(var(--primary) / 0.35);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.foss-buy-button:hover {
+  transform: translateY(-1px);
+}
+.foss-buy-sticky {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  left: 16px;
+  z-index: 40;
+  display: block;
+  padding: 15px;
+  border-radius: 999px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 12px 32px hsl(0 0% 0% / 0.35);
+}
+@media (min-width: 768px) {
+  .foss-buy-sticky {
+    display: none;
+  }
+}
 .foss-sound-toggle {
   display: inline-flex;
   align-items: center;

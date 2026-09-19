@@ -159,5 +159,8 @@
   "notfound.suggest": "こちらをお試しください:",
   "lang.language": "言語",
   "search.or": "または",
-  "media.video": "動画"
+  "media.video": "動画",
+  "article.buyFossTitle": "Buy FOSS Coin",
+  "article.buyFossSubtitle": "Live on Solana — trade via Phantom wallet",
+  "article.buyFossNow": "Buy Now"
 }
