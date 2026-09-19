@@ -1,8 +1,9 @@
-const GATE_HTML = (sitekey: string, returnTo: string) => `<!DOCTYPE html>
-<html>
+const GATE_HTML = (sitekey: string, returnTo: string, lang = "en") => `<!DOCTYPE html>
+<html lang="${lang}" translate="no" class="notranslate">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
   <title>Security Verification</title>
   <link rel="preconnect" href="https://challenges.cloudflare.com" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -180,6 +181,34 @@ function addSecurityHeaders(response: Response, hostname = ""): Response {
   });
 }
 
+/**
+ * Rewrite served HTML so the declared language matches the host:
+ * <html lang="kn|hi|en"> + translate="no" + notranslate preserved.
+ * Reusable: add a host to contentLanguageFor() and this follows.
+ * Only touches text/html responses; assets pass through untouched.
+ */
+function withLocaleHtml(response: Response, hostname: string): Response {
+  const type = response.headers.get("Content-Type") || "";
+  if (!type.includes("text/html")) return response;
+  const lang = contentLanguageFor(hostname);
+  try {
+    return new HTMLRewriter()
+      .on("html", {
+        element(e) {
+          e.setAttribute("lang", lang);
+          e.setAttribute("translate", "no");
+          const cls = e.getAttribute("class") || "";
+          if (!cls.split(/\s+/).includes("notranslate")) {
+            e.setAttribute("class", (cls ? cls + " " : "") + "notranslate");
+          }
+        },
+      })
+      .transform(response);
+  } catch {
+    return response;
+  }
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -198,7 +227,7 @@ export default {
 
     if (verified) {
       const response = await env.ASSETS.fetch(request);
-      return addSecurityHeaders(response, url.hostname);
+      return withLocaleHtml(addSecurityHeaders(response, url.hostname), url.hostname);
     }
 
     const ua = request.headers.get("User-Agent") || "";
@@ -211,13 +240,13 @@ export default {
     const SEARCH_BOT_PATTERN = /googlebot|bingbot|duckduckbot|slurp|applebot/i;
     if (SEARCH_BOT_PATTERN.test(ua)) {
       const response = await env.ASSETS.fetch(request);
-      return addSecurityHeaders(response, url.hostname);
+      return withLocaleHtml(addSecurityHeaders(response, url.hostname), url.hostname);
     }
 
     const SOCIAL_BOT_PATTERN = /facebookexternalhit|twitterbot|linkedinbot|discordbot|telegrambot|whatsapp|slackbot/i;
     if (SOCIAL_BOT_PATTERN.test(ua)) {
       const response = await env.ASSETS.fetch(request);
-      return addSecurityHeaders(response, url.hostname);
+      return withLocaleHtml(addSecurityHeaders(response, url.hostname), url.hostname);
     }
 
     const accept = request.headers.get("Accept") || "";
@@ -254,12 +283,12 @@ export default {
           },
         });
       }
-      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo), {
+      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo, contentLanguageFor(url.hostname)), {
         headers: HTML_HEADERS(url.hostname),
       });
     }
 
-    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname), {
+    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname, contentLanguageFor(url.hostname)), {
       headers: HTML_HEADERS(url.hostname),
     });
   },

@@ -27,7 +27,13 @@ only the dictionary differs. No per-language repos, workers, or configs.
 - Browser auto-translate is OPTED OUT (curated translations are canonical):
   `index.html` has `<meta name="google" content="notranslate">` +
   `<html translate="no" class="notranslate">`; `src/worker.ts`
-  `addSecurityHeaders` sets `Content-Language: kn/hi/en` per hostname.
+  `addSecurityHeaders` sets `Content-Language: kn/hi/en` per hostname, and
+  `withLocaleHtml()` (HTMLRewriter) rewrites `<html lang>` per host on every
+  `text/html` response (verified users, search/social bots) so first paint
+  already declares `kn`/`hi` before JS runs. Turnstile `GATE_HTML` carries the
+  same `lang` + `translate="no"` + meta. `SEO.tsx` emits `hreflang` alternates
+  (en/kn/hi + `x-default`) + per-locale `og:locale` so Google/DuckDuckGo/Brave
+  index each subdomain as its own language.
 
 ## Add a new language (e.g. `ta`)
 
