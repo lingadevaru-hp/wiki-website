@@ -1,0 +1,172 @@
+{
+  "articles": [
+    {
+      "id": "about",
+      "title": "ಬಗ್ಗೆ — ಲಿಂಗದೇವರು ಹೆಚ್ ಪಿ",
+      "slug": "about",
+      "category": "Profile",
+      "excerpt": "SIT ತುಮಕೂರುನಲ್ಲಿ 2026ರಲ್ಲಿ ಪದವಿ ಪಡೆಯುತ್ತಿರುವ MCA ವಿದ್ಯಾರ್ಥಿ. ನಿಯೋಜಿತ ಬ್ಲಾಕ್‌ಚೈನ್, AI ಮತ್ತು ವೆಬ್ ಯೋಜನೆಗಳ ನಿರ್ಮಾಪಕ. ವೃತ್ತಿ ಗಮನ: ನೆಟ್‌ವರ್ಕಿಂಗ್, ಕ್ಲೌಡ್ ಮತ್ತು ಸೈಬರ್‌ಸುರಕ್ಷತೆ.",
+      "thumbnail": "https://picsum.photos/seed/about-thumb/160/100"
+    },
+    {
+      "id": "foss-coin",
+      "title": "FOSS ಕಾಯಿನ್ ($FOSS)",
+      "slug": "foss-coin",
+      "category": "Blockchain",
+      "excerpt": "ಉಚಿತ ಮತ್ತು ಮುಕ್ತ-ಮೂಲ ಸಾಫ್ಟ್‌ವೇರ್ ಬೆಂಬಲವನ್ನು ಸಂಕೇತಿಸಲು Solana Mainnet ಮೇಲೆ ನಿರ್ಮಿತ SPL ಟೋಕನ್. ಸ್ಥಿರ 1B ಪೂರೈಕೆಯೊಂದಿಗೆ Orca Whirlpool DEX ನಲ್ಲಿ ಲೈವ್.",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png"
+    },
+    {
+      "id": "thoshan-flash",
+      "title": "ತೋಷನ್ ಫ್ಲ್ಯಾಶ್",
+      "slug": "thoshan-flash",
+      "category": "AI / ML",
+      "excerpt": "Google ನ Gemma-2-9B ದೊಡ್ಡ ಭಾಷಾ ಮಾದರಿಯ QLoRA ಫೈನ್-ಟ್ಯೂನ್, 26+ ಡೌನ್‌ಲೋಡ್‌ಗಳು ಮತ್ತು ಲೈವ್ Gradio ಇನ್‌ಫರೆನ್ಸ್ ಇಂಟರ್‌ಫೇಸ್‌ನೊಂದಿಗೆ Hugging Face ನಲ್ಲಿ ಪ್ರಕಟಿಸಲಾಗಿದೆ.",
+      "thumbnail": "https://picsum.photos/seed/flash-thumb/160/100"
+    },
+    {
+      "id": "insurance-dapp",
+      "title": "ವಿಮಾ DApp",
+      "slug": "insurance-dapp",
+      "category": "Blockchain",
+      "excerpt": "Solidity ಸ್ಮಾರ್ಟ್ ಕಾಂಟ್ರಾಕ್ಟ್‌ಗಳು, Truffle, Web3.js ಮತ್ತು MetaMask ಏಕೀಕರಣವನ್ನು ಬಳಸಿಕೊಂಡು Ethereum ಬ್ಲಾಕ್‌ಚೈನ್ ಮೇಲೆ ವಿಕೇಂದ್ರೀಕೃತ ವಿಮಾ ಅಪ್ಲಿಕೇಶನ್.",
+      "thumbnail": "https://picsum.photos/seed/dapp-thumb/160/100"
+    },
+    {
+      "id": "homelab",
+      "title": "ಲಿಬ್ರೆ ಕ್ಲೌಡ್ — ಹೋಮ್‌ಲ್ಯಾಬ್",
+      "slug": "homelab",
+      "category": "Infrastructure",
+      "excerpt": "Oracle Cloud Always Free ಶ್ರೇಣಿಯಲ್ಲಿ ಶೂನ್ಯ-ನಂಬಿಕೆ ಸ್ವ-ಹೋಸ್ಟೆಡ್ ಮೂಲಸೌಕರ್ಯ. ಯೋಜಿತ 14-ಸೇವಾ ವಾಸ್ತುಶಿಲ್ಪದೊಂದಿಗೆ Cloudflare-ಮುಂದಿನ ರಿವರ್ಸ್ ಪ್ರಾಕ್ಸಿ.",
+      "thumbnail": "https://picsum.photos/seed/homelab-thumb/160/100"
+    },
+    {
+      "id": "privacy-stack",
+      "title": "ಗೌಪ್ಯತಾ ಸ್ಟ್ಯಾಕ್",
+      "slug": "privacy-stack",
+      "category": "Security",
+      "excerpt": "ಪದರಗಳ ವೈಯಕ್ತಿಕ ಗೌಪ್ಯತಾ ಸೆಟಪ್: Omarchy/Arch ನೊಂದಿಗೆ OS ಗಟ್ಟಿಗೊಳಿಸುವಿಕೆ, LibreWolf ಬ್ರೌಸರ್, ಹಾರ್ಡ್‌ವೇರ್ DNS ಫಿಲ್ಟರಿಂಗ್, WireGuard VPN ಮತ್ತು ಸ್ವ-ಹೋಸ್ಟೆಡ್ ಪಾಸ್‌ವರ್ಡ್ ನಿರ್ವಹಣೆ.",
+      "thumbnail": "https://picsum.photos/seed/privacy-thumb/160/100"
+    },
+    {
+      "id": "linux-setup",
+      "title": "ಲಿನಕ್ಸ್ ಸೆಟಪ್ — ಒಮಾರ್ಚಿ",
+      "slug": "linux-setup",
+      "category": "Systems",
+      "excerpt": "Omarchy ಮೂಲಕ Arch Linux — Hyprland ಟೈಲಿಂಗ್ WM, Neovim ಮತ್ತು ಪೂರ್ಣ ಟರ್ಮಿನಲ್ ಡೆವಲಪರ್ ವರ್ಕ್‌ಫ್ಲೋ ಹೊಂದಿರುವ DHH ಅವರ ಅಭಿಪ್ರಾಯಾತ್ಮಕ 'omakase' ಡೆವ್ ಡಿಸ್ಟ್ರೋ.",
+      "thumbnail": "https://picsum.photos/seed/linux-thumb/160/100"
+    },
+    {
+      "id": "fraud-detection",
+      "title": "ವಂಚನೆ ಪತ್ತೆ ವ್ಯವಸ್ಥೆ",
+      "slug": "fraud-detection",
+      "category": "AI / ML",
+      "excerpt": "MCA ಅಂತಿಮ ವರ್ಷದ ಯೋಜನೆ: ASP.NET ಮತ್ತು 4-ಅಲ್ಗಾರಿದಮ್ ML ಸಮೂಹ (Logistic Regression, KNN, SVM, CNN) ಬಳಸಿ ಆನ್‌ಲೈನ್ ಬ್ಯಾಂಕಿಂಗ್ ವಂಚನೆ ಪತ್ತೆ, ಸ್ವಯಂ-ನಿರ್ಬಂಧದೊಂದಿಗೆ.",
+      "thumbnail": "https://picsum.photos/seed/fraud-thumb/160/100"
+    },
+    {
+      "id": "local-pulse",
+      "title": "ಲೋಕಲ್‌ಪಲ್ಸ್",
+      "slug": "local-pulse",
+      "category": "Web",
+      "excerpt": "Next.js 15, TypeScript, Clerk auth ಮತ್ತು Firebase ನೊಂದಿಗೆ ನಿರ್ಮಿತ ಸ್ಥಳೀಯ-ಮೊದಲು ಈವೆಂಟ್ ಅನ್ವೇಷಣಾ ವೇದಿಕೆ. ಆಫ್‌ಲೈನ್ ಬೆಂಬಲ ಮತ್ತು PDF ಟಿಕೆಟಿಂಗ್ ಹೊಂದಿರುವ PWA.",
+      "thumbnail": "https://picsum.photos/seed/pulse-thumb/160/100"
+    },
+    {
+      "id": "learning-roadmap",
+      "title": "ಕಲಿಕಾ ಮಾರ್ಗಸೂಚಿ",
+      "slug": "learning-roadmap",
+      "category": "Learning",
+      "excerpt": "ನೆಟ್‌ವರ್ಕಿಂಗ್, ಕ್ಲೌಡ್ ಮತ್ತು ಸೈಬರ್‌ಸುರಕ್ಷತೆಯಲ್ಲಿ ಯೋಜಿತ ಪ್ರಮಾಣೀಕರಣಗಳು (CCNA, Security+). ಕಲಿಯುತ್ತಿರುವ ಉಪಕರಣಗಳು: Vim/Neovim, Obsidian. CS50 ಸೈಬರ್‌ಸುರಕ್ಷತೆ ಪ್ರಗತಿಯಲ್ಲಿದೆ.",
+      "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
+    },
+    {
+      "id": "foss-coin-how-it-was-built",
+      "title": "FOSS ಕಾಯಿನ್ — ಹೇಗೆ ನಿರ್ಮಿಸಲಾಯಿತು",
+      "slug": "foss-coin-how-it-was-built",
+      "category": "Blockchain",
+      "excerpt": "FOSS ಕಾಯಿನ್ ರಚನಾ ಪ್ರಕ್ರಿಯೆಯ ಹಂತ-ಹಂತದ ತಾಂತ್ರಿಕ ವಿವರಣೆ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-on-chain-verification",
+      "title": "FOSS ಕಾಯಿನ್ — ಆನ್-ಚೈನ್ ಪರಿಶೀಲನೆ",
+      "slug": "foss-coin-on-chain-verification",
+      "category": "Blockchain",
+      "excerpt": "RPC ಕರೆಗಳು ಮತ್ತು ಅಡ್ಡ-ಪರಿಶೀಲನೆಗಳೊಂದಿಗೆ ಸಂಪೂರ್ಣ ಪರಿಶೀಲನಾ ಮಾರ್ಗದರ್ಶಿ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-programs",
+      "title": "FOSS ಕಾಯಿನ್ — ಪ್ರೋಗ್ರಾಂಗಳು",
+      "slug": "foss-coin-programs",
+      "category": "Blockchain",
+      "excerpt": "FOSS ಕಾಯಿನ್ ಯೋಜನೆಯಲ್ಲಿ ಬಳಸಲಾದ ಎಲ್ಲಾ Solana ಪ್ರೋಗ್ರಾಂಗಳು",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-transactions",
+      "title": "FOSS ಕಾಯಿನ್ — ವಹಿವಾಟುಗಳು",
+      "slug": "foss-coin-transactions",
+      "category": "Blockchain",
+      "excerpt": "ಎಲ್ಲಾ ಸಹಿಗಳೊಂದಿಗೆ ಪೂರ್ಣ ಕಾಲಾನುಕ್ರಮಿಕ ವಹಿವಾಟು ದಾಖಲೆ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-evidence",
+      "title": "FOSS ಕಾಯಿನ್ — ಸಾಕ್ಷ್ಯ ಮತ್ತು ಪರಿಶೀಲನಾ ಲಿಂಕ್‌ಗಳು",
+      "slug": "foss-coin-evidence",
+      "category": "Blockchain",
+      "excerpt": "ಪರಿಶೀಲನಾ ಸೂಚನೆಗಳೊಂದಿಗೆ ಸಮಗ್ರ ಸಾಕ್ಷ್ಯ ಸಂಗ್ರಹ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-all-urls",
+      "title": "FOSS ಕಾಯಿನ್ — ಎಲ್ಲಾ URLಗಳು",
+      "slug": "foss-coin-all-urls",
+      "category": "Blockchain",
+      "excerpt": "ಎಲ್ಲಾ ಯೋಜನಾ URLಗಳು ಮತ್ತು ಸಾಕ್ಷ್ಯ ಲಿಂಕ್‌ಗಳ ಸಂಪೂರ್ಣ ಪಟ್ಟಿ",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-master",
+      "title": "FOSS ಕಾಯಿನ್ — ಮುಖ್ಯ ದಾಖಲಾತಿ",
+      "slug": "foss-coin-master",
+      "category": "Blockchain",
+      "excerpt": "ಸಂಪೂರ್ಣ ತಾಂತ್ರಿಕ ದಾಖಲಾತಿ ಮತ್ತು ವಿಶೇಷಣಗಳು",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    },
+    {
+      "id": "foss-coin-resources",
+      "title": "FOSS ಕಾಯಿನ್ — ಸಂಪನ್ಮೂಲಗಳು",
+      "slug": "foss-coin-resources",
+      "category": "Blockchain",
+      "excerpt": "ವರ್ಗವಾರು ಸಂಘಟಿತ ಸಾರ್ವಜನಿಕ ಯೋಜನಾ ಸಂಪನ್ಮೂಲಗಳು",
+      "thumbnail": "https://raw.githubusercontent.com/lingadevaru-hp/Foss-Token/refs/heads/main/foss-logo.png",
+      "hiddenFromSearch": true,
+      "isSubArticle": true,
+      "parentArticle": "foss-coin"
+    }
+  ]
+}

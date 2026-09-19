@@ -9,6 +9,7 @@ import CategoryPills from "../components/CategoryPills";
 import { loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColors, categoryGlyph } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
+import { useLocale } from "../contexts/LocaleContext";
 
 type SortKey = "featured" | "az" | "za" | "category";
 
@@ -34,6 +35,7 @@ function estimateReadTime(excerpt: string): string {
 }
 
 export default function ArticlesPage() {
+  const { t } = useLocale();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -173,9 +175,9 @@ export default function ArticlesPage() {
 
           <div className="articles-tools">
             <label className="articles-sort">
-              <span>Sort</span>
+              <span>{t('search.sort')}</span>
               <select
-                aria-label="Sort articles"
+                aria-label={t('search.sortArticles')}
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
               >
@@ -204,8 +206,8 @@ export default function ArticlesPage() {
             </div>
           ) : visible.length === 0 ? (
             <div className="empty-page" style={{ marginTop: 40 }}>
-              <p className="section-eyebrow">No results</p>
-              <h1>Nothing found</h1>
+              <p className="section-eyebrow">{t('search.noResultsShort')}</p>
+              <h1>{t('search.nothingFound')}</h1>
               <p>
                 Try a different category, or{" "}
                 <button

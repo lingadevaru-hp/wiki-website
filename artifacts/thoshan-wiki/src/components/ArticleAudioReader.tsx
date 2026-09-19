@@ -5,6 +5,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { useLocale } from "../contexts/LocaleContext";
 import {
   ChevronDown,
   Loader2,
@@ -63,6 +64,7 @@ export default function ArticleAudioReader({
   text,
   onPlayerOpenChange,
 }: ArticleAudioReaderProps) {
+  const { t } = useLocale();
   const segments = useMemo(() => splitIntoSegments(text), [text]);
   const wordCount = useMemo(
     () => text.trim().split(/\s+/).filter(Boolean).length,
@@ -425,7 +427,7 @@ export default function ArticleAudioReader({
                 type="button"
                 className="icon-button ml-auto"
                 onClick={close}
-                aria-label="Close audio reader"
+                aria-label={t("audio.close")}
               >
                 <X size={17} />
               </button>
@@ -438,7 +440,7 @@ export default function ArticleAudioReader({
                 step="0.001"
                 value={progress}
                 onChange={(event) => seek(Number(event.target.value))}
-                aria-label="Audio position"
+                aria-label={t("audio.position")}
                 style={
                   {
                     "--seek-progress": `${progress * 100}%`,
@@ -455,7 +457,7 @@ export default function ArticleAudioReader({
                 type="button"
                 className="audio-skip"
                 onClick={() => skip(-10)}
-                aria-label="Skip back 10 seconds"
+                aria-label={t("audio.skipBack")}
               >
                 <RotateCcw size={18} />
                 <span>10</span>
@@ -482,7 +484,7 @@ export default function ArticleAudioReader({
                 type="button"
                 className="audio-skip"
                 onClick={() => skip(10)}
-                aria-label="Skip forward 10 seconds"
+                aria-label={t("audio.skipForward")}
               >
                 <RotateCw size={18} />
                 <span>10</span>
@@ -491,7 +493,7 @@ export default function ArticleAudioReader({
                 type="button"
                 className="audio-stop"
                 onClick={stop}
-                aria-label="Stop reading"
+                aria-label={t("audio.stop")}
               >
                 <Square size={15} fill="currentColor" />
               </button>
@@ -499,7 +501,7 @@ export default function ArticleAudioReader({
                 type="button"
                 className="audio-collapse"
                 onClick={() => setOpen(false)}
-                aria-label="Minimize audio reader"
+                aria-label={t("audio.minimize")}
               >
                 <ChevronDown size={18} />
               </button>
@@ -512,11 +514,11 @@ export default function ArticleAudioReader({
           type="button"
           className="audio-reader-mini"
           onClick={() => setOpen(true)}
-          aria-label="Open minimized article reader"
+          aria-label={t("audio.openMinimized")}
         >
           <span className="audio-reader-mini-pulse" />
           <Mic size={15} />
-          <span>Reading aloud</span>
+          <span>{t("audio.reading")}</span>
           <ChevronDown size={15} />
         </button>
       )}

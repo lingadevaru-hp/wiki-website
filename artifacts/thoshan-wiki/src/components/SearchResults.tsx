@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useLocale } from "../contexts/LocaleContext";
 import type { ArticleIndexEntry } from "../types/article";
 
 interface SearchResultsProps {
@@ -7,26 +8,29 @@ interface SearchResultsProps {
 }
 
 export default function SearchResults({ results, query }: SearchResultsProps) {
+  const { t } = useLocale();
   if (!query) return null;
   const capped = results.slice(0, 50);
 
   return (
     <div data-testid="search-results">
-      <h2 className="text-xl font-serif mb-1">Search results</h2>
+      <h2 className="text-xl font-serif mb-1">{t("search.results")}</h2>
       <p className="text-sm text-muted-foreground mb-4">
-        {results.length} result{results.length !== 1 ? "s" : ""} for &ldquo;
-        {query}&rdquo;
+        {results.length === 1
+          ? t("search.result1")
+          : `${results.length} ${t("search.resultsN")}`}{" "}
+        for &ldquo;{query}&rdquo;
         {results.length > capped.length
           ? ` — showing first ${capped.length}`
           : ""}
       </p>
       {results.length === 0 ? (
         <div className="border border-border rounded-xl p-4 bg-card text-sm">
-          <p className="font-bold mb-1">No results found</p>
+          <p className="font-bold mb-1">{t("search.noResults")}</p>
           <p className="text-muted-foreground">
-            Nothing matches that name.{" "}
+            {t("search.nothingFound")}{" "}
             <Link href="/wiki/articles" className="text-accent hover:underline">
-              Browse all articles
+              {t("home.browse")}
             </Link>
             .
           </p>

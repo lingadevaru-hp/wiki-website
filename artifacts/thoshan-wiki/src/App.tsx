@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { SearchProvider, useSearch } from "./contexts/SearchContext";
+import { LocaleProvider } from "./contexts/LocaleContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalSearch from "./components/GlobalSearch";
 import { CommandMenu } from "./components/CommandMenu";
@@ -123,6 +124,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <ThemeProvider>
+            <LocaleProvider>
             <SearchProvider>
               <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
                 <Router />
@@ -132,6 +134,7 @@ function App() {
               <ThemePicker />
               <Toaster />
             </SearchProvider>
+            </LocaleProvider>
           </ThemeProvider>
         </TooltipProvider>
       </QueryClientProvider>

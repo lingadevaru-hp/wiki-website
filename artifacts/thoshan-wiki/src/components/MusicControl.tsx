@@ -1,4 +1,4 @@
-import { t } from '@/i18n/site'
+import { useLocale } from '@/contexts/LocaleContext'
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from '@tanstack/react-router'
 import { VolumeIcon, VolumeOffIcon } from '@/components/icons'
@@ -146,6 +146,7 @@ export function MusicMenuControl({
 }
 
 export function MusicControl({ path = '/' }: { path?: string }) {
+  const { t } = useLocale();
   const { state, on, shown, untouched } = useMusicState(path)
 
   // The progress line, the meter and the readout are driven straight from
@@ -280,7 +281,7 @@ export function MusicControl({ path = '/' }: { path?: string }) {
         max={1000}
         step={5}
         defaultValue={0}
-        aria-label={t('Position in the track')}
+        aria-label={t('audio.positionTrack')}
         onPointerDown={() => {
           scrubbing.current = true
         }}

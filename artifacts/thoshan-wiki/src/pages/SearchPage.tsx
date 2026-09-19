@@ -5,8 +5,10 @@ import SearchResults from "../components/SearchResults";
 import { loadArticlesIndex, searchArticles } from "../lib/articleLoader";
 import type { ArticleIndexEntry } from "../types/article";
 import SEO from "../components/SEO";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function SearchPage() {
+  const { t } = useLocale();
   const [location] = useLocation();
   const [results, setResults] = useState<ArticleIndexEntry[]>([]);
   const [suggestions, setSuggestions] = useState<ArticleIndexEntry[]>([]);
@@ -48,12 +50,12 @@ export default function SearchPage() {
         path="/wiki/search"
       />
       {loading ? (
-        <div className="text-sm text-muted-foreground">Searching...</div>
+        <div className="text-sm text-muted-foreground">{t('search.searching')}</div>
       ) : query ? (
         <SearchResults results={results} query={query} />
       ) : (
         <div data-testid="search-empty-state">
-          <h2 className="text-xl font-serif mb-1">Search the wiki</h2>
+          <h2 className="text-xl font-serif mb-1">{t('search.wiki')}</h2>
           <p className="text-sm text-muted-foreground mb-4">
             Type at least 2 characters in the search bar above, or start with
             one of these articles.

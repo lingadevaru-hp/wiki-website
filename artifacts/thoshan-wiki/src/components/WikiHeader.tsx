@@ -10,6 +10,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { useSearch } from "../contexts/SearchContext";
+import { useLocale } from "../contexts/LocaleContext";
 import { GithubIcon, PaletteIcon } from "./icons";
 import {
   DropdownMenu,
@@ -31,6 +32,7 @@ export default function WikiHeader({
   showBackButton = false,
 }: WikiHeaderProps) {
   const { openSearch } = useSearch();
+  const { t } = useLocale();
   const [location, setLocation] = useLocation();
   const openPicker = () =>
     window.dispatchEvent(new CustomEvent(OPEN_PICKER_EVENT));
@@ -45,7 +47,7 @@ export default function WikiHeader({
         <button
           className="header-icon-button"
           onClick={onMenuClick}
-          aria-label="Open navigation"
+          aria-label={t("nav.open")}
           data-testid="button-hamburger"
         >
           <Menu size={19} />
@@ -54,7 +56,7 @@ export default function WikiHeader({
           <button
             className="header-back-button"
             onClick={() => setLocation("/wiki/home")}
-            aria-label="Back to Wiki Home"
+            aria-label={t("nav.backWikiHome")}
             data-testid="button-back"
           >
             <ArrowLeft size={18} />
@@ -64,7 +66,7 @@ export default function WikiHeader({
           href="/"
           className="wiki-wordmark"
           data-testid="link-wordmark"
-          aria-label="Site menu"
+          aria-label={t("nav.menu")}
           onClick={(event) => {
             // Plain click opens the command menu (omarchy-site glyph pattern);
             // modified clicks still navigate home.
@@ -82,31 +84,31 @@ export default function WikiHeader({
           }}
         >
           <span className="wordmark-mark">T</span>
-          <span>Thoshan&apos;s Wiki</span>
+          <span>{t("nav.wordmark")}</span>
         </Link>
         <button
           className="header-search-button"
           onClick={openSearch}
-          aria-label="Search articles"
+          aria-label={t("nav.searchArticles")}
           data-testid="button-open-search"
         >
           <Search size={16} />
-          <span>Search articles</span>
+          <span>{t("nav.searchArticles")}</span>
           <kbd>⌘ K</kbd>
         </button>
-        <nav className="header-nav" aria-label="Primary navigation">
+        <nav className="header-nav" aria-label={t("nav.primary")}>
           <Link
             href="/wiki/home"
-            aria-label="Wiki Home"
-            title="Wiki Home"
+            aria-label={t("nav.wikiHome")}
+            title={t("nav.wikiHome")}
             className="header-icon-link"
           >
             <House size={18} />
           </Link>
           <Link
             href="/wiki/about"
-            aria-label="About Thoshan"
-            title="About Thoshan"
+            aria-label={t("nav.about")}
+            title={t("nav.about")}
             className="header-icon-link"
           >
             <UserRound size={18} />
@@ -115,8 +117,8 @@ export default function WikiHeader({
             href="https://github.com/lingadevaru-hp"
             target="_blank"
             rel="me noopener noreferrer"
-            aria-label="GitHub"
-            title="GitHub"
+            aria-label={t("nav.github")}
+            title={t("nav.github")}
             className="header-icon-link"
           >
             <GithubIcon className="size-[18px]" />
@@ -126,7 +128,7 @@ export default function WikiHeader({
           <DropdownMenu>
             <DropdownMenuTrigger
               className="header-icon-button"
-              aria-label="More links"
+              aria-label={t("nav.moreLinks")}
               data-testid="button-more-links"
             >
               <Ellipsis size={18} />
@@ -140,7 +142,7 @@ export default function WikiHeader({
                   className="flex items-center gap-3"
                 >
                   <Linkedin size={16} aria-hidden="true" />
-                  <span>LinkedIn</span>
+                  <span>{t("nav.linkedin")}</span>
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
@@ -151,7 +153,7 @@ export default function WikiHeader({
                   className="flex items-center gap-3"
                 >
                   <MessageCircle size={16} aria-hidden="true" />
-                  <span>Chat with me</span>
+                  <span>{t("nav.chat")}</span>
                 </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -161,8 +163,8 @@ export default function WikiHeader({
         <button
           className="header-icon-button theme-toggle"
           onClick={openPicker}
-          aria-label="Change theme (T)"
-          title="Change theme (T)"
+          aria-label={t("nav.theme")}
+          title={t("nav.theme")}
           data-testid="button-theme-toggle"
         >
           <PaletteIcon className="size-[17px]" />
