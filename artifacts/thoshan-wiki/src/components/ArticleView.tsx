@@ -22,6 +22,9 @@ import ArticleAudioReader from "./ArticleAudioReader";
 import VerificationMap from "./VerificationMap";
 import MediaViewer from "./MediaViewer";
 
+// Phantom token page for FOSS Coin (Solana). Buy flow opens in Phantom app/web.
+const FOSS_COIN_BUY_URL =
+  "https://phantom.com/tokens/solana/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin";
 // Cloudflare Stream embed URL goes here once uploaded.
 const FOSS_COIN_STREAM_URL = "";
 const FOSS_COIN_VIDEO_SRC = FOSS_COIN_STREAM_URL || "/assets/foss-coin-loop.mp4";
@@ -421,6 +424,25 @@ export default function ArticleView({ article }: { article: Article }) {
           </div>
         </header>
 
+        {article.metadata.slug === "foss-coin" && (
+          <div className="foss-buy-banner" data-testid="foss-buy-banner">
+            <div>
+              <strong>{t("article.buyFossTitle")}</strong>
+              <span>{t("article.buyFossSubtitle")}</span>
+            </div>
+            <a
+              href={FOSS_COIN_BUY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="foss-buy-button"
+              data-testid="foss-buy-button"
+              aria-label={t("article.buyFossTitle")}
+            >
+              {t("article.buyFossNow")}
+            </a>
+          </div>
+        )}
+
         {resumeProgress > 0 && (
           <div className="resume-reading" role="status">
             <div>
@@ -765,6 +787,19 @@ export default function ArticleView({ article }: { article: Article }) {
         </div>
       </aside>
       </div>
+
+      {article.metadata.slug === "foss-coin" && (
+        <a
+          href={FOSS_COIN_BUY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="foss-buy-sticky print:hidden"
+          data-testid="foss-buy-sticky"
+          aria-label={t("article.buyFossTitle")}
+        >
+          {t("article.buyFossNow")}
+        </a>
+      )}
 
       {showScrollTop && !audioPlayerOpen && (
         <button

@@ -159,5 +159,8 @@
   "notfound.suggest": "You may want to:",
   "lang.language": "Language",
   "search.or": "or",
-  "media.video": "Video"
+  "media.video": "Video",
+  "article.buyFossTitle": "Buy FOSS Coin",
+  "article.buyFossSubtitle": "Live on Solana — trade via Phantom wallet",
+  "article.buyFossNow": "Buy Now"
 }

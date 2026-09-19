@@ -159,5 +159,8 @@
   "notfound.suggest": "நீங்கள் செய்ய விரும்பலாம்:",
   "lang.language": "மொழி",
   "search.or": "or",
-  "media.video": "வீடியோ"
+  "media.video": "வீடியோ",
+  "article.buyFossTitle": "Buy FOSS Coin",
+  "article.buyFossSubtitle": "Live on Solana — trade via Phantom wallet",
+  "article.buyFossNow": "Buy Now"
 }
