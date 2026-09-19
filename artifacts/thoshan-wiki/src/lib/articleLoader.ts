@@ -7,6 +7,7 @@ import { findParentArticle } from "./articleRelations";
 import { articleIndexSchema, articleSchema } from "./articleSchema";
 import { extractSearchHaystack, scoreSearchMatch } from "./articleText";
 import { titleToSlug } from "./wikiMarkup";
+import { detectLocale, isSupportedLocale } from "../i18n/supportedLocales";
 
 const articleCache = new Map<string, Article>();
 let indexCache: ArticleIndex | null = null;
@@ -14,20 +15,14 @@ let indexLocale = "";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-/** Active locale for content: hostname subdomain, ?lang= override, or saved choice. */
+/** Active locale for content: hostname subdomain, ?lang= override, or saved choice.
+ *  Generic over SUPPORTED_LOCALES — adding a language needs no change here. */
 export function contentLocale(): string {
-  try {
-    const param = new URLSearchParams(window.location.search).get("lang");
-    if (param === "kn" || param === "hi" || param === "en") return param;
-  } catch {
-    /* ignore */
-  }
-  const host = window.location.hostname;
-  if (host === "kn.lingadevaru.in" || host.startsWith("kn.")) return "kn";
-  if (host === "hi.lingadevaru.in" || host.startsWith("hi.")) return "hi";
+  const detected = detectLocale(window.location.hostname, window.location.search);
+  if (detected !== "en") return detected;
   try {
     const saved = localStorage.getItem("thoshan-wiki-locale");
-    if (saved === "kn" || saved === "hi") return saved;
+    if (isSupportedLocale(saved)) return saved as string;
   } catch {
     /* ignore */
   }

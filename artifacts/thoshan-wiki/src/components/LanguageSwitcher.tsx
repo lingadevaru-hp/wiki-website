@@ -54,6 +54,9 @@ export function LanguageSwitcher({
             </span>
             <span dir="auto" lang={entry.code}>
               {entry.native}
+              {entry.code === "en" ? null : (
+                <span className="ml-1 opacity-60">({entry.name})</span>
+              )}
             </span>
             {entry.code === locale ? (
               <Check size={15} className="ml-auto" aria-hidden="true" />
