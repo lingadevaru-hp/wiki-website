@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "id": "foss-coin-how-it-was-built",
+    "title": "FOSS Coin — इसे कैसे बनाया गया",
+    "slug": "foss-coin-how-it-was-built",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "How It Was Built",
+    "fields": [
+      {
+        "label": "Project",
+        "value": "FOSS Coin ($FOSS)"
+      },
+      {
+        "label": "Blockchain",
+        "value": "Solana Mainnet"
+      },
+      {
+        "label": "Creation Date",
+        "value": "July 23, 2025"
+      },
+      {
+        "label": "Total Steps",
+        "value": "7 atomic instructions"
+      }
+    ]
+  },
+  "lead": "मैंने इस परियोजना को नो-कोड Solana लॉन्चपैड प्रवाह के माध्यम से बनाया, लेकिन मैंने इसे निर्देश और लेनदेन स्तर पर दस्तावेज़ किया ताकि तकनीकी चरण अभी भी स्पष्ट रहें।",
+  "sections": [
+    {
+      "id": "step-1-token-creation",
+      "title": "चरण 1 — टोकन निर्माण",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "दिनांक: July 23, 2025\nSlot: 355,223,383\nसमय: 07:43:36 UTC\n\nमैंने एक ही परमाणु लेनदेन में टोकन बनाया। उस एकल लेनदेन के अंदर यह हुआ:"
+        },
+        {
+          "type": "text",
+          "content": "1. System Program ने 82 बाइट्स के साथ मिंट खाता आवंटित किया।\n2. InitializeMint2 ने टोकन को 6 दशमलव पर सेट किया और प्रारंभिक मिंट अथॉरिटी सौंपी।\n3. Metaplex Create Metadata Accounts v3 ने नाम, प्रतीक और IPFS मेटाडेटा URI को ऑन-चेन पंजीकृत किया।\n4. मेरे निर्माता वॉलेट के लिए Associated Token Account बनाया गया।\n5. MintTo ने निर्माता ATA में 1,000,000,000 टोकन मिंट किए।\n6. SetAuthority ने मिंट अथॉरिटी को null पर सेट किया, जो स्थायी और अपरिवर्तनीय है।\n7. लॉन्चपैड Buy निर्देश ने तुरंत 35,765.474485 FOSS खरीदा।"
+        },
+        {
+          "type": "text",
+          "content": "शुल्क भुगतानकर्ता: HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b\nशुल्क: 90,000 lamports\n\nयहाँ महत्वपूर्ण तकनीकी बात यह है कि टोकन निर्माण, मेटाडेटा पंजीकरण, मिंटिंग, अथॉरिटी निरस्तीकरण और प्रारंभिक लॉन्चपैड खरीद सभी एक ही ब्लॉक में हुए, बिना किसी उजागर मध्यवर्ती स्थिति के।"
+        }
+      ]
+    },
+    {
+      "id": "step-2-orca-pool",
+      "title": "चरण 2 — Orca Whirlpool पूल निर्माण",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "दिनांक: October 21, 2025\nSlot: 374,850,194\nसमय: 14:13:04 UTC\n\nमैंने बाद में टोकन के लिए Orca Whirlpool पूल बनाया।"
+        },
+        {
+          "type": "text",
+          "content": "- InitializePoolWithAdaptiveFee\n- पूल: 3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2\n- जोड़ी: FOSS / Wrapped SOL\n- टिक ऐरे प्रारंभ किए गए\n\nइस चरण ने परियोजना को केवल ऑन-चेन टोकन से Solana DEX पर वास्तविक लिक्विडिटी पूल वाले टोकन में बदल दिया।"
+        }
+      ]
+    },
+    {
+      "id": "step-3-liquidity",
+      "title": "चरण 3 — लिक्विडिटी प्रावधान",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "दिनांक: October 21, 2025\nसमय: 14:13:23 UTC\nपूल निर्माण से देरी: 19 सेकंड\n\nपूल बनने के तुरंत बाद मैंने उसमें लिक्विडिटी जोड़ी।"
+        },
+        {
+          "type": "text",
+          "content": "- पोज़िशन NFT मिंट किया गया: 8RVfhVxFGUo5uJKcMZQUu6MD7FhLH8v8WFRaxsT3doxY, Token-2022 का उपयोग करके\n- IncreaseLiquidityV2: 2.900653 FOSS + 0.0004 SOL जोड़े गए\n\nइसने प्रारंभिक Orca लिक्विडिटी पोज़िशन बनाई और पूल को साधारण LP टोकन खाते के बजाय पोज़िशन NFT से जोड़ा।"
+        }
+      ]
+    },
+    {
+      "id": "what-i-learned",
+      "title": "मैंने क्या सीखा",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "इस परियोजना ने मुझे सिखाया कि Solana टोकन बुनियादी ढांचा सतही स्तर से परे कैसे काम करता है।"
+        },
+        {
+          "type": "text",
+          "content": "- मैंने SPL Token Program निर्देश सेट को व्यावहारिक रूप से सीखा: InitializeMint2, MintTo, SetAuthority, और TransferChecked।\n- मैंने सीखा कि Metaplex मेटाडेटा ऑन-चेन टोकन खातों को ऑफ-चेन IPFS डेटा से जोड़ता है, जिससे एक्सप्लोरर और वॉलेट नाम, प्रतीक, विवरण और छवियां दिखाते हैं।\n- मैंने सीखा कि मिंट अथॉरिटी निरस्तीकरण Solana सहमति द्वारा लागू किया जाता है। यह अपरिवर्तनीय है और निर्माता का केवल वादा नहीं है।\n- मैंने सीखा कि Orca Whirlpool साधारण स्थिर-उत्पाद AMM डिज़ाइन के बजाय केंद्रित लिक्विडिटी, टिक ऐरे और पोज़िशन NFT का उपयोग करता है।\n- मैंने सीखा कि परमाणु लेनदेन क्यों मायने रखते हैं। सभी सात निर्माण चरण एक ही ब्लॉक में हुए, इसलिए टोकन कभी आंशिक रूप से कॉन्फ़िगर की गई स्थिति में नहीं रहा।\n- मैंने नो-कोड लॉन्चपैड का उपयोग करने और वास्तव में यह समझने के बीच का अंतर सीखा कि BPF प्रोग्राम ने पर्दे के पीछे क्या निष्पादित किया।"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Technical"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

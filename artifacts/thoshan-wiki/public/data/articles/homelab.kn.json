@@ -1,0 +1,249 @@
+{
+  "metadata": {
+    "id": "homelab",
+    "title": "ಲಿಬ್ರೆ ಕ್ಲೌಡ್ — ಹೋಮ್‌ಲ್ಯಾಬ್",
+    "slug": "homelab",
+    "category": "Infrastructure",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 26,
+    "views": 3100
+  },
+  "infobox": {
+    "title": "ಲಿಬ್ರೆ ಕ್ಲೌಡ್ — ಹೋಮ್‌ಲ್ಯಾಬ್",
+    "image": "https://picsum.photos/seed/homelab-infobox/280/200",
+    "imageCaption": "Zero-trust ವಾಸ್ತುಶಿಲ್ಪ ರೇಖಾಚಿತ್ರ",
+    "fields": [
+      {
+        "label": "ವೇದಿಕೆ",
+        "value": "Oracle Cloud Always Free"
+      },
+      {
+        "label": "VM ಆಕಾರ",
+        "value": "VM.Standard.E2.1.Micro (1 OCPU, 1 GB RAM)"
+      },
+      {
+        "label": "DNS / CDN",
+        "value": "Cloudflare"
+      },
+      {
+        "label": "ರಿವರ್ಸ್ ಪ್ರಾಕ್ಸಿ",
+        "value": "Caddy / nginx"
+      },
+      {
+        "label": "ಡೊಮೇನ್",
+        "value": "lingadevaru.in"
+      },
+      {
+        "label": "ಸ್ಥಿತಿ",
+        "value": "Partially running (ARM blocked)"
+      },
+      {
+        "label": "ಗುರಿ ಸೇವೆಗಳು",
+        "value": "14 (3 public, 6 WireGuard-private, 5 ARM-only)"
+      }
+    ]
+  },
+  "lead": "**ಲಿಬ್ರೆ ಕ್ಲೌಡ್** is my zero-trust self-hosted ಮೂಲಸೌಕರ್ಯ ಯೋಜನೆ running on Oracle Cloud's Always Free tier. The design routes all external traffic through Cloudflare for DDoS protection and IP masking, then into an Oracle Cloud VM running a Caddy reverse proxy that serves both public and WireGuard-private services.\n\nನಾನು ಇದನ್ನು 'Libre Cloud' ಎಂದು ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ ಹೆಸರಿಸಿದೆ: everything in the stack is free and open source, the platform is free-tier cloud, ಮತ್ತು the domain carries the FOSS identity. It connects directly to my [[privacy-stack|Privacy Stack]] — services like Vaultwarden (passwords), Joplin Server (notes), ಮತ್ತು SearXNG (private search) are all designed to run here.",
+  "sections": [
+    {
+      "id": "current-reality",
+      "title": "ಪ್ರಸ್ತುತ ವಾಸ್ತವ — ನನ್ನ ಬಳಿ ನಿಜವಾಗಿ ಏನಿದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "ಸ್ಥಿತಿ: ನಿರ್ಬಂಧಿತ / ತೀವ್ರವಾಗಿ ಸೀಮಿತ",
+          "content": "My target VM was VM.Standard.A1.Flex — Oracle's 4 OCPU, 24 GB RAM ARM Ampere instance, free forever. I hit persistent 'out of capacity' errors in the Hyderabad region after repeated attempts over months. The ARM plan is abandoned for now. ನನ್ನ ಬಳಿ ನಿಜವಾಗಿ ಇರುವುದು: 1x VM.Standard.E2.1.Micro — 1 OCPU, 1 GB RAM."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ಸೇವೆ",
+            "RAM ಬಳಕೆ",
+            "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ"
+          ],
+          "rows": [
+            {
+              "ಸೇವೆ": "WireGuard",
+              "RAM ಬಳಕೆ": "~5 MB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+            },
+            {
+              "ಸೇವೆ": "Pi-hole",
+              "RAM ಬಳಕೆ": "~50–100 MB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+            },
+            {
+              "ಸೇವೆ": "Vaultwarden",
+              "RAM ಬಳಕೆ": "~50 MB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+            },
+            {
+              "ಸೇವೆ": "Caddy / nginx",
+              "RAM ಬಳಕೆ": "~30 MB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+            },
+            {
+              "ಸೇವೆ": "Portfolio (static files)",
+              "RAM ಬಳಕೆ": "Minimal",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "✅ Easy"
+            },
+            {
+              "ಸೇವೆ": "SearXNG",
+              "RAM ಬಳಕೆ": "~200–400 MB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "⚠️ Tight"
+            },
+            {
+              "ಸೇವೆ": "Coolify (Docker PaaS)",
+              "RAM ಬಳಕೆ": "~500 MB–1 GB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "❌ Too heavy"
+            },
+            {
+              "ಸೇವೆ": "Immich / Jellyfin / Ollama",
+              "RAM ಬಳಕೆ": "2–24 GB",
+              "ನನ್ನ 1 GB VM ನಲ್ಲಿ ಸಾಧ್ಯತೆ": "❌ Impossible"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "ವಾಸ್ತುಶಿಲ್ಪ — ನಾನು ಅದನ್ನು ಹೇಗೆ ವಿನ್ಯಾಸಗೊಳಿಸಿದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I designed the architecture so nothing is directly exposed to the internet without passing through Cloudflare and the reverse proxy layer. Services are split into three visibility tiers: public (accessible to anyone via Cloudflare), private (accessible only through a WireGuard VPN tunnel), ಮತ್ತು ARM-only (requiring the unprovisioned A1.Flex VM)."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ನನ್ನ ವಾಸ್ತುಶಿಲ್ಪ ಹರಿವು",
+          "content": "Internet → Cloudflare (DNS + DDoS + IP masking) → Oracle Cloud VM (1 GB Micro) → Reverse proxy (Caddy/nginx) → [Public: Portfolio, Pi-hole DoH] / [Private (WireGuard-gated): Vaultwarden, Joplin Server, Gitea]"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ಶ್ರೇಣಿ",
+            "ಸೇವೆ",
+            "ಉದ್ದೇಶ"
+          ],
+          "rows": [
+            {
+              "ಶ್ರೇಣಿ": "Public",
+              "ಸೇವೆ": "Portfolio",
+              "ಉದ್ದೇಶ": "lingadevaru.in personal site"
+            },
+            {
+              "ಶ್ರೇಣಿ": "Public",
+              "ಸೇವೆ": "SearXNG",
+              "ಉದ್ದೇಶ": "Privacy meta-search"
+            },
+            {
+              "ಶ್ರೇಣಿ": "Public",
+              "ಸೇವೆ": "GoatCounter",
+              "ಉದ್ದೇಶ": "Cookie-free analytics"
+            },
+            {
+              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಸೇವೆ": "Vaultwarden",
+              "ಉದ್ದೇಶ": "Self-hosted password manager"
+            },
+            {
+              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಸೇವೆ": "Pi-hole",
+              "ಉದ್ದೇಶ": "DNS ad blocker"
+            },
+            {
+              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಸೇವೆ": "Uptime Kuma",
+              "ಉದ್ದೇಶ": "Uptime monitoring"
+            },
+            {
+              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಸೇವೆ": "FreshRSS",
+              "ಉದ್ದೇಶ": "RSS reader"
+            },
+            {
+              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಸೇವೆ": "Joplin Server",
+              "ಉದ್ದೇಶ": "Self-hosted notes"
+            },
+            {
+              "ಶ್ರೇಣಿ": "WireGuard-private",
+              "ಸೇವೆ": "Gitea",
+              "ಉದ್ದೇಶ": "Self-hosted Git"
+            },
+            {
+              "ಶ್ರೇಣಿ": "ARM-only (blocked)",
+              "ಸೇವೆ": "Immich, Mailcow, Jellyfin, Ollama",
+              "ಉದ್ದೇಶ": "Requires 24 GB RAM — indefinitely on hold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why-oracle",
+      "title": "ನಾನು Oracle Cloud ಅನ್ನು ಏಕೆ ಆರಿಸಿದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Oracle Cloud's Always Free tier is uniquely generous compared to AWS, GCP, ಮತ್ತು Azure free tiers. The headline offering is the **ARM Ampere A1.Flex** instance: 4 OCPU and 24 GB RAM — free forever. For comparison, AWS Free Tier gives a t2.micro (1 vCPU, 1 GB) for only 12 months. Oracle's AMD Micro is comparable but always-free in perpetuity, ಮತ್ತು the ARM Ampere would be dramatically more capable.\n\nThe catch is capacity availability: the Hyderabad region ARM Ampere has been perennially 'out of capacity'. This is a widely-reported issue in the Oracle Cloud community — not unique to me. Other regions would require a separate account setup. I've been stuck on this constraint for months."
+        },
+        {
+          "type": "quote",
+          "content": "ಯೋಜನೆ ಸದೃಢವಾಗಿದೆ. ಹಾರ್ಡ್‌ವೇರ್ ಮಾತ್ರ ಎಂದಿಗೂ ಸಿಗಲಿಲ್ಲ.",
+          "author": "Project notes, April 2026"
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "Oracle Cloud Always Free Tier documentation",
+      "url": "https://www.oracle.com/cloud/free/"
+    },
+    {
+      "id": 2,
+      "title": "Cloudflare DNS and Zero Trust documentation",
+      "url": "https://developers.cloudflare.com"
+    }
+  ],
+  "relatedArticles": [
+    "privacy-stack",
+    "linux-setup",
+    "about"
+  ],
+  "categories": [
+    "Infrastructure",
+    "Self-Hosting",
+    "Cloud",
+    "Networking"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten in first person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Added ARM capacity issue detail, updated service table",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

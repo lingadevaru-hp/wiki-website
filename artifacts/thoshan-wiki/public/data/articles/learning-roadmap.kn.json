@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "id": "learning-roadmap",
+    "title": "ಕಲಿಕಾ ಮಾರ್ಗಸೂಚಿ",
+    "slug": "learning-roadmap",
+    "category": "Learning",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 12,
+    "views": 1960
+  },
+  "infobox": {
+    "title": "ಕಲಿಕಾ ಮಾರ್ಗಸೂಚಿ",
+    "image": "https://picsum.photos/seed/learn-infobox/280/200",
+    "imageCaption": "ಅಧ್ಯಯನ ಪ್ರದೇಶ ಮತ್ತು ಟರ್ಮಿನಲ್ ಕಾರ್ಯಕ್ಷೇತ್ರ",
+    "fields": [
+      {
+        "label": "ಆದ್ಯತಾ ಪ್ರಮಾಣಪತ್ರಗಳು",
+        "value": "CompTIA Network+, Security+, CCNA"
+      },
+      {
+        "label": "ಪ್ರಗತಿಯಲ್ಲಿದೆ",
+        "value": "CS50 Cyberಭದ್ರತೆ (Harvard)"
+      },
+      {
+        "label": "ಸಾಧನs learning",
+        "value": "Vim/Neovim, Obsidian (advanced)"
+      },
+      {
+        "label": "ಓದುವಿಕೆ",
+        "value": "I Came Upon a Lighthouse — partially read"
+      },
+      {
+        "label": "ಸ್ಥಿತಿ",
+        "value": "ಇನ್ನೂ ಯಾವುದೂ ಪಡೆದಿಲ್ಲ — ಎಲ್ಲವೂ ಯೋಜನೆಯಲ್ಲಿ"
+      }
+    ]
+  },
+  "lead": "This page documents ನನ್ನ planned learning — certifications I haven't yet obtained, tools I haven't yet mastered, ಮತ್ತು courses I'm currently in progress on. **Nothing here is a current skill or finished item.** This is ನನ್ನ honest future agenda.\n\nನನ್ನ overarching career direction is **Computer Networking, Cloud Computing, ಮತ್ತು Cyberಭದ್ರತೆ**, ಮತ್ತು ನನ್ನ certification plan reflects this directly. I've sequenced it: ನೆಟ್‌ವರ್ಕ್ing fundamentals first (CompTIA Network+, CCNA), then ಭದ್ರತೆ (Security+, CEH), then cloud (AWS, OCI, Azure).",
+  "sections": [
+    {
+      "id": "in-progress",
+      "title": "ನಾನು ಪ್ರಸ್ತುತ ಏನು ಮಾಡುತ್ತಿದ್ದೇನೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**CS50 Introduction to Cyberಭದ್ರತೆ (Harvard)** — I started this on edX / cs50.harvard.edu. It covers cyberಭದ್ರತೆ fundamentals: threats, vulnerabilities, defensive techniques, cryptography basics, web ಭದ್ರತೆ. ಸ್ಥಿತಿ: started, not yet completed. I still have remaining modules ಮತ್ತು the final ಯೋಜನೆ to do.\n\n**Vim / Neovim** — Not fully started yet. Learning through vimtutor (built into Vim). Neovim ಜೊತೆ LazyVim config is already ನನ್ನ editor in the [[linux-setup|Omarchy ಸೆಟಪ್]], but deeper proficiency at the keybinding level is still being developed."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ಪ್ರಸ್ತುತ ಓದುತ್ತಿರುವುದು",
+          "content": "Partially reading 'I Came Upon a Lighthouse' by Shantanu Naidu — a personal memoir about an intergenerational friendship ಮತ್ತು mentorship. Not a business book. About human connection ಮತ್ತು life lessons. I need to finish the remaining chapters."
+        }
+      ]
+    },
+    {
+      "id": "certifications",
+      "title": "ನನ್ನ ಪ್ರಮಾಣೀಕರಣ ಯೋಜನೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "ಇನ್ನೂ ಯಾವುದೇ ಉದ್ಯಮ ಪ್ರಮಾಣೀಕರಣ ಪಡೆದಿಲ್ಲ",
+          "content": "As of June 2026, I have no formal industry certifications. The Linux Fundamentals course certificate is a basic course cert. CS50 Cyberಭದ್ರತೆ is started but not completed. Everything below is planned ಜೊತೆ no set timeline."
+        },
+        {
+          "type": "text",
+          "content": "**Networking (ನನ್ನ highest priority):**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ಪ್ರಮಾಣೀಕರಣ",
+            "ಮಟ್ಟ",
+            "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು"
+          ],
+          "rows": [
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "CompTIA Network+",
+              "ಮಟ್ಟ": "Entry — vendor-neutral",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "Good foundation before Security+. Networking fundamentals."
+            },
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "CCNA (Cisco)",
+              "ಮಟ್ಟ": "Associate",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "Gold standard ಗಾಗಿ ನೆಟ್‌ವರ್ಕ್ing roles in India. High priority ಗಾಗಿ me."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**Cyberಭದ್ರತೆ:**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ಪ್ರಮಾಣೀಕರಣ",
+            "ಮಟ್ಟ",
+            "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು"
+          ],
+          "rows": [
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "CompTIA Security+",
+              "ಮಟ್ಟ": "Entry — industry standard",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "Most recognised first cert in cyberಭದ್ರತೆ. I'll do this after Network+."
+            },
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "CEH (Certified Ethical Hacker)",
+              "ಮಟ್ಟ": "Intermediate",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "EC-Council — offensive ಭದ್ರತೆ focus. After Security+."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "**Cloud Computing:**"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ಪ್ರಮಾಣೀಕರಣ",
+            "ಮಟ್ಟ",
+            "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು"
+          ],
+          "rows": [
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "AWS Cloud Practitioner",
+              "ಮಟ್ಟ": "Foundational",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "Easiest entry into cloud certs — validates cloud fundamentals."
+            },
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "OCI Foundations Associate",
+              "ಮಟ್ಟ": "Foundational",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "Oracle Cloud — directly relevant given ನನ್ನ existing [[homelab|OCI homelab]] ಸೆಟಪ್."
+            },
+            {
+              "ಪ್ರಮಾಣೀಕರಣ": "AZ-900 (Azure Fundamentals)",
+              "ಮಟ್ಟ": "Foundational",
+              "ನನಗೆ ಇದು ಏಕೆ ಬೇಕು": "Microsoft Azure entry cert — rounds out multi-cloud exposure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "ನಾನು ಕಲಿಯುತ್ತಿರುವ ಸಾಧನಗಳು",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Obsidian (advanced features)** — I currently use Obsidian as a personal wiki host but only scratch the surface. ವೈಶಿಷ್ಟ್ಯs I want to actually learn: Dataview plugin (query notes like a database), Canvas (visual mind maps), graph filters, templates, tag hierarchies, backlink navigation, ಮತ್ತು core plugin configuration.\n\n**Hermes Agent (Nous Research)** — A self-improving autonomous AI agent (Feb 2026, 123,000+ ಗಿಟ್‌ಹಬ್ stars, MIT license). Runs across 15+ platforms from a single install. Natural language cron jobs, model-agnostic, closed learning loop, GEPA self-improvement. ಸ್ಥಿತಿ: on hold indefinitely. ನನ್ನ current [[homelab|Oracle Cloud VM]] (1 OCPU, 1 GB RAM) is too limited — Hermes needs 24 GB+ RAM. Blocked until the ARM Ampere situation resolves."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "approach",
+      "title": "ನನ್ನ ಕಲಿಕಾ ವಿಧಾನ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I prioritise **CCNA ಮತ್ತು Security+** as the two highest-value items ಗಾಗಿ ನನ್ನ target career in ನೆಟ್‌ವರ್ಕ್ing ಮತ್ತು cloud. Both are recognised hiring signals in India — CCNA ಗಾಗಿ ನೆಟ್‌ವರ್ಕ್ engineering roles ಮತ್ತು Security+ ಗಾಗಿ ಭದ್ರತೆ-adjacent roles.\n\nನನ್ನ approach throughout is to build real things alongside studying theory. Each certification target connects to something I've already built: ನನ್ನ [[privacy-stack|ಗೌಪ್ಯತಾ ಸ್ಟಾಕ್]] demonstrates the practical ನೆಟ್‌ವರ್ಕ್ing knowledge that Network+ covers in theory; ನನ್ನ [[homelab|homelab architecture]] demonstrates the cloud concepts that AWS/OCI certs formalise.\n\nNo timeline is set ಗಾಗಿ any certification. The honest status is: none started, all planned."
+        },
+        {
+          "type": "quote",
+          "content": "None of these are current skills or finished. These are honest future agenda items.",
+          "author": "Learning Plans document, April 2026"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "CS50 Introduction to Cyberಭದ್ರತೆ",
+      "url": "https://cs50.harvard.edu/cybersecurity"
+    },
+    {
+      "id": 2,
+      "title": "CompTIA ಪ್ರಮಾಣೀಕರಣ Roadmap",
+      "url": "https://www.comptia.org/certifications"
+    },
+    {
+      "id": 3,
+      "title": "Hermes Agent — Nous Research",
+      "url": "https://hermes-agent.nousresearch.com"
+    }
+  ],
+  "relatedArticles": [
+    "about",
+    "privacy-stack",
+    "homelab",
+    "linux-setup"
+  ],
+  "categories": [
+    "Learning",
+    "Certifications",
+    "Networking",
+    "Cybersecurity"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ಪ್ರಥಮ ಪುರುಷದಲ್ಲಿ ಮರುಬರಹ",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "CS50 ಸ್ಥಿತಿ ಸೇರಿಸಲಾಗಿದೆ, Hermes constraint note, ಪ್ರಮಾಣೀಕರಣ ಅನುಕ್ರಮ ಸ್ಪಷ್ಟಪಡಿಸಲಾಗಿದೆ",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "ಆರಂಭಿಕ ಪುಟ",
+      "changeType": "new"
+    }
+  ]
+}

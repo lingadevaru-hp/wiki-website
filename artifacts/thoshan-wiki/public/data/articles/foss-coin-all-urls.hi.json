@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "id": "foss-coin-all-urls",
+    "title": "FOSS कॉइन - सभी यूआरएल और साक्ष्य लिंक",
+    "slug": "foss-coin-all-urls",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "FOSS कॉइन प्रोजेक्ट से सभी प्रोजेक्ट यूआरएल और साक्ष्य लिंक की पूरी सूची।",
+  "sections": [
+    {
+      "id": "token-mint",
+      "title": "टोकन और टकसाल",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://explorer.solana.com/address/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS टोकन मिंट खाते के लिए सोलाना एक्सप्लोरर पेज।\nदशमलव (6), आपूर्ति (1बी कच्चा), टकसाल प्राधिकरण (शून्य), फ़्रीज़ प्राधिकरण (शून्य) दिखाता है।"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://solscan.io/token/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)सोलस्कैन टोकन पेज - एक अलग एक्सप्लोरर प्रारूप में एक ही डेटा।\nधारकों की संख्या, स्थानांतरण इतिहास और शीर्ष धारकों को दिखाता है।"
+        }
+      ]
+    },
+    {
+      "id": "creation-transaction",
+      "title": "निर्माण लेनदेन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)मूल टोकन निर्माण लेनदेन (23 जुलाई, 2025)।\nटोकन बनाया गया, 1बी ढाला गया, टकसाल प्राधिकरण रद्द कर दिया गया, और प्रारंभिक खरीद निष्पादित की गई - सभी एक टीएक्स में।"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN](https://solscan.io/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)पार्स किए गए आंतरिक निर्देशों के साथ सोलस्कैन पर समान निर्माण लेनदेन।"
+        }
+      ]
+    },
+    {
+      "id": "creator-wallet",
+      "title": "निर्माता बटुआ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://explorer.solana.com/address/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)निर्माता का बटुआ जिसने सभी FOSS लेनदेन के लिए शुल्क का भुगतान किया।\nनिर्माण टीएक्स, पूल निर्माण, तरलता प्रावधान और सभी हस्तांतरण पर हस्ताक्षर किए।"
+        },
+        {
+          "type": "text",
+          "content": "[https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b](https://solscan.io/account/HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b)संपूर्ण लेन-देन इतिहास के साथ सोलस्कैन पर वही क्रिएटर वॉलेट।"
+        }
+      ]
+    },
+    {
+      "id": "orca-dex-pool",
+      "title": "ओर्का डेक्स पूल",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.orca.so/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS/SOL ट्रेडिंग जोड़ी के लिए ओर्का व्हर्लपूल पेज।\nसंकेंद्रित तरलता एएमएम पूल जहां कोई भी FOSS ↔ SOL स्वैप कर सकता है।"
+        },
+        {
+          "type": "text",
+          "content": "[https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://www.geckoterminal.com/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)FOSS/SOL ओर्का पूल के लिए गेकोटर्मिनल चार्ट और विश्लेषण।\nमूल्य इतिहास, तरलता गहराई और मात्रा डेटा दिखाता है।"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://explorer.solana.com/address/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)ओर्का व्हर्लपूल प्रोग्राम खाते का सोलाना एक्सप्लोरर दृश्य।\nटोकन वॉल्ट और टिक एरे सहित पूल का ऑन-चेन डेटा दिखाता है।"
+        }
+      ]
+    },
+    {
+      "id": "pool-creation",
+      "title": "पूल निर्माण लेनदेन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)लेन-देन जिसने ओर्का व्हर्लपूल बनाया (21 अक्टूबर, 2025)।\nअनुकूली शुल्क के साथ आरंभिक पूल, SOL + FOSS वॉल्ट बनाए गए, और टिक एरेज़ सेट किए गए।"
+        }
+      ]
+    },
+    {
+      "id": "liquidity-provision",
+      "title": "तरलता प्रावधान लेनदेन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)लेन-देन जिसने ओर्का पूल में प्रारंभिक तरलता जोड़ी (पूल निर्माण के 19 सेकंड बाद)।\nएक स्थिति एनएफटी बनाई और व्हर्लपूल में FOSS + SOL जमा किया।"
+        }
+      ]
+    },
+    {
+      "id": "geckoterminal-apis",
+      "title": "गेकोटर्मिनल एपीआई",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin](https://api.geckoterminal.com/api/v2/networks/solana/tokens/64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin)FOSS टोकन मूल्य और बाज़ार डेटा के लिए गेकोटर्मिनल REST API एंडपॉइंट।\nमौजूदा कीमत, मार्केट कैप और ट्रेडिंग जोड़े के साथ JSON लौटाता है।"
+        },
+        {
+          "type": "text",
+          "content": "[https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2](https://api.geckoterminal.com/api/v2/networks/solana/pools/3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2)ओर्का पूल डेटा के लिए गेकोटर्मिनल रेस्ट एपीआई एंडपॉइंट।\nरिज़र्व, वॉल्यूम और पूल आँकड़ों के साथ JSON लौटाता है।"
+        }
+      ]
+    },
+    {
+      "id": "ipfs-metadata",
+      "title": "मेटाडेटा (आईपीएफएस)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)मेटाप्लेक्स मेटाडेटा JSON फ़ाइल IPFS पर संग्रहीत है।\nइसमें टोकन नाम (\"फ्री ओपन सोर्स सॉफ्ट\"), प्रतीक (FOSS), विवरण और छवि लिंक शामिल हैं।"
+        },
+        {
+          "type": "text",
+          "content": "[https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)FOSS टोकन लोगो छवि (PNG, ~2.5 MB) IPFS पर संग्रहीत है।\nवॉलेट और एक्सप्लोरर इसे टोकन के आइकन के रूप में प्रदर्शित करते हैं।"
+        }
+      ]
+    },
+    {
+      "id": "orca-docs",
+      "title": "ओर्का डेवलपर दस्तावेज़",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol](https://docs.orca.so/developers/whirlpools/interacting-with-the-protocol)व्हर्लपूल के साथ बातचीत करने वाले डेवलपर्स के लिए आधिकारिक ओर्का दस्तावेज़ीकरण।\nपूल बनाने, तरलता जोड़ने, स्वैप करने और प्रोग्रामेटिक रूप से स्थिति प्रबंधित करने का तरीका बताता है।"
+        }
+      ]
+    },
+    {
+      "id": "launchpad-program",
+      "title": "लॉन्चपैड प्रोग्राम",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr](https://explorer.solana.com/address/HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr)नो-कोड लॉन्चपैड BPF प्रोग्राम जिसने FOSS टोकन बनाया।\nएक परमाणु टीएक्स में टोकन निर्माण, मेटाडेटा, मिंटिंग, प्राधिकरण निरस्तीकरण और प्रारंभिक खरीद को संभालता है।"
+        }
+      ]
+    },
+    {
+      "id": "recent-transfers",
+      "title": "हालिया स्थानांतरण लेनदेन",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)17 अगस्त, 2025 को टोकन स्थानांतरण - 2 FOSS को बाहरी वॉलेट में स्थानांतरित कर दिया गया।"
+        },
+        {
+          "type": "text",
+          "content": "[https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)18 जनवरी, 2026 को टोकन ट्रांसफर - 1 FOSS को एक नए वॉलेट में एयरड्रॉप किया गया।"
+        }
+      ]
+    },
+    {
+      "id": "solana-rpc",
+      "title": "सोलाना आरपीसी (प्रोग्रामेटिक सत्यापन के लिए)",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "[https://api.mainnet-beta.solana.com](https://api.mainnet-beta.solana.com)सोलाना का सार्वजनिक JSON-RPC समापन बिंदु।\nश्रृंखला से लाइव टोकन विनिर्देशों को सत्यापित करने के लिए टकसाल पते के साथ getAccountInfo का उपयोग करें।"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS सिक्का मुख्य लेख",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "गिटहब रिपॉजिटरी",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "URLs"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

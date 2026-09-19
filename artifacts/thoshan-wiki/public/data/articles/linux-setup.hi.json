@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "id": "linux-setup",
+    "title": "लिनक्स सेटअप — ओमार्की",
+    "slug": "linux-setup",
+    "category": "Systems",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 21,
+    "views": 2700
+  },
+  "infobox": {
+    "title": "लिनक्स सेटअप — ओमार्की",
+    "image": "https://picsum.photos/seed/linux-infobox/280/200",
+    "imageCaption": "Hyprland Wayland अलाक्रिटी टर्मिनल के साथ टाइलिंग WM",
+    "fields": [
+      {
+        "label": "वितरण",
+        "value": "Arch Linux (via Omarchy)"
+      },
+      {
+        "label": "डेस्कटॉप",
+        "value": "Hyprland (Wayland tiling WM)"
+      },
+      {
+        "label": "उपयोगकर्ता नाम",
+        "value": "libre"
+      },
+      {
+        "label": "टर्मिनल",
+        "value": "Alacritty / Ghostty"
+      },
+      {
+        "label": "मल्टीप्लेक्सर",
+        "value": "Tmux"
+      },
+      {
+        "label": "संपादक",
+        "value": "Neovim (LazyVim config)"
+      },
+      {
+        "label": "ओमार्की स्टार",
+        "value": "~22,000 ⭐"
+      },
+      {
+        "label": "ओमार्की लेखक",
+        "value": "DHH (David Heinemeier Hansson)"
+      }
+    ]
+  },
+  "lead": "मैं चलाता हूँ **Arch Linux via Omarchy** — an opinionated 'omakase' developer distribution created by DHH (David Heinemeier Hansson, creator of Ruby on Rails). Omarchy ships के साथ Hyprland Wayland tiling WM, Neovim, Alacritty, Ghostty, और Tmux — a curated, pre-configured developer environment that skips weeks of manual configuration.\n\nI set मेरे username to `libre` — consistent के साथ the FOSS-first philosophy that runs through मेरे [[privacy-stack|प्राइवेसी स्टैक]] और [[foss-coin|FOSS Coin]] परियोजना. I've forked Omarchy to a personal गिटहब repository so I can selectively apply upstream updates rather than taking everything DHH ships.",
+  "sections": [
+    {
+      "id": "what-is-omarchy",
+      "title": "ओमार्की क्या है",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Omarchy** is described by DHH as 'omakase Arch Linux' — *omakase* being the Japanese restaurant concept where the chef selects the best dishes on your behalf. DHH applied this to Arch Linux: instead of spending weeks configuring a desktop from scratch, Omarchy gives you a complete, opinionated सेटअप in 15–30 minutes.\n\nThe repository has ~22,000 गिटहब stars (as of April 2026). It installs from an ISO, wipes the dedicated drive, और applies full-disk encryption by default. The Super key is the command centre के लिए all shortcuts."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "घटक",
+            "डिफ़ॉल्ट",
+            "मैंने क्या किया"
+          ],
+          "rows": [
+            {
+              "घटक": "Window manager",
+              "डिफ़ॉल्ट": "Hyprland (Wayland tiling)",
+              "मैंने क्या किया": "Kept — config files in ~/.config/hypr"
+            },
+            {
+              "घटक": "टर्मिनल",
+              "डिफ़ॉल्ट": "Alacritty + Ghostty",
+              "मैंने क्या किया": "Both kept"
+            },
+            {
+              "घटक": "मल्टीप्लेक्सर",
+              "डिफ़ॉल्ट": "Tmux (t alias)",
+              "मैंने क्या किया": "Used extensively"
+            },
+            {
+              "घटक": "संपादक",
+              "डिफ़ॉल्ट": "Neovim (LazyVim)",
+              "मैंने क्या किया": "Kept — learning Lua के लिए config"
+            },
+            {
+              "घटक": "Browser",
+              "डिफ़ॉल्ट": "Chromium",
+              "मैंने क्या किया": "Replaced के साथ LibreWolf (no telemetry)"
+            },
+            {
+              "घटक": "Music",
+              "डिफ़ॉल्ट": "Spotify",
+              "मैंने क्या किया": "Removed (tracking)"
+            },
+            {
+              "घटक": "Fallback DE",
+              "डिफ़ॉल्ट": "None",
+              "मैंने क्या किया": "Added KDE Plasma alongside Hyprland"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal-workflow",
+      "title": "मेरा टर्मिनल वर्कफ़्लो",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "मेरे daily workflow is keyboard-driven और terminal-centric. Almost no GUI applications are used के लिए development work — everything goes through the terminal."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "उपकरण",
+            "कमांड / उपनाम",
+            "मैं इसका उपयोग किस लिए करता हूँ"
+          ],
+          "rows": [
+            {
+              "उपकरण": "Tmux",
+              "कमांड / उपनाम": "t",
+              "मैं इसका उपयोग किस लिए करता हूँ": "Session और window management — persistent sessions that survive terminal restarts"
+            },
+            {
+              "उपकरण": "Neovim (LazyVim)",
+              "कमांड / उपनाम": "nvim",
+              "मैं इसका उपयोग किस लिए करता हूँ": "Primary editor — still learning Lua के लिए config customisation"
+            },
+            {
+              "उपकरण": "Fuzzy finder",
+              "कमांड / उपनाम": "eff",
+              "मैं इसका उपयोग किस लिए करता हूँ": "Fuzzy file find → open in editor"
+            },
+            {
+              "उपकरण": "Claude Code",
+              "कमांड / उपनाम": "cx",
+              "मैं इसका उपयोग किस लिए करता हूँ": "AI agent in accept-all mode — terminal-native pair programmer I call 'P.I.'"
+            },
+            {
+              "उपकरण": "Docker",
+              "कमांड / उपनाम": "docker",
+              "मैं इसका उपयोग किस लिए करता हूँ": "On-demand socket activation — reduces idle RAM on मेरे constrained [[homelab|homelab]] VM"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ओमार्की v3.4+ परिवर्तन",
+          "content": "Version 3.4 added Tmux by default (t alias), Claude Code as the default AI agent (cx alias, accept-all mode), hibernation enabled by default, और AI agent Tmux layouts: tdl, tdlm, tsl."
+        }
+      ]
+    },
+    {
+      "id": "ai-agent-integration",
+      "title": "AI एजेंट एकीकरण",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I've integrated **Claude Code** — I call it 'P.I.' (Personal Intelligence) in मेरे सेटअप — as a terminal-native AI agent. I have a custom `CLAUDE.md` at `/home/libre/CLAUDE.md` that describes मेरे personal workflow context.\n\nमैं चलाता हूँ Claude Code in accept-all mode (`cx` alias) — it reads files, writes code, और executes shell commands without asking के लिए confirmation at each step. The Omarchy skill file (`github.com/robzolkos/omarchy-skill`) extends this के साथ Omarchy-specific context.\n\nThis has genuinely changed how I work: rather than memorising command syntax, I query in natural language और the agent executes the appropriate commands."
+        }
+      ]
+    },
+    {
+      "id": "media-production",
+      "title": "मीडिया प्रोडक्शन सेटअप",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "मैं उपयोग करता हूँ OBS Studio के लिए screen recording और video production, के साथ a specific audio configuration I tuned carefully:\n- **Noise Gate:** Close threshold −32 dB / Open threshold −26 dB — eliminates background hiss between speech\n- **RNNoise suppression:** AI-based noise cancellation plugin\n- **Mic:** CMF Buds 2 Pro via PulseAudio\n\nमैं उपयोग करता हूँ **Shotcut** as मेरे video editor. The entire production pipeline is Linux-native और free software — no Adobe products anywhere."
+        }
+      ],
+      "collapsible": true
+    },
+    {
+      "id": "recovery-note",
+      "title": "रिकवरी नोट्स",
+      "level": 2,
+      "content": [
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "आकस्मिक टर्मिनल हटाना — मैंने क्या सीखा",
+          "content": "I once accidentally removed all terminal emulators while cleaning packages. Recovery: Ctrl+Alt+F2 to drop to TTY2, log in, reinstall Alacritty or Ghostty via pacman from the framebuffer terminal. The TTY is always available even when the graphical session has no terminals — I know this the hard way now."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "Omarchy गिटहब Repository",
+      "url": "https://github.com/basecamp/omarchy"
+    },
+    {
+      "id": 2,
+      "title": "Hyprland Wayland Compositor",
+      "url": "https://hyprland.org"
+    },
+    {
+      "id": 3,
+      "title": "LazyVim Neovim Configuration",
+      "url": "https://lazyvim.org"
+    }
+  ],
+  "relatedArticles": [
+    "privacy-stack",
+    "homelab",
+    "about"
+  ],
+  "categories": [
+    "Systems",
+    "Linux",
+    "Arch Linux",
+    "Terminal"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "प्रथम पुरुष में पुनर्लेखन",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "पूर्ण लेखन: टर्मिनल वर्कफ़्लो, AI एकीकरण, मीडिया सेटअप",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "प्रारंभिक पृष्ठ",
+      "changeType": "new"
+    }
+  ]
+}

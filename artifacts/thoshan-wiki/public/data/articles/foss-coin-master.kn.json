@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "id": "foss-coin-master",
+    "title": "FOSS ಕಾಯಿನ್ - ಮಾಸ್ಟರ್ ಡಾಕ್ಯುಮೆಂಟೇಶನ್",
+    "slug": "foss-coin-master",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "ಕೊನೆಯದಾಗಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ: ಏಪ್ರಿಲ್ 14, 2026 — ಎಲ್ಲಾ ಕ್ಲೈಮ್‌ಗಳನ್ನು ಲೈವ್ ಸೋಲಾನಾ ಮೈನ್‌ನೆಟ್ ಆನ್-ಚೈನ್ ಡೇಟಾದ ವಿರುದ್ಧ ಕ್ರಾಸ್-ಚೆಕ್ ಮಾಡಲಾಗಿದೆ.",
+  "sections": [
+    {
+      "id": "what-is-foss",
+      "title": "1. FOSS ನಾಣ್ಯ ಎಂದರೇನು?",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "FOSS ಕಾಯಿನ್ ($FOSS) ಎಂಬುದು ಸಮುದಾಯ-ರಚಿಸಿದ ಸೋಲಾನಾ SPL ಟೋಕನ್ ಆಗಿದ್ದು ಉಚಿತ ಮತ್ತು ಮುಕ್ತ ಮೂಲ ಸಾಫ್ಟ್‌ವೇರ್ (FOSS) ಅನ್ನು ಬೆಂಬಲಿಸಲು ಮತ್ತು ಉತ್ತೇಜಿಸಲು ನಿರ್ಮಿಸಲಾಗಿದೆ. ಇದು ವಿಕೇಂದ್ರೀಕೃತ ಕಾರ್ಯವಿಧಾನವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ:"
+        },
+        {
+          "type": "text",
+          "content": "- FOSS ಯೋಜನೆಗಳಿಗೆ ದೇಣಿಗೆ ನೀಡಿ — ಇಂಟರ್ನೆಟ್‌ಗೆ ಶಕ್ತಿ ತುಂಬುವ ನಿರ್ವಾಹಕರು ಮತ್ತು ಸಾಧನಗಳಿಗೆ ಧನಸಹಾಯ ಮಾಡಿ.\n- ರಿವಾರ್ಡ್ ಡೆವಲಪರ್‌ಗಳು ಮತ್ತು ಕೊಡುಗೆದಾರರು - ಓಪನ್ ಸೋರ್ಸ್ ಕೆಲಸಕ್ಕಾಗಿ ಟೋಕನ್ ಆಧಾರಿತ ಪ್ರೋತ್ಸಾಹಗಳನ್ನು ಒದಗಿಸಿ.\n- ಜಾಗೃತಿ ಮೂಡಿಸಿ - ಡಿಜಿಟಲ್ ಗೌಪ್ಯತೆ, ಲಿನಕ್ಸ್ ಮತ್ತು ಮುಕ್ತ ತಂತ್ರಜ್ಞಾನಗಳನ್ನು ಉತ್ತೇಜಿಸಿ."
+        },
+        {
+          "type": "text",
+          "content": "**ಪ್ರಮುಖ ಹಕ್ಕು ನಿರಾಕರಣೆ:** FOSS ನಾಣ್ಯವು GNU, Linux ಫೌಂಡೇಶನ್, ಉಚಿತ ಸಾಫ್ಟ್‌ವೇರ್ ಫೌಂಡೇಶನ್ ಅಥವಾ ಯಾವುದೇ ಇತರ ಸ್ಥಾಪಿತ ಸಂಸ್ಥೆಯಿಂದ ಅಧಿಕೃತ ಯೋಜನೆಯಾಗಿಲ್ಲ. ಇದು ನಿರ್ಬಂಧಗಳಿಲ್ಲದೆ ನಿರ್ಮಿಸಲು, ಹಂಚಿಕೊಳ್ಳಲು ಮತ್ತು ಆವಿಷ್ಕರಿಸಲು ಸ್ವಾತಂತ್ರ್ಯವನ್ನು ನಂಬುವ ವ್ಯಕ್ತಿಗಳಿಂದ ರಚಿಸಲ್ಪಟ್ಟ ಸ್ವತಂತ್ರ ತಳಮಟ್ಟದ ಉಪಕ್ರಮವಾಗಿದೆ."
+        }
+      ]
+    },
+    {
+      "id": "token-specifications",
+      "title": "2. ಟೋಕನ್ ವಿಶೇಷಣಗಳು",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ಕ್ಷೇತ್ರ",
+            "ಮೌಲ್ಯ",
+            "ಮೂಲ"
+          ],
+          "rows": [
+            {
+              "ಕ್ಷೇತ್ರ": "ಟೋಕನ್ ಹೆಸರು",
+              "ಮೌಲ್ಯ": "ಉಚಿತ ಓಪನ್ ಸೋರ್ಸ್ ಸಾಫ್ಟ್",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್ ಮೆಟಾಪ್ಲೆಕ್ಸ್ ಮೆಟಾಡೇಟಾ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಚಿಹ್ನೆ",
+              "ಮೌಲ್ಯ": "FOSS",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್ ಮೆಟಾಪ್ಲೆಕ್ಸ್ ಮೆಟಾಡೇಟಾ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಮಿಂಟ್ ವಿಳಾಸ",
+              "ಮೌಲ್ಯ": "64AcKtFgExrtJWPJVr6U4iQrJ1VpiUvDHvRtdMHAcoin",
+              "ಮೂಲ": "ಸೋಲಾನಾ ಟೋಕನ್ ಕಾರ್ಯಕ್ರಮ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಬ್ಲಾಕ್ಚೈನ್",
+              "ಮೌಲ್ಯ": "ಸೋಲಾನಾ ಮೈನೆಟ್",
+              "ಮೂಲ": "—"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಟೋಕನ್ ಸ್ಟ್ಯಾಂಡರ್ಡ್",
+              "ಮೌಲ್ಯ": "SPL ಟೋಕನ್ (ಟೋಕನ್ ಪ್ರೋಗ್ರಾಂ v3.x)",
+              "ಮೂಲ": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ದಶಮಾಂಶಗಳು",
+              "ಮೌಲ್ಯ": "6",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್ ಮಿಂಟ್ ಖಾತೆ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಒಟ್ಟು ಪೂರೈಕೆ",
+              "ಮೌಲ್ಯ": "1,000,000,000 (1 ಬಿಲಿಯನ್)",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್: ಕಚ್ಚಾ ಪೂರೈಕೆ = 1,000,000,000,000,000 ÷ 10^6 = 1B"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಮಿಂಟ್ ಪ್ರಾಧಿಕಾರ",
+              "ಮೌಲ್ಯ": "ಹಿಂತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ (ಶೂನ್ಯ)",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್: ರಚನೆಯಲ್ಲಿ ಶೂನ್ಯಕ್ಕೆ ಹೊಂದಿಸಲಾಗಿದೆ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಫ್ರೀಜ್ ಅಥಾರಿಟಿ",
+              "ಮೌಲ್ಯ": "ಹಿಂತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ (ಶೂನ್ಯ)",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್: ರಚನೆಯಲ್ಲಿ ಶೂನ್ಯಕ್ಕೆ ಹೊಂದಿಸಲಾಗಿದೆ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಆರಂಭಿಸಲಾಗಿದೆ",
+              "ಮೌಲ್ಯ": "ನಿಜ",
+              "ಮೂಲ": "ಆನ್-ಚೈನ್ ಮಿಂಟ್ ಖಾತೆ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "DEX",
+              "ಮೌಲ್ಯ": "ಓರ್ಕಾ (ವರ್ಲ್‌ಪೂಲ್ AMM)",
+              "ಮೂಲ": "ಪೂಲ್:3Ub4ojhVSiMZtmrS8bHSEiMo9oqzauTyYtd3HjFbZnE2"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ವ್ಯಾಪಾರ ಜೋಡಿ",
+              "ಮೌಲ್ಯ": "FOSS / SOL (ಸುತ್ತಿದ SOL)",
+              "ಮೂಲ": "ವರ್ಲ್ಪೂಲ್ ಪೂಲ್ ಕಾನ್ಫಿಗರೇಶನ್"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಟೋಕನ್ ಪ್ರೋಗ್ರಾಂ",
+              "ಮೌಲ್ಯ": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "ಮೂಲ": "ಸ್ಟ್ಯಾಂಡರ್ಡ್ SPL ಟೋಕನ್ ಪ್ರೋಗ್ರಾಂ"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಮೆಟಾಡೇಟಾ ಪ್ರೋಗ್ರಾಂ",
+              "ಮೌಲ್ಯ": "ಮೆಟಾಪ್ಲೆಕ್ಸ್ ಟೋಕನ್ ಮೆಟಾಡೇಟಾ v3",
+              "ಮೂಲ": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+            },
+            {
+              "ಕ್ಷೇತ್ರ": "ಸೃಷ್ಟಿ ವೇದಿಕೆ",
+              "ಮೌಲ್ಯ": "ನೋ-ಕೋಡ್ ಲಾಂಚ್‌ಪ್ಯಾಡ್ (ಕಸ್ಟಮ್ ಸೋಲಾನಾ ಪ್ರೋಗ್ರಾಂ)",
+              "ಮೂಲ": "ಕಾರ್ಯಕ್ರಮ:HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "on-chain-metadata",
+      "title": "3. ಆನ್-ಚೈನ್ ಮೆಟಾಡೇಟಾ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Metaplex ಮೆಟಾಡೇಟಾವನ್ನು IPFS ನಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ ಮತ್ತು ಆನ್-ಚೈನ್‌ನಲ್ಲಿ ಉಲ್ಲೇಖಿಸಲಾಗಿದೆ:"
+        },
+        {
+          "type": "text",
+          "content": "ಮೆಟಾಡೇಟಾ URI (IPFS): [https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n](https://ipfs.io/ipfs/QmNaaTSFFy4ZBp95vhA8F8MCoYHu9tmzWgcW16YyQcni9n)"
+        },
+        {
+          "type": "text",
+          "content": "**ಮೆಟಾಡೇಟಾ JSON (ಪಡೆಯಲಾಗಿದೆ ಮತ್ತು ಪರಿಶೀಲಿಸಲಾಗಿದೆ):**"
+        },
+        {
+          "type": "text",
+          "content": "```json\n{\n  \"name\": \"Free Open Source Soft \",\n  \"symbol\": \"FOSS\",\n  \"description\": \"FOSS Coin is a community-created token built to support and promote Free and Open Source Software (FOSS).\\n\\nIt can be used to:\\n- Donate to FOSS projects\\n- Reward developers and contributors\\n- Raise awareness about digital privacy, Linux, and open technologies\\n\\nThis is not an official project by GNU, Linux.org, or the Free Software Foundation. $FOSS is an independent grassroots effort by passionate individuals who believe in the freedom to build, share, and innovate without restrictions.\\n\\nBy holding or using FOSS Coin, you become part of a decentralized movement to fund the tools that power the internet — freely and ethically.\",\n  \"image\": \"https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf\"\n}\n```"
+        },
+        {
+          "type": "text",
+          "content": "**ಟೋಕನ್ ಲೋಗೋ**\n- IPFS ಹ್ಯಾಶ್:QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf- URL: [https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf](https://ipfs.io/ipfs/QmZjM3DiAsnwzVPBD2zNzDN518fJqTCmmw41u2bfRZFJMf)- ಸ್ವರೂಪ: PNG\n- ಗಾತ್ರ: 2,508,148 ಬೈಟ್‌ಗಳು (~2.5 MB)\n- ಸ್ಥಿತಿ: ✅ ಪ್ರವೇಶಿಸಬಹುದು (HTTP 200 ದೃಢೀಕರಿಸಲಾಗಿದೆ)"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS ನಾಣ್ಯ ಮುಖ್ಯ ಲೇಖನ",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub ರೆಪೊಸಿಟರಿ",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Documentation"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

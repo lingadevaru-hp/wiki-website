@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "id": "local-pulse",
+    "title": "लोकलपल्स",
+    "slug": "local-pulse",
+    "category": "Web",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 14,
+    "views": 2400
+  },
+  "infobox": {
+    "title": "लोकलपल्स",
+    "image": "https://picsum.photos/seed/pulse-infobox/280/200",
+    "imageCaption": "लोकलपल्स इवेंट खोज होम स्क्रीन",
+    "fields": [
+      {
+        "label": "फ्रेमवर्क",
+        "value": "Next.js 15 (App मार्गr)"
+      },
+      {
+        "label": "भाषा",
+        "value": "प्रकारScript"
+      },
+      {
+        "label": "प्रमाणीकरण",
+        "value": "Clerk"
+      },
+      {
+        "label": "बैकएंड",
+        "value": "Firebase + local storage"
+      },
+      {
+        "label": "PWA",
+        "value": "Yes — offline support"
+      },
+      {
+        "label": "गिटहब",
+        "value": "github.com/lingadevaru-hp/लोकलपल्स"
+      },
+      {
+        "label": "गिटहब stars",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "परिनियोजन लक्ष्य",
+        "value": "Cloudflare Pages"
+      },
+      {
+        "label": "स्थिति",
+        "value": "सक्रिय"
+      }
+    ]
+  },
+  "lead": "**लोकलपल्स** is a local-first इवेंट खोज और organiser platform मैंने बनाया के साथ **Next.js 15 App मार्गr**, React 18, प्रकारScript, Tailwind CSS, और shadcn/ui. मैंने बनाया it in March 2026 — it's the most recent web परियोजना in मेरे portfolio. It uses local ब्राउज़र storage as a zero-cost database backend alongside Firebase, और is built as a **Progressive Web App** के साथ offline support और an install prompt.\n\nलोकलपल्स demonstrates a full-stack प्रकारScript application के साथ authentication (Clerk), file-based routing, PDF ticket generation, calendar export (.ics), और an admin panel — all in a modern serverless-ready architecture. Code is on [गिटहब](https://github.com/lingadevaru-hp/LocalPulse).",
+  "sections": [
+    {
+      "id": "tech-stack",
+      "title": "तकनीकी स्टैक",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "परत",
+            "प्रौद्योगिकी",
+            "मैंने इसका उपयोग किस लिए किया"
+          ],
+          "rows": [
+            {
+              "परत": "फ्रेमवर्क",
+              "प्रौद्योगिकी": "Next.js 15 (App मार्गr)",
+              "मैंने इसका उपयोग किस लिए किया": "File-based routing, server और client components, layouts"
+            },
+            {
+              "परत": "UI",
+              "प्रौद्योगिकी": "React 18, Tailwind CSS, shadcn/ui",
+              "मैंने इसका उपयोग किस लिए किया": "घटक library built on Radix UI primitives"
+            },
+            {
+              "परत": "भाषा",
+              "प्रौद्योगिकी": "प्रकारScript",
+              "मैंने इसका उपयोग किस लिए किया": "End-to-end type safety — typed API routes, typed React components, typed Firebase calls"
+            },
+            {
+              "परत": "प्रमाणीकरण",
+              "प्रौद्योगिकी": "Clerk (@clerk/nextjs)",
+              "मैंने इसका उपयोग किस लिए किया": "Sign in, sign up, profile, password reset — managed auth so I don't roll मेरे own"
+            },
+            {
+              "परत": "बैकएंड / DB",
+              "प्रौद्योगिकी": "Firebase + local ब्राउज़र storage",
+              "मैंने इसका उपयोग किस लिए किया": "Zero-cost database — no backend server required"
+            },
+            {
+              "परत": "PWA",
+              "प्रौद्योगिकी": "सेवा worker, offline support",
+              "मैंने इसका उपयोग किस लिए किया": "Install prompt, mobile icons, offline-capable pages"
+            },
+            {
+              "परत": "Deploy",
+              "प्रौद्योगिकी": "Cloudflare Pages",
+              "मैंने इसका उपयोग किस लिए किया": "Serverless edge deployment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "What लोकलपल्स Does",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Event Discovery:** मैंने बनाया search और filter by city, category, और date. विशेषताd events section. Smart recommendations using category + city + rating affinity scoring. Access-controlled event visibility: local, college, department.\n\n**Organiser Workflow:** Organiser verification via document upload (Aadhaar, PAN, GST, business docs). स्थिति states: pending / approved / rejected. Admin review panel.\n\n**Ticketing:** Downloadable PDF tickets named by event. Ticket history per user. Reminder toggles. Add-to-calendar export (.ics — Google Calendar, Outlook, Apple Calendar).\n\n**Local Data Hub (/database):** Inspect all locally stored data, export backup JSON, import data on another device, clear all data. All of this runs without a server — the user's ब्राउज़र is the database."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "शून्य-लागत आर्किटेक्चर मेरे लिए क्यों मायने रखता है",
+          "content": "Using local ब्राउज़र storage as the primary database means no database hosting costs. Firebase supplements this के लिए features requiring server-side persistence. The entire platform runs at near-zero cost — important when I'm shipping personal परियोजनाs without a budget."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "एप्लिकेशन मार्ग",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "मार्ग",
+            "उद्देश्य"
+          ],
+          "rows": [
+            {
+              "मार्ग": "/",
+              "उद्देश्य": "Home / इवेंट खोज के साथ recommendations"
+            },
+            {
+              "मार्ग": "/events/[id]",
+              "उद्देश्य": "Individual event detail page"
+            },
+            {
+              "मार्ग": "/events/create",
+              "उद्देश्य": "Create new event (organisers only)"
+            },
+            {
+              "मार्ग": "/my-tickets",
+              "उद्देश्य": "User ticket history और PDF download"
+            },
+            {
+              "मार्ग": "/profile",
+              "उद्देश्य": "User profile management (Clerk)"
+            },
+            {
+              "मार्ग": "/organiser",
+              "उद्देश्य": "Organiser dashboard"
+            },
+            {
+              "मार्ग": "/organiser/apply",
+              "उद्देश्य": "Organiser verification application"
+            },
+            {
+              "मार्ग": "/admin",
+              "उद्देश्य": "Admin control panel — organiser approval, analytics"
+            },
+            {
+              "मार्ग": "/database",
+              "उद्देश्य": "Local Data Hub — inspect, export, import, clear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "यह मेरे काम में कैसे फिट बैठता है",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "लोकलपल्स contrasts sharply के साथ मेरे [[fraud-detection|धोखाधड़ी पहचान प्रणाली]] in approach: where fraud detection used a traditional server-side stack (ASP.NET, SQL Server), लोकलपल्स embraces the modern serverless React ecoसिस्टम (Next.js App मार्गr, Clerk managed auth, Firebase, edge deployment).\n\nThe परियोजना demonstrates प्रकारScript across a full-stack application — type-safe API routes, typed React components, typed Firebase calls — rather than the JavaScript-without-types approach common in quick prototypes. It's the closest thing I have to a 'standard' full-stack web परियोजना, compared to मेरे blockchain और infrastructure work."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "गिटहब — लोकलपल्स",
+      "url": "https://github.com/lingadevaru-hp/LocalPulse"
+    },
+    {
+      "id": 2,
+      "title": "Next.js App मार्गr documentation",
+      "url": "https://nextjs.org/docs/app"
+    },
+    {
+      "id": 3,
+      "title": "Clerk authentication",
+      "url": "https://clerk.com"
+    }
+  ],
+  "relatedArticles": [
+    "fraud-detection",
+    "about",
+    "homelab"
+  ],
+  "categories": [
+    "Web",
+    "TypeScript",
+    "Next.js",
+    "PWA"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "प्रथम पुरुष में पुनर्लेखन",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "पूर्ण लेखन के साथ routes table और feature breakdown",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "प्रारंभिक पृष्ठ",
+      "changeType": "new"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "insurance-dapp",
+    "title": "बीमा DApp",
+    "slug": "insurance-dapp",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 18,
+    "views": 3350
+  },
+  "infobox": {
+    "title": "बीमा DApp",
+    "image": "https://picsum.photos/seed/dapp-infobox/280/200",
+    "imageCaption": "MetaMask के माध्यम से Ethereum smart contract इंटरैक्शन",
+    "fields": [
+      {
+        "label": "ब्लॉकचेन",
+        "value": "Ethereum"
+      },
+      {
+        "label": "स्मार्ट कॉन्ट्रैक्ट",
+        "value": "Solidity"
+      },
+      {
+        "label": "डेव फ्रेमवर्क",
+        "value": "Truffle"
+      },
+      {
+        "label": "Web3 एकीकरण",
+        "value": "Web3.js + MetaMask"
+      },
+      {
+        "label": "फ्रंटएंड",
+        "value": "HTML5, CSS3, Bootstrap"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/insurance-dapp"
+      },
+      {
+        "label": "GitHub stars",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "स्थिति",
+        "value": "Live demo + GitHub"
+      }
+    ]
+  },
+  "lead": "The **बीमा DApp** is a decentralised बीमा application मैंने बनाया **Ethereum blockchain** पर, using Solidity smart contracts पारंपरिक बीमा कंपनी को मध्यस्थ के रूप में बदलने के लिए. Policies, premiums, claims, और payouts सभी on-chain logic द्वारा संभाले जाते हैं — no human in the loop, आपके claim का फैसला करने वाली कोई कंपनी नहीं.\n\nमैंने इसे centralised बीमा (where a company decides your outcome) और decentralised बीमा (where a smart contract executes pre-agreed rules automatically and transparently) के बीच के अंतर को समझने के लिए बनाया. It sits alongside [[foss-coin|FOSS Coin]] मेरे blockchain portfolio में — together they cover two completely different ecosystems: Ethereum (EVM, Solidity) और Solana (SPL, Rust runtime).",
+  "sections": [
+    {
+      "id": "why-decentralised",
+      "title": "विकेंद्रीकृत बीमा बनाना क्यों समझदारी थी",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "पारंपरिक बीमा में, the insurer holds all the power: they collect premiums, evaluate claims, और decide payouts. As a claimant, नियम निष्पक्ष रूप से लागू हो रहे हैं यह स्वतंत्र रूप से सत्यापित करने का आपके पास कोई तरीका नहीं — you just have to trust the company.\n\nA smart contract इसे पलट देता है: the rules are written in Solidity, deployed on-chain, और conditions पूरी होने पर automatically execute होते हैं. Anyone can read the contract code before purchasing a policy. Payouts happen without a human decision-maker.\n\nमुझे जो trade-off स्वीकार करना पड़ा: smart contracts can't access real-world data without an oracle — और मेरे implementation में कोई oracle नहीं है. I'm demonstrating the core mechanic of trustless policy execution, production बीमा product shipping नहीं कर रहा."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "यह प्रोजेक्ट क्या है और क्या नहीं",
+          "content": "This is a technical learning exercise demonstrating Solidity contract design, Truffle deployment workflow, और Web3.js/MetaMask browser integration. It is not a live insurance product and does not implement real-world oracle connections."
+        }
+      ]
+    },
+    {
+      "id": "tech-stack",
+      "title": "टेक स्टैक",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "परत",
+            "तकनीक",
+            "मैंने इसका उपयोग किस लिए किया"
+          ],
+          "rows": [
+            {
+              "परत": "स्मार्ट कॉन्ट्रैक्ट",
+              "तकनीक": "Solidity",
+              "मैंने इसका उपयोग किस लिए किया": "Ethereum पर Policy logic, claim rules, payout execution"
+            },
+            {
+              "परत": "डेव फ्रेमवर्क",
+              "तकनीक": "Truffle",
+              "मैंने इसका उपयोग किस लिए किया": "Contract compilation, migration, testing"
+            },
+            {
+              "परत": "Web3 एकीकरण",
+              "तकनीक": "Web3.js",
+              "मैंने इसका उपयोग किस लिए किया": "Browser-to-blockchain interaction layer"
+            },
+            {
+              "परत": "वॉलेट",
+              "तकनीक": "MetaMask",
+              "मैंने इसका उपयोग किस लिए किया": "Transaction signing and account management"
+            },
+            {
+              "परत": "फ्रंटएंड",
+              "तकनीक": "HTML5, CSS3, Bootstrap",
+              "मैंने इसका उपयोग किस लिए किया": "Policy purchase, claim submission, payout के लिए UI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "यह कैसे काम करता है",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The DApp follows a standard बीमा lifecycle — लेकिन हर चरण company employee के बजाय मेरे smart contract द्वारा लागू होता है:\n\n1. **Policy purchase** — a user pays ETH to the contract, specifying coverage terms. The contract records the policy on-chain.\n2. **Premium lock** — the ETH is held in the contract's balance, not transferred to an insurer.\n3. **Claim submission** — the user submits a claim via the web interface. The contract evaluates whether it meets the pre-coded conditions.\n4. **Payout** — if conditions are satisfied, the contract automatically transfers the payout from its balance to the claimant's wallet.\n5. **Rejection** — if conditions aren't met, the claim is rejected on-chain. No manual override is possible — मेरे द्वारा भी नहीं.\n\nAll state transitions are recorded as on-chain events and verifiable by any block explorer."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "https://picsum.photos/seed/dapp-gal1/800/500",
+              "alt": "Policy खरीद प्रवाह",
+              "caption": "Policy खरीद इंटरफेस — MetaMask payment flow"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal2/800/500",
+              "alt": "Claim प्रस्तुति",
+              "caption": "Claim प्रस्तुति और smart contract मूल्यांकन"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal3/800/500",
+              "alt": "Payout इवेंट",
+              "caption": "Ethereum network पर स्वचालित payout transaction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-to-other-work",
+      "title": "यह मेरे अन्य कार्य से कैसे जुड़ता है",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "This DApp और [[foss-coin|FOSS Coin]] represent the two main blockchain ecosystems जिनके साथ मैंने काम किया है: Ethereum (EVM-based, Solidity smart contracts) और Solana (Rust-based runtime, SPL token program). Together they demonstrate breadth across different consensus mechanisms, programming models, और toolchains.\n\nBoth are listed in the [[about|GitHub repository table]] और form the blockchain/Web3 component of my technical skills. The GitHub repo is at [github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — insurance-dapp",
+      "url": "https://github.com/lingadevaru-hp/insurance-dapp"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin",
+    "about",
+    "fraud-detection"
+  ],
+  "categories": [
+    "Blockchain",
+    "Ethereum",
+    "Web3",
+    "Smart Contracts"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten in first person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Full rewrite: added how-it-works, context section",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

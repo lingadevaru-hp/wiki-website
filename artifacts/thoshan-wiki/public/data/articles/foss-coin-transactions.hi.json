@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "id": "foss-coin-transactions",
+    "title": "FOSS Coin — लेनदेन",
+    "slug": "foss-coin-transactions",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "यह परियोजना दस्तावेज़ और एकत्रित स्रोत फ़ाइलों के आधार पर परियोजना का पूर्ण कालानुक्रमिक लेनदेन रिकॉर्ड है।",
+  "sections": [
+    {
+      "id": "transactions-table",
+      "title": "लेनदेन",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "#",
+            "दिनांक और समय (UTC)",
+            "पूर्ण हस्ताक्षर",
+            "स्लॉट संख्या",
+            "शुल्क भुगतानकर्ता",
+            "शुल्क (lamports)",
+            "विवरण",
+            "Solana Explorer लिंक"
+          ],
+          "rows": [
+            {
+              "#": "1",
+              "दिनांक और समय (UTC)": "2025-07-23 07:43:36 UTC",
+              "पूर्ण हस्ताक्षर": "VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN",
+              "स्लॉट संख्या": "355223383",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "90000",
+              "विवरण": "मैंने मिंट खाता बनाया, टोकन को 6 दशमलव के साथ प्रारंभ किया, Metaplex मेटाडेटा बनाया, निर्माता ATA बनाया, 1 बिलियन टोकन मिंट किए, मिंट अथॉरिटी रद्द की, और एक ही परमाणु लेनदेन में प्रारंभिक लॉन्चपैड खरीद निष्पादित की।",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/VQT5gJrktGkJNuSChKwnfQNeni4ULDLfgHV4bfspBTsZj44v6Wxqc6nGCZze7Mg66atQEmzuVf5MgyUBC9iGroN)"
+            },
+            {
+              "#": "2",
+              "दिनांक और समय (UTC)": "2025-08-17 07:32:10 UTC",
+              "पूर्ण हस्ताक्षर": "3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g",
+              "स्लॉट संख्या": "360612760",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "80000",
+              "विवरण": "मैंने साक्ष्य सेट में संदर्भित ट्रांसफर सेवा प्रोग्राम के माध्यम से बाहरी वॉलेट में 2 FOSS टोकन का छोटा ट्रांसफर भेजा।",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/3BmzHVUWbFinDcRK9gKK4kFovLattTP8k411Yke2amD3vhiLhzGr99RxpQFfSHCKNiu1JjEJK2KMVjxkJup5K29g)"
+            },
+            {
+              "#": "3",
+              "दिनांक और समय (UTC)": "2025-10-21 14:13:04 UTC",
+              "पूर्ण हस्ताक्षर": "5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB",
+              "स्लॉट संख्या": "374850194",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "16803",
+              "विवरण": "मैंने FOSS / Wrapped SOL जोड़ी के लिए Orca Whirlpool पूल बनाया, पूल को अनुकूली शुल्क के साथ प्रारंभ किया, और आवश्यक टिक ऐरे स्थिति बनाई।",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/5obapSAxEfqkkQCJaYxCkLZb8dub5vthyk2eBqN56akHmAtVVC12nBbsYQXmbPZgQWexUArRnJrsk3dt86hXtWiB)"
+            },
+            {
+              "#": "4",
+              "दिनांक और समय (UTC)": "2025-10-21 14:13:23 UTC",
+              "पूर्ण हस्ताक्षर": "2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm",
+              "स्लॉट संख्या": "374850239",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "19345",
+              "विवरण": "मैंने Orca पोज़िशन NFT मिंट किया, IncreaseLiquidityV2 का उपयोग किया, Whirlpool में 2.900653 FOSS और 0.0004 SOL जोड़े, और प्रारंभिक पूल फंडिंग प्रवाह पूरा किया।",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/2xR9TXLpkjZPTd5BjCS58Xzwqw7X2wCLDZW2ZsWFnbH7sEkvxToxHKTDNA6r9Dto9rQLS7b5XXe5GhkJQDFmJEGm)"
+            },
+            {
+              "#": "5",
+              "दिनांक और समय (UTC)": "2026-01-18 12:59:51 UTC",
+              "पूर्ण हस्ताक्षर": "4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq",
+              "स्लॉट संख्या": "394322578",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "5000",
+              "विवरण": "मैंने परियोजना के छोटे अनुवर्ती ट्रांसफरों के भाग के रूप में नए वॉलेट में बाद के 1 FOSS एयरड्रॉप लेनदेन को दर्ज किया।",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/4Xu9TWvWCoxnye7ZTr1kswaMnyLUiVoWZnccu1dASuMMMtz6aJd6AAtpxiAPwULa3Kp6JUkxAMEGsjcNrnVtTREq)"
+            },
+            {
+              "#": "6",
+              "दिनांक और समय (UTC)": "2026-01-18 13:19:03 UTC",
+              "पूर्ण हस्ताक्षर": "4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T",
+              "स्लॉट संख्या": "394325494",
+              "शुल्क भुगतानकर्ता": "HLwsSkx8v7z25N6aZo6rjAywJ1YfjjwhpCA7fCD1Db2b",
+              "शुल्क (lamports)": "5000",
+              "विवरण": "मैंने एक अलग वॉलेट में एक और 1 FOSS एयरड्रॉप लेनदेन दर्ज किया, जो परियोजना इतिहास में दिखने वाली अंतिम ऑन-चेन गतिविधि का हिस्सा है।",
+              "Solana Explorer लिंक": "[View Transaction](https://explorer.solana.com/tx/4CchR52nCrirsLaViyM2vfvqraPYfkWhnb54gkfAQ78AisQqKUM4geiZg82oHwVqNFWTjxF693Shjng4Be5Xkj4T)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Transactions"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

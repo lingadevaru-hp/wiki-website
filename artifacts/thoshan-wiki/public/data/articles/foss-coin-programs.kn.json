@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "foss-coin-programs",
+    "title": "FOSS Coin — ಪ್ರೋಗ್ರಾಂಗಳು",
+    "slug": "foss-coin-programs",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "lead": "FOSS Coin ಯೋಜನೆಯಲ್ಲಿ ಬಳಸಲಾದ ಎಲ್ಲಾ Solana ಪ್ರೋಗ್ರಾಂಗಳು ಮತ್ತು ಅವುಗಳ ಉದ್ದೇಶಗಳು.",
+  "sections": [
+    {
+      "id": "programs-table",
+      "title": "ಪ್ರೋಗ್ರಾಂಗಳು",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು",
+            "ಪ್ರೋಗ್ರಾಂ ID",
+            "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ"
+          ],
+          "rows": [
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "SPL Token Program",
+              "ಪ್ರೋಗ್ರಾಂ ID": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ಮಿಂಟ್ ರಚನೆ, ಟೋಕನ್ ಮಿಂಟಿಂಗ್, ವರ್ಗಾವಣೆಗಳು ಮತ್ತು ಅಥಾರಿಟಿ ನಿರ್ವಹಣೆ ಸೇರಿದಂತೆ ಪ್ರಮುಖ ಟೋಕನ್ ಕಾರ್ಯಾಚರಣೆಗಳು"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "SPL Token-2022",
+              "ಪ್ರೋಗ್ರಾಂ ID": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "Orca ಪೊಸಿಷನ್ NFT ಮತ್ತು ಟೋಕನ್ ವಿಸ್ತರಣೆ ಬೆಂಬಲಕ್ಕಾಗಿ ಬಳಸಲಾಗಿದೆ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "Associated Token Account",
+              "ಪ್ರೋಗ್ರಾಂ ID": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ವಾಲೆಟ್ ಹೊಂದಿರುವವರಿಗೆ ಸಂಯೋಜಿತ ಟೋಕನ್ ಖಾತೆಗಳನ್ನು ರಚಿಸುತ್ತದೆ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "Metaplex Token Metadata",
+              "ಪ್ರೋಗ್ರಾಂ ID": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ಹೆಸರು, ಸಂಕೇತ, URI ಮತ್ತು ಚಿತ್ರಕ್ಕಾಗಿ ಟೋಕನ್ ಮೆಟಾಡೇಟಾ ಉಲ್ಲೇಖವನ್ನು ಸಂಗ್ರಹಿಸುತ್ತದೆ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "Orca Whirlpool",
+              "ಪ್ರೋಗ್ರಾಂ ID": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "FOSS / SOL ಮಾರುಕಟ್ಟೆಗೆ ಬಳಸಲಾದ ಕೇಂದ್ರೀಕೃತ ಲಿಕ್ವಿಡಿಟಿ ಪೂಲ್‌ಗೆ ಶಕ್ತಿ ನೀಡುತ್ತದೆ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "System Program",
+              "ಪ್ರೋಗ್ರಾಂ ID": "11111111111111111111111111111111",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ಖಾತೆಗಳನ್ನು ಹಂಚಿಕೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ಮೂಲ Solana ಖಾತೆ ರಚನೆಯನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "Compute Budget",
+              "ಪ್ರೋಗ್ರಾಂ ID": "ComputeBudget111111111111111111111111111111",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ವಹಿವಾಟುಗಳಲ್ಲಿ ಕಂಪ್ಯೂಟ್ ಯೂನಿಟ್ ನಿಯತಾಂಕಗಳನ್ನು ಹೊಂದಿಸುತ್ತದೆ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "Launchpad (custom)",
+              "ಪ್ರೋಗ್ರಾಂ ID": "HtKnLjomtPrjJwyuQe6HApuEcnb76AUp3oG3nTpnQSAr",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ಟೋಕನ್ ರಚಿಸಲು ಮತ್ತು ಪರಮಾಣು ಉಡಾವಣಾ ಹರಿವನ್ನು ನಡೆಸಲು ಬಳಸಲಾದ ಕಸ್ಟಮ್ ನೋ-ಕೋಡ್ ಲಾಂಚ್‌ಪ್ಯಾಡ್ ಪ್ರೋಗ್ರಾಂ"
+            },
+            {
+              "ಪ್ರೋಗ್ರಾಂ ಹೆಸರು": "Transfer Service",
+              "ಪ್ರೋಗ್ರಾಂ ID": "DeJBGdMFa1uynnnKiwrVioatTuHmNLpyFKnmB5kaFdzQ",
+              "ಈ ಯೋಜನೆಯಲ್ಲಿ ಉದ್ದೇಶ": "ದಾಖಲಾದ ಸಣ್ಣ ವರ್ಗಾವಣೆ / ಏರ್‌ಡ್ರಾಪ್ ಚಟುವಟಿಕೆಯಲ್ಲಿ ಉಲ್ಲೇಖಿಸಲಾಗಿದೆ"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "FOSS Coin Main Article",
+      "url": "/wiki/foss-coin"
+    },
+    {
+      "id": 2,
+      "title": "GitHub Repository",
+      "url": "https://github.com/lingadevaru-hp/Foss-Token"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin"
+  ],
+  "categories": [
+    "Blockchain",
+    "Solana",
+    "Technical"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-08-11T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial sub-article created from GitHub MD",
+      "changeType": "new"
+    }
+  ],
+  "parentArticle": "foss-coin",
+  "isSubArticle": true,
+  "hiddenFromSearch": true
+}

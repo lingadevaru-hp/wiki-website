@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "id": "local-pulse",
+    "title": "ಲೋಕಲ್‌ಪಲ್ಸ್",
+    "slug": "local-pulse",
+    "category": "Web",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 14,
+    "views": 2400
+  },
+  "infobox": {
+    "title": "ಲೋಕಲ್‌ಪಲ್ಸ್",
+    "image": "https://picsum.photos/seed/pulse-infobox/280/200",
+    "imageCaption": "ಲೋಕಲ್‌ಪಲ್ಸ್ ಈವೆಂಟ್ ಅನ್ವೇಷಣಾ ಮುಖಪುಟ",
+    "fields": [
+      {
+        "label": "ಫ್ರೇಮ್‌ವರ್ಕ್",
+        "value": "Next.js 15 (App ಮಾರ್ಗr)"
+      },
+      {
+        "label": "ಭಾಷೆ",
+        "value": "ಪ್ರಕಾರScript"
+      },
+      {
+        "label": "ದೃಢೀಕರಣ",
+        "value": "Clerk"
+      },
+      {
+        "label": "ಬ್ಯಾಕೆಂಡ್",
+        "value": "Firebase + local storage"
+      },
+      {
+        "label": "PWA",
+        "value": "Yes — offline support"
+      },
+      {
+        "label": "ಗಿಟ್‌ಹಬ್",
+        "value": "github.com/lingadevaru-hp/ಲೋಕಲ್‌ಪಲ್ಸ್"
+      },
+      {
+        "label": "ಗಿಟ್‌ಹಬ್ stars",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "ನಿಯೋಜನಾ ಗುರಿ",
+        "value": "Cloudflare Pages"
+      },
+      {
+        "label": "ಸ್ಥಿತಿ",
+        "value": "ಸಕ್ರಿಯ"
+      }
+    ]
+  },
+  "lead": "**ಲೋಕಲ್‌ಪಲ್ಸ್** is a local-first ಈವೆಂಟ್ ಅನ್ವೇಷಣೆ ಮತ್ತು organiser platform ನಾನು ನಿರ್ಮಿಸಿದೆ ಜೊತೆ **Next.js 15 App ಮಾರ್ಗr**, React 18, ಪ್ರಕಾರScript, Tailwind CSS, ಮತ್ತು shadcn/ui. ನಾನು ನಿರ್ಮಿಸಿದೆ it in March 2026 — it's the most recent web ಯೋಜನೆ in ನನ್ನ portfolio. It uses local ಬ್ರೌಸರ್ storage as a zero-cost database backend alongside Firebase, ಮತ್ತು is built as a **Progressive Web App** ಜೊತೆ offline support ಮತ್ತು an install prompt.\n\nಲೋಕಲ್‌ಪಲ್ಸ್ demonstrates a full-stack ಪ್ರಕಾರScript application ಜೊತೆ authentication (Clerk), file-based routing, PDF ticket generation, calendar export (.ics), ಮತ್ತು an admin panel — all in a modern serverless-ready architecture. Code is on [ಗಿಟ್‌ಹಬ್](https://github.com/lingadevaru-hp/LocalPulse).",
+  "sections": [
+    {
+      "id": "tech-stack",
+      "title": "ತಂತ್ರಜ್ಞಾನ ಸ್ಟಾಕ್",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ಪದರ",
+            "ತಂತ್ರಜ್ಞಾನ",
+            "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ"
+          ],
+          "rows": [
+            {
+              "ಪದರ": "ಫ್ರೇಮ್‌ವರ್ಕ್",
+              "ತಂತ್ರಜ್ಞಾನ": "Next.js 15 (App ಮಾರ್ಗr)",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "File-based routing, server ಮತ್ತು client components, layouts"
+            },
+            {
+              "ಪದರ": "UI",
+              "ತಂತ್ರಜ್ಞಾನ": "React 18, Tailwind CSS, shadcn/ui",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "ಘಟಕ library built on Radix UI primitives"
+            },
+            {
+              "ಪದರ": "ಭಾಷೆ",
+              "ತಂತ್ರಜ್ಞಾನ": "ಪ್ರಕಾರScript",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "End-to-end type safety — typed API routes, typed React components, typed Firebase calls"
+            },
+            {
+              "ಪದರ": "ದೃಢೀಕರಣ",
+              "ತಂತ್ರಜ್ಞಾನ": "Clerk (@clerk/nextjs)",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "Sign in, sign up, profile, password reset — managed auth so I don't roll ನನ್ನ own"
+            },
+            {
+              "ಪದರ": "ಬ್ಯಾಕೆಂಡ್ / DB",
+              "ತಂತ್ರಜ್ಞಾನ": "Firebase + local ಬ್ರೌಸರ್ storage",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "Zero-cost database — no backend server required"
+            },
+            {
+              "ಪದರ": "PWA",
+              "ತಂತ್ರಜ್ಞಾನ": "ಸೇವೆ worker, offline support",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "Install prompt, mobile icons, offline-capable pages"
+            },
+            {
+              "ಪದರ": "Deploy",
+              "ತಂತ್ರಜ್ಞಾನ": "Cloudflare Pages",
+              "ನಾನು ಅದನ್ನು ಏನು ಬಳಸಿದೆ": "Serverless edge deployment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "What ಲೋಕಲ್‌ಪಲ್ಸ್ Does",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "**Event Discovery:** ನಾನು ನಿರ್ಮಿಸಿದೆ search ಮತ್ತು filter by city, category, ಮತ್ತು date. ವೈಶಿಷ್ಟ್ಯd events section. Smart recommendations using category + city + rating affinity scoring. Access-controlled event visibility: local, college, department.\n\n**Organiser Workflow:** Organiser verification via document upload (Aadhaar, PAN, GST, business docs). ಸ್ಥಿತಿ states: pending / approved / rejected. Admin review panel.\n\n**Ticketing:** Downloadable PDF tickets named by event. Ticket history per user. Reminder toggles. Add-to-calendar export (.ics — Google Calendar, Outlook, Apple Calendar).\n\n**Local Data Hub (/database):** Inspect all locally stored data, export backup JSON, import data on another device, clear all data. All of this runs without a server — the user's ಬ್ರೌಸರ್ is the database."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ಶೂನ್ಯ-ವೆಚ್ಚ ವಾಸ್ತುಶಿಲ್ಪ ನನಗೆ ಏಕೆ ಮುಖ್ಯ",
+          "content": "Using local ಬ್ರೌಸರ್ storage as the primary database means no database hosting costs. Firebase supplements this ಗಾಗಿ features requiring server-side persistence. The entire platform runs at near-zero cost — important when I'm shipping personal ಯೋಜನೆs without a budget."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "ಅಪ್ಲಿಕೇಶನ್ ಮಾರ್ಗಗಳು",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ಮಾರ್ಗ",
+            "ಉದ್ದೇಶ"
+          ],
+          "rows": [
+            {
+              "ಮಾರ್ಗ": "/",
+              "ಉದ್ದೇಶ": "Home / ಈವೆಂಟ್ ಅನ್ವೇಷಣೆ ಜೊತೆ recommendations"
+            },
+            {
+              "ಮಾರ್ಗ": "/events/[id]",
+              "ಉದ್ದೇಶ": "Individual event detail page"
+            },
+            {
+              "ಮಾರ್ಗ": "/events/create",
+              "ಉದ್ದೇಶ": "Create new event (organisers only)"
+            },
+            {
+              "ಮಾರ್ಗ": "/my-tickets",
+              "ಉದ್ದೇಶ": "User ticket history ಮತ್ತು PDF download"
+            },
+            {
+              "ಮಾರ್ಗ": "/profile",
+              "ಉದ್ದೇಶ": "User profile management (Clerk)"
+            },
+            {
+              "ಮಾರ್ಗ": "/organiser",
+              "ಉದ್ದೇಶ": "Organiser dashboard"
+            },
+            {
+              "ಮಾರ್ಗ": "/organiser/apply",
+              "ಉದ್ದೇಶ": "Organiser verification application"
+            },
+            {
+              "ಮಾರ್ಗ": "/admin",
+              "ಉದ್ದೇಶ": "Admin control panel — organiser approval, analytics"
+            },
+            {
+              "ಮಾರ್ಗ": "/database",
+              "ಉದ್ದೇಶ": "Local Data Hub — inspect, export, import, clear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": "ಇದು ನನ್ನ ಕೆಲಸಕ್ಕೆ ಹೇಗೆ ಹೊಂದುತ್ತದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಲೋಕಲ್‌ಪಲ್ಸ್ contrasts sharply ಜೊತೆ ನನ್ನ [[fraud-detection|ವಂಚನೆ ಪತ್ತೆ ವ್ಯವಸ್ಥೆ]] in approach: where fraud detection used a traditional server-side stack (ASP.NET, SQL Server), ಲೋಕಲ್‌ಪಲ್ಸ್ embraces the modern serverless React ecoವ್ಯವಸ್ಥೆ (Next.js App ಮಾರ್ಗr, Clerk managed auth, Firebase, edge deployment).\n\nThe ಯೋಜನೆ demonstrates ಪ್ರಕಾರScript across a full-stack application — type-safe API routes, typed React components, typed Firebase calls — rather than the JavaScript-without-types approach common in quick prototypes. It's the closest thing I have to a 'standard' full-stack web ಯೋಜನೆ, compared to ನನ್ನ blockchain ಮತ್ತು infrastructure work."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "ಗಿಟ್‌ಹಬ್ — ಲೋಕಲ್‌ಪಲ್ಸ್",
+      "url": "https://github.com/lingadevaru-hp/LocalPulse"
+    },
+    {
+      "id": 2,
+      "title": "Next.js App ಮಾರ್ಗr documentation",
+      "url": "https://nextjs.org/docs/app"
+    },
+    {
+      "id": 3,
+      "title": "Clerk authentication",
+      "url": "https://clerk.com"
+    }
+  ],
+  "relatedArticles": [
+    "fraud-detection",
+    "about",
+    "homelab"
+  ],
+  "categories": [
+    "Web",
+    "TypeScript",
+    "Next.js",
+    "PWA"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ಪ್ರಥಮ ಪುರುಷದಲ್ಲಿ ಮರುಬರಹ",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-30T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "ಪೂರ್ಣ ಬರಹ ಜೊತೆ routes table ಮತ್ತು feature breakdown",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T08:00:00Z",
+      "editor": "thoshan",
+      "summary": "ಆರಂಭಿಕ ಪುಟ",
+      "changeType": "new"
+    }
+  ]
+}

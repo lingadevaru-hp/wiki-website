@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "insurance-dapp",
+    "title": "ವಿಮಾ DApp",
+    "slug": "insurance-dapp",
+    "category": "Blockchain",
+    "lastEdited": "2026-06-22T00:00:00Z",
+    "editCount": 18,
+    "views": 3350
+  },
+  "infobox": {
+    "title": "ವಿಮಾ DApp",
+    "image": "https://picsum.photos/seed/dapp-infobox/280/200",
+    "imageCaption": "MetaMask ಮೂಲಕ Ethereum smart contract ಸಂವಹನ",
+    "fields": [
+      {
+        "label": "ಬ್ಲಾಕ್‌ಚೈನ್",
+        "value": "Ethereum"
+      },
+      {
+        "label": "ಸ್ಮಾರ್ಟ್ ಕಾಂಟ್ರಾಕ್ಟ್",
+        "value": "Solidity"
+      },
+      {
+        "label": "ಡೆವ್ ಫ್ರೇಮ್‌ವರ್ಕ್",
+        "value": "Truffle"
+      },
+      {
+        "label": "Web3 ಸಂಯೋಜನೆ",
+        "value": "Web3.js + MetaMask"
+      },
+      {
+        "label": "ಫ್ರಂಟ್‌ಎಂಡ್",
+        "value": "HTML5, CSS3, Bootstrap"
+      },
+      {
+        "label": "GitHub",
+        "value": "github.com/lingadevaru-hp/insurance-dapp"
+      },
+      {
+        "label": "GitHub stars",
+        "value": "1 ⭐"
+      },
+      {
+        "label": "ಸ್ಥಿತಿ",
+        "value": "Live demo + GitHub"
+      }
+    ]
+  },
+  "lead": "The **ವಿಮಾ DApp** is a decentralised ವಿಮಾ application ನಾನು ನಿರ್ಮಿಸಿದ್ದು **Ethereum blockchain** ಮೇಲೆ, using Solidity smart contracts ಸಾಂಪ್ರದಾಯಿಕ ವಿಮಾ ಕಂಪನಿಯನ್ನು ಮಧ್ಯವರ್ತಿಯಾಗಿ ಬದಲಿಸಲು. Policies, premiums, claims, ಮತ್ತು payouts ಎಲ್ಲವೂ on-chain logic ಮೂಲಕ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತವೆ — no human in the loop, ನಿಮ್ಮ claim ನಿರ್ಧರಿಸುವ ಯಾವುದೇ ಕಂಪನಿ ಇಲ್ಲ.\n\nನಾನು ಇದನ್ನು ನಿರ್ಮಿಸಿದ್ದು centralised ವಿಮೆ (where a company decides your outcome) ಮತ್ತು decentralised ವಿಮೆ (where a smart contract executes pre-agreed rules automatically and transparently) ನಡುವಿನ ಅಂತರವನ್ನು ಅನ್ವೇಷಿಸಲು. It sits alongside [[foss-coin|FOSS Coin]] ನನ್ನ blockchain portfolio ನಲ್ಲಿ — together they cover two completely different ecosystems: Ethereum (EVM, Solidity) ಮತ್ತು Solana (SPL, Rust runtime).",
+  "sections": [
+    {
+      "id": "why-decentralised",
+      "title": "ವಿಕೇಂದ್ರೀಕೃತ ವಿಮೆ ನಿರ್ಮಿಸಲು ಏಕೆ ಅರ್ಥಪೂರ್ಣವಾಗಿತ್ತು",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "ಸಾಂಪ್ರದಾಯಿಕ ವಿಮೆಯಲ್ಲಿ, the insurer holds all the power: they collect premiums, evaluate claims, ಮತ್ತು decide payouts. As a claimant, ನಿಯಮಗಳನ್ನು ನ್ಯಾಯಯುತವಾಗಿ ಅನ್ವಯಿಸಲಾಗುತ್ತಿದೆ ಎಂದು ಸ್ವತಂತ್ರವಾಗಿ ಪರಿಶೀಲಿಸಲು ನಿಮಗೆ ಯಾವುದೇ ಮಾರ್ಗವಿಲ್ಲ — you just have to trust the company.\n\nA smart contract ಇದನ್ನು ತಿರುಗಿಸುತ್ತದೆ: the rules are written in Solidity, deployed on-chain, ಮತ್ತು conditions ಪೂರೈಸಿದಾಗ automatically execute ಆಗುತ್ತವೆ. Anyone can read the contract code before purchasing a policy. Payouts happen without a human decision-maker.\n\nನಾನು ಒಪ್ಪಿಕೊಳ್ಳಬೇಕಾದ trade-off: smart contracts can't access real-world data without an oracle — ಮತ್ತು ನನ್ನ implementation ಒಂದನ್ನು ಒಳಗೊಂಡಿಲ್ಲ. I'm demonstrating the core mechanic of trustless policy execution, production ವಿಮಾ ಉತ್ಪನ್ನವನ್ನು shipping ಮಾಡುತ್ತಿಲ್ಲ."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ಈ ಯೋಜನೆ ಏನು ಮತ್ತು ಏನಲ್ಲ",
+          "content": "This is a technical learning exercise demonstrating Solidity contract design, Truffle deployment workflow, ಮತ್ತು Web3.js/MetaMask browser integration. It is not a live insurance product and does not implement real-world oracle connections."
+        }
+      ]
+    },
+    {
+      "id": "tech-stack",
+      "title": "ಟೆಕ್ ಸ್ಟ್ಯಾಕ್",
+      "level": 2,
+      "content": [
+        {
+          "type": "table",
+          "columns": [
+            "ಪದರ",
+            "ತಂತ್ರಜ್ಞಾನ",
+            "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ"
+          ],
+          "rows": [
+            {
+              "ಪದರ": "ಸ್ಮಾರ್ಟ್ ಕಾಂಟ್ರಾಕ್ಟ್",
+              "ತಂತ್ರಜ್ಞಾನ": "Solidity",
+              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Ethereum ಮೇಲೆ Policy logic, claim rules, payout execution"
+            },
+            {
+              "ಪದರ": "ಡೆವ್ ಫ್ರೇಮ್‌ವರ್ಕ್",
+              "ತಂತ್ರಜ್ಞಾನ": "Truffle",
+              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Contract compilation, migration, testing"
+            },
+            {
+              "ಪದರ": "Web3 ಸಂಯೋಜನೆ",
+              "ತಂತ್ರಜ್ಞಾನ": "Web3.js",
+              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Browser-to-blockchain interaction layer"
+            },
+            {
+              "ಪದರ": "ವಾಲೆಟ್",
+              "ತಂತ್ರಜ್ಞಾನ": "MetaMask",
+              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Transaction signing and account management"
+            },
+            {
+              "ಪದರ": "ಫ್ರಂಟ್‌ಎಂಡ್",
+              "ತಂತ್ರಜ್ಞಾನ": "HTML5, CSS3, Bootstrap",
+              "ನಾನು ಅದನ್ನು ಏಕೆ ಬಳಸಿದೆ": "Policy purchase, claim submission, payout ಗಾಗಿ UI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "ಇದು ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The DApp follows a standard ವಿಮಾ lifecycle — ಆದರೆ ಪ್ರತಿ ಹಂತವನ್ನು company employee ಬದಲಿಗೆ ನನ್ನ smart contract ಜಾರಿಗೊಳಿಸುತ್ತದೆ:\n\n1. **Policy purchase** — a user pays ETH to the contract, specifying coverage terms. The contract records the policy on-chain.\n2. **Premium lock** — the ETH is held in the contract's balance, not transferred to an insurer.\n3. **Claim submission** — the user submits a claim via the web interface. The contract evaluates whether it meets the pre-coded conditions.\n4. **Payout** — if conditions are satisfied, the contract automatically transfers the payout from its balance to the claimant's wallet.\n5. **Rejection** — if conditions aren't met, the claim is rejected on-chain. No manual override is possible — ನನ್ನಿಂದಲೂ ಸಾಧ್ಯವಿಲ್ಲ.\n\nAll state transitions are recorded as on-chain events and verifiable by any block explorer."
+        },
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "https://picsum.photos/seed/dapp-gal1/800/500",
+              "alt": "Policy ಖರೀದಿ ಹರಿವು",
+              "caption": "Policy ಖರೀದಿ ಇಂಟರ್‌ಫೇಸ್ — MetaMask payment flow"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal2/800/500",
+              "alt": "Claim ಸಲ್ಲಿಕೆ",
+              "caption": "Claim ಸಲ್ಲಿಕೆ ಮತ್ತು smart contract ಮೌಲ್ಯಮಾಪನ"
+            },
+            {
+              "src": "https://picsum.photos/seed/dapp-gal3/800/500",
+              "alt": "Payout ಈವೆಂಟ್",
+              "caption": "Ethereum network ನಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತ payout transaction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-to-other-work",
+      "title": "ಇದು ನನ್ನ ಇತರ ಕೆಲಸಕ್ಕೆ ಹೇಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "This DApp ಮತ್ತು [[foss-coin|FOSS Coin]] represent the two main blockchain ecosystems ನಾನು ಕೆಲಸ ಮಾಡಿದ್ದು: Ethereum (EVM-based, Solidity smart contracts) ಮತ್ತು Solana (Rust-based runtime, SPL token program). Together they demonstrate breadth across different consensus mechanisms, programming models, ಮತ್ತು toolchains.\n\nBoth are listed in the [[about|GitHub repository table]] ಮತ್ತು form the blockchain/Web3 component of my technical skills. The GitHub repo is at [github.com/lingadevaru-hp/insurance-dapp](https://github.com/lingadevaru-hp/insurance-dapp)."
+        }
+      ],
+      "collapsible": true
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "GitHub — insurance-dapp",
+      "url": "https://github.com/lingadevaru-hp/insurance-dapp"
+    }
+  ],
+  "relatedArticles": [
+    "foss-coin",
+    "about",
+    "fraud-detection"
+  ],
+  "categories": [
+    "Blockchain",
+    "Ethereum",
+    "Web3",
+    "Smart Contracts"
+  ],
+  "editHistory": [
+    {
+      "date": "2026-06-22T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Rewritten in first person",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-29T00:00:00Z",
+      "editor": "thoshan",
+      "summary": "Full rewrite: added how-it-works, context section",
+      "changeType": "major"
+    },
+    {
+      "date": "2026-04-28T10:00:00Z",
+      "editor": "thoshan",
+      "summary": "Initial page",
+      "changeType": "new"
+    }
+  ]
+}

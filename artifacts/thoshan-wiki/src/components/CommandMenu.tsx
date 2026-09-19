@@ -13,7 +13,6 @@ import { ThoshanMark } from '@/components/Brand'
 import { OPEN_PICKER_EVENT } from '@/lib/theme'
 import type { CommandIcon, CommandItem } from '@/lib/command-menu'
 import {
-  LOCALE_EVENT,
   OPEN_PALETTE_EVENT,
   childrenOf,
   everyRow,
@@ -21,7 +20,7 @@ import {
   opensMenu,
 } from '@/lib/command-menu'
 import { useLocale } from '@/contexts/LocaleContext'
-import { SUPPORTED_LOCALES, localeHost, localeUrl } from '@/i18n/supportedLocales'
+import { SUPPORTED_LOCALES, openLocaleNewTab } from '@/i18n/supportedLocales'
 
 const LABEL_KEY: Record<string, string> = {
   home: 'menu.home',
@@ -157,20 +156,8 @@ export function CommandMenu() {
       return
     }
     if (item.locale) {
-      const host = window.location.hostname
-      const targetHost = localeHost(item.locale)
       close()
-      if (host === 'localhost' || host === '127.0.0.1' || targetHost === host) {
-        window.dispatchEvent(
-          new CustomEvent(LOCALE_EVENT, { detail: { locale: item.locale } }),
-        )
-        return
-      }
-      window.location.href = localeUrl(
-        item.locale,
-        window.location.pathname,
-        window.location.search,
-      )
+      openLocaleNewTab(item.locale)
       return
     }
     close()
