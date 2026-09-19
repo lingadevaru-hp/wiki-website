@@ -33,7 +33,7 @@ jobs:
       - name: Open mirror PR and auto-merge
         env:
           MIRROR_PAT: ${{ secrets.PLATFORM_MIRROR_PAT }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PLATFORM_MIRROR_PAT }}
         run: |
           DATE="$(date +%F)"
           SHORT="$(echo '${{ github.sha }}' | cut -c1-7)"
