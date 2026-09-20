@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { SearchProvider, useSearch } from "./contexts/SearchContext";
+import { posthog, pageviewProps } from "./lib/posthog";
 import { LocaleProvider } from "./contexts/LocaleContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalSearch from "./components/GlobalSearch";
@@ -64,6 +65,10 @@ function RouteTransition() {
 }
 
 function Router() {
+  const [location] = useLocation();
+  useEffect(() => {
+    posthog.capture("$pageview", pageviewProps());
+  }, [location]);
   return <RouteTransition />;
 }
 
