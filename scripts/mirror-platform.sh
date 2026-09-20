@@ -48,7 +48,7 @@ fi
   echo ""
   echo "${SUBJECTS}" | sed 's/^/- /'
   echo ""
-  echo "- Release: [${DATE}-${SHORT_SHA}](./releases/${DATE}-${SHORT_SHA}.md)"
-} >> "${PUBLIC_DIR}/CHANGELOG.md"
+  echo "- Release: [${DATE}-${SHORT_SHA}](./${DATE}-${SHORT_SHA}.md)"
+} >> "${PUBLIC_DIR}/releases/CHANGELOG.md"
 
 echo "mirror-platform: wrote ${RELEASE_FILE}"
