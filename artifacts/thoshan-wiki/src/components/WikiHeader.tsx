@@ -123,6 +123,16 @@ export default function WikiHeader({
           >
             <GithubIcon className="size-[18px]" />
           </a>
+          <a
+            href="https://chat.lingadevaru.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("nav.chat")}
+            title={t("nav.chat")}
+            className="header-icon-link"
+          >
+            <MessageCircle size={18} />
+          </a>
           {/* Overflow popup menu, copied from the omarchy-site mobile sheet
               pattern (icon + label rows for the secondary links). */}
           <DropdownMenu>
