@@ -117,6 +117,13 @@
 .omarchy-archive { position:relative; padding:64px 7vw 120px; border-top:1px solid hsl(var(--border)); background:hsl(var(--card)); }.omarchy-archive > p { color:hsl(var(--primary)); font-size:11px; letter-spacing:.15em; }.omarchy-archive h2 { margin:16px 0 48px; font-size:clamp(30px,5vw,64px); line-height:.95; letter-spacing:-.07em; }.omarchy-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }.omarchy-cards button { min-height:175px; text-align:left; padding:22px; border:1px solid hsl(var(--border)); background:hsl(var(--background)); color:hsl(var(--foreground)); font:inherit; cursor:pointer; transition:.2s ease; }.omarchy-cards button:hover { transform:translateY(-5px); border-color:hsl(var(--primary)); }.omarchy-cards span,.omarchy-cards em { display:block; color:hsl(var(--muted-foreground)); font-size:11px; font-style:normal; }.omarchy-cards strong { display:block; margin:45px 0 8px; font-size:22px; color:hsl(var(--primary)); }
 @keyframes thoshan-bob { 50% { transform:translateY(5px); } }
 @media (max-width:720px) { .omarchy-header { padding:0 15px; }.omarchy-header nav { display:none; }.omarchy-menu-button { display:inline-flex; }.omarchy-theme-button { font-size:0; }.omarchy-theme-button kbd { font-size:11px; margin:0; }.omarchy-install { display:none; }.omarchy-cards { grid-template-columns:1fr; }.omarchy-hero-copy { padding-inline:16px; } }
+/* Landing mobile only — hide hamburger and GitHub, keep search/chat/theme/language centered */
+@media (max-width:720px) {
+  .omarchy-landing .omarchy-menu-button { display:none !important; }
+  .omarchy-landing .omarchy-icons a[href*="github.com"] { display:none !important; }
+  .omarchy-landing .omarchy-header { gap: 8px; }
+  .omarchy-landing .omarchy-icons { flex:1; justify-content:center; gap:10px; }
+}
 @media (prefers-reduced-motion:reduce) { .omarchy-scroll svg { animation:none; }.omarchy-actions button:hover,.omarchy-cards button:hover { transform:none; } }
 
 /* LIGHT MODE */
