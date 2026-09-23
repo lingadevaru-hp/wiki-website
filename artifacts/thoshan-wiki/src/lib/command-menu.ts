@@ -25,7 +25,7 @@ export type CommandItem = {
   /** External destination. */
   href?: string
   /** Special action handled by the palette. */
-  action?: 'search' | 'themes'
+  action?: 'search' | 'themes' | 'chat'
   /** A locale to switch to. */
   locale?: string
   /** A text glyph drawn in place of the icon: a locale's flag. */
@@ -61,7 +61,7 @@ const ITEMS: Array<CommandItem> = [
     id: 'chat',
     label: 'Chat with me',
     icon: 'chat',
-    href: 'https://chat.lingadevaru.in',
+    action: 'chat',
   },
   { id: 'about', label: 'About', icon: 'about', to: '/wiki/about' },
 

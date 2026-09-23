@@ -21,6 +21,7 @@ import {
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { OPEN_PICKER_EVENT } from "../lib/theme";
 import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
+import { toggleChatPanel } from "../lib/chat-panel";
 
 interface WikiHeaderProps {
   onMenuClick: () => void;
@@ -96,6 +97,18 @@ export default function WikiHeader({
           <span>{t("nav.searchArticles")}</span>
           <kbd>⌘ K</kbd>
         </button>
+        {/* Chat trigger lives outside header-nav so it stays visible on
+            mobile (<900px hides header-nav) like search/language/theme. */}
+        <button
+          type="button"
+          className="header-icon-link"
+          onClick={toggleChatPanel}
+          aria-label={t("nav.chat")}
+          title={t("nav.chat")}
+          data-testid="button-chat-panel"
+        >
+          <MessageCircle size={18} />
+        </button>
         <nav className="header-nav" aria-label={t("nav.primary")}>
           <Link
             href="/wiki/home"
@@ -123,16 +136,6 @@ export default function WikiHeader({
           >
             <GithubIcon className="size-[18px]" />
           </a>
-          <a
-            href="https://chat.lingadevaru.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={t("nav.chat")}
-            title={t("nav.chat")}
-            className="header-icon-link"
-          >
-            <MessageCircle size={18} />
-          </a>
           {/* Overflow popup menu, copied from the omarchy-site mobile sheet
               pattern (icon + label rows for the secondary links). */}
           <DropdownMenu>
@@ -155,16 +158,16 @@ export default function WikiHeader({
                   <span>{t("nav.linkedin")}</span>
                 </a>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a
-                  href="https://chat.lingadevaru.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3"
-                >
+              <DropdownMenuItem
+                onSelect={(event) => {
+                  event.preventDefault();
+                  toggleChatPanel();
+                }}
+              >
+                <span className="flex items-center gap-3">
                   <MessageCircle size={16} aria-hidden="true" />
                   <span>{t("nav.chat")}</span>
-                </a>
+                </span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

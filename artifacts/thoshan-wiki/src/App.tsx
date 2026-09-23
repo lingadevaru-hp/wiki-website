@@ -5,11 +5,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { SearchProvider, useSearch } from "./contexts/SearchContext";
+import { ChatPanelProvider } from "./contexts/ChatPanelContext";
 import { posthog, pageviewProps } from "./lib/posthog";
 import { LocaleProvider } from "./contexts/LocaleContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalSearch from "./components/GlobalSearch";
 import { CommandMenu } from "./components/CommandMenu";
+import ChatPanel from "./components/ChatPanel";
+import { toggleChatPanel } from "./lib/chat-panel";
 import ShortcutsModal from "./components/ShortcutsModal";
 import { ThemePicker } from "./components/ThemePicker";
 import LandingPage from "./pages/LandingPage";
@@ -106,6 +109,18 @@ function GlobalKeyboardHandler() {
         e.preventDefault();
         setShortcutsOpen((v) => !v);
       }
+
+      // Ctrl/Cmd+Space → toggle chat panel (works everywhere, even in inputs:
+      // iframe keystrokes never reach the parent anyway).
+      if (
+        (e.key === " " || e.code === "Space") &&
+        (e.ctrlKey || e.metaKey) &&
+        !e.shiftKey &&
+        !e.altKey
+      ) {
+        e.preventDefault();
+        toggleChatPanel();
+      }
     }
 
     window.addEventListener("keydown", handleKeyDown);
@@ -130,14 +145,17 @@ function App() {
         <TooltipProvider>
           <ThemeProvider>
             <LocaleProvider>
-            <SearchProvider>
+              <SearchProvider>
+              <ChatPanelProvider>
               <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
                 <Router />
               </WouterRouter>
               <GlobalKeyboardHandler />
               <CommandMenu />
+              <ChatPanel />
               <ThemePicker />
               <Toaster />
+              </ChatPanelProvider>
             </SearchProvider>
             </LocaleProvider>
           </ThemeProvider>

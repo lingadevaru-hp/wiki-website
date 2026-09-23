@@ -7793,3 +7793,181 @@ a:hover {
     flex: 1;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   CHAT SLIDE-OVER PANEL — embeds chat.lingadevaru.in?embed=1.
+   Desktop: squeeze layout (content yields beside the panel).
+   Mobile (<=900px): cover bottom sheet with snap + keyboard lift.
+   The iframe mounts once and is never unmounted: toggles are
+   transform/visibility only, so the session survives everything.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --chat-w: 400px;
+}
+.wiki-shell,
+.wiki-header-inner,
+.omarchy-landing {
+  transition: margin-right var(--duration-normal, 0.22s) var(--ease-out, ease);
+}
+.wiki-header-inner {
+  transition:
+    margin-right var(--duration-normal, 0.22s) var(--ease-out, ease),
+    padding-right var(--duration-normal, 0.22s) var(--ease-out, ease);
+}
+body.chat-open .wiki-shell,
+body.chat-open .omarchy-landing {
+  margin-right: var(--chat-w);
+}
+body.chat-open .wiki-header-inner {
+  padding-right: calc(18px + var(--chat-w));
+}
+.chat-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--chat-w);
+  max-width: min(92vw, 640px);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  background: hsl(var(--background));
+  border-left: 1px solid hsl(var(--border));
+  box-shadow: -18px 0 50px rgba(0, 0, 0, 0.35);
+  transform: translateX(103%);
+  visibility: hidden;
+  transition:
+    transform var(--duration-normal, 0.22s) var(--ease-out, ease),
+    visibility var(--duration-normal, 0.22s);
+}
+.chat-panel.is-open {
+  transform: none;
+  visibility: visible;
+}
+.chat-resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -5px;
+  width: 10px;
+  cursor: ew-resize;
+  touch-action: none;
+  z-index: 2;
+}
+.chat-resize-handle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  width: 2px;
+  background: transparent;
+  transition: background var(--duration-fast, 0.15s) var(--ease-out, ease);
+}
+.chat-resize-handle:hover::after {
+  background: hsl(var(--accent));
+}
+.chat-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 10px 10px 16px;
+  border-bottom: 1px solid hsl(var(--border));
+  flex: 0 0 auto;
+}
+.chat-panel-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 14px Georgia, serif;
+  color: hsl(var(--foreground));
+  white-space: nowrap;
+}
+.chat-panel-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.chat-panel-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.chat-panel-body iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: hsl(var(--background));
+}
+.chat-sheet-handle,
+.chat-backdrop {
+  display: none;
+}
+@media (max-width: 900px) {
+  body.chat-open .wiki-shell,
+  body.chat-open .omarchy-landing {
+    margin-right: 0;
+  }
+  body.chat-open .wiki-header-inner {
+    padding-right: 18px;
+  }
+  .chat-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    height: var(--chat-sheet-h, 60vh);
+    max-height: 92dvh;
+    margin-bottom: var(--chat-kb, 0px);
+    border-left: 0;
+    border-top: 1px solid hsl(var(--border));
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    transform: translateY(104%);
+    box-shadow: 0 -18px 50px rgba(0, 0, 0, 0.45);
+  }
+  .chat-resize-handle {
+    display: none;
+  }
+  .chat-sheet-handle {
+    display: grid;
+    place-items: center;
+    padding: 10px 0 4px;
+    cursor: grab;
+    touch-action: none;
+    flex: 0 0 auto;
+  }
+  .chat-sheet-handle:active {
+    cursor: grabbing;
+  }
+  .chat-sheet-handle span {
+    width: 40px;
+    height: 4px;
+    border-radius: 99px;
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+  .chat-backdrop.is-open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+@media (max-width: 640px) {
+  body.chat-open .wiki-header-inner {
+    padding-right: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-panel,
+  .wiki-shell,
+  .wiki-header-inner,
+  .omarchy-landing {
+    transition: none;
+  }
+}

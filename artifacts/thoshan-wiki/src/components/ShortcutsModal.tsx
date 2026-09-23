@@ -12,6 +12,7 @@ const shortcuts = [
   { keys: ["Ctrl", "K"], label: "Open search" },
   { keys: ["/"], label: "Focus header search" },
   { keys: ["Ctrl", "/"], label: "Open keyboard shortcuts" },
+  { keys: ["Ctrl", "Space"], label: "Toggle chat panel" },
   { keys: ["↑", "↓"], label: "Navigate search results" },
   { keys: ["↵"], label: "Open selected result" },
   { keys: ["Esc"], label: "Close modal / blur input" },
