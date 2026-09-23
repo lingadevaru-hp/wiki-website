@@ -166,5 +166,7 @@
   "chat.title": "Chat with me",
   "chat.close": "Close chat",
   "chat.expand": "Open full site",
-  "chat.resize": "Resize chat panel"
+  "chat.resize": "Resize chat panel",
+  "chat.collapsePanel": "Collapse panel to 60%",
+  "chat.expandPanel": "Restore panel width"
 }

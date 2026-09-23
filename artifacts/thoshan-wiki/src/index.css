@@ -8007,15 +8007,26 @@ body.chat-resizing .omarchy-landing {
    mobile overflow guard.
    ═══════════════════════════════════════════════════════════════ */
 
-/* When the panel is wide, shed low-priority navbar icons so the rest
-   never squeeze. */
-body.chat-open .omarchy-icons a[href*="linkedin"] {
-  display: none;
+/* When the panel is open, navbar icons shrink instead of hiding —
+   every icon stays visible and usable at any squeeze level. */
+body.chat-open .wiki-header-inner {
+  gap: 4px;
 }
-@media (max-width: 1200px) {
-  body.chat-open .header-nav a[href*="github"] {
-    display: none;
-  }
+body.chat-open .header-icon-button,
+body.chat-open .header-icon-link,
+body.chat-open .header-back-button {
+  width: 30px;
+  height: 30px;
+}
+body.chat-open .wiki-wordmark {
+  gap: 6px;
+}
+body.chat-open .omarchy-icons {
+  gap: 2px;
+}
+body.chat-open .omarchy-icon-button {
+  width: 30px;
+  height: 30px;
 }
 
 /* Floating music card must not cover the mobile bottom sheet
