@@ -509,24 +509,6 @@ export default function ChatPanel() {
             />
           )}
         </div>
-        {/* Mini-app bottom bar (mobile sheet only): thumb-reach actions. */}
-        <footer className="chat-mini-bar">
-          <button type="button" onClick={() => setOpen(false)} aria-label={t("chat.close")}>
-            <X size={17} aria-hidden="true" />
-            <span>{t("chat.close")}</span>
-          </button>
-          <button type="button" onClick={toggleDetent} aria-label={t("chat.sheetToggle")}>
-            <span className="chat-detent-icons" aria-hidden="true">
-              <ChevronUp size={15} />
-              <ChevronDown size={15} />
-            </span>
-            <span>{t("chat.sheetToggle")}</span>
-          </button>
-          <button type="button" onClick={openChatFullSite} aria-label={t("chat.expand")}>
-            <ExternalLink size={16} aria-hidden="true" />
-            <span>{t("chat.expand")}</span>
-          </button>
-        </footer>
         <span className="sr-only" role="status" aria-live="polite">
           {notice}
         </span>
