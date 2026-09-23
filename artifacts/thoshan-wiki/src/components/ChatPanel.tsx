@@ -4,8 +4,8 @@ import { useChatPanel } from "../contexts/ChatPanelContext";
 import { useLocale } from "../contexts/LocaleContext";
 import {
   CHAT_EMBED_URL,
-  CHAT_PANEL_MAX_WIDTH,
   CHAT_PANEL_MIN_WIDTH,
+  chatPanelMaxWidth,
   openChatFullSite,
 } from "../lib/chat-panel";
 
@@ -192,7 +192,7 @@ export default function ChatPanel() {
           aria-orientation="vertical"
           aria-label={t("chat.resize")}
           aria-valuemin={CHAT_PANEL_MIN_WIDTH}
-          aria-valuemax={CHAT_PANEL_MAX_WIDTH}
+          aria-valuemax={chatPanelMaxWidth()}
           aria-valuenow={Math.round(width)}
           onPointerDown={onResizeStart}
           onKeyDown={onResizeKey}

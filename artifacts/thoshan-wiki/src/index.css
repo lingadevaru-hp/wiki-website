@@ -7827,7 +7827,7 @@ body.chat-open .wiki-header-inner {
   right: 0;
   bottom: 0;
   width: var(--chat-w);
-  max-width: min(92vw, 640px);
+  max-width: 70vw;
   z-index: 90;
   display: flex;
   flex-direction: column;
@@ -7999,5 +7999,59 @@ body.chat-resizing .omarchy-landing {
   }
   .chat-pulse-once {
     animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHAT PANEL COMPANION RULES — anti-squeeze, music overlap,
+   mobile overflow guard.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* When the panel is wide, shed low-priority navbar icons so the rest
+   never squeeze. */
+body.chat-open .omarchy-icons a[href*="linkedin"] {
+  display: none;
+}
+@media (max-width: 1200px) {
+  body.chat-open .header-nav a[href*="github"] {
+    display: none;
+  }
+}
+
+/* Floating music card must not cover the mobile bottom sheet
+   (music keeps playing — only the card hides while chat is open). */
+@media (max-width: 900px) {
+  body.chat-open .music-float-card {
+    display: none;
+  }
+}
+
+/* Page-level horizontal overflow guard (extra icons must never be
+   able to push the page wider than the viewport). */
+html,
+body {
+  overflow-x: clip;
+}
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Very narrow screens: tighten the wiki header so all icons fit. */
+@media (max-width: 430px) {
+  .wiki-header-inner {
+    gap: 2px;
+    padding-inline: 6px;
+  }
+  .wiki-wordmark {
+    font-size: 12px;
+    gap: 5px;
+  }
+}
+@media (max-width: 380px) {
+  .wiki-wordmark span:last-child {
+    display: none;
   }
 }
