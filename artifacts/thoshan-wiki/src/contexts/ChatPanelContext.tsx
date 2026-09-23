@@ -83,6 +83,17 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState<boolean>(readOpen);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const prevWidth = useRef<number | null>(null);
+  const openRef = useRef(open);
+  const hashPushed = useRef(false);
+  const suppressPop = useRef(false);
+  useEffect(() => {
+    openRef.current = open;
+  }, [open ]);
+
+  const isCoarseSheet = useCallback(
+    () => window.matchMedia("(max-width: 900px)").matches,
+    [],
+  );
 
   const setOpen = useCallback((next: boolean) => {
     setOpenState(next);
@@ -91,21 +102,49 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
     } catch {
       /* storage unavailable */
     }
-    if (next) setMounted(true);
-  }, []);
+    if (next) {
+      setMounted(true);
+      // Mini-app back-dismiss: push a hash so Android Back / swipe closes.
+      try {
+        if (isCoarseSheet() && !window.location.hash) {
+          hashPushed.current = true;
+          window.history.pushState({ chat: 1 }, "", "#chat");
+        }
+      } catch {
+        /* history unavailable */
+      }
+    } else if (hashPushed.current) {
+      hashPushed.current = false;
+      try {
+        if (window.location.hash === "#chat") {
+          suppressPop.current = true;
+          window.history.back();
+        }
+      } catch {
+        /* noop */
+      }
+    }
+  }, [isCoarseSheet]);
+
+  // Back button / gesture dismisses the open sheet.
+  useEffect(() => {
+    const onPop = () => {
+      if (suppressPop.current) {
+        suppressPop.current = false;
+        return;
+      }
+      if (openRef.current && isCoarseSheet()) {
+        hashPushed.current = false;
+        setOpen(false);
+      }
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [isCoarseSheet, setOpen]);
 
   const toggle = useCallback(() => {
-    setOpenState((prev) => {
-      const next = !prev;
-      try {
-        localStorage.setItem(CHAT_OPEN_KEY, next ? "1" : "0");
-      } catch {
-        /* storage unavailable */
-      }
-      if (next) setMounted(true);
-      return next;
-    });
-  }, []);
+    setOpen(!openRef.current);
+  }, [setOpen]);
 
   const setWidth = useCallback((next: number) => {
     const clamped = clampPanelWidth(next);

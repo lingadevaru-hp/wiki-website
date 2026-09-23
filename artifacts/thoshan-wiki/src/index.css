@@ -385,7 +385,49 @@
   }
 
   /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
+/* Frame load-failure state (offline / blocked embed). */
+.chat-frame-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-size: 14px;
+  line-height: 1.6;
+}
+.chat-frame-error p {
+  margin: 0;
+  max-width: 30ch;
+}
+.chat-frame-error div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.chat-frame-error button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.chat-frame-error button:active {
+  transform: scale(0.97);
+}
+@media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
@@ -7916,6 +7958,47 @@ body.chat-resizing .omarchy-landing {
   color: hsl(var(--foreground));
   white-space: nowrap;
 }
+/* Handwritten animated wordmark (replaces the plain title). */
+.chat-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  background: none;
+  border: 0;
+  padding: 4px 8px;
+  margin-left: -4px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: hsl(var(--accent));
+}
+.chat-wordmark span {
+  display: inline-block;
+}
+.chat-panel.is-open .chat-wordmark span {
+  animation: chat-letter-in 0.45s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+@keyframes chat-letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(7deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Detent toggle lives only on the mobile sheet; collapse only on desktop. */
+.chat-detent-btn {
+  display: none;
+}
+.chat-mini-bar {
+  display: none;
+}
 .chat-panel-actions {
   display: inline-flex;
   align-items: center;
@@ -7996,8 +8079,8 @@ body.chat-resizing .omarchy-landing {
     bottom: 0;
     width: 100%;
     max-width: none;
-    height: var(--chat-sheet-h, 60vh);
-    max-height: 92dvh;
+    height: var(--chat-sheet-h, 90vh);
+    max-height: 92svh;
     margin-bottom: var(--chat-kb, 0px);
     padding-bottom: env(safe-area-inset-bottom);
     border-left: 0;
@@ -8006,6 +8089,48 @@ body.chat-resizing .omarchy-landing {
     overflow: hidden;
     transform: translateY(104%);
     box-shadow: 0 -18px 50px rgba(0, 0, 0, 0.45);
+  }
+  .chat-collapse-btn {
+    display: none;
+  }
+  .chat-detent-btn {
+    display: inline-grid;
+  }
+  .chat-detent-icons {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0;
+  }
+  .chat-detent-icons svg + svg {
+    margin-top: -7px;
+  }
+  /* Mini-app bottom bar: thumb-reach actions (Telegram MainButton pattern). */
+  .chat-mini-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    border-top: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    flex: 0 0 auto;
+  }
+  .chat-mini-bar button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 44px;
+    border-radius: 12px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .chat-mini-bar button:active {
+    transform: scale(0.97);
+    background: hsl(var(--accent) / 0.15);
   }
   .chat-resize-handle {
     display: none;
@@ -8068,7 +8193,19 @@ body.chat-resizing .omarchy-landing {
   .chat-pulse-once,
   .chat-frame-skeleton-bar,
   .chat-frame-skeleton-input,
-  .chat-frame-skeleton-row {
+  .chat-frame-skeleton-row,
+  .chat-panel.is-open .chat-wordmark span {
+    animation: none;
+  }
+}
+
+/* Save data: no decorative loading/wordmark motion. */
+@media (prefers-reduced-data: reduce) {
+  .chat-frame-skeleton-bar,
+  .chat-frame-skeleton-input,
+  .chat-frame-skeleton-row,
+  .chat-pulse-once,
+  .chat-panel.is-open .chat-wordmark span {
     animation: none;
   }
 }
@@ -8079,15 +8216,24 @@ body.chat-resizing .omarchy-landing {
    ═══════════════════════════════════════════════════════════════ */
 
 /* When the panel is open, navbar icons shrink instead of hiding —
-   every icon stays visible and usable at any squeeze level. */
+   every icon stays visible and usable at any squeeze level.
+   44px hit areas are preserved via invisible padding. */
 body.chat-open .wiki-header-inner {
   gap: 4px;
 }
 body.chat-open .header-icon-button,
 body.chat-open .header-icon-link,
 body.chat-open .header-back-button {
+  position: relative;
   width: 30px;
   height: 30px;
+}
+body.chat-open .header-icon-button::after,
+body.chat-open .header-icon-link::after,
+body.chat-open .header-back-button::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
 }
 body.chat-open .wiki-wordmark {
   gap: 6px;

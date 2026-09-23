@@ -173,5 +173,8 @@
   "chat.closed": "Chat panel closed",
   "chat.sheetTall": "Chat sheet expanded",
   "chat.sheetHalf": "Chat sheet lowered",
-  "chat.sheetToggle": "Cycle sheet height"
+  "chat.sheetToggle": "Cycle sheet height",
+  "chat.loadFailed": "Chat could not load. Check your connection and retry.",
+  "chat.retry": "Retry",
+  "chat.sheetPeek": "Chat minimized to title strip"
 }

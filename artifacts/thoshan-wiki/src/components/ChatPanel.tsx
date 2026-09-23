@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  ChevronDown,
   ChevronsLeft,
   ChevronsRight,
+  ChevronUp,
   ExternalLink,
-  MessageCircle,
+  RotateCcw,
   X,
 } from "lucide-react";
 import { useChatPanel } from "../contexts/ChatPanelContext";
@@ -258,10 +260,77 @@ export default function ChatPanel() {
 
   // Iframe first paint: skeleton shimmer behind the frame until loaded.
   const [frameReady, setFrameReady] = useState(false);
+  const [frameFailed, setFrameFailed] = useState(false);
+  const [frameKey, setFrameKey] = useState(0);
   const onFrameLoad = useCallback(() => {
     setFrameReady(true);
+    setFrameFailed(false);
     syncTheme();
   }, [syncTheme]);
+  useEffect(() => {
+    if (!mounted || frameReady) return;
+    const timer = window.setTimeout(() => {
+      if (!frameReady) setFrameFailed(true);
+    }, 12000);
+    return () => window.clearTimeout(timer);
+  }, [mounted, frameReady]);
+  const retryFrame = useCallback(() => {
+    setFrameFailed(false);
+    setFrameReady(false);
+    setFrameKey((k) => k + 1);
+  }, []);
+
+  // Animated handwritten wordmark: letters stagger in on open, replay on tap.
+  const [boing, setBoing] = useState(0);
+
+  // Haptic-style tick (guarded; no-op where unsupported).
+  const tick = useCallback((ms = 8) => {
+    try {
+      navigator.vibrate?.(ms);
+    } catch {
+      /* noop */
+    }
+  }, []);
+
+  // Mobile detent model: 90% ↔ 60% ↔ peek strip.
+  const peekHeight = useCallback(() => {
+    const vh = window.innerHeight;
+    return Math.max(150, Math.round(vh * 0.18));
+  }, []);
+  const setSheetHeight = useCallback((h: number) => {
+    panelRef.current?.style.setProperty("--chat-sheet-h", `${Math.round(h)}px`);
+  }, []);
+  const toggleDetent = useCallback(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    const vh = window.innerHeight;
+    const cur = panel.getBoundingClientRect().height;
+    const next = cur > vh * 0.75 ? vh * 0.6 : vh * 0.9;
+    setSheetHeight(next);
+    tick();
+    announce(next > vh * 0.75 ? t("chat.sheetTall") : t("chat.sheetHalf"));
+  }, [setSheetHeight, tick, announce, t]);
+  const cycleDetentTap = useCallback(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    const vh = window.innerHeight;
+    const cur = panel.getBoundingClientRect().height;
+    let next: number;
+    let label: string;
+    if (cur > vh * 0.75) {
+      next = vh * 0.6;
+      label = t("chat.sheetHalf");
+    } else if (cur > peekHeight() + 40) {
+      next = peekHeight();
+      label = t("chat.sheetPeek");
+    } else {
+      next = vh * 0.9;
+      label = t("chat.sheetTall");
+    }
+    setSheetHeight(next);
+    tick();
+    announce(label);
+  }, [peekHeight, setSheetHeight, tick, announce, t]);
 
   // Keyboard avoidance: lift the sheet above the software keyboard.
   useEffect(() => {
@@ -274,6 +343,23 @@ export default function ChatPanel() {
     vv.addEventListener("resize", onResize);
     onResize();
     return () => vv.removeEventListener("resize", onResize);
+  }, [open ]);
+
+  // Body scroll lock while the mobile sheet is open (restore on close).
+  useEffect(() => {
+    if (!open || !window.matchMedia("(max-width: 900px)").matches) return;
+    const y = window.scrollY;
+    const body = document.body;
+    const prev = { position: body.style.position, top: body.style.top, width: body.style.width };
+    body.style.position = "fixed";
+    body.style.top = `-${y}px`;
+    body.style.width = "100%";
+    return () => {
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.width = prev.width;
+      window.scrollTo(0, y);
+    };
   }, [open ]);
 
   return (
@@ -320,16 +406,27 @@ export default function ChatPanel() {
           <span aria-hidden="true" />
         </button>
         <header className="chat-panel-header">
-          <span className="chat-panel-title">
-            <MessageCircle size={16} aria-hidden="true" />
-            {t("chat.title")}
-          </span>
+          <button
+            type="button"
+            className="chat-wordmark"
+            onClick={() => setBoing((b) => b + 1)}
+            aria-label={t("chat.title")}
+            title={t("chat.title")}
+            data-testid="chat-wordmark"
+          >
+            {"THOSHAN".split("").map((ch, i) => (
+              <span key={`${open ? "o" : "c"}${boing}-${i}`} style={{ animationDelay: `${i * 55}ms` }}>
+                {ch}
+              </span>
+            ))}
+          </button>
           <span className="chat-panel-actions">
             <button
               type="button"
-              className="header-icon-button"
+              className="header-icon-button chat-collapse-btn"
               onClick={() => {
                 toggleCollapse();
+                tick();
                 announceCollapse(!collapsed);
               }}
               aria-label={collapsed ? t("chat.expandPanel") : t("chat.collapsePanel")}
@@ -338,6 +435,19 @@ export default function ChatPanel() {
               data-testid="chat-collapse"
             >
               {collapsed ? <ChevronsLeft size={16} /> : <ChevronsRight size={16} />}
+            </button>
+            <button
+              type="button"
+              className="header-icon-button chat-detent-btn"
+              onClick={toggleDetent}
+              aria-label={t("chat.sheetToggle")}
+              title={t("chat.sheetToggle")}
+              data-testid="chat-detent"
+            >
+              <span className="chat-detent-icons" aria-hidden="true">
+                <ChevronUp size={15} />
+                <ChevronDown size={15} />
+              </span>
             </button>
             <button
               type="button"
@@ -362,7 +472,7 @@ export default function ChatPanel() {
           </span>
         </header>
         <div className="chat-panel-body">
-          {mounted && !frameReady && (
+          {mounted && !frameReady && !frameFailed && (
             <div className="chat-frame-skeleton" aria-hidden="true">
               <span className="chat-frame-skeleton-bar" style={{ width: "42%" }} />
               <span className="chat-frame-skeleton-input" />
@@ -371,8 +481,24 @@ export default function ChatPanel() {
               <span className="chat-frame-skeleton-row" style={{ width: "70%" }} />
             </div>
           )}
+          {mounted && frameFailed && !frameReady && (
+            <div className="chat-frame-error" role="alert">
+              <p>{t("chat.loadFailed")}</p>
+              <div>
+                <button type="button" onClick={retryFrame}>
+                  <RotateCcw size={15} aria-hidden="true" />
+                  {t("chat.retry")}
+                </button>
+                <button type="button" onClick={openChatFullSite}>
+                  <ExternalLink size={15} aria-hidden="true" />
+                  {t("chat.expand")}
+                </button>
+              </div>
+            </div>
+          )}
           {mounted && (
             <iframe
+              key={frameKey}
               ref={iframeRef}
               src={embedSrc}
               title={t("chat.title")}
@@ -383,6 +509,24 @@ export default function ChatPanel() {
             />
           )}
         </div>
+        {/* Mini-app bottom bar (mobile sheet only): thumb-reach actions. */}
+        <footer className="chat-mini-bar">
+          <button type="button" onClick={() => setOpen(false)} aria-label={t("chat.close")}>
+            <X size={17} aria-hidden="true" />
+            <span>{t("chat.close")}</span>
+          </button>
+          <button type="button" onClick={toggleDetent} aria-label={t("chat.sheetToggle")}>
+            <span className="chat-detent-icons" aria-hidden="true">
+              <ChevronUp size={15} />
+              <ChevronDown size={15} />
+            </span>
+            <span>{t("chat.sheetToggle")}</span>
+          </button>
+          <button type="button" onClick={openChatFullSite} aria-label={t("chat.expand")}>
+            <ExternalLink size={16} aria-hidden="true" />
+            <span>{t("chat.expand")}</span>
+          </button>
+        </footer>
         <span className="sr-only" role="status" aria-live="polite">
           {notice}
         </span>
