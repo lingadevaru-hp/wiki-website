@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import { Link, useLocation } from "wouter";
 import {
   ArrowLeft,
@@ -23,6 +24,27 @@ import { OPEN_PICKER_EVENT } from "../lib/theme";
 import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 import { toggleChatPanel } from "../lib/chat-panel";
 
+const CHAT_SEEN_KEY = "wiki-chat-seen";
+
+function useChatPulse(): [boolean, () => void] {
+  const [pulse, setPulse] = useState(() => {
+    try {
+      return localStorage.getItem(CHAT_SEEN_KEY) !== "1";
+    } catch {
+      return false;
+    }
+  });
+  const markSeen = useCallback(() => {
+    setPulse(false);
+    try {
+      localStorage.setItem(CHAT_SEEN_KEY, "1");
+    } catch {
+      /* storage unavailable */
+    }
+  }, []);
+  return [pulse, markSeen];
+}
+
 interface WikiHeaderProps {
   onMenuClick: () => void;
   showBackButton?: boolean;
@@ -35,6 +57,7 @@ export default function WikiHeader({
   const { openSearch } = useSearch();
   const { t } = useLocale();
   const [location, setLocation] = useLocation();
+  const [chatPulse, markChatSeen] = useChatPulse();
   const openPicker = () =>
     window.dispatchEvent(new CustomEvent(OPEN_PICKER_EVENT));
   const isArticle =
@@ -101,8 +124,11 @@ export default function WikiHeader({
             mobile (<900px hides header-nav) like search/language/theme. */}
         <button
           type="button"
-          className="header-icon-link"
-          onClick={toggleChatPanel}
+          className={`header-icon-link${chatPulse ? " chat-pulse-once" : ""}`}
+          onClick={() => {
+            markChatSeen();
+            toggleChatPanel();
+          }}
           aria-label={t("nav.chat")}
           title={t("nav.chat")}
           data-testid="button-chat-panel"
