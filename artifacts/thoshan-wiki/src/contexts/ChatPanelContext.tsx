@@ -24,6 +24,7 @@ interface ChatPanelContextValue {
   setOpen: (open: boolean) => void;
   width: number;
   setWidth: (width: number) => void;
+  setWidthLive: (width: number) => void;
   /** True once the iframe has mounted — never unmounts after that. */
   mounted: boolean;
   iframeRef: RefObject<HTMLIFrameElement | null>;
@@ -36,6 +37,7 @@ const ChatPanelContext = createContext<ChatPanelContextValue>({
   setOpen: () => {},
   width: CHAT_PANEL_DEFAULT_WIDTH,
   setWidth: () => {},
+  setWidthLive: () => {},
   mounted: false,
   iframeRef: { current: null },
   syncTheme: () => {},
@@ -90,11 +92,20 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
   const setWidth = useCallback((next: number) => {
     const clamped = clampPanelWidth(next);
     setWidthState(clamped);
+    document.body.style.setProperty("--chat-w", `${clamped}px`);
     try {
       localStorage.setItem(CHAT_WIDTH_KEY, String(clamped));
     } catch {
       /* storage unavailable */
     }
+  }, []);
+
+  /** Drag-hot path: paint only, no React render, no persistence. */
+  const setWidthLive = useCallback((next: number) => {
+    document.body.style.setProperty(
+      "--chat-w",
+      `${clampPanelWidth(next)}px`,
+    );
   }, []);
 
   // Squeeze layout: a body class + width var the CSS reacts to.
@@ -129,8 +140,8 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
   }, [mounted, syncTheme]);
 
   const value = useMemo(
-    () => ({ open, toggle, setOpen, width, setWidth, mounted, iframeRef, syncTheme }),
-    [open, toggle, setOpen, width, setWidth, mounted, syncTheme],
+    () => ({ open, toggle, setOpen, width, setWidth, setWidthLive, mounted, iframeRef, syncTheme }),
+    [open, toggle, setOpen, width, setWidth, setWidthLive, mounted, syncTheme],
   );
 
   return (

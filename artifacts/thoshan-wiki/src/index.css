@@ -7836,13 +7836,25 @@ body.chat-open .wiki-header-inner {
   box-shadow: -18px 0 50px rgba(0, 0, 0, 0.35);
   transform: translateX(103%);
   visibility: hidden;
+  will-change: transform;
+  contain: layout style;
   transition:
     transform var(--duration-normal, 0.22s) var(--ease-out, ease),
-    visibility var(--duration-normal, 0.22s);
+    visibility 0s linear var(--duration-normal, 0.22s);
 }
 .chat-panel.is-open {
   transform: none;
   visibility: visible;
+  transition:
+    transform var(--duration-normal, 0.22s) var(--ease-out, ease),
+    visibility 0s;
+}
+/* Direct-manipulation drag: no transitions fighting the pointer. */
+body.chat-resizing .chat-panel,
+body.chat-resizing .wiki-shell,
+body.chat-resizing .wiki-header-inner,
+body.chat-resizing .omarchy-landing {
+  transition: none;
 }
 .chat-resize-handle {
   position: absolute;
@@ -7864,8 +7876,23 @@ body.chat-open .wiki-header-inner {
   background: transparent;
   transition: background var(--duration-fast, 0.15s) var(--ease-out, ease);
 }
-.chat-resize-handle:hover::after {
+.chat-resize-handle:hover::after,
+.chat-resize-handle:focus-visible::after {
   background: hsl(var(--accent));
+}
+.chat-resize-handle:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
+}
+/* One-time discovery pulse for the navbar chat trigger. */
+@keyframes chat-ping-once {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0); }
+  35% { box-shadow: 0 0 0 6px hsl(var(--accent) / 0.35); }
+  70% { box-shadow: 0 0 0 2px hsl(var(--accent) / 0.12); }
+}
+.chat-pulse-once {
+  animation: chat-ping-once 1.6s var(--ease-out, ease) 2;
+  border-radius: 10px;
 }
 .chat-panel-header {
   display: flex;
@@ -7969,5 +7996,8 @@ body.chat-open .wiki-header-inner {
   .wiki-header-inner,
   .omarchy-landing {
     transition: none;
+  }
+  .chat-pulse-once {
+    animation: none;
   }
 }

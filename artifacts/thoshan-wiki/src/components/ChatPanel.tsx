@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ExternalLink, MessageCircle, X } from "lucide-react";
 import { useChatPanel } from "../contexts/ChatPanelContext";
 import { useLocale } from "../contexts/LocaleContext";
@@ -6,7 +6,6 @@ import {
   CHAT_EMBED_URL,
   CHAT_PANEL_MAX_WIDTH,
   CHAT_PANEL_MIN_WIDTH,
-  clampPanelWidth,
   openChatFullSite,
 } from "../lib/chat-panel";
 
@@ -18,11 +17,23 @@ import {
  */
 export default function ChatPanel() {
   const { t } = useLocale();
-  const { open, setOpen, width, setWidth, mounted, iframeRef, syncTheme } =
+  const { open, setOpen, width, setWidth, setWidthLive, mounted, iframeRef, syncTheme } =
     useChatPanel();
   const panelRef = useRef<HTMLElement | null>(null);
   const invokerRef = useRef<HTMLElement | null>(null);
   const dragRef = useRef<{ startX: number; startW: number } | null>(null);
+  const lastX = useRef(0);
+  // Page-aware embed: slug captured at first open (session persists after).
+  const [embedSrc, setEmbedSrc] = useState(CHAT_EMBED_URL);
+  useEffect(() => {
+    if (!mounted) return;
+    try {
+      const m = window.location.pathname.match(/^\/wiki\/([a-z0-9-]+)/i);
+      if (m) setEmbedSrc(`${CHAT_EMBED_URL}&page=${m[1].toLowerCase()}`);
+    } catch {
+      /* keep default */
+    }
+  }, [mounted]);
   const sheetDragRef = useRef<{ startY: number; startH: number } | null>(null);
 
   // Remember who opened the panel for focus restore.
@@ -71,23 +82,40 @@ export default function ChatPanel() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, setOpen]);
 
-  // Desktop drag-resize (left edge handle).
+  // Desktop drag-resize (left edge handle). Hot path paints the CSS var
+  // directly — zero React renders until release (no layout thrash).
   const onResizeStart = useCallback(
     (e: React.PointerEvent) => {
       e.preventDefault();
       dragRef.current = { startX: e.clientX, startW: width };
+      lastX.current = e.clientX;
+      document.body.classList.add("chat-resizing");
       const move = (ev: PointerEvent) => {
         if (!dragRef.current) return;
+        lastX.current = ev.clientX;
         const dx = dragRef.current.startX - ev.clientX;
-        setWidth(clampPanelWidth(dragRef.current.startW + dx));
+        setWidthLive(dragRef.current.startW + dx);
       };
       const up = () => {
+        const d = dragRef.current;
         dragRef.current = null;
+        document.body.classList.remove("chat-resizing");
         window.removeEventListener("pointermove", move);
         window.removeEventListener("pointerup", up);
+        if (d) setWidth(d.startW + (d.startX - lastX.current));
       };
       window.addEventListener("pointermove", move);
       window.addEventListener("pointerup", up);
+    },
+    [width, setWidth, setWidthLive],
+  );
+
+  // Keyboard resize: arrows on the focused handle (WCAG 2.5.7).
+  const onResizeKey = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      setWidth(width + (e.key === "ArrowLeft" ? 20 : -20));
     },
     [width, setWidth],
   );
@@ -160,12 +188,14 @@ export default function ChatPanel() {
         <div
           className="chat-resize-handle"
           role="separator"
+          tabIndex={0}
           aria-orientation="vertical"
           aria-label={t("chat.resize")}
           aria-valuemin={CHAT_PANEL_MIN_WIDTH}
           aria-valuemax={CHAT_PANEL_MAX_WIDTH}
           aria-valuenow={Math.round(width)}
           onPointerDown={onResizeStart}
+          onKeyDown={onResizeKey}
         />
         <div
           className="chat-sheet-handle"
@@ -206,7 +236,7 @@ export default function ChatPanel() {
           {mounted && (
             <iframe
               ref={iframeRef}
-              src={CHAT_EMBED_URL}
+              src={embedSrc}
               title={t("chat.title")}
               allow="microphone; autoplay; clipboard-write"
               onLoad={syncTheme}
