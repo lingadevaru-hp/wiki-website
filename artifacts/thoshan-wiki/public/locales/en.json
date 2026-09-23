@@ -162,5 +162,9 @@
   "media.video": "Video",
   "article.buyFossTitle": "Buy FOSS Coin",
   "article.buyFossSubtitle": "Live on Solana — trade via Phantom wallet",
-  "article.buyFossNow": "Buy Now"
+  "article.buyFossNow": "Buy Now",
+  "chat.title": "Chat with me",
+  "chat.close": "Close chat",
+  "chat.expand": "Open full site",
+  "chat.resize": "Resize chat panel"
 }

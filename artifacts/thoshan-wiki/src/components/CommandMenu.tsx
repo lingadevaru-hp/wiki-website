@@ -11,6 +11,7 @@ import {
 import { GlobeIcon } from '@/components/icons/GlobeIcon'
 import { ThoshanMark } from '@/components/Brand'
 import { OPEN_PICKER_EVENT } from '@/lib/theme'
+import { toggleChatPanel } from '@/lib/chat-panel'
 import type { CommandIcon, CommandItem } from '@/lib/command-menu'
 import {
   OPEN_PALETTE_EVENT,
@@ -160,6 +161,11 @@ export function CommandMenu() {
     if (item.action === 'themes') {
       close()
       window.dispatchEvent(new CustomEvent(OPEN_PICKER_EVENT))
+      return
+    }
+    if (item.action === 'chat') {
+      close()
+      toggleChatPanel()
       return
     }
     if (item.locale) {
