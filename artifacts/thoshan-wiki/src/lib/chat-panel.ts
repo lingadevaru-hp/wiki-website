@@ -24,12 +24,16 @@ export const CHAT_WIDTH_KEY = "wiki-chat-panel-width";
 
 export const CHAT_PANEL_DEFAULT_WIDTH = 400;
 export const CHAT_PANEL_MIN_WIDTH = 320;
-export const CHAT_PANEL_MAX_WIDTH = 640;
+/** Panel may grow to 70% of the viewport (site squeezes to 30%). */
+export function chatPanelMaxWidth(): number {
+  if (typeof window === "undefined") return 640;
+  return Math.max(CHAT_PANEL_MIN_WIDTH, Math.floor(window.innerWidth * 0.7));
+}
 
 export function clampPanelWidth(value: number) {
   if (Number.isNaN(value)) return CHAT_PANEL_DEFAULT_WIDTH;
   return Math.min(
-    CHAT_PANEL_MAX_WIDTH,
+    chatPanelMaxWidth(),
     Math.max(CHAT_PANEL_MIN_WIDTH, value),
   );
 }

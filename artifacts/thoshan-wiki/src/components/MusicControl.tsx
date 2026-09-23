@@ -201,7 +201,7 @@ export function MusicControl({ path = '/' }: { path?: string }) {
     <div
       data-hero-quiet
       data-no-stamp
-      className="group/card pointer-events-auto fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-4 md:left-5 z-(--z-dropdown) flex h-[46px] max-w-[calc(100vw-2rem)] items-stretch overflow-hidden rounded-xl border border-border-subtle bg-bg/85 supports-backdrop-filter:backdrop-blur-sm"
+      className="music-float-card group/card pointer-events-auto fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-4 md:left-5 z-(--z-dropdown) flex h-[46px] max-w-[calc(100vw-2rem)] items-stretch overflow-hidden rounded-xl border border-border-subtle bg-bg/85 supports-backdrop-filter:backdrop-blur-sm"
     >
       <button
         type="button"
