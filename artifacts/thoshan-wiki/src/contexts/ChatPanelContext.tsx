@@ -12,6 +12,7 @@ import {
 import {
   CHAT_OPEN_KEY,
   CHAT_WIDTH_KEY,
+  CHAT_COLLAPSED_KEY,
   CHAT_PANEL_DEFAULT_WIDTH,
   TOGGLE_CHAT_EVENT,
   clampPanelWidth,
@@ -25,6 +26,10 @@ interface ChatPanelContextValue {
   width: number;
   setWidth: (width: number) => void;
   setWidthLive: (width: number) => void;
+  /** 60%-width partial collapse (separate from open/close). */
+  collapsed: boolean;
+  toggleCollapse: () => void;
+  markUncollapsed: () => void;
   /** True once the iframe has mounted — never unmounts after that. */
   mounted: boolean;
   iframeRef: RefObject<HTMLIFrameElement | null>;
@@ -38,6 +43,9 @@ const ChatPanelContext = createContext<ChatPanelContextValue>({
   width: CHAT_PANEL_DEFAULT_WIDTH,
   setWidth: () => {},
   setWidthLive: () => {},
+  collapsed: false,
+  toggleCollapse: () => {},
+  markUncollapsed: () => {},
   mounted: false,
   iframeRef: { current: null },
   syncTheme: () => {},
@@ -59,12 +67,22 @@ function readWidth(): number {
   }
 }
 
+function readCollapsed(): boolean {
+  try {
+    return localStorage.getItem(CHAT_COLLAPSED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function ChatPanelProvider({ children }: { children: ReactNode }) {
   const { theme } = useTheme();
   const [open, setOpenState] = useState<boolean>(readOpen);
   const [width, setWidthState] = useState<number>(readWidth);
+  const [collapsed, setCollapsedState] = useState<boolean>(readCollapsed);
   const [mounted, setMounted] = useState<boolean>(readOpen);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const prevWidth = useRef<number | null>(null);
 
   const setOpen = useCallback((next: boolean) => {
     setOpenState(next);
@@ -108,6 +126,87 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
+  const persistCollapsed = useCallback((next: boolean) => {
+    setCollapsedState(next);
+    try {
+      localStorage.setItem(CHAT_COLLAPSED_KEY, next ? "1" : "0");
+    } catch {
+      /* storage unavailable */
+    }
+  }, []);
+
+  const toggleCollapse = useCallback(() => {
+    setCollapsedState((was) => {
+      if (was) {
+        if (prevWidth.current !== null) {
+          const restore = clampPanelWidth(prevWidth.current);
+          setWidthState(restore);
+          document.body.style.setProperty("--chat-w", `${restore}px`);
+          try {
+            localStorage.setItem(CHAT_WIDTH_KEY, String(restore));
+          } catch {
+            /* storage unavailable */
+          }
+        }
+        prevWidth.current = null;
+      } else {
+        setWidthState((w) => {
+          prevWidth.current = w;
+          const shrunk = clampPanelWidth(w * 0.6);
+          document.body.style.setProperty("--chat-w", `${shrunk}px`);
+          try {
+            localStorage.setItem(CHAT_WIDTH_KEY, String(shrunk));
+          } catch {
+            /* storage unavailable */
+          }
+          return shrunk;
+        });
+      }
+      try {
+        localStorage.setItem(CHAT_COLLAPSED_KEY, was ? "0" : "1");
+      } catch {
+        /* storage unavailable */
+      }
+      return !was;
+    });
+  }, []);
+
+  const markUncollapsed = useCallback(() => {
+    prevWidth.current = null;
+    persistCollapsed(false);
+  }, [persistCollapsed]);
+
+  // Auto-collapse on tight viewports (<1100px), restore when wide again.
+  // Only the viewport crossings are automated; user actions in between
+  // are left alone until the next crossing.
+  const collapseRef = useRef({ collapsed, toggleCollapse, markUncollapsed });
+  useEffect(() => {
+    collapseRef.current = { collapsed, toggleCollapse, markUncollapsed };
+  });
+  useEffect(() => {
+    const parked = { value: null as boolean | null };
+    const mql = window.matchMedia("(max-width: 1100px)");
+    const apply = (matches: boolean) => {
+      if (matches) {
+        if (parked.value !== null) return;
+        parked.value = collapseRef.current.collapsed;
+        if (!collapseRef.current.collapsed) {
+          collapseRef.current.toggleCollapse();
+        }
+      } else if (parked.value !== null) {
+        const was = parked.value;
+        parked.value = null;
+        if (!was && collapseRef.current.collapsed) {
+          collapseRef.current.toggleCollapse();
+        }
+      }
+    };
+    apply(mql.matches);
+    const onChange = (e: MediaQueryListEvent) => apply(e.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
   // Squeeze layout: a body class + width var the CSS reacts to.
   useEffect(() => {
     document.body.classList.toggle("chat-open", open);
@@ -140,8 +239,8 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
   }, [mounted, syncTheme]);
 
   const value = useMemo(
-    () => ({ open, toggle, setOpen, width, setWidth, setWidthLive, mounted, iframeRef, syncTheme }),
-    [open, toggle, setOpen, width, setWidth, setWidthLive, mounted, syncTheme],
+    () => ({ open, toggle, setOpen, width, setWidth, setWidthLive, collapsed, toggleCollapse, markUncollapsed, mounted, iframeRef, syncTheme }),
+    [open, toggle, setOpen, width, setWidth, setWidthLive, collapsed, toggleCollapse, markUncollapsed, mounted, syncTheme],
   );
 
   return (

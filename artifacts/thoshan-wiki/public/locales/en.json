@@ -168,5 +168,10 @@
   "chat.expand": "Open full site",
   "chat.resize": "Resize chat panel",
   "chat.collapsePanel": "Collapse panel to 60%",
-  "chat.expandPanel": "Restore panel width"
+  "chat.expandPanel": "Restore panel width",
+  "chat.opened": "Chat panel opened",
+  "chat.closed": "Chat panel closed",
+  "chat.sheetTall": "Chat sheet expanded",
+  "chat.sheetHalf": "Chat sheet lowered",
+  "chat.sheetToggle": "Cycle sheet height"
 }
