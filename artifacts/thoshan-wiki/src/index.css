@@ -7803,7 +7803,10 @@ a:hover {
    ═══════════════════════════════════════════════════════════════ */
 :root {
   --chat-w: 400px;
+  /* Spring-ish settle for panel travel (fast off the mark, gentle landing). */
+  --chat-spring: cubic-bezier(0.32, 0.72, 0, 1);
 }
+/* Layer scale: header 50 < progress 60 < sheet backdrop 80 < panel 90. */
 .wiki-shell,
 .wiki-header-inner,
 .omarchy-landing {
@@ -7833,20 +7836,22 @@ body.chat-open .wiki-header-inner {
   flex-direction: column;
   background: hsl(var(--background));
   border-left: 1px solid hsl(var(--border));
+  border-radius: 16px 0 0 16px;
   box-shadow: -18px 0 50px rgba(0, 0, 0, 0.35);
   transform: translateX(103%);
   visibility: hidden;
   will-change: transform;
   contain: layout style;
+  overscroll-behavior: contain;
   transition:
-    transform var(--duration-normal, 0.22s) var(--ease-out, ease),
-    visibility 0s linear var(--duration-normal, 0.22s);
+    transform 0.28s var(--chat-spring),
+    visibility 0s linear 0.28s;
 }
 .chat-panel.is-open {
   transform: none;
   visibility: visible;
   transition:
-    transform var(--duration-normal, 0.22s) var(--ease-out, ease),
+    transform 0.28s var(--chat-spring),
     visibility 0s;
 }
 /* Direct-manipulation drag: no transitions fighting the pointer. */
@@ -7920,6 +7925,8 @@ body.chat-resizing .omarchy-landing {
   flex: 1;
   min-height: 0;
   display: flex;
+  position: relative;
+  overscroll-behavior: contain;
 }
 .chat-panel-body iframe {
   flex: 1;
@@ -7927,6 +7934,48 @@ body.chat-resizing .omarchy-landing {
   height: 100%;
   border: 0;
   background: hsl(var(--background));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.chat-panel-body iframe.is-ready {
+  opacity: 1;
+}
+/* Loading skeleton behind the frame (perceived −30% wait). */
+.chat-frame-skeleton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 16px;
+  background: hsl(var(--background));
+}
+.chat-frame-skeleton-bar,
+.chat-frame-skeleton-input,
+.chat-frame-skeleton-row {
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted) / 0.35) 25%,
+    hsl(var(--muted) / 0.6) 50%,
+    hsl(var(--muted) / 0.35) 75%
+  );
+  background-size: 200% 100%;
+  animation: chat-shimmer 1.6s ease infinite;
+}
+.chat-frame-skeleton-bar {
+  height: 26px;
+  margin-bottom: 4px;
+}
+.chat-frame-skeleton-input {
+  height: 64px;
+}
+.chat-frame-skeleton-row {
+  height: 14px;
+}
+@keyframes chat-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 .chat-sheet-handle,
 .chat-backdrop {
@@ -7950,6 +7999,7 @@ body.chat-resizing .omarchy-landing {
     height: var(--chat-sheet-h, 60vh);
     max-height: 92dvh;
     margin-bottom: var(--chat-kb, 0px);
+    padding-bottom: env(safe-area-inset-bottom);
     border-left: 0;
     border-top: 1px solid hsl(var(--border));
     border-radius: 16px 16px 0 0;
@@ -7960,10 +8010,17 @@ body.chat-resizing .omarchy-landing {
   .chat-resize-handle {
     display: none;
   }
+  /* 48px touch target (M3); tap cycles 60% ↔ 90%. */
   .chat-sheet-handle {
     display: grid;
     place-items: center;
-    padding: 10px 0 4px;
+    min-height: 48px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
     cursor: grab;
     touch-action: none;
     flex: 0 0 auto;
@@ -7985,6 +8042,17 @@ body.chat-resizing .omarchy-landing {
     background: rgba(0, 0, 0, 0.5);
   }
 }
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Tablets: centered capped sheet instead of full-bleed (M3). */
+  .chat-panel {
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    max-width: 480px;
+    border-left: 1px solid hsl(var(--border));
+    border-right: 1px solid hsl(var(--border));
+  }
+}
 @media (max-width: 640px) {
   body.chat-open .wiki-header-inner {
     padding-right: 10px;
@@ -7997,7 +8065,10 @@ body.chat-resizing .omarchy-landing {
   .omarchy-landing {
     transition: none;
   }
-  .chat-pulse-once {
+  .chat-pulse-once,
+  .chat-frame-skeleton-bar,
+  .chat-frame-skeleton-input,
+  .chat-frame-skeleton-row {
     animation: none;
   }
 }

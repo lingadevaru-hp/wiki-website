@@ -23,13 +23,26 @@ import {
  */
 export default function ChatPanel() {
   const { t } = useLocale();
-  const { open, setOpen, width, setWidth, setWidthLive, mounted, iframeRef, syncTheme } =
+  const { open, setOpen, width, setWidth, setWidthLive, collapsed, toggleCollapse, markUncollapsed, mounted, iframeRef, syncTheme } =
     useChatPanel();
   const panelRef = useRef<HTMLElement | null>(null);
   const invokerRef = useRef<HTMLElement | null>(null);
-  const dragRef = useRef<{ startX: number; startW: number } | null>(null);
+  const dragRef = useRef<{ startX: number; startW: number; moved: boolean } | null>(null);
   const lastX = useRef(0);
   const lastY = useRef(0);
+  // Screen-reader announcements for state sighted users see.
+  const [notice, setNotice] = useState("");
+  const announce = useCallback((message: string) => {
+    setNotice("");
+    window.setTimeout(() => setNotice(message), 30);
+  }, []);
+  useEffect(() => {
+    announce(open ? t("chat.opened") : t("chat.closed"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open ]);
+  const announceCollapse = useCallback((isCollapsed: boolean) => {
+    announce(isCollapsed ? t("chat.collapsePanel") : t("chat.expandPanel"));
+  }, [announce, t]);
   // Page-aware embed: slug captured at first open (session persists after).
   const [embedSrc, setEmbedSrc] = useState(CHAT_EMBED_URL);
   useEffect(() => {
@@ -92,6 +105,7 @@ export default function ChatPanel() {
   // Desktop drag-resize (left edge handle). Pointer capture on the handle
   // guarantees move/up delivery — the drag can never stick to the cursor.
   // Hot path paints the CSS var directly — zero React renders until release.
+  // A press without movement (<4px) is a click: toggles 60% collapse.
   const onResizeStart = useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
       if (e.pointerType === "mouse" && e.button !== 0) return;
@@ -101,13 +115,13 @@ export default function ChatPanel() {
       try {
         handle.setPointerCapture(e.pointerId);
       } catch {
-        /* capture unavailable — fall back to window listeners */
+        /* capture unavailable */
       }
-      dragRef.current = { startX: e.clientX, startW: width };
+      dragRef.current = { startX: e.clientX, startW: width, moved: false };
       lastX.current = e.clientX;
       document.body.classList.add("chat-resizing");
     },
-    [width],
+    [width, markUncollapsed],
   );
 
   const onResizeMove = useCallback(
@@ -115,6 +129,7 @@ export default function ChatPanel() {
       if (!dragRef.current || !e.buttons) return;
       lastX.current = e.clientX;
       const dx = dragRef.current.startX - e.clientX;
+      if (Math.abs(dx) > 4) dragRef.current.moved = true;
       setWidthLive(dragRef.current.startW + dx);
     },
     [setWidthLive],
@@ -125,11 +140,24 @@ export default function ChatPanel() {
       const d = dragRef.current;
       dragRef.current = null;
       document.body.classList.remove("chat-resizing");
-      if (d && commit) setWidth(d.startW + (d.startX - lastX.current));
-      else if (d) setWidthLive(d.startW);
+      if (!d) return;
+      if (!d.moved) {
+        // Click rail (shadcn pattern): toggle collapse, keep width.
+        setWidthLive(d.startW);
+        toggleCollapse();
+        announceCollapse(!collapsedRef.current);
+        return;
+      }
+      if (commit) setWidth(d.startW + (d.startX - lastX.current));
+      else setWidthLive(d.startW);
     },
-    [setWidth, setWidthLive],
+    [setWidth, setWidthLive, toggleCollapse, announceCollapse],
   );
+
+  const collapsedRef = useRef(collapsed);
+  useEffect(() => {
+    collapsedRef.current = collapsed;
+  }, [collapsed]);
 
   const onResizeEnd = useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
@@ -147,26 +175,6 @@ export default function ChatPanel() {
     endResize(false);
   }, [endResize]);
 
-  // Collapse button: shrink to 60% of the current width (never below min);
-  // pressing again restores the pre-collapse width. Any manual drag resets it.
-  const [collapsed, setCollapsed] = useState(false);
-  const prevWidth = useRef<number | null>(null);
-  const markUncollapsed = useCallback(() => {
-    setCollapsed(false);
-    prevWidth.current = null;
-  }, []);
-  const toggleCollapse = useCallback(() => {
-    if (collapsed) {
-      setCollapsed(false);
-      if (prevWidth.current !== null) setWidth(prevWidth.current);
-      prevWidth.current = null;
-    } else {
-      prevWidth.current = width;
-      setCollapsed(true);
-      setWidth(width * 0.6);
-    }
-  }, [collapsed, width, setWidth]);
-
   // Esc mid-drag cancels and restores the pre-drag width.
   const onResizeKey = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -178,13 +186,14 @@ export default function ChatPanel() {
       }
       if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
       e.preventDefault();
+      markUncollapsed();
       setWidth(width + (e.key === "ArrowLeft" ? 20 : -20));
     },
-    [width, setWidth, endResize],
+    [width, setWidth, endResize, markUncollapsed],
   );
 
   // Mobile sheet: drag handle with snap points (pointer capture, same as desktop).
-  const onSheetDragStart = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+  const onSheetDragStart = useCallback((e: React.PointerEvent<HTMLElement>) => {
     e.preventDefault();
     const panel = panelRef.current;
     if (!panel) return;
@@ -200,7 +209,7 @@ export default function ChatPanel() {
     lastY.current = e.clientY;
   }, []);
 
-  const onSheetDragMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+  const onSheetDragMove = useCallback((e: React.PointerEvent<HTMLElement>) => {
     const d = sheetDragRef.current;
     if (!d || !panelRef.current || !e.buttons) return;
     lastY.current = e.clientY;
@@ -215,7 +224,7 @@ export default function ChatPanel() {
     sheetDragRef.current = null;
   }, []);
 
-  const onSheetDragEnd = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+  const onSheetDragEnd = useCallback((e: React.PointerEvent<HTMLElement>) => {
     try {
       e.currentTarget.releasePointerCapture(e.pointerId);
     } catch {
@@ -226,12 +235,33 @@ export default function ChatPanel() {
     if (!d || !panelRef.current) return;
     const h = d.startH + (d.startY - lastY.current);
     const vh = window.innerHeight;
-    if (h < vh * 0.45) setOpen(false);
-    else {
-      const snap = h > vh * 0.76 ? vh * 0.9 : vh * 0.6;
+    if (h < vh * 0.45) {
+      setOpen(false);
+    } else {
+      const tall = h > vh * 0.76;
+      const snap = tall ? vh * 0.9 : vh * 0.6;
       panelRef.current.style.setProperty("--chat-sheet-h", `${snap}px`);
+      announce(tall ? t("chat.sheetTall") : t("chat.sheetHalf"));
     }
-  }, [setOpen]);
+  }, [setOpen, announce, t]);
+
+  // Tap the sheet handle (M3): cycle 60% ↔ 90% without dragging.
+  const onSheetHandleTap = useCallback(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    const vh = window.innerHeight;
+    const cur = panel.getBoundingClientRect().height;
+    const tall = cur < vh * 0.75;
+    panel.style.setProperty("--chat-sheet-h", `${tall ? vh * 0.9 : vh * 0.6}px`);
+    announce(tall ? t("chat.sheetTall") : t("chat.sheetHalf"));
+  }, [announce, t]);
+
+  // Iframe first paint: skeleton shimmer behind the frame until loaded.
+  const [frameReady, setFrameReady] = useState(false);
+  const onFrameLoad = useCallback(() => {
+    setFrameReady(true);
+    syncTheme();
+  }, [syncTheme]);
 
   // Keyboard avoidance: lift the sheet above the software keyboard.
   useEffect(() => {
@@ -277,16 +307,18 @@ export default function ChatPanel() {
           onPointerCancel={onResizeCancel}
           onKeyDown={onResizeKey}
         />
-        <div
+        <button
+          type="button"
           className="chat-sheet-handle"
-          aria-hidden="true"
+          aria-label={t("chat.sheetToggle")}
           onPointerDown={onSheetDragStart}
           onPointerMove={onSheetDragMove}
           onPointerUp={onSheetDragEnd}
           onPointerCancel={onSheetDragCancel}
+          onClick={onSheetHandleTap}
         >
-          <span />
-        </div>
+          <span aria-hidden="true" />
+        </button>
         <header className="chat-panel-header">
           <span className="chat-panel-title">
             <MessageCircle size={16} aria-hidden="true" />
@@ -296,7 +328,10 @@ export default function ChatPanel() {
             <button
               type="button"
               className="header-icon-button"
-              onClick={toggleCollapse}
+              onClick={() => {
+                toggleCollapse();
+                announceCollapse(!collapsed);
+              }}
               aria-label={collapsed ? t("chat.expandPanel") : t("chat.collapsePanel")}
               title={collapsed ? t("chat.expandPanel") : t("chat.collapsePanel")}
               aria-pressed={collapsed}
@@ -327,17 +362,30 @@ export default function ChatPanel() {
           </span>
         </header>
         <div className="chat-panel-body">
+          {mounted && !frameReady && (
+            <div className="chat-frame-skeleton" aria-hidden="true">
+              <span className="chat-frame-skeleton-bar" style={{ width: "42%" }} />
+              <span className="chat-frame-skeleton-input" />
+              <span className="chat-frame-skeleton-row" style={{ width: "78%" }} />
+              <span className="chat-frame-skeleton-row" style={{ width: "62%" }} />
+              <span className="chat-frame-skeleton-row" style={{ width: "70%" }} />
+            </div>
+          )}
           {mounted && (
             <iframe
               ref={iframeRef}
               src={embedSrc}
               title={t("chat.title")}
               allow="microphone; autoplay; clipboard-write"
-              onLoad={syncTheme}
+              onLoad={onFrameLoad}
               data-testid="chat-iframe"
+              className={frameReady ? "is-ready" : ""}
             />
           )}
         </div>
+        <span className="sr-only" role="status" aria-live="polite">
+          {notice}
+        </span>
       </aside>
     </>
   );

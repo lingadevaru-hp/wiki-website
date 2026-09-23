@@ -21,6 +21,7 @@ export function openChatFullSite() {
 /** Storage keys for panel persistence across reloads. */
 export const CHAT_OPEN_KEY = "wiki-chat-panel-open";
 export const CHAT_WIDTH_KEY = "wiki-chat-panel-width";
+export const CHAT_COLLAPSED_KEY = "wiki-chat-panel-collapsed";
 
 export const CHAT_PANEL_DEFAULT_WIDTH = 400;
 export const CHAT_PANEL_MIN_WIDTH = 320;
