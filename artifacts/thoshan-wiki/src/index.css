@@ -4384,13 +4384,17 @@ aside.fixed {
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── 1. Consistent border-radius ── */
-.wiki-header,
+/* NOTE: .wiki-header is sticky full-bleed — no radius, or it leaves
+   gaps at the viewport edges and the progress bar overlaps content. */
 .wiki-sidebar,
 .related-rail,
 .article-settings,
 .global-search-modal,
 .shortcuts-modal {
   border-radius: var(--radius-lg, 12px);
+}
+.wiki-header {
+  border-radius: 0;
 }
 
 /* ── 2. Optical alignment for buttons with icons ── */
@@ -4478,12 +4482,14 @@ h2 {
 }
 
 /* ── 8. Spacing consistency ── */
+/* Keep top padding: the sticky header + fixed 4px reading-progress bar
+   sit above this, so 0 top padding jams breadcrumbs into the bar. */
 .wiki-main {
-  padding: 0 24px;
+  padding: 20px 24px 0;
 }
 @media (max-width: 640px) {
   .wiki-main {
-    padding: 0 12px;
+    padding: 16px 12px 0;
   }
 }
 
@@ -7598,12 +7604,16 @@ a:hover {
    mobile), Print button escaping its container on mobile.
    ═══════════════════════════════════════════════════════════════ */
 
-/* Breadcrumbs: never overflow the content column. */
+/* Breadcrumbs: never overflow the content column. Clear of the
+   fixed reading-progress bar, vertically centered, tappable. */
 .wiki-breadcrumbs {
   min-width: 0;
   max-width: 100%;
   overflow: hidden;
   line-height: 1.5;
+  padding-top: 10px;
+  margin-top: 2px;
+  scroll-margin-top: 70px;
 }
 .wiki-breadcrumbs > span {
   min-width: 0;
