@@ -7996,9 +7996,6 @@ body.chat-resizing .omarchy-landing {
 .chat-detent-btn {
   display: none;
 }
-.chat-mini-bar {
-  display: none;
-}
 .chat-panel-actions {
   display: inline-flex;
   align-items: center;
@@ -8104,33 +8101,6 @@ body.chat-resizing .omarchy-landing {
   }
   .chat-detent-icons svg + svg {
     margin-top: -7px;
-  }
-  /* Mini-app bottom bar: thumb-reach actions (Telegram MainButton pattern). */
-  .chat-mini-bar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-    border-top: 1px solid hsl(var(--border));
-    background: hsl(var(--background));
-    flex: 0 0 auto;
-  }
-  .chat-mini-bar button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    min-height: 44px;
-    border-radius: 12px;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--card));
-    color: hsl(var(--foreground));
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .chat-mini-bar button:active {
-    transform: scale(0.97);
-    background: hsl(var(--accent) / 0.15);
   }
   .chat-resize-handle {
     display: none;
