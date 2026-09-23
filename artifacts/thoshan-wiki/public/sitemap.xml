@@ -1,93 +1,1563 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lingadevaru.in/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/home</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/home</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/home" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/home" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/about</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/about</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/about" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/foss-coin</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/foss-coin</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-on-chain-verification" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-on-chain-verification" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/foss-coin-how-it-was-built" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/foss-coin-how-it-was-built" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/thoshan-flash</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/thoshan-flash</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/thoshan-flash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/thoshan-flash" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/homelab</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/homelab</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/homelab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/homelab" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/privacy-stack</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/privacy-stack</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/privacy-stack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/privacy-stack" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/insurance-dapp</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/insurance-dapp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/insurance-dapp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/insurance-dapp" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/local-pulse</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/local-pulse</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/local-pulse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/local-pulse" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/linux-setup</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/linux-setup</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/linux-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/linux-setup" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/fraud-detection</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/fraud-detection</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/fraud-detection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/fraud-detection" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/learning-roadmap</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/learning-roadmap</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/learning-roadmap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/learning-roadmap" />
   </url>
   <url>
     <loc>https://lingadevaru.in/wiki/articles</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://kn.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://hi.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://ja.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://ml.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://ta.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://te.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
+  </url>
+  <url>
+    <loc>https://gu.lingadevaru.in/wiki/articles</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="kn" href="https://kn.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://hi.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ja.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://ml.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="ta" href="https://ta.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="te" href="https://te.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="gu" href="https://gu.lingadevaru.in/wiki/articles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lingadevaru.in/wiki/articles" />
   </url>
 </urlset>

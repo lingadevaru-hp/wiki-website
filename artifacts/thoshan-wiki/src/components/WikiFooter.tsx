@@ -52,6 +52,11 @@ export default function WikiFooter() {
           </a>
           <a href="mailto:contact@lingadevaru.in">{t('footer.contact')}</a>
         </div>
+        <p className="mt-4">
+          Lingadevaru HP (Thoshan) — lingadevaru · lingadevaruhp · thoshanhp —
+          blockchain developer and FOSS advocate. Explore Thoshan projects
+          including Thoshan Flash and FOSS Coin.
+        </p>
       </div>
     </footer>
   );
