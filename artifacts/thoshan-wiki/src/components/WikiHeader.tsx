@@ -164,7 +164,7 @@ export default function WikiHeader({
           </a>
           {/* Overflow popup menu, copied from the omarchy-site mobile sheet
               pattern (icon + label rows for the secondary links). */}
-          <DropdownMenu>
+          <DropdownMenu modal={false}>
             <DropdownMenuTrigger
               className="header-icon-button"
               aria-label={t("nav.moreLinks")}
@@ -172,7 +172,17 @@ export default function WikiHeader({
             >
               <Ellipsis size={18} />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" sideOffset={10} className="w-56">
+            <DropdownMenuContent
+              align="end"
+              side="bottom"
+              sideOffset={10}
+              collisionPadding={12}
+              avoidCollisions
+              sticky="always"
+              hideWhenDetached={false}
+              onCloseAutoFocus={(e) => e.preventDefault()}
+              className="w-56"
+            >
               <DropdownMenuItem asChild>
                 <a
                   href="https://linkedin.com/in/lingadevaruhp"

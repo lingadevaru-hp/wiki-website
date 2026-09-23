@@ -898,10 +898,25 @@ a:active {
 .wiki-header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  /* Above the fixed reading-progress bar (z 60) so header dropdowns
+     never paint under it, and the bar never covers the globe menu. */
+  z-index: 70;
   background: color-mix(in srgb, hsl(var(--background)) 94%, transparent);
   border-bottom: 1px solid hsl(var(--border));
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+/* Header dropdowns (globe / overflow): keep inside the dynamic mobile
+   viewport (Android URL-bar resize) and above the progress bar. */
+[data-radix-popper-content-wrapper] {
+  z-index: 80 !important;
+  max-width: calc(100vw - 24px);
+}
+[data-radix-popper-content-wrapper] [role="menu"] {
+  max-height: min(70vh, 70dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .wiki-header-inner {
   display: flex;
@@ -2648,6 +2663,10 @@ pre {
     min-height: 54px;
     padding-inline: 10px;
     gap: 5px;
+  }
+  /* Reading-progress bar sits flush under the shorter mobile header. */
+  .reading-progress {
+    top: 54px;
   }
   .wiki-wordmark {
     font-size: 14px;

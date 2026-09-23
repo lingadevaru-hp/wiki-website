@@ -32,7 +32,7 @@ export function LanguageSwitcher({
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger
         className={triggerClassName}
         aria-label={`${t('lang.language')}: ${active.name}`}
@@ -40,7 +40,17 @@ export function LanguageSwitcher({
       >
         <GlobeIcon className="size-[18px]" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" sideOffset={10} className="w-56">
+      <DropdownMenuContent
+        align="end"
+        side="bottom"
+        sideOffset={10}
+        collisionPadding={12}
+        avoidCollisions
+        sticky="always"
+        hideWhenDetached={false}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+        className="w-56"
+      >
         <DropdownMenuLabel>{t('lang.language')}</DropdownMenuLabel>
         {SUPPORTED_LOCALES.map((entry) => (
           <DropdownMenuItem
