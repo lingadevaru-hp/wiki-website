@@ -100,7 +100,7 @@ export default function HomePage() {
         title="Wiki Home — Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer"
         description="Projects. Experiments. Learnings. Detailed notes on technology, self-hosting, security, blockchain, AI/ML, and more — built while learning, building, and exploring."
         path="/wiki/home"
-        keywords={["Lingadevaru HP","Thoshan","FOSS Coin","Thoshan Flash","blockchain","projects","open source","Solana","AI/ML"]}
+        keywords={["lingadevaru", "lingadevaruhp", "Thoshan", "thoshanhp", "Lingadevaru HP", "FOSS Coin", "Thoshan Flash", "blockchain", "projects", "open source", "Solana", "AI/ML"]}
       />
 
       <section className="nh-hero" aria-label="Intro">

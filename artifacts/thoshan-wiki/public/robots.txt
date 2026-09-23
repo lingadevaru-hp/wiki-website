@@ -41,8 +41,10 @@ Disallow: /
 User-agent: FacebookBot
 Disallow: /
 
+# OAI-SearchBot powers ChatGPT Search citations — allow so pages stay citable
+# (GPTBot training block above already prevents model-training use).
 User-agent: OAI-SearchBot
-Disallow: /
+Allow: /
 
 User-agent: AppleBot-Extended
 Disallow: /
@@ -113,8 +115,9 @@ Disallow: /
 User-agent: Sogou
 Disallow: /
 
+# DuckAssistBot powers DuckDuckGo AI answers — allow so pages stay citable.
 User-agent: DuckAssistBot
-Disallow: /
+Allow: /
 
 User-agent: Timpibot
 Disallow: /
@@ -134,11 +137,13 @@ Disallow: /
 User-agent: webzio
 Disallow: /
 
+# Google ads/partner crawlers must be allowed: blocking AdsBot-Google or
+# Mediapartners-Google breaks AdSense measurement, not just ads.
 User-agent: AdsBot-Google
-Disallow: /
+Allow: /
 
 User-agent: Mediapartners-Google
-Disallow: /
+Allow: /
 
 # Block web archives
 User-agent: ia_archiver

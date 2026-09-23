@@ -28,7 +28,7 @@ function buildArticleSchema(article: Article) {
       "@type": "Person",
       "@id": `${baseUrl}/#person`,
       name: "Lingadevaru H P",
-      alternateName: ["Thoshan", "Thoshan HP"],
+      alternateName: ["Thoshan", "Thoshan HP", "thoshanhp", "lingadevaruhp"],
       url: baseUrl,
     },
     publisher: {
@@ -145,8 +145,13 @@ export default function ArticlePage() {
               article.metadata.category,
               ...(article.categories || []),
               "Thoshan",
+              "thoshanhp",
               "Lingadevaru HP",
               "Lingadevaru H P",
+              "lingadevaru",
+              "lingadevaruhp",
+              "Thoshan Flash",
+              "Thoshan projects",
             ]}
             article={{
               dateModified: article.metadata.lastEdited,
