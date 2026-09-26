@@ -1,9 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import {
   Bookmark,
   BookmarkCheck,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Copy,
   ExternalLink,
   Github,
@@ -58,6 +60,112 @@ const formatDate = (value: string) =>
     year: "numeric",
   });
 
+interface NewsHeroProps {
+  article: Article;
+  videoRef: { current: HTMLVideoElement | null };
+  videoOk: boolean;
+  setVideoOk: (ok: boolean) => void;
+  unmuted: boolean;
+  toggleSound: () => void;
+}
+
+/** Swipeable news banner: slide 1 is the video, slide 2 the group photo.
+ *  The video element stays mounted on both slides so the voice keeps
+ *  playing while swiping. Arrows + dots + touch swipe. */
+function NewsHero({
+  article,
+  videoRef,
+  videoOk,
+  setVideoOk,
+  unmuted,
+  toggleSound,
+}: NewsHeroProps) {
+  const { t } = useLocale();
+  const [slide, setSlide] = useState(0);
+  const touchX = useRef<number | null>(null);
+  const hasPhoto = !!article.heroImage;
+  const go = (dir: 1 | -1) => setSlide((s) => (s + dir + 2) % 2);
+
+  return (
+    <div
+      className="news-hero"
+      onTouchStart={(e) => {
+        touchX.current = e.touches[0].clientX;
+      }}
+      onTouchEnd={(e) => {
+        if (touchX.current == null) return;
+        const dx = e.changedTouches[0].clientX - touchX.current;
+        touchX.current = null;
+        if (Math.abs(dx) > 40 && hasPhoto) go(dx < 0 ? 1 : -1);
+      }}
+    >
+      <div className={`news-slide${slide === 0 ? " is-active" : ""}`}>
+        {videoOk ? (
+          <video
+            ref={videoRef}
+            src={article.heroVideo}
+            poster={article.heroPoster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            onError={() => setVideoOk(false)}
+            aria-label={article.metadata.title}
+          />
+        ) : (
+          article.heroPoster && (
+            <img src={article.heroPoster} alt="" aria-hidden="true" />
+          )
+        )}
+      </div>
+      {hasPhoto && (
+        <div className={`news-slide${slide === 1 ? " is-active" : ""}`}>
+          <img src={article.heroImage} alt={article.metadata.title} />
+        </div>
+      )}
+      <div className="news-hero-caption">
+        <p className="section-eyebrow">{t("type.newsTitle")}</p>
+        <h1>{article.metadata.title}</h1>
+        <p>{getArticleDek(article)}</p>
+      </div>
+      <button
+        type="button"
+        className="news-sound"
+        onClick={toggleSound}
+        aria-pressed={unmuted}
+        aria-label={unmuted ? t("article.soundOff") : t("article.soundOn")}
+        title={unmuted ? t("article.soundOff") : t("article.soundOn")}
+      >
+        {unmuted ? <Volume2 size={17} /> : <VolumeX size={17} />}
+      </button>
+      {hasPhoto && (
+        <div className="news-hero-nav">
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label={t("article.prevSlide")}
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <span className="news-dots" aria-hidden="true">
+            {[0, 1].map((i) => (
+              <i key={i} className={slide === i ? "is-active" : ""} />
+            ))}
+          </span>
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label={t("article.nextSlide")}
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ArticleView({ article }: { article: Article }) {
   const { t } = useLocale();
   const { theme, setTheme } = useTheme();
@@ -99,6 +207,46 @@ export default function ArticleView({ article }: { article: Article }) {
   useEffect(() => {
     localStorage.setItem("wiki-content-width", contentWidth);
   }, [contentWidth]);
+
+  /** News articles are pure reading: no settings panel, fixed
+   *  large/standard layout plus the distinct news reader style. */
+  const isNews =
+    article.metadata.category === "News" ||
+    article.metadata.category === "Events" ||
+    (article.categories ?? []).some((c) =>
+      ["news", "events"].includes(c.toLowerCase()),
+    );
+  const hasVideoHero = isNews && !!article.heroVideo;
+  const [videoOk, setVideoOk] = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [unmuted, setUnmuted] = useState(false);
+  const toggleSound = useCallback(() => {
+    const v = videoRef.current;
+    setUnmuted((was) => {
+      const next = !was;
+      if (v) {
+        v.muted = !next;
+        if (next) {
+          v.volume = 1;
+          v.play().catch(() => {});
+        }
+      }
+      return next;
+    });
+  }, []);
+  /** More news for the left rail (same category, not this article). */
+  const moreNews = useMemo(
+    () =>
+      allArticles
+        .filter(
+          (a) =>
+            !a.hiddenFromSearch &&
+            a.slug !== article.metadata.slug &&
+            (a.category === "News" || a.category === "Events"),
+        )
+        .slice(0, 5),
+    [allArticles, article.metadata.slug],
+  );
 
   useEffect(() => {
     const key = `wiki-reading-progress:${article.metadata.slug}`;
@@ -292,16 +440,17 @@ export default function ArticleView({ article }: { article: Article }) {
     setResumeProgress(0);
   };
 
-  const fontClass =
-    fontSize === "small"
+  const fontClass = isNews
+    ? "article-size-large"
+    : fontSize === "small"
       ? "article-size-small"
       : fontSize === "large"
         ? "article-size-large"
         : "";
   const widthClass =
-    contentWidth === "wide"
-      ? "article-content-wide"
-      : "article-content-standard";
+    isNews || contentWidth !== "wide"
+      ? "article-content-standard"
+      : "article-content-wide";
 
   return (
     <>
@@ -319,12 +468,41 @@ export default function ArticleView({ article }: { article: Article }) {
         </b>
       </div>
 
+      {hasVideoHero && (
+        <NewsHero
+          article={article}
+          videoRef={videoRef}
+          videoOk={videoOk}
+          setVideoOk={setVideoOk}
+          unmuted={unmuted}
+          toggleSound={toggleSound}
+        />
+      )}
+
       <div
         className={`article-layout ${article.metadata.slug === "foss-coin" ? "article-layout-foss" : ""}`}
       >
+      {isNews && moreNews.length > 0 && (
+        <aside className="news-rail print:hidden" aria-label={t("type.newsTitle")}>
+          <p className="section-eyebrow">{t("type.newsTitle")}</p>
+          <ul className="news-rail-list">
+            {moreNews.map((item) => (
+              <li key={item.slug}>
+                <Link
+                  href={`/wiki/${item.slug}`}
+                  className="news-rail-card"
+                >
+                  <strong>{item.title}</strong>
+                  {item.excerpt && <small>{item.excerpt}</small>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
       <article
         ref={articleRef}
-        className={`article-reader-content ${fontClass} ${widthClass}`}
+        className={`article-reader-content ${fontClass} ${widthClass}${isNews ? " article--news" : ""}`}
       >
         <div className="article-kicker">
           <span style={{ color: categoryColor(article.metadata.category) }}>
@@ -334,94 +512,12 @@ export default function ArticleView({ article }: { article: Article }) {
           <span>{t('article.updated')} {formatDate(article.metadata.lastEdited)}</span>
         </div>
         <header className="article-heading">
-          <h1 data-testid="article-title">{article.metadata.title}</h1>
-          <p className="article-dek">{getArticleDek(article)}</p>
-          <div className="article-actions print:hidden">
-            <ArticleAudioReader
-              title={article.metadata.title}
-              text={extractArticleText(article)}
-              onPlayerOpenChange={setAudioPlayerOpen}
-            />
-            {article.githubButton && (
-              <a
-                href={article.githubButton.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-button article-top-link print:hidden"
-                aria-label={t('article.openRepo')}
-              >
-                <Github size={16} />
-                <span className="hidden sm:inline">{t('article.github')}</span>
-              </a>
-            )}
-            {article.deployedUrl && (
-              <a
-                href={article.deployedUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-button article-top-link print:hidden"
-                aria-label={t('article.visitDeployed')}
-              >
-                <ExternalLink size={16} />
-                <span className="hidden sm:inline">{t('article.visitProject')}</span>
-              </a>
-            )}
-            <button
-              type="button"
-              className={`action-button ${bookmarked ? "is-active" : ""}`}
-              onClick={() => {
-                toggleBookmark({
-                  slug: article.metadata.slug,
-                  title: article.metadata.title,
-                  category: article.metadata.category,
-                });
-                showFeedback(
-                  bookmarked ? t('article.removedSaved') : t('article.savedLater'),
-                );
-              }}
-              aria-label={bookmarked ? "Remove bookmark" : "Save article"}
-              data-testid="button-bookmark"
-            >
-              {bookmarked ? (
-                <BookmarkCheck size={16} />
-              ) : (
-                <Bookmark size={16} />
-              )}
-              <span className="hidden sm:inline">
-                {bookmarked ? t('article.saved') : t('article.save')}
-              </span>
-            </button>
-            <button
-              type="button"
-              className="action-button"
-              onClick={() => copy(window.location.href, t('article.linkCopied'))}
-              aria-label={t('article.copyArticleLink')}
-              data-testid="button-copy-link"
-            >
-              <Copy size={16} />
-              <span className="hidden sm:inline">{t('article.copyLink')}</span>
-            </button>
-            <button
-              type="button"
-              className="action-button"
-              onClick={shareArticle}
-              aria-label={t('article.shareArticle')}
-              data-testid="button-share"
-            >
-              <Share2 size={16} />
-              <span className="hidden sm:inline">{t('article.share')}</span>
-            </button>
-            <button
-              type="button"
-              className="action-button article-print-button sm:ml-auto"
-              onClick={() => window.print()}
-              aria-label={t('article.printArticle')}
-              data-testid="button-print"
-            >
-              <Printer size={16} />
-              <span className="hidden sm:inline">{t('article.print')}</span>
-            </button>
-          </div>
+          {!hasVideoHero && (
+            <>
+              <h1 data-testid="article-title">{article.metadata.title}</h1>
+              <p className="article-dek">{getArticleDek(article)}</p>
+            </>
+          )}
         </header>
 
         {article.metadata.slug === "foss-coin" && (
@@ -615,7 +711,94 @@ export default function ArticleView({ article }: { article: Article }) {
           ))}
         </div>
 
-        {(articleNeighbors.previous || articleNeighbors.next) && (
+        <div className="article-actions article-actions-end print:hidden">
+          <ArticleAudioReader
+            title={article.metadata.title}
+            text={extractArticleText(article)}
+            onPlayerOpenChange={setAudioPlayerOpen}
+          />
+          {article.githubButton && (
+            <a
+              href={article.githubButton.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-button article-top-link print:hidden"
+              aria-label={t('article.openRepo')}
+            >
+              <Github size={16} />
+              <span className="hidden sm:inline">{t('article.github')}</span>
+            </a>
+          )}
+          {article.deployedUrl && (
+            <a
+              href={article.deployedUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-button article-top-link print:hidden"
+              aria-label={t('article.visitDeployed')}
+            >
+              <ExternalLink size={16} />
+              <span className="hidden sm:inline">{t('article.visitProject')}</span>
+            </a>
+          )}
+          <button
+            type="button"
+            className={`action-button ${bookmarked ? "is-active" : ""}`}
+            onClick={() => {
+              toggleBookmark({
+                slug: article.metadata.slug,
+                title: article.metadata.title,
+                category: article.metadata.category,
+              });
+              showFeedback(
+                bookmarked ? t('article.removedSaved') : t('article.savedLater'),
+              );
+            }}
+            aria-label={bookmarked ? "Remove bookmark" : "Save article"}
+            data-testid="button-bookmark"
+          >
+            {bookmarked ? (
+              <BookmarkCheck size={16} />
+            ) : (
+              <Bookmark size={16} />
+            )}
+            <span className="hidden sm:inline">
+              {bookmarked ? t('article.saved') : t('article.save')}
+            </span>
+          </button>
+          <button
+            type="button"
+            className="action-button"
+            onClick={() => copy(window.location.href, t('article.linkCopied'))}
+            aria-label={t('article.copyArticleLink')}
+            data-testid="button-copy-link"
+          >
+            <Copy size={16} />
+            <span className="hidden sm:inline">{t('article.copyLink')}</span>
+          </button>
+          <button
+            type="button"
+            className="action-button"
+            onClick={shareArticle}
+            aria-label={t('article.shareArticle')}
+            data-testid="button-share"
+          >
+            <Share2 size={16} />
+            <span className="hidden sm:inline">{t('article.share')}</span>
+          </button>
+          <button
+            type="button"
+            className="action-button article-print-button sm:ml-auto"
+            onClick={() => window.print()}
+            aria-label={t('article.printArticle')}
+            data-testid="button-print"
+          >
+            <Printer size={16} />
+            <span className="hidden sm:inline">{t('article.print')}</span>
+          </button>
+        </div>
+
+        {!isNews && (articleNeighbors.previous || articleNeighbors.next) && (
           <nav
             className="article-neighbors print:hidden"
             aria-label="Article navigation"
@@ -639,7 +822,7 @@ export default function ArticleView({ article }: { article: Article }) {
           </nav>
         )}
 
-        {related.length > 0 && (
+        {!isNews && related.length > 0 && (
           <section className="read-next print:hidden">
             <div className="section-eyebrow">{t('article.keepReading')}</div>
             <h2>{t('article.recommended')}</h2>
@@ -662,6 +845,7 @@ export default function ArticleView({ article }: { article: Article }) {
         )}
       </article>
 
+      {!isNews && (
       <aside
         className="related-rail print:hidden"
         aria-label="Article navigation"
@@ -735,57 +919,62 @@ export default function ArticleView({ article }: { article: Article }) {
           </section>
         )}
       </aside>
+      )}
 
-      <aside className="article-settings print:hidden">
-        <div className="settings-panel">
-          <p className="section-eyebrow">{t('article.settings')}</p>
-          <div className="settings-group">
-            <span>{t('article.textSize')}</span>
-            <div className="settings-options">
-              {(["small", "standard", "large"] as const).map((size) => (
+      {!isNews && (
+        <aside className="article-settings print:hidden">
+          <div className="settings-panel">
+            <p className="section-eyebrow">{t('article.settings')}</p>
+            <div className="settings-group">
+              <span>{t('article.textSize')}</span>
+              <div className="settings-options">
+                {["small", "standard", "large"].map((size) => (
+                  <button
+                    key={size}
+                    onClick={() =>
+                      setFontSize(size as "small" | "standard" | "large")
+                    }
+                    className={fontSize === size ? "selected" : ""}
+                  >
+                    {size === "small" ? "S" : size === "standard" ? "M" : "L"}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="settings-group">
+              <span>{t('article.width')}</span>
+              <div className="settings-options">
+                {(["standard", "wide"] as const).map((width) => (
+                  <button
+                    key={width}
+                    onClick={() => setContentWidth(width)}
+                    className={contentWidth === width ? "selected" : ""}
+                  >
+                    {width === "standard" ? "Reading" : "Wide"}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="settings-group">
+              <span>{t('article.theme')}</span>
+              <div className="settings-options">
                 <button
-                  key={size}
-                  onClick={() => setFontSize(size)}
-                  className={fontSize === size ? "selected" : ""}
+                  onClick={() => setTheme("light")}
+                  className={theme === "white" ? "selected" : ""}
                 >
-                  {size === "small" ? "S" : size === "standard" ? "M" : "L"}
+                  Light
                 </button>
-              ))}
-            </div>
-          </div>
-          <div className="settings-group">
-            <span>{t('article.width')}</span>
-            <div className="settings-options">
-              {(["standard", "wide"] as const).map((width) => (
                 <button
-                  key={width}
-                  onClick={() => setContentWidth(width)}
-                  className={contentWidth === width ? "selected" : ""}
+                  onClick={() => setTheme("dark")}
+                  className={theme === "tokyo-night" ? "selected" : ""}
                 >
-                  {width === "standard" ? "Reading" : "Wide"}
+                  Dark
                 </button>
-              ))}
+              </div>
             </div>
           </div>
-          <div className="settings-group">
-            <span>{t('article.theme')}</span>
-            <div className="settings-options">
-              <button
-                onClick={() => setTheme("light")}
-                className={theme === "white" ? "selected" : ""}
-              >
-                Light
-              </button>
-              <button
-                onClick={() => setTheme("dark")}
-                className={theme === "tokyo-night" ? "selected" : ""}
-              >
-                Dark
-              </button>
-            </div>
-          </div>
-        </div>
-      </aside>
+        </aside>
+      )}
       </div>
 
       {article.metadata.slug === "foss-coin" && (

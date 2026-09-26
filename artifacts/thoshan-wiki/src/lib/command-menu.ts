@@ -8,6 +8,9 @@ export type CommandIcon =
   | 'home'
   | 'wiki'
   | 'articles'
+  | 'projects'
+  | 'achievements'
+  | 'news'
   | 'search'
   | 'themes'
   | 'language'
@@ -42,6 +45,9 @@ const ITEMS: Array<CommandItem> = [
   { id: 'home', label: 'Home', icon: 'home', to: '/' },
   { id: 'wiki', label: 'Wiki Home', icon: 'wiki', to: '/wiki/home' },
   { id: 'articles', label: 'Articles', icon: 'articles', to: '/wiki/articles' },
+  { id: 'projects', label: 'Projects', icon: 'projects', to: '/projects' },
+  { id: 'achievements', label: 'Achievements', icon: 'achievements', to: '/achievements' },
+  { id: 'news', label: 'News', icon: 'news', to: '/news' },
   { id: 'search', label: 'Search articles', icon: 'search', action: 'search' },
   { id: 'themes', label: 'Themes', icon: 'themes', action: 'themes' },
   { id: 'language', label: 'Language', icon: 'language' },

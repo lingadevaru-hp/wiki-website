@@ -121,3 +121,16 @@
   .nh-recent-grid { grid-template-columns: 1fr; }
   .nh-feat-card { flex-basis: 92vw; }
 }
+
+/* Collection cards (Projects / Achievements / Events) — link to the
+   dedicated listing pages. Replaces the old Recent articles grid. */
+.nh-coll-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.nh-coll-card { display: grid; gap: 8px; align-content: start; text-align: left; text-decoration: none; background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 16px; padding: 20px 18px 16px; transition: border-color .15s, transform .15s, box-shadow .15s; min-width: 0; }
+.nh-coll-card:hover { border-color: hsl(var(--ring)); transform: translateY(-2px); box-shadow: 0 8px 22px hsl(var(--border) / .3); }
+.nh-coll-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; color: hsl(var(--accent)); background: hsl(var(--accent) / .1); border: 1px solid hsl(var(--accent) / .25); }
+.nh-coll-card strong { font-family: Georgia, serif; font-size: 19px; color: hsl(var(--foreground)); }
+.nh-coll-card small { font-family: system-ui, sans-serif; font-size: 12.5px; color: hsl(var(--muted-foreground)); line-height: 1.55; }
+.nh-coll-card em { display: inline-flex; align-items: center; gap: 6px; font-style: normal; font-family: system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: hsl(var(--accent)); margin-top: 4px; }
+@media (max-width: 860px) {
+  .nh-coll-grid { grid-template-columns: 1fr; }
+}

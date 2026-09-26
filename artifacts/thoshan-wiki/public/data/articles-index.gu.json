@@ -81,6 +81,14 @@
       "thumbnail": "https://picsum.photos/seed/learn-thumb/160/100"
     },
     {
+      "id": "omarchy-meetup",
+      "title": "India's First Omarchy Linux Meetup",
+      "slug": "omarchy-meetup",
+      "category": "News",
+      "excerpt": "Attended and presented the FOSS corner at India's first Omarchy Linux meetup.",
+      "thumbnail": "/assets/omarchy-meetup.png"
+    },
+    {
       "id": "foss-coin-how-it-was-built",
       "title": "FOSS કૉઇન — કૈસે બનાયા ગયા",
       "slug": "foss-coin-how-it-was-built",

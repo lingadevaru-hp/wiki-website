@@ -20,6 +20,11 @@ import HomePage from "./pages/HomePage";
 import ArticlePage from "./pages/ArticlePage";
 import SearchPage from "./pages/SearchPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import {
+  AchievementsPage,
+  NewsPage,
+  ProjectsPage,
+} from "./pages/Collections";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const queryClient = new QueryClient({
@@ -60,6 +65,10 @@ function RouteTransition() {
         <Route path="/wiki/home" component={HomePage} />
         <Route path="/wiki/search" component={SearchPage} />
         <Route path="/wiki/articles" component={ArticlesPage} />
+        <Route path="/projects" component={ProjectsPage} />
+        <Route path="/achievements" component={AchievementsPage} />
+        <Route path="/news" component={NewsPage} />
+        <Route path="/events" component={NewsPage} />
         <Route path="/wiki/:slug" component={ArticlePage} />
         <Route component={NotFoundPage} />
       </Switch>

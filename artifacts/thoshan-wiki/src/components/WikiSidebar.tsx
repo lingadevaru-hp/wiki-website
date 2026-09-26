@@ -19,6 +19,9 @@ function NavContent({ onClose }: { onClose: () => void }) {
   const navLinks = [
     { label: t("menu.wikiHome"), href: "/wiki/home" },
     { label: t("sidebar.landing"), href: "/" },
+    { label: t("type.projects"), href: "/projects" },
+    { label: t("type.achievements"), href: "/achievements" },
+    { label: t("type.news"), href: "/news" },
     { label: t("menu.search"), href: "/wiki/search" },
     { label: t("menu.about"), href: "/wiki/about" },
   ];

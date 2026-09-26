@@ -19,6 +19,7 @@ const contentBlockSchema = z
       "image",
       "table",
       "video",
+      "embed",
       "gallery",
       "callout",
       "quote",
@@ -115,6 +116,9 @@ export const articleSchema = z
       })
       .optional(),
     deployedUrl: z.string().optional(),
+    heroVideo: z.string().optional(),
+    heroPoster: z.string().optional(),
+    heroImage: z.string().optional(),
     resources: z.unknown().optional(),
     subArticles: z
       .array(

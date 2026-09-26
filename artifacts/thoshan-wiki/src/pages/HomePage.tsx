@@ -8,6 +8,9 @@ import { categoryColor } from "../lib/categories";
 import { visibleIndexArticles } from "../lib/articleRelations";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
+import { useLocale } from "../contexts/LocaleContext";
+import { ARTICLE_TYPES, indexTypesOf } from "../lib/articleTypes";
+import { Hammer, Newspaper, Trophy } from "lucide-react";
 import SEO from "../components/SEO";
 import "./HomeRedesign.css";
 
@@ -55,9 +58,12 @@ function HeroSky() {
   );
 }
 
+const TYPE_ICONS = { projects: Hammer, achievements: Trophy, news: Newspaper } as const;
+
 export default function HomePage() {
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const { openSearch } = useSearch();
+  const { t } = useLocale();
   const [, setLocation] = useLocation();
   const featRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -75,7 +81,17 @@ export default function HomePage() {
     return [...pinned, ...rest].slice(0, 8);
   }, [searchable]);
 
-  const recent = useMemo(() => searchable.slice(0, 5), [searchable]);
+  const typeCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      projects: 0,
+      achievements: 0,
+      news: 0,
+    };
+    for (const a of searchable) {
+      for (const type of indexTypesOf(a)) counts[type] += 1;
+    }
+    return counts;
+  }, [searchable]);
 
   const updateArrows = () => {
     const el = featRef.current; if (!el) return;
@@ -162,22 +178,29 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="nh-section" aria-label="Recent articles">
+        <section className="nh-section" aria-label={t("type.jump")}>
           <div className="nh-sec-head">
-            <div><h2>Recent articles</h2><p>Latest updates and notes.</p></div>
+            <div><h2>{t("type.jump")}</h2><p>{t("type.jumpSub")}</p></div>
             <Link href="/wiki/articles" className="nh-viewall">View all articles <ArrowRight size={14} aria-hidden="true" /></Link>
           </div>
-          <div className="nh-recent-grid">
-            {recent.map((a) => (
-              <button key={a.id} type="button" className="nh-recent-card" onClick={() => setLocation(`/wiki/${a.slug}`)}>
-                <div className="nh-recent-img">{a.thumbnail ? <img src={a.thumbnail} alt="" loading="lazy" /> : <div className="nh-img-ph" />}</div>
-                <div className="nh-recent-body">
-                  <span className="nh-cat" style={{ color: categoryColor(a.category) }}>● {a.category.toUpperCase()}</span>
-                  <strong>{a.title}</strong>
-                  <small>{a.excerpt}</small>
-                </div>
-              </button>
-            ))}
+          <div className="nh-coll-grid">
+            {ARTICLE_TYPES.map(({ id, route }) => {
+              const Icon = TYPE_ICONS[id];
+              const count = typeCounts[id];
+              return (
+                <Link key={id} href={route} className="nh-coll-card">
+                  <span className="nh-coll-icon" aria-hidden="true">
+                    <Icon size={22} />
+                  </span>
+                  <strong>{t(`type.${id}`)}</strong>
+                  <small>{t(`type.${id}Desc`)}</small>
+                  <em>
+                    {count === 0 ? t("type.emptyTitle") : `${count} ${count === 1 ? t("type.oneArticle") : t("type.manyArticles")}`}
+                    <ArrowRight size={13} aria-hidden="true" />
+                  </em>
+                </Link>
+              );
+            })}
           </div>
         </section>
       </div>

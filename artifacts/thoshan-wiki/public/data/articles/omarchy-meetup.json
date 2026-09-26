@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "id": "omarchy-meetup",
+    "title": "India's First Omarchy Linux Meetup",
+    "slug": "omarchy-meetup",
+    "category": "News",
+    "lastEdited": "2026-09-26T00:00:00Z",
+    "editCount": 1,
+    "views": 0
+  },
+  "infobox": {
+    "title": "India's First Omarchy Linux Meetup",
+    "image": "/assets/omarchy-meetup.png",
+    "imageCaption": "Omarchy Linux — the distro behind the meetup",
+    "fields": [
+      {
+        "label": "Event",
+        "value": "India's first Omarchy Linux meetup"
+      },
+      {
+        "label": "My role",
+        "value": "Attendee + FOSS corner presenter"
+      },
+      {
+        "label": "Presented",
+        "value": "FOSS Coin, home router & home lab"
+      },
+      {
+        "label": "Photos",
+        "value": "Coming soon"
+      }
+    ]
+  },
+  "heroVideo": "/assets/omarchy-meetup.mp4",
+  "heroPoster": "/assets/omarchy-meetup.png",
+  "heroImage": "/assets/meetup-group.jpg",
+  "lead": "I attended **India's first Omarchy Linux meetup** and presented at the **FOSS corner** — demoing my efforts on [FOSS Coin]([[foss-coin|FOSS Coin]]), walking through my GL.iNet home router and [home lab]([[homelab|home lab]]) setup, and talking through some of my other projects. It was a fun day, and I got to meet the organisers — including the CEO of LibreDevs — and chew over plenty of Linux and self-hosting topics with them.",
+  "sections": [
+    {
+      "id": "foss-corner",
+      "title": "The FOSS corner",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I ran a FOSS corner at the meetup: a live demo of **FOSS Coin** — what it does, how the on-chain pieces fit together, and where the project is headed. I also walked people through my **GL.iNet home router and home lab** setup, the kind of gear and wiring that normally lives behind my desk and rarely gets an audience."
+        },
+        {
+          "type": "image",
+          "src": "/assets/meetup-ceo-router.jpg",
+          "alt": "Explaining my GL.iNet home router to the CEO of LibreDevs",
+          "caption": "Walking the CEO of LibreDevs through my GL.iNet home router setup"
+        },
+        {
+          "type": "text",
+          "content": "One of the best conversations was with the **CEO of LibreDevs** — we dug into the router build, what runs on my home lab, and where self-hosted setups are headed. Nothing beats explaining your own gear to someone who immediately gets it."
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "title": "People and conversations",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The best part was the hallway track: meeting the organisers, trading notes on distros and tiling window managers, and discussing self-hosting topics with people who run their own infrastructure. First-of-its-kind energy — everyone there was early to something."
+        },
+        {
+          "type": "image",
+          "src": "/assets/meetup-group.jpg",
+          "alt": "Group photo from India's first Omarchy Linux meetup",
+          "caption": "The full crew — India's first Omarchy Linux meetup"
+        }
+      ]
+    },
+    {
+      "id": "photos",
+      "title": "Photos",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "The full meetup photo album is embedded below — swipe through the moments."
+        },
+        {
+          "type": "embed",
+          "src": "https://embed.ente.com/?t=UYPUSH5YWD#GrDsKBX6nuryAqWBMmmoPW1CUVBTSBPnNcijMpm3k1Az",
+          "caption": "India's first Omarchy Linux meetup — photo album"
+        }
+      ]
+    }
+  ],
+  "references": [],
+  "relatedArticles": [
+    "linux-setup",
+    "foss-coin",
+    "homelab"
+  ],
+  "categories": [
+    "news",
+    "linux",
+    "foss",
+    "omarchy"
+  ],
+  "editHistory": []
+}

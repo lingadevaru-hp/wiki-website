@@ -171,6 +171,24 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
         </div>
       );
 
+    case "embed":
+      return (
+        <div className="mb-4" data-testid="embed-block">
+          <iframe
+            src={block.src}
+            title={block.caption || block.title || "Embedded content"}
+            className="article-embed"
+            loading="lazy"
+            allowFullScreen
+          />
+          {block.caption && (
+            <p className="text-xs text-muted-foreground mt-1 italic">
+              {block.caption}
+            </p>
+          )}
+        </div>
+      );
+
     case "gallery":
       return (
         <div className="mb-4" data-testid="gallery-block">
