@@ -5,17 +5,29 @@
     "slug": "omarchy-meetup",
     "category": "News",
     "lastEdited": "2026-09-26T00:00:00Z",
-    "editCount": 1,
+    "editCount": 2,
     "views": 0
   },
   "infobox": {
     "title": "India's First Omarchy Linux Meetup",
-    "image": "/assets/omarchy-meetup.png",
-    "imageCaption": "Omarchy Linux — the distro behind the meetup",
+    "image": "/assets/meetup-board.jpg",
+    "imageCaption": "The whiteboard that marked the door — BLR 001",
     "fields": [
       {
         "label": "Event",
-        "value": "India's first Omarchy Linux meetup"
+        "value": "Omarchy BLR Meetup 001 — India's first Omarchy meetup"
+      },
+      {
+        "label": "Date",
+        "value": "6 September 2026, Bengaluru"
+      },
+      {
+        "label": "Hosts",
+        "value": "Megabyte & Devfolio"
+      },
+      {
+        "label": "Format",
+        "value": "Show & Tell + Open Session"
       },
       {
         "label": "My role",
@@ -23,37 +35,169 @@
       },
       {
         "label": "Presented",
-        "value": "FOSS Coin, home router & home lab"
-      },
-      {
-        "label": "Photos",
-        "value": "Coming soon"
+        "value": "FOSS Coin, GL.iNet home router & home lab"
       }
     ]
   },
   "heroVideo": "/assets/omarchy-meetup.mp4",
   "heroPoster": "/assets/omarchy-meetup.png",
   "heroImage": "/assets/meetup-group.jpg",
-  "lead": "I attended **India's first Omarchy Linux meetup** and presented at the **FOSS corner** — demoing my efforts on [FOSS Coin]([[foss-coin|FOSS Coin]]), walking through my GL.iNet home router and [home lab]([[homelab|home lab]]) setup, and talking through some of my other projects. It was a fun day, and I got to meet the organisers — including the CEO of LibreDevs — and chew over plenty of Linux and self-hosting topics with them.",
+  "lead": "I attended **India's first Omarchy Linux meetup** (Omarchy BLR Meetup 001, Bengaluru, 6 September 2026) and presented at the **FOSS corner** — demoing [FOSS Coin]([[foss-coin|FOSS Coin]]), walking through my GL.iNet home router and [home lab]([[homelab|home lab]]) setup. What I brought home was not swag — it was seven builder demos worth stealing ideas from, and a room full of people who run their own infrastructure.",
   "sections": [
     {
-      "id": "foss-corner",
-      "title": "The FOSS corner",
+      "id": "event-at-a-glance",
+      "title": "Event at a glance",
       "level": 2,
       "content": [
         {
           "type": "text",
-          "content": "I ran a FOSS corner at the meetup: a live demo of **FOSS Coin** — what it does, how the on-chain pieces fit together, and where the project is headed. I also walked people through my **GL.iNet home router and home lab** setup, the kind of gear and wiring that normally lives behind my desk and rarely gets an audience."
+          "content": "This was a **community-run** meetup organised by Omarchy users — hosted by **Megabyte** with **Devfolio**, free entry, laptop required. No slides needed: holding up your screen and saying \"look at this\" counted as a talk. The exact venue was shared after registration confirmation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "What",
+            "Detail"
+          ],
+          "rows": [
+            {
+              "Detail": "Omarchy BLR Meetup 001 — first Omarchy meetup in India",
+              "What": "Event"
+            },
+            {
+              "Detail": "6 September 2026, Bengaluru (venue shared after registration)",
+              "What": "When / where"
+            },
+            {
+              "Detail": "Megabyte & Devfolio",
+              "What": "Hosts"
+            },
+            {
+              "Detail": "Show & Tell (themes, keybindings, workflows, agent setups) + Open Session (configs, troubleshooting, next-meetup ideas)",
+              "What": "Format"
+            },
+            {
+              "Detail": "Laptop + power adapter — everything happens on a laptop",
+              "What": "Bring"
+            },
+            {
+              "Detail": "Respect every experience level; first-timers ask the most comfortably",
+              "What": "House rules"
+            },
+            {
+              "Detail": "Community-run, not an official Omarchy / Omacom Foundation event",
+              "What": "Status"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "52 people showed up. The pitch that sold me: **Arch, Hyprland, terminals, keyboard-driven workflows, AI agents** — if those words raise your pulse, you belonged in that room."
+        }
+      ]
+    },
+    {
+      "id": "foss-corner",
+      "title": "My FOSS corner",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "I ran a FOSS corner at the meetup: a live demo of **FOSS Coin** — what it does, how the on-chain pieces fit together, and where the project is headed. Then I walked people through my **GL.iNet home router and home lab** — the actual routing, self-hosted services, and wiring that normally lives behind my desk."
         },
         {
           "type": "image",
           "src": "/assets/meetup-ceo-router.jpg",
           "alt": "Explaining my GL.iNet home router to the CEO of LibreDevs",
-          "caption": "Walking the CEO of LibreDevs through my GL.iNet home router setup"
+          "caption": "Walking the CEO of LibreDevs through my GL.iNet home router setup",
+          "width": "340px"
         },
         {
           "type": "text",
-          "content": "One of the best conversations was with the **CEO of LibreDevs** — we dug into the router build, what runs on my home lab, and where self-hosted setups are headed. Nothing beats explaining your own gear to someone who immediately gets it."
+          "content": "The sharpest conversation was with the **CEO of LibreDevs** — we dug into the router build, what runs on my home lab, and where self-hosted setups are headed. Explaining your own gear to someone who immediately gets it is the whole point of a meetup like this. I also traded notes on distros and tiling window managers with the organisers between demos."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "What I demoed",
+          "content": "**FOSS Coin** (privacy-first SPL token flow) + **GL.iNet router** (home routing, DNS, self-hosted services) + **home lab** (gear and wiring, live). Full write-ups live at [[foss-coin|FOSS Coin]] and [[homelab|home lab]]."
+        }
+      ]
+    },
+    {
+      "id": "builder-showcase",
+      "title": "Builder showcase — what the room demoed",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "Devfolio's thread from the day is the real record of this meetup — people showed up with plugins and custom tooling built on and for Omarchy. These are the demos I noted down, in their words where possible, because each one is a project worth following."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Demo",
+            "What it is",
+            "Why it matters to me"
+          ],
+          "rows": [
+            {
+              "Demo": "omalt-tab",
+              "What it is": "Hyprland workspace switcher with visual previews of workspaces and windows across monitors",
+              "Why it matters to me": "Think Alt-Tab/Cmd-Tab built around workspaces — jump without remembering where anything lives"
+            },
+            {
+              "Demo": "Crown OS + Crown UI Kit",
+              "What it is": "Custom Wayland compositor, UI kit, and desktop experience with per-workspace tiling",
+              "Why it matters to me": "Reusable components for Wayland apps instead of stitching separate UI libraries"
+            },
+            {
+              "Demo": "Teeny Tiny",
+              "What it is": "Browser-accessible Linux dev environment for using a cloud machine from phone or desktop (owns omarchy.cloud)",
+              "Why it matters to me": "Cloud dev box in a tab — closest thing to carrying Omarchy in your pocket"
+            },
+            {
+              "Demo": "Pacman/AUR vulnerability scanner",
+              "What it is": "Omarchy security plugin that scans installed packages and flags known vulnerabilities",
+              "Why it matters to me": "LLMs make installing random packages easy — this catches the fallout before it bites"
+            },
+            {
+              "Demo": "Fingerprint sudo + OpenCode Go usage plugin",
+              "What it is": "Reverse-engineered fingerprint-sensor driver enabling fingerprint auth for sudo, plus an Omarchy plugin tracking AI usage so sessions never hit limits blind",
+              "Why it matters to me": "Hardware enablement + cost guardrails — the two least glamorous, most useful hacks in the room"
+            },
+            {
+              "Demo": "Caelestia dots",
+              "What it is": "Daily-driver Caelestia setup with polished UI",
+              "Why it matters to me": "Proof that a riced desktop can be both beautiful and liveable"
+            },
+            {
+              "Demo": "CLI-only Omarchy on a VPS",
+              "What it is": "Omarchy setup running headless on a virtual private server",
+              "Why it matters to me": "Same dotfiles, no display — Omarchy thinking applied to servers"
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "content": "We hosted Omarchy's first meet-up in Bangalore last Sunday, led by @megabyte0x. The idea was to bring together people using Omarchy, Arch, Hyprland, and heavily riced Linux setups in one room to see what everyone has been building.",
+          "author": "Devfolio on X, 7 Sept 2026"
+        },
+        {
+          "type": "quote",
+          "content": "IT WAS A BANGER! Many showed off their plugins and custom tooling they are building on and for Omarchy. So many convos around Linux, other distros and how each started with Linux. We kept it intentionally small and it worked out well.",
+          "author": "Megabyte (@megabyte0x) on X, 6 Sept 2026"
+        },
+        {
+          "type": "quote",
+          "content": "That's a wrap for Omarchy BLR Meetup 001. It was a lot of fun seeing the custom setups, plugins, experiments, and ideas people are building around Omarchy. All credit to @megabyte0x for initiating and bringing the crowd together.",
+          "author": "Devfolio on X, 7 Sept 2026"
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "How I captured this",
+          "content": "Every demo above comes from Devfolio's official thread and the Luma event page — no filler. Original posts, photos, and the wrap video live on the [Devfolio thread](https://x.com/devfolio/status/2096928997997478182) and the [Luma event page](https://luma.com/g4g7r719)."
         }
       ]
     },
@@ -64,13 +208,14 @@
       "content": [
         {
           "type": "text",
-          "content": "The best part was the hallway track: meeting the organisers, trading notes on distros and tiling window managers, and discussing self-hosting topics with people who run their own infrastructure. First-of-its-kind energy — everyone there was early to something."
+          "content": "The hallway track was the best part: meeting the organisers, trading notes on distros and tiling window managers, and arguing self-hosting with people who run their own infrastructure. First-of-its-kind energy — everyone there was early to something, and the room stayed intentionally small so conversations actually finished."
         },
         {
           "type": "image",
           "src": "/assets/meetup-group.jpg",
           "alt": "Group photo from India's first Omarchy Linux meetup",
-          "caption": "The full crew — India's first Omarchy Linux meetup"
+          "caption": "The full crew — India's first Omarchy Linux meetup",
+          "width": "full"
         }
       ]
     },
@@ -91,7 +236,38 @@
       ]
     }
   ],
-  "references": [],
+  "references": [
+    {
+      "id": 1,
+      "title": "Omarchy BLR Meetup 001 — event page",
+      "url": "https://luma.com/g4g7r719",
+      "publisher": "Luma"
+    },
+    {
+      "id": 2,
+      "title": "Devfolio's Omarchy BLR Meetup 001 thread (demos, photos, wrap video)",
+      "url": "https://x.com/devfolio/status/2096928997997478182",
+      "author": "Devfolio",
+      "publisher": "X"
+    },
+    {
+      "id": 3,
+      "title": "IT WAS A BANGER! — meetup recap",
+      "url": "https://x.com/megabyte0x/status/2096652194925928927",
+      "author": "Megabyte",
+      "publisher": "X"
+    },
+    {
+      "id": 4,
+      "title": "Omarchy — official site",
+      "url": "https://omarchy.org"
+    },
+    {
+      "id": 5,
+      "title": "Omarchy meetups calendar",
+      "url": "https://omarchy.org/meetups"
+    }
+  ],
   "relatedArticles": [
     "linux-setup",
     "foss-coin",
@@ -103,5 +279,9 @@
     "foss",
     "omarchy"
   ],
-  "editHistory": []
+  "editHistory": [],
+  "heroImages": [
+    "/assets/meetup-group.jpg",
+    "/assets/meetup-ceo-router-hero.jpg"
+  ]
 }

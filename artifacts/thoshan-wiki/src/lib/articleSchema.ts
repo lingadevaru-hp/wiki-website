@@ -119,6 +119,7 @@ export const articleSchema = z
     heroVideo: z.string().optional(),
     heroPoster: z.string().optional(),
     heroImage: z.string().optional(),
+    heroImages: z.array(z.string()).optional(),
     resources: z.unknown().optional(),
     subArticles: z
       .array(

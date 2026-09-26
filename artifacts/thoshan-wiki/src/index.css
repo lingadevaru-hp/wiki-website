@@ -2420,7 +2420,9 @@ pre {
 .wiki-text,
 .article-lead,
 .article-sections {
-  overflow-wrap: anywhere;
+  /* break-word (not anywhere): long strings still wrap, but words never
+   * split mid-word into per-character columns inside squeezed layouts. */
+  overflow-wrap: break-word;
 }
 /* Omarchy prose spec: 15px/1.65 bright body, 48rem measure centered */
 .wiki-text,
@@ -8564,13 +8566,23 @@ body {
   color: hsl(var(--muted-foreground));
 }
 
-/* Embedded interactive frames (photo albums, maps, etc.). */
+/* Embedded interactive frames (photo albums, maps, etc.).
+ * NOTE: cross-origin content (e.g. Ente) paints its own theme; the frame
+ * chrome below follows the site theme in light + dark mode. */
 .article-embed {
   width: 100%;
   height: clamp(420px, 62vh, 640px);
   border: 1px solid hsl(var(--border));
   border-radius: 14px;
   background: hsl(var(--card));
+  color-scheme: light dark;
+}
+
+/* Floated article figures: let body copy flow around the margin box
+ * (CSS Shapes) instead of forming a hard rectangle gap. */
+.article-reader-content [data-testid^="image-block-"] {
+  shape-outside: margin-box;
+  shape-margin: 12px;
 }
 
 /* ═══════════════════════════════════════════════════════════════
