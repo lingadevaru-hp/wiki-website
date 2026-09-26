@@ -58,13 +58,26 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
         </div>
       );
 
-    case "image":
+    case "image": {
+      // width="full" renders a full-column figure; otherwise a right float
+      // at the given width (default 240px). Inline style beats the
+      // max-w cap, so per-article sizes need no CSS changes.
+      const fullWidth = block.width === "full";
       return (
-        <div className="float-right clear-right ml-4 mb-4 max-w-[240px] border border-border bg-card text-center">
+        <div
+          className={
+            fullWidth
+              ? "mb-4 border border-border bg-card text-center"
+              : "float-right clear-right ml-4 mb-4 max-w-[240px] border border-border bg-card text-center"
+          }
+        >
           <img
             src={block.src}
             alt={block.alt || ""}
             className="w-full cursor-zoom-in"
+            style={
+              !fullWidth && block.width ? { maxWidth: block.width } : undefined
+            }
             loading="lazy"
             onClick={() =>
               setViewerItem({
@@ -89,10 +102,13 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
           )}
         </div>
       );
+    }
 
     case "table":
+      // clear-both: tables always take the full column width below floated
+      // figures instead of squeezing beside them into broken narrow columns.
       return (
-        <div className="overflow-x-auto mb-4">
+        <div className="overflow-x-auto mb-4 clear-both">
           <table
             className="w-full border-collapse border border-border text-foreground"
             style={{ fontSize: "14px" }}

@@ -115,6 +115,8 @@ export interface Article {
   heroVideo?: string;
   heroPoster?: string;
   heroImage?: string;
+  /** Extra hero photo slides after the video (slide 1..n). Falls back to [heroImage]. */
+  heroImages?: string[];
   resources?: Resources;
   subArticles?: SubArticle[];
   parentArticle?: string;

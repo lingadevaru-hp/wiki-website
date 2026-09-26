@@ -1,5 +1,6 @@
 import { useLocale } from "../contexts/LocaleContext";
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { ExternalLink, X } from "lucide-react";
 
 export type MediaViewerItem = {
@@ -33,9 +34,12 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
     };
   }, [onClose]);
 
-  return (
+  // Portal to body so floated article content, sticky headers, and
+  // iframe embeds can never paint over the dialog. z-[300] matches
+  // --z-modal (above nav/dropdowns, below tooltips).
+  return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex flex-col bg-black/95 p-4 md:p-6"
+      className="fixed inset-0 z-[300] isolate flex flex-col bg-black/95 p-4 md:p-6"
       role="dialog"
       aria-modal="true"
       aria-label={
@@ -111,6 +115,7 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
           Open new tab
         </a>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

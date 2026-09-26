@@ -69,9 +69,15 @@ interface NewsHeroProps {
   toggleSound: () => void;
 }
 
-/** Swipeable news banner: slide 1 is the video, slide 2 the group photo.
- *  The video element stays mounted on both slides so the voice keeps
- *  playing while swiping. Arrows + dots + touch swipe. */
+/** Swipeable news banner: slide 0 is the video, slides 1..n are photos.
+ *  Auto-loops: video plays once (muted until the reader taps for sound),
+ *  each photo holds 10s silent, then back to the video — looping.
+ *  Arrows + dots + touch swipe reset the timer. */
+const PHOTO_HOLD_MS = 10_000;
+// Match-video fallback kept for reference: hold each photo for exactly the
+// video's duration instead of the fixed 10s above.
+// const PHOTO_HOLD_MODE = "match-video" as const;
+
 function NewsHero({
   article,
   videoRef,
@@ -81,10 +87,66 @@ function NewsHero({
   toggleSound,
 }: NewsHeroProps) {
   const { t } = useLocale();
+  // Photo queue: heroImages when present, else legacy single heroImage.
+  const photoSlides = useMemo(
+    () =>
+      article.heroImages?.length
+        ? article.heroImages
+        : article.heroImage
+          ? [article.heroImage]
+          : [],
+    [article.heroImages, article.heroImage],
+  );
+  const hasPhoto = photoSlides.length > 0;
+  const slideCount = 1 + photoSlides.length;
   const [slide, setSlide] = useState(0);
   const touchX = useRef<number | null>(null);
-  const hasPhoto = !!article.heroImage;
-  const go = (dir: 1 | -1) => setSlide((s) => (s + dir + 2) % 2);
+  const go = (dir: 1 | -1) =>
+    setSlide((s) => (s + dir + slideCount) % slideCount);
+
+  // Pause the video while a photo is showing so audio never bleeds
+  // onto the silent slides; restart from the top when back on video.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (slide === 0 && videoOk) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [slide, videoOk, videoRef]);
+
+  // Auto-advance photo slides after the hold; the last photo wraps back
+  // to the video. (Video → first photo is driven by onEnded below.
+  // If the video file fails, the poster slide advances on the same timer.)
+  // Skipped for reduced-motion readers; any manual nav resets the timer
+  // via effect cleanup since it depends on `slide`.
+  useEffect(() => {
+    if (!hasPhoto) return;
+    if (slide === 0 && videoOk) return;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    const id = window.setTimeout(() => {
+      if (document.hidden) return;
+      setSlide((s) => (s + 1) % slideCount);
+    }, PHOTO_HOLD_MS);
+    return () => window.clearTimeout(id);
+  }, [slide, hasPhoto, videoOk, slideCount]);
+
+  // Pause background playback when the tab is hidden.
+  useEffect(() => {
+    const onVis = () => {
+      const v = videoRef.current;
+      if (document.hidden) v?.pause();
+      else if (slide === 0 && videoOk) v?.play().catch(() => {});
+    };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [slide, videoOk, videoRef]);
 
   return (
     <div
@@ -106,11 +168,16 @@ function NewsHero({
             src={article.heroVideo}
             poster={article.heroPoster}
             autoPlay
-            loop
             muted
             playsInline
             preload="auto"
             onError={() => setVideoOk(false)}
+            onEnded={() => {
+              // Loop: after the video finishes (with sound if unmuted),
+              // step through the silent photo slides (see timer above).
+              if (hasPhoto) setSlide(1);
+              else videoRef.current?.play().catch(() => {});
+            }}
             aria-label={article.metadata.title}
           />
         ) : (
@@ -119,11 +186,24 @@ function NewsHero({
           )
         )}
       </div>
-      {hasPhoto && (
-        <div className={`news-slide${slide === 1 ? " is-active" : ""}`}>
-          <img src={article.heroImage} alt={article.metadata.title} />
+      {photoSlides.map((src, i) => (
+        <div
+          key={src}
+          className={`news-slide${slide === i + 1 ? " is-active" : ""}`}
+        >
+          <img
+            src={src}
+            alt={article.metadata.title}
+            // Cropped portrait slide: faces sit high in the frame, so bias
+            // the cover crop upward to keep them visible at wide aspects.
+            style={
+              src.includes("ceo-router-hero")
+                ? { objectPosition: "center 35%" }
+                : undefined
+            }
+          />
         </div>
-      )}
+      ))}
       <div className="news-hero-caption">
         <p className="section-eyebrow">{t("type.newsTitle")}</p>
         <h1>{article.metadata.title}</h1>
@@ -149,7 +229,7 @@ function NewsHero({
             <ChevronLeft size={18} />
           </button>
           <span className="news-dots" aria-hidden="true">
-            {[0, 1].map((i) => (
+            {Array.from({ length: slideCount }, (_, i) => (
               <i key={i} className={slide === i ? "is-active" : ""} />
             ))}
           </span>

@@ -161,9 +161,18 @@ export default function ArticlePage() {
           <Breadcrumbs
             items={[
               { label: "Wiki Home", href: "/wiki/home" },
-              ...(parent
-                ? [{ label: parent.title, href: `/wiki/${parent.slug}` }]
-                : []),
+              // News/Events articles live under /news: Wiki Home / News / Article.
+              // (Sub-articles keep their parent in the trail instead.)
+              ...((article.metadata.category === "News" ||
+              article.metadata.category === "Events" ||
+              (article.categories ?? []).some((c) =>
+                ["news", "events"].includes(c.toLowerCase()),
+              )) &&
+              !parent
+                ? [{ label: "News", href: "/news" }]
+                : parent
+                  ? [{ label: parent.title, href: `/wiki/${parent.slug}` }]
+                  : []),
               { label: article.metadata.title },
             ]}
           />
