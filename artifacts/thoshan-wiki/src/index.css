@@ -7977,39 +7977,19 @@ body.chat-resizing .omarchy-landing {
   color: hsl(var(--foreground));
   white-space: nowrap;
 }
-/* Handwritten animated wordmark (replaces the plain title). */
+/* Pixel wordmark (same /brand/thoshan-wordmark.svg asset as the hero). */
 .chat-wordmark {
   display: inline-flex;
-  align-items: baseline;
-  gap: 1px;
-  background: none;
-  border: 0;
+  align-items: center;
   padding: 4px 8px;
   margin-left: -4px;
   border-radius: 10px;
-  cursor: pointer;
-  font-family: "Caveat", "Segoe Script", cursive;
-  font-size: 27px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 2px;
   color: hsl(var(--accent));
 }
-.chat-wordmark span {
-  display: inline-block;
-}
-.chat-panel.is-open .chat-wordmark span {
-  animation: chat-letter-in 0.45s cubic-bezier(0.32, 0.72, 0, 1) both;
-}
-@keyframes chat-letter-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px) rotate(7deg);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.chat-wordmark-logo {
+  height: 24px;
+  color: hsl(var(--accent));
+  flex-shrink: 0;
 }
 /* Detent toggle lives only on the mobile sheet; collapse only on desktop. */
 .chat-detent-btn {
@@ -8182,8 +8162,7 @@ body.chat-resizing .omarchy-landing {
   .chat-pulse-once,
   .chat-frame-skeleton-bar,
   .chat-frame-skeleton-input,
-  .chat-frame-skeleton-row,
-  .chat-panel.is-open .chat-wordmark span {
+  .chat-frame-skeleton-row {
     animation: none;
   }
 }
@@ -8193,8 +8172,7 @@ body.chat-resizing .omarchy-landing {
   .chat-frame-skeleton-bar,
   .chat-frame-skeleton-input,
   .chat-frame-skeleton-row,
-  .chat-pulse-once,
-  .chat-panel.is-open .chat-wordmark span {
+  .chat-pulse-once {
     animation: none;
   }
 }

@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useChatPanel } from "../contexts/ChatPanelContext";
 import { useLocale } from "../contexts/LocaleContext";
+import { ThoshanWordmark } from "./Brand";
 import {
   CHAT_EMBED_URL,
   CHAT_PANEL_MIN_WIDTH,
@@ -280,8 +281,8 @@ export default function ChatPanel() {
     setFrameKey((k) => k + 1);
   }, []);
 
-  // Animated handwritten wordmark: letters stagger in on open, replay on tap.
-  const [boing, setBoing] = useState(0);
+  // Pixel wordmark — same /brand/thoshan-wordmark.svg asset as the hero,
+  // rendered via the shared ThoshanWordmark component (theme-aware).
 
   // Haptic-style tick (guarded; no-op where unsupported).
   const tick = useCallback((ms = 8) => {
@@ -406,20 +407,15 @@ export default function ChatPanel() {
           <span aria-hidden="true" />
         </button>
         <header className="chat-panel-header">
-          <button
-            type="button"
+          <span
             className="chat-wordmark"
-            onClick={() => setBoing((b) => b + 1)}
+            role="img"
             aria-label={t("chat.title")}
             title={t("chat.title")}
             data-testid="chat-wordmark"
           >
-            {"THOSHAN".split("").map((ch, i) => (
-              <span key={`${open ? "o" : "c"}${boing}-${i}`} style={{ animationDelay: `${i * 55}ms` }}>
-                {ch}
-              </span>
-            ))}
-          </button>
+            <ThoshanWordmark className="chat-wordmark-logo" />
+          </span>
           <span className="chat-panel-actions">
             <button
               type="button"
