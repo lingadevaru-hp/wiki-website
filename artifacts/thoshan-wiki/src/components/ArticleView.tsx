@@ -791,6 +791,8 @@ export default function ArticleView({ article }: { article: Article }) {
           ))}
         </div>
 
+        {/* News articles are pure reading: no bottom action bar. */}
+        {!isNews && (
         <div className="article-actions article-actions-end print:hidden">
           <ArticleAudioReader
             title={article.metadata.title}
@@ -877,6 +879,7 @@ export default function ArticleView({ article }: { article: Article }) {
             <span className="hidden sm:inline">{t('article.print')}</span>
           </button>
         </div>
+        )}
 
         {!isNews && (articleNeighbors.previous || articleNeighbors.next) && (
           <nav

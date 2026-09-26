@@ -4053,6 +4053,13 @@ pre {
   font-size: 1.1em;
   line-height: 1.85;
 }
+/* News lead uses the full column: starts at the left edge and wraps
+ * beside the floated infobox instead of centering in a narrow measure. */
+.article--news .article-lead,
+.article--news .article-lead > p {
+  max-width: none;
+  margin-inline: 0;
+}
 .wiki-shell {
   max-width: 1600px;
 }
