@@ -107,12 +107,15 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
     case "table":
       // clear-both: tables always take the full column width below floated
       // figures instead of squeezing beside them into broken narrow columns.
+      // data-label on each cell powers the mobile stacked-card layout.
       return (
-        <div className="overflow-x-auto mb-4 clear-both">
+        <div
+          className="overflow-x-auto mb-4 clear-both article-table-wrap"
+          data-testid="table-block"
+        >
           <table
             className="w-full border-collapse border border-border text-foreground"
             style={{ fontSize: "14px" }}
-            data-testid="table-block"
           >
             {block.columns && (
               <thead>
@@ -132,7 +135,11 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
               {block.rows?.map((row, ri) => (
                 <tr key={ri} className={ri % 2 === 1 ? "bg-card/40" : ""}>
                   {block.columns?.map((col, ci) => (
-                    <td key={ci} className="border border-border px-3 py-1.5">
+                    <td
+                      key={ci}
+                      className="border border-border px-3 py-1.5"
+                      data-label={col}
+                    >
                       {row[col]}
                     </td>
                   ))}

@@ -15,6 +15,7 @@ import ChatPanel from "./components/ChatPanel";
 import { toggleChatPanel } from "./lib/chat-panel";
 import ShortcutsModal from "./components/ShortcutsModal";
 import { ThemePicker } from "./components/ThemePicker";
+import { TextSelectionCopy } from "./components/TextSelectionCopy";
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
 import ArticlePage from "./pages/ArticlePage";
@@ -164,6 +165,7 @@ function App() {
               <ChatPanel />
               <ThemePicker />
               <Toaster />
+              <TextSelectionCopy />
               </ChatPanelProvider>
             </SearchProvider>
             </LocaleProvider>
