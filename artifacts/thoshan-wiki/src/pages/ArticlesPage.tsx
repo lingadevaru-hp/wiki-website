@@ -3,10 +3,10 @@ import { Link } from "wouter";
 import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
 import WikiSidebar from "../components/WikiSidebar";
-import WikiFooter from "../components/WikiFooter";
 import SEO from "../components/SEO";
 import CategoryPills from "../components/CategoryPills";
 import { loadArticlesIndex } from "../lib/articleLoader";
+import { ARTICLE_TYPES, indexTypesOf } from "../lib/articleTypes";
 import { categoryColors, categoryGlyph } from "../lib/categories";
 import type { ArticleIndexEntry } from "../types/article";
 import { useLocale } from "../contexts/LocaleContext";
@@ -111,6 +111,19 @@ export default function ArticlesPage() {
     [articles],
   );
 
+  const typeCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      projects: 0,
+      achievements: 0,
+      news: 0,
+    };
+    for (const a of articles) {
+      if (a.hiddenFromSearch) continue;
+      for (const type of indexTypesOf(a)) counts[type] += 1;
+    }
+    return counts;
+  }, [articles]);
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <WikiHeader onMenuClick={() => setSidebarOpen((o) => !o)} />
@@ -172,6 +185,18 @@ export default function ArticlesPage() {
             onChange={setActiveCategory}
             ariaLabel="Filter by category"
           />
+
+          <div className="type-jump">
+            <p className="type-jump-label">{t("type.jump")}</p>
+            <div className="type-jump-row">
+              {ARTICLE_TYPES.map(({ id, route }) => (
+                <Link key={id} href={route} className="type-jump-link">
+                  {t(`type.${id}`)}
+                  <span className="type-jump-count">{typeCounts[id]}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="articles-tools">
             <label className="articles-sort">
@@ -271,8 +296,6 @@ export default function ArticlesPage() {
           )}
         </main>
       </div>
-
-      <WikiFooter />
     </div>
   );
 }

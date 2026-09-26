@@ -9,6 +9,7 @@ export const categoryColors: Record<string, string> = {
   Systems: "#2980B9",
   Web: "#16A085",
   Learning: "#F39C12",
+  News: "#E91E63",
 };
 
 export const categoryGlyph: Record<string, string> = {
@@ -20,6 +21,7 @@ export const categoryGlyph: Record<string, string> = {
   Systems: "🖥️",
   Web: "🌐",
   Learning: "📚",
+  News: "📰",
 };
 
 export function categoryColor(category: string): string {

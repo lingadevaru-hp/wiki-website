@@ -26,6 +26,7 @@ export interface ContentBlock {
     | "image"
     | "table"
     | "video"
+    | "embed"
     | "gallery"
     | "callout"
     | "quote"
@@ -111,6 +112,9 @@ export interface Article {
   suggestedImprovements?: string[];
   githubButton?: GitHubButton;
   deployedUrl?: string;
+  heroVideo?: string;
+  heroPoster?: string;
+  heroImage?: string;
   resources?: Resources;
   subArticles?: SubArticle[];
   parentArticle?: string;

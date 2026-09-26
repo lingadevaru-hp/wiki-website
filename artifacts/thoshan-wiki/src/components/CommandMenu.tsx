@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation } from 'wouter'
-import { Linkedin, MessageCircle, UserRound } from 'lucide-react'
+import { Hammer, Linkedin, MessageCircle, Newspaper, Trophy, UserRound } from 'lucide-react'
 import { useSearch } from '@/contexts/SearchContext'
 import {
   GithubIcon,
@@ -27,6 +27,9 @@ const LABEL_KEY: Record<string, string> = {
   home: 'menu.home',
   wiki: 'menu.wikiHome',
   articles: 'menu.articles',
+  projects: 'type.projects',
+  achievements: 'type.achievements',
+  news: 'type.news',
   search: 'menu.search',
   themes: 'menu.themes',
   language: 'menu.language',
@@ -47,6 +50,9 @@ const ICONS: Record<CommandIcon, typeof PageIcon> = {
   home: ThoshanMark as unknown as typeof PageIcon,
   wiki: PageIcon,
   articles: PageIcon,
+  projects: Hammer as unknown as typeof PageIcon,
+  achievements: Trophy as unknown as typeof PageIcon,
+  news: Newspaper as unknown as typeof PageIcon,
   search: SearchIcon,
   themes: PaletteIcon,
   language: GlobeIcon,

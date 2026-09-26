@@ -1458,15 +1458,16 @@ a:active {
   margin: 0 auto;
   padding-top: 8px;
 }
+.article-content-wide {
+  max-width: 760px;
+}
 .article-reader-content {
   min-width: 0;
 }
 .article-content-standard {
   max-width: 700px;
 }
-.article-content-wide {
-  max-width: 760px;
-}
+
 .reading-progress {
   position: fixed;
   left: 0;
@@ -2554,9 +2555,6 @@ pre {
   box-shadow:
     inset 0 1px 0 hsl(var(--foreground) / 0.06),
     0 12px 34px hsl(var(--background) / 0.12);
-}
-.settings-options button {
-  border-radius: 9px;
 }
 .back-to-top {
   border: 1px solid hsl(var(--foreground) / 0.2);
@@ -3828,7 +3826,230 @@ pre {
   gap: 42px;
   max-width: 1500px;
   padding-inline: 28px;
-  padding-top: 8px;
+}
+/* News articles: single readable column normally; recommendations rail
+   on the left only when other news exists to fill it. No settings or
+   bottom rails — pure reading. */
+.article-layout:has(> .article--news) {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 880px;
+}
+.article-layout:has(> .article--news):has(> .news-rail) {
+  grid-template-columns: 230px minmax(0, 1fr);
+  max-width: 1180px;
+}
+/* Sound toggle on the news video banner. */
+.news-sound {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(3, 5, 12, 0.55);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.news-sound:hover {
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent));
+}
+.news-rail {
+  min-width: 0;
+  position: sticky;
+  top: 88px;
+  align-self: start;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.news-rail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.news-rail-card {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.news-rail-card:hover {
+  border-color: hsl(var(--accent));
+  transform: translateY(-2px);
+}
+.news-rail-card strong {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.3;
+  color: hsl(var(--foreground));
+}
+.news-rail-card small {
+  font-size: 12px;
+  line-height: 1.5;
+  color: hsl(var(--muted-foreground));
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .news-rail {
+    display: none;
+  }
+}
+/* End-of-article action bar (Listen / Save / Copy link / Share / Print). */
+.article-actions-end {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid hsl(var(--border));
+}
+/* Video-banner hero for news articles (falls back to poster image). */
+.news-hero {
+  position: relative;
+  min-height: min(68vh, 560px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  margin-bottom: 30px;
+  background: hsl(var(--card));
+}
+.news-hero video,
+.news-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Swipeable hero slides: both stay mounted so the voice never restarts. */
+.news-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s;
+}
+.news-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+/* Slide arrows + dots. */
+.news-hero-nav {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.news-hero-nav button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(3, 5, 12, 0.55);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.news-hero-nav button:hover {
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent));
+}
+.news-dots {
+  display: inline-flex;
+  gap: 6px;
+  padding: 0 2px;
+}
+.news-dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+.news-dots i.is-active {
+  background: #fff;
+}
+.news-hero-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 80px 30px 26px;
+  background: linear-gradient(to top, rgba(3, 5, 12, 0.92), transparent);
+}
+.news-hero-caption h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 4.4vw, 46px);
+  color: #fff;
+  margin: 6px 0;
+  letter-spacing: -0.01em;
+}
+.news-hero-caption p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  margin: 0;
+  max-width: 640px;
+}
+.news-hero-caption .section-eyebrow {
+  color: hsl(var(--accent));
+}
+/* Landing news ticker pill (mirrors the omarchy.org announcement banner). */
+.omarchy-news-pill {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 9px 16px;
+  border: 1px solid hsl(var(--primary) / 0.55);
+  background: transparent;
+  color: hsl(var(--foreground));
+  font-family: "JetBrains Mono Variable", "Courier New", monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+.omarchy-news-pill:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+.omarchy-news-pill span {
+  color: hsl(var(--primary));
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+}
+/* Pure-reading news style: centered serif column, generous measure. */
+.article--news.article-content-standard {
+  max-width: none;
+}
+.article--news .article-heading h1 {
+  font-size: clamp(30px, 4.6vw, 44px);
+  letter-spacing: -0.01em;
+}
+.article--news .article-dek,
+.article--news .article-sections p,
+.article--news .article-lead {
+  font-family: Georgia, serif;
+  font-size: 1.1em;
+  line-height: 1.85;
 }
 .wiki-shell {
   max-width: 1600px;
@@ -4638,7 +4859,10 @@ h2 {
   .empty-page h1 {
     animation: none !important;
   }
-  .back-to-top {
+.settings-options button {
+  border-radius: 9px;
+}
+.back-to-top {
     animation: none !important;
     opacity: 1 !important;
   }
@@ -5336,6 +5560,7 @@ h2 {
   display: flex;
   flex: 1;
 }
+
 
 /* ── Additional UI polish: article settings panel ── */
 .article-settings {
@@ -7809,17 +8034,42 @@ a:hover {
   contain-intrinsic-size: auto 120px;
 }
 
-/* Footer links: comfortable tap rows on touch, inline on desktop. */
-.wiki-footer-links a {
-  border-radius: 6px;
+/* Overflow "more links" menu: explicit paint so contrast never depends
+   on theme popover tokens (they wash out on some themes). */
+.wiki-more-menu {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
 }
-@media (pointer: coarse) {
-  .wiki-footer a {
-    min-height: 0;
-  }
-  .wiki-footer-links a {
-    padding: 10px 6px;
-  }
+.wiki-more-menu [role="menuitem"],
+.wiki-more-menu [role="menuitem"] a,
+.wiki-more-menu [role="menuitem"] span {
+  color: hsl(var(--foreground));
+}
+.wiki-more-menu [role="menuitem"] svg {
+  color: hsl(var(--muted-foreground));
+}
+.wiki-more-menu [role="menuitem"]:hover,
+.wiki-more-menu [role="menuitem"][data-highlighted],
+.wiki-more-menu [role="menuitem"]:focus-visible {
+  background: hsl(var(--accent));
+  outline: none;
+}
+.wiki-more-menu [role="menuitem"]:hover,
+.wiki-more-menu [role="menuitem"]:hover a,
+.wiki-more-menu [role="menuitem"]:hover span,
+.wiki-more-menu [role="menuitem"][data-highlighted],
+.wiki-more-menu [role="menuitem"][data-highlighted] a,
+.wiki-more-menu [role="menuitem"][data-highlighted] span,
+.wiki-more-menu [role="menuitem"]:focus-visible,
+.wiki-more-menu [role="menuitem"]:focus-visible a,
+.wiki-more-menu [role="menuitem"]:focus-visible span {
+  color: hsl(var(--accent-foreground));
+}
+.wiki-more-menu [role="menuitem"]:hover svg,
+.wiki-more-menu [role="menuitem"][data-highlighted] svg,
+.wiki-more-menu [role="menuitem"]:focus-visible svg {
+  color: hsl(var(--accent-foreground));
 }
 
 /* Search modal respects phone safe areas. */
@@ -8248,5 +8498,432 @@ body {
 @media (max-width: 380px) {
   .wiki-wordmark span:last-child {
     display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLLECTION TAG CHIPS (projects / achievements / events cards)
+   ═══════════════════════════════════════════════════════════════ */
+.article-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.article-card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted) / 0.35);
+  white-space: nowrap;
+}
+
+/* Browse-by-type jump row (articles index). */
+.type-jump {
+  margin: 18px 0 4px;
+}
+.type-jump-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 8px;
+}
+.type-jump-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.type-jump-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.type-jump-link:hover {
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent));
+}
+.type-jump-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: hsl(var(--muted) / 0.5);
+  color: hsl(var(--muted-foreground));
+}
+
+/* Embedded interactive frames (photo albums, maps, etc.). */
+.article-embed {
+  width: 100%;
+  height: clamp(420px, 62vh, 640px);
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  background: hsl(var(--card));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLLECTION HEROS — decorative landing-style headers for the
+   projects / achievements / news homepages.
+   ═══════════════════════════════════════════════════════════════ */
+/* Full-bleed landing-style hero for collection homepages. Reuses the
+   omarchy-hero system; only the word slot and motifs are section-owned. */
+.coll-hero-full {
+  min-height: 100svh;
+}
+.coll-slot {
+  width: min(88%, 68rem);
+  margin-inline: auto;
+}
+#coll-grid {
+  scroll-margin-top: 70px;
+}
+/* Per-section background motifs (decorative, pointer-transparent). */
+.coll-motif {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.coll-bird {
+  position: absolute;
+  color: hsl(var(--accent));
+  opacity: 0.55;
+}
+.coll-bird .thunderbird {
+  width: 100%;
+  height: auto;
+}
+.coll-bird-a {
+  top: 16%;
+  width: 120px;
+  animation: coll-fly 26s linear infinite;
+}
+.coll-bird-b {
+  top: 58%;
+  width: 72px;
+  animation: coll-fly 38s linear -14s infinite;
+  opacity: 0.35;
+}
+@keyframes coll-fly {
+  from { transform: translateX(-16vw); }
+  to { transform: translateX(112vw); }
+}
+.coll-float {
+  position: absolute;
+  opacity: 0.16;
+  animation: coll-bob 7s ease-in-out infinite;
+}
+.coll-motif-trophy .coll-float { color: #e6a817; }
+.coll-motif-tools .coll-float { color: hsl(var(--accent)); opacity: 0.12; }
+.coll-float-a { top: 18%; left: 9%; }
+.coll-float-b { top: 62%; right: 11%; animation-delay: -2.4s; }
+.coll-float-c { top: 38%; right: 22%; animation-delay: -4.8s; }
+@keyframes coll-bob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-22px) rotate(5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .coll-bird, .coll-float { animation: none; }
+  .coll-bird-b { display: none; }
+}
+.coll-filter {
+  display: block;
+  max-width: 420px;
+  margin-top: 18px;
+}
+.coll-filter input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background) / 0.8);
+  color: hsl(var(--foreground));
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+.coll-filter input:focus {
+  border-color: hsl(var(--accent));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NEWSLETTER — thunderbird section, flight overlay, modal
+   ═══════════════════════════════════════════════════════════════ */
+.newsletter-section {
+  width: 100%;
+  text-align: center;
+  padding: 72px 20px 88px;
+  position: relative;
+  overflow: hidden;
+}
+.newsletter-section h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 4.5vw, 40px);
+  margin: 10px 0 8px;
+  color: hsl(var(--foreground));
+}
+.newsletter-sub {
+  color: hsl(var(--muted-foreground));
+  font-size: 14.5px;
+  margin: 0 auto;
+  max-width: 480px;
+  line-height: 1.6;
+}
+.newsletter-bird {
+  background: none;
+  border: 0;
+  padding: 18px 30px 6px;
+  cursor: pointer;
+  border-radius: 18px;
+}
+.newsletter-bird:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 4px;
+}
+.newsletter-bird .thunderbird {
+  width: min(200px, 52vw);
+  height: auto;
+  color: hsl(var(--accent));
+  animation: tb-bob 3.2s ease-in-out infinite;
+}
+/* One celebratory fly-across once the section is dwelled + visible. */
+.newsletter-bird.has-flown .thunderbird {
+  animation: tb-fly-across 3.4s ease-in-out 1, tb-bob 3.2s ease-in-out 3.4s infinite;
+}
+.newsletter-hint {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  margin-top: 6px;
+}
+
+/* Thunderbird paint */
+.thunderbird .tb-body { fill: currentColor; }
+.thunderbird .tb-tail { fill: currentColor; opacity: 0.75; }
+.thunderbird .tb-beak { fill: hsl(var(--muted-foreground)); }
+.thunderbird .tb-eye { fill: hsl(var(--background)); }
+.thunderbird .tb-wing-near,
+.thunderbird .tb-wing-far { fill: currentColor; }
+.thunderbird .tb-wing-far { opacity: 0.55; }
+.thunderbird.is-flying .tb-wing-near {
+  transform-origin: 72px 60px;
+  animation: tb-flap 0.5s ease-in-out infinite;
+}
+.thunderbird.is-flying .tb-wing-far {
+  transform-origin: 66px 60px;
+  animation: tb-flap 0.5s ease-in-out -0.25s infinite;
+  opacity: 0.55;
+}
+.thunderbird .tb-envelope rect {
+  fill: hsl(var(--background));
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.thunderbird .tb-envelope polyline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+@keyframes tb-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes tb-flap {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-24deg); }
+}
+@keyframes tb-fly-across {
+  0% { transform: translateX(-58vw) translateY(10px); }
+  30% { transform: translateX(-18vw) translateY(-16px); }
+  55% { transform: translateX(12vw) translateY(6px); }
+  80% { transform: translateX(38vw) translateY(-12px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+/* Fullscreen flight overlay */
+.newsletter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: rgba(4, 6, 14, 0.72);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  cursor: pointer;
+}
+.newsletter-sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.newsletter-flight {
+  position: absolute;
+  top: 12%;
+  left: 6%;
+  width: 110px;
+  color: hsl(var(--accent));
+  animation: tb-flight-path 2.5s ease-in-out forwards;
+}
+.newsletter-flight.is-landed {
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.newsletter-flight .thunderbird {
+  width: 100%;
+  height: auto;
+}
+@keyframes tb-flight-path {
+  0% { transform: translate(0, 0) scale(0.7) rotate(-6deg); }
+  30% { transform: translate(34vw, 22vh) scale(1) rotate(5deg); }
+  60% { transform: translate(62vw, 8vh) scale(1.25) rotate(-4deg); }
+  100% { transform: translate(38vw, 34vh) scale(2.1) rotate(0deg); }
+}
+
+/* Signup modal */
+.newsletter-modal {
+  position: relative;
+  width: min(440px, 100%);
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: 20px;
+  padding: 30px 28px 26px;
+  text-align: center;
+  cursor: default;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+  animation: tb-modal-in 0.35s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+@keyframes tb-modal-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.newsletter-modal h3 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  margin: 0 0 8px;
+  color: hsl(var(--foreground));
+}
+.newsletter-modal p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: hsl(var(--muted-foreground));
+  margin: 0 0 18px;
+}
+.newsletter-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: none;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+}
+.newsletter-close:hover {
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+.newsletter-modal label {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 8px;
+}
+.newsletter-field {
+  display: flex;
+  gap: 8px;
+}
+.newsletter-field input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+  color: hsl(var(--foreground));
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+.newsletter-field input:focus {
+  border-color: hsl(var(--accent));
+}
+.newsletter-field button {
+  border-radius: 12px;
+  border: none;
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.newsletter-field button:hover {
+  filter: brightness(1.1);
+}
+.newsletter-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #f87171;
+}
+.newsletter-ack .thunderbird {
+  width: 120px;
+  height: auto;
+  color: hsl(var(--accent));
+  margin: 0 auto 6px;
+  animation: tb-bob 3.2s ease-in-out infinite;
+}
+.newsletter-ack p {
+  margin-bottom: 0;
+}
+
+/* Reduced motion: still bird, instant modal, no flight. */
+@media (prefers-reduced-motion: reduce) {
+  .newsletter-bird .thunderbird,
+  .newsletter-bird.has-flown .thunderbird,
+  .thunderbird.is-flying .tb-wing-near,
+  .thunderbird.is-flying .tb-wing-far,
+  .newsletter-ack .thunderbird {
+    animation: none;
+  }
+  .newsletter-flight {
+    display: none;
+  }
+  .newsletter-modal {
+    animation: none;
+  }
+}
+@media (max-width: 480px) {
+  .newsletter-field {
+    flex-direction: column;
+  }
+  .newsletter-field button {
+    padding: 12px 20px;
   }
 }

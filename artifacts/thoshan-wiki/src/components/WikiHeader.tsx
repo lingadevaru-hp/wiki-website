@@ -3,11 +3,14 @@ import { Link, useLocation } from "wouter";
 import {
   ArrowLeft,
   Ellipsis,
+  Hammer,
   House,
   Linkedin,
   Menu,
   MessageCircle,
+  Newspaper,
   Search,
+  Trophy,
   UserRound,
 } from "lucide-react";
 import { useSearch } from "../contexts/SearchContext";
@@ -181,7 +184,7 @@ export default function WikiHeader({
               sticky="always"
               hideWhenDetached={false}
               onCloseAutoFocus={(e) => e.preventDefault()}
-              className="w-56"
+              className="w-56 wiki-more-menu"
             >
               <DropdownMenuItem asChild>
                 <a
@@ -193,6 +196,33 @@ export default function WikiHeader({
                   <Linkedin size={16} aria-hidden="true" />
                   <span>{t("nav.linkedin")}</span>
                 </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/projects"
+                  className="flex items-center gap-3"
+                >
+                  <Hammer size={16} aria-hidden="true" />
+                  <span>{t("type.projects")}</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/achievements"
+                  className="flex items-center gap-3"
+                >
+                  <Trophy size={16} aria-hidden="true" />
+                  <span>{t("type.achievements")}</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/news"
+                  className="flex items-center gap-3"
+                >
+                  <Newspaper size={16} aria-hidden="true" />
+                  <span>{t("type.news")}</span>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem
                 onSelect={(event) => {
