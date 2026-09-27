@@ -5,6 +5,7 @@ import WikiHeader from "../components/WikiHeader";
 import WikiSidebar from "../components/WikiSidebar";
 import SEO from "../components/SEO";
 import CollectionHero from "../components/CollectionHero";
+import NewsletterSection from "../components/Newsletter";
 import {
   ACHIEVEMENTS_GLYPH,
   NEWS_GLYPH,
@@ -255,6 +256,8 @@ function CollectionPage({ config }: { config: CollectionConfig }) {
           )}
         </main>
       </div>
+
+      {isNews && <NewsletterSection autoOpenAfterMs={15_000} />}
     </div>
   );
 }

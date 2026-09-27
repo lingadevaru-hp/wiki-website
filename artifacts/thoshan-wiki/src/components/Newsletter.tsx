@@ -62,7 +62,9 @@ export function Thunderbird({ flying }: { flying: boolean }) {
   );
 }
 
-export default function NewsletterSection() {
+export default function NewsletterSection({
+  autoOpenAfterMs,
+}: { autoOpenAfterMs?: number } = {}) {
   const { locale, t } = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const [dwelled, setDwelled] = useState(false);
@@ -116,6 +118,19 @@ export default function NewsletterSection() {
     setDismissed(true);
     writeFlag(DISMISSED_KEY);
   }, []);
+
+  // Optional timed auto-popup (news/article pages): opens the modal once
+  // after the visitor has spent autoOpenAfterMs on the page. Suppressed
+  // forever once dismissed or subscribed (localStorage flags).
+  useEffect(() => {
+    if (!autoOpenAfterMs || autoOpenAfterMs <= 0) return;
+    if (readFlag(SUBSCRIBED_KEY) || readFlag(DISMISSED_KEY)) return;
+    const timer = window.setTimeout(() => {
+      if (readFlag(SUBSCRIBED_KEY) || readFlag(DISMISSED_KEY)) return;
+      openOverlay();
+    }, autoOpenAfterMs);
+    return () => window.clearTimeout(timer);
+  }, [autoOpenAfterMs, openOverlay]);
 
   // Esc dismisses.
   useEffect(() => {

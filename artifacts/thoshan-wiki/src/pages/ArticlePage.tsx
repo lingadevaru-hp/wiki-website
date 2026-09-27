@@ -3,6 +3,7 @@ import { useLocation, useParams } from "wouter";
 import WikiLayout from "../components/WikiLayout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ArticleView from "../components/ArticleView";
+import NewsletterSection from "../components/Newsletter";
 import {
   findParentArticle,
   loadArticle,
@@ -177,6 +178,7 @@ export default function ArticlePage() {
             ]}
           />
           <ArticleView article={article} />
+          <NewsletterSection autoOpenAfterMs={12_000} />
         </>
       )}
     </WikiLayout>
