@@ -14,9 +14,10 @@ const signupSchema = z.object({
   firstName: z
     .string()
     .trim()
-    .min(1)
     .max(80)
-    .refine((name) => !/[\r\n\0]/.test(name)),
+    .refine((name) => !/[\r\n\0]/.test(name))
+    .optional()
+    .default(""),
   email: z.string().trim().email().max(254).transform((value) => value.toLowerCase()),
   language: z.enum(NEWSLETTER_LANGUAGES),
 });
@@ -56,7 +57,7 @@ router.post("/newsletter/signup", async (req, res) => {
   const parsed = signupSchema.safeParse(req.body);
   if (!parsed.success) {
     return res.status(400).json({
-      error: "Enter a valid first name, email address, and supported language.",
+      error: "Enter a valid email address and supported language.",
     });
   }
 

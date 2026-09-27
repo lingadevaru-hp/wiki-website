@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { ArrowRight, Clock } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
-import WikiSidebar from "../components/WikiSidebar";
 import SEO from "../components/SEO";
 import CollectionHero from "../components/CollectionHero";
 import NewsletterSection from "../components/Newsletter";
@@ -18,11 +17,12 @@ import { visibleIndexArticles } from "../lib/articleRelations";
 import { articleTypesOf, type ArticleType } from "../lib/articleTypes";
 import type { ArticleIndexEntry } from "../types/article";
 import { useLocale } from "../contexts/LocaleContext";
+import { useSearch } from "../contexts/SearchContext";
 
-function estimateReadTime(excerpt: string): string {
+function estimateReadTime(excerpt: string, minRead: string): string {
   const words = excerpt.trim().split(/\s+/).length;
   const mins = Math.max(1, Math.round((words * 15) / 200));
-  return `${mins} min read`;
+  return `${mins} ${minRead}`;
 }
 
 interface CollectionConfig {
@@ -39,8 +39,8 @@ interface CollectionConfig {
 
 function CollectionPage({ config }: { config: CollectionConfig }) {
   const { t } = useLocale();
+  const { openSearch } = useSearch();
   const [, setLocation] = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
   /** Full-article tag sets (slug -> categories[]) for tag chips. */
@@ -103,11 +103,11 @@ function CollectionPage({ config }: { config: CollectionConfig }) {
       primaryLabel: t("coll.browse"),
       secondaryLabel: isNews ? t("type.filterNews") : t("coll.viewAll"),
       onSecondary: isNews
-        ? () => document.getElementById("news-filter")?.focus()
+        ? () => openSearch("news")
         : () => setLocation("/wiki/articles"),
       scrollHint: t("coll.scroll"),
     }),
-    [config, desc, isNews, t, setLocation],
+    [config, desc, isNews, t, setLocation, openSearch],
   );
 
   const filtered = useMemo(() => {
@@ -121,13 +121,11 @@ function CollectionPage({ config }: { config: CollectionConfig }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <WikiHeader onMenuClick={() => setSidebarOpen((o) => !o)} />
+      <WikiHeader backHref="/wiki/home" />
 
       <CollectionHero config={heroConfig} onPrimary={scrollToGrid} />
 
       <div className="wiki-shell flex-1">
-        <WikiSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
         <main id="coll-grid" className="wiki-main articles-main">
           <SEO
             title={`${title} — Lingadevaru HP's Wiki`}
@@ -243,10 +241,10 @@ function CollectionPage({ config }: { config: CollectionConfig }) {
                     <div className="article-card-meta">
                       <span className="article-card-readtime">
                         <Clock size={11} />
-                        {estimateReadTime(article.excerpt)}
+                        {estimateReadTime(article.excerpt, t("article.minRead"))}
                       </span>
                       <span className="article-card-cta">
-                        Read <ArrowRight size={12} />
+                        {t("articles.read")} <ArrowRight size={12} />
                       </span>
                     </div>
                   </div>
@@ -257,7 +255,7 @@ function CollectionPage({ config }: { config: CollectionConfig }) {
         </main>
       </div>
 
-      {isNews && <NewsletterSection autoOpenAfterMs={15_000} />}
+      {isNews && <NewsletterSection autoOpenAfterMs={20_000} />}
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { useLocale } from "../contexts/LocaleContext";
 export default function NotFoundPage() {
   const { t } = useLocale();
   return (
-    <WikiLayout showBackTop>
+    <WikiLayout showBackTop backHref="/wiki/home">
       <SEO
         title="Page Not Found — Lingadevaru HP's Wiki"
         description="The page you requested does not exist in Lingadevaru HP's Wiki."

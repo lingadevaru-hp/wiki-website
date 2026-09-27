@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { Search, X, ArrowRight, Clock, Sparkles, Hash } from "lucide-react";
 import { searchArticles, loadArticlesIndex } from "../lib/articleLoader";
 import { categoryColors } from "../lib/categories";
+import { indexTypesOf } from "../lib/articleTypes";
 import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
 import { useLocale } from "../contexts/LocaleContext";
@@ -32,8 +33,16 @@ function removeRecent(q: string) {
 }
 
 export default function GlobalSearch() {
-  const { isOpen, closeSearch } = useSearch();
+  const { isOpen, scope, closeSearch } = useSearch();
   const { t } = useLocale();
+  const scoped = scope !== "all";
+  // Collection-scoped popup (e.g. news): same modal, only that shelf's
+  // articles — index-only type check keeps every keystroke instant.
+  const inScope = useCallback(
+    (entry: ArticleIndexEntry) =>
+      !scoped || indexTypesOf(entry).includes(scope),
+    [scoped, scope],
+  );
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 120);
   const [results, setResults] = useState<ArticleIndexEntry[]>([]);
@@ -49,9 +58,9 @@ export default function GlobalSearch() {
   // Load featured articles (show when query is empty)
   useEffect(() => {
     loadArticlesIndex().then((idx) => {
-      setFeatured(idx.articles.slice(0, 6));
+      setFeatured(idx.articles.filter(inScope).slice(0, 6));
     });
-  }, []);
+  }, [inScope]);
 
   // Focus input when opening
   useEffect(() => {
@@ -82,7 +91,7 @@ export default function GlobalSearch() {
     let cancelled = false;
     searchArticles(debouncedQuery).then((r) => {
       if (!cancelled) {
-        setResults(r.slice(0, 8));
+        setResults(r.filter(inScope).slice(0, 8));
         setActiveIdx(-1);
         setIsSearching(false);
       }
@@ -90,7 +99,7 @@ export default function GlobalSearch() {
     return () => {
       cancelled = true;
     };
-  }, [debouncedQuery]);
+  }, [debouncedQuery, inScope]);
 
   // Close on backdrop click
   const handleBackdropClick = useCallback(
@@ -170,8 +179,9 @@ export default function GlobalSearch() {
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
-      aria-label={t("menu.search")}
+      aria-label={scoped ? t("type.newsTitle") : t("menu.search")}
       data-testid="global-search-modal"
+      data-scope={scope}
     >
       <div className="global-search-modal" ref={modalRef}>
         {/* Search input row */}
@@ -185,13 +195,16 @@ export default function GlobalSearch() {
               aria-hidden="true"
             />
           )}
+          {scoped && (
+            <span className="global-search-scope">{t("type.news")}</span>
+          )}
           <input
             ref={inputRef}
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={t("search.placeholder")}
+            placeholder={scoped ? t("type.filterNews") : t("search.placeholder")}
             className="global-search-input"
             autoComplete="off"
             spellCheck={false}

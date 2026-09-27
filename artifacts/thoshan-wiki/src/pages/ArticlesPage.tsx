@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
-import WikiSidebar from "../components/WikiSidebar";
 import SEO from "../components/SEO";
 import CategoryPills from "../components/CategoryPills";
 import { loadArticlesIndex } from "../lib/articleLoader";
@@ -13,11 +12,13 @@ import { useLocale } from "../contexts/LocaleContext";
 
 type SortKey = "featured" | "az" | "za" | "category";
 
-const SORT_LABELS: Record<SortKey, string> = {
-  featured: "Featured order",
-  az: "Title A–Z",
-  za: "Title Z–A",
-  category: "Category",
+const SORT_KEYS: SortKey[] = ["featured", "az", "za", "category"];
+
+const SORT_LABEL_KEYS: Record<SortKey, string> = {
+  featured: "articles.sortFeatured",
+  az: "articles.sortAz",
+  za: "articles.sortZa",
+  category: "articles.sortCategory",
 };
 
 function readStored(key: string, fallback: string): string {
@@ -28,15 +29,14 @@ function readStored(key: string, fallback: string): string {
   }
 }
 
-function estimateReadTime(excerpt: string): string {
+function estimateReadTime(excerpt: string, minRead: string): string {
   const words = excerpt.trim().split(/\s+/).length;
   const mins = Math.max(1, Math.round((words * 15) / 200));
-  return `${mins} min read`;
+  return `${mins} ${minRead}`;
 }
 
 export default function ArticlesPage() {
   const { t } = useLocale();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState(() =>
@@ -126,15 +126,13 @@ export default function ArticlesPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <WikiHeader onMenuClick={() => setSidebarOpen((o) => !o)} />
+      <WikiHeader backHref="/wiki/home" />
 
       <div className="wiki-shell flex-1">
-        <WikiSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
         <main className="wiki-main articles-main">
           <SEO
-            title="All Articles — Lingadevaru HP's Wiki"
-            description="Browse every article in Lingadevaru HP's Wiki: blockchain, AI, infrastructure, security, web development, and more."
+            title={t("articles.seoTitle")}
+            description={t("articles.seoDescription")}
             path="/wiki/articles"
             keywords={[
               "articles",
@@ -164,17 +162,16 @@ export default function ArticlesPage() {
           <div className="articles-page-header">
             <div className="articles-page-title">
               <p className="section-eyebrow">
-                <BookOpen size={13} /> All articles
+                <BookOpen size={13} /> {t("articles.eyebrow")}
               </p>
               <h1>
-                Everything written
+                {t("articles.title")}
                 {!loading && (
                   <span className="count-badge">{visible.length}</span>
                 )}
               </h1>
               <p className="articles-subtitle">
-                Projects, systems, experiments, and lessons — documented in one
-                quiet place.
+                {t("articles.sub")}
               </p>
             </div>
           </div>
@@ -183,7 +180,7 @@ export default function ArticlesPage() {
             categories={categories}
             active={activeCategory}
             onChange={setActiveCategory}
-            ariaLabel="Filter by category"
+            ariaLabel={t("articles.filter")}
           />
 
           <div className="type-jump">
@@ -206,9 +203,9 @@ export default function ArticlesPage() {
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
               >
-                {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
+                {(SORT_KEYS).map((key) => (
                   <option key={key} value={key}>
-                    {SORT_LABELS[key]}
+                    {t(SORT_LABEL_KEYS[key])}
                   </option>
                 ))}
               </select>
@@ -217,9 +214,9 @@ export default function ArticlesPage() {
 
           {!loading && (
             <p className="articles-count" role="status">
-              Showing {visible.length} of {total} article
-              {total !== 1 ? "s" : ""}
-              {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
+              {t("articles.showing")} {visible.length} {t("articles.of")} {total}{" "}
+              {total === 1 ? t("type.oneArticle") : t("type.manyArticles")}
+              {activeCategory !== "All" ? ` ${t("articles.in")} ${activeCategory}` : ""}
             </p>
           )}
 
@@ -234,7 +231,7 @@ export default function ArticlesPage() {
               <p className="section-eyebrow">{t('search.noResultsShort')}</p>
               <h1>{t('search.nothingFound')}</h1>
               <p>
-                Try a different category, or{" "}
+                {t("articles.tryDifferent")}{" "}
                 <button
                   className="text-link"
                   style={{
@@ -247,7 +244,7 @@ export default function ArticlesPage() {
                     setActiveCategory("All");
                   }}
                 >
-                  show all
+                  {t("articles.showAll")}
                 </button>
                 .
               </p>
@@ -283,10 +280,10 @@ export default function ArticlesPage() {
                     <div className="article-card-meta">
                       <span className="article-card-readtime">
                         <Clock size={11} />
-                        {estimateReadTime(article.excerpt)}
+                        {estimateReadTime(article.excerpt, t("article.minRead"))}
                       </span>
                       <span className="article-card-cta">
-                        Read <ArrowRight size={12} />
+                        {t("articles.read")} <ArrowRight size={12} />
                       </span>
                     </div>
                   </div>

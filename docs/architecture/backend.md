@@ -29,15 +29,16 @@ artifacts/api-server/
 
 ## Newsletter signup
 
-`POST /api/newsletter/signup` accepts `{ firstName, email, language }`. The
-portfolio Worker stores each email once in the free D1 table
+`POST /api/newsletter/signup` accepts `{ firstName?, email, language }`; the
+first name is optional and limited to 80 characters. The portfolio Worker
+stores each email once in the free D1 table
 `newsletter_subscribers` (`migrations/0001_newsletter_subscribers.sql`) and
-validates the same rules as the Node API (name 1–80 chars, valid email,
-one of `en`, `kn`, `hi`, `ja`, `ml`, `ta`, `te`, or `gu`).
+validates the same rules as the Node API (valid email and one of `en`, `kn`,
+`hi`, `ja`, `ml`, `ta`, `te`, or `gu`).
 
-The welcome email from `newsletter@lingadevaru.in` is sent later by the
-Node email backfill once Zoho SMTP credentials exist; until then the D1 row
-stays pending (`welcome_email_sent_at IS NULL`). Run it from
+The Worker sends a localized welcome email from `newsletter@lingadevaru.in`
+when SMTP is configured. The Node email backfill retries pending D1 rows
+(`welcome_email_sent_at IS NULL`) if delivery was unavailable. Run it from
 `artifacts/api-server/` (needs `.env` with the Zoho app password):
 
 ```bash

@@ -16,6 +16,7 @@ type NewsletterLanguage = (typeof NEWSLETTER_LANGUAGES)[number];
 type WelcomeCopy = {
   subject: string;
   greeting: (firstName: string) => string;
+  anonymousGreeting: string;
   message: string;
   signoff: string;
 };
@@ -37,6 +38,7 @@ const WELCOME_COPY: Record<NewsletterLanguage, WelcomeCopy> = {
   en: {
     subject: "Thanks for subscribing!",
     greeting: (name) => `Hey ${name}, thanks for subscribing to my newsletter.`,
+    anonymousGreeting: "Thanks for subscribing to my newsletter.",
     message:
       "You'll start getting letters from me. I appreciate your patience.",
     signoff: "Cheers, Lingadevaru",
@@ -44,42 +46,49 @@ const WELCOME_COPY: Record<NewsletterLanguage, WelcomeCopy> = {
   kn: {
     subject: "ಚಂದಾದಾರರಾದಕ್ಕೆ ಧನ್ಯವಾದಗಳು!",
     greeting: (name) => `ನಮಸ್ಕಾರ ${name}, ನನ್ನ ಸುದ್ದಿಪತ್ರಕ್ಕೆ ಚಂದಾದಾರರಾದಕ್ಕೆ ಧನ್ಯವಾದಗಳು.`,
+    anonymousGreeting: "ನನ್ನ ಸುದ್ದಿಪತ್ರಕ್ಕೆ ಚಂದಾದಾರರಾದಕ್ಕೆ ಧನ್ಯವಾದಗಳು.",
     message: "ನನ್ನಿಂದ ನಿಮಗೆ ಪತ್ರಗಳು ಬರಲಾರಂಭಿಸುತ್ತವೆ. ನಿಮ್ಮ ತಾಳ್ಮೆಗೆ ಧನ್ಯವಾದಗಳು.",
     signoff: "ಪ್ರೀತಿಯಿಂದ, ಲಿಂಗದೇವರು",
   },
   hi: {
     subject: "सदस्यता लेने के लिए धन्यवाद!",
     greeting: (name) => `नमस्ते ${name}, मेरे न्यूज़लेटर की सदस्यता लेने के लिए धन्यवाद।`,
+    anonymousGreeting: "मेरे न्यूज़लेटर से जुड़ने के लिए धन्यवाद।",
     message: "अब से आपको मेरे पत्र मिलने लगेंगे। आपके धैर्य के लिए धन्यवाद।",
     signoff: "शुभकामनाओं सहित, लिंगादेवरु",
   },
   ja: {
     subject: "ご登録ありがとうございます！",
     greeting: (name) => `こんにちは、${name}さん。ニュースレターにご登録いただきありがとうございます。`,
+    anonymousGreeting: "ニュースレターにご登録いただきありがとうございます。",
     message: "これから私からのお便りをお届けします。お待ちいただきありがとうございます。",
     signoff: "それでは、リンガデヴァル",
   },
   ml: {
     subject: "സബ്‌സ്‌ക്രൈബ് ചെയ്തതിന് നന്ദി!",
     greeting: (name) => `നമസ്കാരം ${name}, എന്റെ വാർത്താക്കുറിപ്പിൽ ചേർന്നതിന് നന്ദി.`,
+    anonymousGreeting: "എന്റെ വാർത്താക്കുറിപ്പിൽ ചേർന്നതിന് നന്ദി.",
     message: "ഇനി മുതൽ എന്റെ കത്തുകൾ നിങ്ങൾക്ക് ലഭിക്കും. കാത്തിരുന്നതിന് നന്ദി.",
     signoff: "സ്നേഹത്തോടെ, ലിംഗദേവരു",
   },
   ta: {
     subject: "சந்தா செய்ததற்கு நன்றி!",
     greeting: (name) => `வணக்கம் ${name}, எனது செய்திமடலுக்கு சந்தா செய்ததற்கு நன்றி.`,
+    anonymousGreeting: "எனது செய்திமடலுக்கு சந்தா செய்ததற்கு நன்றி.",
     message: "இனிமேல் என்னிடமிருந்து கடிதங்களைப் பெறுவீர்கள். உங்கள் பொறுமைக்கு நன்றி.",
     signoff: "அன்புடன், லிங்கதேவரு",
   },
   te: {
     subject: "సబ్‌స్క్రైబ్ చేసినందుకు ధన్యవాదాలు!",
     greeting: (name) => `నమస్కారం ${name}, నా వార్తాలేఖకు సబ్‌స్క్రైబ్ చేసినందుకు ధన్యవాదాలు.`,
+    anonymousGreeting: "నా వార్తాలేఖకు సబ్‌స్క్రైబ్ చేసినందుకు ధన్యవాదాలు.",
     message: "ఇకపై నా నుంచి మీకు లేఖలు అందుతాయి. మీ ఓపికకు ధన్యవాదాలు.",
     signoff: "శుభాకాంక్షలతో, లింగదేవరు",
   },
   gu: {
     subject: "સબ્સ્ક્રાઇબ કરવા બદલ આભાર!",
     greeting: (name) => `નમસ્તે ${name}, મારા ન્યૂઝલેટરમાં જોડાવા બદલ આભાર.`,
+    anonymousGreeting: "મારા ન્યૂઝલેટરમાં જોડાવા બદલ આભાર.",
     message: "હવે તમને મારી તરફથી પત્રો મળતા રહેશે. ધીરજ રાખવા બદલ આભાર.",
     signoff: "સ્નેહપૂર્વક, લિંગદેવરુ",
   },
@@ -146,7 +155,9 @@ export async function sendNewsletterWelcomeEmail({
   const copy = isNewsletterLanguage(language)
     ? WELCOME_COPY[language]
     : WELCOME_COPY.en;
-  const greeting = copy.greeting(firstName);
+  const greeting = firstName
+    ? copy.greeting(firstName)
+    : copy.anonymousGreeting;
   const transporter = getTransporter();
 
   await transporter.sendMail({

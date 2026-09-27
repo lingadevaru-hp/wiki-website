@@ -106,7 +106,11 @@ export default function ArticlePage() {
       .catch(() => setStatus("error"));
   }, [slug]);
 
-  const parent = slug ? findParentArticle(slug, allArticles) : undefined;
+  // Explicit parent (article.parentArticle) wins once the article loads;
+  // before that, prefix matching on the slug covers prefixed sub-slugs.
+  const parent = slug
+    ? findParentArticle(slug, allArticles, article?.parentArticle)
+    : undefined;
 
   return (
     <WikiLayout showBackButton>
@@ -178,7 +182,7 @@ export default function ArticlePage() {
             ]}
           />
           <ArticleView article={article} />
-          <NewsletterSection autoOpenAfterMs={12_000} />
+          <NewsletterSection autoOpenAfterMs={17_000} />
         </>
       )}
     </WikiLayout>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 import type { ContentBlock as ContentBlockType } from "../types/article";
 import MediaViewer, { type MediaViewerItem } from "./MediaViewer";
-import { renderWikiMarkdown } from "./WikiText";
+import { renderWikiInline, renderWikiMarkdown } from "./WikiText";
 
 export default function ContentBlock({ block }: { block: ContentBlockType }) {
   const { t } = useLocale();
@@ -104,26 +104,41 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
       );
     }
 
-    case "table":
+    case "table": {
       // clear-both: tables always take the full column width below floated
       // figures instead of squeezing beside them into broken narrow columns.
-      // data-label on each cell powers the mobile stacked-card layout.
+      // Tables stay real <table>s on every viewport: on narrow screens the
+      // wrapper scrolls horizontally (with sticky header + sticky first
+      // column) so rows/columns keep their names and highlighting.
+      // 2-col tables render as key-value (first col = row header).
+      const cols = block.columns ?? [];
+      const isKeyValue = cols.length === 2;
       return (
         <div
-          className="overflow-x-auto mb-4 clear-both article-table-wrap"
+          className={`overflow-x-auto mb-6 clear-both rounded-xl border border-border bg-card/30 shadow-sm article-table-wrap ${
+            isKeyValue ? "article-table--key-value" : "article-table--data"
+          }`}
           data-testid="table-block"
+          tabIndex={0}
+          role="region"
+          aria-label="Scrollable table"
         >
           <table
-            className="w-full border-collapse border border-border text-foreground"
-            style={{ fontSize: "14px" }}
+            className="w-full border-collapse text-foreground"
+            style={{
+              fontSize: "14px",
+              minWidth: cols.length >= 3 ? "620px" : "440px",
+            }}
           >
-            {block.columns && (
+            {cols.length > 0 && (
               <thead>
-                <tr className="bg-card">
-                  {block.columns.map((col, i) => (
+                <tr>
+                  {cols.map((col, i) => (
                     <th
                       key={i}
-                      className="border border-border px-3 py-1.5 text-left font-bold"
+                      scope="col"
+                      className="border-b border-border bg-muted/50 px-4 py-3 text-left font-bold whitespace-nowrap"
+                      style={{ lineHeight: "1.5" }}
                     >
                       {col}
                     </th>
@@ -133,22 +148,50 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
             )}
             <tbody>
               {block.rows?.map((row, ri) => (
-                <tr key={ri} className={ri % 2 === 1 ? "bg-card/40" : ""}>
-                  {block.columns?.map((col, ci) => (
-                    <td
-                      key={ci}
-                      className="border border-border px-3 py-1.5"
-                      data-label={col}
-                    >
-                      {row[col]}
-                    </td>
-                  ))}
+                <tr
+                  key={ri}
+                  className="border-b border-border/60 last:border-b-0 even:bg-muted/20 hover:bg-muted/30 transition-colors"
+                >
+                  {cols.map((col, ci) => {
+                    const value = row[col] ?? "";
+                    const cellContent =
+                      typeof value === "string" && value.length > 0 ? (
+                        <>{renderWikiInline(value)}</>
+                      ) : (
+                        value
+                      );
+                    // Key-value tables: first column is the row label.
+                    if (isKeyValue && ci === 0) {
+                      return (
+                        <th
+                          key={ci}
+                          scope="row"
+                          className="px-4 py-3 text-left font-semibold align-top bg-muted/20"
+                          style={{ lineHeight: "1.6", width: "30%", minWidth: "130px" }}
+                          data-label={col}
+                        >
+                          {cellContent}
+                        </th>
+                      );
+                    }
+                    return (
+                      <td
+                        key={ci}
+                        className="px-4 py-3 align-top"
+                        style={{ lineHeight: "1.65" }}
+                        data-label={col}
+                      >
+                        {cellContent}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       );
+    }
 
     case "video":
       return (

@@ -1,13 +1,13 @@
 import { useLocale } from "../contexts/LocaleContext";
 import { useEffect, useState, type ReactNode } from "react";
 import WikiHeader from "./WikiHeader";
-import WikiSidebar from "./WikiSidebar";
 
 interface WikiLayoutProps {
   children: ReactNode;
   showBackButton?: boolean;
   showBackTop?: boolean;
   mainClassName?: string;
+  backHref?: string;
 }
 
 function LayoutBackToTop() {
@@ -39,20 +39,18 @@ export default function WikiLayout({
   showBackButton = false,
   showBackTop = false,
   mainClassName = "wiki-main",
+  backHref,
 }: WikiLayoutProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
       <WikiHeader
-        onMenuClick={() => setSidebarOpen((open) => !open)}
         showBackButton={showBackButton}
+        backHref={backHref}
       />
       <div className="wiki-shell">
-        <WikiSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main id="main-content" className={mainClassName} tabIndex={-1}>
           {children}
         </main>

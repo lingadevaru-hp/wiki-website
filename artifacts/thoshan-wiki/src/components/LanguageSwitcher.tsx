@@ -11,7 +11,7 @@ import { SUPPORTED_LOCALES, openLocaleNewTab } from '@/i18n/supportedLocales'
 import { useLocale } from '@/contexts/LocaleContext'
 
 /**
- * Language popup: globe icon → dropdown with English (default), Kannada, Hindi.
+ * Language popup: globe icon → dropdown with every SUPPORTED_LOCALES entry.
  * Selecting a language redirects to the same path on that locale's subdomain
  * (single codebase, single worker — only the dictionary differs).
  */

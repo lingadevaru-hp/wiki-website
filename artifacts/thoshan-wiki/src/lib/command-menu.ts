@@ -3,6 +3,7 @@
  * (omarchy-site/src/lib/menu.ts): a flat list with dotted ids, rows that
  * either navigate or open a submenu. Adapted to this site's routes.
  */
+import { SUPPORTED_LOCALES } from '../i18n/supportedLocales'
 
 export type CommandIcon =
   | 'home'
@@ -71,10 +72,19 @@ const ITEMS: Array<CommandItem> = [
   },
   { id: 'about', label: 'About', icon: 'about', to: '/wiki/about' },
 
-  // Language submenu — English default, Kannada + Hindi options
-  { id: 'language.en', label: 'English', icon: 'language', glyph: '🇬🇧', locale: 'en' },
-  { id: 'language.kn', label: 'ಕನ್ನಡ', icon: 'language', glyph: '🇮🇳', locale: 'kn' },
-  { id: 'language.hi', label: 'हिन्दी', icon: 'language', glyph: '🇮🇳', locale: 'hi' },
+  // Language submenu — generated from SUPPORTED_LOCALES so every locale
+  // is listed and linked (same set as the globe menu). Labels mirror the
+  // globe menu: plain native for English, native + name otherwise.
+  ...SUPPORTED_LOCALES.map((entry) => ({
+    id: `language.${entry.code}`,
+    label:
+      entry.code === 'en'
+        ? entry.native
+        : `${entry.native} (${entry.name})`,
+    icon: 'language' as const,
+    glyph: entry.flag,
+    locale: entry.code,
+  })),
 ]
 
 const parentOf = (id: string) =>

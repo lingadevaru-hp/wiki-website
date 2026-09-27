@@ -113,7 +113,7 @@
      screens; the palette icon in the header is always visible instead. */
   .notice-in { display:none; }
 }
-.omarchy-hero-copy { text-align:center; margin-top:clamp(20px,4vh,44px); }.omarchy-status { display:inline-block; margin:0 0 27px; border:1px solid hsl(var(--primary) / .55); color:hsl(var(--primary)); padding:7px 12px; font-size:11px; }.omarchy-status--top { margin:0 0 clamp(20px,4vh,44px); }.omarchy-tagline { margin: 26px 0 10px; font-size:clamp(19px,2.35vw,32px); line-height:1.2; letter-spacing:-.05em; }.omarchy-description { margin:0; color:hsl(var(--muted-foreground)); font-size:13px; }.omarchy-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:29px; }.omarchy-actions button { display:inline-flex; align-items:center; gap:8px; padding:12px 15px; font:inherit; font-size:12px; cursor:pointer; transition: transform .18s ease, filter .18s ease; }.omarchy-actions button:hover { transform:translateY(-3px); filter:brightness(1.15); }.omarchy-primary { border:1px solid hsl(var(--primary)); background:hsl(var(--primary)); color:hsl(var(--background)); }.omarchy-secondary { border:1px solid hsl(var(--border)); background:hsl(var(--background) / .72); color:hsl(var(--foreground)); }.omarchy-scroll { display:grid; gap:7px; place-items:center; margin-top:30px; margin-bottom:30px; border:0; background:none; color:hsl(var(--muted-foreground)); cursor:pointer; font:11px "JetBrains Mono Variable","Courier New",monospace; }.omarchy-scroll svg { animation: thoshan-bob 1.8s ease-in-out infinite; }
+.omarchy-hero-copy { text-align:center; margin-top:clamp(20px,4vh,44px); }.omarchy-status { display:inline-block; margin:0 0 27px; border:1px solid hsl(var(--primary) / .55); color:hsl(var(--primary)); padding:7px 12px; font-size:11px; }.omarchy-status--top { margin:0 0 clamp(8px,2vh,20px); }.omarchy-tagline { margin: 26px 0 10px; font-size:clamp(19px,2.35vw,32px); line-height:1.2; letter-spacing:-.05em; }.omarchy-description { margin:0; color:hsl(var(--muted-foreground)); font-size:13px; }.omarchy-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:29px; }.omarchy-actions button { display:inline-flex; align-items:center; gap:8px; padding:12px 15px; font:inherit; font-size:12px; cursor:pointer; transition: transform .18s ease, filter .18s ease; }.omarchy-actions button:hover { transform:translateY(-3px); filter:brightness(1.15); }.omarchy-primary { border:1px solid hsl(var(--primary)); background:hsl(var(--primary)); color:hsl(var(--background)); }.omarchy-secondary { border:1px solid hsl(var(--border)); background:hsl(var(--background) / .72); color:hsl(var(--foreground)); }.omarchy-scroll { display:grid; gap:7px; place-items:center; margin-top:30px; margin-bottom:30px; border:0; background:none; color:hsl(var(--muted-foreground)); cursor:pointer; font:11px "JetBrains Mono Variable","Courier New",monospace; }.omarchy-scroll svg { animation: thoshan-bob 1.8s ease-in-out infinite; }
 .omarchy-archive { position:relative; padding:64px 7vw 120px; border-top:1px solid hsl(var(--border)); background:hsl(var(--card)); }.omarchy-archive > p { color:hsl(var(--primary)); font-size:11px; letter-spacing:.15em; }.omarchy-archive h2 { margin:16px 0 48px; font-size:clamp(30px,5vw,64px); line-height:.95; letter-spacing:-.07em; }.omarchy-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }.omarchy-cards button { min-height:175px; text-align:left; padding:22px; border:1px solid hsl(var(--border)); background:hsl(var(--background)); color:hsl(var(--foreground)); font:inherit; cursor:pointer; transition:.2s ease; }.omarchy-cards button:hover { transform:translateY(-5px); border-color:hsl(var(--primary)); }.omarchy-cards span,.omarchy-cards em { display:block; color:hsl(var(--muted-foreground)); font-size:11px; font-style:normal; }.omarchy-cards strong { display:block; margin:45px 0 8px; font-size:22px; color:hsl(var(--primary)); }
 @keyframes thoshan-bob { 50% { transform:translateY(5px); } }
 @media (max-width:720px) { .omarchy-header { padding:0 15px; }.omarchy-header nav { display:none; }.omarchy-menu-button { display:inline-flex; }.omarchy-theme-button { font-size:0; }.omarchy-theme-button kbd { font-size:11px; margin:0; }.omarchy-install { display:none; }.omarchy-cards { grid-template-columns:1fr; }.omarchy-hero-copy { padding-inline:16px; } }
@@ -932,8 +932,8 @@ a:active {
 .wiki-header {
   position: sticky;
   top: 0;
-  /* Above the fixed reading-progress bar (z 60) so header dropdowns
-     never paint under it, and the bar never covers the globe menu. */
+  /* Header dropdowns paint above page content; the reading-progress bar
+     (z 100) sits at the viewport top edge above everything. */
   z-index: 70;
   background: color-mix(in srgb, hsl(var(--background)) 94%, transparent);
   border-bottom: 1px solid hsl(var(--border));
@@ -1506,8 +1506,11 @@ a:active {
   position: fixed;
   left: 0;
   right: 0;
-  top: 58px;
-  z-index: 60;
+  /* Pinned to the very top edge above the sticky header (z 70): a bar
+   * under the header kept slipping behind it whenever the header grew
+   * (mobile heights, wrapped rows), leaving only the % badge visible. */
+  top: 0;
+  z-index: 100;
   height: 4px;
   background: hsl(var(--accent) / 0.16);
   pointer-events: none;
@@ -1532,9 +1535,9 @@ a:active {
   box-shadow: 0 0 0 4px hsl(var(--accent) / 0.17);
 }
 .reading-progress b {
-  position: absolute;
+  position: fixed;
   right: 10px;
-  top: 8px;
+  top: 66px;
   padding: 3px 6px;
   opacity: 0;
   color: hsl(var(--accent));
@@ -2094,6 +2097,14 @@ a:active {
   background: hsl(var(--accent));
   box-shadow: 0 8px 22px hsl(var(--accent) / 0.25);
 }
+/* FOSS Coin mobile only: the sticky Buy bar owns the bottom edge, so park
+ * the back-to-top above it instead of overlapping its right end. The two
+ * render as adjacent siblings only on this page. */
+@media (max-width: 767px) {
+  .foss-buy-sticky + .back-to-top {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+}
 .reader-toast {
   position: fixed;
   left: 50%;
@@ -2480,9 +2491,19 @@ pre {
 .article-sections table {
   font-size: 14px;
 }
-.article-sections table {
-  display: block;
-  overflow-x: auto;
+/* Tables render inside .article-table-wrap (ContentBlock) which owns the
+ * horizontal scroll. Keep the <table> itself a real table so borders,
+ * zebra striping and column widths behave on desktop. */
+.article-sections .article-table-wrap {
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+.article-sections .article-table-wrap table {
+  display: table;
+  overflow: visible;
+  margin: 0;
+  max-width: none;
 }
 @media (prefers-reduced-transparency: reduce) {
   .wiki-header,
@@ -2695,19 +2716,23 @@ pre {
   }
   .wiki-header-inner {
     min-height: 54px;
-    padding-inline: 10px;
-    gap: 5px;
+    padding-inline: 8px;
+    gap: 2px;
+    /* Evenly justify the icon row (menu, wordmark, search, chat,
+       language, theme) so no single dead gap remains. */
+    justify-content: space-evenly;
   }
-  /* Reading-progress bar sits flush under the shorter mobile header. */
+  /* Reading-progress bar is pinned to the viewport top edge (above the
+     header), so no offset is needed under the shorter mobile header. */
   .reading-progress {
-    top: 54px;
+    top: 0;
   }
   .wiki-wordmark {
     font-size: 14px;
     gap: 6px;
   }
   .header-search-button {
-    margin-left: auto;
+    margin-inline: 0;
     flex: 0 0 auto;
     width: 44px;
     height: 44px;
@@ -2717,6 +2742,15 @@ pre {
   .header-search-button span,
   .header-search-button kbd {
     display: none;
+  }
+  /* 16px minimum on text fields: below that iOS Safari auto-zooms on
+   * focus, hiding what is typed and the results under the keypad. */
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px;
   }
   .article-heading h1 {
     font-size: 2.55rem;
@@ -4044,14 +4078,24 @@ pre {
 .news-hero-caption .section-eyebrow {
   color: hsl(var(--accent));
 }
-/* Landing news ticker pill (mirrors the omarchy.org announcement banner). */
+/* Narrowest phones: pin the CEO-meeting slide further left so the
+ * author's face (left third of frame) survives the portrait crop.
+ * Inline object-position is overridden deliberately here. */
+@media (max-width: 420px) {
+  .news-slide img[src*="ceo-router-hero"] {
+    object-position: 15% 28% !important;
+  }
+}
+/* Landing news ticker pill (mirrors the omarchy.org announcement banner).
+ * Sits high in the hero, just under the status line by the pixel-field
+ * animation. */
 .omarchy-news-pill {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 2px;
   padding: 9px 16px;
   border: 1px solid hsl(var(--primary) / 0.55);
   border-radius: 6px;
@@ -4064,7 +4108,7 @@ pre {
 }
 @media (max-width: 640px) {
   .omarchy-news-pill {
-    margin-top: 24px;
+    margin-top: 8px;
     border-radius: 16px;
   }
 }
@@ -5779,6 +5823,21 @@ h2 {
 .global-search-icon {
   color: hsl(var(--muted-foreground));
   flex-shrink: 0;
+}
+
+/* Collection scope badge (e.g. NEWS) inside the popup input row. */
+.global-search-scope {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border: 1px solid hsl(var(--accent) / 0.5);
+  border-radius: 999px;
+  background: hsl(var(--accent) / 0.12);
+  color: hsl(var(--accent));
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .global-search-input {
@@ -8633,56 +8692,76 @@ body {
   shape-margin: 12px;
 }
 
-/* Mobile tables: stack each row into a readable card instead of a
- * crushed horizontal strip. Column names come from data-label. */
+/* Mobile tables: keep REAL tables (rows + named columns) on every
+ * viewport. The wrapper scrolls horizontally with momentum; the header
+ * row and the first column stick so names stay visible while scrolling.
+ * No stacked-card / block transformation. */
 @media (max-width: 768px) {
   .article-table-wrap {
-    overflow-x: visible;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin-bottom: 16px;
-  }
-  .article-table-wrap table,
-  .article-table-wrap tbody,
-  .article-table-wrap tr,
-  .article-table-wrap td {
-    display: block;
-    width: 100%;
-  }
-  .article-table-wrap thead {
-    display: none;
+    scrollbar-width: thin;
   }
   .article-table-wrap table {
-    border: none;
-    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
   }
-  .article-table-wrap tbody tr {
-    margin-bottom: 12px;
-    border: 1px solid hsl(var(--border));
-    border-radius: 12px;
+  /* Sticky header: column names stay on screen during horizontal scroll. */
+  .article-table-wrap thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    white-space: nowrap;
+  }
+  /* Key-value tables: label column sticks left while Detail scrolls. */
+  .article-table--key-value th[scope="row"] {
+    position: sticky;
+    left: 0;
+    z-index: 1;
     background: hsl(var(--card));
-    overflow: hidden;
+    width: 34%;
+    min-width: 118px !important;
+    font-size: 13px;
+    border-right: 1px solid hsl(var(--border));
   }
-  .article-table-wrap tbody tr:last-child {
-    margin-bottom: 0;
+  .article-table--key-value thead th:first-child {
+    z-index: 3;
   }
-  .article-table-wrap td {
-    border: none;
-    border-bottom: 1px solid hsl(var(--border) / 0.4);
-    padding: 10px 14px;
-    font-size: 14px;
-    line-height: 1.5;
+  .article-table--key-value th[scope="row"],
+  .article-table--key-value td {
+    padding: 10px 12px;
   }
-  .article-table-wrap td:last-child {
-    border-bottom: none;
+  .article-table--key-value td {
+    font-size: 13.5px;
+    min-width: 200px;
   }
-  .article-table-wrap td::before {
-    content: attr(data-label);
-    display: block;
-    font-size: 11px;
+  /* Data tables (Builder showcase): first column (Demo name) sticks left,
+   * header sticks top — every cell keeps its row/column meaning. */
+  .article-table--data thead th {
+    font-size: 12px;
+  }
+  .article-table--data thead th:first-child,
+  .article-table--data tbody td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+  .article-table--data thead th:first-child {
+    z-index: 3;
+  }
+  .article-table--data tbody td:first-child {
+    background: hsl(var(--card));
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: hsl(var(--muted-foreground));
-    margin-bottom: 4px;
+    border-right: 1px solid hsl(var(--border));
+    min-width: 128px;
+  }
+  .article-table--data tbody td {
+    min-width: 170px;
+  }
+  /* Never render data-label pseudo-labels: columns already have names. */
+  .article-table-wrap td::before {
+    display: none;
   }
 }
 
@@ -8790,7 +8869,7 @@ body {
 }
 .newsletter-sub {
   color: hsl(var(--muted-foreground));
-  font-size: 14.5px;
+  font-size: 16px;
   margin: 0 auto;
   max-width: 480px;
   line-height: 1.6;
@@ -8870,6 +8949,18 @@ body {
   stroke-width: 2;
   stroke-linecap: round;
 }
+/* Engraved feather/face detailing: background-ink grooves on the body. */
+.thunderbird .tb-detail {
+  fill: none;
+  stroke: hsl(var(--background));
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.8;
+}
+.thunderbird .tb-detail-fill {
+  fill: hsl(var(--background));
+  opacity: 0.9;
+}
 
 @keyframes tb-bob {
   0%, 100% { transform: translateY(0); }
@@ -8896,7 +8987,10 @@ body {
   place-items: center;
   background: rgba(4, 6, 14, 0.72);
   backdrop-filter: blur(6px);
-  padding: 20px;
+  padding: max(16px, env(safe-area-inset-top)) 16px
+    max(16px, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   cursor: pointer;
 }
 .newsletter-sky {
@@ -8941,6 +9035,11 @@ body {
   cursor: default;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
   animation: tb-modal-in 0.35s cubic-bezier(0.32, 0.72, 0, 1) both;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 @keyframes tb-modal-in {
   from { opacity: 0; transform: translateY(18px) scale(0.97); }
@@ -8953,7 +9052,7 @@ body {
   color: hsl(var(--foreground));
 }
 .newsletter-modal p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: hsl(var(--muted-foreground));
   margin: 0 0 18px;
@@ -8962,8 +9061,8 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border-radius: 10px;
@@ -8996,21 +9095,21 @@ body {
 .newsletter-input {
   flex: 1;
   min-width: 0;
-  min-height: 44px;
+  min-height: 48px;
   border-radius: 12px;
   border: 1px solid hsl(var(--border));
   background: hsl(var(--muted) / 0.3);
   color: hsl(var(--foreground));
   padding: 11px 14px;
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
 }
 .newsletter-input:focus {
   border-color: hsl(var(--accent));
 }
 .newsletter-field button {
-  min-height: 44px;
+  min-height: 48px;
   border-radius: 12px;
   border: none;
   background: hsl(var(--accent));
@@ -9033,6 +9132,29 @@ body {
   margin-top: 10px;
   font-size: 13px;
   color: #f87171;
+}
+/* Already-subscribed choice + back-to-choice link. */
+.newsletter-choices {
+  flex-direction: column;
+}
+.newsletter-choices button {
+  width: 100%;
+}
+.newsletter-switch {
+  background: none;
+  border: none;
+  padding: 4px 0 0;
+  margin-top: 2px;
+  color: hsl(var(--muted-foreground));
+  font: inherit;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  justify-self: start;
+}
+.newsletter-switch:hover {
+  color: hsl(var(--foreground));
 }
 .newsletter-ack .thunderbird {
   width: 120px;
@@ -9066,14 +9188,17 @@ body {
   }
 }
 @media (max-width: 480px) {
+  .newsletter-modal {
+    padding: 28px 20px 22px;
+  }
   .newsletter-field {
     flex-direction: column;
   }
   .newsletter-input {
-    min-height: 44px;
+    min-height: 48px;
   }
   .newsletter-field button {
-    min-height: 44px;
+    min-height: 48px;
     padding: 12px 20px;
   }
 }

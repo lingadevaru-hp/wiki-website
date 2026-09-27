@@ -60,7 +60,10 @@ export default function MediaViewer({ item, onClose }: MediaViewerProps) {
               controls
               autoPlay
               loop
-              muted={item.muted ?? true}
+              // Viewer opens from an explicit tap (a user gesture), so
+              // browsers allow sound: default unmuted unless the opener
+              // passed an explicit muted flag (e.g. page state).
+              muted={item.muted ?? false}
               playsInline
               data-testid="media-viewer-video"
             />

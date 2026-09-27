@@ -148,6 +148,35 @@ function GlobalKeyboardHandler() {
   );
 }
 
+/**
+ * Mobile keyboards cover half the screen: whenever a field (search, chat,
+ * newsletter, any input) takes focus on a narrow viewport, re-center it
+ * above the keypad after the keyboard finishes opening. Desktop unaffected.
+ */
+function KeepFieldVisible() {
+  useEffect(() => {
+    const onFocusIn = (event: FocusEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target || window.innerWidth > 820) return;
+      const field = target.closest?.(
+        'input, textarea, select, [contenteditable="true"]',
+      );
+      if (!field) return;
+      window.setTimeout(() => {
+        if (document.hidden) return;
+        try {
+          field.scrollIntoView({ block: "center", behavior: "smooth" });
+        } catch {
+          /* older webviews */
+        }
+      }, 350);
+    };
+    document.addEventListener("focusin", onFocusIn);
+    return () => document.removeEventListener("focusin", onFocusIn);
+  }, []);
+  return null;
+}
+
 function App() {
   return (
     <ErrorBoundary>
@@ -161,6 +190,7 @@ function App() {
                 <Router />
               </WouterRouter>
               <GlobalKeyboardHandler />
+              <KeepFieldVisible />
               <CommandMenu />
               <ChatPanel />
               <ThemePicker />

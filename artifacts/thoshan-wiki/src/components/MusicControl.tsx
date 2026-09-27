@@ -1,6 +1,7 @@
 import { useLocale } from '@/contexts/LocaleContext'
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from '@tanstack/react-router'
+import { Volume2, VolumeX } from 'lucide-react'
 import { VolumeIcon, VolumeOffIcon } from '@/components/icons'
 import { MUSIC_EVENT, TRACK, loadMusic, music } from '@/lib/music'
 import type { MusicState } from '@/lib/music'
@@ -295,5 +296,38 @@ export function MusicControl({ path = '/' }: { path?: string }) {
         className="music-seek absolute inset-x-0 -bottom-[6px] h-[14px] w-full cursor-pointer touch-none appearance-none bg-transparent focus-visible:outline-none"
       />
     </div>
+  )
+}
+
+/**
+ * Compact pause/unpause for the wiki navbar (WikiHeader). The landing page
+ * keeps its full float card; every other page mounts only this icon, so the
+ * sound can be stopped from anywhere. Hidden until the sound has been
+ * touched once — then it stays, showing live on/off state.
+ */
+export function MusicNavbarToggle() {
+  const { t } = useLocale()
+  const [state, setState] = useState<MusicState>(() => music.state)
+  useEffect(() => {
+    const onState = (event: Event) =>
+      setState((event as CustomEvent<MusicState>).detail)
+    window.addEventListener(MUSIC_EVENT, onState)
+    return () => window.removeEventListener(MUSIC_EVENT, onState)
+  }, [])
+  const on = state === 'playing' || state === 'loading'
+  if (!on && !music.touched) return null
+  const label = on ? t('music.pause') : t('music.play')
+  return (
+    <button
+      type="button"
+      className="header-icon-button"
+      onClick={() => music.toggle()}
+      aria-pressed={on}
+      aria-label={label}
+      title={label}
+      data-testid="button-music-toggle"
+    >
+      {on ? <Volume2 size={18} /> : <VolumeX size={18} />}
+    </button>
   )
 }
