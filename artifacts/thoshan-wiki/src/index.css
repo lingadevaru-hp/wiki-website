@@ -8635,9 +8635,10 @@ body {
 
 /* Mobile tables: stack each row into a readable card instead of a
  * crushed horizontal strip. Column names come from data-label. */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .article-table-wrap {
     overflow-x: visible;
+    margin-bottom: 16px;
   }
   .article-table-wrap table,
   .article-table-wrap tbody,
@@ -8657,7 +8658,7 @@ body {
     margin-bottom: 12px;
     border: 1px solid hsl(var(--border));
     border-radius: 12px;
-    background: hsl(var(--card) / 0.5);
+    background: hsl(var(--card));
     overflow: hidden;
   }
   .article-table-wrap tbody tr:last-child {
@@ -8665,8 +8666,10 @@ body {
   }
   .article-table-wrap td {
     border: none;
-    border-bottom: 1px solid hsl(var(--border) / 0.6);
+    border-bottom: 1px solid hsl(var(--border) / 0.4);
     padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.5;
   }
   .article-table-wrap td:last-child {
     border-bottom: none;
@@ -8679,7 +8682,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: hsl(var(--muted-foreground));
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
 }
 
@@ -8961,15 +8964,19 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: hsl(var(--muted-foreground));
-  margin-bottom: 8px;
+}
+.newsletter-form {
+  display: grid;
+  gap: 8px;
 }
 .newsletter-field {
   display: flex;
   gap: 8px;
 }
-.newsletter-field input {
+.newsletter-input {
   flex: 1;
   min-width: 0;
+  min-height: 44px;
   border-radius: 12px;
   border: 1px solid hsl(var(--border));
   background: hsl(var(--muted) / 0.3);
@@ -8979,10 +8986,11 @@ body {
   font-size: 14px;
   outline: none;
 }
-.newsletter-field input:focus {
+.newsletter-input:focus {
   border-color: hsl(var(--accent));
 }
 .newsletter-field button {
+  min-height: 44px;
   border-radius: 12px;
   border: none;
   background: hsl(var(--accent));
@@ -8996,6 +9004,10 @@ body {
 }
 .newsletter-field button:hover {
   filter: brightness(1.1);
+}
+.newsletter-field button:disabled {
+  opacity: 0.65;
+  cursor: wait;
 }
 .newsletter-error {
   margin-top: 10px;
@@ -9033,7 +9045,11 @@ body {
   .newsletter-field {
     flex-direction: column;
   }
+  .newsletter-input {
+    min-height: 44px;
+  }
   .newsletter-field button {
+    min-height: 44px;
     padding: 12px 20px;
   }
 }

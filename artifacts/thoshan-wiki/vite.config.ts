@@ -53,6 +53,18 @@ export default defineConfig({
     strictPort: true,
     host: "0.0.0.0",
     allowedHosts: true,
+    proxy: {
+      "/api/newsletter/signup": {
+        target: process.env.NEWSLETTER_API_URL || "http://localhost:3000",
+        changeOrigin: true,
+        headers: process.env.NEWSLETTER_PROXY_TOKEN
+          ? {
+              "X-Newsletter-Proxy-Token":
+                process.env.NEWSLETTER_PROXY_TOKEN,
+            }
+          : {},
+      },
+    },
     fs: {
       strict: true,
     },

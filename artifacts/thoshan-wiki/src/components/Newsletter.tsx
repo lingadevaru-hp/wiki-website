@@ -62,15 +62,17 @@ export function Thunderbird({ flying }: { flying: boolean }) {
 }
 
 export default function NewsletterSection() {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const [dwelled, setDwelled] = useState(false);
   const [inView, setInView] = useState(false);
   const [flown, setFlown] = useState(false);
   const [overlay, setOverlay] = useState(false);
   const [landed, setLanded] = useState(false);
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(() => readFlag(SUBSCRIBED_KEY));
   const [dismissed, setDismissed] = useState(() => readFlag(DISMISSED_KEY));
 
@@ -124,26 +126,47 @@ export default function NewsletterSection() {
   }, [overlay, closeOverlay]);
 
   const submit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const value = email.trim();
-      if (!/.+@.+\..+/.test(value)) {
+      if (submitting) return;
+      const name = firstName.trim();
+      const address = email.trim();
+      if (!name) {
+        setError(t("newsletter.nameRequired"));
+        return;
+      }
+      if (name.length > 80 || /[\r\n\0]/.test(name)) {
+        setError(t("newsletter.nameInvalid"));
+        return;
+      }
+      if (!/.+@.+\..+/.test(address)) {
         setError(t("newsletter.invalid"));
         return;
       }
-      // TODO(future backend): POST /api/subscribe { email } -> ZeptoMail
-      // welcome mail. Frontend-only for now: acknowledge + remember.
-      try {
-        // eslint-disable-next-line no-console
-        console.info("[newsletter] stubbed subscribe:", value);
-      } catch {
-        /* noop */
-      }
-      setDone(true);
+
+      setSubmitting(true);
       setError("");
-      writeFlag(SUBSCRIBED_KEY);
+      try {
+        const response = await fetch("/api/newsletter/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: name,
+            email: address,
+            language: locale,
+          }),
+        });
+        if (!response.ok) throw new Error("Newsletter signup failed");
+
+        setDone(true);
+        writeFlag(SUBSCRIBED_KEY);
+      } catch {
+        setError(t("newsletter.submitFailed"));
+      } finally {
+        setSubmitting(false);
+      }
     },
-    [email, t],
+    [email, firstName, locale, submitting, t],
   );
 
   return (
@@ -205,24 +228,51 @@ export default function NewsletterSection() {
                 <>
                   <h3>{t("newsletter.modalTitle")}</h3>
                   <p>{t("newsletter.modalSub")}</p>
-                  <form onSubmit={submit} noValidate>
+                  <form className="newsletter-form" onSubmit={submit} noValidate>
+                    <label htmlFor="newsletter-first-name">
+                      {t("newsletter.nameLabel")}
+                    </label>
+                    <input
+                      id="newsletter-first-name"
+                      className="newsletter-input"
+                      type="text"
+                      autoComplete="given-name"
+                      maxLength={80}
+                      required
+                      aria-invalid={Boolean(error)}
+                      aria-describedby={error ? "newsletter-error" : undefined}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      autoFocus
+                    />
                     <label htmlFor="newsletter-email">
                       {t("newsletter.emailLabel")}
                     </label>
                     <div className="newsletter-field">
                       <input
                         id="newsletter-email"
+                        className="newsletter-input"
                         type="email"
                         autoComplete="email"
                         placeholder={t("newsletter.emailPlaceholder")}
+                        required
+                        aria-invalid={Boolean(error)}
+                        aria-describedby={error ? "newsletter-error" : undefined}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        autoFocus
                       />
-                      <button type="submit">{t("newsletter.submit")}</button>
+                      <button type="submit" disabled={submitting}>
+                        {submitting
+                          ? t("newsletter.submitting")
+                          : t("newsletter.submit")}
+                      </button>
                     </div>
                     {error && (
-                      <p className="newsletter-error" role="alert">
+                      <p
+                        id="newsletter-error"
+                        className="newsletter-error"
+                        role="alert"
+                      >
                         {error}
                       </p>
                     )}
