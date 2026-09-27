@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "id": "omarchy-meetup",
+    "title": "インド初のOmarchy Linux交流会",
+    "slug": "omarchy-meetup",
+    "category": "News",
+    "lastEdited": "2026-09-26T00:00:00Z",
+    "editCount": 2,
+    "views": 0
+  },
+  "infobox": {
+    "title": "インド初のOmarchy Linux交流会",
+    "image": "/assets/meetup-board.jpg",
+    "imageCaption": "目印になったホワイトボード — BLR 001",
+    "fields": [
+      {
+        "label": "イベント",
+        "value": "Omarchy BLR交流会001 — インド初のOmarchy交流会"
+      },
+      {
+        "label": "日付",
+        "value": "2026年9月6日、ベンガルル"
+      },
+      {
+        "label": "主催",
+        "value": "Megabyte & Devfolio"
+      },
+      {
+        "label": "形式",
+        "value": "Show & Tell + オープンセッション"
+      },
+      {
+        "label": "私の役割",
+        "value": "参加者 + FOSSコーナー発表者"
+      },
+      {
+        "label": "発表した内容",
+        "value": "FOSSコイン、GL.iNetホームルーター＆ホームラボ"
+      }
+    ]
+  },
+  "heroVideo": "/assets/omarchy-meetup.mp4",
+  "heroPoster": "/assets/omarchy-meetup.png",
+  "heroImage": "/assets/meetup-group.jpg",
+  "lead": "**インド初のOmarchy Linux交流会**（Omarchy BLR交流会001、2026年9月6日、ベンガルル）に参加し、**FOSSコーナー**で発表しました — [FOSSコイン]([[foss-coin|FOSSコイン]])のデモ、GL.iNetホームルーターと[ホームラボ]([[homelab|ホームラボ]])構成の紹介です。持ち帰ったのはノベルティではなく、真似したい7つのビルダーデモと、自前のインフラを運用する人々でいっぱいの部屋でした。",
+  "sections": [
+    {
+      "id": "event-at-a-glance",
+      "title": "イベント概要",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "これはOmarchyユーザーが主催した**コミュニティ主導**の交流会です — **Megabyte**が**Devfolio**と共催、参加無料、ノートPC必須。スライドは不要で、画面を掲げて「これを見て」と言うだけで発表になりました。正確な会場は参加登録の確定後に共有されました。"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "What",
+            "Detail"
+          ],
+          "rows": [
+            {
+              "Detail": "Omarchy BLR交流会001 — インド初のOmarchy交流会",
+              "What": "イベント"
+            },
+            {
+              "Detail": "2026年9月6日、ベンガルル（会場は登録後に共有）",
+              "What": "日時・場所"
+            },
+            {
+              "Detail": "Megabyte & Devfolio",
+              "What": "主催"
+            },
+            {
+              "Detail": "Show & Tell（テーマ、キーバインド、ワークフロー、エージェント構成）+ オープンセッション（設定、トラブルシュート、次回のアイデア）",
+              "What": "形式"
+            },
+            {
+              "Detail": "ノートPC + 電源アダプタ — すべてノートPC上で行われます",
+              "What": "持ち物"
+            },
+            {
+              "Detail": "あらゆる経験レベルを尊重。初参加者が最も気軽に質問できます",
+              "What": "ハウスルール"
+            },
+            {
+              "Detail": "コミュニティ主導、Omarchy／Omacom Foundationの公式イベントではありません",
+              "What": "位置づけ"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "参加者は52人。心を掴んだ誘い文句は**Arch、Hyprland、ターミナル、キーボード駆動ワークフロー、AIエージェント** — これらの言葉に心拍が上がるなら、その部屋にいるべき人でした。"
+        }
+      ]
+    },
+    {
+      "id": "foss-corner",
+      "title": "私のFOSSコーナー",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "交流会でFOSSコーナーを担当しました：**FOSSコイン**のライブデモ — 何ができるのか、オンチェーンの部品がどう組み合わさるのか、プロジェクトの向かう先を紹介。その後、**GL.iNetホームルーターとホームラボ**を案内しました — 普段は机の裏にある実際のルーティング、セルフホストサービス、配線です。"
+        },
+        {
+          "type": "image",
+          "src": "/assets/meetup-ceo-router.jpg",
+          "alt": "LibreDevsのCEOにGL.iNetホームルーターを説明する様子",
+          "caption": "LibreDevsのCEOにGL.iNetホームルーター構成を説明",
+          "width": "340px"
+        },
+        {
+          "type": "text",
+          "content": "最も鋭い会話は**LibreDevsのCEO**とのもので — ルーター構成、ホームラボで動くもの、セルフホスト構成の向かう先を深掘りしました。自分の機材を即座に理解してくれる人に説明することこそ、このような交流会の醍醐味です。デモの合間には主催者たちとディストロやタイリングウィンドウマネージャについても情報交換しました。"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "デモした内容",
+          "content": "**FOSSコイン**（プライバシー優先のSPLトークンフロー）+ **GL.iNetルーター**（自宅ルーティング、DNS、セルフホストサービス）+ **ホームラボ**（機材と配線、ライブ）。詳しい解説は[[foss-coin|FOSSコイン]]と[[homelab|ホームラボ]]にあります。"
+        }
+      ]
+    },
+    {
+      "id": "builder-showcase",
+      "title": "ビルダーショーケース — 会場で披露されたもの",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "当日のDevfolioのスレッドこそ、この交流会の真の記録です — 人々はOmarchy上・Omarchy向けに作ったプラグインや自作ツールを持ち寄りました。以下は私がメモしたデモで、可能な限り本人の言葉で紹介します。どれも追う価値のあるプロジェクトだからです。"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Demo",
+            "What it is",
+            "Why it matters to me"
+          ],
+          "rows": [
+            {
+              "Demo": "omalt-tab",
+              "What it is": "モニタ越しにワークスペースとウィンドウを視覚プレビューで切り替えるHyprlandワークスペーススイッチャー",
+              "Why it matters to me": "ワークスペース中心のAlt-Tab／Cmd-Tabという発想 — 何がどこにあるか覚えずに移動できる"
+            },
+            {
+              "Demo": "Crown OS + Crown UI Kit",
+              "What it is": "カスタムWaylandコンポジタ、UIキット、ワークスペースごとのタイリングを備えたデスクトップ体験",
+              "Why it matters to me": "別々のUIライブラリをつなぎ合わせる代わりにWaylandアプリ用の再利用可能なコンポーネント"
+            },
+            {
+              "Demo": "Teeny Tiny",
+              "What it is": "スマホやデスクトップからクラウドマシンを触るブラウザ対応Linux開発環境（omarchy.cloudを所有）",
+              "Why it matters to me": "タブの中のクラウド開発マシン — Omarchyをポケットに入れて持ち歩くのに最も近いもの"
+            },
+            {
+              "Demo": "Pacman/AUR脆弱性スキャナ",
+              "What it is": "インストール済みパッケージを走査し既知の脆弱性にフラグを立てるOmarchyセキュリティプラグイン",
+              "Why it matters to me": "LLMで適当なパッケージを入れがち — 被害が出る前に検出してくれる"
+            },
+            {
+              "Demo": "指紋sudo + OpenCode Go使用量プラグイン",
+              "What it is": "指紋センサードライバのリバースエンジニアリングでsudoの指紋認証を実現、さらにAI使用量を追跡し上限に気づかず達しないようにするOmarchyプラグイン",
+              "Why it matters to me": "ハードウェア対応＋コストのガードレール — 会場で最も地味で最も役立つハック"
+            },
+            {
+              "Demo": "Caelestia dots",
+              "What it is": "洗練されたUIの常用Caelestiaセットアップ",
+              "Why it matters to me": "作り込んだデスクトップも美しく実用的であり得る証明"
+            },
+            {
+              "Demo": "VPS上のCLI専用Omarchy",
+              "What it is": "仮想プライベートサーバー上でヘッドレス動作するOmarchy構成",
+              "Why it matters to me": "同じdotfiles、ディスプレイなし — サーバーに応用したOmarchyの考え方"
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "content": "先週の日曜日にバンガロールでOmarchy初の交流会を開催しました。主導は@megabyte0xです。Omarchy、Arch、Hyprland、作り込んだLinux環境を使う人々を一つの部屋に集め、皆が何を作っているか見せ合うのが狙いでした。",
+          "author": "Devfolio（X、2026年9月7日）"
+        },
+        {
+          "type": "quote",
+          "content": "最高に盛り上がった！多くの人がOmarchy上・Omarchy向けに作っているプラグインや自作ツールを披露してくれました。Linux、他のディストロ、各自のLinux歴についての会話が尽きませんでした。意図的に小規模にしたのが功を奏しました。",
+          "author": "Megabyte（@megabyte0x）（X、2026年9月6日）"
+        },
+        {
+          "type": "quote",
+          "content": "Omarchy BLR交流会001はこれで終了です。Omarchy周辺で人々が作るカスタムセットアップ、プラグイン、実験、アイデアを見るのはとても楽しかったです。企画して人を集めた@megabyte0xにすべての功績があります。",
+          "author": "Devfolio（X、2026年9月7日）"
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "この記録の取り方",
+          "content": "上記のデモはすべてDevfolioの公式スレッドとLumaイベントページが出典です — 水増しなし。元の投稿、写真、まとめ動画は[Devfolioスレッド](https://x.com/devfolio/status/2096928997997478182)と[Lumaイベントページ](https://luma.com/g4g7r719)にあります。"
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "title": "人々と会話",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "廊下での交流が最高でした：主催者との出会い、ディストロやタイリングウィンドウマネージャの情報交換、自前インフラを運用する人々とのセルフホスト論争。初めてならではの熱気 — そこにいた全員が何かに早く辿り着いた人たちで、会話がきちんと完結するよう意図的に小規模に保たれていました。"
+        },
+        {
+          "type": "image",
+          "src": "/assets/meetup-group.jpg",
+          "alt": "インド初のOmarchy Linux交流会の集合写真",
+          "caption": "全員集合 — インド初のOmarchy Linux交流会",
+          "width": "full"
+        }
+      ]
+    },
+    {
+      "id": "photos",
+      "title": "写真",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "content": "交流会の写真アルバム全体を以下に埋め込みました — スワイプしてご覧ください。"
+        },
+        {
+          "type": "embed",
+          "src": "https://embed.ente.com/?t=UYPUSH5YWD#GrDsKBX6nuryAqWBMmmoPW1CUVBTSBPnNcijMpm3k1Az",
+          "caption": "インド初のOmarchy Linux交流会 — 写真アルバム"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": 1,
+      "title": "Omarchy BLR交流会001 — イベントページ",
+      "url": "https://luma.com/g4g7r719",
+      "publisher": "Luma"
+    },
+    {
+      "id": 2,
+      "title": "DevfolioのOmarchy BLR交流会001スレッド（デモ、写真、まとめ動画）",
+      "url": "https://x.com/devfolio/status/2096928997997478182",
+      "author": "Devfolio",
+      "publisher": "X"
+    },
+    {
+      "id": 3,
+      "title": "最高に盛り上がった！ — 交流会レポート",
+      "url": "https://x.com/megabyte0x/status/2096652194925928927",
+      "author": "Megabyte",
+      "publisher": "X"
+    },
+    {
+      "id": 4,
+      "title": "Omarchy — 公式サイト",
+      "url": "https://omarchy.org"
+    },
+    {
+      "id": 5,
+      "title": "Omarchy交流会カレンダー",
+      "url": "https://omarchy.org/meetups"
+    }
+  ],
+  "relatedArticles": [
+    "linux-setup",
+    "foss-coin",
+    "homelab"
+  ],
+  "categories": [
+    "news",
+    "linux",
+    "foss",
+    "omarchy"
+  ],
+  "editHistory": [],
+  "heroImages": [
+    "/assets/meetup-group.jpg",
+    "/assets/meetup-ceo-router-hero.jpg"
+  ]
+}

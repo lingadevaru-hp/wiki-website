@@ -111,10 +111,10 @@ export default function HomePage() {
   };
 
   return (
-    <WikiLayout mainClassName="wiki-main wiki-home-main wiki-home-redesign" showBackTop>
+    <WikiLayout mainClassName="wiki-main wiki-home-main wiki-home-redesign" showBackTop backHref="/">
       <SEO
-        title="Wiki Home — Lingadevaru HP (Thoshan) — Blockchain & FOSS Developer"
-        description="Projects. Experiments. Learnings. Detailed notes on technology, self-hosting, security, blockchain, AI/ML, and more — built while learning, building, and exploring."
+        title={t("nh.seoTitle")}
+        description={t("nh.seoDescription")}
         path="/wiki/home"
         keywords={["lingadevaru", "lingadevaruhp", "Thoshan", "thoshanhp", "Lingadevaru HP", "FOSS Coin", "Thoshan Flash", "blockchain", "projects", "open source", "Solana", "AI/ML"]}
       />
@@ -123,17 +123,17 @@ export default function HomePage() {
         <HeroSky />
         <div className="nh-hero-inner">
           <div className="nh-hero-left">
-            <p className="nh-eyebrow">A personal knowledge base</p>
-            <h1>Projects. Experiments. Learnings.</h1>
-            <p className="nh-sub">Detailed notes on technology, self-hosting, security, blockchain, AI/ML, and more — built while learning, building, and exploring.</p>
-            <button type="button" className="nh-searchbar" onClick={openSearch} aria-label="Search articles">
-              <Search size={17} aria-hidden="true" /><span>Search articles...</span><kbd>Ctrl K</kbd>
+            <p className="nh-eyebrow">{t("nh.eyebrow")}</p>
+            <h1>{t("nh.title")}</h1>
+            <p className="nh-sub">{t("nh.sub")}</p>
+            <button type="button" className="nh-searchbar" onClick={() => openSearch()} aria-label="Search articles">
+              <Search size={17} aria-hidden="true" /><span>{t("nh.searchPh")}</span><kbd>Ctrl K</kbd>
             </button>
-            <p className="nh-hint">Find notes, guides, and projects across all topics.</p>
+            <p className="nh-hint">{t("nh.hint")}</p>
           </div>
           <aside className="nh-hero-right" aria-hidden="true">
-            <div className="nh-side-rule"><span>Documenting<br />ideas<br />and progress</span></div>
-            <p>A personal knowledge base<br />by Lingadevaru H P.</p>
+            <div className="nh-side-rule"><span>{t("nh.sideRule")}</span></div>
+            <p>{t("nh.sideBy")}</p>
           </aside>
         </div>
       </section>
@@ -141,10 +141,10 @@ export default function HomePage() {
       <div className="nh-body-inner">
         <section className="nh-section" aria-label="Featured articles">
           <div className="nh-sec-head">
-            <div><h2>Featured articles</h2><p>Handpicked reads to get started.</p></div>
+            <div><h2>{t("nh.featured")}</h2><p>{t("nh.featuredSub")}</p></div>
             <div className="nh-arrows">
-              <button type="button" onClick={() => scrollFeat(-1)} disabled={!canPrev} aria-label="Previous"><ChevronLeft size={16} /></button>
-              <button type="button" onClick={() => scrollFeat(1)} disabled={!canNext} aria-label="Next"><ChevronRight size={16} /></button>
+              <button type="button" onClick={() => scrollFeat(-1)} disabled={!canPrev} aria-label={t("nh.prev")}><ChevronLeft size={16} /></button>
+              <button type="button" onClick={() => scrollFeat(1)} disabled={!canNext} aria-label={t("nh.next")}><ChevronRight size={16} /></button>
             </div>
           </div>
           <div ref={featRef} className="nh-feat-viewport">
@@ -156,7 +156,7 @@ export default function HomePage() {
                     <span className="nh-cat" style={{ color: categoryColor(a.category) }}>{a.category.toUpperCase()}</span>
                     <strong>{a.title}</strong>
                     <small>{a.excerpt}</small>
-                    <em>Open article <ArrowRight size={12} aria-hidden="true" /></em>
+                    <em>{t("nh.openArticle")} <ArrowRight size={12} aria-hidden="true" /></em>
                   </div>
                 </button>
               ))}
@@ -164,14 +164,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="nh-section" aria-label="Browse by topic">
-          <h2>Browse by topic</h2><p style={{ fontFamily: "system-ui,sans-serif", fontSize: 12, color: "#7f90b5", margin: "4px 0 0" }}>Explore articles by category.</p>
-          <div className="nh-pills" role="tablist" aria-label="Browse by topic">
+        <section className="nh-section" aria-label={t("nh.browseTopics")}>
+          <h2>{t("nh.browseTopics")}</h2><p style={{ fontFamily: "system-ui,sans-serif", fontSize: 12, color: "#7f90b5", margin: "4px 0 0" }}>{t("nh.browseTopicsSub")}</p>
+          <div className="nh-pills" role="tablist" aria-label={t("nh.browseTopics")}>
             {categories.map((cat) => {
               const Icon = CATEGORY_ICONS[cat] ?? LayoutGrid;
               return (
                 <button key={cat} type="button" role="tab" className="nh-pill" onClick={() => setLocation("/wiki/articles")}>
-                  <Icon size={14} aria-hidden="true" />{cat === "All" ? "All articles" : cat}
+                  <Icon size={14} aria-hidden="true" />{cat === "All" ? t("nh.allArticles") : cat}
                 </button>
               );
             })}
@@ -181,7 +181,7 @@ export default function HomePage() {
         <section className="nh-section" aria-label={t("type.jump")}>
           <div className="nh-sec-head">
             <div><h2>{t("type.jump")}</h2><p>{t("type.jumpSub")}</p></div>
-            <Link href="/wiki/articles" className="nh-viewall">View all articles <ArrowRight size={14} aria-hidden="true" /></Link>
+            <Link href="/wiki/articles" className="nh-viewall">{t("nh.viewAll")} <ArrowRight size={14} aria-hidden="true" /></Link>
           </div>
           <div className="nh-coll-grid">
             {ARTICLE_TYPES.map(({ id, route }) => {

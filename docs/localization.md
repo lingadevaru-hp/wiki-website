@@ -14,7 +14,7 @@ only the dictionary differs. No per-language repos, workers, or configs.
   Detects locale by hostname → `?lang=` override → `localStorage`, fetches
   `/locales/{lang}.json`, sets `<html lang dir>`, exposes `t(key)`.
   Missing key falls back to the key itself (English source) + dev console warn.
-- Dictionaries: `artifacts/thoshan-wiki/public/locales/{en,kn,hi}.json`
+- Dictionaries: `artifacts/thoshan-wiki/public/locales/{en,kn,hi,ja,ml,ta,te,gu}.json`
   (flat key→string, keys are English source). Served statically, no API keys.
 - UI text: `const { t } = useLocale();` then `t("nav.wikiHome")`. Never hardcode
   user-facing strings.
@@ -64,9 +64,10 @@ only the dictionary differs. No per-language repos, workers, or configs.
 ## Update strings
 
 1. Edit `public/locales/en.json` (add/change keys; keys ARE the English fallback).
-2. Mirror the same keys in `kn.json`/`hi.json` (agent prompt: "Translate VALUES
-   to Kannada/Hindi. Keep KEYS identical. Output only valid JSON.").
-3. Commit all three + rebuild + redeploy. Partial files are safe (fallback).
+2. Mirror the same keys and translate values in every supported locale dictionary
+   (`kn`, `hi`, `ja`, `ml`, `ta`, `te`, and `gu`). Keep keys identical.
+3. Rebuild and verify each locale before deploying. Missing translations fall
+   back to the English dictionary values.
 
 ## Debug
 

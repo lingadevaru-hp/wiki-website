@@ -35,7 +35,7 @@ export default function SearchPage() {
   }, [location]);
 
   return (
-    <WikiLayout showBackTop>
+    <WikiLayout showBackTop backHref="/wiki/home">
       <SEO
         title={
           query

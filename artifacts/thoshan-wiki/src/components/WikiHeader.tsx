@@ -23,6 +23,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { MusicNavbarToggle } from "./MusicControl";
 import { OPEN_PICKER_EVENT } from "../lib/theme";
 import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 import { toggleChatPanel } from "../lib/chat-panel";
@@ -49,13 +50,15 @@ function useChatPulse(): [boolean, () => void] {
 }
 
 interface WikiHeaderProps {
-  onMenuClick: () => void;
   showBackButton?: boolean;
+  /** Hierarchical back target (news → wiki home, wiki home → landing).
+   *  Defaults to /wiki/home; providing it forces the arrow visible. */
+  backHref?: string;
 }
 
 export default function WikiHeader({
-  onMenuClick,
   showBackButton = false,
+  backHref,
 }: WikiHeaderProps) {
   const { openSearch } = useSearch();
   const { t } = useLocale();
@@ -67,23 +70,27 @@ export default function WikiHeader({
     location.startsWith("/wiki/") &&
     location !== "/wiki/home" &&
     location !== "/wiki/search";
+  const backTarget = backHref ?? "/wiki/home";
+  const showBack = showBackButton || isArticle || backHref !== undefined;
 
   return (
     <header className="wiki-header">
       <div className="wiki-header-inner">
         <button
           className="header-icon-button"
-          onClick={onMenuClick}
+          onClick={() =>
+            window.dispatchEvent(new CustomEvent(OPEN_PALETTE_EVENT))
+          }
           aria-label={t("nav.open")}
           data-testid="button-hamburger"
         >
           <Menu size={19} />
         </button>
-        {(showBackButton || isArticle) && (
+        {(showBack) && (
           <button
             className="header-back-button"
-            onClick={() => setLocation("/wiki/home")}
-            aria-label={t("nav.backWikiHome")}
+            onClick={() => setLocation(backTarget)}
+            aria-label={backTarget === "/wiki/home" ? t("nav.backWikiHome") : t("nav.goBack")}
             data-testid="button-back"
           >
             <ArrowLeft size={18} />
@@ -115,7 +122,7 @@ export default function WikiHeader({
         </Link>
         <button
           className="header-search-button"
-          onClick={openSearch}
+          onClick={() => openSearch()}
           aria-label={t("nav.searchArticles")}
           data-testid="button-open-search"
         >
@@ -239,6 +246,10 @@ export default function WikiHeader({
           </DropdownMenu>
         </nav>
         <LanguageSwitcher />
+        {/* Global pause/unpause: the landing float card unmounts off-home,
+            so this icon is the stop button on every other page. Appears
+            once the sound has been touched. */}
+        <MusicNavbarToggle />
         <button
           className="header-icon-button theme-toggle"
           onClick={openPicker}

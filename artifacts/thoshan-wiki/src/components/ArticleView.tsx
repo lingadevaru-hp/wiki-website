@@ -32,6 +32,10 @@ const FOSS_COIN_STREAM_URL = "";
 const FOSS_COIN_VIDEO_SRC = FOSS_COIN_STREAM_URL || "/assets/foss-coin-loop.mp4";
 
 import { findParentArticle, loadArticlesIndex } from "../lib/articleLoader";
+import {
+  retryUnmutedOnGesture,
+  tryUnmutedPlayback,
+} from "../lib/autoplayWithSound";
 import { categoryColor } from "../lib/categories";
 import { estimateReadingMinutes, extractArticleText } from "../lib/articleText";
 import { useTheme } from "../contexts/ThemeContext";
@@ -47,10 +51,9 @@ function parseLeadText(text: string) {
   ));
 }
 
-function getArticleDek(article: Article) {
-  if (article.metadata.slug === "foss-coin")
-    return "A transparent guide to the crypto project I created, its systems, and the work behind it.";
-  return "A focused guide to the ideas, systems, and work behind this page.";
+function getArticleDek(article: Article, t: (key: string) => string) {
+  if (article.metadata.slug === "foss-coin") return t("article.dekFoss");
+  return t("article.dekDefault");
 }
 
 const formatDate = (value: string) =>
@@ -70,8 +73,9 @@ interface NewsHeroProps {
 }
 
 /** Swipeable news banner: slide 0 is the video, slides 1..n are photos.
- *  Auto-loops: video plays once (muted until the reader taps for sound),
- *  each photo holds 10s silent, then back to the video — looping.
+ *  Auto-loops: video attempts sound on load (muted fallback + icon where
+ *  the browser blocks it, retry on first tap), each photo holds 10s
+ *  silent, then back to the video — looping.
  *  Arrows + dots + touch swipe reset the timer. */
 const PHOTO_HOLD_MS = 10_000;
 // Match-video fallback kept for reference: hold each photo for exactly the
@@ -168,7 +172,7 @@ function NewsHero({
             src={article.heroVideo}
             poster={article.heroPoster}
             autoPlay
-            muted
+            muted={!unmuted}
             playsInline
             preload="auto"
             onError={() => setVideoOk(false)}
@@ -194,12 +198,16 @@ function NewsHero({
           <img
             src={src}
             alt={article.metadata.title}
-            // Cropped portrait slide: faces sit high in the frame, so bias
-            // the cover crop upward to keep them visible at wide aspects.
+            // Hero focal points: the author (green sweatshirt) sits left of
+            // frame in ceo-router-hero (~24% x) and centre-back in the group
+            // photo. Bias the cover crop so his face survives the narrow
+            // portrait crop on mobile; desktop wide crops are unaffected.
             style={
               src.includes("ceo-router-hero")
-                ? { objectPosition: "center 35%" }
-                : undefined
+                ? { objectPosition: "24% 28%" }
+                : src.includes("meetup-group")
+                  ? { objectPosition: "50% 28%" }
+                  : undefined
             }
           />
         </div>
@@ -207,7 +215,7 @@ function NewsHero({
       <div className="news-hero-caption">
         <p className="section-eyebrow">{t("type.newsTitle")}</p>
         <h1>{article.metadata.title}</h1>
-        <p>{getArticleDek(article)}</p>
+        <p>{getArticleDek(article, t)}</p>
       </div>
       <button
         type="button"
@@ -271,6 +279,25 @@ export default function ArticleView({ article }: { article: Article }) {
   const [gifViewerOpen, setGifViewerOpen] = useState(false);
   const [fossMuted, setFossMuted] = useState(true);
   const fossVideoRef = useRef<HTMLVideoElement | null>(null);
+  const fossManualMute = useRef(false);
+  // FOSS capture also attempts sound on load (same autoplay policy as the
+  // news hero); falls back muted + retries on first gesture.
+  useEffect(() => {
+    const v = fossVideoRef.current;
+    if (!v || article.metadata.slug !== "foss-coin") return;
+    let gestureCleanup: (() => void) | undefined;
+    void tryUnmutedPlayback(v).then((audible) => {
+      setFossMuted(!audible);
+      if (!audible) {
+        gestureCleanup = retryUnmutedOnGesture(
+          v,
+          () => fossManualMute.current,
+          () => setFossMuted(false),
+        );
+      }
+    });
+    return () => gestureCleanup?.();
+  }, [article.metadata.slug]);
   const [audioPlayerOpen, setAudioPlayerOpen] = useState(false);
 
   const articleRef = useRef<HTMLDivElement>(null);
@@ -300,10 +327,15 @@ export default function ArticleView({ article }: { article: Article }) {
   const [videoOk, setVideoOk] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [unmuted, setUnmuted] = useState(false);
+  /** True once the visitor taps the speaker off themselves: gesture
+   *  retries must not re-enable sound behind their back. */
+  const heroManualMute = useRef(false);
+  const heroSoundTried = useRef(false);
   const toggleSound = useCallback(() => {
     const v = videoRef.current;
     setUnmuted((was) => {
       const next = !was;
+      heroManualMute.current = !next;
       if (v) {
         v.muted = !next;
         if (next) {
@@ -314,6 +346,32 @@ export default function ArticleView({ article }: { article: Article }) {
       return next;
     });
   }, []);
+  useEffect(() => {
+    heroSoundTried.current = false;
+    heroManualMute.current = false;
+    setUnmuted(false);
+    setVideoOk(true);
+  }, [article.metadata.slug, article.heroVideo]);
+  // Autoplay WITH sound where the browser allows it (engaged visitors):
+  // falls back to muted playback + muted icon where blocked, then retries
+  // on the first tap/keypress. Runs once per article.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !hasVideoHero || !videoOk || heroSoundTried.current) return;
+    heroSoundTried.current = true;
+    let gestureCleanup: (() => void) | undefined;
+    void tryUnmutedPlayback(v).then((audible) => {
+      setUnmuted(audible);
+      if (!audible) {
+        gestureCleanup = retryUnmutedOnGesture(
+          v,
+          () => heroManualMute.current,
+          () => setUnmuted(true),
+        );
+      }
+    });
+    return () => gestureCleanup?.();
+  }, [hasVideoHero, videoOk, article.heroVideo]);
   /** More news for the left rail (same category, not this article). */
   const moreNews = useMemo(
     () =>
@@ -595,7 +653,7 @@ export default function ArticleView({ article }: { article: Article }) {
           {!hasVideoHero && (
             <>
               <h1 data-testid="article-title">{article.metadata.title}</h1>
-              <p className="article-dek">{getArticleDek(article)}</p>
+              <p className="article-dek">{getArticleDek(article, t)}</p>
             </>
           )}
         </header>
@@ -624,13 +682,12 @@ export default function ArticleView({ article }: { article: Article }) {
             <div>
               <strong>{t('article.continueReading')}</strong>
               <span>
-                You were about {Math.round(resumeProgress * 100)}% through this
-                article.
+                {t('article.resumeA')} {Math.round(resumeProgress * 100)}% {t('article.resumeB')}
               </span>
             </div>
             <div>
               <button type="button" onClick={resumeReading}>
-                Continue
+                {t('article.continueBtn')}
               </button>
               <button
                 type="button"
@@ -641,7 +698,7 @@ export default function ArticleView({ article }: { article: Article }) {
                   setResumeProgress(0);
                 }}
               >
-                Dismiss
+                {t('article.dismissBtn')}
               </button>
             </div>
           </div>
@@ -677,7 +734,7 @@ export default function ArticleView({ article }: { article: Article }) {
                 className="h-auto w-full"
               />
               <span className="foss-capture-overlay" aria-hidden="true">
-                Open full screen
+                {t('article.openFullscreen')}
               </span>
             </button>
             <button
@@ -689,14 +746,15 @@ export default function ArticleView({ article }: { article: Article }) {
                 e.stopPropagation();
                 const v = fossVideoRef.current;
                 if (v) { v.muted = !fossMuted; void v.play().catch(() => {}); }
+                fossManualMute.current = fossMuted;
                 setFossMuted(!fossMuted);
               }}
             >
               {fossMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
-              <span>{fossMuted ? 'Tap for sound' : 'Mute'}</span>
+              <span>{fossMuted ? t('article.tapForSound') : t('article.soundOff')}</span>
             </button>
             <figcaption>
-              Project capture · FOSS Coin trading workflow
+              {t('article.fossCaption')}
             </figcaption>
             {gifViewerOpen && (
               <MediaViewer

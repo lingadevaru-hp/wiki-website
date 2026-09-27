@@ -20,7 +20,10 @@
     }
   ],
   "vars": {
-    "TURNSTILE_SITEKEY": "0x4AAAAAAENqS_v4DQqG_Ycd"
+    "TURNSTILE_SITEKEY": "0x4AAAAAAENqS_v4DQqG_Ycd",
+    "ZOHO_SMTP_HOST": "smtp.zoho.in",
+    "ZOHO_SMTP_PORT": "465",
+    "ZOHO_SMTP_USER": "newsletter@lingadevaru.in"
   },
   "observability": {
     "enabled": true,
