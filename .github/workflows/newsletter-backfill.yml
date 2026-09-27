@@ -1,0 +1,61 @@
+name: newsletter-backfill
+
+# Deliver pending newsletter welcome emails + owner alerts every 6 hours.
+# Fully automatic: no commands to run, alerts land in the owner's mailbox
+# (Zoho Mail app push = phone notification).
+#
+# Required repository secrets (Settings → Secrets → Actions):
+#   ZOHO_SMTP_PASSWORD   Zoho app-specific password for newsletter@lingadevaru.in
+#   CLOUDFLARE_API_TOKEN API token with Account D1 edit (for wrangler d1 execute)
+#   CLOUDFLARE_ACCOUNT_ID Cloudflare account ID
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wiki-website/artifacts/api-server
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: wiki-website/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: wiki-website
+
+      - name: Install Wrangler
+        run: npm install -g wrangler@4.141.0
+
+      - name: Build api-server
+        run: pnpm --filter @workspace/api-server run build
+        working-directory: wiki-website
+
+      - name: Send pending welcome emails
+        env:
+          ZOHO_SMTP_HOST: smtp.zoho.in
+          ZOHO_SMTP_PORT: 465
+          ZOHO_SMTP_USER: newsletter@lingadevaru.in
+          ZOHO_SMTP_PASSWORD: ${{ secrets.ZOHO_SMTP_PASSWORD }}
+          NEWSLETTER_OWNER_EMAILS: dev@lingadevaru.in,newsletter@lingadevaru.in
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node --enable-source-maps ./dist/scripts/send-pending-welcome-emails.mjs --db wiki-newsletter --limit 200

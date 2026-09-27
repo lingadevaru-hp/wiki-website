@@ -50,6 +50,13 @@ best-effort owner alert to `NEWSLETTER_OWNER_EMAILS`, then marks the row
 sent (only if still pending, so parallel runs never double-send). Use
 `--dry-run` to list pending rows without sending; `--limit N` caps a run.
 
+No commands needed day-to-day: `.github/workflows/newsletter-backfill.yml`
+runs the backfill every 6 hours via GitHub Actions (plus manual
+`workflow_dispatch`). It needs three repository secrets — `ZOHO_SMTP_PASSWORD`,
+`CLOUDFLARE_API_TOKEN` (Account D1 edit), `CLOUDFLARE_ACCOUNT_ID`. Owner
+alerts arrive as email, so the Zoho Mail mobile app's push notifications
+deliver them straight to the phone.
+
 Owners can list subscribers (never linked from the site) with the shared
 proxy token — JSON by default, `&format=csv` for spreadsheets:
 
