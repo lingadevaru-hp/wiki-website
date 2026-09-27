@@ -322,6 +322,72 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
+    // Private owner endpoint: list subscribers as JSON or CSV. Guarded by
+    // the shared proxy token header — never linked from the site, curl only.
+    if (
+      url.pathname === "/api/newsletter/subscribers" &&
+      request.method === "GET"
+    ) {
+      if (!env.DB || !env.NEWSLETTER_PROXY_TOKEN) {
+        return newsletterJson(
+          { error: "Newsletter service is not configured" },
+          503,
+        );
+      }
+      if (
+        request.headers.get("X-Newsletter-Proxy-Token") !==
+        env.NEWSLETTER_PROXY_TOKEN
+      ) {
+        return newsletterJson({ error: "Forbidden" }, 403);
+      }
+      const limit = Math.min(
+        Math.max(Number(url.searchParams.get("limit") ?? "100") || 100, 1),
+        500,
+      );
+      const offset = Math.max(
+        Number(url.searchParams.get("offset") ?? "0") || 0,
+        0,
+      );
+      try {
+        const result = await env.DB.prepare(
+          "SELECT first_name AS firstName, email, language, created_at AS subscribedAt, " +
+            "welcome_email_sent_at AS welcomeEmailSentAt FROM newsletter_subscribers " +
+            "ORDER BY id DESC LIMIT ? OFFSET ?",
+        )
+          .bind(limit, offset)
+          .all();
+        const rows = (result.results ?? []) as Record<string, unknown>[];
+        if (url.searchParams.get("format") === "csv") {
+          const quote = (value: unknown): string =>
+            `"${String(value ?? "").replace(/"/g, '""')}"`;
+          const header = "firstName,email,language,subscribedAt,welcomeEmailSentAt";
+          const lines = rows.map((row) =>
+            [
+              quote(row.firstName),
+              quote(row.email),
+              quote(row.language),
+              quote(row.subscribedAt),
+              quote(row.welcomeEmailSentAt),
+            ].join(","),
+          );
+          return new Response([header, ...lines].join("\n") + "\n", {
+            headers: {
+              "Content-Type": "text/csv; charset=utf-8",
+              "Cache-Control": "no-store",
+              "Content-Disposition":
+                'attachment; filename="newsletter-subscribers.csv"',
+            },
+          });
+        }
+        return newsletterJson({ subscribers: rows }, 200);
+      } catch {
+        return newsletterJson(
+          { error: "We could not load the subscribers. Please try again." },
+          500,
+        );
+      }
+    }
+
     if (url.pathname === "/api/newsletter/signup") {
       if (request.method !== "POST") {
         return new Response(JSON.stringify({ error: "Method not allowed" }), {

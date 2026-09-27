@@ -18,6 +18,7 @@ stores them in its `DB` (Cloudflare D1) binding. Create the database with
 | `NODE_ENV` | Environment mode | `development` |
 | `ZOHO_SMTP_HOST` | Regional Zoho SMTP host | `smtp.zoho.in` |
 | `ZOHO_SMTP_PORT` | Zoho SMTP port | `465` |
+| `NEWSLETTER_OWNER_EMAILS` | Comma-separated owner inboxes for "new subscriber" alerts | `dev@lingadevaru.in,newsletter@lingadevaru.in` |
 
 Copy `artifacts/api-server/.env.example` to `artifacts/api-server/.env` and
 fill in local values. Create an app-specific password in Zoho Accounts under
