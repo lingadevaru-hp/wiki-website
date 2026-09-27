@@ -22,6 +22,17 @@ type WelcomeCopy = {
 
 const FROM_ADDRESS = "newsletter@lingadevaru.in";
 
+/** Owner inboxes that receive a "new subscriber" alert per signup. */
+export function getOwnerNotifyEmails(): string[] {
+  const raw =
+    process.env.NEWSLETTER_OWNER_EMAILS ||
+    "dev@lingadevaru.in,newsletter@lingadevaru.in";
+  return raw
+    .split(",")
+    .map((value) => value.trim().toLowerCase())
+    .filter((value) => /.+@.+\..+/.test(value));
+}
+
 const WELCOME_COPY: Record<NewsletterLanguage, WelcomeCopy> = {
   en: {
     subject: "Thanks for subscribing!",
@@ -144,5 +155,43 @@ export async function sendNewsletterWelcomeEmail({
     subject: copy.subject,
     text: `${greeting}\n\n${copy.message}\n\n${copy.signoff}`,
     html: `<p>${escapeHtml(greeting)}</p><p>${escapeHtml(copy.message)}</p><p>${escapeHtml(copy.signoff)}</p>`,
+  });
+}
+
+/**
+ * Best-effort "new subscriber" alert to the owner's inboxes. Subscriber PII
+ * belongs only in the owner mailbox and the database — callers must never
+ * log the name or email, only the language.
+ */
+export async function sendNewsletterOwnerAlert({
+  firstName,
+  email,
+  language,
+  subscribedAt,
+}: {
+  firstName: string;
+  email: string;
+  language: string;
+  subscribedAt: string;
+}): Promise<void> {
+  const owners = getOwnerNotifyEmails();
+  if (owners.length === 0) return;
+  const transporter = getTransporter();
+  const subject = `New newsletter subscriber (${language}): ${firstName}`;
+  const text =
+    `A new subscriber joined the newsletter.\n\n` +
+    `Name: ${firstName}\nEmail: ${email}\nLanguage: ${language}\nSubscribed: ${subscribedAt}`;
+
+  await transporter.sendMail({
+    from: { name: "Lingadevaru Newsletter", address: FROM_ADDRESS },
+    to: owners.join(", "),
+    subject,
+    text,
+    html:
+      `<p>A new subscriber joined the newsletter.</p>` +
+      `<ul><li>Name: ${escapeHtml(firstName)}</li>` +
+      `<li>Email: ${escapeHtml(email)}</li>` +
+      `<li>Language: ${escapeHtml(language)}</li>` +
+      `<li>Subscribed: ${escapeHtml(subscribedAt)}</li></ul>`,
   });
 }
