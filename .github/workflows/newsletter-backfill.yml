@@ -19,9 +19,6 @@ permissions:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: wiki-website/artifacts/api-server
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,20 +33,19 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: wiki-website/pnpm-lock.yaml
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: wiki-website
 
       - name: Install Wrangler
         run: npm install -g wrangler@4.141.0
 
       - name: Build api-server
         run: pnpm --filter @workspace/api-server run build
-        working-directory: wiki-website
 
       - name: Send pending welcome emails
+        working-directory: artifacts/api-server
         env:
           ZOHO_SMTP_HOST: smtp.zoho.in
           ZOHO_SMTP_PORT: 465
