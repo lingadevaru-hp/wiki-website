@@ -57,6 +57,10 @@ interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> };
   TURNSTILE_SITEKEY: string;
   TURNSTILE_SECRET: string;
+  NEWSLETTER_API_URL?: string;
+  NEWSLETTER_PROXY_TOKEN?: string;
+  /** Cloudflare D1, free storage for newsletter signups. See migrations/. */
+  DB?: D1Database;
 }
 
 interface TurnstileVerifyResponse {
@@ -214,9 +218,174 @@ function withLocaleHtml(response: Response, hostname: string): Response {
   }
 }
 
+const NEWSLETTER_LANGUAGES = [
+  "en",
+  "kn",
+  "hi",
+  "ja",
+  "ml",
+  "ta",
+  "te",
+  "gu",
+] as const;
+
+function isNewsletterLanguage(
+  value: unknown,
+): value is (typeof NEWSLETTER_LANGUAGES)[number] {
+  return (
+    typeof value === "string" &&
+    (NEWSLETTER_LANGUAGES as readonly string[]).includes(value)
+  );
+}
+
+function newsletterJson(data: unknown, status: number): Response {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store",
+    },
+  });
+}
+
+/**
+ * Free storage path: newsletter signups live in Cloudflare D1, so no paid
+ * Postgres or separately hosted Node API is needed to collect subscribers.
+ * The welcome email is sent later by the Node email sender once Zoho SMTP
+ * credentials exist; until then the row stays pending
+ * (welcome_email_sent_at IS NULL). Never logs names or emails.
+ */
+async function handleNewsletterSignupD1(
+  request: Request,
+  db: D1Database,
+): Promise<Response> {
+  let body: { firstName?: unknown; email?: unknown; language?: unknown };
+  try {
+    body = await request.json();
+  } catch {
+    return newsletterJson(
+      {
+        error:
+          "Enter a valid first name, email address, and supported language.",
+      },
+      400,
+    );
+  }
+
+  const firstName =
+    typeof body.firstName === "string" ? body.firstName.trim() : "";
+  const email =
+    typeof body.email === "string"
+      ? body.email.trim().toLowerCase()
+      : "";
+  const language = body.language;
+
+  if (
+    !firstName ||
+    firstName.length > 80 ||
+    /[\r\n\0]/.test(firstName) ||
+    !email ||
+    email.length > 254 ||
+    !/.+@.+\..+/.test(email) ||
+    !isNewsletterLanguage(language)
+  ) {
+    return newsletterJson(
+      {
+        error:
+          "Enter a valid first name, email address, and supported language.",
+      },
+      400,
+    );
+  }
+
+  try {
+    await db
+      .prepare(
+        "INSERT OR IGNORE INTO newsletter_subscribers (first_name, email, language) VALUES (?, ?, ?)",
+      )
+      .bind(firstName, email, language)
+      .run();
+  } catch {
+    return newsletterJson(
+      { error: "We could not complete your subscription. Please try again." },
+      500,
+    );
+  }
+
+  return newsletterJson(
+    { message: "Thanks for subscribing. Your welcome email is on its way." },
+    200,
+  );
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/newsletter/signup") {
+      if (request.method !== "POST") {
+        return new Response(JSON.stringify({ error: "Method not allowed" }), {
+          status: 405,
+          headers: {
+            "Allow": "POST",
+            "Content-Type": "application/json",
+          },
+        });
+      }
+
+      const cookies = request.headers.get("Cookie") || "";
+      if (getCookie(cookies, "turnstile-verified") !== "true") {
+        return newsletterJson({ error: "Verification required" }, 403);
+      }
+
+      // Free path: store directly in Cloudflare D1, no Node/Postgres hop.
+      if (env.DB) {
+        return handleNewsletterSignupD1(request, env.DB);
+      }
+
+      // Legacy path: proxy to the separately hosted Node API (paid Postgres).
+      if (!env.NEWSLETTER_API_URL) {
+        return newsletterJson(
+          { error: "Newsletter service is not configured" },
+          503,
+        );
+      }
+
+      if (!env.NEWSLETTER_PROXY_TOKEN) {
+        return newsletterJson(
+          { error: "Newsletter service is not configured" },
+          503,
+        );
+      }
+
+      try {
+        const upstreamUrl = new URL(
+          "/api/newsletter/signup",
+          env.NEWSLETTER_API_URL,
+        );
+        const upstream = await fetch(upstreamUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type":
+              request.headers.get("Content-Type") || "application/json",
+            "X-Newsletter-Proxy-Token": env.NEWSLETTER_PROXY_TOKEN,
+          },
+          body: request.body,
+        });
+        const headers = new Headers(upstream.headers);
+        headers.set("Cache-Control", "no-store");
+        return new Response(upstream.body, {
+          status: upstream.status,
+          statusText: upstream.statusText,
+          headers,
+        });
+      } catch {
+        return newsletterJson(
+          { error: "Newsletter service is unavailable" },
+          502,
+        );
+      }
+    }
 
     if (url.pathname === "/api/tts" && request.method === "POST") {
       return handleTextToSpeech(request, env);

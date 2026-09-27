@@ -11,6 +11,14 @@
   "ai": {
     "binding": "AI"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wiki-newsletter",
+      "database_id": "67f25f08-6bb0-4cab-a130-6508826dbd32",
+      "migrations_dir": "migrations"
+    }
+  ],
   "vars": {
     "TURNSTILE_SITEKEY": "0x4AAAAAAENqS_v4DQqG_Ycd"
   },

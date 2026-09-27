@@ -126,7 +126,7 @@ export function TextSelectionCopy() {
       onClick={copyToClipboard}
     >
       <span className="text-selection-copy-text">
-        {copied ? "Copied!" : "Copy text"}
+        {copied ? "text copied" : "Copy text"}
       </span>
       {copied ? <Check size={14} /> : <Copy size={14} />}
     </div>
