@@ -108,13 +108,33 @@
         {
           "type": "image",
           "src": "/assets/meetup-ceo-router.jpg",
-          "alt": "Explaining my GL.iNet home router to the CEO of LibreDevs",
-          "caption": "Walking the CEO of LibreDevs through my GL.iNet home router setup",
+          "alt": "Explaining my GL.iNet home router to the CTO of UPDOT",
+          "caption": "Walking the CTO of UPDOT through my GL.iNet home router setup",
           "width": "340px"
         },
         {
           "type": "text",
-          "content": "The sharpest conversation was with the **CEO of LibreDevs** — we dug into the router build, what runs on my home lab, and where self-hosted setups are headed. Explaining your own gear to someone who immediately gets it is the whole point of a meetup like this. I also traded notes on distros and tiling window managers with the organisers between demos."
+          "content": "### A Conversation with the CTO of UPDOT\n\nThe sharpest conversation of the day was with **Sourab Pramanik**, CTO of [UPDOT](https://updot.co) and founder of [AuthSmith](https://authsmith.org). Find him on [LinkedIn](https://www.linkedin.com/in/sourab-pramanik-647393171/) and at his [portfolio](https://sourabpramanik.pages.dev).\n\nIt was my first time explaining my GL.iNet home router and home lab to a company CTO and founder."
+        },
+        {
+          "type": "text",
+          "content": "**Home lab** — I walked him through my router, home routing and self-hosted services."
+        },
+        {
+          "type": "text",
+          "content": "**OpenWrt** — He helped me boot open-source OpenWrt firmware on my GL.iNet router, right at the meetup."
+        },
+        {
+          "type": "text",
+          "content": "**FOSS Coin** — I explained FOSS Coin, my Solana SPL token, and what it does. We also discussed how exchange listing works."
+        },
+        {
+          "type": "text",
+          "content": "**Hyprland** — We discussed how Hyprland misconfigurations happen. I have tried many times and mine kept breaking. Sourab has run **Hyprland on Arch Linux for five years** and works keyboard-first. Seeing it stay stable that long showed me it works when configured with care."
+        },
+        {
+          "type": "text",
+          "content": "**Takeaway** — Show up with your real projects. CTOs and founders are approachable when you bring something real to show."
         },
         {
           "type": "callout",

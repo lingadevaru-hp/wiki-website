@@ -72,7 +72,7 @@
   "newsletter.hint": "Tap the bird to subscribe",
   "newsletter.birdLabel": "A thunderbird carrying a letter — tap to subscribe",
   "newsletter.modalTitle": "Get a letter from me",
-  "newsletter.modalSub": "Enter your email for an occasional letter. Your first name is optional. Your welcome letter will arrive in this site's language.",
+  "newsletter.modalSub": "enter your email i will send you the letters",
   "newsletter.nameLabel": "First name (optional)",
   "newsletter.nameInvalid": "Please enter a name under 80 characters.",
   "newsletter.emailLabel": "Email address",
