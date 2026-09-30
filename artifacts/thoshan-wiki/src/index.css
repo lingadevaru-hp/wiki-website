@@ -2673,6 +2673,22 @@ pre {
   margin: 0;
   max-width: none;
 }
+
+/* Desktop minimum widths so data tables don't collapse. These are
+ * class-based (not inline) so small screens can reset them. */
+.article-table-wrap .table-min-wide {
+  min-width: 620px;
+}
+.article-table-wrap .table-min-narrow {
+  min-width: 440px;
+}
+
+/* Key-value row headers: fixed label column on desktop; small
+ * screens reset both properties (see the mobile blocks below). */
+.article-table--key-value th[scope="row"] {
+  width: 30%;
+  min-width: 130px;
+}
 @media (prefers-reduced-transparency: reduce) {
   .wiki-header,
   .audio-reader,
@@ -8863,8 +8879,8 @@ body {
 /* Mobile tables: keep REAL tables (rows + named columns) on every
  * viewport. Data tables scroll horizontally with momentum, sticky
  * header + sticky first column, and a scroll-driven edge fade.
- * Two-column key-value tables become stacked cards below 640px
- * (see the card block further down). */
+ * Two-column key-value tables fit the screen with no scrolling
+ * (see the normal-table block further down). */
 @media (max-width: 768px) {
   .article-table-wrap {
     overflow-x: auto;
@@ -8890,9 +8906,9 @@ body {
     z-index: 1;
     background: hsl(var(--card));
     width: 34%;
-    min-width: 118px !important;
     font-size: 13px;
     border-right: 1px solid hsl(var(--border));
+    white-space: normal;
   }
   .article-table--key-value thead th:first-child {
     z-index: 3;
@@ -8903,7 +8919,6 @@ body {
   }
   .article-table--key-value td {
     font-size: 13.5px;
-    min-width: 200px;
   }
   /* Data tables (Builder showcase): first column (Demo name) sticks left,
    * header sticks top — every cell keeps its row/column meaning. */
@@ -8971,64 +8986,37 @@ body {
   }
 }
 
-/* Mobile-first key-value tables: below 640px two-column tables stop
- * being tables visually and become stacked cards (WhatsApp/Telegram
- * style) — no horizontal scrolling at all. Real <table> semantics are
- * kept for screen readers; only the visual layout changes. */
+/* Mobile-first key-value tables: a plain table that fits the screen —
+ * no horizontal scrolling, no cards. Label column ~one third, detail
+ * column wraps to whatever width remains. Long strings break instead
+ * of overflowing. */
 @media (max-width: 640px) {
   .article-table--key-value.article-table-wrap {
     overflow-x: visible;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
   }
 
-  .article-table--key-value table,
-  .article-table--key-value tbody,
-  .article-table--key-value tr,
-  .article-table--key-value th,
-  .article-table--key-value td {
-    display: block;
-  }
-
-  /* Visually hide the header row but keep it for assistive tech. */
-  .article-table--key-value thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
-
-  .article-table--key-value tbody tr {
-    margin-bottom: 12px;
-    overflow: hidden;
-    border: 1px solid hsl(var(--border));
-    border-radius: 12px;
-    background: hsl(var(--card) / 0.6);
-    box-shadow: 0 2px 10px hsl(0 0% 0% / 0.18);
-  }
-
-  .article-table--key-value tbody tr:last-child {
-    margin-bottom: 0;
+  .article-table--key-value table {
+    width: 100%;
+    min-width: 0 !important;
+    table-layout: fixed;
   }
 
   .article-table--key-value th[scope="row"] {
     position: static;
-    width: auto;
-    min-width: 0 !important;
-    border-right: 0;
-    border-bottom: 1px solid hsl(var(--border) / 0.7);
-    background: hsl(var(--muted) / 0.4);
+    width: 34%;
+    min-width: 0;
     font-size: 13px;
-    letter-spacing: 0.01em;
+    overflow-wrap: break-word;
   }
 
   .article-table--key-value td {
     min-width: 0;
+    width: 66%;
     font-size: 14px;
     line-height: 1.65;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 
