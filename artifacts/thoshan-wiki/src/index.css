@@ -605,7 +605,8 @@ a:active {
   color: hsl(var(--foreground));
 }
 
-/* Floating text selection copy popup */
+/* Floating text selection copy popup (mobile-first: most readers are
+ * on Android phones, so the button is thumb-sized and forgiving). */
 .text-selection-copy-popup {
   position: fixed;
   z-index: 1000;
@@ -613,6 +614,7 @@ a:active {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
+  min-height: 44px;
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   border-radius: 8px;
@@ -623,7 +625,16 @@ a:active {
   font-weight: 500;
   cursor: pointer;
   pointer-events: auto;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
   will-change: transform, opacity;
+  transition:
+    opacity 0.18s ease-out,
+    transform 0.18s ease-out,
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out;
 }
 
 .text-selection-copy-popup:hover {
@@ -631,8 +642,165 @@ a:active {
   border-color: hsl(var(--border) / 0.8);
 }
 
+.text-selection-copy-popup:active {
+  transform: scale(0.97);
+}
+
+.text-selection-copy-popup:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+}
+
+/* Success / failure states: accent tint + check morph. */
+.text-selection-copy-popup.is-copied {
+  border-color: hsl(var(--accent) / 0.6);
+  background: hsl(var(--accent) / 0.12);
+}
+
+.text-selection-copy-popup.is-failed {
+  border-color: hsl(var(--destructive, 0 84% 60%) / 0.6);
+}
+
 .text-selection-copy-popup svg {
   flex-shrink: 0;
+}
+
+/* Icon morph: copy and check cross-fade with a scale pop; the check
+ * path draws itself via dashoffset for the "completion" moment. */
+.copy-btn-icon {
+  position: relative;
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.copy-btn-icon svg {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 0.16s ease-out,
+    transform 0.2s ease-out;
+}
+
+.copy-btn-icon-check {
+  opacity: 0;
+  transform: scale(0.6);
+  color: hsl(var(--accent));
+}
+
+.copy-btn-icon-check path,
+.copy-btn-icon-check polyline {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+}
+
+.text-selection-copy-popup.is-copied .copy-btn-icon-idle {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.text-selection-copy-popup.is-copied .copy-btn-icon-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.text-selection-copy-popup.is-copied .copy-btn-icon-check path,
+.text-selection-copy-popup.is-copied .copy-btn-icon-check polyline {
+  animation: copy-check-draw 0.35s ease-out forwards;
+}
+
+@keyframes copy-check-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Copy confirmation snackbar: bottom-center (thumb zone). Shown only
+ * where the OS does not confirm copies itself (older Android, iOS,
+ * desktop) — Android 13+ already shows a system clipboard overlay. */
+.copy-snack {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(92vw, 420px);
+  padding: 12px 18px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--accent) / 0.45);
+  border-radius: 999px;
+  box-shadow: 0 8px 28px hsl(0 0% 0% / 0.35);
+  color: hsl(var(--foreground));
+  font-size: 13.5px;
+  font-weight: 500;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  opacity: 0;
+  animation: copy-snack-in 0.22s ease-out forwards;
+}
+
+.copy-snack svg {
+  flex-shrink: 0;
+  color: hsl(var(--accent));
+}
+
+@keyframes copy-snack-in {
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Copied-range flash: the selected text briefly intensifies. */
+.copy-flash ::selection {
+  background: hsl(var(--accent) / 0.65);
+}
+.copy-flash ::-moz-selection {
+  background: hsl(var(--accent) / 0.65);
+}
+
+/* Touch devices: thumb-sized target, larger label, clearance above
+ * bottom sticky bars (e.g. the FOSS Buy bar). */
+@media (any-pointer: coarse) {
+  .text-selection-copy-popup {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 18px;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .copy-snack {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 88px);
+    font-size: 14px;
+    padding: 13px 20px;
+  }
+}
+
+/* Reduced motion: instant state swaps, no rise/draw/snack travel. */
+@media (prefers-reduced-motion: reduce) {
+  .text-selection-copy-popup,
+  .text-selection-copy-popup svg,
+  .copy-snack {
+    transition: none;
+    animation: none;
+  }
+
+  .text-selection-copy-popup {
+    transform: none;
+  }
+
+  .copy-snack {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+  .copy-btn-icon-check path,
+  .copy-btn-icon-check polyline {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* Editorial redesign */
@@ -8693,9 +8861,10 @@ body {
 }
 
 /* Mobile tables: keep REAL tables (rows + named columns) on every
- * viewport. The wrapper scrolls horizontally with momentum; the header
- * row and the first column stick so names stay visible while scrolling.
- * No stacked-card / block transformation. */
+ * viewport. Data tables scroll horizontally with momentum, sticky
+ * header + sticky first column, and a scroll-driven edge fade.
+ * Two-column key-value tables become stacked cards below 640px
+ * (see the card block further down). */
 @media (max-width: 768px) {
   .article-table-wrap {
     overflow-x: auto;
@@ -8762,6 +8931,125 @@ body {
   /* Never render data-label pseudo-labels: columns already have names. */
   .article-table-wrap td::before {
     display: none;
+  }
+  /* Sticky header cells need an opaque backdrop or scrolled content
+   * smears through them on Android Chrome. */
+  .article-table-wrap thead th {
+    background: hsl(var(--card));
+  }
+  /* Keep horizontal swipes inside the table: stops Android's edge
+   * navigation / page-scroll chaining mid-table. */
+  .article-table-wrap {
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* Scroll-driven edge fade: the fading edge follows the scroll position
+ * (right fade at start, both mid-way, left fade at end) so users can
+ * tell the table is swipeable. Chromium-only progressive enhancement
+ * (Chrome + Brave = the large majority of readers); elsewhere the
+ * table simply scrolls with no fade. */
+@supports (animation-timeline: scroll(x self)) {
+  @media (max-width: 768px) {
+    .article-table--data.article-table-wrap {
+      animation: table-edge-fade linear both;
+      animation-timeline: scroll(x self);
+    }
+  }
+}
+
+@keyframes table-edge-fade {
+  from {
+    mask-image: linear-gradient(
+      to right,
+      #000 calc(100% - 36px),
+      transparent
+    );
+  }
+  to {
+    mask-image: linear-gradient(to right, transparent, #000 36px);
+  }
+}
+
+/* Mobile-first key-value tables: below 640px two-column tables stop
+ * being tables visually and become stacked cards (WhatsApp/Telegram
+ * style) — no horizontal scrolling at all. Real <table> semantics are
+ * kept for screen readers; only the visual layout changes. */
+@media (max-width: 640px) {
+  .article-table--key-value.article-table-wrap {
+    overflow-x: visible;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .article-table--key-value table,
+  .article-table--key-value tbody,
+  .article-table--key-value tr,
+  .article-table--key-value th,
+  .article-table--key-value td {
+    display: block;
+  }
+
+  /* Visually hide the header row but keep it for assistive tech. */
+  .article-table--key-value thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .article-table--key-value tbody tr {
+    margin-bottom: 12px;
+    overflow: hidden;
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+    background: hsl(var(--card) / 0.6);
+    box-shadow: 0 2px 10px hsl(0 0% 0% / 0.18);
+  }
+
+  .article-table--key-value tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .article-table--key-value th[scope="row"] {
+    position: static;
+    width: auto;
+    min-width: 0 !important;
+    border-right: 0;
+    border-bottom: 1px solid hsl(var(--border) / 0.7);
+    background: hsl(var(--muted) / 0.4);
+    font-size: 13px;
+    letter-spacing: 0.01em;
+  }
+
+  .article-table--key-value td {
+    min-width: 0;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}
+
+/* Touch readers: never shrink table type below a readable size. */
+@media (any-pointer: coarse) {
+  .article-table--data thead th {
+    font-size: 13px;
+  }
+
+  .article-table--data tbody td {
+    font-size: 14px;
+    min-width: 150px;
+  }
+
+  .article-table--data tbody td:first-child {
+    min-width: 132px;
+  }
+
+  .article-table--key-value th[scope="row"],
+  .article-table--key-value td {
+    font-size: 14px;
   }
 }
 
