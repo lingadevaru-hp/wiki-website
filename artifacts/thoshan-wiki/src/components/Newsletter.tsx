@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useLocale } from "../contexts/LocaleContext";
 import { posthog } from "../lib/posthog";
+import { trackEvent, trackNewsletterSignup } from "../lib/clarity";
 
 const DISMISSED_KEY = "newsletter-dismissed";
 const SUBSCRIBED_KEY = "newsletter-subscribed";
@@ -160,6 +161,7 @@ export default function NewsletterSection({
     setMode("new");
     setViewAck(false);
     posthog.capture("newsletter_open", { locale });
+    trackEvent("newsletter_open", { locale });
     // Flight duration matches the CSS flight-path animation.
     window.setTimeout(() => setLanded(true), 2500);
   }, [locale]);
@@ -261,6 +263,8 @@ export default function NewsletterSection({
         writeStr(EMAIL_KEY, address);
         writeStr(NAME_KEY, name);
         posthog.capture("newsletter_submit_success", { locale, kind });
+        trackNewsletterSignup("portfolio-newsletter", address);
+        trackEvent("newsletter_submit_success", { locale, kind });
       } catch {
         setError(t("newsletter.submitFailed"));
         posthog.capture("newsletter_submit_failed", { locale });
