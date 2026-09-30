@@ -109,8 +109,7 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
       // figures instead of squeezing beside them into broken narrow columns.
       // Tables stay real <table>s on every viewport: data tables scroll
       // horizontally (sticky header + sticky first column + edge fade),
-      // while 2-col key-value tables become stacked cards below 640px
-      // via CSS (semantics preserved for screen readers).
+      // while 2-col key-value tables fit the screen with wrapping cells.
       // 2-col tables render as key-value (first col = row header).
       const cols = block.columns ?? [];
       const isKeyValue = cols.length === 2;
@@ -125,11 +124,10 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
           aria-label="Scrollable table"
         >
           <table
-            className="w-full border-collapse text-foreground"
-            style={{
-              fontSize: "14px",
-              minWidth: cols.length >= 3 ? "620px" : "440px",
-            }}
+            className={`w-full border-collapse text-foreground article-table-el ${
+              cols.length >= 3 ? "table-min-wide" : "table-min-narrow"
+            }`}
+            style={{ fontSize: "14px" }}
           >
             {cols.length > 0 && (
               <thead>
@@ -167,9 +165,9 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
                         <th
                           key={ci}
                           scope="row"
-                          className="px-4 py-3 text-left font-semibold align-top bg-muted/20"
-                          style={{ lineHeight: "1.6", width: "30%", minWidth: "130px" }}
-                          data-label={col}
+                           className="px-4 py-3 text-left font-semibold align-top bg-muted/20"
+                           style={{ lineHeight: "1.6" }}
+                           data-label={col}
                         >
                           {cellContent}
                         </th>
