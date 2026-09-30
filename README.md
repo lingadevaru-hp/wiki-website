@@ -2,6 +2,11 @@
 
 Personal editorial knowledge base for projects, systems, and technical notes.
 
+## Audience (mobile-first)
+
+- **~85% of readers are on Android mobile**, mostly **Google Chrome**, with a small share (~5–6%) on **Brave**
+- Desktop is a small minority — every UI decision (touch targets, tables, copy interactions, type scale) must work on a phone first and degrade gracefully to desktop, not the other way around
+
 ## Featured project: FOSS Coin
 
 The FOSS Coin article documents the Solana SPL token I created, its fixed supply, authority revocation, Orca Whirlpool listing, public transactions, and independent verification links. The article keeps the original project capture GIF as a lazy-loaded, fullscreen-openable media asset.

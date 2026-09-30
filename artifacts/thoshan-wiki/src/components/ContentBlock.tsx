@@ -107,9 +107,10 @@ export default function ContentBlock({ block }: { block: ContentBlockType }) {
     case "table": {
       // clear-both: tables always take the full column width below floated
       // figures instead of squeezing beside them into broken narrow columns.
-      // Tables stay real <table>s on every viewport: on narrow screens the
-      // wrapper scrolls horizontally (with sticky header + sticky first
-      // column) so rows/columns keep their names and highlighting.
+      // Tables stay real <table>s on every viewport: data tables scroll
+      // horizontally (sticky header + sticky first column + edge fade),
+      // while 2-col key-value tables become stacked cards below 640px
+      // via CSS (semantics preserved for screen readers).
       // 2-col tables render as key-value (first col = row header).
       const cols = block.columns ?? [];
       const isKeyValue = cols.length === 2;
