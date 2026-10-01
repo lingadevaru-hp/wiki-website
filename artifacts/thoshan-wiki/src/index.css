@@ -1248,6 +1248,7 @@ a:active {
   width: 100%;
   max-width: 340px;
   max-height: 70vh;
+  max-height: 70dvh; /* Stage 2: visible-viewport sizing above the keyboard */
   border: 2px solid hsl(var(--border));
   background: hsl(var(--card));
   box-shadow:
@@ -2310,6 +2311,7 @@ a:active {
   transform: translateX(-50%);
   width: min(610px, calc(100vw - 28px));
   max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 120px); /* Stage 2: visible-viewport sizing */
   overflow-y: auto;
   z-index: 95;
   border: 1px solid hsl(var(--border));
@@ -2991,6 +2993,7 @@ pre {
     transform: translateX(-50%);
     width: min(560px, calc(100vw - 24px));
     max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px); /* Stage 2: visible-viewport sizing */
     overflow-y: auto;
     margin: 0;
   }
@@ -5996,6 +5999,7 @@ h2 {
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 120px); /* Stage 2: visible-viewport sizing above the keyboard */
 }
 
 /* Input row */
