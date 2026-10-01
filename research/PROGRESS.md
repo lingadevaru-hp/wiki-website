@@ -23,3 +23,9 @@
 - Stage 5: chat PR #60 (follow-up chips scroll-row + clear-chat 5s Undo). Portfolio: verified pre-existing (skeletons, role=alert, ErrorBoundary) — no PR.
 - Stage 6: wiki PR #96 + chat PR #61 (content-visibility on lists). Contrast AA audit + measured LCP/INP/CLS deferred.
 - CROSS-APPLY.md added. Independent stage branches — merge in order 1→6 per repo to avoid adjacent-line conflicts.
+
+## Deploy (01-10-2026, owner said go)
+- Portfolio PR #97 MERGED to main; rebuilt from main; `wrangler deploy` OK (Version e68a79a3). Verified: workers.dev 200, lingadevaru.in 200, sheetUp + Noto markers in served assets.
+- Chat PRs #62 (worker) + #63 (live pilot UI) MERGED; `catalyst deploy` OK (functions + Slate). Verified: chat.lingadevaru.in 200 with new markers; API "hi"->greeting, gibberish->graceful error fallback.
+- Key find: live chat serves catalyst-pilot/thoshan-chat-ui (not src/worker.ts) — upgrades ported to the live file (PR #63).
+- Pre-existing notes: AI backend unreachable for long-tail (RAG endpoint; graceful, untouched functions); Chromium unusable here (no Lighthouse/screenshots/axe).
