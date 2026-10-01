@@ -8824,6 +8824,22 @@ html,
 body {
   overflow-x: clip;
 }
+/* Stage 4 Kannada typography: Noto stacks, roomy line-height for tall
+   glyphs/ottaksharas, break-word (never anywhere) + correct lang attrs.
+   Applies wherever lang="kn" is set — spans today, html tomorrow. */
+:lang(kn) {
+  font-family: "Noto Sans Kannada", "Inter", system-ui, sans-serif;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+h1:lang(kn),
+h2:lang(kn),
+h3:lang(kn) {
+  font-family: "Noto Serif Kannada", Georgia, serif;
+  line-height: 1.5;
+  padding-block: 0.12em; /* headroom so vowel signs never clip */
+  overflow-wrap: break-word;
+}
 @supports not (overflow: clip) {
   html,
   body {
