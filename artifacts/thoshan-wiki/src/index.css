@@ -4412,6 +4412,9 @@ pre {
   overscroll-behavior: contain;
   padding: 0 10px 12px;
   scrollbar-width: thin;
+  /* Stage 6: skip off-screen rail rendering on low-end phones. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
 }
 .rail-panel + .rail-panel {
   border-top: 1px solid hsl(var(--border));
