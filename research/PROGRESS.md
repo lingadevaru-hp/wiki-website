@@ -23,3 +23,8 @@
 - Stage 5: chat PR #60 (follow-up chips scroll-row + clear-chat 5s Undo). Portfolio: verified pre-existing (skeletons, role=alert, ErrorBoundary) — no PR.
 - Stage 6: wiki PR #96 + chat PR #61 (content-visibility on lists). Contrast AA audit + measured LCP/INP/CLS deferred.
 - CROSS-APPLY.md added. Independent stage branches — merge in order 1→6 per repo to avoid adjacent-line conflicts.
+
+## v10.10 integration (01-10-2026, branch upgrade/v10-integration → PR #97)
+- Merged #91→#92→#93→#94→#95→#96 cleanly; tsc + build green.
+- Implemented: verified motion tokens, 250/200 sheets + 32% scrim + 28px radius + 32px handle, focus-restore hook (3 dialogs), reader Esc, toast 3s, spinner guard, KN strict rules, 48px coarse targets, vendor chunk split (app 912→468KB), TTS provider interface + browser fallback, REDESIGN_TODO honesty pass.
+- Measured: tsc clean, build passes, bundle before/after, 22-theme contrast AA. Not measured: LCP/INP/CLS, screenshots, axe (no usable browser).

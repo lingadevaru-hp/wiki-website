@@ -6,6 +6,7 @@ import {
   type CSSProperties,
 } from "react";
 import { useLocale } from "../contexts/LocaleContext";
+import { browserSpeechProvider } from "../lib/tts-provider";
 import {
   ChevronDown,
   Loader2,
@@ -64,7 +65,7 @@ export default function ArticleAudioReader({
   text,
   onPlayerOpenChange,
 }: ArticleAudioReaderProps) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const segments = useMemo(() => splitIntoSegments(text), [text]);
   const wordCount = useMemo(
     () => text.trim().split(/\s+/).filter(Boolean).length,
@@ -85,6 +86,8 @@ export default function ArticleAudioReader({
   const segmentOffsetRef = useRef(0);
   const activeSegmentRef = useRef(0);
   const playTokenRef = useRef(0);
+  // True while the built-in-voice fallback (not Cloudflare audio) is speaking.
+  const browserActiveRef = useRef(false);
 
   useEffect(() => {
     onPlayerOpenChange?.(open);
@@ -111,6 +114,10 @@ export default function ArticleAudioReader({
   };
 
   const stopAudio = () => {
+    // Covers both engines: the Cloudflare <audio> element and the
+    // built-in-voice fallback (they never overlap by construction).
+    browserSpeechProvider.stop();
+    browserActiveRef.current = false;
     const audio = audioRef.current;
     if (audio) {
       audio.onended = null;
@@ -262,14 +269,60 @@ export default function ArticleAudioReader({
     } catch (error) {
       if (token !== playTokenRef.current) return;
       stopAudio();
-      setMode("error");
-      setStatus("Cloudflare voice could not be rendered. Try Listen again.");
+      // v10.10: fall back to the free built-in voice before giving up —
+      // offline and failed-render users still get narration.
+      playBrowserFallback(index, token);
+      return;
     }
   };
 
+  const playBrowserFallback = (
+    index: number,
+    token = playTokenRef.current,
+  ) => {
+    const segment = segments[index];
+    if (!segment || token !== playTokenRef.current) return;
+    if (!browserSpeechProvider.isAvailable()) {
+      setMode("error");
+      setStatus("Voice unavailable on this device. Try Listen again.");
+      return;
+    }
+    setOpen(true);
+    setSegmentIndex(index);
+    setMode("playing");
+    setStatus("Reading with built-in voice");
+    browserActiveRef.current = true;
+    browserSpeechProvider.speak(segment, {
+      lang: locale === "kn" ? "kn-IN" : "en-IN",
+      onend: () => {
+        if (token !== playTokenRef.current) return;
+        if (index < segments.length - 1) {
+          playBrowserFallback(index + 1, token);
+        } else {
+          browserActiveRef.current = false;
+          setMode("idle");
+          setStatus("Finished reading");
+        }
+      },
+      onerror: () => {
+        if (token !== playTokenRef.current) return;
+        browserActiveRef.current = false;
+        setMode("error");
+        setStatus("Voice unavailable on this device. Try Listen again.");
+      },
+    });
+  };
+
   const play = () => {
-    if (mode === "paused" && audioRef.current) {
-      const token = playTokenRef.current;
+    // Resume a paused built-in-voice fallback from its segment.
+    if (mode === "paused" && !audioRef.current && segments.length) {
+      const token = ++playTokenRef.current;
+      stopAudio();
+      setOpen(true);
+      playBrowserFallback(segmentIndex, token);
+      return;
+    }
+    if (mode === "paused" && audioRef.current) {      const token = playTokenRef.current;
       void audioRef.current
         .play()
         .then(() => {
@@ -291,6 +344,14 @@ export default function ArticleAudioReader({
   };
 
   const pause = () => {
+    // Pausing the fallback stops speech; play() replays the segment.
+    if (browserActiveRef.current) {
+      browserActiveRef.current = false;
+      browserSpeechProvider.stop();
+      setMode("paused");
+      setStatus("Paused");
+      return;
+    }
     const audio = audioRef.current;
     if (!audio) return;
     segmentOffsetRef.current = Math.max(0, audio.currentTime);

@@ -42,3 +42,10 @@
 - [ ] Heavy DOM ripples on mobile — REJECT: frame drops on low-end (G); desktop-only like tt
 - [ ] `overflow-wrap:anywhere` on prose — REJECT: splits KN conjuncts (G TRUE verdict); prose = break-word
 - [ ] 450ms page fade — REJECT: M3 says ≤300–400ms; use 200–300ms
+
+## Parked (Phase 0B — do NOT build in this mission)
+
+- [ ] Cloudflare TTS provider + audio cache strategy + exact-duration seeking (needs owner design approval; interface `src/lib/tts-provider.ts` ready, browser fallback wired)
+- [ ] Optional AI article chat in portfolio (chat-panel embed covers it)
+- [ ] Related-article graph, Markdown/JSON export, offline cache, installable PWA, reading history, per-article notes
+- [ ] Production asset compression + cache headers (documented recommendation only — deploy config out of scope)
