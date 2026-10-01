@@ -246,6 +246,7 @@ export function CommandMenu() {
             autoComplete="off"
             spellCheck={false}
             enterKeyHint="go"
+            inputMode="search"
             className="command-input"
           />
         </div>

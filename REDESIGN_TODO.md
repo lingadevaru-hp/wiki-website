@@ -1,6 +1,11 @@
 # Thoshan's Wiki Redesign TODO
 
-Last updated: 2026-08-15
+Last updated: 01-10-2026
+
+> Rules update (supersedes the old Delivery Boundary below): `CLAUDE.md` wins —
+> work on branches, open PRs to the private repo, never push directly to `main`.
+> Still holds: no merge to `main` and no production deploy without the owner's
+> explicit "go"; no secrets, DNS, Cloudflare rules, or analytics changes by agents.
 
 ## Product Direction
 
@@ -67,12 +72,12 @@ Last updated: 2026-08-15
 
 ### Apple-Style Interaction Refinement
 
-- [ ] Add pointer-down feedback to primary buttons, reader controls, and article rows.
-- [ ] Replace fixed slide transitions for the mobile reader panel with an interruptible bottom-sheet interaction.
-- [ ] Add pointer capture and 1:1 drag tracking to the reader seek control if native range input behavior is insufficient.
-- [ ] Add spring-style opening and minimizing behavior using the existing motion dependency or a small local utility.
-- [ ] Add keyboard Escape handling for the reader panel and navigation drawer.
-- [ ] Add `prefers-reduced-transparency` and `prefers-contrast: more` fallbacks.
+- [x] Add pointer-down feedback to primary buttons, reader controls, and article rows. (v10.10: press scale 0.97 + 70ms down-beat, verified tokens)
+- [x] Replace fixed slide transitions for the mobile reader panel with an interruptible bottom-sheet interaction. (ChatPanel sheet done; search/command sheets done; reader panel: Esc-minimize done, full drag physics needs device — see research/BLOCKERS.md)
+- [ ] Add pointer capture and 1:1 drag tracking to the reader seek control if native range input behavior is insufficient. (needs device)
+- [x] Add spring-style opening and minimizing behavior using the existing motion dependency or a small local utility. (sheetUp 250ms decelerate + spring tokens; no new dep)
+- [x] Add keyboard Escape handling for the reader panel and navigation drawer. (reader Esc→minimize added 01-10-2026; drawer had it)
+- [x] Add `prefers-reduced-transparency` and `prefers-contrast: more` fallbacks. (verified present in index.css:2748-2859; stale duplicates elsewhere in this file removed 01-10-2026)
 - [ ] Review reader motion at slow speed for jumps, delayed feedback, and non-mirrored enter/exit paths.
 
 ### Reliability and Accessibility
@@ -80,7 +85,7 @@ Last updated: 2026-08-15
 - [ ] Add browser-level interaction checks for Listen, pause, skip, seek, speed, minimize, close, save, copy, cite, print, search, and category filtering.
 - [ ] Verify all article routes and all article-to-article links against the current dataset.
 - [ ] Add explicit fallback handling for missing thumbnails, remote media, broken images, and unsupported speech synthesis.
-- [ ] Add focus restoration when search, navigation, or the audio reader closes.
+- [x] Add focus restoration when search, navigation, or the audio reader closes. (v10.10: shared use-focus-restore hook wired into GlobalSearch, ShortcutsModal, MediaViewer; CommandMenu/ThemePicker/Newsletter/ChatPanel already had it)
 - [ ] Verify screen-reader names and keyboard order for all icon-only controls.
 - [ ] Verify 320px, 375px, 768px, 1024px, 1440px, and wide desktop layouts.
 - [ ] Check horizontal overflow programmatically on every primary route.
@@ -121,7 +126,7 @@ These are the planned upgrades from the redesign discussion, with current status
 - [ ] Interactive browser acceptance pass for reader controls.
 - [ ] Final accessibility and overflow audit.
 
-## Delivery Boundary
+## Delivery Boundary (SUPERSEDED 01-10-2026 — see note at top; kept for history)
 
 - Development remains local to this workspace.
 - Do not push to GitHub.
@@ -228,8 +233,8 @@ The following inventory reflects the broader request for 20+ features, 20+ motio
 - [x] Optical heading scale and restrained tracking.
 - [x] Material depth for floating reader controls.
 - [x] No fabricated content added to the redesign.
-- [ ] Full focus restoration for every modal and drawer.
-- [ ] Formal contrast audit across both themes.
+- [x] Full focus restoration for every modal and drawer. (done 01-10-2026, see above)
+- [x] Formal contrast audit across all 22 themes. (done 01-10-2026: accent-on-bg all ≥7.17, AA; see research/RESULTS.md — rendered browser check still needs device)
 
 ### 10+ Corrections to Old Practices
 
