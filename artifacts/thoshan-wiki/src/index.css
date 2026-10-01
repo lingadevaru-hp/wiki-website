@@ -1256,6 +1256,23 @@ a:active {
     0 4px 18px hsl(var(--background) / 0.4);
   padding: 18px;
 }
+/* Stage 3: command menu becomes a bottom sheet on phones. */
+@media (max-width: 640px) {
+  .command-palette {
+    align-items: flex-end;
+    padding: 0 0 env(safe-area-inset-bottom);
+  }
+  .command-card {
+    max-width: none;
+    border-radius: 20px 20px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    max-height: 92vh;
+    max-height: 92dvh;
+    animation: sheetUp 200ms var(--ease-out);
+  }
+}
 .command-prompt {
   display: flex;
   align-items: center;
@@ -5954,6 +5971,20 @@ h2 {
   }
 }
 
+/* Stage 3 half-sheets: bottom-anchored slide-up for small screens.
+   Entrance 200ms ease-out (exit-faster rule lives in the components);
+   drag-to-dismiss needs real-device tuning — deliberately not added here. */
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes dropdownFadeIn {
   from {
     opacity: 0;
@@ -6000,6 +6031,25 @@ h2 {
   flex-direction: column;
   max-height: calc(100vh - 120px);
   max-height: calc(100dvh - 120px); /* Stage 2: visible-viewport sizing above the keyboard */
+}
+
+/* Stage 3: search becomes a bottom sheet on phones — thumb reach,
+   keyboard room, page context preserved. Desktop unchanged. */
+@media (max-width: 640px) {
+  .global-search-backdrop {
+    align-items: flex-end;
+    padding: 0 0 env(safe-area-inset-bottom);
+  }
+  .global-search-modal {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    max-height: 92vh;
+    max-height: 92dvh;
+    animation: sheetUp 200ms var(--ease-out);
+  }
 }
 
 /* Input row */
