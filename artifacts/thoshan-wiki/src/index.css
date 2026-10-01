@@ -1263,11 +1263,13 @@ a:active {
     0 4px 18px hsl(var(--background) / 0.4);
   padding: 18px;
 }
-/* Stage 3: command menu becomes a bottom sheet on phones. */
+/* Centered popup on phones (reference: omarchy.org command palette) —
+   fully displayed in the center, no bottom-sheet curve. ONLY while the
+   keyboard is open does kb-open dock it above the keyboard. */
 @media (max-width: 640px) {
   .command-palette {
-    align-items: flex-end;
-    padding: 0 0 env(safe-area-inset-bottom);
+    align-items: center;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
   }
   .command-palette .command-backdrop {
     /* v10.10: M3 32% flat scrim on phones (was 72% + blur). */
@@ -1276,13 +1278,21 @@ a:active {
   }
   .command-card {
     max-width: none;
-    border-radius: 28px 28px 0 0;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    max-height: 92vh;
-    max-height: 92dvh;
+    max-height: 70vh;
+    max-height: 70dvh;
     animation: sheetUp 250ms var(--ease-decelerate);
+  }
+  .command-palette.kb-open {
+    align-items: flex-start;
+    padding-top: 12px;
+  }
+  .command-palette.kb-open .command-card {
+    max-height: 52vh;
+    max-height: 52dvh;
+  }
+  .command-palette.kb-open .command-list-scroll {
+    max-height: 32vh;
+    max-height: 32dvh;
   }
 }
 .command-prompt {
@@ -6074,12 +6084,14 @@ h2 {
   max-height: calc(100dvh - 120px); /* Stage 2: visible-viewport sizing above the keyboard */
 }
 
-/* Stage 3: search becomes a bottom sheet on phones — thumb reach,
-   keyboard room, page context preserved. Desktop unchanged. */
+/* Centered popup on phones (reference: omarchy.org command palette) —
+   fully displayed in the center, no bottom-sheet curve. ONLY while the
+   keyboard is open does kb-open dock it above the keyboard so the input
+   and results stay visible while typing. */
 @media (max-width: 640px) {
   .global-search-backdrop {
-    align-items: flex-end;
-    padding: 0 0 env(safe-area-inset-bottom);
+    align-items: center;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
     /* v10.10: M3 32% flat scrim on phones (was 65% + blur). */
     background: rgba(0, 0, 0, 0.32);
     backdrop-filter: none;
@@ -6087,13 +6099,21 @@ h2 {
   }
   .global-search-modal {
     width: 100%;
-    border-radius: 28px 28px 0 0;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    max-height: 92vh;
-    max-height: 92dvh;
+    max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px);
     animation: sheetUp 250ms var(--ease-decelerate);
+  }
+  .global-search-backdrop.kb-open {
+    align-items: flex-start;
+    padding-top: 12px;
+  }
+  .global-search-modal.kb-open {
+    max-height: 52vh;
+    max-height: 52dvh;
+  }
+  .global-search-modal.kb-open .global-search-body {
+    max-height: 32vh;
+    max-height: 32dvh;
   }
 }
 

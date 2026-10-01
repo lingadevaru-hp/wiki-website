@@ -85,6 +85,7 @@ export function CommandMenu() {
   const pointer = useRef({ x: -1, y: -1 })
   const scroller = useRef<HTMLDivElement>(null)
   const restore = useRef<HTMLElement | null>(null)
+  const palette = useRef<HTMLDivElement>(null)
 
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
@@ -139,6 +140,27 @@ export function CommandMenu() {
 
   useEffect(() => {
     if (open) input.current?.focus()
+  }, [open ])
+
+  // Centered popup by default; ONLY while the keyboard is open does kb-open
+  // dock it above the keyboard (same pattern as GlobalSearch).
+  useEffect(() => {
+    if (!open) return
+    const vv = window.visualViewport
+    if (!vv) return
+    const root = palette.current
+    const sync = () => {
+      const kb = Math.max(0, window.innerHeight - vv.height - (vv.offsetTop || 0))
+      root?.classList.toggle('kb-open', kb > 40)
+    }
+    sync()
+    vv.addEventListener('resize', sync)
+    vv.addEventListener('scroll', sync)
+    return () => {
+      vv.removeEventListener('resize', sync)
+      vv.removeEventListener('scroll', sync)
+      root?.classList.remove('kb-open')
+    }
   }, [open ])
 
   useEffect(() => {
@@ -227,6 +249,7 @@ export function CommandMenu() {
 
   return (
     <div
+      ref={palette}
       role="dialog"
       aria-modal="true"
       aria-label="Site menu"

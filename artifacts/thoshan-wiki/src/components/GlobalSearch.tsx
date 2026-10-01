@@ -60,6 +60,35 @@ export default function GlobalSearch() {
   // v10.10: return focus to the opener on close (trap already below).
   useFocusRestore(isOpen);
 
+  // Centered popup by default; ONLY while the keyboard is open does kb-open
+  // dock it above the keyboard so input + results stay visible while typing.
+  // visualViewport is the primary signal (Safari ignores interactive-widget).
+  useEffect(() => {
+    if (!isOpen) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const modal = modalRef.current;
+    const backdrop = modal?.parentElement;
+    const sync = () => {
+      const kb = Math.max(
+        0,
+        window.innerHeight - vv.height - (vv.offsetTop || 0),
+      );
+      const open = kb > 40;
+      modal?.classList.toggle("kb-open", open);
+      backdrop?.classList.toggle("kb-open", open);
+    };
+    sync();
+    vv.addEventListener("resize", sync);
+    vv.addEventListener("scroll", sync);
+    return () => {
+      vv.removeEventListener("resize", sync);
+      vv.removeEventListener("scroll", sync);
+      modal?.classList.remove("kb-open");
+      backdrop?.classList.remove("kb-open");
+    };
+  }, [isOpen]);
+
   // Load featured articles (show when query is empty)
   useEffect(() => {
     loadArticlesIndex().then((idx) => {
