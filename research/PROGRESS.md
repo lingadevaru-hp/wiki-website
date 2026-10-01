@@ -10,3 +10,8 @@
 - [ ] Stage 4 Kannada type (both)
 - [ ] Stage 5 agentic chat (chat first → portfolio)
 - [ ] Stage 6 themes+perf+a11y + CROSS-APPLY.md + final report
+
+## Stage 1 — quick wins (done 01-10-2026, PRs open, NOT merged/deployed)
+- Chat (`thoshan-ai` PR #56, branch feat/stage-1-quick-wins): viewport maximum-scale=5, composer/search input attrs, 44px base + 48px coarse targets, scale(.96) press, touch-action manipulation. Pre-existing tsc errors unchanged on HEAD.
+- Portfolio (`wiki-website` PR #92, branch feat/stage-1-quick-wins): GlobalSearch/CommandMenu input attrs, --duration-page 150ms, --ease-in standard. tsc clean.
+- Before/after numbers: device LCP/INP/CLS still blocked (no harness) — PRs record static deltas only.
