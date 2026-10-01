@@ -208,6 +208,11 @@ export default function GlobalSearch() {
             className="global-search-input"
             autoComplete="off"
             spellCheck={false}
+            enterKeyHint="search"
+            inputMode="search"
+            autoCapitalize="off"
+            autoCorrect="off"
+            aria-label={t("menu.search")}
             role="combobox"
             aria-expanded={displayItems.length > 0}
             aria-autocomplete="list"

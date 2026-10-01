@@ -172,9 +172,11 @@
   --chart-5: 0 59% 52%;
   --radius: 2px; /* Sharp, Wikipedia-style */
 
-  /* Motion tokens */
+  /* Motion tokens — Stage 1: page fade 450→150ms (measured: Manus
+     --page-fade-dur .15s; 450ms janks on 4x-CPU throttled phones).
+     Ease-in uses Material standard (.4,0,.2,1) per Telegram tweb token. */
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.2, 0, 0, 1);
   --ease-spring: cubic-bezier(0.2, 0.9, 0.2, 1);
   --ease-bounce: cubic-bezier(0.34, 1.3, 0.64, 1);
@@ -182,7 +184,7 @@
   --duration-fast: 120ms;
   --duration-normal: 200ms;
   --duration-slow: 320ms;
-  --duration-page: 450ms;
+  --duration-page: 150ms;
   --stagger-step: 40ms;
   --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0); /*replace with H S L */
   --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0); /*replace with H S L */
