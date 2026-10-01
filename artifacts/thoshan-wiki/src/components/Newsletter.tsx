@@ -108,6 +108,7 @@ export default function NewsletterSection({
   const sectionRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
+  const landTimer = useRef<number | null>(null);
   const [dwelled, setDwelled] = useState(false);
   const [inView, setInView] = useState(false);
   const [flown, setFlown] = useState(false);
@@ -160,13 +161,36 @@ export default function NewsletterSection({
     setError("");
     setMode("new");
     setViewAck(false);
-    posthog.capture("newsletter_open", { locale });
-    trackEvent("newsletter_open", { locale });
-    // Flight duration matches the CSS flight-path animation.
-    window.setTimeout(() => setLanded(true), 2500);
+    // Land the form FIRST: analytics must never block the open flow.
+    // Brave Shields breaks trackers, which used to throw here and leave the
+    // bird flying forever with no form (the exact customer complaint).
+    // Flight duration matches the CSS flight-path animation; reduced-motion
+    // users skip the wait.
+    if (landTimer.current) window.clearTimeout(landTimer.current);
+    const reduceMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ??
+      false;
+    landTimer.current = window.setTimeout(
+      () => setLanded(true),
+      reduceMotion ? 300 : 2500,
+    );
+    try {
+      posthog.capture("newsletter_open", { locale });
+    } catch {
+      /* tracker blocked — form still opens */
+    }
+    try {
+      trackEvent("newsletter_open", { locale });
+    } catch {
+      /* tracker blocked — form still opens */
+    }
   }, [locale]);
 
   const closeOverlay = useCallback(() => {
+    if (landTimer.current) {
+      window.clearTimeout(landTimer.current);
+      landTimer.current = null;
+    }
     setOverlay(false);
     setLanded(false);
     setDismissed(true);
@@ -267,7 +291,11 @@ export default function NewsletterSection({
         trackEvent("newsletter_submit_success", { locale, kind });
       } catch {
         setError(t("newsletter.submitFailed"));
-        posthog.capture("newsletter_submit_failed", { locale });
+        try {
+          posthog.capture("newsletter_submit_failed", { locale });
+        } catch {
+          /* tracker blocked — error already shown */
+        }
       } finally {
         setSubmitting(false);
       }
