@@ -47,6 +47,23 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
+    // v10.10: split stable vendor code from app code so repeat visits
+    // re-download only what changed (huge win on patchy 4G).
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "wouter"],
+          "vendor-radix": [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-toast",
+            "@radix-ui/react-tooltip",
+          ],
+          "vendor-query": ["@tanstack/react-query"],
+          "vendor-posthog": ["posthog-js"],
+        },
+      },
+    },
   },
   server: {
     port,

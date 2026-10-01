@@ -8,6 +8,7 @@ import type { ArticleIndexEntry } from "../types/article";
 import { useSearch } from "../contexts/SearchContext";
 import { useLocale } from "../contexts/LocaleContext";
 import { useDebounce } from "../hooks/useDebounce";
+import { useFocusRestore } from "../hooks/use-focus-restore";
 import { OPEN_PALETTE_EVENT } from "../lib/command-menu";
 
 const RECENT_KEY = "wiki_recent_searches";
@@ -50,10 +51,14 @@ export default function GlobalSearch() {
   const [recent, setRecent] = useState<string[]>([]);
   const [activeIdx, setActiveIdx] = useState(-1);
   const [isSearching, setIsSearching] = useState(false);
+  // v10.10: spinner appears only past 300ms so fast keystrokes never flash.
+  const [showSlow, setShowSlow] = useState(false);
   const [, setLocation] = useLocation();
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  // v10.10: return focus to the opener on close (trap already below).
+  useFocusRestore(isOpen);
 
   // Load featured articles (show when query is empty)
   useEffect(() => {
@@ -85,19 +90,25 @@ export default function GlobalSearch() {
     if (debouncedQuery.trim().length < 2) {
       setResults([]);
       setIsSearching(false);
+      setShowSlow(false);
       return;
     }
     setIsSearching(true);
     let cancelled = false;
+    const slow = window.setTimeout(() => {
+      if (!cancelled) setShowSlow(true);
+    }, 300);
     searchArticles(debouncedQuery).then((r) => {
       if (!cancelled) {
         setResults(r.filter(inScope).slice(0, 8));
         setActiveIdx(-1);
         setIsSearching(false);
+        setShowSlow(false);
       }
     });
     return () => {
       cancelled = true;
+      window.clearTimeout(slow);
     };
   }, [debouncedQuery, inScope]);
 
@@ -186,7 +197,7 @@ export default function GlobalSearch() {
       <div className="global-search-modal" ref={modalRef}>
         {/* Search input row */}
         <div className="global-search-input-row">
-          {isSearching ? (
+          {showSlow ? (
             <div className="global-search-spinner" aria-hidden="true" />
           ) : (
             <Search

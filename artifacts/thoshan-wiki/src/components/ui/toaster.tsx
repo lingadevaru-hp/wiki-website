@@ -12,7 +12,9 @@ export function Toaster() {
   const { toasts } = useToast();
 
   return (
-    <ToastProvider>
+    // v10.10: 3000ms auto-dismiss matches Telegram clients (tweb toast.ts,
+    // tt Notification); swipe-to-dismiss comes from Radix primitives.
+    <ToastProvider duration={3000}>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
           <Toast key={id} {...props}>

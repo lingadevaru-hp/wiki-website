@@ -356,6 +356,17 @@ export default function ArticleAudioReader({
     setOpen(false);
   };
 
+  // v10.10 (R open item): Escape minimizes the panel instead of stopping
+  // playback — the mini pill keeps listening discoverable.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open ]);
+
   const togglePanel = () => {
     if (mode === "playing" || mode === "loading") {
       pause();

@@ -67,21 +67,23 @@ All transitions and animations use CSS custom properties for consistency:
 
 | Token | Value | Usage |
 |-------|-------|-------|
+| `--duration-press` | `70ms` | Touch-down scale acknowledgment (measured: tweb) |
 | `--duration-instant` | `0ms` | Immediate feedback |
 | `--duration-fast` | `120ms` | Hover states, micro-interactions |
-| `--duration-normal` | `200ms` | Standard transitions |
+| `--duration-normal` | `200ms` | Standard transitions, menus, toasts |
 | `--duration-slow` | `320ms` | Modal/panel entrances |
-| `--duration-page` | `450ms` | Page-level transitions |
+| `--duration-page` | `300ms` | Page-level transitions (M3 medium; was 450ms) |
 | `--stagger-step` | `40ms` | Sequential element delays |
-| `--ease-out` | `cubic-bezier(0.2, 0, 0, 1)` | Default easing |
-| `--ease-in` | `cubic-bezier(0.4, 0, 1, 1)` | Exit animations |
-| `--ease-in-out` | `cubic-bezier(0.2, 0, 0, 1)` | Bidirectional transitions |
-| `--ease-spring` | `cubic-bezier(0.2, 0.9, 0.2, 1)` | Apple-style spring |
+| `--ease-out` | `cubic-bezier(0.2, 0, 0.2, 1)` | Default easing (measured: tt mixins.scss) |
+| `--ease-in` | `cubic-bezier(0.4, 0, 0.2, 1)` | Exit animations |
+| `--ease-decelerate` | `cubic-bezier(0, 0, 0.2, 1)` | Sheet entrances (250ms) |
+| `--ease-accelerate` | `cubic-bezier(0.4, 0, 1, 1)` | Sheet exits (200ms) |
+| `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Overshoot moments (measured: DrKLO) |
 | `--ease-bounce` | `cubic-bezier(0.34, 1.3, 0.64, 1)` | Modal bounce-in |
 
 ### Patterns
 
-- **Press feedback:** `scale(0.96)` with `--duration-instant`
+- **Press feedback:** `scale(0.97)` + opacity 0.85 in `--duration-press` (70ms), 150ms spring release (measured: Telegram)
 - **Hover lift:** `translateY(-1px)` or `translateY(-2px)`
 - **Stagger reveals:** `calc(var(--stagger-step) * N)` for sequential items
 - **Theme toggle suppression:** `.theme-transitioning` class temporarily disables transitions
@@ -118,7 +120,7 @@ All transitions and animations use CSS custom properties for consistency:
 - `prefers-contrast: more` — `currentColor` borders
 - `focus-visible` — 2px outline with ring color on all interactive elements
 - Disabled states — `opacity: 0.45`, `cursor: not-allowed`, `pointer-events: none`
-- Touch targets ≥ 34px (buttons), ≥ 44px (mobile)
+- Touch targets ≥ 44px (desktop), ≥ 48px on coarse pointers (phones)
 - Semantic HTML: proper heading hierarchy, `aria-hidden` on decorative elements
 - Search modal — focus trap, `role="dialog"`, `aria-modal`, `aria-label`
 - Theme toggle — descriptive `aria-label` ("Switch to light/dark mode"), `aria-pressed` state

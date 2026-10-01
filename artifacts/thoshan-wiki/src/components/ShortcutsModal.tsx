@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { X, Keyboard } from "lucide-react";
 import { useLocale } from "../contexts/LocaleContext";
+import { useFocusRestore } from "../hooks/use-focus-restore";
 
 interface ShortcutsModalProps {
   isOpen: boolean;
@@ -24,6 +25,8 @@ export default function ShortcutsModal({
 }: ShortcutsModalProps) {
   const { t } = useLocale();
   const modalRef = useRef<HTMLDivElement>(null);
+  // v10.10: return focus to the opener on close.
+  useFocusRestore(isOpen);
 
   useEffect(() => {
     if (!isOpen) return;

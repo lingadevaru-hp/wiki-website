@@ -2,6 +2,7 @@ import { useLocale } from "../contexts/LocaleContext";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ExternalLink, X } from "lucide-react";
+import { useFocusRestore } from "../hooks/use-focus-restore";
 
 export type MediaViewerItem = {
   src: string;
@@ -19,6 +20,8 @@ interface MediaViewerProps {
 export default function MediaViewer({ item, onClose }: MediaViewerProps) {
   const { t } = useLocale();
   const isVideo = item.type === "video";
+  // v10.10: return focus to the thumbnail that opened the viewer.
+  useFocusRestore(true);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
