@@ -1,59 +1,44 @@
-# Research TODO — v5.4 → v10.10 Mobile UI/UX (wiki-website target)
+# TODO — v5.4 → v10.10 (both apps) — upgraded with Gemini Deep Research
 
-> Target: `wiki-website` (English + Kannada first). Refs: Manus ~70%, Telegram ~30%.
-> Rules: research only until Phase 10 approval. Copy behavior, not brand. Telegram GPL — re-implement, don't paste. Reject `user-scalable=no`.
-> Format: `[ ]` open / `[x]` done. Never delete rejected items.
+> Sources: G = `research/gemini/Gemini-Deep-Research-MANUS-TELEGRAM-ORIGINAL.md` (MEASURED/DOCUMENTED),
+> P = our 10-phase research, U = `research/UI-UX-32.md` (the 32 ordered upgrades).
+> Confidence: `measured` > `documented` > `reported` > `assumed`. Nothing optional — all 32 are must-do, ordered by phone-user impact.
+> `[ ]` open / `[x]` done. Rejected items kept with reason, never deleted.
 
-## 🔴 Must-do
+## Adopted Gemini corrections (replaces our assumed values)
 
-- [ ] [P3] ChatPanel mobile → true bottom-sheet with detents (peek 45% / half 60% / expanded 92%), drag handle 40×4px, scrim 40-50%, Android back dismisses — Effort M / Impact 5
-- [ ] [P7] Keyboard-aware layout: `interactive-widget=resizes-content` + `dvh` + `visualViewport` resize for search/command palette/chat/composer — S / 5
-- [ ] [P7] Composer/search attributes: `inputmode`, `enterkeyhint=search/send`, `autocomplete`, autocapitalize, scroll-into-view +300ms — S / 5
-- [ ] [P4] Motion tokens adopt: fast 120-150ms, base 200ms, slow 320ms, page 450ms; `ease-out cubic-bezier(0.2,0,0,1)`; exit faster than entry — S / 5
-- [ ] [P5] Touch targets → ≥48×48dp primary (reader controls, palette rows, chips, send/attach) — S / 5
-- [ ] [P9] Animate only `transform/opacity`; audit `will-change`, `content-visibility`, list virtualization — M / 5
-- [ ] [P9] Throttled test: Slow 4G + 4× CPU, LCP/INP/CLS on 360×800 before/after — M / 5
-- [ ] [P6] Kannada mobile type: Noto Sans Kannada / Noto Serif Kannada, min 16px body, lh ≥1.7, no clipping, mixed en-kn wrapping — S / 5
-- [ ] [P2] 360px no-h-scroll guarantee + safe-area (`env(safe-area-inset-*)`) on header/bottom-sheet/composer — S / 5
-- [ ] [P10] Per-theme flavor mapping for all 22 themes (not flattening) — M / 5
+- [x] Press: `scale(0.97)` + opacity 0.85, 70ms down / 150ms spring release (was 0.96) — G MEASURED
+- [x] Sheet: enter 250ms decelerate / exit 200ms accelerate, scrim **32%** (was 45%), handle **32×4** in 48px zone, top radius 28px (was 20px), detents 50/90dvh — G DOCUMENTED/MEASURED
+- [x] Ease: standard `cubic-bezier(0.2,0,0.2,1)` (was 0.2,0,0,1); decelerate `(0,0,0.2,1)`; accelerate `(0.4,0,1,1)`; spring `(0.34,1.56,0.64,1)` — G MEASURED
+- [x] Page fade: 300ms DOCUMENTED (M3 medium) — our 150ms was too fast, Manus .15s was one data point; use 200–300ms
+- [x] Chips: 34–36px h, 0 16px/12px pad, 9999px, snap-row, fade on first keystroke — G MEASURED (Manus)
+- [x] Composer: max 240px/15rem then inner scroll; input 36px min, 15px/1.4 — G MEASURED (tt)
+- [x] Swipe-to-reply 48dp + haptic tick; long-press 400ms + 10px slop — G MEASURED (DrKLO/tweb)
+- [x] Scroll FAB 40px circle, 80px offset, >150px trigger, 150ms scale — G MEASURED (tweb)
+- [x] Dismiss: 30% height OR velocity >1000px/s + rubber-band — G MEASURED (tweb popupElement.ts)
+- [x] Keyboard: VV primary + meta enhancement (both agree); `--kb-inset` naming adopted — G MEASURED
+- [x] Kannada: `break-word` + `word-break:normal` + `line-break:strict`, lh 1.65–1.80, 16px min, 0.01em spacing — G (W3C css-text-4)
+- [x] `user-scalable=no`: rejected everywhere (Safari ignores it anyway since iOS 10) — G FALSE verdict; use `touch-action:manipulation`
+- [x] Ripple: Telegram HAS ripple (native + web custom), Manus has NONE (scale 0.98 + bg shift) — G TRUE/TRUE verdicts; we follow Manus on mobile (compositor-only), ripple desktop-only like tt
+- [x] Blur: replace live `blur()` with opaque `rgba(248,248,247,0.98)`-per-theme on low-end — G MEASURED constraint
+- [x] Budgets: JS <120KB gzip, animate transform/opacity only — G DOCUMENTED
 
-## 🟠 High-value
+## The 32 (U) — status
 
-- [ ] [P1] IA: single prompt/search entry on landing + home; 2-tap reach to search/chat/article — S / 4
-- [ ] [P2] Spacing scale lock to 4px base; content gutter 16px@360px, card padding 16px, row height 56-64px — S / 4
-- [ ] [P3] GlobalSearch/CommandMenu as half-sheet on mobile (not fullscreen), max-w 480px on desktop — M / 4
-- [ ] [P3] Long-press context (copy/cite/share) + swipe-reply analogue for quotes; focus trap + scroll lock + SR announce — M / 4
-- [ ] [P5] Radius scale lock: 10 icon-btn / 12 controls / 13 search / 18 cards / 24 reader / 999 pills; squircle approx via large radii — S / 4
-- [ ] [P5] Press states: `scale(0.96)` instant + opacity; no ripple (Manus/Telegram-web convention) — S / 4
-- [ ] [P8] Optimistic send + clock/checks in ChatPanel; typing dots; scroll FAB with unread count + "new messages" pill — M / 4
-- [ ] [P8] Agent-task progress pattern (Manus): plan → steps → partial results → share/retry; skeletons for articles, spinners only for 300ms+ waits — M / 4
-- [ ] [P6] Calm color: neutrals ≥90%, one accent; contrast AA check all 22 themes — M / 4
-- [ ] [P9] Fonts: subset + `font-display:swap`, WebP/AVIF hero, code-split palette/reader — S / 4
+- [x] U1–U5 press/targets — in stages (#56/#92 + follow-ups); remaining: 0.97/70ms retune, handle zones
+- [x] U6–U10 keyboard — in stages (#57/#93); remaining: 240px composer, VV for search/menu/newsletter
+- [ ] U11–U15 sheets — in stages (#58/#94); remaining: 250/200 + 32% scrim + 28px radius + drag physics
+- [ ] U16–U22 chat — #60 + pre-existing; remaining: state glyphs, swipe-quote, FAB count, error cards, empty-state spec, code/table blocks
+- [x] U23–U26 Kannada — in stages (#59/#95); remaining: strict line-break rules, URL/code `anywhere` exception
+- [ ] U27–U29 feedback — #60 + pre-existing; remaining: 3000ms toasts, spinner-300ms guard, step progress
+- [ ] U30–U32 smoothness — #61/#96; remaining: transform-only audit, blur flattening, Lighthouse gate
 
-## 🟡 Nice-to-have
+## Rejected (kept, with reason)
 
-- [ ] [P5] Icon stroke audit: 1.75-2px outline @24px grid, active filled vs inactive outline — S / 3
-- [ ] [P4] Spring only for delight (send hop, sheet snap `cubic-bezier(0.2,0.9,0.2,1)` / bounce `(0.34,1.3,0.64,1)`); list stagger 40ms — S / 3
-- [ ] [P8] Undo instead of confirm (clear chat, newsletter); haptics on send/sheet-snap only, no sound by default — S / 3
-- [ ] [P2] Thumb-zone map: primary in bottom 2/3, destructive never bottom-right — S / 3
-- [ ] [P6] Theme-color meta per theme (like Manus `#f8f8f7`) to avoid white flash — S / 3
-
-## ⚪ Rejected (with reason)
-
-- [ ] `user-scalable=no` (Manus uses it) — REJECT: blocks pinch-zoom, WCAG failure. We use `maximum-scale=5`, test 200% zoom.
-- [ ] Copying Manus/Telegram logos, illustrations, copy, proprietary icons/code — REJECT: identity/license. Re-implement from measured specs.
-- [ ] Pasting Telegram GPL code (Web K GPL-3.0, Web A GPL-3.0, Android GPL-2.0-or-later) — REJECT: copyleft. Read for technique only.
-- [ ] Fullscreen takeovers for search/menu/chat on mobile — REJECT: breaks "doesn't go full screen" principle + keyboard space.
-
-## Phase log
-
-- [x] Phase 1 — recon + IA. Key: Manus single-prompt loop vs Telegram triage loop; wiki has 8 screens + 20 overlays. Items +4. Surprise: wiki ChatPanel already never-unmounts + theme-syncs — keep. Next: Phase 2.
-- [x] Phase 2 — density. Key: 4px base, 16px gutters@360px, 56-64px rows = "packed not cramped". Items +4. Surprise: 7px/14px odd steps in wiki scale — normalize. Next: Phase 3.
-- [x] Phase 3 — overlays. Key: half-sheet 60% + scrim 40-50% + drag is the signature. Items +4. Surprise: Telegram peek→expand 2-detent sheet maps directly to ChatPanel. Next: Phase 4.
-- [x] Phase 4 — motion. Key: 120/200/320/450ms + ease-out; exit faster; transform/opacity only. Items +3. Surprise: restraint (what doesn't animate) matters more. Next: Phase 5.
-- [x] Phase 5 — micro-details. Key: radius + press `scale(0.96)` + 48dp = feel. Items +4. Surprise: squircle ≈ big radius + border, cheap in CSS. Next: Phase 6.
-- [x] Phase 6 — type/color/kn. Key: calm neutrals + per-theme flavor + Noto Kannada 16px/1.7. Items +3. Surprise: 22 themes already — mapping, not flattening, is the work. Next: Phase 7.
-- [x] Phase 7 — keyboard. Key: `resizes-content` + dvh + 360×640 test. Items +3. Surprise: 300ms scroll-into-view delay is the Telegram convention. Next: Phase 8.
-- [x] Phase 8 — feedback. Key: optimistic + progress + undo. Items +3. Surprise: Manus async-notify fits patchy 4G perfectly. Next: Phase 9.
-- [x] Phase 9 — perf/a11y. Key: Slow-4G + 4×CPU gate; 48dp + reduced-motion path. Items +3. Surprise: blur/glass is the main jank risk on low-end. Next: Phase 10.
-- [x] Phase 10 — synthesis. Tokens + roadmap + v10.10 story done. STOPPING for approval. No code touched.
+- [ ] `user-scalable=no` — REJECT: WCAG 1.4.4 failure; Safari ignores it; use maximum-scale=5 + manipulation
+- [ ] Pasting Telegram GPL code — REJECT: copyleft; re-implement from values
+- [ ] Copying Manus/Telegram brand, copy, icons, illustrations — REJECT: identity
+- [ ] Fullscreen takeovers on mobile — REJECT: breaks sheet principle
+- [ ] Heavy DOM ripples on mobile — REJECT: frame drops on low-end (G); desktop-only like tt
+- [ ] `overflow-wrap:anywhere` on prose — REJECT: splits KN conjuncts (G TRUE verdict); prose = break-word
+- [ ] 450ms page fade — REJECT: M3 says ≤300–400ms; use 200–300ms
