@@ -6091,9 +6091,19 @@ h2 {
     border-left: none;
     border-right: none;
     border-bottom: none;
-    max-height: 92vh;
-    max-height: 92dvh;
+    /* v10.10 fix: 60dvh (was 92) so input + first results fit above the
+       keyboard like the command menu; kb-open compacts further. */
+    max-height: 60vh;
+    max-height: 60dvh;
     animation: sheetUp 250ms var(--ease-decelerate);
+  }
+  .global-search-modal.kb-open {
+    max-height: 52vh;
+    max-height: 52dvh;
+  }
+  .global-search-modal.kb-open .global-search-body {
+    max-height: 32vh;
+    max-height: 32dvh;
   }
 }
 

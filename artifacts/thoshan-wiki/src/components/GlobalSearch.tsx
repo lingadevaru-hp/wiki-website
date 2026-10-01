@@ -78,6 +78,29 @@ export default function GlobalSearch() {
     }
   }, [isOpen]);
 
+  // v10.10 fix: while the keyboard is open the sheet compacts so the input
+  // + first results fit above it (like the command menu); on close the full
+  // sheet height is restored. visualViewport is the primary signal because
+  // Safari ignores interactive-widget (WebKit bug 259770).
+  useEffect(() => {
+    if (!isOpen) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const modal = modalRef.current;
+    const sync = () => {
+      const kb = Math.max(0, window.innerHeight - vv.height - (vv.offsetTop || 0));
+      modal?.classList.toggle("kb-open", kb > 40);
+    };
+    sync();
+    vv.addEventListener("resize", sync);
+    vv.addEventListener("scroll", sync);
+    return () => {
+      vv.removeEventListener("resize", sync);
+      vv.removeEventListener("scroll", sync);
+      modal?.classList.remove("kb-open");
+    };
+  }, [isOpen]);
+
   // Only one overlay at a time: the command palette replaces this modal.
   useEffect(() => {
     const onPalette = () => closeSearch();
