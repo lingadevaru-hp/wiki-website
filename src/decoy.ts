@@ -24,7 +24,9 @@ export function isDecoyMode(env: { DECOY_MODE?: string }): boolean {
 const DECOY_POSTHOG_KEY = "phc_zLBB9jDhiErdBuCymsmiU6YAz8A7VQKBBFTsWxpsCLsb";
 const DECOY_POSTHOG_HOST = "https://eu.i.posthog.com";
 
-/** Dark single-page HTML. Inline CSS only, <5KB, mobile-first (~360px). */
+/** Dark resume-style single page. Inline CSS only, <6KB, mobile-first (~360px).
+ * Content from owner resume 05-10-2026 MINUS: phone, education/years,
+ * chatbot project, date of birth. No outbound links except mailto. */
 export function decoyHtml(): string {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -35,22 +37,46 @@ export function decoyHtml(): string {
 <meta name="description" content="Lingadevaru H P — Bengaluru, Karnataka.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{min-height:100dvh;display:flex;align-items:center;justify-content:center;background:#0a0e14;color:#eef1f6;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:24px}
-.card{max-width:440px;width:100%;text-align:center;background:#131a26;border:1px solid #232c3d;border-radius:20px;padding:48px 30px}
-.mark{width:64px;height:64px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#1c2536;border:1px solid #2d3a52;color:#7dd3fc;font-size:1.35rem;font-weight:700;letter-spacing:.02em}
-h1{font-size:2.4rem;line-height:1.15;letter-spacing:-.02em;margin-bottom:14px}
-.tag{color:#b8c0cf;font-size:1.1rem;line-height:1.6;margin-bottom:26px}
-.mail{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;border:1px solid #2d3a52;border-radius:999px;background:#1c2536;color:#eef1f6;font-size:1.02rem;font-weight:600;text-decoration:none}
-.addr{color:#8b94a7;font-size:1rem;margin-top:22px;letter-spacing:.04em}
+body{min-height:100dvh;display:flex;align-items:center;justify-content:center;background:#0a0e14;color:#eef1f6;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:20px}
+.card{max-width:560px;width:100%;background:#131a26;border:1px solid #232c3d;border-radius:20px;padding:40px 28px}
+.top{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+.mark{width:56px;height:56px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#1c2536;border:1px solid #2d3a52;color:#7dd3fc;font-size:1.2rem;font-weight:700}
+h1{font-size:1.9rem;line-height:1.2;letter-spacing:-.01em}
+.objective{color:#b8c0cf;font-size:1.05rem;line-height:1.65;margin:14px 0 20px}
+.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:26px}
+.mail{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border:1px solid #2d3a52;border-radius:999px;background:#1c2536;color:#eef1f6;font-size:1rem;font-weight:600;text-decoration:none}
+.addr{color:#8b94a7;font-size:.98rem}
+h2{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#7dd3fc;margin:22px 0 10px}
+ul{list-style:none}
+ul li{color:#d5dae3;font-size:1.02rem;line-height:1.7;padding-left:18px;position:relative}
+ul li::before{content:"▸";position:absolute;left:0;color:#7dd3fc}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid #2d3a52;background:#1c2536;border-radius:999px;padding:8px 14px;font-size:.95rem;color:#d5dae3}
+.lang{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #1c2536;font-size:1.02rem}
+.lang:last-child{border-bottom:none}
+.lang b{color:#eef1f6;font-weight:600}
+.lang span{color:#8b94a7}
 </style>
 </head>
 <body>
 <main class="card">
+<div class="top">
 <div class="mark" aria-hidden="true">LH</div>
 <h1>Lingadevaru H P</h1>
-<p class="tag">I enjoy exploring interesting tech.</p>
-<p><a class="mail" href="mailto:contact@lingadevaru.in">contact@lingadevaru.in</a></p>
-<div class="addr">Bengaluru, Karnataka</div>
+</div>
+<p class="objective">Motivated and hardworking fresher seeking an opportunity to work in a challenging organization where I can apply my skills and knowledge for the growth of the organization.</p>
+<div class="contact">
+<a class="mail" href="mailto:contact@lingadevaru.in">contact@lingadevaru.in</a>
+<span class="addr">Bengaluru, Karnataka, India</span>
+</div>
+<h2>Technical Skills</h2>
+<div class="chips"><span>Python</span><span>GitHub</span><span>Docker</span><span>Cloudflare D1</span></div>
+<h2>Soft Skills</h2>
+<ul><li>Teamwork and Collaboration</li><li>Leadership</li><li>Time Management</li><li>Problem Solving</li><li>Critical Thinking</li></ul>
+<h2>Languages</h2>
+<div><div class="lang"><b>Kannada</b><span>Native</span></div><div class="lang"><b>English</b><span>Professional</span></div></div>
+<h2>Hobbies</h2>
+<ul><li>Yoga</li><li>Listening to Music</li></ul>
 </main>
 <script>
 (function(){

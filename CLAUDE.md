@@ -8,9 +8,9 @@
 ## 🔴 ACTIVE STATE (05-10-2026): DECOY MODE ON — DO NOT REMOVE UNTIL OWNER SAYS “BACK”
 
 - **Live site `lingadevaru.in` (+ all locale subdomains) is serving a single decoy page, NOT the portfolio.**
-- Kill-switch: `vars.DECOY_MODE = "1"` in `wrangler.jsonc` (deployed 05-10-2026, version `4485e4c2`). Revert = `"0"` + `npx wrangler deploy` (~15s).
+- Kill-switch: `vars.DECOY_MODE = "1"` in `wrangler.jsonc` (deployed 05-10-2026, version `f21fb654`). Revert = `"0"` + `npx wrangler deploy` (~15s).
 - Decoy looks like a normal personal index page (no "maintenance" wording) but returns **HTTP 503 + `Retry-After: 86400`** so Google/Bing keep the index.
-- Decoy content is ONLY: **Lingadevaru H P** (no "Thoshan" anywhere, per owner 05-10-2026) / "I enjoy exploring interesting tech." / `contact@lingadevaru.in` (mailto pill) / Bengaluru, Karnataka. Dark theme single file. No education, no FOSS/Linux/projects, no subdomain or locale hints.
+- Decoy content (resume-based, per owner 05-10-2026): **Lingadevaru H P** (no "Thoshan" anywhere) / trimmed objective (degree clause removed) / `contact@lingadevaru.in` (only link, mailto) / Bengaluru, Karnataka, India / Technical Skills chips (Python, GitHub, Docker, Cloudflare D1) / Soft Skills / Languages (Kannada Native, English Professional) / Hobbies (Yoga, Listening to Music). EXCLUDED: phone, all education/years, chatbot project, DOB, all outbound links. Dark theme, single file `src/decoy.ts`. No subdomain or locale hints.
 - Nothing was deleted. Portfolio code, `dist/`, D1 (`wiki-newsletter`), secrets all intact.
 
 ### How to restore full site (when owner says “back” / “go back normal”)
