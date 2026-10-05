@@ -64,3 +64,34 @@ export function indexTypesOf(entry: ArticleIndexEntry): ArticleType[] {
   if (entry.category === "Achievements") types.push("achievements");
   return types;
 }
+
+/** Collection shelf + label/route for breadcrumbs, read from a fully-loaded
+ *  article (index category + tags). Runs on whatever locale was loaded, so
+ *  every language gets the same parent-child trail automatically.
+ *  Priority mirrors the listing pages: News, then Achievements, then
+ *  Projects. Explicit sub-article parents (parentArticle) win over this. */
+export const COLLECTION_META: Record<
+  ArticleType,
+  { labelKey: string; route: string }
+> = {
+  projects: { labelKey: "type.projects", route: "/projects" },
+  achievements: { labelKey: "type.achievements", route: "/achievements" },
+  news: { labelKey: "type.news", route: "/news" },
+};
+
+export function collectionOfArticle(article: {
+  metadata: { category: string };
+  categories?: string[];
+}): ArticleType | undefined {
+  const cat = article.metadata.category;
+  const tags = article.categories;
+  if (cat === "News" || cat === "Events" || hasTag(tags, "news", "events"))
+    return "news";
+  if (
+    cat === "Achievements" ||
+    hasTag(tags, "achievement", "achievements")
+  )
+    return "achievements";
+  if (PROJECT_CATEGORIES.has(cat)) return "projects";
+  return undefined;
+}

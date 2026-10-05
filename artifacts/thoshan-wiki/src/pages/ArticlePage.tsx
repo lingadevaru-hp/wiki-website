@@ -10,6 +10,7 @@ import {
   loadArticlesIndex,
 } from "../lib/articleLoader";
 import type { Article, ArticleIndexEntry } from "../types/article";
+import { COLLECTION_META, collectionOfArticle } from "../lib/articleTypes";
 import SEO from "../components/SEO";
 import { useLocale } from "../contexts/LocaleContext";
 
@@ -111,6 +112,10 @@ export default function ArticlePage() {
   const parent = slug
     ? findParentArticle(slug, allArticles, article?.parentArticle)
     : undefined;
+  // Collection shelf (Projects / Achievements / News) for the trail.
+  // Read from the loaded article itself, so every language renders the
+  // same Wiki Home / Collection / Article parent-child trail.
+  const collection = article ? collectionOfArticle(article) : undefined;
 
   return (
     <WikiLayout showBackButton>
@@ -165,18 +170,20 @@ export default function ArticlePage() {
           />
           <Breadcrumbs
             items={[
-              { label: "Wiki Home", href: "/wiki/home" },
-              // News/Events articles live under /news: Wiki Home / News / Article.
-              // (Sub-articles keep their parent in the trail instead.)
-              ...((article.metadata.category === "News" ||
-              article.metadata.category === "Events" ||
-              (article.categories ?? []).some((c) =>
-                ["news", "events"].includes(c.toLowerCase()),
-              )) &&
-              !parent
-                ? [{ label: "News", href: "/news" }]
-                : parent
-                  ? [{ label: parent.title, href: `/wiki/${parent.slug}` }]
+              { label: t("menu.wikiHome"), href: "/wiki/home" },
+              // Collection shelf (Projects / Achievements / News) sits
+              // between Wiki Home and the article — same parent-child
+              // pattern as News always had. Sub-articles keep their
+              // explicit parent in the trail instead.
+              ...(parent
+                ? [{ label: parent.title, href: `/wiki/${parent.slug}` }]
+                : collection
+                  ? [
+                      {
+                        label: t(COLLECTION_META[collection].labelKey),
+                        href: COLLECTION_META[collection].route,
+                      },
+                    ]
                   : []),
               { label: article.metadata.title },
             ]}
