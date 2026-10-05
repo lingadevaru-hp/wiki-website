@@ -8421,6 +8421,48 @@ a:hover {
   color: hsl(var(--accent-foreground));
 }
 
+/* Language menu: same explicit paint as the more-links menu. Its rows are
+   real <a href> links (plain click = same tab, Ctrl+click = new tab), and
+   the global unlayered `a { color: accent }` base rule otherwise beats
+   Tailwind's layered focus:text-* utilities — leaving accent text sitting
+   on the accent highlight, i.e. invisible. These selectors outrank the
+   bare `a` rule, so row text stays readable at rest and on hover. */
+.wiki-lang-menu {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+.wiki-lang-menu [role="menuitem"],
+.wiki-lang-menu [role="menuitem"] a,
+.wiki-lang-menu [role="menuitem"] span {
+  color: hsl(var(--foreground));
+}
+.wiki-lang-menu [role="menuitem"] svg {
+  color: hsl(var(--muted-foreground));
+}
+.wiki-lang-menu [role="menuitem"]:hover,
+.wiki-lang-menu [role="menuitem"][data-highlighted],
+.wiki-lang-menu [role="menuitem"]:focus-visible {
+  background: hsl(var(--accent));
+  outline: none;
+}
+.wiki-lang-menu [role="menuitem"]:hover,
+.wiki-lang-menu [role="menuitem"]:hover a,
+.wiki-lang-menu [role="menuitem"]:hover span,
+.wiki-lang-menu [role="menuitem"][data-highlighted],
+.wiki-lang-menu [role="menuitem"][data-highlighted] a,
+.wiki-lang-menu [role="menuitem"][data-highlighted] span,
+.wiki-lang-menu [role="menuitem"]:focus-visible,
+.wiki-lang-menu [role="menuitem"]:focus-visible a,
+.wiki-lang-menu [role="menuitem"]:focus-visible span {
+  color: hsl(var(--accent-foreground));
+}
+.wiki-lang-menu [role="menuitem"]:hover svg,
+.wiki-lang-menu [role="menuitem"][data-highlighted] svg,
+.wiki-lang-menu [role="menuitem"]:focus-visible svg {
+  color: hsl(var(--accent-foreground));
+}
+
 /* Search modal respects phone safe areas. */
 .global-search-backdrop {
   padding-inline: 16px;

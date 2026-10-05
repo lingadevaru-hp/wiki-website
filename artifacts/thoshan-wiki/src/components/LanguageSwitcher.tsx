@@ -86,7 +86,7 @@ export function LanguageSwitcher({
         sticky="always"
         hideWhenDetached={false}
         onCloseAutoFocus={(e) => e.preventDefault()}
-        className="w-56"
+        className="w-56 wiki-lang-menu"
       >
         <DropdownMenuLabel>{t('lang.language')}</DropdownMenuLabel>
         {SUPPORTED_LOCALES.map((entry) =>
