@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation } from 'wouter'
-import { Hammer, Linkedin, MessageCircle, Newspaper, Trophy, UserRound } from 'lucide-react'
+import { Hammer, Keyboard, Linkedin, MessageCircle, Newspaper, Trophy, UserRound } from 'lucide-react'
 import { useSearch } from '@/contexts/SearchContext'
 import {
   GithubIcon,
@@ -11,6 +11,7 @@ import {
 import { GlobeIcon } from '@/components/icons/GlobeIcon'
 import { ThoshanMark } from '@/components/Brand'
 import { OPEN_PICKER_EVENT } from '@/lib/theme'
+import { OPEN_SHORTCUTS_EVENT } from '@/components/ShortcutsModal'
 import { toggleChatPanel } from '@/lib/chat-panel'
 import type { CommandIcon, CommandItem } from '@/lib/command-menu'
 import {
@@ -21,7 +22,7 @@ import {
   opensMenu,
 } from '@/lib/command-menu'
 import { useLocale } from '@/contexts/LocaleContext'
-import { SUPPORTED_LOCALES, openLocaleNewTab } from '@/i18n/supportedLocales'
+import { SUPPORTED_LOCALES, openLocaleSameTab } from '@/i18n/supportedLocales'
 
 const LABEL_KEY: Record<string, string> = {
   home: 'menu.home',
@@ -33,6 +34,7 @@ const LABEL_KEY: Record<string, string> = {
   search: 'menu.search',
   themes: 'menu.themes',
   language: 'menu.language',
+  shortcuts: 'menu.shortcuts',
   github: 'menu.github',
   linkedin: 'menu.linkedin',
   chat: 'menu.chat',
@@ -56,6 +58,7 @@ const ICONS: Record<CommandIcon, typeof PageIcon> = {
   search: SearchIcon,
   themes: PaletteIcon,
   language: GlobeIcon,
+  shortcuts: Keyboard as unknown as typeof PageIcon,
   github: GithubIcon,
   linkedin: Linkedin as unknown as typeof PageIcon,
   chat: MessageCircle as unknown as typeof PageIcon,
@@ -196,9 +199,17 @@ export function CommandMenu() {
       toggleChatPanel()
       return
     }
+    if (item.action === 'shortcuts') {
+      close()
+      window.dispatchEvent(new CustomEvent(OPEN_SHORTCUTS_EVENT))
+      return
+    }
     if (item.locale) {
       close()
-      openLocaleNewTab(item.locale)
+      // Same-tab language switch; Ctrl/Cmd+click on a row still can't
+      // open a new tab from here, so the globe menu's <a href> rows
+      // remain the path for that (right-click → open in new tab).
+      openLocaleSameTab(item.locale)
       return
     }
     close()
@@ -238,6 +249,14 @@ export function CommandMenu() {
       event.preventDefault()
       const step = event.key === 'ArrowDown' ? 1 : -1
       setActive((at) => Math.min(rows.length - 1, Math.max(0, at + step)))
+    } else if (event.key === 'Home') {
+      if (rows.length === 0) return
+      event.preventDefault()
+      setActive(0)
+    } else if (event.key === 'End') {
+      if (rows.length === 0) return
+      event.preventDefault()
+      setActive(rows.length - 1)
     } else if (event.key === 'Enter' || event.key === 'ArrowRight') {
       const row = rows[active]
       if (!row) return

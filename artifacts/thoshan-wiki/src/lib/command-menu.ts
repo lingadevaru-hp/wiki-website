@@ -15,6 +15,7 @@ export type CommandIcon =
   | 'search'
   | 'themes'
   | 'language'
+  | 'shortcuts'
   | 'github'
   | 'linkedin'
   | 'chat'
@@ -29,7 +30,7 @@ export type CommandItem = {
   /** External destination. */
   href?: string
   /** Special action handled by the palette. */
-  action?: 'search' | 'themes' | 'chat'
+  action?: 'search' | 'themes' | 'chat' | 'shortcuts'
   /** A locale to switch to. */
   locale?: string
   /** A text glyph drawn in place of the icon: a locale's flag. */
@@ -70,6 +71,7 @@ const ITEMS: Array<CommandItem> = [
     icon: 'chat',
     action: 'chat',
   },
+  { id: 'shortcuts', label: 'Keyboard shortcuts', icon: 'shortcuts', action: 'shortcuts' },
   { id: 'about', label: 'About', icon: 'about', to: '/wiki/about' },
 
   // Language submenu — generated from SUPPORTED_LOCALES so every locale
