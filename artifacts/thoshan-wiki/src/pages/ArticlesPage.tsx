@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import WikiHeader from "../components/WikiHeader";
 import SEO from "../components/SEO";
-import CategoryPills from "../components/CategoryPills";
 import { loadArticlesIndex } from "../lib/articleLoader";
 import { ARTICLE_TYPES, indexTypesOf } from "../lib/articleTypes";
 import { categoryColors, categoryGlyph } from "../lib/categories";
@@ -39,9 +38,6 @@ export default function ArticlesPage() {
   const { t } = useLocale();
   const [articles, setArticles] = useState<ArticleIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState(() =>
-    readStored("wiki-articles-category", "All"),
-  );
   const [sort, setSort] = useState<SortKey>(() => {
     const stored = readStored("wiki-articles-sort", "featured");
     return (["featured", "az", "za", "category"] as SortKey[]).includes(
@@ -59,14 +55,6 @@ export default function ArticlesPage() {
 
   useEffect(() => {
     try {
-      localStorage.setItem("wiki-articles-category", activeCategory);
-    } catch {
-      /* private mode */
-    }
-  }, [activeCategory]);
-
-  useEffect(() => {
-    try {
       localStorage.setItem("wiki-articles-sort", sort);
     } catch {
       /* private mode */
@@ -81,8 +69,6 @@ export default function ArticlesPage() {
   const visible = useMemo(() => {
     const filtered = articles.filter((a) => {
       if (a.hiddenFromSearch) return false;
-      if (activeCategory !== "All" && a.category !== activeCategory)
-        return false;
       return true;
     });
     const sorted = [...filtered];
@@ -97,19 +83,7 @@ export default function ArticlesPage() {
           a.title.localeCompare(b.title),
       );
     return sorted;
-  }, [articles, activeCategory, sort]);
-
-  const categories = useMemo(
-    () => [
-      "All",
-      ...Array.from(
-        new Set(
-          articles.filter((a) => !a.hiddenFromSearch).map((a) => a.category),
-        ),
-      ),
-    ],
-    [articles],
-  );
+  }, [articles, sort]);
 
   const typeCounts = useMemo(() => {
     const counts: Record<string, number> = {
@@ -176,13 +150,6 @@ export default function ArticlesPage() {
             </div>
           </div>
 
-          <CategoryPills
-            categories={categories}
-            active={activeCategory}
-            onChange={setActiveCategory}
-            ariaLabel={t("articles.filter")}
-          />
-
           <div className="type-jump">
             <p className="type-jump-label">{t("type.jump")}</p>
             <div className="type-jump-row">
@@ -216,7 +183,6 @@ export default function ArticlesPage() {
             <p className="articles-count" role="status">
               {t("articles.showing")} {visible.length} {t("articles.of")} {total}{" "}
               {total === 1 ? t("type.oneArticle") : t("type.manyArticles")}
-              {activeCategory !== "All" ? ` ${t("articles.in")} ${activeCategory}` : ""}
             </p>
           )}
 
@@ -230,24 +196,7 @@ export default function ArticlesPage() {
             <div className="empty-page" style={{ marginTop: 40 }}>
               <p className="section-eyebrow">{t('search.noResultsShort')}</p>
               <h1>{t('search.nothingFound')}</h1>
-              <p>
-                {t("articles.tryDifferent")}{" "}
-                <button
-                  className="text-link"
-                  style={{
-                    background: "none",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    setActiveCategory("All");
-                  }}
-                >
-                  {t("articles.showAll")}
-                </button>
-                .
-              </p>
+              <p>{t("articles.empty")}</p>
             </div>
           ) : (
             <div className="articles-grid">

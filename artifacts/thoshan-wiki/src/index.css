@@ -1133,7 +1133,10 @@ a:active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  /* One even 4px rhythm for every icon in the row (matches the 4px gap
+     inside .header-nav): the chat → home step used to be the wider 8px
+     parent gap while home → user was 4px, which read as misalignment. */
+  gap: 4px;
   max-width: 1320px;
   margin: 0 auto;
   min-height: 58px;
@@ -1614,72 +1617,6 @@ a:active {
   color: hsl(var(--muted-foreground));
   font-size: 12px;
   line-height: 1.5;
-}
-.category-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 14px;
-}
-/* v10.10 (Manus chip pattern, measured): single snap-row on phones so
-   filters stay one thumb-swipe away instead of wrapping off-screen. */
-@media (max-width: 640px) {
-  .category-row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    margin-inline: -16px;
-    padding-inline: 16px;
-    padding-bottom: 4px;
-  }
-  .category-row::-webkit-scrollbar {
-    display: none;
-  }
-  .category-row button {
-    flex-shrink: 0;
-    scroll-snap-align: start;
-  }
-}
-.category-row button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 10px 18px;
-  background: transparent;
-  color: hsl(var(--muted-foreground));
-  border: 1px solid hsl(var(--border));
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    background var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
-}
-.category-row button svg {
-  flex-shrink: 0;
-}
-.category-row button:hover {
-  color: hsl(var(--foreground));
-  border-color: hsl(222 89% 65% / 0.7);
-  background: hsl(222 89% 65% / 0.1);
-}
-.category-row button.selected {
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  border-color: transparent;
-}
-.category-row button.selected:hover {
-  background: hsl(var(--primary) / 0.85);
-  color: hsl(var(--primary-foreground));
 }
 .article-index {
   border-top: 1px solid hsl(var(--border));
@@ -2682,7 +2619,6 @@ a:active {
 .landing-primary:active,
 .landing-secondary:active,
 .home-search-button:active,
-.category-row button:active,
 .primary-button:active {
   transform: scale(0.97);
 }
@@ -2780,7 +2716,6 @@ pre {
 .landing-primary,
 .landing-secondary,
 .home-search-button,
-.category-row button,
 .action-button,
 .reader-trigger,
 .article-external-link,
@@ -2827,7 +2762,6 @@ pre {
 .landing-primary:active,
 .landing-secondary:active,
 .home-search-button:active,
-.category-row button:active,
 .primary-button:active {
   transform: scale(0.97);
   transition-duration: var(--duration-instant);
@@ -4801,22 +4735,6 @@ pre {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* ── 3. Category tab indicator morph ── */
-.category-row {
-  position: relative;
-}
-.category-row::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  height: 2px;
-  background: hsl(var(--accent));
-  border-radius: 1px;
-  transition: left 300ms var(--ease-spring), width 300ms var(--ease-spring);
-  pointer-events: none;
-}
-
 /* ── 4. TOC active highlight pulse ── */
 [data-testid="table-of-contents"] a {
   position: relative;
@@ -5862,35 +5780,6 @@ h2 {
 }
 .featured-article h2 a:hover {
   color: hsl(var(--accent));
-}
-
-/* ── Additional UI polish: category row ── */
-.category-row {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-.category-row button {
-  padding: 6px 12px;
-  border: 1px solid hsl(var(--border));
-  border-radius: 999px;
-  background: transparent;
-  color: hsl(var(--muted-foreground));
-  font-size: 12px;
-  cursor: pointer;
-  transition: background var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out);
-}
-.category-row button:hover {
-  background: hsl(var(--foreground) / 0.06);
-  color: hsl(var(--foreground));
-}
-.category-row button.selected {
-  background: hsl(var(--accent));
-  color: white;
-  border-color: hsl(var(--accent));
 }
 
 /* ── Additional UI polish: articles page ── */
@@ -8550,9 +8439,6 @@ a:hover {
   }
   .recent-grid {
     grid-template-columns: 1fr;
-  }
-  .category-row {
-    justify-content: center;
   }
   .articles-tools {
     margin-top: 12px;
