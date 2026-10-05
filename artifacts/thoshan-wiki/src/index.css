@@ -6545,6 +6545,20 @@ h2 {
 
 .shortcuts-list {
   padding: 8px 0;
+  /* The full manual is longer than the old 8-row cheatsheet: scroll
+     inside the modal so header + footer (and Esc hint) stay visible. */
+  max-height: min(60dvh, 480px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.shortcuts-group-title {
+  padding: 10px 16px 2px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: hsl(var(--muted-foreground));
 }
 
 .shortcut-row {

@@ -256,6 +256,10 @@ export default function GlobalSearch() {
             role="combobox"
             aria-expanded={displayItems.length > 0}
             aria-autocomplete="list"
+            aria-controls="global-search-listbox"
+            aria-activedescendant={
+              activeIdx >= 0 ? `global-search-result-${activeIdx}` : undefined
+            }
           />
           {query && (
             <button
@@ -278,7 +282,13 @@ export default function GlobalSearch() {
         <div className="global-search-divider" />
 
         {/* Results / Featured / Empty */}
-        <div className="global-search-body" ref={listRef}>
+        <div
+          className="global-search-body"
+          ref={listRef}
+          role="listbox"
+          id="global-search-listbox"
+          aria-label={t("menu.search")}
+        >
           {/* Section label */}
           {!isEmpty && (
             <div className="global-search-section-label">
@@ -301,6 +311,7 @@ export default function GlobalSearch() {
           {displayItems.map((item, i) => (
             <button
               key={item.id}
+              id={`global-search-result-${i}`}
               data-idx={i}
               onClick={() => navigate(item.slug, item.title)}
               className={`global-search-result${activeIdx === i ? " active" : ""}`}

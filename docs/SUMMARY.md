@@ -39,4 +39,5 @@
 
 * [API Reference](reference/api.md)
 * [CLI Commands](reference/cli.md)
+* [Keyboard Shortcuts](reference/keyboard-shortcuts.md)
 * [Troubleshooting](reference/troubleshooting.md)

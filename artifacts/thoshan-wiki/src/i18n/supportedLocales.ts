@@ -54,11 +54,13 @@ export function localeUrl(code: string, pathname: string, search = ""): string {
 }
 
 /**
- * Open another locale in a NEW tab (subdomain switches + switching back to
- * English). Current tab stays untouched. Localhost/?lang= debug swaps in
- * place via locale event instead.
+ * Switch to another locale in the SAME tab (plain click / tap).
+ * Native browser behavior is preserved: Ctrl/Cmd+click, middle-click, or
+ * right-click → "Open in new tab" still opens a new tab when the caller
+ * renders a real <a href>. Localhost/?lang= debug swaps in place via
+ * locale event instead (no subdomain on dev).
  */
-export function openLocaleNewTab(code: string): void {
+export function openLocaleSameTab(code: string): void {
   const host = window.location.hostname;
   const targetHost = localeHost(code);
   if (
@@ -71,9 +73,12 @@ export function openLocaleNewTab(code: string): void {
     );
     return;
   }
-  window.open(
-    localeUrl(code, window.location.pathname, window.location.search),
-    "_blank",
-    "noopener",
+  window.location.href = localeUrl(
+    code,
+    window.location.pathname,
+    window.location.search,
   );
 }
+
+/** @deprecated Use openLocaleSameTab — kept for old callers. */
+export const openLocaleNewTab = openLocaleSameTab;
