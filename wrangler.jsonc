@@ -20,6 +20,7 @@
     }
   ],
   "vars": {
+    "DECOY_MODE": "1",
     "TURNSTILE_SITEKEY": "0x4AAAAAAENqS_v4DQqG_Ycd",
     "ZOHO_SMTP_HOST": "smtp.zoho.in",
     "ZOHO_SMTP_PORT": "465",
