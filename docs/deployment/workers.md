@@ -2,13 +2,10 @@
 
 ## Setup
 
-```bash
-# Install Wrangler
-npm install -g wrangler
-
-# Login
-wrangler login
-```
+Use the repository's pinned Wrangler through pnpm (`pnpm exec wrangler`).
+The root `wrangler.jsonc` configures the production `wiki-website` Worker,
+static assets, and the `wiki-newsletter` D1 binding. Authenticate with the
+Cloudflare account that owns these resources before deploying.
 
 ## Newsletter storage (free — Cloudflare D1)
 
@@ -17,16 +14,18 @@ or separately hosted API is needed to collect subscribers.
 
 ```bash
 # One-time: create the database and wire its ID into wrangler.jsonc
-wrangler d1 create wiki-newsletter
+pnpm exec wrangler d1 create wiki-newsletter
 # copy the returned database_id into d1_databases in wrangler.jsonc
 
 # Apply migrations (remote for production, local is automatic in wrangler dev)
-wrangler d1 migrations apply wiki-newsletter --remote
+pnpm exec wrangler d1 migrations apply wiki-newsletter --remote
 ```
 
-Pending welcome emails are rows with `welcome_email_sent_at IS NULL`.
-They are sent later by the Node email sender once Zoho SMTP credentials
-exist — see `docs/development/env.md`.
+The Worker sends welcome emails directly when Zoho SMTP is configured.
+Unsent welcome emails (`welcome_email_sent_at IS NULL`) are retried by the
+scheduled GitHub Actions backfill. Existing subscriber email changes require
+confirmation through the current mailbox; see
+[Newsletter email-change confirmation](../development/newsletter-email-changes.md).
 
 ## Newsletter API Server (legacy / email backfill only)
 
@@ -40,12 +39,10 @@ Apply the Drizzle schema against the production database before enabling
 signups: `pnpm --filter @workspace/db push` with the production
 `DATABASE_URL` set securely.
 
-Set `NEWSLETTER_API_URL` in the portfolio Worker's environment only if you
-use the legacy Node API path. When the `DB` (D1) binding exists, the Worker
-stores signups itself and never calls the Node service. Set
-`NEWSLETTER_PROXY_TOKEN` as a Worker secret and the same secret on the
-Node API host only for the legacy path; the Worker always requires the
-site's Turnstile verification cookie before it accepts a signup.
+Set `NEWSLETTER_API_URL` only when deliberately using the legacy Node API
+fallback. When the `DB` (D1) binding exists, the Worker handles newsletter
+data itself. The Worker requires the site's Turnstile verification cookie
+before accepting signup requests.
 
 ## Deploy TTS Worker
 
@@ -54,12 +51,30 @@ cd article-tts
 wrangler deploy
 ```
 
-## Worker Secrets
+## Portfolio Worker secrets
 
 ```bash
-wrangler secret put TURNSTILE_SECRET
-wrangler secret put NEWSLETTER_PROXY_TOKEN
+pnpm exec wrangler secret put TURNSTILE_SECRET
+pnpm exec wrangler secret put ZOHO_SMTP_PASSWORD
+pnpm exec wrangler secret put NEWSLETTER_PROXY_TOKEN
 ```
 
-Zoho and database secrets belong only on the Node API host, not in the
-portfolio Worker or frontend build.
+`TURNSTILE_SECRET` and `ZOHO_SMTP_PASSWORD` are used by the portfolio Worker.
+The proxy token is needed only for the legacy API path. Keep secret values out
+of source and frontend assets. Use a Zoho app password; see
+[Environment Variables](../development/env.md).
+
+## Production deployment
+
+Build and check the Worker before deployment:
+
+```bash
+pnpm run build
+pnpm exec wrangler deploy --dry-run
+```
+
+After merging the private-repository PR, apply any required remote D1
+migrations first, then deploy with `pnpm exec wrangler deploy`. Verify the
+live site and relevant routes. See
+[Newsletter email-change confirmation](../development/newsletter-email-changes.md)
+for the production rollout record for PR #109.
