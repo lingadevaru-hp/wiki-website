@@ -3,7 +3,6 @@ import {
   sendWelcomeAndAlert,
   smtpConfigured,
 } from "./worker-email";
-import { decoyResponse, isDecoyMode } from "./decoy";
 
 const GATE_HTML = (sitekey: string, returnTo: string, lang = "en") => `<!DOCTYPE html>
 <html lang="${lang}" translate="no" class="notranslate">
@@ -64,8 +63,6 @@ interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> };
   TURNSTILE_SITEKEY: string;
   TURNSTILE_SECRET: string;
-  /** "1" = serve decoy single page for all public traffic (indefinite). */
-  DECOY_MODE?: string;
   NEWSLETTER_API_URL?: string;
   NEWSLETTER_PROXY_TOKEN?: string;
   /** Cloudflare D1, free storage for newsletter signups. See migrations/. */
@@ -539,34 +536,6 @@ export default {
     ctx: WorkerContext,
   ): Promise<Response> {
     const url = new URL(request.url);
-
-    // Decoy mode (indefinite until owner says back): every public request
-    // gets the plain single page with 503. Must run BEFORE static bypass,
-    // APIs, and bot bypasses, or portfolio JSON/assets would still leak.
-    // Kept live: /robots.txt + /sitemap.xml (SEO map) and owner-only
-    // newsletter exports with a valid proxy token (curl only, never linked).
-    if (isDecoyMode(env)) {
-      if (
-        url.pathname === "/api/newsletter/subscribers" ||
-        url.pathname === "/api/newsletter/history"
-      ) {
-        if (
-          env.NEWSLETTER_PROXY_TOKEN &&
-          request.headers.get("X-Newsletter-Proxy-Token") ===
-            env.NEWSLETTER_PROXY_TOKEN
-        ) {
-          // Fall through to the real handlers below (owner export).
-        } else {
-          return decoyResponse();
-        }
-      } else if (
-        url.pathname !== "/robots.txt" &&
-        url.pathname !== "/sitemap.xml"
-      ) {
-        return decoyResponse();
-      }
-      // robots.txt / sitemap.xml / authed owner exports fall through.
-    }
 
     // Private owner endpoint: list subscribers as JSON or CSV. Guarded by
     // the shared proxy token header — never linked from the site, curl only.
