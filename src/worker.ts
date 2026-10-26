@@ -3,8 +3,21 @@ import {
   sendWelcomeAndAlert,
   smtpConfigured,
 } from "./worker-email";
+import {
+  buildContentSecurityPolicy,
+  createCspNonce,
+  createVerificationCookie,
+  escapeHtmlAttribute,
+  isVerificationCookieValid,
+  safeLocalReturnTo,
+} from "./security";
 
-const GATE_HTML = (sitekey: string, returnTo: string, lang = "en") => `<!DOCTYPE html>
+const GATE_HTML = (
+  sitekey: string,
+  returnTo: string,
+  nonce: string,
+  lang = "en",
+) => `<!DOCTYPE html>
 <html lang="${lang}" translate="no" class="notranslate">
 <head>
   <meta charset="utf-8">
@@ -12,7 +25,7 @@ const GATE_HTML = (sitekey: string, returnTo: string, lang = "en") => `<!DOCTYPE
   <meta name="google" content="notranslate">
   <title>Security Verification</title>
   <link rel="preconnect" href="https://challenges.cloudflare.com" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script nonce="${nonce}" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif; background: #0a0f1e; color: #e2e8f0; padding: 1.5rem; }
@@ -29,11 +42,11 @@ const GATE_HTML = (sitekey: string, returnTo: string, lang = "en") => `<!DOCTYPE
     <p class="tagline">Cloudflare Turnstile is checking this connection. This lightweight check helps protect the site and expires after 30 seconds.</p>
     <form id="verify-form" method="POST" action="/__turnstile_verify">
       <div class="cf-turnstile" data-sitekey="${sitekey}" data-theme="dark" data-callback="onVerify" data-error-callback="onError" data-appearance="always"></div>
-      <input type="hidden" name="return_to" value="${returnTo}">
+      <input type="hidden" name="return_to" value="${escapeHtmlAttribute(returnTo)}">
     </form>
     <p id="err"></p>
   </div>
-  <script>
+  <script nonce="${nonce}">
     function onVerify(token) {
       var form = document.getElementById("verify-form");
       var input = document.createElement("input");
@@ -52,9 +65,13 @@ const GATE_HTML = (sitekey: string, returnTo: string, lang = "en") => `<!DOCTYPE
 </body>
 </html>`;
 
-const HTML_HEADERS = (hostname = ""): Record<string, string> => ({
+const HTML_HEADERS = (
+  hostname = "",
+  nonce: string,
+): Record<string, string> => ({
   "Content-Type": "text/html; charset=utf-8",
   "Cache-Control": "no-store, no-cache, must-revalidate",
+  "Content-Security-Policy": buildContentSecurityPolicy(nonce),
   ...(hostname ? { "Content-Language": contentLanguageFor(hostname) } : {}),
 });
 
@@ -217,6 +234,14 @@ function withLocaleHtml(response: Response, hostname: string): Response {
   const type = response.headers.get("Content-Type") || "";
   if (!type.includes("text/html")) return response;
   const lang = contentLanguageFor(hostname);
+  const nonce = createCspNonce();
+  const headers = new Headers(response.headers);
+  headers.set("Content-Security-Policy", buildContentSecurityPolicy(nonce));
+  const securedResponse = new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
   try {
     return new HTMLRewriter()
       .on("html", {
@@ -229,9 +254,14 @@ function withLocaleHtml(response: Response, hostname: string): Response {
           }
         },
       })
-      .transform(response);
+      .on("script", {
+        element(e) {
+          e.setAttribute("nonce", nonce);
+        },
+      })
+      .transform(securedResponse);
   } catch {
-    return response;
+    return securedResponse;
   }
 }
 
@@ -688,7 +718,12 @@ export default {
       }
 
       const cookies = request.headers.get("Cookie") || "";
-      if (getCookie(cookies, "turnstile-verified") !== "true") {
+      if (
+        !(await isVerificationCookieValid(
+          env.TURNSTILE_SECRET,
+          getCookie(cookies, "turnstile-verified"),
+        ))
+      ) {
         return newsletterJson({ error: "Verification required" }, 403);
       }
 
@@ -751,7 +786,10 @@ export default {
     }
 
     const cookies = request.headers.get("Cookie") || "";
-    const verified = getCookie(cookies, "turnstile-verified") === "true";
+    const verified = await isVerificationCookieValid(
+      env.TURNSTILE_SECRET,
+      getCookie(cookies, "turnstile-verified"),
+    );
 
     if (verified) {
       const response = await env.ASSETS.fetch(request);
@@ -785,7 +823,7 @@ export default {
     if (url.pathname === "/__turnstile_verify" && request.method === "POST") {
       const formData = await request.formData();
       const token = formData.get("cf-turnstile-response");
-      const returnTo = (formData.get("return_to") as string) || "/";
+      const returnTo = safeLocalReturnTo(formData.get("return_to"), url.origin);
 
       const verifyResponse = await fetch(
         "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -801,23 +839,39 @@ export default {
       const result: TurnstileVerifyResponse = await verifyResponse.json();
 
       if (result.success) {
+        const verificationCookie = await createVerificationCookie(
+          env.TURNSTILE_SECRET,
+        );
         return new Response(null, {
           status: 302,
           headers: {
             Location: returnTo,
-            "Set-Cookie":
-              "turnstile-verified=true; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400",
+            "Set-Cookie": `turnstile-verified=${verificationCookie}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400`,
             "Cache-Control": "no-store",
           },
         });
       }
-      return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, returnTo, contentLanguageFor(url.hostname)), {
-        headers: HTML_HEADERS(url.hostname),
-      });
+      const nonce = createCspNonce();
+      return new Response(
+        GATE_HTML(
+          env.TURNSTILE_SITEKEY,
+          returnTo,
+          nonce,
+          contentLanguageFor(url.hostname),
+        ),
+        { headers: HTML_HEADERS(url.hostname, nonce) },
+      );
     }
 
-    return new Response(GATE_HTML(env.TURNSTILE_SITEKEY, url.pathname, contentLanguageFor(url.hostname)), {
-      headers: HTML_HEADERS(url.hostname),
-    });
+    const nonce = createCspNonce();
+    return new Response(
+      GATE_HTML(
+        env.TURNSTILE_SITEKEY,
+        url.pathname,
+        nonce,
+        contentLanguageFor(url.hostname),
+      ),
+      { headers: HTML_HEADERS(url.hostname, nonce) },
+    );
   },
 };

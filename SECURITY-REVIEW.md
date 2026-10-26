@@ -1,24 +1,25 @@
 # Security Review
 
-**Date:** 2026-10-26  
-**Scope:** Repository source and configuration review, including the Cloudflare Worker, frontend delivery, and newsletter endpoints. No production data was accessed and no dynamic testing was performed.
+**Date:** 26-10-2026 08:58 PM IST
+**Scope:** Repository source and configuration review, including the Cloudflare Worker, frontend delivery, and newsletter endpoints. The initial audit was static; follow-up remediation has focused local tests. No production data was accessed.
 
 ## Findings
 
 | # | Severity | File | Lines | Vulnerability | Confidence |
 |---|----------|------|-------|---------------|------------|
-| 1 | 🟠 HIGH | `src/worker.ts` | 32, 788, 814 | Unauthenticated `/__turnstile_verify` submissions can inject `return_to` into an HTML attribute on failed verification, enabling reflected XSS. On successful verification the same unvalidated value is used as a redirect target. | 9/10 |
-| 2 | 🟡 MEDIUM | `src/worker.ts` | 412–433, 690–697 | Newsletter edit changes a subscription using only the prior email address; it does not prove control of that mailbox. Someone who knows the address could change the stored destination and divert future mail. Turnstile is not authorization. | 10/10 |
+| 1 | 🟠 HIGH | `src/worker.ts` | Turnstile verification handler | Unauthenticated `/__turnstile_verify` submissions could inject `return_to` into an HTML attribute on failed verification, enabling reflected XSS; successful verification could redirect externally. **Fixed:** escaped HTML attribute and same-origin path validation. | 9/10 |
+| 2 | 🟡 MEDIUM | `src/worker.ts` | Newsletter edit handler | Newsletter edit changes a subscription using only the previous email address; it does not prove control of that mailbox. **Owner-accepted product risk:** email ownership confirmation is intentionally not required, so someone who knows an address could change its subscription record and divert future mail. | 10/10 |
 
 ## Hardening gaps
 
-- **Forgeable verification cookie** (`src/worker.ts:753–758`): access is granted when a client supplies `turnstile-verified=true`. This is not cryptographically tied to a successful Turnstile check and can be set by any HTTP client. Use a short-lived, integrity-protected verification token or verify the challenge for the protected action.
-- **No Content-Security-Policy header** (`src/worker.ts:55–59, 197–208`): add a restrictive CSP as defense in depth, while accounting for the frontend's required scripts, styles, and connections.
+- **Forgeable verification cookie** (formerly `src/worker.ts`): a literal `turnstile-verified=true` value could be supplied by any HTTP client. **Fixed:** the cookie now carries an HMAC-SHA-256 signature and expires after 24 hours.
+- **No Content-Security-Policy header** (formerly `src/worker.ts`): **Fixed:** HTML responses now receive a nonce-based CSP; the Worker adds the nonce to scripts and allows the site's required third-party integrations.
 
-## Recommended remediation
+## Decisions and follow-up
 
-1. Restrict `return_to` to validated local relative paths, HTML-escape any value placed in markup, and prevent external redirect targets.
-2. Require proof of mailbox ownership (for example, a single-use, high-entropy management token) before changing a subscription or its email address.
-3. Replace the forgeable cookie with an integrity-protected, short-lived token and add a suitable CSP.
+- Return targets are restricted to same-origin relative paths and escaped before HTML interpolation.
+- Verification cookies are signed with the Worker Turnstile secret; newsletter management continues to follow the owner's explicit choice not to require mailbox confirmation.
+- Owner notification emails display subscription timestamps in `DD-MM-YYYY hh:mm AM/PM IST`. Stored timestamps remain UTC ISO values.
+- Focused local tests cover return-path validation, attribute escaping, cookie signature/expiry, and CSP nonce policy.
 
-These findings are from static review; exploitability and remediation should be confirmed with focused tests before release.
+The newsletter edit risk remains by design and should be reconsidered only if the product's subscription-management policy changes.

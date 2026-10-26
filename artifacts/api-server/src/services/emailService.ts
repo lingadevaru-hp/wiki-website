@@ -143,6 +143,25 @@ function escapeHtml(value: string): string {
   });
 }
 
+function formatIndiaTimestamp(timestamp: string): string {
+  const date = new Date(timestamp);
+  const parts = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h12",
+  }).formatToParts(date);
+  const part = (type: Intl.DateTimeFormatPartTypes): string => {
+    const value = parts.find((item) => item.type === type)?.value;
+    if (!value) throw new Error(`Missing timestamp part: ${type}`);
+    return value;
+  };
+  return `${part("day")}-${part("month")}-${part("year")} ${part("hour")}:${part("minute")} ${part("dayPeriod").toUpperCase()} IST`;
+}
+
 export async function sendNewsletterWelcomeEmail({
   firstName,
   email,
@@ -188,10 +207,11 @@ export async function sendNewsletterOwnerAlert({
   const owners = getOwnerNotifyEmails();
   if (owners.length === 0) return;
   const transporter = getTransporter();
+  const subscribedAtIndia = formatIndiaTimestamp(subscribedAt);
   const subject = `New newsletter subscriber (${language}): ${firstName}`;
   const text =
     `A new subscriber joined the newsletter.\n\n` +
-    `Name: ${firstName}\nEmail: ${email}\nLanguage: ${language}\nSubscribed: ${subscribedAt}`;
+    `Name: ${firstName}\nEmail: ${email}\nLanguage: ${language}\nSubscribed: ${subscribedAtIndia}`;
 
   await transporter.sendMail({
     from: { name: "Lingadevaru Newsletter", address: FROM_ADDRESS },
@@ -203,6 +223,6 @@ export async function sendNewsletterOwnerAlert({
       `<ul><li>Name: ${escapeHtml(firstName)}</li>` +
       `<li>Email: ${escapeHtml(email)}</li>` +
       `<li>Language: ${escapeHtml(language)}</li>` +
-      `<li>Subscribed: ${escapeHtml(subscribedAt)}</li></ul>`,
+      `<li>Subscribed: ${escapeHtml(subscribedAtIndia)}</li></ul>`,
   });
 }

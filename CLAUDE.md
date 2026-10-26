@@ -5,11 +5,12 @@
 
 ---
 
-## 🟢 ACTIVE STATE (10-26-2026): ORIGINAL PORTFOLIO RESTORED
+## 🟢 ACTIVE STATE (26-10-2026 08:35 PM IST): ORIGINAL PORTFOLIO RESTORED
 
 - **Live site `lingadevaru.in` and all locale subdomains serve the portfolio/wiki again.**
 - Decoy mode and its Worker intercept have been removed; `wrangler.jsonc` no longer contains `DECOY_MODE`.
 - Portfolio code, `dist/`, D1 (`wiki-newsletter`), and secrets remain intact.
+- Human-readable timestamps in owner notification emails and project documentation use `DD-MM-YYYY hh:mm AM/PM IST`; timestamps stored in databases remain UTC ISO format.
 - NEVER push source to public repos; PR to private `wiki-website` repo only.
 
 ---
