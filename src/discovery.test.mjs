@@ -13,6 +13,11 @@ test("ARD manifest describes the published Markdown guide", () => {
   );
   const [entry] = manifest.entries;
 
+  // AI Catalog 1.0 requires `specVersion` and `entries` at every conformance
+  // level. Omitting `specVersion` is what failed the Lighthouse
+  // "ai-catalog.json schema is invalid" audit.
+  assert.equal(manifest.specVersion, "1.0");
+  assert.ok(manifest.host?.displayName);
   assert.equal(manifest.entries.length, 1);
   assert.match(
     entry.identifier,
