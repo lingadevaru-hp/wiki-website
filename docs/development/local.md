@@ -6,20 +6,25 @@
 pnpm dev
 ```
 
-## Newsletter API
+## Newsletter
 
-Free path (default): the portfolio Worker stores signups in local D1 during
-`wrangler dev` — no Postgres or Zoho credentials needed to collect
-subscribers. Build the frontend first so the Worker has assets to serve:
+The production architecture uses the portfolio Worker and D1 binding. During
+`wrangler dev`, newsletter data uses the local D1 database; collecting test
+signups does not require PostgreSQL or Zoho credentials. Build the frontend
+first so the Worker has assets to serve:
 
 ```bash
 pnpm --filter @workspace/thoshan-wiki build
-wrangler dev
+pnpm exec wrangler dev
 ```
 
-Welcome emails stay pending until Zoho SMTP credentials exist; they are
-sent later by the Node email sender. Legacy Node path below is only for
-that backfill.
+If local SMTP is not configured, welcome messages remain pending for the
+existing backfill flow. Existing subscriber email changes require the current
+mailbox confirmation flow; use synthetic addresses and an isolated local D1
+database when testing it. See
+[Newsletter email-change confirmation](newsletter-email-changes.md).
+
+## Legacy Node API
 
 1. Copy `artifacts/api-server/.env.example` to
    `artifacts/api-server/.env`; set a PostgreSQL `DATABASE_URL` and Zoho
@@ -28,9 +33,8 @@ that backfill.
    `pnpm --filter @workspace/db push` while `DATABASE_URL` is available in the
    environment.
 3. Start the API with `pnpm --filter api-server dev` and the site with
-   `pnpm --filter thoshan-wiki dev`. The Vite proxy sends newsletter signups
-   to `http://localhost:3000` by default; set `NEWSLETTER_API_URL` to use a
-   different API origin.
+   `pnpm --filter thoshan-wiki dev`. This legacy path is for API development
+   and backfill; the default production newsletter path is D1 in the Worker.
 
 ## Individual Services
 

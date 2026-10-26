@@ -22,6 +22,7 @@
 * [Environment Variables](development/env.md)
 * [Database Migrations](development/migrations.md)
 * [Testing](development/testing.md)
+* [Newsletter Email-Change Confirmation](development/newsletter-email-changes.md)
 
 ## Content Management
 

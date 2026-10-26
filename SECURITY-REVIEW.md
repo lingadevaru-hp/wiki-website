@@ -1,7 +1,7 @@
 # Security Review
 
-**Date:** 26-10-2026 08:58 PM IST
-**Scope:** Repository source and configuration review, including the Cloudflare Worker, frontend delivery, and newsletter endpoints. The initial audit was static; follow-up remediation has focused local tests. No production data was accessed.
+**Date:** 26-10-2026 09:52 PM IST
+**Scope:** Repository source and configuration review, including the Cloudflare Worker, frontend delivery, and newsletter endpoints. The initial audit was static; remediation was checked with focused local tests and production endpoint checks. No production subscriber data or email-change request was accessed.
 
 ## Findings
 
@@ -24,4 +24,14 @@
 - Owner notification emails display subscription timestamps in `DD-MM-YYYY hh:mm AM/PM IST`. Stored timestamps remain UTC ISO values.
 - Focused local tests cover return-path validation, attribute escaping, token hashing, cookie signature/expiry, and CSP nonce policy.
 
-The initial audit was static. Follow-up security behavior was verified with focused tests and local Worker checks.
+The initial audit was static. Follow-up security behavior was verified with focused tests, an isolated local D1/Worker flow, and production checks for invalid confirmation requests. No real production email was sent as part of verification.
+
+## Production remediation record
+
+- PR [#109](https://github.com/lingadevaru-hp/wiki-website/pull/109) merged on 26-10-2026; merge commit `245aab64c7bd9b233707e7c8157d7ae9dd827f10`.
+- D1 migration `0003_newsletter_email_change_confirmation.sql` was applied to `wiki-newsletter`.
+- Worker `wiki-website` was deployed as version `e33c2d56-9972-4a82-8679-68f7154a7179`.
+- Production homepage and locale assets returned HTTP 200; invalid confirmation GET and POST requests returned HTTP 410. The normal browser HTML path returned the nonce-based CSP.
+- SMTP delivery to a real subscriber mailbox remains unverified.
+
+See [Newsletter email-change confirmation](docs/development/newsletter-email-changes.md) for implementation, migration, and release details.

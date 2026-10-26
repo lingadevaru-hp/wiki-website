@@ -3,15 +3,19 @@
 ## System Diagram
 
 ```
-┌──────────────┐     ┌───────────────────┐     ┌──────────────┐
-│  React SPA   │────▶│ Express API server│────▶│ PostgreSQL   │
-│  (Vite)      │     │ (Node.js/Drizzle) │     │              │
-└──────────────┘     └─────────┬─────────┘     └──────────────┘
-                               │
-                               ▼
-                       ┌──────────────┐
-                       │  Zoho SMTP   │
-                       └──────────────┘
+┌────────────────┐      ┌────────────────────────┐
+│ React SPA      │─────▶│ Cloudflare Worker      │
+│ (static assets)│      │ wiki-website           │
+└────────────────┘      └──────┬─────────┬───────┘
+                               │         │
+                               ▼         ▼
+                         ┌─────────┐ ┌───────────┐
+                         │ D1      │ │ Zoho SMTP │
+                         │newsletter│ └───────────┘
+                         └─────────┘
+
+        Legacy API server (Express/Drizzle/PostgreSQL)
+        supports backfill and fallback operations.
 ```
 
 ## Workspace Structure
@@ -30,5 +34,9 @@ This is a **pnpm workspace** monorepo:
 | `api-zod` | `lib/api-zod/` | Zod validation schemas |
 | `api-client-react` | `lib/api-client-react/` | React API client hooks |
 
-The portfolio Worker serves the SPA and proxies `/api/newsletter/signup` to
-the separately hosted Node API using the `NEWSLETTER_API_URL` Worker variable.
+The root `wrangler.jsonc` deploys the `wiki-website` Worker. It serves the SPA,
+handles Turnstile and newsletter endpoints, stores newsletter subscriptions
+and pending email changes in D1, and sends email through Zoho SMTP. The
+separately hosted Express API and PostgreSQL path is retained for legacy and
+backfill operations; see [Backend](backend.md) and
+[newsletter email changes](../development/newsletter-email-changes.md).
