@@ -66,16 +66,41 @@ of source and frontend assets. Use a Zoho app password; see
 
 ## Production deployment
 
-Build and check the Worker before deployment:
+**Deployment is automatic.** `.github/workflows/deploy.yml` runs on every push
+to `main`: it installs, builds, runs the test suite, validates the bundle with
+`wrangler deploy --dry-run`, and then deploys. Merging a pull request therefore
+changes the live site.
+
+It needs two repository secrets, both already used by
+`newsletter-backfill.yml`:
+
+| Secret | Scope required |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Workers Scripts:Edit on the account (D1 edit alone is not enough to deploy) |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID |
+
+If `CLOUDFLARE_API_TOKEN` is absent the deploy step skips with a warning rather
+than failing, so forks and secret-less clones stay green. The workflow finishes
+by asserting that `https://lingadevaru.in/ai-catalog.json` reports a
+`specVersion`; that check is non-blocking because edge propagation can lag.
+
+Before this workflow existed there was no deploy step at all — CI only ran
+`wrangler deploy --dry-run`, so merged changes stayed inert on `main` until
+someone deployed by hand. That is what delayed the fixes in PR #112.
+
+### Deploying manually
+
+Still supported, and the way to roll out an urgent fix or a D1 migration ahead
+of a merge:
 
 ```bash
 pnpm run build
-pnpm exec wrangler deploy --dry-run
+pnpm exec wrangler deploy --dry-run   # validate the bundle
+pnpm exec wrangler deploy
 ```
 
-After merging the private-repository PR, apply any required remote D1
-migrations first, then deploy with `pnpm exec wrangler deploy`. Verify the
-live site and relevant routes. See
+Apply any required remote D1 migrations first. Verify the live site and relevant
+routes afterwards. See
 [Newsletter email-change confirmation](../development/newsletter-email-changes.md)
 for the production rollout record for PR #109.
 

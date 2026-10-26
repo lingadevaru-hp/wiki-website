@@ -178,7 +178,13 @@ Both catalog routes were also exercised through the same harness: they return
 
 ## Rollout
 
-After merge, deploy with `pnpm exec wrangler deploy`, then confirm:
+Deployment is automatic: `.github/workflows/deploy.yml` ships `main` on every
+push. Merging is what makes these fixes live — before that workflow existed,
+merging changed only the repository, which is why the PageSpeed report taken
+three minutes after PR #112 merged still showed the old scores.
+
+If you are deploying by hand instead, run `pnpm exec wrangler deploy`, then
+confirm:
 
 ```bash
 # the manifest is served with the spec media type and a version
