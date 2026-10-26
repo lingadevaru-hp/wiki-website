@@ -1,0 +1,17 @@
+# Lingadevaru HP (Thoshan) — Personal knowledge wiki
+
+> A personal portfolio and knowledge wiki by Lingadevaru H P (Thoshan), covering public projects, articles, news, and learning notes.
+
+## Main pages
+
+- [Home](https://lingadevaru.in/): Portfolio and featured public work.
+- [Wiki home](https://lingadevaru.in/wiki/home): Browse the knowledge wiki.
+- [Articles](https://lingadevaru.in/wiki/articles): Browse published articles.
+- [Projects](https://lingadevaru.in/projects): Explore public projects.
+- [Achievements](https://lingadevaru.in/achievements): View milestones and achievements.
+- [News](https://lingadevaru.in/news): Read project and site updates.
+
+## Access and content-use policy
+
+- [Robots policy](https://lingadevaru.in/robots.txt): Follow the crawler-specific access and content-use rules published there. This guide does not override those rules.
+- [Sitemap](https://lingadevaru.in/sitemap.xml): Discover the site's public pages and language versions.
