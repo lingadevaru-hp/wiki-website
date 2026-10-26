@@ -32,7 +32,7 @@ const contentBlockSchema = z
     width: z.string().optional(),
     height: z.string().optional(),
     columns: z.array(z.string()).optional(),
-    rows: z.array(z.record(z.string())).optional(),
+    rows: z.array(z.record(z.string(), z.string())).optional(),
     variant: z.enum(["info", "warning", "success", "error"]).optional(),
     title: z.string().optional(),
     author: z.string().optional(),

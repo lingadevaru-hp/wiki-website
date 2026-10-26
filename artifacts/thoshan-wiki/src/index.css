@@ -5853,8 +5853,6 @@ h2 {
   color: white;
   border-color: hsl(var(--accent));
 }
-═══════════════════════════════════════════════════════════════ */
-
 @keyframes backdropIn {
   from {
     opacity: 0;

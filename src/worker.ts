@@ -25,7 +25,10 @@ const GATE_HTML = (
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google" content="notranslate">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Complete a brief security check to access Lingadevaru HP (Thoshan)'s personal knowledge wiki and portfolio.">
   <title>Security Verification</title>
+  <link rel="ard" href="https://lingadevaru.in/.well-known/ard.json">
   <link rel="preconnect" href="https://challenges.cloudflare.com" />
   <script nonce="${nonce}" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
@@ -39,15 +42,16 @@ const GATE_HTML = (
   </style>
 </head>
 <body>
-  <div class="gate">
+  <main class="gate">
     <div class="gate-mark" aria-hidden="true">✓</div>
+    <h1>Security Verification</h1>
     <p class="tagline">Cloudflare Turnstile is checking this connection. This lightweight check helps protect the site and expires after 30 seconds.</p>
     <form id="verify-form" method="POST" action="/__turnstile_verify">
       <div class="cf-turnstile" data-sitekey="${sitekey}" data-theme="dark" data-callback="onVerify" data-error-callback="onError" data-appearance="always"></div>
       <input type="hidden" name="return_to" value="${escapeHtmlAttribute(returnTo)}">
     </form>
-    <p id="err"></p>
-  </div>
+    <p id="err" role="alert" aria-live="polite"></p>
+  </main>
   <script nonce="${nonce}">
     function onVerify(token) {
       var form = document.getElementById("verify-form");
@@ -1111,8 +1115,28 @@ export default {
       return handleTextToSpeech(request, env);
     }
 
-    const STATIC_BYPASS_PATHS = ["/robots.txt", "/sitemap.xml", "/favicon.ico", "/opengraph.jpg", "/favicon.svg"];
-    if (url.pathname.startsWith("/assets/") || STATIC_BYPASS_PATHS.includes(url.pathname)) {
+    const STATIC_BYPASS_PATHS = [
+      "/robots.txt",
+      "/sitemap.xml",
+      "/favicon.ico",
+      "/opengraph.jpg",
+      "/favicon.svg",
+      "/llms.txt",
+      "/.well-known/ard.json",
+    ];
+    const STATIC_ASSET_ALIASES: Record<string, string> = {
+      "/ai-catalog.json": "/.well-known/ard.json",
+      "/.well-known/ai-catalog.json": "/.well-known/ard.json",
+    };
+    const aliasedAssetPath = STATIC_ASSET_ALIASES[url.pathname];
+    if (
+      url.pathname.startsWith("/assets/") ||
+      STATIC_BYPASS_PATHS.includes(url.pathname) ||
+      aliasedAssetPath
+    ) {
+      if (aliasedAssetPath) {
+        return env.ASSETS.fetch(new Request(new URL(aliasedAssetPath, url), request));
+      }
       return env.ASSETS.fetch(request);
     }
 

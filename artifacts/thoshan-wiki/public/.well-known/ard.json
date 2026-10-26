@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:lingadevaru.in:site:knowledge-guide",
+      "displayName": "Lingadevaru HP (Thoshan) knowledge wiki guide",
+      "type": "text/markdown",
+      "url": "https://lingadevaru.in/llms.txt",
+      "description": "A concise guide to the public portfolio, knowledge wiki, articles, projects, and published access policy.",
+      "representativeQueries": [
+        "What is Lingadevaru HP's personal knowledge wiki and portfolio about?",
+        "Find public articles and projects by Lingadevaru HP (Thoshan)."
+      ]
+    }
+  ]
+}

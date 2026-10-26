@@ -78,3 +78,21 @@ migrations first, then deploy with `pnpm exec wrangler deploy`. Verify the
 live site and relevant routes. See
 [Newsletter email-change confirmation](../development/newsletter-email-changes.md)
 for the production rollout record for PR #109.
+
+## Public discovery files and checks
+
+The portfolio publishes `llms.txt` and an ARD manifest at
+`/.well-known/ard.json`. The Worker also serves `/ai-catalog.json` and the
+legacy `/.well-known/ai-catalog.json` path from that same manifest. These
+files describe public pages; they do not override the crawler and content-use
+rules in `robots.txt` or the Worker’s AI-crawler restrictions.
+
+Pull requests run a high-severity dependency audit, typecheck, workspace
+builds, security tests, and documentation build in
+`.github/workflows/ci.yml`. The workflow has read-only repository permissions
+and does not deploy or access production secrets.
+
+The Worker compatibility date is reviewed against Cloudflare’s compatibility
+flag history before being advanced. Node.js compatibility remains explicitly
+disabled because the Worker uses Web APIs and `cloudflare:sockets`, not Node.js
+modules.
