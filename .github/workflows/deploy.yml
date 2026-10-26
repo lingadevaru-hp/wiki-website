@@ -1,0 +1,92 @@
+name: deploy
+
+# Ship `main` to production.
+#
+# Merging a pull request changes the repository, not the live site: the CI
+# workflow only runs `wrangler deploy --dry-run`, so until this workflow existed
+# every merge sat inert until someone ran `wrangler deploy` by hand. That is why
+# the SEO and AI Catalog fixes from #112 were merged but still live on the old
+# Worker.
+#
+# Required repository secrets (already present for newsletter-backfill.yml):
+#   CLOUDFLARE_API_TOKEN   must include Workers Scripts:Edit on the account
+#   CLOUDFLARE_ACCOUNT_ID  Cloudflare account ID
+#
+# If CLOUDFLARE_API_TOKEN is absent the job skips instead of failing, so forks
+# and secret-less clones stay green.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never let two deploys overlap, and never cancel one that is already shipping.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build and typecheck
+        run: pnpm run build
+
+      - name: Run security and discovery tests
+        run: node --test src/security.test.mjs src/discovery.test.mjs src/crawlability.test.mjs
+
+      - name: Confirm the deploy bundle is valid
+        run: pnpm exec wrangler deploy --dry-run
+
+      - name: Deploy
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        run: pnpm exec wrangler deploy
+
+      - name: Note skipped deploy
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: |
+          echo "::warning::CLOUDFLARE_API_TOKEN is not set, so nothing was deployed."
+          echo "Add it under Settings -> Secrets -> Actions with Workers Scripts:Edit."
+
+      # The whole point of this workflow is that what is live matches main, so
+      # assert it. Non-blocking: edge propagation can lag a few seconds and a
+      # slow check should not mark a good deploy as failed.
+      - name: Verify the discovery manifest is live
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        continue-on-error: true
+        run: |
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            body="$(curl -fsS https://lingadevaru.in/ai-catalog.json || true)"
+            if printf '%s' "$body" | grep -q '"specVersion"'; then
+              echo "ai-catalog.json reports specVersion — deploy is live."
+              exit 0
+            fi
+            echo "attempt $attempt: specVersion not served yet, retrying in 6s"
+            sleep 6
+          done
+          echo "::warning::ai-catalog.json still has no specVersion after 60s."
+          exit 1
