@@ -1,5 +1,6 @@
 import {
   ownerNotifyEmails,
+  sendEmailChangeConfirmation,
   sendWelcomeAndAlert,
   smtpConfigured,
 } from "./worker-email";
@@ -8,6 +9,7 @@ import {
   createCspNonce,
   createVerificationCookie,
   escapeHtmlAttribute,
+  hashEmailChangeToken,
   isVerificationCookieValid,
   safeLocalReturnTo,
 } from "./security";
@@ -106,6 +108,7 @@ interface TurnstileVerifyResponse {
 
 const TTS_MODEL = "@cf/deepgram/aura-1";
 const MAX_TTS_CHARS = 2000;
+const EMAIL_CHANGE_TOKEN_LIFETIME_MS = 30 * 60 * 1000;
 
 function getCookie(cookies: string, name: string): string | null {
   const match = cookies.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
@@ -360,24 +363,50 @@ function fireInstantWelcome(
   );
 }
 
+function emailChangeHtml(
+  title: string,
+  message: string,
+  form?: { token: string },
+  profile?: { firstName: string; email: string; nonce: string },
+): Response {
+  const nonce = profile?.nonce ?? "";
+  const safeProfile = profile
+    ? JSON.stringify({
+        firstName: profile.firstName,
+        email: profile.email,
+      })
+        .replace(/</g, "\\u003c")
+        .replace(/\u2028/g, "\\u2028")
+        .replace(/\u2029/g, "\\u2029")
+    : "";
+  const content = form
+    ? `<form method="post" action="/api/newsletter/email-change/confirm"><input type="hidden" name="token" value="${escapeHtmlAttribute(form.token)}"><button type="submit">Confirm email change</button></form>`
+    : profile
+      ? `<a href="/">Continue to the website</a><script nonce="${nonce}">const profile=${safeProfile};localStorage.setItem("newsletter-subscribed","1");localStorage.setItem("newsletter-email",profile.email);localStorage.setItem("newsletter-name",profile.firstName);location.replace("/");</script>`
+      : `<a href="/">Return to the website</a>`;
+  const policy = form
+    ? "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'"
+    : `default-src 'none'; script-src 'nonce-${nonce}'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'`;
+  return new Response(
+    `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><style>body{font:16px system-ui,sans-serif;background:#0a0e14;color:#eef1f6;min-height:100vh;display:grid;place-items:center;margin:0;padding:24px}.card{max-width:520px;padding:32px;border:1px solid #2d3a52;border-radius:16px;background:#131a26}a,button{color:#eef1f6}button{padding:12px 18px;border-radius:8px;border:1px solid #52617b;background:#1c2536;font:inherit;cursor:pointer}</style><main class="card"><h1>${title}</h1><p>${message}</p>${content}</main></html>`,
+    {
+      status: form ? 200 : profile ? 200 : 410,
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "no-store",
+        "Content-Security-Policy": policy,
+        "Referrer-Policy": "no-referrer",
+        "X-Content-Type-Options": "nosniff",
+      },
+    },
+  );
+}
+
 /**
  * Free storage path: newsletter signups live in Cloudflare D1, so no paid
  * Postgres or separately hosted Node API is needed to collect subscribers.
- *
- * Primary email path: right after the D1 insert, the Worker itself sends
- * the localized welcome email + best-effort owner alert via Zoho SMTP
- * (see worker-email.ts), scheduled with ctx.waitUntil so the visitor gets
- * an instant 200 while delivery runs in the background (seconds, not the
- * 6-hour cron delay). The row is marked sent only after Zoho accepts the
- * welcome; anything still pending is picked up by the GitHub cron fallback
- * (newsletter-backfill.yml). Never logs names or emails.
- *
- * Modes (same validation for all):
- * - "new" (default): INSERT OR IGNORE fresh subscription.
- * - "edit": move one subscription to corrected details (previousEmail
- *   required); old+new name/email appended to newsletter_history.
- * - "again": brand-new subscription row with new details linked to the
- *   previous address in newsletter_history (resubscribe tracking).
+ * Email changes require explicit approval from the current mailbox; new
+ * subscriptions and same-address edits remain immediate.
  */
 async function handleNewsletterSignupD1(
   request: Request,
@@ -439,21 +468,141 @@ async function handleNewsletterSignupD1(
     );
   }
 
-  // Edit: move one subscription to corrected details, keeping history.
+  // Changing an email requires approval from the mailbox currently on file.
   if (mode === "edit") {
     try {
       const existing = await db
         .prepare(
-          "SELECT first_name AS firstName, email, language FROM newsletter_subscribers WHERE email = ?",
+          "SELECT id, first_name AS firstName, email, language FROM newsletter_subscribers WHERE email = ?",
         )
         .bind(previousEmail)
-        .first<{ firstName: string; email: string; language: string }>();
+        .first<{
+          id: number;
+          firstName: string;
+          email: string;
+          language: string;
+        }>();
       if (!existing) {
         return newsletterJson(
           { error: "No subscription found for the previous email address." },
           404,
         );
       }
+      if (email !== existing.email) {
+        const duplicate = await db
+          .prepare(
+            "SELECT 1 AS found FROM newsletter_subscribers WHERE email = ?",
+          )
+          .bind(email)
+          .first<{ found: number }>();
+        if (duplicate) {
+          return newsletterJson(
+            {
+              message: "This email address is already on the list.",
+              duplicate: true,
+            },
+            200,
+          );
+        }
+        if (!smtpConfigured(env)) {
+          return newsletterJson(
+            { error: "Email confirmation is not configured." },
+            503,
+          );
+        }
+
+        const token = crypto.randomUUID();
+        const tokenHash = await hashEmailChangeToken(token);
+        const createdAt = new Date();
+        const cooldownStartedAt = new Date(
+          createdAt.getTime() - 5 * 60 * 1000,
+        ).toISOString();
+        const recentRequest = await db
+          .prepare(
+            "SELECT new_email AS newEmail FROM newsletter_email_change_requests " +
+              "WHERE subscriber_id = ? AND created_at > ? AND expires_at > ?",
+          )
+          .bind(
+            existing.id,
+            cooldownStartedAt,
+            createdAt.toISOString(),
+          )
+          .first<{ newEmail: string }>();
+        if (recentRequest) {
+          if (recentRequest.newEmail !== email) {
+            return newsletterJson({ emailChangeCooldown: true }, 429);
+          }
+          return newsletterJson({ emailChangePending: true }, 200);
+        }
+        const expiresAt = new Date(
+          createdAt.getTime() + EMAIL_CHANGE_TOKEN_LIFETIME_MS,
+        ).toISOString();
+        await db
+          .prepare(
+            "DELETE FROM newsletter_email_change_requests WHERE expires_at <= ?",
+          )
+          .bind(createdAt.toISOString())
+          .run();
+        await db
+          .prepare(
+            "INSERT INTO newsletter_email_change_requests " +
+              "(subscriber_id, token_hash, old_email, new_email, old_first_name, first_name, language, expires_at) " +
+              "VALUES (?, ?, ?, ?, ?, ?, ?, ?) " +
+              "ON CONFLICT(subscriber_id) DO UPDATE SET " +
+              "token_hash = excluded.token_hash, old_email = excluded.old_email, " +
+              "new_email = excluded.new_email, old_first_name = excluded.old_first_name, " +
+              "first_name = excluded.first_name, language = excluded.language, " +
+              "created_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), expires_at = excluded.expires_at",
+          )
+          .bind(
+            existing.id,
+            tokenHash,
+            existing.email,
+            email,
+            existing.firstName,
+            firstName,
+            language,
+            expiresAt,
+          )
+          .run();
+
+        const port = Number(env.ZOHO_SMTP_PORT || "465");
+        try {
+          await sendEmailChangeConfirmation({
+            smtp: {
+              host: env.ZOHO_SMTP_HOST || "smtp.zoho.in",
+              port: Number.isInteger(port) && port > 0 ? port : 465,
+              user: env.ZOHO_SMTP_USER,
+              pass: env.ZOHO_SMTP_PASSWORD,
+            },
+            currentEmail: existing.email,
+            requestedEmail: email,
+            confirmationUrl: `${new URL(request.url).origin}/api/newsletter/email-change/confirm?token=${encodeURIComponent(token)}`,
+          });
+        } catch (error) {
+          await db
+            .prepare(
+              "DELETE FROM newsletter_email_change_requests WHERE subscriber_id = ? AND token_hash = ?",
+            )
+            .bind(existing.id, tokenHash)
+            .run();
+          console.error(
+            `[newsletter] email change confirmation failed: ${
+              error instanceof Error ? error.name : "transport error"
+            }`,
+          );
+          return newsletterJson(
+            { error: "We could not send the confirmation email. Please try again." },
+            502,
+          );
+        }
+
+        return newsletterJson(
+          { emailChangePending: true },
+          200,
+        );
+      }
+
       await db
         .prepare(
           "UPDATE newsletter_subscribers SET first_name = ?, email = ?, language = ?, " +
@@ -566,6 +715,163 @@ export default {
     ctx: WorkerContext,
   ): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/newsletter/email-change/confirm") {
+      if (!env.DB) {
+        return newsletterJson(
+          { error: "Email change confirmation is not configured." },
+          503,
+        );
+      }
+
+      if (request.method === "GET") {
+        const token = url.searchParams.get("token") || "";
+        if (!/^[0-9a-f-]{36}$/i.test(token)) {
+          return emailChangeHtml(
+            "Confirmation link expired",
+            "This email change link is invalid or has expired. Request a new change from the newsletter form.",
+          );
+        }
+        const tokenHash = await hashEmailChangeToken(token);
+        const pending = await env.DB.prepare(
+          "SELECT new_email AS newEmail FROM newsletter_email_change_requests " +
+            "WHERE token_hash = ? AND expires_at > ?",
+        )
+          .bind(tokenHash, new Date().toISOString())
+          .first<{ newEmail: string }>();
+        if (!pending) {
+          return emailChangeHtml(
+            "Confirmation link expired",
+            "This email change link is invalid or has expired. Request a new change from the newsletter form.",
+          );
+        }
+        return emailChangeHtml(
+          "Confirm newsletter email change",
+          `Approve changing the newsletter address to ${escapeHtmlAttribute(pending.newEmail)}. This request expires after 30 minutes.`,
+          { token },
+        );
+      }
+
+      if (request.method === "POST") {
+        const form = await request.formData();
+        const token = form.get("token");
+        if (typeof token !== "string" || !/^[0-9a-f-]{36}$/i.test(token)) {
+          return emailChangeHtml(
+            "Confirmation link expired",
+            "This email change link is invalid or has expired. Request a new change from the newsletter form.",
+          );
+        }
+
+        const tokenHash = await hashEmailChangeToken(token);
+        const now = new Date().toISOString();
+        const pending = await env.DB.prepare(
+          "SELECT subscriber_id AS subscriberId, old_email AS oldEmail, " +
+            "new_email AS newEmail, first_name AS firstName, language " +
+            "FROM newsletter_email_change_requests " +
+            "WHERE token_hash = ? AND expires_at > ?",
+        )
+          .bind(tokenHash, now)
+          .first<{
+            subscriberId: number;
+            oldEmail: string;
+            newEmail: string;
+            firstName: string;
+            language: string;
+          }>();
+        if (!pending) {
+          return emailChangeHtml(
+            "Confirmation link expired",
+            "This email change link is invalid or has expired. Request a new change from the newsletter form.",
+          );
+        }
+
+        const duplicate = await env.DB.prepare(
+          "SELECT 1 AS found FROM newsletter_subscribers " +
+            "WHERE email = ? AND id != ?",
+        )
+          .bind(pending.newEmail, pending.subscriberId)
+          .first<{ found: number }>();
+        if (duplicate) {
+          return emailChangeHtml(
+            "Email address already subscribed",
+            "This address is already subscribed. The current subscription was not changed.",
+          );
+        }
+
+        try {
+          const results = await env.DB.batch([
+            env.DB.prepare(
+              "UPDATE newsletter_subscribers SET " +
+                "first_name = (SELECT first_name FROM newsletter_email_change_requests WHERE token_hash = ?), " +
+                "email = (SELECT new_email FROM newsletter_email_change_requests WHERE token_hash = ?), " +
+                "language = (SELECT language FROM newsletter_email_change_requests WHERE token_hash = ?), " +
+                "updated_at = ?, welcome_email_sent_at = NULL " +
+                "WHERE id = ? AND email = ? AND EXISTS (" +
+                "SELECT 1 FROM newsletter_email_change_requests " +
+                "WHERE token_hash = ? AND expires_at > ?)",
+            ).bind(
+              tokenHash,
+              tokenHash,
+              tokenHash,
+              now,
+              pending.subscriberId,
+              pending.oldEmail,
+              tokenHash,
+              now,
+            ),
+            env.DB.prepare(
+              "INSERT INTO newsletter_history " +
+                "(action, old_email, new_email, old_name, new_name, language) " +
+                "SELECT 'edit', p.old_email, p.new_email, p.old_first_name, " +
+                "p.first_name, p.language FROM newsletter_email_change_requests p " +
+                "JOIN newsletter_subscribers s ON s.id = p.subscriber_id " +
+                "AND s.email = p.new_email WHERE p.token_hash = ? AND p.expires_at > ?",
+            ).bind(tokenHash, now),
+            env.DB.prepare(
+              "DELETE FROM newsletter_email_change_requests WHERE token_hash = ? " +
+                "AND EXISTS (SELECT 1 FROM newsletter_subscribers " +
+                "WHERE id = ? AND email = ?)",
+            ).bind(tokenHash, pending.subscriberId, pending.newEmail),
+          ]);
+
+          if ((results[0]?.meta.changes ?? 0) !== 1) {
+            return emailChangeHtml(
+              "Confirmation link expired",
+              "This email change link is invalid, expired, or already used.",
+            );
+          }
+        } catch (error) {
+          console.error(
+            `[newsletter] email change confirmation failed: ${
+              error instanceof Error ? error.name : "database error"
+            }`,
+          );
+          return emailChangeHtml(
+            "Email change could not be completed",
+            "The address may already be subscribed. No other subscription details were changed.",
+          );
+        }
+
+        fireInstantWelcome(env.DB, env, ctx, {
+          firstName: pending.firstName,
+          email: pending.newEmail,
+          language: pending.language,
+        });
+        const nonce = createCspNonce();
+        return emailChangeHtml(
+          "Email address updated",
+          "Your newsletter email address has been changed. Returning to the site…",
+          undefined,
+          {
+            firstName: pending.firstName,
+            email: pending.newEmail,
+            nonce,
+          },
+        );
+      }
+
+      return newsletterJson({ error: "Method not allowed" }, 405);
+    }
 
     // Private owner endpoint: list subscribers as JSON or CSV. Guarded by
     // the shared proxy token header — never linked from the site, curl only.
@@ -730,6 +1036,31 @@ export default {
       // Free path: store directly in Cloudflare D1, no Node/Postgres hop.
       if (env.DB) {
         return handleNewsletterSignupD1(request, env.DB, env, ctx);
+      }
+
+      try {
+        const payload = (await request.clone().json()) as {
+          mode?: unknown;
+          email?: unknown;
+          previousEmail?: unknown;
+        };
+        if (
+          payload.mode === "edit" &&
+          typeof payload.email === "string" &&
+          typeof payload.previousEmail === "string" &&
+          payload.email.trim().toLowerCase() !==
+            payload.previousEmail.trim().toLowerCase()
+        ) {
+          return newsletterJson(
+            {
+              error:
+                "Email changes require the D1 confirmation service, which is not configured.",
+            },
+            503,
+          );
+        }
+      } catch {
+        // Preserve the existing proxy validation path for malformed payloads.
       }
 
       // Legacy path: proxy to the separately hosted Node API (paid Postgres).

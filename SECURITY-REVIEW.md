@@ -8,7 +8,7 @@
 | # | Severity | File | Lines | Vulnerability | Confidence |
 |---|----------|------|-------|---------------|------------|
 | 1 | 🟠 HIGH | `src/worker.ts` | Turnstile verification handler | Unauthenticated `/__turnstile_verify` submissions could inject `return_to` into an HTML attribute on failed verification, enabling reflected XSS; successful verification could redirect externally. **Fixed:** escaped HTML attribute and same-origin path validation. | 9/10 |
-| 2 | 🟡 MEDIUM | `src/worker.ts` | Newsletter edit handler | Newsletter edit changes a subscription using only the previous email address; it does not prove control of that mailbox. **Owner-accepted product risk:** email ownership confirmation is intentionally not required, so someone who knows an address could change its subscription record and divert future mail. | 10/10 |
+| 2 | 🟡 MEDIUM | `src/worker.ts` | Newsletter edit handler | An email change could previously be completed by knowing the old address. **Fixed:** changing an existing subscription's email now requires a one-time link opened and explicitly confirmed from the current/old mailbox. Same-address edits and new subscriptions remain immediate. | 10/10 |
 
 ## Hardening gaps
 
@@ -18,8 +18,10 @@
 ## Decisions and follow-up
 
 - Return targets are restricted to same-origin relative paths and escaped before HTML interpolation.
-- Verification cookies are signed with the Worker Turnstile secret; newsletter management continues to follow the owner's explicit choice not to require mailbox confirmation.
+- Verification cookies are signed with the Worker Turnstile secret.
+- Email-change confirmation uses the existing Zoho SMTP sender (no separate OTP provider), SHA-256 token hashes in D1, a 30-minute expiry, a five-minute resend cooldown, and an explicit POST confirmation so email link scanners cannot approve changes by fetching the link.
+- The existing address remains unchanged until confirmation; new subscriptions and name/language-only edits do not require confirmation.
 - Owner notification emails display subscription timestamps in `DD-MM-YYYY hh:mm AM/PM IST`. Stored timestamps remain UTC ISO values.
-- Focused local tests cover return-path validation, attribute escaping, cookie signature/expiry, and CSP nonce policy.
+- Focused local tests cover return-path validation, attribute escaping, token hashing, cookie signature/expiry, and CSP nonce policy.
 
-The newsletter edit risk remains by design and should be reconsidered only if the product's subscription-management policy changes.
+The initial audit was static. Follow-up security behavior was verified with focused tests and local Worker checks.

@@ -107,6 +107,11 @@ export function createCspNonce(): string {
   return encodeBase64Url(bytes);
 }
 
+export async function hashEmailChangeToken(token: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", encoder.encode(token));
+  return encodeBase64Url(new Uint8Array(digest));
+}
+
 export function buildContentSecurityPolicy(nonce: string): string {
   return [
     "default-src 'self'",

@@ -358,6 +358,33 @@ export type WelcomeSendArgs = {
   subscribedAt: string;
 };
 
+export async function sendEmailChangeConfirmation(args: {
+  smtp: SmtpConfig;
+  currentEmail: string;
+  requestedEmail: string;
+  confirmationUrl: string;
+}): Promise<void> {
+  const subject = "Confirm your newsletter email change";
+  const text =
+    `A request was made to change your newsletter email from ${args.currentEmail} ` +
+    `to ${args.requestedEmail}.\n\n` +
+    `To approve this change, open the link and press Confirm:\n${args.confirmationUrl}\n\n` +
+    "This link expires in 30 minutes. If you did not request this change, ignore this email.";
+  await sendSmtpMail(args.smtp, {
+    fromName: "Lingadevaru Newsletter",
+    to: [args.currentEmail],
+    subject,
+    text,
+    html:
+      `<p>A request was made to change your newsletter email from ` +
+      `<strong>${escapeHtml(args.currentEmail)}</strong> to ` +
+      `<strong>${escapeHtml(args.requestedEmail)}</strong>.</p>` +
+      `<p>To approve this change, open the link and press Confirm:</p>` +
+      `<p><a href="${escapeHtml(args.confirmationUrl)}">Review and confirm email change</a></p>` +
+      `<p>This link expires in 30 minutes. If you did not request this change, ignore this email.</p>`,
+  });
+}
+
 /**
  * Welcome email first, owner alert best-effort after — same ordering as the
  * cron fallback. Returns true only if Zoho accepted the welcome (caller
