@@ -81,11 +81,35 @@ for the production rollout record for PR #109.
 
 ## Public discovery files and checks
 
-The portfolio publishes `llms.txt` and an ARD manifest at
+The portfolio publishes `llms.txt` and an AI Catalog manifest at
 `/.well-known/ard.json`. The Worker also serves `/ai-catalog.json` and the
-legacy `/.well-known/ai-catalog.json` path from that same manifest. These
-files describe public pages; they do not override the crawler and content-use
-rules in `robots.txt` or the Worker’s AI-crawler restrictions.
+legacy `/.well-known/ai-catalog.json` path from that same manifest, with the
+specification's `application/ai-catalog+json` media type. These files describe
+public pages; they do not override the crawler and content-use rules in
+`robots.txt` or the Worker’s AI-crawler restrictions.
+
+## Turnstile gate and crawler policy
+
+The Worker shows a `noindex, nofollow` Turnstile interstitial to any HTML
+request without a valid verification cookie. Crawlers that must read the real
+document therefore have to bypass it; the policy lives in `src/crawlers.ts` as a
+pure `classifyCrawler()` function returning `block`, `serve` or `gate`.
+
+Keep the following in mind when editing it:
+
+- Search engines, link unfurlers, and the AI answer engines `robots.txt`
+  explicitly allows (`OAI-SearchBot`, `DuckAssistBot`) are served the document.
+  Refusing a bot that `robots.txt` allows is a contradiction, not a hardening.
+- Lighthouse and PageSpeed Insights are served the document. Otherwise the
+  measurement renders the `noindex` interstitial and the SEO category fails
+  "Page is blocked from indexing".
+- Training crawlers keep returning `403`.
+- Training patterns are matched before search patterns, so `Applebot-Extended`
+  is not read as `Applebot`.
+- Never remove the `noindex` from the gate itself; bypass the gate instead.
+
+See [SEO and Agentic Discovery](../seo-and-agentic-discovery.md) for the full
+diagnosis, verification record, and the trade-offs of user-agent allowlisting.
 
 Pull requests run a high-severity dependency audit, typecheck, workspace
 builds, security tests, and documentation build in

@@ -1,3 +1,4 @@
+import { classifyCrawler } from "./crawlers";
 import {
   ownerNotifyEmails,
   sendEmailChangeConfirmation,
@@ -1135,7 +1136,18 @@ export default {
       aliasedAssetPath
     ) {
       if (aliasedAssetPath) {
-        return env.ASSETS.fetch(new Request(new URL(aliasedAssetPath, url), request));
+        const asset = await env.ASSETS.fetch(
+          new Request(new URL(aliasedAssetPath, url), request),
+        );
+        // The AI Catalog specification asks for its own media type, not the
+        // generic application/json a static .json asset would carry.
+        const headers = new Headers(asset.headers);
+        headers.set("Content-Type", "application/ai-catalog+json; charset=utf-8");
+        return new Response(asset.body, {
+          status: asset.status,
+          statusText: asset.statusText,
+          headers,
+        });
       }
       return env.ASSETS.fetch(request);
     }
@@ -1151,21 +1163,17 @@ export default {
       return withLocaleHtml(addSecurityHeaders(response, url.hostname), url.hostname);
     }
 
+    // The gate carries `noindex, nofollow`, so every crawler that must read the
+    // real document has to skip it. Classification lives in ./crawlers so the
+    // policy is unit-testable without a Worker runtime.
     const ua = request.headers.get("User-Agent") || "";
+    const verdict = classifyCrawler(ua);
 
-    const AI_BOT_PATTERN = /gptbot|chatgpt-user|claudebot|claude-ai|anthropic|perplexitybot|bytespider|ccbot|applebot-extended|meta-externalagent|facebookbot|omgili|semrushbot|ahrefsbot|dotbot|yandexbot|dataforseo|petalbot|seekportbot|zoominfobot|bytedance|googleother|youbot|diffbot|cohere-ai|ai2bot|pangubot|perplexity-user|imagesiftbot|archive\.org_bot|ia_archiver|wayback|qwen|baiduspider|sogou|duckassistbot|timpibot|panscient|mj12bot|seznam|piplbot|webzio|google-extended|oai-searchbot|amazonbot/i;
-    if (AI_BOT_PATTERN.test(ua)) {
+    if (verdict === "block") {
       return new Response(null, { status: 403, statusText: "Forbidden" });
     }
 
-    const SEARCH_BOT_PATTERN = /googlebot|bingbot|duckduckbot|bravesearchbot|slurp|applebot/i;
-    if (SEARCH_BOT_PATTERN.test(ua)) {
-      const response = await env.ASSETS.fetch(request);
-      return withLocaleHtml(addSecurityHeaders(response, url.hostname), url.hostname);
-    }
-
-    const SOCIAL_BOT_PATTERN = /facebookexternalhit|twitterbot|linkedinbot|discordbot|telegrambot|whatsapp|slackbot/i;
-    if (SOCIAL_BOT_PATTERN.test(ua)) {
+    if (verdict === "serve") {
       const response = await env.ASSETS.fetch(request);
       return withLocaleHtml(addSecurityHeaders(response, url.hostname), url.hostname);
     }

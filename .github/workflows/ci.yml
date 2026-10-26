@@ -40,8 +40,8 @@ jobs:
       - name: Build and typecheck
         run: pnpm run build
 
-      - name: Run security tests
-        run: node --test src/security.test.mjs src/discovery.test.mjs
+      - name: Run security and discovery tests
+        run: node --test src/security.test.mjs src/discovery.test.mjs src/crawlability.test.mjs
 
       - name: Check Worker deployment bundle
         run: pnpm exec wrangler deploy --dry-run

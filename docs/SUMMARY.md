@@ -35,6 +35,7 @@
 * [Cloudflare Workers](deployment/workers.md)
 * [Wrangler Configuration](deployment/wrangler.md)
 * [Production Checklist](deployment/checklist.md)
+* [SEO and Agentic Discovery](seo-and-agentic-discovery.md)
 
 ## Reference
 
