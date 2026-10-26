@@ -141,6 +141,25 @@ function escapeHtml(value: string): string {
   });
 }
 
+function formatIndiaTimestamp(timestamp: string): string {
+  const date = new Date(timestamp);
+  const parts = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h12",
+  }).formatToParts(date);
+  const part = (type: Intl.DateTimeFormatPartTypes): string => {
+    const value = parts.find((item) => item.type === type)?.value;
+    if (!value) throw new Error(`Missing timestamp part: ${type}`);
+    return value;
+  };
+  return `${part("day")}-${part("month")}-${part("year")} ${part("hour")}:${part("minute")} ${part("dayPeriod").toUpperCase()} IST`;
+}
+
 type OutgoingMail = {
   fromName: string;
   to: string[];
@@ -371,9 +390,10 @@ export async function sendWelcomeAndAlert(
 
   if (args.ownerEmails.length === 0) return;
   const displayName = args.firstName || "(not provided)";
+  const subscribedAt = formatIndiaTimestamp(args.subscribedAt);
   const ownerText =
     `A new subscriber joined the newsletter.\n\n` +
-    `Name: ${displayName}\nEmail: ${args.email}\nLanguage: ${args.language}\nSubscribed: ${args.subscribedAt}`;
+    `Name: ${displayName}\nEmail: ${args.email}\nLanguage: ${args.language}\nSubscribed: ${subscribedAt}`;
   try {
     await sendSmtpMail(args.smtp, {
       fromName: "Lingadevaru Newsletter",
@@ -385,7 +405,7 @@ export async function sendWelcomeAndAlert(
         `<ul><li>Name: ${escapeHtml(displayName)}</li>` +
         `<li>Email: ${escapeHtml(args.email)}</li>` +
         `<li>Language: ${escapeHtml(args.language)}</li>` +
-        `<li>Subscribed: ${escapeHtml(args.subscribedAt)}</li></ul>`,
+        `<li>Subscribed: ${escapeHtml(subscribedAt)}</li></ul>`,
     });
   } catch {
     // Owner alert is best-effort: the subscriber is still marked sent.
