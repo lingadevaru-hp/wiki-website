@@ -123,7 +123,9 @@ export default function NewsletterSection({
   const [storedName, setStoredName] = useState(() => readStr(NAME_KEY));
   // 'new' doubles as the already-subscribed choice screen for returners.
   const [mode, setMode] = useState<"new" | "edit" | "again">("new");
-  const [ackKind, setAckKind] = useState<"new" | "edited" | "again">("new");
+  const [ackKind, setAckKind] = useState<
+    "new" | "edited" | "again" | "emailChangePending"
+  >("new");
   const [viewAck, setViewAck] = useState(false);
   const [dismissed, setDismissed] = useState(() => readFlag(DISMISSED_KEY));
 
@@ -259,16 +261,32 @@ export default function NewsletterSection({
           edited?: boolean;
           resubscribed?: boolean;
           duplicate?: boolean;
+          emailChangePending?: boolean;
+          emailChangeCooldown?: boolean;
         } | null;
         if (response.status === 404) {
           setError(t("newsletter.notFound"));
           posthog.capture("newsletter_submit_failed", { locale });
           return;
         }
+        if (data?.emailChangeCooldown) {
+          setError(t("newsletter.emailChangeCooldown"));
+          return;
+        }
         if (!response.ok) throw new Error("Newsletter signup failed");
         if (data?.duplicate) {
           setError(t("newsletter.duplicate"));
           posthog.capture("newsletter_submit_failed", { locale });
+          return;
+        }
+        if (data?.emailChangePending) {
+          setAckKind("emailChangePending");
+          setViewAck(true);
+          try {
+            posthog.capture("newsletter_email_change_requested", { locale });
+          } catch {
+            /* tracker blocked — confirmation request already sent */
+          }
           return;
         }
 
@@ -361,14 +379,18 @@ export default function NewsletterSection({
                       ? t("newsletter.editedAckTitle")
                       : ackKind === "again"
                         ? t("newsletter.againAckTitle")
-                        : t("newsletter.ackTitle")}
+                        : ackKind === "emailChangePending"
+                          ? t("newsletter.emailChangePendingTitle")
+                          : t("newsletter.ackTitle")}
                   </h3>
                   <p>
                     {ackKind === "edited"
                       ? t("newsletter.editedAckBody")
                       : ackKind === "again"
                         ? t("newsletter.againAckBody")
-                        : t("newsletter.ackBody")}
+                        : ackKind === "emailChangePending"
+                          ? t("newsletter.emailChangePendingBody")
+                          : t("newsletter.ackBody")}
                   </p>
                 </div>
               ) : done && mode === "new" && storedEmail ? (

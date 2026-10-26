@@ -5,6 +5,7 @@ import {
   createCspNonce,
   createVerificationCookie,
   escapeHtmlAttribute,
+  hashEmailChangeToken,
   isVerificationCookieValid,
   safeLocalReturnTo,
 } from "./security.ts";
@@ -36,6 +37,15 @@ test("HTML attribute values are escaped", () => {
     escapeHtmlAttribute(`"><script>alert(1)</script>&'`),
     "&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;&amp;&#39;",
   );
+});
+
+test("email-change token hashes are stable and do not reveal the token", async () => {
+  const token = "9b7075e4-47b0-4092-a151-00cd12489d9d";
+  const firstHash = await hashEmailChangeToken(token);
+
+  assert.equal(await hashEmailChangeToken(token), firstHash);
+  assert.match(firstHash, /^[A-Za-z0-9_-]{43}$/);
+  assert.notEqual(firstHash, token);
 });
 
 test("verification cookie is signed and expires within its lifetime", async () => {
