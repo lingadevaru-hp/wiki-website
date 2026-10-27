@@ -94,11 +94,15 @@ test("non-landing routes load on demand", () => {
   assert.doesNotMatch(app, /import ArticlePage from/);
 });
 
-test("analytics libraries load only after user interaction", () => {
+test("analytics starts immediately and records pageviews without waiting for interaction", () => {
   assert.doesNotMatch(posthog, /^import posthog from/m);
   assert.match(posthog, /import\("posthog-js"\)/);
-  assert.match(posthog, /addEventListener\("pointerdown", loadAfterInteraction/);
-  assert.match(posthog, /addEventListener\("keydown", loadAfterInteraction/);
+  assert.match(posthog, /void import\("posthog-js"\)/);
+  assert.doesNotMatch(posthog, /addEventListener\("(?:pointerdown|keydown)"/);
+  assert.match(posthog, /capturePostHog\(/);
+  const clarity = readFileSync(new URL("src/lib/clarity.ts", root), "utf8");
+  assert.match(clarity, /document\.head\.appendChild\(script\)/);
+  assert.doesNotMatch(clarity, /addEventListener\("(?:pointerdown|keydown)"/);
   assert.doesNotMatch(html, /clarity\.ms\/tag/);
 });
 

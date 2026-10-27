@@ -1,7 +1,3 @@
-/**
- * Microsoft Clarity integration, started after the first real user interaction.
- */
-
 declare global {
   interface Window {
     clarity: (method: string, ...args: any[]) => void;
@@ -13,27 +9,20 @@ let initialized = false;
 export function initClarity() {
   if (initialized || typeof window === "undefined") return;
 
-  const loadAfterInteraction = () => {
-    if (initialized) return;
-    initialized = true;
-    const clarity = ((method: string, ...args: any[]) => {
-      clarity.q.push([method, ...args]);
-    }) as Window["clarity"] & { q: unknown[][] };
-    clarity.q = [];
-    window.clarity = clarity;
-    clarity("consent");
+  const clarity = ((...args: any[]) => {
+    clarity.q.push(args);
+  }) as Window["clarity"] & { q: unknown[][] };
+  clarity.q = [];
+  window.clarity = clarity;
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.clarity.ms/tag/sqliaml0ju";
-    document.head.appendChild(script);
-  };
-
-  window.addEventListener("pointerdown", loadAfterInteraction, {
-    once: true,
-    passive: true,
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.clarity.ms/tag/sqliaml0ju";
+  script.addEventListener("error", () => {
+    console.error("Microsoft Clarity failed to load.");
   });
-  window.addEventListener("keydown", loadAfterInteraction, { once: true });
+  document.head.appendChild(script);
+  initialized = true;
 }
 
 export function trackEvent(name: string, properties: Record<string, any> = {}) {
