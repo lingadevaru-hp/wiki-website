@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useLocale } from "../contexts/LocaleContext";
-import { posthog } from "../lib/posthog";
+import { capturePostHog } from "../lib/posthog";
 import { trackEvent, trackNewsletterSignup } from "../lib/clarity";
 
 const DISMISSED_KEY = "newsletter-dismissed";
@@ -177,7 +177,7 @@ export default function NewsletterSection({
       reduceMotion ? 300 : 2500,
     );
     try {
-      posthog.capture("newsletter_open", { locale });
+      capturePostHog("newsletter_open", { locale });
     } catch {
       /* tracker blocked — form still opens */
     }
@@ -266,7 +266,7 @@ export default function NewsletterSection({
         } | null;
         if (response.status === 404) {
           setError(t("newsletter.notFound"));
-          posthog.capture("newsletter_submit_failed", { locale });
+          capturePostHog("newsletter_submit_failed", { locale });
           return;
         }
         if (data?.emailChangeCooldown) {
@@ -276,14 +276,14 @@ export default function NewsletterSection({
         if (!response.ok) throw new Error("Newsletter signup failed");
         if (data?.duplicate) {
           setError(t("newsletter.duplicate"));
-          posthog.capture("newsletter_submit_failed", { locale });
+          capturePostHog("newsletter_submit_failed", { locale });
           return;
         }
         if (data?.emailChangePending) {
           setAckKind("emailChangePending");
           setViewAck(true);
           try {
-            posthog.capture("newsletter_email_change_requested", { locale });
+            capturePostHog("newsletter_email_change_requested", { locale });
           } catch {
             /* tracker blocked — confirmation request already sent */
           }
@@ -304,13 +304,13 @@ export default function NewsletterSection({
         writeFlag(SUBSCRIBED_KEY);
         writeStr(EMAIL_KEY, address);
         writeStr(NAME_KEY, name);
-        posthog.capture("newsletter_submit_success", { locale, kind });
+        capturePostHog("newsletter_submit_success", { locale, kind });
         trackNewsletterSignup("portfolio-newsletter", address);
         trackEvent("newsletter_submit_success", { locale, kind });
       } catch {
         setError(t("newsletter.submitFailed"));
         try {
-          posthog.capture("newsletter_submit_failed", { locale });
+          capturePostHog("newsletter_submit_failed", { locale });
         } catch {
           /* tracker blocked — error already shown */
         }

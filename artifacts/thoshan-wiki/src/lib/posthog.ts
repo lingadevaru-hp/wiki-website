@@ -1,29 +1,59 @@
-import posthog from "posthog-js";
 import { detectLocale } from "../i18n/supportedLocales";
 
-let initialized = false;
+type PostHogClient = typeof import("posthog-js").default;
+type EventProperties = Record<string, string | number | boolean | null | undefined>;
+
+const key = import.meta.env.VITE_POSTHOG_KEY as string | undefined;
+const queuedEvents: Array<[string, EventProperties | undefined]> = [];
+let client: PostHogClient | null = null;
+let scheduled = false;
 
 export function initPostHog() {
-  if (initialized) return;
-  const key = import.meta.env.VITE_POSTHOG_KEY as string | undefined;
-  if (!key) return; // analytics disabled without key
-  posthog.init(key, {
-    api_host: "https://eu.i.posthog.com",
-    autocapture: true,
-    capture_pageview: false, // manual SPA pageviews (see Router in App.tsx)
-    capture_pageleave: true,
-    persistence: "localStorage+cookie",
-    // Share the cookie across *.lingadevaru.in so a visitor moving
-    // between language subdomains keeps one identity/session.
-    cross_subdomain_cookie: true,
-    session_recording: {
-      recordCrossOriginIframes: false,
-    },
+  if (scheduled || !key || typeof window === "undefined") return;
+  scheduled = true;
+
+  const loadAfterInteraction = () => {
+    void import("posthog-js")
+      .then(({ default: posthog }) => {
+        posthog.init(key, {
+          api_host: "https://eu.i.posthog.com",
+          autocapture: true,
+          capture_pageview: false,
+          capture_pageleave: true,
+          persistence: "localStorage+cookie",
+          cross_subdomain_cookie: true,
+          session_recording: {
+            recordCrossOriginIframes: false,
+          },
+        });
+        client = posthog;
+        for (const [event, properties] of queuedEvents) {
+          client.capture(event, properties);
+        }
+        queuedEvents.length = 0;
+      })
+      .catch((error: unknown) => {
+        console.error("PostHog initialization failed:", error);
+      });
+  };
+  window.addEventListener("pointerdown", loadAfterInteraction, {
+    once: true,
+    passive: true,
   });
-  initialized = true;
+  window.addEventListener("keydown", loadAfterInteraction, { once: true });
 }
 
-export { posthog };
+export function capturePostHog(
+  event: string,
+  properties?: EventProperties,
+) {
+  if (!key) return;
+  if (client) {
+    client.capture(event, properties);
+  } else {
+    queuedEvents.push([event, properties]);
+  }
+}
 
 /** Locale + host props attached to every $pageview for per-language breakdowns. */
 export function pageviewProps() {

@@ -724,7 +724,7 @@ export default function ArticleView({ article }: { article: Article }) {
               <video
                 ref={fossVideoRef}
                 src={FOSS_COIN_VIDEO_SRC}
-                poster="/assets/foss-coin-poster.jpg"
+                poster="/assets/foss-coin-poster.webp"
                 autoPlay
                 loop
                 muted={fossMuted}

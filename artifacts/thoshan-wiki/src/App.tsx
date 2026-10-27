@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { lazy, Suspense, useState, useEffect, useRef } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { SearchProvider, useSearch } from "./contexts/SearchContext";
 import { ChatPanelProvider } from "./contexts/ChatPanelContext";
-import { posthog, pageviewProps } from "./lib/posthog";
+import { capturePostHog, pageviewProps } from "./lib/posthog";
 import { LocaleProvider } from "./contexts/LocaleContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalSearch from "./components/GlobalSearch";
@@ -20,16 +20,21 @@ import { OPEN_PALETTE_EVENT } from "./lib/command-menu";
 import { music } from "./lib/music";
 import { TextSelectionCopy } from "./components/TextSelectionCopy";
 import LandingPage from "./pages/LandingPage";
-import HomePage from "./pages/HomePage";
-import ArticlePage from "./pages/ArticlePage";
-import SearchPage from "./pages/SearchPage";
-import ArticlesPage from "./pages/ArticlesPage";
-import {
-  AchievementsPage,
-  NewsPage,
-  ProjectsPage,
-} from "./pages/Collections";
-import NotFoundPage from "./pages/NotFoundPage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ArticlePage = lazy(() => import("./pages/ArticlePage"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
+const ArticlesPage = lazy(() => import("./pages/ArticlesPage"));
+const AchievementsPage = lazy(async () => ({
+  default: (await import("./pages/Collections")).AchievementsPage,
+}));
+const NewsPage = lazy(async () => ({
+  default: (await import("./pages/Collections")).NewsPage,
+}));
+const ProjectsPage = lazy(async () => ({
+  default: (await import("./pages/Collections")).ProjectsPage,
+}));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -64,18 +69,20 @@ function RouteTransition() {
 
   return (
     <div className={`route-transition route-transition--${transitionStage}`}>
-      <Switch>
-        <Route path="/" component={LandingPage} />
-        <Route path="/wiki/home" component={HomePage} />
-        <Route path="/wiki/search" component={SearchPage} />
-        <Route path="/wiki/articles" component={ArticlesPage} />
-        <Route path="/projects" component={ProjectsPage} />
-        <Route path="/achievements" component={AchievementsPage} />
-        <Route path="/news" component={NewsPage} />
-        <Route path="/events" component={NewsPage} />
-        <Route path="/wiki/:slug" component={ArticlePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Suspense fallback={null}>
+        <Switch>
+          <Route path="/" component={LandingPage} />
+          <Route path="/wiki/home" component={HomePage} />
+          <Route path="/wiki/search" component={SearchPage} />
+          <Route path="/wiki/articles" component={ArticlesPage} />
+          <Route path="/projects" component={ProjectsPage} />
+          <Route path="/achievements" component={AchievementsPage} />
+          <Route path="/news" component={NewsPage} />
+          <Route path="/events" component={NewsPage} />
+          <Route path="/wiki/:slug" component={ArticlePage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Suspense>
     </div>
   );
 }
@@ -83,7 +90,7 @@ function RouteTransition() {
 function Router() {
   const [location] = useLocation();
   useEffect(() => {
-    posthog.capture("$pageview", pageviewProps());
+    capturePostHog("$pageview", pageviewProps());
   }, [location]);
   return <RouteTransition />;
 }

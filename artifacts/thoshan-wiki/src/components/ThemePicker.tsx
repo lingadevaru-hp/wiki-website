@@ -210,22 +210,6 @@ export function ThemePicker() {
     }
   }, [])
   useEffect(() => {
-    let cancelled = false
-    // Some WebViews lack requestIdleCallback; retain a timeout fallback.
-    const idle =
-      (window as { requestIdleCallback?: (cb: () => void) => void })
-        .requestIdleCallback ??
-      ((cb: () => void) => window.setTimeout(cb, 1500))
-    idle(() => {
-      if (cancelled) return
-      const at = SITE_THEMES.findIndex((t) => t.id === readTheme())
-      warmAround(at >= 0 ? at : 0)
-    })
-    return () => {
-      cancelled = true
-    }
-  }, [warmAround])
-  useEffect(() => {
     if (open) warmAround(index)
   }, [open, index, warmAround])
 
