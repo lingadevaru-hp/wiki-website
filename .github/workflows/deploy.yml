@@ -57,7 +57,7 @@ jobs:
         run: pnpm run build
 
       - name: Run security and discovery tests
-        run: node --test src/security.test.mjs src/discovery.test.mjs src/crawlability.test.mjs
+        run: node --test src/security.test.mjs src/discovery.test.mjs src/crawlability.test.mjs src/payload.test.mjs
 
       - name: Confirm the deploy bundle is valid
         run: pnpm exec wrangler deploy --dry-run
