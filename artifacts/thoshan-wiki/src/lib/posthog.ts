@@ -12,35 +12,29 @@ export function initPostHog() {
   if (scheduled || !key || typeof window === "undefined") return;
   scheduled = true;
 
-  const loadAfterInteraction = () => {
-    void import("posthog-js")
-      .then(({ default: posthog }) => {
-        posthog.init(key, {
-          api_host: "https://eu.i.posthog.com",
-          autocapture: true,
-          capture_pageview: false,
-          capture_pageleave: true,
-          persistence: "localStorage+cookie",
-          cross_subdomain_cookie: true,
-          session_recording: {
-            recordCrossOriginIframes: false,
-          },
-        });
-        client = posthog;
-        for (const [event, properties] of queuedEvents) {
-          client.capture(event, properties);
-        }
-        queuedEvents.length = 0;
-      })
-      .catch((error: unknown) => {
-        console.error("PostHog initialization failed:", error);
+  void import("posthog-js")
+    .then(({ default: posthog }) => {
+      posthog.init(key, {
+        api_host: "https://eu.i.posthog.com",
+        autocapture: true,
+        capture_pageview: false,
+        capture_pageleave: true,
+        persistence: "localStorage+cookie",
+        cross_subdomain_cookie: true,
+        session_recording: {
+          recordCrossOriginIframes: false,
+        },
       });
-  };
-  window.addEventListener("pointerdown", loadAfterInteraction, {
-    once: true,
-    passive: true,
-  });
-  window.addEventListener("keydown", loadAfterInteraction, { once: true });
+      client = posthog;
+      for (const [event, properties] of queuedEvents) {
+        client.capture(event, properties);
+      }
+      queuedEvents.length = 0;
+    })
+    .catch((error: unknown) => {
+      scheduled = false;
+      console.error("PostHog initialization failed:", error);
+    });
 }
 
 export function capturePostHog(
