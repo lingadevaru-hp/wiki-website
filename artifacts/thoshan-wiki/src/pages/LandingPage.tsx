@@ -74,13 +74,15 @@ export default function LandingPage() {
             onClick={() => setLocation("/wiki/foss-coin")}
             aria-label={t("landing.featuredOpen")}
           >
-            <img
-              src="/assets/foss-coin-poster.webp"
-              width="640"
-              height="360"
-              loading="lazy"
-              decoding="async"
-              alt=""
+            <video
+              src="/assets/foss-coin-loop.mp4"
+              poster="/assets/foss-coin-poster.webp"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-label={t("landing.featuredOpen")}
             />
             <span className="foss-capture-overlay" aria-hidden="true">
               {t("landing.featuredOpen")}
