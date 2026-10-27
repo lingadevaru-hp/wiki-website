@@ -12,9 +12,15 @@ type Props = {
   onGlyphPress?: () => void
 }
 
-function usePixelField() {
+function usePixelField(skipOnSmallScreens = false) {
   const [Field, setField] = useState<Field | null>(null)
   useEffect(() => {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      (skipOnSmallScreens && window.matchMedia('(max-width: 720px)').matches)
+    ) {
+      return
+    }
     let cancelled = false
     void import('./HeroPixelField').then((mod) => {
       if (!cancelled) setField(() => mod.HeroPixelField)
@@ -22,13 +28,13 @@ function usePixelField() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [skipOnSmallScreens])
   return Field
 }
 
 /** The canvas and wordmark share a grid. The host must have a measurable size. */
 export function HeroShader({ onPainted, glyph, onGlyphPress }: Props) {
-  const Field = usePixelField()
+  const Field = usePixelField(true)
   return (
     <div
       aria-hidden="true"
