@@ -36,17 +36,19 @@ const htmlWithoutNoscript = html
   .map((char, index) => (insideNoscript(index) ? "" : char))
   .join("");
 
-test("the homepage capture stays a lazy image instead of fetching the 8.8 MB video", () => {
-  assert.doesNotMatch(landing, /foss-coin-loop\.mp4/);
-  assert.doesNotMatch(landing, /<video\b/);
-  assert.match(
-    landing,
-    /<img[\s\S]*?src="\/assets\/foss-coin-poster\.webp"[\s\S]*?loading="lazy"/,
-  );
+test("the homepage featured video autoplays muted and loops", () => {
+  const video = landing.match(/<video[\s\S]*?\/>/)?.[0];
+  assert.ok(video, "featured video not found in LandingPage.tsx");
+  assert.match(video, /src="\/assets\/foss-coin-loop\.mp4"/);
+  assert.match(video, /poster="\/assets\/foss-coin-poster\.webp"/);
+  assert.match(video, /autoPlay/);
+  assert.match(video, /loop/);
+  assert.match(video, /muted/);
+  assert.match(video, /playsInline/);
+  assert.match(video, /preload="auto"/);
 });
 
-test("the homepage does not preload below-the-fold media", () => {
-  assert.doesNotMatch(htmlWithoutNoscript, /foss-coin-poster/);
+test("the landing video poster stays optimized and the hero remains discoverable", () => {
   assert.ok(statSync(poster).size < 50_000, "poster should stay under 50 KB");
   assert.match(
     htmlWithoutNoscript,
