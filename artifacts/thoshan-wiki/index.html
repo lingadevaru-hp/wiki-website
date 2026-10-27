@@ -94,21 +94,35 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- These are third-party stylesheets, so a plain rel="stylesheet" makes
+         them render-blocking: FCP waits on fonts.googleapis.com. Load them as
+         preload and promote to stylesheet once fetched instead. Every family
+         uses display=swap, so text paints in the fallback face immediately and
+         swaps when the webfont arrives. A no-JS fallback keeps the page styled. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
     <!-- Stage 4 Kannada: Noto Sans/Serif Kannada, display=swap so EN pages pay nothing until KN glyphs render -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Serif+Kannada:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Serif+Kannada:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
     <!-- Handwritten accent for featured-project tagline -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Serif+Kannada:wght@500;600;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" />
+    </noscript>
 
     <!-- Article thumbnails -->
     <link rel="preconnect" href="https://picsum.photos" />
     <link rel="dns-prefetch" href="https://picsum.photos" />
 
-    <!-- Preload FOSS Coin logo -->
+    <!-- Preload the featured-project poster: it is the LCP image on the landing
+         page and the video's poster frame until playback starts. -->
     <link rel="preload" as="image" href="/assets/foss-coin-poster.jpg" fetchpriority="high" />
 
-    <!-- Preload FOSS Coin loop video so it plays on first paint, not after the JS bundle -->
-    <link rel="preload" as="video" type="video/mp4" href="/assets/foss-coin-loop.mp4" />
+    <!-- The featured-project loop is ~8.8 MB. It is deliberately NOT preloaded
+         and the <video> starts with preload="none"; LandingPage attaches the
+         source after window load. Preloading it competed with the poster, the
+         stylesheet and the fonts on Slow 4G and pushed mobile FCP to 4.2 s and
+         LCP to 7.2 s. Do not add a preload back here. -->
 
     <!-- Microsoft Clarity Analytics -->
     <script type="text/javascript">
