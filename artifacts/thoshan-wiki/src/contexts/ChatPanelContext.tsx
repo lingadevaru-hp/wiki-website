@@ -14,6 +14,7 @@ import {
   CHAT_WIDTH_KEY,
   CHAT_COLLAPSED_KEY,
   CHAT_PANEL_DEFAULT_WIDTH,
+  CHAT_URL, // single source of truth — keep the postMessage target in sync
   TOGGLE_CHAT_EVENT,
   clampPanelWidth,
 } from "../lib/chat-panel";
@@ -266,7 +267,7 @@ export function ChatPanelProvider({ children }: { children: ReactNode }) {
     try {
       iframeRef.current?.contentWindow?.postMessage(
         { type: "thoshan-theme", id: theme },
-        "https://chat.lingadevaru.in",
+        CHAT_URL,
       );
     } catch {
       /* iframe not ready */

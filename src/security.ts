@@ -119,7 +119,10 @@ export function buildContentSecurityPolicy(nonce: string): string {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data: https://fonts.gstatic.com",
-    "connect-src 'self' https://challenges.cloudflare.com https://eu.i.posthog.com https://*.i.posthog.com https://www.clarity.ms https://*.clarity.ms https://chat.lingadevaru.in wss://chat.lingadevaru.in",
+    // The chat iframe (frame-src) has its own origin policy; this entry
+    // is for direct fetches to the chat API from this page (e.g. health
+    // probes). No websocket — the chat app streams over plain HTTP.
+    "connect-src 'self' https://challenges.cloudflare.com https://eu.i.posthog.com https://*.i.posthog.com https://www.clarity.ms https://*.clarity.ms https://ai.lingadevaru.in",
     "frame-src https: blob:",
     "frame-ancestors 'self' https://lingadevaru.in https://*.lingadevaru.in",
     "worker-src 'self' blob:",
