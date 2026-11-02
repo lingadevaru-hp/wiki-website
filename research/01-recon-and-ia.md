@@ -29,7 +29,7 @@
 | 4 | ArticlePage | `/wiki/:slug` | TOC, progress %, action row, infobox, Read Next, prev/next |
 | 5 | SearchPage | `/search` | full-text + skeleton/empty |
 | 6 | NotFoundPage | `404` | recovery |
-| 7 | Overlays | global | WikiHeader(z-50 blur), CommandMenu, GlobalSearch, ShortcutsModal, LanguageSwitcher, ThemePicker(22), MediaViewer, TOC, AudioReader(+mini pill), ChatPanel (iframe `chat.lingadevaru.in?embed=1`, never-unmount, theme-sync postMessage, resizable, `<1100px` collapse, `≤900px` bottom-sheet + `#chat` hash), TextSelectionCopy, Newsletter, SEO |
+| 7 | Overlays | global | WikiHeader(z-50 blur), CommandMenu, GlobalSearch, ShortcutsModal, LanguageSwitcher, ThemePicker(22), MediaViewer, TOC, AudioReader(+mini pill), ChatPanel (iframe `ai.lingadevaru.in?embed=1`, never-unmount, theme-sync postMessage, resizable, `<1100px` collapse, `≤900px` bottom-sheet + `#chat` hash), TextSelectionCopy, Newsletter, SEO |
 | 8 | i18n | `*.lingadevaru.in` | 8 locales en/kn/hi/ja/ml/ta/te/gu, `t(key)` + en fallback, NEW-TAB locale switch |
 
 Taps to key actions (target ≤2): search 1 (`/` or `Ctrl+K`), chat 1, article→Read Next 1, theme 2, language 2 (new tab — keep, low frequency).

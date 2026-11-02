@@ -8491,7 +8491,7 @@ a:hover {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CHAT SLIDE-OVER PANEL — embeds chat.lingadevaru.in?embed=1.
+   CHAT SLIDE-OVER PANEL — embeds ai.lingadevaru.in?embed=1.
    Desktop: squeeze layout (content yields beside the panel).
    Mobile (<=900px): cover bottom sheet with snap + keyboard lift.
    The iframe mounts once and is never unmounted: toggles are

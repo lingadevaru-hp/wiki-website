@@ -10,7 +10,7 @@
 - Theme-color: static `#0d1117` + dynamic `paintChrome()` sampling on scroll/resize — keep pattern, extend per-theme.
 - Touch: base 44px, mobile 48px, sheet handle 54px; counter-examples 30/35px chips — audit to 48dp.
 - Perf proxy: heavy deps (Radix ×20, framer-motion, recharts, embla, query, posthog, tailwind) + Google fonts + poster/mp4 preloads; NO manualChunks/visualizer; NO lighthouse/web-vitals config. Expect large JS — verify with production build + `du -sh dist`.
-- Chat embed: iframe `chat.lingadevaru.in?embed=1`, never-unmount, postMessage theme sync, detents 0.6/0.9vh + drag handle + backdrop.
+- Chat embed: iframe `ai.lingadevaru.in?embed=1`, never-unmount, postMessage theme sync, detents 0.6/0.9vh + drag handle + backdrop.
 
 ## Chat (`thoshan-chat/src/worker.ts` single file)
 
