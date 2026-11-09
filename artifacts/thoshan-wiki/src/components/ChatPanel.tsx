@@ -197,6 +197,10 @@ export default function ChatPanel() {
 
   // Mobile sheet: drag handle with snap points (pointer capture, same as desktop).
   const onSheetDragStart = useCallback((e: React.PointerEvent<HTMLElement>) => {
+    // The header is now the drag surface: never steal a press meant for a
+    // button, and leave desktop alone (it resizes from the left edge).
+    if ((e.target as HTMLElement).closest("button")) return;
+    if (window.matchMedia("(min-width: 901px)").matches) return;
     e.preventDefault();
     const panel = panelRef.current;
     if (!panel) return;
@@ -370,6 +374,23 @@ export default function ChatPanel() {
         aria-hidden="true"
         onClick={() => setOpen(false)}
       />
+      <button
+        type="button"
+        className={`chat-pill${open ? " is-open" : ""}`}
+        aria-label={t("chat.title")}
+        aria-expanded={open}
+        onClick={() => setOpen(true)}
+        data-testid="chat-pill"
+      >
+        <ThoshanWordmark className="chat-pill-logo" />
+        <span className="chat-pill-txt">
+          <span className="chat-pill-t1">{t("chat.title")}</span>
+          <span className="chat-pill-t2">ai.lingadevaru.in</span>
+        </span>
+        <span className="chat-pill-chev" aria-hidden="true">
+          <ChevronUp size={16} />
+        </span>
+      </button>
       <aside
         ref={panelRef as React.RefObject<HTMLElement>}
         className={`chat-panel${open ? " is-open" : ""}`}
@@ -394,19 +415,22 @@ export default function ChatPanel() {
           onPointerCancel={onResizeCancel}
           onKeyDown={onResizeKey}
         />
-        <button
-          type="button"
-          className="chat-sheet-handle"
-          aria-label={t("chat.sheetToggle")}
+        <header
+          className="chat-panel-header"
           onPointerDown={onSheetDragStart}
           onPointerMove={onSheetDragMove}
           onPointerUp={onSheetDragEnd}
           onPointerCancel={onSheetDragCancel}
-          onClick={onSheetHandleTap}
         >
-          <span aria-hidden="true" />
-        </button>
-        <header className="chat-panel-header">
+          <button
+            type="button"
+            className="chat-sheet-handle"
+            aria-label={t("chat.sheetToggle")}
+            onClick={onSheetHandleTap}
+            data-testid="chat-grabber"
+          >
+            <span aria-hidden="true" />
+          </button>
           <span
             className="chat-wordmark"
             role="img"
@@ -415,6 +439,9 @@ export default function ChatPanel() {
             data-testid="chat-wordmark"
           >
             <ThoshanWordmark className="chat-wordmark-logo" />
+          </span>
+          <span className="chat-panel-title" aria-hidden="true">
+            {t("chat.title")}
           </span>
           <span className="chat-panel-actions">
             <button
