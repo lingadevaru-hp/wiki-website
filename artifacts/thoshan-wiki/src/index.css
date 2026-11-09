@@ -9588,3 +9588,197 @@ h3:lang(kn) {
     padding: 12px 20px;
   }
 }
+
+/* ================================================================
+   Chat panel — compact chrome
+   One bar carries the grabber, the wordmark, the label and the
+   actions. The separate 48px grabber row above it is gone, which is
+   ~48px of conversation returned on every phone.
+   ================================================================ */
+.chat-panel-header {
+  height: 48px;
+  padding: 0 8px 0 12px;
+  gap: 9px;
+  touch-action: none; /* the bar itself is the sheet's drag surface */
+}
+
+/* grabber, inline: 26x4 pill inside the bar, 48px tall hit area.
+   Desktop has no grabber — it resizes from the left edge instead. */
+.chat-sheet-handle { display: none; }
+.chat-sheet-handle:active { cursor: grabbing; }
+.chat-sheet-handle span {
+  width: 26px;
+  height: 4px;
+  border-radius: 99px;
+  background: hsl(var(--muted-foreground) / 0.45);
+  transition: background var(--duration-fast, 0.15s) ease, width 0.2s var(--ease-out, ease);
+}
+.chat-sheet-handle:active span,
+.chat-sheet-handle:hover span { background: hsl(var(--accent)); }
+.chat-sheet-handle:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
+}
+
+/* wordmark stays, at the size a 48px bar can carry */
+.chat-wordmark { padding: 0; margin: 0; }
+.chat-wordmark-logo { height: 18px; }
+
+/* the label fills what used to be empty bar */
+.chat-panel-title {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1 1 auto;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: hsl(var(--muted-foreground));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-panel-title::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  margin-right: 9px;
+  background: hsl(var(--border));
+  flex: 0 0 auto;
+}
+
+/* four actions read as one cluster instead of four floating icons */
+.chat-panel-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  padding: 2px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.35);
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+.chat-panel-actions .header-icon-button,
+body.chat-open .chat-panel-actions .header-icon-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  position: relative;
+}
+/* 44px pointer target on a 32px visual button */
+.chat-panel-actions .header-icon-button::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+.chat-panel-actions .header-icon-button:hover {
+  background: hsl(var(--accent) / 0.14);
+  color: hsl(var(--foreground));
+}
+
+@media (max-width: 900px) {
+  .chat-panel-header { height: 52px; padding-top: 0; }
+  .chat-sheet-handle {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 48px;
+    min-height: 0;
+    margin-left: -4px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    flex: 0 0 auto;
+    cursor: grab;
+    touch-action: none;
+  }
+  .chat-wordmark-logo { height: 16px; }
+  .chat-panel-title { font-size: 11.5px; }
+  /* the bar sits under the status bar on a phone */
+  .chat-panel-header { padding-top: env(safe-area-inset-top); }
+}
+@media (max-width: 380px) {
+  .chat-panel-title { display: none; }
+}
+
+/* ----------------------------------------------------------------
+   Closed state: the pill. The assistant is one tap away instead of
+   existing only while the sheet is open.
+   ---------------------------------------------------------------- */
+.chat-pill {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 85;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 9px 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 16px;
+  background: hsl(var(--card) / 0.92);
+  color: hsl(var(--foreground));
+  box-shadow: 0 18px 44px -18px rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.18s var(--ease-out, ease), border-color 0.16s ease, opacity 0.16s ease;
+}
+.chat-pill:hover { border-color: hsl(var(--accent) / 0.45); }
+.chat-pill:active { transform: scale(0.985); }
+.chat-pill:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
+.chat-pill.is-open { display: none; }
+.chat-pill-logo {
+  height: 16px;
+  flex: 0 0 auto;
+  color: hsl(var(--accent));
+}
+.chat-pill-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.chat-pill-t1 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-pill-t2 {
+  font-size: 10.5px;
+  color: hsl(var(--muted-foreground));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-pill-chev {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: hsl(var(--muted-foreground));
+}
+
+@media (max-width: 900px) {
+  .chat-pill {
+    left: auto;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    padding: 8px 10px;
+    border-radius: 14px;
+  }
+  .chat-pill-t2 { display: none; }
+  .chat-pill-t1 { font-size: 12.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-pill, .chat-sheet-handle span { transition: none; }
+}
