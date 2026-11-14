@@ -62,7 +62,13 @@ function readOpen(): boolean {
 
 function readWidth(): number {
   try {
-    return clampPanelWidth(Number(localStorage.getItem(CHAT_WIDTH_KEY)));
+    const stored = localStorage.getItem(CHAT_WIDTH_KEY);
+    const parsed = stored ? parseInt(stored, 10) : NaN;
+    if (isNaN(parsed)) return CHAT_PANEL_DEFAULT_WIDTH;
+    // Upgrade stale/narrow saved widths so the larger default takes effect.
+    // Users can still drag-resize after open; their new size will be saved.
+    const width = Math.max(parsed, CHAT_PANEL_DEFAULT_WIDTH);
+    return clampPanelWidth(width);
   } catch {
     return CHAT_PANEL_DEFAULT_WIDTH;
   }
