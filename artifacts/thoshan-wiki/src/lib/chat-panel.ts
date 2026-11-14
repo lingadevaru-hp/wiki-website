@@ -72,11 +72,11 @@ export const CHAT_OPEN_KEY = "wiki-chat-panel-open";
 export const CHAT_WIDTH_KEY = "wiki-chat-panel-width";
 export const CHAT_COLLAPSED_KEY = "wiki-chat-panel-collapsed";
 
-export const CHAT_PANEL_DEFAULT_WIDTH = 440;
+export const CHAT_PANEL_DEFAULT_WIDTH = 560;
 export const CHAT_PANEL_MIN_WIDTH = 320;
 /** Panel may grow to 70% of the viewport (site squeezes to 30%). */
 export function chatPanelMaxWidth(): number {
-  if (typeof window === "undefined") return 640;
+  if (typeof window === "undefined") return 800;
   return Math.max(CHAT_PANEL_MIN_WIDTH, Math.floor(window.innerWidth * 0.7));
 }
 
