@@ -8498,7 +8498,7 @@ a:hover {
    transform/visibility only, so the session survives everything.
    ═══════════════════════════════════════════════════════════════ */
 :root {
-  --chat-w: 560px;
+  --chat-w: 500px;
   /* Spring-ish settle for panel travel (fast off the mark, gentle landing). */
   --chat-spring: cubic-bezier(0.32, 0.72, 0, 1);
 }
