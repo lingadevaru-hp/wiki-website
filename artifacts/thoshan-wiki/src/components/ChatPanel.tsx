@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation } from "wouter";
 import {
   ChevronsLeft,
   ChevronsRight,
@@ -13,6 +14,7 @@ import { ThoshanWordmark } from "./Brand";
 import {
   CHAT_EMBED_URL,
   CHAT_PANEL_MIN_WIDTH,
+  CHAT_URL,
   chatPanelMaxWidth,
   openChatFullSite,
 } from "../lib/chat-panel";
@@ -25,8 +27,44 @@ import {
  */
 export default function ChatPanel() {
   const { t } = useLocale();
+  const [, setLocation] = useLocation();
   const { open, setOpen, width, setWidth, setWidthLive, collapsed, toggleCollapse, markUncollapsed, mounted, iframeRef, syncTheme } =
     useChatPanel();
+
+  // Allow embedded chat (Thoshan Flash) to navigate the portfolio.
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== CHAT_URL) return;
+      const data = event.data as { type?: string; path?: string; hash?: string; url?: string };
+      if (data?.type !== "thoshan-navigate") return;
+      const rawPath = typeof data.path === "string" ? data.path : "/";
+      const path = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
+      // Only allow in-site navigation.
+      if (path.startsWith("//")) return;
+      const hash = typeof data.hash === "string" ? data.hash.replace(/^#/, "") : "";
+      const target = `${path}${hash ? `#${hash}` : ""}`;
+
+      if (hash) {
+        // Navigate to path then scroll to section (retry for async page/content load).
+        setLocation(path);
+        const tryScroll = (attempt = 0) => {
+          const el = document.getElementById(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: attempt === 0 ? "smooth" : "auto", block: "start" });
+            return;
+          }
+          if (attempt < 20) window.setTimeout(() => tryScroll(attempt + 1), 150);
+          else window.location.hash = hash;
+        };
+        window.setTimeout(() => tryScroll(0), 60);
+      } else {
+        setLocation(path);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [setLocation]);
   const panelRef = useRef<HTMLElement | null>(null);
   const invokerRef = useRef<HTMLElement | null>(null);
   const dragRef = useRef<{ startX: number; startW: number; moved: boolean } | null>(null);
